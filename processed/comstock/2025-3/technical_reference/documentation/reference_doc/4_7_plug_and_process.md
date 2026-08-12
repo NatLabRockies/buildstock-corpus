@@ -1,0 +1,189 @@
+<!-- comstock 2025-3 | technical_reference | documentation/reference_doc/4_7_plug_and_process.tex -->
+# Plug and Process Loads
+
+Plug and process loads (PPLs) are all electrical or gas building loads that do not fall under lighting, heating, cooling, ventilation, or water heating. As lighting and HVAC equipment becomes more efficient, PPLs represent an increasing percentage of commercial building energy consumption—up to 50% in high-performance buildings. This section describes how electric equipment, gas equipment, data centers, elevators, and kitchen equipment are modeled in ComStock.
+
+## Electric Equipment
+
+Electric equipment is a broad category that encompasses any type of load that is powered by an AC outlet. This can include computers, monitors, printers, kitchen or bathroom appliances, laundry equipment, phone chargers, and more. Because there are so many types of electric equipment, ComStock does not model each technology separately, but instead uses an equipment power density (EPD) value for each space type, in watts per square foot.
+
+The EPDs are derived from the DOE prototype buildings; however, some of the values were adjusted during the end-use load profiles calibration process. Using end-use-level data provided by two industry sources for a variety of building types, we increased or decreased some EPD assumptions to better reflect the actual building data. Building types that were affected by the EPD adjustments included Full Services Restaurant (FullServiceRestaurant), Primary School (PrimarySchool), Quick Service Restaurant (QuickServiceRestaurant), Retail (Retail), Secondary School (SecondarySchool), and Strip Mall (StripMall).
+
+The EPDs are dependent on building type, space type, and DOE Reference Building template. The interior equipment template is a function of the vintage of the building, as well as equipment turnover assumptions. In most cases, the EPD remains constant for all templates; however, some values increase or decrease in newer templates. An increase in the EPD in newer templates for a particular space type most likely indicates that new types of plug loads or technologies are assumed to be in the space. By comparison, a decrease in EPD indicates that plug loads in that space have become more efficient as buildings upgrade to newer equipment. For example, EPDs in the “MediumOffice - Conference” space type decrease beginning with the 90.1-2004 template, reflecting an assumption that conference equipment such as projectors and monitors have become more efficient. On the other hand, EPDs in “MediumOffice - Breakroom” increase drastically, likely due to the addition of new kitchen appliances and accessories.
+
+The EPDs in the ComStock model for each combination of building type, space type, and template are shown in Table  <a href="#tab:epds" data-reference-type="ref" data-reference="tab:epds">[tab:epds]</a>.
+
+## Gas Equipment
+
+Gas equipment refers to any natural gas-powered interior equipment that is not used for space heating or water heating. Similar to electric equipment, there are many different types of gas equipment, so ComStock does not model each technology individually, but rather uses a gas intensity in BTU per hour per square foot. Gas kitchen equipment makes up the majority of the gas equipment modeled in ComStock. Kitchen equipment will be discussed separately in Section 4.6.5. There are only three non-kitchen space types in our models that contain non-zero gas equipment values, and the values used are shown in Table <a href="#tab:gas_equip" data-reference-type="ref" data-reference="tab:gas_equip">1</a>.
+
+<div id="tab:gas_equip">
+
+<table>
+<caption>Gas Equipment Power Density (Btu/hr*ft<sup>2</sup>)</caption>
+<thead>
+<tr>
+<th colspan="2" style="text-align: center;"></th>
+<th colspan="6" style="text-align: center;"><span><strong>Template</strong></span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Building Type</strong></td>
+<td style="text-align: left;"><strong>Space Type</strong></td>
+<td style="text-align: right;"><strong>Pre-1980</strong></td>
+<td style="text-align: right;"><strong>1980–2004</strong></td>
+<td style="text-align: right;"><strong>90.1-2004</strong></td>
+<td style="text-align: right;"><strong>90.1-2007</strong></td>
+<td style="text-align: right;"><strong>90.1-2010</strong></td>
+<td style="text-align: right;"><strong>90.1-2013</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">LargeHotel</td>
+<td style="text-align: left;">Laundry</td>
+<td style="text-align: right;">170.0</td>
+<td style="text-align: right;">170.0</td>
+<td style="text-align: right;">170.0</td>
+<td style="text-align: right;">170.0</td>
+<td style="text-align: right;">170.0</td>
+<td style="text-align: right;">170.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">Outpatient</td>
+<td style="text-align: left;">OR</td>
+<td style="text-align: right;">23.9</td>
+<td style="text-align: right;">23.9</td>
+<td style="text-align: right;">23.9</td>
+<td style="text-align: right;">23.9</td>
+<td style="text-align: right;">23.9</td>
+<td style="text-align: right;">23.9</td>
+</tr>
+<tr>
+<td style="text-align: left;">SmallHotel</td>
+<td style="text-align: left;">Laundry</td>
+<td style="text-align: right;">58.4</td>
+<td style="text-align: right;">58.4</td>
+<td style="text-align: right;">129.9</td>
+<td style="text-align: right;">129.9</td>
+<td style="text-align: right;">129.9</td>
+<td style="text-align: right;">129.9</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+The space types that contain gas equipment are the laundry and operating room space types in hotels and outpatient buildings, respectively. Gas laundry equipment represents gas clothes dryers, which are common in commercial drying applications. In operating rooms, a small amount of gas equipment represents steam sterilizers or autoclaves, which are used for sterilization during surgical procedures.
+
+## Data Centers
+
+Data centers are a high-intensity type of PPL that house IT and computing equipment. Large standalone data centers are not currently modeled in ComStock, but this building type may be added in the future. Instead, ComStock models data centers as a space type within large and medium office buildings. This is meant to represent an IT closet or high-performance computer that is located within an office building and used by a business or organization.
+
+The data center is divided into two space types—a core data center and an IT closet. The core data center represents about 96% of the data center floor area and has an equipment power density of 45 W/ft<sup>2</sup>. The IT closet represents the remaining 4% of the data center floor area and has an equipment power density of 20 W/ft<sup>2</sup>. The area-weighted equipment power density of the whole data center is 44 W/ft<sup>2</sup>, which is approximately 20–50 times the equipment load of most other space types (Goel et al. 2014).
+
+In the DOE large office prototype model, the data center represents 2.5% of the total floor area. The medium office prototype model does not contain a data center space type. If we used the exact space type ratios from the prototype models for ComStock, all large offices would contain a data center, but no medium or small offices would contain this space type. In reality, not all office buildings contain data centers, and they can be present in offices of different sizes. Therefore, ComStock models data centers in a portion of large and medium office buildings. To determine these distributions, we used CBECS 2012 data to understand how prevalent data centers are in office buildings of different sizes. In addition, we used CBECS responses to determine what percent of a typical office building’s floor area is dedicated to the data center. From this analysis, we decided that 38% of large offices and 20% of medium offices should contain data centers. In buildings with data centers, that space should make up approximately 2% of the total square footage of the building. We also determined that data centers are uncommon in small offices; therefore, there is no data center space type in the small office models.
+
+Data centers follow a very different schedule than the rest of a building’s plug and process loads. This type of IT equipment often runs 24 hours a day; therefore, the data center space type has a constant schedule year round. The start and stop time and base-to-peak ratio (BPR) schedule adjustments do not affect the data center space type.
+
+## Elevators
+
+Elevators are a high power density equipment load present in many commercial buildings. According to the Americans with Disabilities Act (ADA), elevators are required in all commercial buildings with three or more stories, or when the square footage of each floor is more than 3,000 square feet. Although not a requirement, many two-story buildings also contain elevators for accessibility and convenience. Therefore, ComStock includes elevators in all buildings with two or more stories.
+
+Hydraulic elevators are assumed to be installed in buildings with two to six stories, and traction elevators are assumed to be installed in buildings taller than six stories. Hydraulic elevators use a fluid-driven piston to lift the cab, and typically operate at speeds of 150 feet per minute or less. Hydraulic elevators are more affordable and can carry heavier loads, but because of their slow speeds, they are typically only used in buildings up to five stories. For buildings with six or more stories, traction elevators are used because they operate at much higher speeds (up to 500 feet per minute). Traction elevators use a counterweight and pulley system, making them more energy efficient because the motor does not have to move as much weight. The drawbacks, however, include high installation and maintenance costs and limits on cab weights. The motor power is assumed to be 16,055 W for hydraulic elevators and 20,370 W for traction elevators.
+
+Elevators are modeled as a zone load in EnergyPlus, meaning the elevator equipment load and associated heat gain are attributed to a thermal zone. Elevator load is reported out as part of the electric equipment end use. With hydraulic elevators, the elevator room is typically located in the basement, so the equipment load and heat gain are added to the first floor core zone. With traction elevators, the elevator equipment is located on the roof, so the equipment load and heat gain are added to the top floor core zone.
+
+The number of elevators installed in a ComStock building depends on the building type. For most building types, the number of elevators is based on the floor area. The exceptions are hospitals and hospitality buildings, for which assumptions are based on the number of hospital beds or hotel rooms, respectively. ComStock differentiates between passenger elevators and freight elevators in order to properly capture the elevator load in certain building types with industrial or service elevators. Passenger elevators are modeled in all building types, whereas freight elevators are only modeled in hospital, large hotel, large office, and warehouse buildings. The assumptions for the number of passenger and freight elevators modeled by building type are shown in Tables  <a href="#tab:passenger_elevators" data-reference-type="ref" data-reference="tab:passenger_elevators">[tab:passenger_elevators]</a> and  <a href="#tab:freight_elevators" data-reference-type="ref" data-reference="tab:freight_elevators">[tab:freight_elevators]</a>.
+
+The equipment schedule for elevators is irregular and unpredictable. Therefore, this load does not follow the typical plug load schedule for its associated space type. We decided to approximate an elevator’s schedule by relating it to the number of people who are entering or exiting the building at each time step—in other words, the derivative of the occupancy schedule of the building. We also made assumptions regarding the number of people per elevator ride (five), the amount of time per ride (calculated from the elevator speed and number of stories), and the amount of inter-floor traffic that is not captured by the change in building occupancy (added a factor of 1.2x). Elevator data and metrics like this are not commonly measured or available, so these assumptions are based primarily on engineering judgment.
+
+From these calculations and assumptions, we derived an elevator schedule for each building type and each day of the week. An example of the elevator schedule for medium offices is shown in Figure <a href="#fig:medium_office_elevator_schedule" data-reference-type="ref" data-reference="fig:medium_office_elevator_schedule">1</a> for weekdays, Saturdays, and Sundays. On weekdays, the most elevator traffic occurs at the beginning and end of the day, when people are coming in or leaving work for the day. There is also significant traffic during the lunch hour, as some people choose to leave the building for lunch. At all other times during the workday, the elevator load is approximately 40% of the total load to account for inter-floor traffic and minimal change in the total building occupancy. For some buildings, the occupancy schedules are reduced on Saturdays and include no occupancy on Sundays, which is reflected in the elevator schedule.
+
+<figure id="fig:medium_office_elevator_schedule" data-latex-placement="ht!">
+<img src="figures/medium_office_elevator.png" />
+<figcaption>Elevator fractional load schedule for medium offices on weekdays, Saturdays, and Sundays.</figcaption>
+</figure>
+
+The final aspect of modeling elevators is accounting for lighting and fans inside the elevator. Although these are minimal loads compared to the total elevator energy, they are still modeled in ComStock. The elevator lighting and fans are defined in the model by a total power in watts. These wattage values were calculated based on the number of elevators and the subsystem template in the model, thereby ensuring higher efficiencies for newer lighting and ventilation systems. The elevator lighting and fan schedules are assumed to be at full load at all times when the elevator schedule is greater than 0.
+
+## Kitchen Equipment
+
+Kitchens are one of the most energy-intensive space types. In ComStock, kitchen space types are modeled in six building types—FullServiceRestaurant, Hospital, LargeHotel, PrimarySchool, QuickServiceRestaurant, and SecondarySchool. In some building types, namely restaurants, the kitchen space type represents a significant proportion of the floor area. In these cases, kitchen loads have a major impact on the total building EUI. In hotels, hospitals, and schools, the kitchen space type only represents a small fraction of the total floor area. Table <a href="#tab:kitchen_floor_area" data-reference-type="ref" data-reference="tab:kitchen_floor_area">2</a> shows the percent of the total floor area represented by the kitchen space type for each building type. Note that some of the strip malls in ComStock contain some fraction of the "QuickServiceRestaurant" building type to account for food service that is often found in strip malls.
+
+<div id="tab:kitchen_floor_area">
+
+| **Building Type**      | **Space Type** | **Percentage of Total Floor Area** |
+|:-----------------------|:---------------|:-----------------------------------|
+| FullServiceRestaurant  | Kitchen        | 27.3%                              |
+| Hospital               | Kitchen        | 4.1%                               |
+| LargeHotel             | Kitchen        | 0.9%                               |
+| PrimarySchool          | Kitchen        | 2.4%                               |
+| QuickServiceRestaurant | Kitchen        | 50%                                |
+| SecondarySchool        | Kitchen        | 1.1%                               |
+
+Kitchen Space Type Percentage of Total Floor Area
+
+</div>
+
+Commercial building energy modeling often assumes an energy intensity per area for cooking equipment, like what is used in the DOE prototype buildings ((Zhang et al. 2010)). However, applying these power densities directly to the various building sizes in ComStock assumes cooking loads scale linearly with kitchen square footage, which does not necessarily represent reality ((U.S. Energy Information Administration 2012), (Zhang et al. 2010)). Further, it does not allow for straightforward analysis of specific cooking equipment since it is represented by a single aggregate load. However, little information exists regarding representative equipment-specific modeling of cooking appliances, as well as how cooking equipment scales with building area. The CBECS survey does provide some level of guidance for area-based intensity as they disaggregate cooking energy consumption separately and provide building area for their samples, but this end use energy consumption data is derived using statistical means from monthly billing data rather than directly measured making it less reliable ((U.S. Energy Information Administration 2012), (Zhang et al. 2010)).
+
+ComStock uses published data to create representative probability distributions of commercial cooking equipment counts, by building type, for both gas and electric appliances. Additionally, the equipment distributions are scaled by area to represent the non-linear scaling suggested in the literature. Although other building types likely include some degree of cooking equipment as well, such as larger offices ((U.S. Energy Information Administration 2012)), the current implementation of ComStock only includes cooking equipment in the previously-mentioned six building types plus quick service restaurants found in strip malls.
+
+Commercial kitchens can contain electric or gas cooking equipment, or a mix of both. The prevalence of gas and electric fuel types for each equipment type used in ComStock are derived from a DOE study ((Goetzler et al. 2016)). ComStock requires rated input power values and fractions of radiant, latent, and lost heat for gas and electric kitchen equipment. These values are primarily derived from the ASHRAE Fundamentals Handbook ((American Society of Heating and Air-Conditioning Engineers 2017)) after comparisons with other kitchen equipment studies and commercially available products. More details about how these values were determined can be found in the End Use Savings Shapes documentation ((Praprost 2024)).The assumptions used in ComStock for prevalence, rated input power, and fractions radiant, latent, and lost for gas and electric appliances are shown in Table <a href="#tab:kitchen_prev_and_power" data-reference-type="ref" data-reference="tab:kitchen_prev_and_power">[tab:kitchen_prev_and_power]</a>.
+
+Kitchens in ComStock models are assigned a quantity of each equipment type. These can be found in the ComStock metadata files for each model. Equipment quantities are assigned using probability distribtuions with dependencies on building type and food service floor area. The quantities used in the probability distributions are determined using an older dataset of equipment counts per restaurant type combined with the prevalence of the restaurant type ((Rahbar et al. 1996)). The restaurant types were mapped to ComStock building types. This is summarized in Table <a href="#tab:kitchen_cook_counts" data-reference-type="ref" data-reference="tab:kitchen_cook_counts">[tab:kitchen_cook_counts]</a>. Unfortunately, little data of this type was found in literature, so this older source was ultimately used for equipment counts. However, even with changes in culinary trends, it is not expected that counts of equipment types in a restaurant would have changed drastically over the past few decades. Additionally, a “None” restaurant type was created for schools, with a prevalence determined by the fraction of schools in CBECS that have kitchens ((U.S. Energy Information Administration 2012)).
+
+This workflow also includes modifiers to the equipment counts shown in Table <a href="#tab:kitchen_cook_counts" data-reference-type="ref" data-reference="tab:kitchen_cook_counts">[tab:kitchen_cook_counts]</a> to scale equipment count for different kitchen sizes. As mentioned previously, it is not expected that equipment scales linearly with kitchen size, but there is little information in the literature to suggest appropriate scaling ((Zhang et al. 2010)). To account for equipment count scaling, we assume most typically-sized kitchens will have the same quantity of equipment. However, especially small and large kitchens will include scaling factors to account for very large changes in kitchen area that would likely correlate to higher/lower meals served. These factors were determined using engineering judgment and are summarized in Figure <a href="#fig:cooking_equipment_count_scaling_factors_by_building_type_and_area" data-reference-type="ref" data-reference="fig:cooking_equipment_count_scaling_factors_by_building_type_and_area">2</a>.
+
+In summary, ComStock determines quantity and fuel type of cooking equipment based on sampling our probability distributions. A restaurant type is sampled for each model as per the prevenances shown by building type in Table <a href="#tab:kitchen_cook_counts" data-reference-type="ref" data-reference="tab:kitchen_cook_counts">[tab:kitchen_cook_counts]</a>. This yields the corresponding equipment counts for the restaurant type shown in Table <a href="#tab:kitchen_cook_counts" data-reference-type="ref" data-reference="tab:kitchen_cook_counts">[tab:kitchen_cook_counts]</a>, with square footage modifiers applied based on building size and type. Next, the equipment fuel type is sampled as per the prevalence shown in Table <a href="#tab:kitchen_prev_and_power" data-reference-type="ref" data-reference="tab:kitchen_prev_and_power">[tab:kitchen_prev_and_power]</a> for each piece of equipment. Combined, this yields quantities of gas and electric cooking equipment for each ComStock sample. Note that kitchen spaces in ComStock additionally include some prevalence of electric load to account for non-major electrical appliances such as microwaves, heating lamps, toasters, coffee machines, electric kettles, etc. Additionally, the current implementation of cooking equipment in ComStock utilizes the same schedule for each equipment type. Future work could include implementing equipment-specific schedules for the various equipment types, which may better represent reality.
+
+<figure id="fig:cooking_equipment_count_scaling_factors_by_building_type_and_area" data-latex-placement="ht!">
+<img src="figures/kitchen_equipment_count_scaling.png" />
+<figcaption>Cooking equipment count scaling factors by building type and area.</figcaption>
+</figure>
+
+<div id="refs" class="references csl-bib-body hanging-indent">
+
+<div id="ref-ashrae2017" class="csl-entry">
+
+American Society of Heating, Refrigerating, and Inc. Air-Conditioning Engineers. 2017. *ASHRAE Handbook - Fundamentals*. American Society of Heating, Refrigerating,; Air-Conditioning Engineers, Inc.
+
+</div>
+
+<div id="ref-osti_1129366" class="csl-entry">
+
+Goel, Supriya, Rahul A. Athalye, Weimin Wang, et al. 2014. *Enhancements to ASHRAE Standard 90.1 Prototype Building Models*. Pacific Northwest National Laboratory. <https://doi.org/10.2172/1129366>.
+
+</div>
+
+<div id="ref-goetzler_commercial_appliances" class="csl-entry">
+
+Goetzler, W., M. Guernsey, K. Foley, J. Young, and G. Chung. 2016. *Energy Savings Potential and RD&d Opportunities for Commercial Building Appliances (2015 Update)*. U.S. Department of Energy. <https://www.energy.gov/sites/prod/files/2016/06/f32/DOE-BTO%20Comml%20Appl%20Report%20-%20Full%20Report_0.pdf>.
+
+</div>
+
+<div id="ref-nrel89130" class="csl-entry">
+
+Praprost, Marlena. 2024. *End-Use Savings Shapes Measure Documentation: Electric Cooking Equipment*. Technical Report No. 89130. National Renewable Energy Laboratory. <https://www.nrel.gov/docs/fy24osti/89130.pdf>.
+
+</div>
+
+<div id="ref-com_food_service_equip" class="csl-entry">
+
+Rahbar, Shahrzad, Senka Krsikapa, Don Fisher, Judy Nickel, Scot Ardley, and David Zabrowski. 1996. *Technology Review of Commercial Food Service Equipment*. Natural Resources Canada. <https://www.osti.gov/etdeweb/servlets/purl/404139>.
+
+</div>
+
+<div id="ref-eia2012cbecs" class="csl-entry">
+
+U.S. Energy Information Administration. 2012. *2012 Commercial Building Energy Consumption Survey (CBECS)*. Http://www.eia.doe.gov/emeu/cbecs/.
+
+</div>
+
+<div id="ref-qsr_50pct_svs" class="csl-entry">
+
+Zhang, J., DW. Schrock, DR. Fisher, et al. 2010. *Technical Support Document: 50% Energy Savings for Quick-Service Restaurants*. Pacific Northwest National Laboratory. <https://www.pnnl.gov/main/publications/external/technical_reports/PNNL-19809.pdf>.
+
+</div>
+
+</div>

@@ -1,0 +1,42 @@
+[project]
+name = "buildstock-corpus"
+version = "0.1.0"
+description = "Level 1 AI-ready content pipeline for the BuildStock domain-knowledge corpus (release-tagged, provenance-tracked)."
+readme = "README.md"
+authors = [
+    { name = "Lauren Klun", email = "60903520+laurenklun@users.noreply.github.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "chromadb>=1.5.9",
+    "fastembed>=0.8.0",
+    "httpx>=0.28.1",
+    "pyyaml>=6.0.3",
+    "typer>=0.24.2",
+]
+
+[project.scripts]
+bsc = "buildstock_corpus.cli:app"
+
+[project.optional-dependencies]
+# Heavy extractors — installed at the LaTeX/PDF milestone to keep the core install lean.
+extract = [
+    "docling>=2.0",
+    "pypandoc-binary>=1.13",
+]
+# Optional LLM calls: `bsc query --answer` and the `bsc eval` head-to-head / judge passes.
+# Retrieval and retrieval-only eval work without this.
+llm = [
+    "anthropic>=0.75",
+]
+
+[build-system]
+requires = ["uv_build>=0.11.16,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

@@ -1,0 +1,490 @@
+<!-- comstock 2025-3 | technical_reference | documentation/reference_doc/3_sampling.tex -->
+# Building Characteristic Sampling
+
+There are three steps to creating the sample of buildings modeled by ComStock. The first step creates estimates of the sizes, ages, types, and locations of the buildings that exist throughout the United States. The second step is characteristic estimation, which is detailed in Section <a href="#chap:4_modeling" data-reference-type="ref" data-reference="chap:4_modeling">[chap:4_modeling]</a>. This step defines the additional characteristics of buildings that determine energy consumption and performance. These characteristics are mostly derived from different data sources than those used in the stock estimation step, although they often depend on stock estimation parameters such as building type or age. The third step is sampling the multidimensional probability space to generate a collection of input parameters, or samples. The final samples give an accurate estimation of the commercial building stock at large while not attempting to model any individual building exactly. Stock estimation and sampling are described further in this section, but the majority of the characteristics are discussed in Section <a href="#chap:4_modeling" data-reference-type="ref" data-reference="chap:4_modeling">[chap:4_modeling]</a>.
+
+## Stock Estimation
+
+Any estimate of the energy consumption of the U.S. commercial building stock relies heavily on an estimate of how much floor area of each type of building exists in each part of the country. As shown by CBECS (U.S. Energy Information Administration 2018) and others, energy consumption of commercial buildings predominantly scales with floor area, not with building count. An accurate estimate of building floor area is therefore a critical input into any stock modeling tool focused on energy or energy-related metrics.
+
+A secondary issue is the type of building associated with each floor area. Although accurately estimating the total floor area of commercial buildings is necessary, it is not sufficient, as building type also has an impact on energy use intensity (EUI), measured in units of energy use per square foot per year. As an example, a large office with a data center would be expected to have a dramatically higher electric load per square foot than an unconditioned warehouse.
+
+The goal of the stock estimation process is to identify the type, floor area, and location of buildings across the United States. This task is complicated by a number of factors, including data sources that are inconsistent across the United States. However, floor area estimation is central to ensuring that ComStock is accurate for its intended use cases. ComStock takes a three step approach towards achieving an accurate estimate. To begin, national data sources are assembled to present overlapping (and often conflicting) reports of the U.S. commercial building stock. Second, the buildings reported by the various data sources are assigned a consistent set of type descriptors—e.g., large office or secondary school. Finally, the various data sets are amalgamated to create a final, consistent data set that is used in the sampling process.
+
+### Data Sources
+
+ComStock’s stock estimation is assembled using several data sources. The primary data sources are CoStar, a commercial building real estate intelligence broker, and Homeland Infrastructure Foundation-Level Data (HIFLD), a Department of Homeland Security database that provides cross-agency information on critical infrastructure assets across the United States. Both of these data sets, due to their business-/mission-driven use cases, tend to have very high accuracy for the buildings they represent. However, the major downside of both data sources is that the buildings they do not collect data on are not represented in any manner. While this is challenging, it is easier to adjust/correct for this sparsity than to use other data sets in which buildings are incorrectly and inconsistently represented.
+
+CoStar is a “leading provider of commercial real estate data and marketplace listing platforms. Its data offerings contain in-depth analytical information on over five million commercial real estate properties related to various subsections, including office, retail, multifamily, healthcare, industrial, self-storage, and data centers” (CoStar 2020). CoStar’s data is driven by commercial leases and commercial sales data, and is updated with millions of dollars’ worth of research per year. CoStar’s data set is not always complete, both in terms of geography and building type. For example, building types that are rarely bought and sold, such as schools and major hospital complexes, are less likely to be represented in CoStar’s database.
+
+HIFLD is a set of data tables assembled by the U.S. Department of Homeland Security to support critical infrastructure awareness, disaster recovery, and various other uses. Their databases include information on critical infrastructure facilities such as refineries and military bases, but also include information on schools (which are often used as disaster assistance centers) and hospitals. This is particularly useful, as these are two of the key building types that are less likely to be represented in CoStar. Although the schools data set provided by HIFLD always provides information on the number of students enrolled in a given school (which is used as a proxy to determine the floor area of the school when not otherwise available), the hospital table fails to report the number of beds in a given hospital (which is likewise used to scale floor area) in approximately half the states in the United States. In these cases, data from states that do report this information is generalized and used to infer the floor area in states without data.
+
+Although both of these data sets provide excellent coverage of buildings they consider, they do not provide full and complete coverage of commercial buildings across the United States. Of particular note, using these two data sources results in an estimate of U.S. commercial buildings that differs from that published by CBECS. The ComStock team, after significant discussion, has decided to treat the CBECS estimate of the floor area of each building type as a truth data set. Following the sampling of the CoStar and HIFLD data sets, the CBECS estimates are used to “true up” the numbers on a national basis. As a result, ComStock’s floor area estimates match CBECS’ by building type on a national basis. Although other truth data sources were considered, CBECS’ centrality to all commercial energy use estimation made it the obvious and consistent choice for estimating the U.S. commercial building stock’s energy use.
+
+### Building Type Assignments
+
+Building type definitions frequently do not match across data sources. This is particularly noticeable in the case of CoStar, CBECS, and DOE prototype buildings data sources. The DOE prototype building models, discussed further in Section <a href="#sec:building_type_meta" data-reference-type="ref" data-reference="sec:building_type_meta">[sec:building_type_meta]</a>, defines specific combinations of space types as “building types,” which are then used by ComStock. The building types represented by the DOE prototype building models were decided on during the development of their precursors, the DOE reference building models (Deru et al. 2011). As such, “translating” building types across data sources introduces a layer of complexity.
+
+ComStock maps the building type definitions from each data source to a specific building type from the DOE prototype buildings to maximize consistency. While these mappings are imperfect, they represent the best efforts of the ComStock team to capture the unique energy-related characteristics of different building types within the modeling framework created and used by DOE over the last 15 years. Table <a href="#tab:building_types" data-reference-type="ref" data-reference="tab:building_types">1.1</a> shows the mapping from the CoStar building types and HIFLD tables to the DOE prototype buildings, and from the DOE prototype buildings to CBECS’ Principal Building Activity Plus.
+
+<div id="tab:building_types">
+
+<table>
+<caption>Building Type Mapping Across Data Sources</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>CoStar Building Type</strong></th>
+<th style="text-align: left;"><strong>HIFLD Table</strong></th>
+<th style="text-align: left;"><strong>DOE Prototype and ComStock Building Type</strong></th>
+<th style="text-align: left;"><strong>CBECS Principle Building Activity Plus</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Retail: Bar</td>
+<td rowspan="2" style="text-align: left;">Not applicable</td>
+<td rowspan="2" style="text-align: left;">Full service restaurant</td>
+<td style="text-align: left;">Restaurant/cafeteria</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Retail: Restaurant</td>
+<td style="text-align: left;">Bar/pub/lounge</td>
+</tr>
+<tr>
+<td style="text-align: left;">Not applicable</td>
+<td style="text-align: left;">Healthcare: Hospitals</td>
+<td style="text-align: left;">Hospital</td>
+<td style="text-align: left;">Hospital/inpatient health</td>
+</tr>
+<tr>
+<td style="text-align: left;">Hospitality: Hotel</td>
+<td rowspan="12" style="text-align: left;">Not applicable</td>
+<td rowspan="2" style="text-align: left;">Large hotel</td>
+<td rowspan="2" style="text-align: left;">Hotel</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Hospitality: Hotel casino</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Office: Industrial live/work unit</td>
+<td rowspan="6" style="text-align: left;">Office</td>
+<td style="text-align: left;">Administrative/professional office</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Office: Office live/work unit</td>
+<td style="text-align: left;">Bank/other financial</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Office: Office/residential</td>
+<td style="text-align: left;">Government office</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Retail: Bank</td>
+<td style="text-align: left;">Medical office (non-diagnostic)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Flex</td>
+<td rowspan="2" style="text-align: left;">Other office</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Office: Service</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Health care: Rehabilitation center</td>
+<td rowspan="4" style="text-align: left;">Outpatient</td>
+<td rowspan="2" style="text-align: left;">Medical office (diagnostic)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Health care: Skilled nursing facility</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Office: Medical</td>
+<td rowspan="2" style="text-align: left;">Clinic/other outpatient health</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Health care</td>
+</tr>
+<tr>
+<td rowspan="2" style="text-align: left;">Not applicable</td>
+<td style="text-align: left;">Education: Public schools</td>
+<td rowspan="2" style="text-align: left;">Primary/secondary school</td>
+<td style="text-align: left;">Elementary/middle school</td>
+</tr>
+<tr>
+<td style="text-align: left;">Education: Private schools</td>
+<td style="text-align: left;">High school</td>
+</tr>
+<tr>
+<td style="text-align: left;">Retail: Fast food</td>
+<td rowspan="25" style="text-align: left;">Not applicable</td>
+<td rowspan="2" style="text-align: left;">Quick service restaurant</td>
+<td rowspan="2" style="text-align: left;">Fast food</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> General retail: Fast rood</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Retail: Department store</td>
+<td rowspan="4" style="text-align: left;">Retail</td>
+<td rowspan="2" style="text-align: left;">Retail store</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Retail: Freestanding</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Retail: Garden center</td>
+<td rowspan="2" style="text-align: left;">Other retail</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> General retail: Freestanding</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Hospitality: Motel</td>
+<td rowspan="2" style="text-align: left;">Small hotel</td>
+<td rowspan="2" style="text-align: left;">Motel or inn</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Hospitality</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Flex: Showroom</td>
+<td rowspan="7" style="text-align: left;">Strip mall</td>
+<td rowspan="7" style="text-align: left;">Strip shopping mall</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Retail: Storefront</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Retail: Storefront retail/office</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Retail: Storefront retail/residential</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Specialty: Post office</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Retail</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> General retail</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Flex: Light distribution</td>
+<td rowspan="9" style="text-align: left;">Warehouse</td>
+<td rowspan="3" style="text-align: left;">Distribution/shipping center</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Flex: Light manufacturing</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Industrial: Distribution</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Industrial: Service</td>
+<td rowspan="3" style="text-align: left;">Nonrefrigerated warehouse</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Industrial: Showroom</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Industrial: Truck terminal</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Industrial: Warehouse</td>
+<td rowspan="3" style="text-align: left;">Self-storage</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Specialty: Airplane hangar</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-1</span> Specialty: Self-storage</td>
+</tr>
+<tr>
+<td style="text-align: left;">Retail: Supermarket</td>
+<td style="text-align: left;">Grocery</td>
+<td style="text-align: left;">Grocery store</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+It is important to note that only one of either the CoStar or HIFLD data is used to represent each type of DOE prototype building—that is, no building type is pulled from both data sets. This ensures that any errors that exist in either data set are independently corrected by the CBECS normalization. According to CBECS’ estimation, the amalgamation of these three data sets accounts for 63% of the energy use and 63% of the floor area of commercial buildings in the United States. The remaining 37% of energy use not represented is due to several CBECS building types that are not included in ComStock yet such as mixed-use office and religious worship. Figure <a href="#fig:types_not_represented" data-reference-type="ref" data-reference="fig:types_not_represented">1.1</a> shows the building types not represented in the ComStock model, on a CBECS Principal Building Activity Plus basis, and their relative contribution to the commercial building energy use in the United States. As can be seen in the figure, mixed-use offices represent the largest un-modeled building classification by energy use, followed by recreation, other, religious worship, nursing home/assisted living, and social/meeting buildings. Although these building types all consume energy, the ComStock team does not have sufficient information to make a reasonable estimate of their energy use, either annually or on a time-series basis, using the approach discussed in Section <a href="#sec:space_type_ratios" data-reference-type="ref" data-reference="sec:space_type_ratios">[sec:space_type_ratios]</a>.
+
+<figure id="fig:types_not_represented">
+<img src="figures/cbecs_2018_comstock_coverage.png" />
+<figcaption>CBECS Principal Buildings Activity Plus building types not covered by ComStock on an energy use basis.</figcaption>
+</figure>
+
+DOE prototype building type is used to represent a significant amount of the U.S. building stock but is also not used in many cases due to concerns regarding its accurate representation of specific building sub-types. The following list discusses each building type, and what buildings it does and does not represent, as understood by ComStock’s developers.
+
+Full Service Restaurant
+Both sit-down restaurants and bars are included in this category, as both typically require significant cooking and sanitation equipment for their operation.
+
+Grocery Store
+Grocery stores, also commonly referred to as supermarkets, are buildings whose primary purpose is the sale of food and dry goods rather than general merchandise. This category includes facilities that feature extensive refrigerated and frozen storage, fresh produce, and prepared foods, typically supported by substantial lighting, heating, ventilation, and refrigeration equipment loads. Convenience stores, small specialty food shops, and general merchandise retailers that include grocery sections are not represented by this category.
+
+Hospital
+Hospitals, wherever possible, are disambiguated from outpatient clinics through the existence of around-the-clock medical facilities. This is not possible in many states, in which case the differentiation is based on available CoStar data.
+
+Large Hotel
+Large hotels are differentiated from small hotels on the basis of conference or casino spaces. Hotels that have major facilities for conferences, events, or gambling are classified as large hotels.
+
+Offices
+Offices are divided up into three subsets: small, medium, and large. Each type of office is based on the thresholds used by American Society of Heating, Refrigerating and Air-Conditioning Engineers (ASHRAE) Appendix G (ASHRAE 2010), which include both size and number of stories. In the case of large offices, there are additional probability distributions that determine what percent (if any) of the office is a data center.
+
+Outpatient
+Outpatient facilities, as represented in ComStock, include non-hospital medical centers, rehabilitation centers, and medical offices.
+
+Primary School
+The primary school type is used to represent all schools that do not include secondary or post-secondary education, i.e., grades 9 and beyond. Schools that provide education for pre-secondary to post-secondary students (e.g., grades 5–12) are classified as secondary schools. This grouping means that any daycare facilities classified as schools by HIFLD are included as primary schools, unless the facilities also support secondary students.
+
+Quick Service Restaurant
+Quick service restaurants consist entirely of fast food restaurants.
+
+Retail
+This category predominantly features large national retailers, excluding grocery stores. This includes big box stores, garden centers, department stores, and any other freestanding retailers that do not include a significant grocery section.
+
+Secondary School
+Secondary schools incorporate all schools that offer instruction to pupils in grades 9–12. No post-secondary institutions (e.g., community colleges and universities) are represented by ComStock unless they fall into another building type defined herein.
+
+Small Hotel
+Small hotels encompass all hotels that do not have significant spaces for conferences, meetings, or gambling.
+
+Strip Mall
+Strip malls encompass all multi-tenant retail buildings, as well as single-tenant buildings that are not classified as large retailers, such as post offices, showrooms, etc. These buildings have additional probability distributions that determine how much of the building floor area (if any) is a restaurant. This is critically important, as restaurants have a far higher EUI and as a result can cause strip malls to have far higher energy uses than would otherwise be expected in a stand alone retail building.
+
+Warehouse
+Warehouses are perhaps the most differentiated building type in the commercial building stock. They are represented in ComStock as a conjunction of office spaces and high-bay spaces. This building type is used to model distribution centers, light manufacturing, and some showroom and truck terminal spaces, as well as airplane hangars, service depots, and self-storage centers. The spaces encompass a large number of functions; however, it is difficult to differentiate these spaces when examining national databases of building stock characteristics. This makes further disambiguation of these buildings impossible without additional data sources.
+
+### Data Amalgamation for Sampling
+
+The data from CoStar and HIFLD were converted from individual building data points to probability distributions for geographic areas due to data retention clauses.
+
+The ComStock team tagged all individual buildings with a climate zone and a county to convert the county-level locations of buildings within the United States into a probability distribution. From this data, one distribution was created: the likelihood of a building in the United States being located in a given climate zone. In this distribution, there is a much higher likelihood of being located in a heavily populated climate zone (like 4A, which includes much of NJ, DC, MD, DE, VA, etc.) than a sparsely populated climate zone (like 8, which includes only part of AK). Next, for each climate zone, another distribution was created: the likelihood of a building being located in each county within that climate zone. In these distributions, there is a much higher likelihood of being located in a heavily populated county than a sparsely populated county. These two sets of distributions allow any ComStock sample to be assigned a climate zone and a county prior to any additional characteristics being calculated.
+
+The next characteristic to be described as a probability distribution was the building type. Based on the combined CoStar and HIFLD data sets, the likelihood of a building being of a specific building type was calculated for each county in the United States. In some cases, the county in question had an insufficient number of buildings in CoStar and HIFLD to create a realistic distribution. In these cases, the county was instead assigned a distribution of building types based on all the buildings in the state. This is not frequently required for building type, but is more common for floor area, vintage, and number of stories (discussed next).
+
+Probability distributions for three additional characteristics were created using the HIFLD and CoStar data sets: floor area, vintage, and number of stories. CoStar’s database has excellent coverage of floor area of a building as a function of county and building type, good coverage of vintage (the year the building was constructed), and reasonable coverage of the number of stories. HIFLD, on the other hand, has good information on vintage, but not on floor area or the number of stories. For floor area, inferences were based on the number of students enrolled (for schools) and the number of beds (for hospitals). Where information on the number of beds was missing, the aggregate distribution for the United States was used to infer the floor area. The number of stories was estimated based on the inferred floor area for each hospital/school. These estimates, as well as the estimates provided by the CoStar data, were used to create distributions for each building type’s characteristics on a county basis. There were several cases in which one or more characteristics could not be accurately estimated for a building type/county pair. In these cases, the aforementioned approach of using the state-level distribution was employed.
+
+The approach employed is mathematically accurate. However, the downside to using building count when creating probability distributions is that a high sample count is required to ensure that less common but highly impactful buildings, such as buildings over one million square feet, are well represented. For example, if a county contains 100 retail stores with a floor area of 1,000 square feet each (for a total of 100,000 square feet) and one retail store (perhaps a mall) of one million square feet, the large retail store would be expected to use roughly ten times (1,000,000 square feet/ 100,000 square feet) the energy of all of the smaller retail stores put together. With the current count-based approach, around 100 samples would need to be generated from this distribution to ensure that the one million square foot retail store was represented in the model. Although the impacts of this are minimal at a higher geographic level, it is a known weakness of the current approach.
+
+## Characteristic Estimation
+
+The variability of the commercial building stock begins with building type and location, but extends to include a variety of additional factors. These include schedule diversity, installed equipment type, age of installed equipment, and building code. Each of the characteristics associated with these categories are discussed at length in Section <a href="#chap:4_modeling" data-reference-type="ref" data-reference="chap:4_modeling">[chap:4_modeling]</a>, and overviews of each are provided below.
+
+Schedule diversity is a key source of variability in the U.S. commercial building stock. Some buildings operate on a 24/7 basis, but the percentage varies drastically by building type—i.e., there are very few primary schools throughout the United States that are “on” 24 hours per day, let alone 365 days per year. There is also monthly/seasonal variability in a few building types, most notably schools and hotels. Although many of the buildings have lower occupant- or schedule-driven loads during various periods, some do not (e.g., schools that offer summer school). The nuances of this variability are represented in the schedule-driven characteristic distributions.
+
+Equipment characteristics can make a significant difference in the energy consumption of a building through differences in efficiency, fuel type, and the presence or absence of certain types of equipment. ComStock represents this variability by accounting for the fuel type variability within a given state. This allows ComStock to calculate the likelihood of various heating, ventilating, and air-conditioning (HVAC) system types as a function of building type and fuel type. As part of this calculation, systems that do not provide cooling are considered, particularly in the case of warehouses. The fuel type distribution is also used as an input to the selection of water heating equipment.
+
+The third major category of variability is equipment vintage. In most cases, this category is driven by the age of the building. Equipment within a building is generally updated and replaced over time for reasons such as remodeling or equipment failure. As discussed in Section <a href="#sec:system_turnover_and_eul" data-reference-type="ref" data-reference="sec:system_turnover_and_eul">[sec:system_turnover_and_eul]</a>, there is a great degree of variability in equipment lifespans, which leads to variability in the current equipment installed in buildings of a given year of construction. The age of the equipment (or, put another way, the year of manufacture/sale of the equipment) plays a large part in a buildings’ efficiency. In some cases, such as buildings built within the last 5–10 years, it is unlikely that many of the building systems have been replaced. The equipment distribution, which is conditioned on the building’s year of construction, reflects these nuances.
+
+Finally, building energy codes have an impact on the efficiency of components installed within a building. Building energy codes set the minimum efficiency levels for various building components, but code adoption is not uniform across the United States. As discussed in Section <a href="#sec:energy_code" data-reference-type="ref" data-reference="sec:energy_code">[sec:energy_code]</a>, the building code in force at the time of replacement/installation of a building component is a key driver of its efficiency.
+
+## Publication of Building Characteristic Probability Distributions
+
+Some of the distributions described above cannot be published for contractual agreement reasons, but certain distributions can be published. The ComStock team has generated tab-separated values (tsv) files containing probabilities and dependencies. See Table <a href="#tbl:distro_tbl" data-reference-type="ref" data-reference="tbl:distro_tbl">[tbl:distro_tbl]</a> for the full list of building characteristic probability distributions. More detail on each building characteristic is provided later in this report.
+
+| **Building Characteristic** | **Description** | **Data Source** | **Conditional On** |
+|:---|:---|:---|:---|
+| Simulation Year | Year used in simulations |  |  |
+| Climate Zone | Climate zone as defined by American Society of Heating, Refrigerating and Air-Conditioning Engineers (ASHRAE) Standard 169–2006 | CoStar |  |
+| County | County FIPS code (includes state specification) | CoStar | Climate Zone |
+| State | State FIPS code | CoStar | County |
+| Building Type | Primary building type of model | CoStar | County |
+| Building Rentable Area | Building total floor area | CoStar | County, Building Type |
+| Census Region | Census region | CoStar | State |
+| Year of Construction | Year in which the building was constructed | CoStar | County, Building Type, Simulation Year |
+| Year of Construction Bin | Year bin in which the building was constructed | CPUC DEER EULs | Year of Construction |
+| Energy Code in Force When Constructed | Energy code applicable to building when constructed | State Code Adoption History | State, Year of Construction Bin |
+| Building Subtype | If applicable, subtype of primary building type | NREL analysis of strip malls | Building Type |
+| Ownership Status | Ownership and occupant status of the building | CBECS 2012 | Building Type |
+| Party Responsible for Purchase Authority | Entity responsible for purchasing decisions | CBECS 2012 | Ownership Status |
+| Party Responsible for Operation | Entity responsible for operation of the building | CBECS 2012 | Ownership Status |
+| Number of Stories | Number of stories above grade | CoStar | County, Building Type |
+| Window-to-Wall Ratio | Window-to-wall ratio | NFRC Commercial Fenestration Market Study | Building Type, Building Rentable Area, Energy Code in Force When Constructed |
+| Building Shape | Building shape designation | CBECS 2012 | Building Type |
+| Aspect Ratio | Aspect ratio of building | CBECS 2012 | Building Shape |
+| Building Rotation | Rotation of building relative to North | CBECS 2012 |  |
+| Space Heating Fuel | Principal heating fuel for the building | CBECS 2012 Plus ResStock Residential Heating Fuel by County | Building Type, County |
+| Water Heating Fuel | Heating fuel for service water heating | CBECS 2012  | Space Heating Fuel, Building Type |
+| HVAC System Type | Primary building HVAC system type | CBECS | Building Type, Space Heating Fuel, Census Region |
+| HVAC Nighttime Variability | HVAC nighttime ventilation operation | NREL end-use data analysis | HVAC System Type, Building Type |
+| Weekday Operation Start Time | Building weekday operation start time | NREL/Lawrence Berkeley National Laboratory (LBNL) AMI analysis | Building Type |
+| Weekend Operation Start Time | Building weekend operation start time | NREL/LBNL AMI analysis | Building Type |
+| Weekday Operational Duration | Building weekday operation duration | NREL/LBNL AMI analysis | Building Type, Weekday Operation Start Time |
+| Weekend Operational Duration | Building weekend operation duration | NREL/LBNL AMI analysis | Building Type, Weekend Operation Start Time |
+| Thermostat Set point for Heating | Heating set point during occupied hours | NREL Tstat data analysis | Building Type |
+| Thermostat Setback for Heating | Heating setback during unoccupied hours | NREL Tstat data analysis | Building Type |
+| Thermostat Set point for Cooling | Cooling set point during occupied hours | NREL Tstat data analysis | Building Type |
+| Thermostat Setback for Cooling | Cooling setback during unoccupied hours | NREL Tstat data analysis | Building Type |
+| Wall Construction Type | Building wall construction type | LightBox | Climate Zone, Number of Stories |
+| Lighting Technology Size Bin | Building size classification for lighting technology type |  | Building Rentable Area |
+| Plug Load Base-to-Peak Ratio type | Methodology for variability of plug load amplitude | NREL end-use data analysis | Building Type |
+| Plug Load Weekday Base-to-Peak Ratio | Ratio between nominal and maximum weekday plug Load levels | NREL end-use data analysis | Building Type, Plug Load Base-to-Peak Ratio Type |
+| Plug Load Weekend Base-to-Peak Ratio | Ratio between nominal and maximum weekend plug Load levels | NREL end-use data analysis | Building Type, Plug Load Base-to-Peak Ratio Type |
+| Lighting Base-to-Peak Ratio Type | Methodology for variability of lighting load amplitude | NREL end-use data analysis | Building Type |
+| Lighting Weekday Base-to-Peak Ratio | Ratio between nominal and maximum weekday lighting load levels | NREL end-use data analysis | Building Type, Lighting Base-to-Peak Ratio Type |
+| Lighting Weekend Base-to-Peak Ratio | Ratio between nominal and maximum weekend lighting load levels | NREL end-use data analysis | Building Type, lighting Base-to-Peak Ratio Type |
+| Code Compliance for Building Construction | Building energy code compliance when first constructed | Assumption | State |
+| Code Compliance for Interior Lighting | Building energy code compliance for latest interior lighting replacement | Assumption | State |
+| Code Compliance for Walls | Building energy code compliance for latest walls replacement | Assumption | State |
+| Code Compliance for Service Water Heating | Building energy code compliance for latest service water heating replacement | Assumption | State |
+| Code Compliance for Roof | Building energy code compliance for latest roof replacement | Assumption | State |
+| Code Compliance for Exterior Lighting | Building energy code compliance for latest exterior lighting replacement | Assumption | State |
+| Code Compliance for Interior Equipment | Building energy code compliance for latest interior equipment replacement | Assumption | State |
+| Code Compliance for Windows | Building energy code compliance for latest window replacement | Assumption | State |
+| Code Compliance for HVAC | Building energy code compliance for latest HVAC replacement | Assumption | State |
+| Last Replacement Year for Interior Lighting | Year of most recent replacement of the interior lighting system | CPUC DEER EULs | Simulation Year, Year of Construction |
+| Last Replacement Year for HVAC | Year of most recent replacement of the HVAC system | CPUC DEER EULs | Simulation Year, Year of Construction |
+| Last Replacement Year for Service Water Heating | Year of most recent replacement of the service water heating system | CPUC DEER EULs | Simulation Year, Year of Construction |
+| Last Replacement Year for Walls | Year of most recent replacement of the wall | CPUC DEER EULs | Simulation Year, Year of Construction |
+| Last Replacement Year for Windows | Year of most recent replacement of the windows | CPUC DEER EULs | Simulation Year, Year of Construction |
+| Last Replacement Year for Roof | Year of most recent replacement of the roof | CPUC DEER EULs | Simulation Year, Year of Construction |
+| Last Replacement Year for Exterior Lighting | Year of most recent replacement of the exterior lighting system | CPUC DEER EULs | Simulation Year, Year of Construction |
+| Last Replacement year for Interior Equipment | Year of most recent replacement of the interior equipment system | CPUC DEER EULs | Simulation Year, Year of Construction |
+| Code in Force for Replacement of Interior Lighting | Energy code in force at time of last interior lighting renovation | State Code Adoption History | State, Last Replacement Year for Interior Lighting |
+| Code in Force for Replacement of Windows | Energy code in force at time of last window renovation | State Code Adoption History | State, Last Replacement Year for Windows |
+| Code in Force for Replacement of Roof | Energy code in force at time of last roof renovation | State Code Adoption History | State, Last Replacement Year for Roof |
+| Code in Force for Replacement of HVAC | Energy code in force at time of last HVAC renovation | State Code Adoption History | State, Last Replacement Year for HVAC |
+| Code in Force for Replacement of Walls | Energy code in force at time of last walls renovation | State Code Adoption History | State, Last Replacement Year for Walls |
+| Code in Force for Replacement of Service Water Heating | Energy code in force at time of last service water heating renovation | State Code Adoption History | State, Last Replacement Year for Service Water Heating |
+| Code in Force for Replacement of Interior Equipment | Energy code in force at time of last interior equipment renovation | State Code Adoption History | State, Last Replacement year for Interior Equipment |
+| Code in Force for Replacement of Exterior Lighting | Energy code in force at time of last exterior lighting renovation | State Code Adoption History | State, Last Replacement Year for Exterior Lighting |
+| Energy Code Followed for Building Construction | Energy code followed when building was constructed | State Code Adoption History Plus Year Built and Turnover | Energy Code in Force when Constructed, Code Compliance for Building Construction |
+| Energy Code Followed for Replacement of Interior Lighting | Energy code followed when current interior lighting system installed | State Code Adoption History Plus Year Built and Turnover | Code in Force for Replacement of Interior Lighting, Code Compliance for Interior Lighting |
+| Energy Code Followed for Replacement of Service Water Heating | Energy code followed when current service water heating system installed | State Code Adoption History Plus Year Built and Turnover | Code in Force for Replacement of Service Water Heating, Code Compliance for Service Water Heating |
+| Energy Code Followed for Replacement of Windows | Energy code followed when current windows were installed | State Code Adoption History Plus Year Built and Turnover | Code in Force for Replacement of Windows, Code Compliance for Windows |
+| Energy Code Followed for Replacement of Roof | Energy code followed when current roof was installed | State Code Adoption History Plus Year Built and Turnover | Code in Force for Replacement of Roof, Code Compliance for Roof |
+| Energy Code Followed for Replacement of Interior Equipment | Energy code followed when current interior equipment installed | State Code Adoption History Plus Year Built and Turnover | Code in Force for Replacement of Interior Equipment, Code Compliance for Interior Equipment |
+| Energy Code Followed for Replacement of HVAC | Energy code followed when current HVAC system installed | State Code Adoption History Plus Year Built and Turnover | Code in Force for Replacement of HVAC, Code Compliance for HVAC |
+| Energy Code Followed for Replacement of Walls | Energy code followed when current walls were installed | State Code Adoption History Plus Year Built and Turnover | Code in Force for Replacement of Walls, Code Compliance for Walls |
+| Energy Code Followed for Replacement of Exterior Lighting | Energy code followed when current exterior lighting system installed | State Code Adoption History Plus Year Built and Turnover | Code in Force for Replacement of Exterior Lighting, Code Compliance for Exterior Lighting |
+| Lighting Technology Generation | Generation of lighting technology used in building | Lighting Market Characterization | Code in Force for Replacement of Interior Lighting, Last Replacement Year for Interior Lighting |
+| Window Technology Type | Window technology type used in the building | NFRC Commercial Fenestration Market Study | Energy Code Followed for Replacement of Windows, Climate Zone |
+| Economizer Drybulb Limit Fault | Presence of economizer drybulb limit control fault | Studies of HVAC equipment fault prevalence | HVAC System Type, Energy code followed when current HVAC system installed, Climate Zone |
+| Economizer Damper Stuck Fault | Presence of economizer damper stuck fault | Studies of HVAC equipment fault prevalence | HVAC System Type |
+| Includes Refrigeration | Presence of commercial refrigeration including walk-in coolers or refrigerated display cases | Assumption | Building Type |
+| Refrigeration Technology Level | Efficiency level of the commercial refrigeration equipment | Historical DOE shipment reports for commercial refrigeration equipment | Includes Refrigeration, Last Replacement Year for Refrigeration, Size Bin |
+| Last Replacement Year for Refrigeration | Year of most recent replacement of the refrigeration equipment | DOE EULs | Year of Construction, Size Bin, Simulation Year |
+
+## Sampling Methodology
+
+### Overview
+
+ComStock’s new segment allocation sampling methodology uses a two-step process to create the national dataset. This new approach improves upon previous methods by enhancing accuracy, particularly for rural and less densely populated areas, while also reducing computational costs. This section provides a detailed description of the processes involved in generating sampled models from defined sample segments and allocating the sampled models using the previously described stock data.
+
+The first step in the segment allocation sampling process is creating a set of representative models, referred to as "sampled models." These models are selected using a combination of expert judgment and data-driven techniques to ensure they represent the diversity and variability of U.S. commercial buildings covered by ComStock. The sampled models capture a wide range of characteristics, such as building type, size, vintage, and energy system configurations. This step ensures that all major aspects of the covered U.S. commercial building stock are available in the dataset across geographic regions.
+
+In the second step, the "stock truth data" estimate, which provides estimates of the types, sizes, and vintages of buildings by location, is used to allocate the sampled models to specific geographic regions. The stock truth data estimates what buildings of what type, size, and vintage are located where, based on the results of Section <a href="#sec:3.1.3data amalgamation for sampling" data-reference-type="ref" data-reference="sec:3.1.3data amalgamation for sampling">1.1.3</a>. This allocation is performed quasirandomly to match each sampled model to areas where it is most relevant. The result is a statistical representation of the entire commercial building stock across the United States.
+
+This two-step process is a significant change to the prior ComStock sampling process, with significant benefits in accurate representation of small or rural areas. In addition, this approach significantly decreases the computational expense of creating ComStock datasets, helping offset the increasing size of ComStock datasets across releases. However, the method introduces challenges for projects that require highly resolved weather data alignment with external sources, such as those involving nodal demand and renewable energy resource modeling. Please refer to the Implications section for discussion of the implications of the sampling approach used.
+
+### Method
+
+#### Step 1: Generation of Sampled Model Specification
+
+ComStock’s commercial building energy models, discussed in detail in Section <a href="#chap:4_modeling" data-reference-type="ref" data-reference="chap:4_modeling">[chap:4_modeling]</a>, are specified through a collection of input arguments; for example, building type, energy code of heating, ventilating, and air conditioning (HVAC) equipment, weekend start time, location, and economizer fault status. These are five examples of ~100 input arguments used in ComStock’s building energy modeling workflow. The full factorial combination of each supported input of every attribute is dozens of orders of magnitude too large to feasibly model. Therefore, a smaller subset of possible combinations of inputs must be selected for use in ComStock.
+
+Some ComStock inputs, such as building type or size, are obvious and significant drivers of the energy consumption of a building. While an input such as weekend start time is impactful in the weekend load shape of the building, this input is far less impactful than if the building is 10,000 vs 100,000 square feet (ft$`^2`$). Likewise, ComStock models not only the building stock as it exists today (the baseline), but also the impacts of different potential technical equipment or system upgrades and/or retrofits on the building stock. The upgrades are often highly reliant on the HVAC system already in place in the building, as many options for retrofitting buildings are highly dependent on the manner of and equipment associated with space conditioning equipment distribution throughout a building. Likewise, the building energy code is a significant driver of the energy efficiency of all building components and depends on the American Society of Heating, Refrigerating and Air-Conditioning Engineers (ASHRAE) climate zone. These considerations formed the basis for selecting segmentation variables. These variables define the new sample space for generating the sampled models.
+
+The five variables selected as segmentation variables serve as fixed boundaries for ComStock results. Any combination of segmentation variables not modeled in the sampled models will not be represented in the published dataset, and every building in the truth dataset with a specific combination of segmentation variables is represented only by sampled models with matching segmentation variables. After significant consideration, we selected the following inputs as segmentation variables for the purpose of creating sampled models, in no particular order:
+
+- **Building type.** The building type in ComStock specifies the proportion of various spaces within the building and all associated loads. In addition, it is the primary dependency for many distributions defining the operational schedule of a building. In practice, when a user filters ComStock results by geography, the building type is often the first variable used to segment (i.e., group) the results for further analysis.
+
+- **Heating fuel type.** The heating fuel type is important, particularly in colder climates, for accurately representing the use of secondary energy sources. For instance, in a region without widespread access to a natural gas distribution system, heating will have to be supplied either through electricity or delivered fuel such as fuel oil. This variable is fairly responsive to location; for example, New England has significantly increased rates of fuel oil as the heating fuel than the rest of the country.
+
+- **HVAC system type.** As discussed earlier, the location and capacity of equipment, piping, and ducting is all largely dependent on the HVAC system type predominantly associated with a building. While two different HVAC systems may have roughly similar efficiencies in providing ventilation and space conditioning, the availability of existing duct, piping, and equipment infrastructure largely constrains the potential retrofits for that building. For instance, a large hotel that uses packaged terminal air conditioners (PTACs) for guest rooms likely does not have the physical space required to retrofit with a variable air volume (VAV) system, making any potential upgrade to a VAV system infeasible. The complexity of applicability logic for HVAC-related upgrade measures is significant and frequently a variable used in analyses of ComStock data results.
+
+- **Building size bin.** Commercial buildings in the United States range from under 200 ft$`^2`$ (in the case of a roadside coffee shop) to over 5 million ft$`^2`$. In the United States, most of the energy used in commercial buildings between 1,000 and 1 million ft$`^2`$. However, analysis of CBECS data demonstrates that the HVAC system type is strongly tied to the square footage of the building. While the distribution of HVAC system types for buildings of 10,000 and 25,000 ft$`^2`$ may not be significantly different, the same cannot be said of buildings of 10,000 and 200,000 ft$`^2`$. In many building types, the impacts of these differences are significant. Put differently, although buildings of twice or half the size may have comparable attribute distributions, buildings with two orders of magnitude square footage difference often do not. To address this issue, the ComStock team created square footage bins that group together building square footages with generally consistent HVAC system types as reported via interpretation of CBECS data. These bins are documented in the building type size bin distribution.
+
+- **Sampling region.** Sampling regions are collections of counties grouped together to serve ComStock’s need for a geographic segmentation variable. A building’s efficiency assumptions in ComStock are determined by using the combination of ASHRAE 90.1 code in force at the time of building construction and climate zone. While these assumptions are implemented through OpenStudio Standards and not directly in ComStock’s sampling, there is a 1:1 relationship between the ComStock-sampled value and the energy modeling implementation. For example, a state with a history of rapid statewide 90.1 code adoption will have a very different distribution of building efficiencies (and in some cases even equipment such as economizers) than states with no code requirements. Likewise, buildings in colder climates require significantly increased insulation in comparison to buildings in, say, San Diego. ComStock currently implements code requirements on a state basis using data collected through the Building Code Assistance Project (BCAP) and ASHRAE 169-2006 climate zone definitions. For more information, refer to Section <a href="#sec:location" data-reference-type="ref" data-reference="sec:location">[sec:location]</a> and Section <a href="#sec:energy_code" data-reference-type="ref" data-reference="sec:energy_code">[sec:energy_code]</a>. To account for the combination of building codes and climate zones, we grouped counties across the United States together by using their state code adoption history and climate zone. We grouped counties with seven or fewer cumulative incremental code cycle adoption differences (as reported by BCAP) together, as well as counties with the same ASHRAE 169.1-2006 climate zones. Incremental code cycle adoption differences measure the number of code differences between states for each BCAP reporting cycle (i.e., 90.1 2007 and 90.1 2004 would have a difference of 1, whereas 90.1 2004 and 90.1 2013 would have a difference of 4). In California, we only grouped California Energy Commission (CEC) climate zones with sufficiently similar heating degree days/cooling degree days distributions and low numbers of buildings together, specifically 1 and 2, 4 and 5, 11 and 12, and 14 and 15. Finally, we made manual adjustments to remove any resulting regions with a low count of commercial buildings by joining them with their most equivalent regions covering significant numbers of commercial buildings. The resulting 62 sampling regions are shown in Figure <a href="#fig:sampling_regions" data-reference-type="ref" data-reference="fig:sampling_regions">1.2</a>. Note that the only noncontinuous regions are the cyan region across Kansas and Missouri, the fuchsia region in New York State, the yellow region in New Hampshire and Rhode Island, the deep green region in New Jersey and Pennsylvania, the royal blue region in West Virginia, the tan region in Michigan and Wisconsin, and the teal region in Colorado. Alaska and Hawaii, not shown, are each a single sampling region.
+
+<figure id="fig:sampling_regions" data-latex-placement="hbt!">
+<img src="figures/sampling_regions.png" style="width:100.0%" />
+<figcaption>Map of sampling regions used by ComStock.</figcaption>
+</figure>
+
+Figure <a href="#fig:sampling_bucket_definition_process" data-reference-type="ref" data-reference="fig:sampling_bucket_definition_process">1.3</a> shows the segment selection process based on segmentation variables. We selected combinations of the segmentation variables to be included in the sampled models and grouped the stock truth data by the segmentation variables. In addition, we summed and ordered the square footage associated with each combination. We then calculated the cumulative percent square footage covered by the combinations, and selected the combinations contributing to 99% of total square footage preferentially by square footage represented. Finally, if any combinations of building type, heating fuel type, building size bin, and sampling region (i.e., all segmentation variables except HVAC system type) are not included in the selected segments, then the combination is added back into the selected segments with the highest square footage HVAC system type for that collection of segmentation variables. This process ensures that most buildings in the stock truth data estimate are represented and ensures that uncommon fuel types or building types in a region are still represented, albeit with less HVAC system type diversity.
+
+<figure id="fig:sampling_bucket_definition_process">
+<img src="figures/sampling_bucket_definition_process.png" style="width:100.0%" />
+<figcaption>Diagram of segment selection based on segmentation variables, such as sampling region, building type, size bin, fuel type, and HVAC system type.</figcaption>
+</figure>
+
+The set of selected segments in the standard dataset release 2024 Release 2 is 12,835. Each of these buckets is allotted 12 samples. Each of these 12 samples is randomly sampled using the network of tsv files representing the balance of ComStock building characteristic distributions described in Table <a href="#tbl:distro_tbl" data-reference-type="ref" data-reference="tbl:distro_tbl">[tbl:distro_tbl]</a>, with the five segmentation variables associated with the specific segment held constant. In this way, there are precisely 12 modeled samples per selected segment, with the exception that there are some model failures during simulation that result in one or two of the models not being included within a selected segment. Simultaneously, the distributions of nonsegmentation variables are adequately represented across the modeled samples. We used a pseudorandom sampling methodology when sampling the nonsegmentation variables.
+
+The result of this process is the complete modeled samples set (154,020 models) commonly referred to as the "buildstock.csv" (the filename historically associated with this file). The process by which the variables in this file are converted into energy models and simulated is discussed in Section <a href="#chap:4_modeling" data-reference-type="ref" data-reference="chap:4_modeling">[chap:4_modeling]</a>. The simulation results of this file are then inputted into the next step of the sampling process.
+
+#### Step 2: Allocation of Sampled Models
+
+The modeled sample set obtained from the first step contains well over an order of magnitude fewer building energy models than there are actual buildings in the United States covered by ComStock (154,000 vs 6 million). Section <a href="#sec:btype_assignments" data-reference-type="ref" data-reference="sec:btype_assignments">1.1.2</a> details which building types in the commercial building stock ComStock currently covers. To best represent the covered commercial building stock, each of the buildings in the stock truth data needs to be assigned one (or more) building energy model results from the modeled sample set. This process, the allocation of sampled models to the stock truth data, takes place in postprocessing, following the generation of the building energy models and calculation of their annual and time series results.
+
+The allocation process begins by importing the stock truth data estimate. Each row of this dataset is a representative building in the United States based on the estimation and analysis process discussed earlier in this document. Although each of these buildings has an estimated square footage, building type, year of construction, and number of stories, many other key aspects of the building such as HVAC system are difficult to estimate without high-fidelity data. As a result, the allocation process attempts to more properly represent the uncertainty in these unknown variables through allocating multiple results from the modeled sample set. This data science technique, referred to as bootstrapping , helps ensure that when examining areas with fewer buildings, the uncertainty of both baseline energy use and upgrade savings is more accurately represented. ComStock currently uses a bootstrapping value of 3. Each of the rows in the stock truth data is duplicated three times and assigned an initial weight of 0.33, indicating that each row represents one-third of a real building believed to exist per the stock truth estimate.
+
+Although initial weights have been assigned, directly allocating the modeled sample set to the stock truth data is not yet possible. This inability is because the segmentation-based approach used to generate the modeled sample set does not create a number of HVAC system type or fuel type models proportionate to the HVAC system type or fuel type probability distributions. Instead, we selected the key combinations of the primary variables as segments and assigned a number of samples. This approach results in a substantially improved representation of the variability of buildings within most segments but does not reproduce the HVAC system type or fuel type probabilities at the modeled sample set level. Therefore, to enable direct allocation from the modeled samples set to the truth data, both fuel type and HVAC system type must be sampled onto the bootstrapped truth data so that these distributions are accurately represented in the allocated dataset.
+
+Three additions to the stock truth data are required prior to the allocation step:
+
+- Introduce a new size bin variable which bins the square footage of each building by building type to align with the size bin primary variable used in the segment definition.
+
+- Sample fuel type distributions, which depend on county and building type, first onto the bootstrapped stock truth data. Because each row already specifies a location at the census-tract level and a building type sampling, this distribution is easy.
+
+- Sample the HVAC system type onto the updated bootstrapped stock truth data (as it depends on building type, census division, and fuel type), resulting in a bootstrapped stock truth data file that enables direct mapping to segments as defined in the modeled sample set.
+
+Now that the primary variables used to define segments in the modeled sample set results align with the variables in the bootstrapped stock truth data, building energy modeling results from the modeled sample set can be allocated directly onto the bootstrapped truth data. This process is done iteratively for each segment. For each row in the segment’s bootstrapped stock truth data, a model from the matching modeled sample segment is drawn at random with replacement. Given that the square footage of the modeled sample and stock truth data will likely not match, the weight of that row in the stock truth data will be adjusted to correct (e.g., if a 5,000-ft$`^2`$-modeled sample was selected for a row with an estimated true square footage of 10,000 ft$`^2`$, the weight for that row would be doubled, from 0.33 to 0.66. This process results in the weighted square footage per building in the stock truth dataset perfectly matching the initial stock truth data.
+
+For rows in the bootstrapped stock truth data that do not have a matching modeled sample segment (due to a very low probability combination of primary variables), the HVAC system type constraint is released for segment allocation and the row is then sampled at random from all modeled sample segments with equivalent sampling region, building type, size bin, and fuel type. This process results in slight deviations in the HVAC system type distributions, but only for system types with low probability for a specific fuel in a given census division.
+
+Now that the modeled sample set has been allocated to the bootstrapped stock truth data, we applied the final CBECS normalization. The total weighted allocated square footage is divided by the total reported CBECS square footage by building type. The resulting factor is multiplied with the weights for each row by building type in the allocated bootstrapped stock truth data, ensuring that ComStock’s national stock-level square footage by building type matches what is reported in CBECS 2018.
+
+At this point, the weighted allocated bootstrapped stock truth data is persisted. This file, referred to in code as the foreign key table or "fkt," can be aggregated and/or filtered to whatever geography is of interest and the associated modeled sample set IDs and weights used to calculate the ComStock representation for that geography. Currently, the results are aggregated and reported at the census Public Use Microdata Area, county, state, and national level.
+
+### Implications of Sampling Approach for Users
+
+The segment allocation sampling process described earlier has several benefits. However, there are important limitations and one notable regression to consider from the previous implementation regarding weather representation. The benefits will be described first, followed by the limitations, and finally the regression.
+
+#### Benefits
+
+The segment allocation sampling approach achieves a significant increase in the representation of covered commercial buildings in areas where said buildings are relatively uncommon or not dense (e.g., rural or sparsely populated areas). In the previous approach, multiple building types in rural areas would often not get randomly sampled and therefore not be modeled in ComStock, even though they were known to exist in the sampling space. Now, if these buildings are included in the stock truth data, they are represented in the ComStock results. This improved representation also applies to segments with relatively low counts, such as large office buildings. This improvement takes a significant step forward in addressing issues regarding low sample counts.
+
+The next benefit is highly explicit mapping of ComStock results to the census-tract level. Although, as previously discussed in Section <a href="#sec:3.1.3data amalgamation for sampling" data-reference-type="ref" data-reference="sec:3.1.3data amalgamation for sampling">1.1.3</a>, the stock truth data are estimates, the ComStock results at a census-tract level now represent the best-available information in the public ComStock dataset. This information enables cities and other geospatial entities that are defined as aggregations of census tracts to be more accurately assessed with the segment allocation sampling approach. Additionally, the new methodology allows for more streamlined and reliable analyses for sparsely populated counties. Historically, the ability of ComStock to represent these counties required significant additional work for the user, generally requiring manual joining of an assessor’s database and ComStock results from additional geographic regions.
+
+A key additional change (which may be considered a benefit or limitation depending on viewpoint) is the bootstrapping approach used in the allocation step, particularly as it applies to upgrade calculations. Previously, a single sampled building energy model in a county might account for 10 similar archetypical buildings. In this case, if that building was randomly sampled with a PTAC HVAC system, then very few if any HVAC upgrade measures would be applicable for this building. Although this is reasonable if that single sample is one of 20 that are being analyzed, in aggregate this was often not the case. In the case of lower count building type and size combinations, we frequently observed the limitations of this approach. Now, instead of a single sample being allocated to each building, three samples are allocated (with replacement, as discussed previously). This change better reflects that ComStock cannot be certain which HVAC system type a building has (or for example when the lighting was last upgraded). As such, the upgrade savings estimates at a low sample count more accurately build in the propensity of ComStock’s TSV structure to upgrade analyses. Although this ability can increase the complexity of interpreting results on a line-by-line basis, it can also significantly increase the likelihood of ComStock estimates in a smaller sample count to accurately reflect our best knowledge.
+
+#### Limitations
+
+Although the improvements discussed earlier are significant, there is an ever-increasing risk of ComStock’s results being interpreted as more accurate than we believe them to be. The aggressive allocation to our stock truth estimate brings significant benefits, but the data lack information on many aspects of commercial buildings that determine their energy usage or saving potential to individual measures. While bootstrapping and a preference for aggregate result representations aim to address this limitation, ComStock cannot know the type of lights in a given building , the performance of key HVAC equipment, or the schedules of different equipment within the building, among many other factors. Despite the increased geographic granularity, our understanding of many key energy characteristics of buildings remains largely unchanged from the previous sampling methodology. We encourage interpreting the results as such. Increased granularity of what buildings of what type and size are where should not be interpreted to variables beyond that list.
+
+#### Regressions
+
+A key regression from the previous sampling approach is that the allocation process will select sampled models from within appropriate segments (including sampling region) for assignment without consideration for weather. This means that a building modeled using 2018 weather from Houston may be used throughout the Gulf Coast, within the bounds set by the sampling region. Sampling regions help to ensure that the ASHRAE 169.1 2006 climate zone is the same in almost all cases within a sampling region and state code adoption is likewise generally similar. This sampling approach, however, is a significant change from the previous one. The key negative implications of this change are that local coincident peaks across the stock within a small geography will have unaligned weather files, which may result in incorrect assessments of coincident peak time and magnitude. Likewise, upgrade analyses that are highly sensitive to coincident peak reduction may suffer, although the implications here are more uncertain at this time. The principal use case we identified that is significantly negatively impacted by this is grid-aligned modeling efforts at subnodal or subfeeder/circuit levels. As a result , the ComStock portfolio is working to provide alternate paths forward for this use case and will publish and validate methodologies on the [ComStock documentation website](https://nrel.github.io/ComStock.github.io/).
+
+<div id="refs" class="references csl-bib-body hanging-indent">
+
+<div id="ref-ashrae_901_2010" class="csl-entry">
+
+ASHRAE. 2010. *Standard 90.1-2010 (i-p Edition) Energy Standard for Buildings Except Low-Rise Residential Buildings*. ASHRAE.
+
+</div>
+
+<div id="ref-costar_10k" class="csl-entry">
+
+CoStar. 2020. *Annual Report on Form 10-k*. <a href="https://s22.q4cdn.com/578731016/files/doc_financials/2020/ar/2020-Annual-Report-on-Form-10-K.pdf" class="uri">Https://s22.q4cdn.com/578731016/files/doc_financials/2020/ar/2020-Annual-Report-on-Form-10-K.pdf</a>.
+
+</div>
+
+<div id="ref-doe_reference_buildings" class="csl-entry">
+
+Deru, M, K Field, D Studer, et al. 2011. *U.s. Department of Energy Commercial Reference Building Models of the National Building Stock*. National Renewable Energy Laboratory. <https://doi.org/10.2172/1009264>.
+
+</div>
+
+<div id="ref-eia2018cbecs" class="csl-entry">
+
+U.S. Energy Information Administration. 2018. *2018 Commercial Building Energy Consumption Survey (CBECS)*. Https://www.eia.gov/consumption/commercial/data/2018/.
+
+</div>
+
+</div>

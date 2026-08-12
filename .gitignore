@@ -1,0 +1,33 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Test caches
+.pytest_cache/
+
+# Pipeline data (regenerable / large; the versioned deliverable is processed/)
+raw/
+index/
+
+# Extracted figure assets under processed/ (~250 MB of binaries, regenerable
+# via `bsc fetch && bsc build`). The clean markdown keeps its image references,
+# so audit_md_fidelity.py still reports them -- only the binaries are uncommitted.
+processed/**/*.png
+processed/**/*.PNG
+processed/**/*.jpg
+processed/**/*.JPG
+processed/**/*.jpeg
+processed/**/*.svg
+processed/**/*.ico
+processed/**/*.pdf
+
+# Model caches
+.cache/
+*.onnx

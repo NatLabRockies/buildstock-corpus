@@ -1,0 +1,545 @@
+{
+  "product": "comstock",
+  "release": "2025-3",
+  "totals": {
+    "markdown": {
+      "files": 40,
+      "table_captions": 4,
+      "orphan_tables": 0,
+      "figure_captions": 11,
+      "orphan_figures": 0,
+      "md_tables": 19,
+      "html_tables": 1,
+      "html_imgs": 5,
+      "md_images": 34,
+      "dangling_refs": 0,
+      "duplicate_h1": 0
+    },
+    "latex": {
+      "files": 19,
+      "table_captions": 0,
+      "orphan_tables": 0,
+      "figure_captions": 0,
+      "orphan_figures": 0,
+      "md_tables": 50,
+      "html_tables": 35,
+      "html_imgs": 113,
+      "md_images": 0,
+      "dangling_refs": 0,
+      "duplicate_h1": 0
+    },
+    "pdf": {
+      "files": 53,
+      "table_captions": 300,
+      "orphan_tables": 20,
+      "figure_captions": 697,
+      "orphan_figures": 1,
+      "md_tables": 627,
+      "html_tables": 0,
+      "html_imgs": 0,
+      "md_images": 1254,
+      "dangling_refs": 0,
+      "duplicate_h1": 0
+    },
+    "measures": {
+      "files": 6,
+      "table_captions": 39,
+      "orphan_tables": 16,
+      "figure_captions": 58,
+      "orphan_figures": 0,
+      "md_tables": 24,
+      "html_tables": 0,
+      "html_imgs": 0,
+      "md_images": 96,
+      "dangling_refs": 0,
+      "duplicate_h1": 0
+    }
+  },
+  "findings": [
+    {
+      "file": "github_site/docs/resources/explanations/combining_measure_results.md",
+      "extractor": "markdown",
+      "orphan_tables": [],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [
+        22
+      ],
+      "unconverted_html_imgs": []
+    },
+    {
+      "file": "technical_reference/documentation/reference_doc/3_sampling.md",
+      "extractor": "latex",
+      "orphan_tables": [],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [
+        32
+      ],
+      "unconverted_html_imgs": [
+        216,
+        405,
+        412
+      ]
+    },
+    {
+      "file": "technical_reference/documentation/reference_doc/4_10_simulation_settings.md",
+      "extractor": "latex",
+      "orphan_tables": [],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [
+        10
+      ],
+      "unconverted_html_imgs": []
+    },
+    {
+      "file": "technical_reference/documentation/reference_doc/4_5_envelope.md",
+      "extractor": "latex",
+      "orphan_tables": [],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [
+        108
+      ],
+      "unconverted_html_imgs": [
+        29,
+        40,
+        53,
+        280,
+        291,
+        366
+      ]
+    },
+    {
+      "file": "technical_reference/documentation/reference_doc/4_7_plug_and_process.md",
+      "extractor": "latex",
+      "orphan_tables": [],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [
+        22
+      ],
+      "unconverted_html_imgs": [
+        103,
+        141
+      ]
+    },
+    {
+      "file": "technical_reference/documentation/reference_doc/4_9_hvac.md",
+      "extractor": "latex",
+      "orphan_tables": [],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [
+        242,
+        339,
+        681,
+        863,
+        1125,
+        1581,
+        1741,
+        2012
+      ],
+      "unconverted_html_imgs": [
+        17,
+        24,
+        29,
+        34,
+        39,
+        44,
+        430,
+        435,
+        472,
+        477,
+        620,
+        629,
+        640,
+        647,
+        654,
+        661,
+        2173
+      ]
+    },
+    {
+      "file": "technical_reference/documentation/reference_doc/6_AppendixA.md",
+      "extractor": "latex",
+      "orphan_tables": [],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [
+        31,
+        485,
+        773,
+        1135,
+        1281,
+        1653,
+        2125,
+        2708,
+        3714,
+        3930,
+        4310,
+        4890,
+        5015,
+        5207,
+        6020,
+        9585,
+        9916,
+        10399,
+        10514,
+        10833,
+        10883,
+        10958,
+        11103
+      ],
+      "unconverted_html_imgs": []
+    },
+    {
+      "file": "upgrade_measures/assets/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.md",
+      "extractor": "pdf",
+      "orphan_tables": [
+        {
+          "line": 212,
+          "label": "Table 1",
+          "caption": "Table 1. Descriptions of Compressor Lockout Temperature in Manufacturer Manuals [3], [4], [5], [6], [7], [8], [9], [10], [11], [12"
+        }
+      ],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [],
+      "unconverted_html_imgs": []
+    },
+    {
+      "file": "upgrade_measures/docs/upgrade_measures/env_ext_secondary_window.md",
+      "extractor": "measures",
+      "orphan_tables": [
+        {
+          "line": 127,
+          "label": "Table 4",
+          "caption": "Table 4. Window Distribution Assumptions Example From Climate Zone 4A"
+        },
+        {
+          "line": 139,
+          "label": "Table 5",
+          "caption": "Table 5. Window Thermal Performance"
+        },
+        {
+          "line": 173,
+          "label": "Table 8",
+          "caption": "Table 8. Comparison of Existing Window Plus Secondary Window Combinations to ASHRAE *Small and Medium Office Zero Energy AEDG* Per"
+        }
+      ],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [],
+      "unconverted_html_imgs": []
+    },
+    {
+      "file": "upgrade_measures/docs/upgrade_measures/env_ext_wall_insulation.md",
+      "extractor": "measures",
+      "orphan_tables": [
+        {
+          "line": 88,
+          "label": "Table 4",
+          "caption": "Table 4. Mapping of Wall Construction Types from Database to ComStock"
+        },
+        {
+          "line": 96,
+          "label": "Table 5",
+          "caption": "Table 5. Input Distribution of Wall Construction Types by Climate Zone and Number of Stories"
+        },
+        {
+          "line": 112,
+          "label": "Table 6",
+          "caption": "Table 6. Wall Assembly Thermal Performance (Outside California)"
+        },
+        {
+          "line": 116,
+          "label": "Table 7",
+          "caption": "Table 7. Wall Assembly Thermal Performance (In California)"
+        },
+        {
+          "line": 126,
+          "label": "Table 8",
+          "caption": "Table 8. Summary of Average Wall R-Value by ASHRAE Climate Zone and Wall Type"
+        }
+      ],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [],
+      "unconverted_html_imgs": []
+    },
+    {
+      "file": "upgrade_measures/docs/upgrade_measures/env_roof_insulation.md",
+      "extractor": "measures",
+      "orphan_tables": [
+        {
+          "line": 67,
+          "label": "Table 1",
+          "caption": "Table 1. Roof Construction Types"
+        },
+        {
+          "line": 85,
+          "label": "Table 2",
+          "caption": "Table 2. ASHRAE 90.1 IEAD Nonresidential Roof R-Value (c.i.)"
+        },
+        {
+          "line": 89,
+          "label": "Table 3",
+          "caption": "Table 3. ASHRAE 90.1 IEAD Residential Roof R-Value (c.i.)"
+        },
+        {
+          "line": 95,
+          "label": "Table 4",
+          "caption": "Table 4. DEER Roof R-Values (c.i.)"
+        },
+        {
+          "line": 119,
+          "label": "Table 5",
+          "caption": "Table 5. Overall Target Assembly Performance Characteristics by Climate Zone per AEDG [3]"
+        },
+        {
+          "line": 126,
+          "label": "Table 6",
+          "caption": "Table 6. Comparison of ComStock Existing Roof Thermal Performance to AEDG Performance Targets by Climate Zone"
+        },
+        {
+          "line": 188,
+          "label": "Table 9",
+          "caption": "Table 9. Summary of Roof Insulation Measure for Comstock Baseline"
+        }
+      ],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [],
+      "unconverted_html_imgs": []
+    },
+    {
+      "file": "upgrade_measures/docs/upgrade_measures/env_window_film.md",
+      "extractor": "measures",
+      "orphan_tables": [
+        {
+          "line": 134,
+          "label": "Table 3",
+          "caption": "Table 3. Applicability Criteria of Window Films"
+        }
+      ],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [],
+      "unconverted_html_imgs": []
+    },
+    {
+      "file": "upgrade_measures/measure_pdfs/86103.md",
+      "extractor": "pdf",
+      "orphan_tables": [
+        {
+          "line": 238,
+          "label": "Table 1",
+          "caption": "Table 1. Specifications of Available VRF (HR) Systems on the Market"
+        },
+        {
+          "line": 357,
+          "label": "Table 2",
+          "caption": "Table 2. Performance Indicators Between Four Different VRF Modeling Options"
+        },
+        {
+          "line": 399,
+          "label": "Table 3",
+          "caption": "Table 3. Configuration of All Curves Used in VRF Object"
+        },
+        {
+          "line": 475,
+          "label": "Table 5",
+          "caption": "Table 5. On-Site Fossil Fuel Emissions Factors"
+        }
+      ],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [],
+      "unconverted_html_imgs": []
+    },
+    {
+      "file": "upgrade_measures/measure_pdfs/86199.md",
+      "extractor": "pdf",
+      "orphan_tables": [
+        {
+          "line": 286,
+          "label": "Table 1",
+          "caption": "Table 1. Boiler Efficiency and Performance Curve Assignment"
+        },
+        {
+          "line": 288,
+          "label": "Table 2",
+          "caption": "Table 2. Boiler Performance Curves"
+        }
+      ],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [],
+      "unconverted_html_imgs": []
+    },
+    {
+      "file": "upgrade_measures/measure_pdfs/86601.md",
+      "extractor": "pdf",
+      "orphan_tables": [
+        {
+          "line": 391,
+          "label": "Table 3",
+          "caption": "Table 3. Boiler Efficiency and Performance Curve Assignment"
+        }
+      ],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [],
+      "unconverted_html_imgs": []
+    },
+    {
+      "file": "upgrade_measures/measure_pdfs/86602.md",
+      "extractor": "pdf",
+      "orphan_tables": [
+        {
+          "line": 434,
+          "label": "Table 6",
+          "caption": "Table 6. Boiler Efficiency and Performance Curve Assignment"
+        }
+      ],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [],
+      "unconverted_html_imgs": []
+    },
+    {
+      "file": "upgrade_measures/measure_pdfs/87536.md",
+      "extractor": "pdf",
+      "orphan_tables": [
+        {
+          "line": 270,
+          "label": "Table 1",
+          "caption": "Table 1. Boiler Efficiency and Performance Curve Assignment"
+        },
+        {
+          "line": 272,
+          "label": "Table 2",
+          "caption": "Table 2. Boiler Performance Curves"
+        }
+      ],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [],
+      "unconverted_html_imgs": []
+    },
+    {
+      "file": "upgrade_measures/measure_pdfs/89040.md",
+      "extractor": "pdf",
+      "orphan_tables": [
+        {
+          "line": 227,
+          "label": "Table 1",
+          "caption": "Table 1. Specifications of Available VRF (HR) Systems on the Market"
+        },
+        {
+          "line": 378,
+          "label": "Table 4",
+          "caption": "Table 4. Single Building Model Results: Sizing Results Before and After Upsizing Allowance"
+        },
+        {
+          "line": 394,
+          "label": "Table 5",
+          "caption": "Table 5. Single Building Model Results: Annual Results Before and After Upsizing Allowance"
+        }
+      ],
+      "orphan_figures": [
+        {
+          "line": 288,
+          "label": "Figure 5",
+          "caption": "Figure 5. Narrative description of upsizing algorithm in measure implementation"
+        }
+      ],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [],
+      "unconverted_html_imgs": []
+    },
+    {
+      "file": "upgrade_measures/measure_pdfs/89042.md",
+      "extractor": "pdf",
+      "orphan_tables": [
+        {
+          "line": 348,
+          "label": "Table 1",
+          "caption": "Table 1. Cooling Capacity Difference Between Low and High Cooling Stages"
+        },
+        {
+          "line": 358,
+          "label": "Table 3",
+          "caption": "Table 3. List of New Performance Maps for Standard Performance Modeling"
+        },
+        {
+          "line": 516,
+          "label": "Table 7",
+          "caption": "Table 7. Single Building Results: Annual End-Use Consumptions"
+        }
+      ],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [],
+      "unconverted_html_imgs": []
+    },
+    {
+      "file": "upgrade_measures/measure_pdfs/89128.md",
+      "extractor": "pdf",
+      "orphan_tables": [
+        {
+          "line": 319,
+          "label": "Table 1",
+          "caption": "Table 1 . Boiler Efficiency and Performance Curve Assignment"
+        },
+        {
+          "line": 451,
+          "label": "Table 5",
+          "caption": "Table 5 . Economizer C onfiguration S uggestions in ASHRAE 90.1-2010"
+        }
+      ],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [],
+      "unconverted_html_imgs": []
+    },
+    {
+      "file": "upgrade_measures/measure_pdfs/98224.md",
+      "extractor": "pdf",
+      "orphan_tables": [
+        {
+          "line": 285,
+          "label": "Table 2",
+          "caption": "Table 2. Mapping of Data Sources to RTU Performance Curves"
+        }
+      ],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [],
+      "unconverted_html_imgs": []
+    }
+  ]
+}
