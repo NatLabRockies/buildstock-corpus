@@ -33,6 +33,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 from collections import defaultdict
 from pathlib import Path
@@ -87,6 +88,24 @@ def image_targets(lines: list[str]) -> list[tuple[int, str]]:
     return out
 
 
+def _is_file(path: Path) -> bool:
+    """MAX_PATH-tolerant is_file().
+
+    Win32 rejects paths over 260 chars unless they carry the \\\\?\\ prefix, so a plain
+    is_file() reports "missing" for files that are really there. Docling's hash-suffixed
+    image names put some corpus paths right at that boundary, and reporting those as
+    DANGLING would be a false positive about lost content. Probe the long-path form
+    before believing the miss.
+    """
+    if path.is_file():
+        return True
+    if os.name == "nt":
+        resolved = str(path.resolve())
+        if not resolved.startswith("\\\\"):
+            return Path(f"\\\\?\\{resolved}").is_file()
+    return False
+
+
 def dangling_refs(md_path: Path, lines: list[str]) -> list[dict]:
     """Image refs whose target file is not present next to the .md file."""
     out: list[dict] = []
@@ -96,7 +115,7 @@ def dangling_refs(md_path: Path, lines: list[str]) -> list[dict]:
         clean = unquote(target.split("#")[0].split("?")[0])
         if not clean:
             continue
-        if not (md_path.parent / clean).is_file():
+        if not _is_file(md_path.parent / clean):
             out.append({"line": line_no + 1, "target": target[:120]})
     return out
 

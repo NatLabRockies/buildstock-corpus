@@ -22,7 +22,7 @@ tables use rowspan/colspan, which GFM cannot express, so those stay as HTML by d
 
 ## Gaps by file
 
-### `upgrade_measures/docs/upgrade_measures/env_roof_insulation.md`
+### `upgrade_measures/unpublished_docs/upgrade_measures/env_roof_insulation.md`
 
 extractor: **measures** — 7 issue(s)
 
@@ -34,7 +34,7 @@ extractor: **measures** — 7 issue(s)
 - L126 **ORPHANED TABLE** — Table 6. Comparison of ComStock Existing Roof Thermal Performance to AEDG Performance Targets by Climate Zone
 - L188 **ORPHANED TABLE** — Table 9. Summary of Roof Insulation Measure for Comstock Baseline
 
-### `upgrade_measures/docs/upgrade_measures/env_ext_wall_insulation.md`
+### `upgrade_measures/unpublished_docs/upgrade_measures/env_ext_wall_insulation.md`
 
 extractor: **measures** — 5 issue(s)
 
@@ -62,14 +62,6 @@ extractor: **pdf** — 4 issue(s)
 - L394 **ORPHANED TABLE** — Table 5. Single Building Model Results: Annual Results Before and After Upsizing Allowance
 - L288 **ORPHANED FIGURE** — Figure 5. Narrative description of upsizing algorithm in measure implementation
 
-### `upgrade_measures/docs/upgrade_measures/env_ext_secondary_window.md`
-
-extractor: **measures** — 3 issue(s)
-
-- L127 **ORPHANED TABLE** — Table 4. Window Distribution Assumptions Example From Climate Zone 4A
-- L139 **ORPHANED TABLE** — Table 5. Window Thermal Performance
-- L173 **ORPHANED TABLE** — Table 8. Comparison of Existing Window Plus Secondary Window Combinations to ASHRAE *Small and Medium Office Zero Energy AEDG* Per
-
 ### `upgrade_measures/measure_pdfs/89042.md`
 
 extractor: **pdf** — 3 issue(s)
@@ -77,6 +69,14 @@ extractor: **pdf** — 3 issue(s)
 - L348 **ORPHANED TABLE** — Table 1. Cooling Capacity Difference Between Low and High Cooling Stages
 - L358 **ORPHANED TABLE** — Table 3. List of New Performance Maps for Standard Performance Modeling
 - L516 **ORPHANED TABLE** — Table 7. Single Building Results: Annual End-Use Consumptions
+
+### `upgrade_measures/unpublished_docs/upgrade_measures/env_ext_secondary_window.md`
+
+extractor: **measures** — 3 issue(s)
+
+- L127 **ORPHANED TABLE** — Table 4. Window Distribution Assumptions Example From Climate Zone 4A
+- L139 **ORPHANED TABLE** — Table 5. Window Thermal Performance
+- L173 **ORPHANED TABLE** — Table 8. Comparison of Existing Window Plus Secondary Window Combinations to ASHRAE *Small and Medium Office Zero Energy AEDG* Per
 
 ### `upgrade_measures/measure_pdfs/86199.md`
 
@@ -99,17 +99,11 @@ extractor: **pdf** — 2 issue(s)
 - L319 **ORPHANED TABLE** — Table 1 . Boiler Efficiency and Performance Curve Assignment
 - L451 **ORPHANED TABLE** — Table 5 . Economizer C onfiguration S uggestions in ASHRAE 90.1-2010
 
-### `upgrade_measures/assets/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.md`
+### `upgrade_measures/draft_publications/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.md`
 
 extractor: **pdf** — 1 issue(s)
 
 - L212 **ORPHANED TABLE** — Table 1. Descriptions of Compressor Lockout Temperature in Manufacturer Manuals [3], [4], [5], [6], [7], [8], [9], [10], [11], [12
-
-### `upgrade_measures/docs/upgrade_measures/env_window_film.md`
-
-extractor: **measures** — 1 issue(s)
-
-- L134 **ORPHANED TABLE** — Table 3. Applicability Criteria of Window Films
 
 ### `upgrade_measures/measure_pdfs/86601.md`
 
@@ -128,6 +122,12 @@ extractor: **pdf** — 1 issue(s)
 extractor: **pdf** — 1 issue(s)
 
 - L285 **ORPHANED TABLE** — Table 2. Mapping of Data Sources to RTU Performance Curves
+
+### `upgrade_measures/unpublished_docs/upgrade_measures/env_window_film.md`
+
+extractor: **measures** — 1 issue(s)
+
+- L134 **ORPHANED TABLE** — Table 3. Applicability Criteria of Window Films
 
 ### `github_site/docs/resources/explanations/combining_measure_results.md`
 

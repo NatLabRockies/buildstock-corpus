@@ -528,7 +528,7 @@
           "source_type": "measures",
           "title": "Secondary Window System",
           "input_sha256": "91d7f8e5b641c4072d96dfaf6f4cde4a0c367d69b15eba943e1248254ff2d74e",
-          "output_path": "upgrade_measures/docs/upgrade_measures/env_ext_secondary_window.md",
+          "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/env_ext_secondary_window.md",
           "output_sha256": "4ca64457b28466ca4c79110daaf51132954aea34d3ca4643faa9458497d100e1"
         },
         {
@@ -536,7 +536,7 @@
           "source_type": "measures",
           "title": "Exterior Wall Insulation",
           "input_sha256": "fc7967438ace1780461253dbd100b5473293bfc2857f360c48db0b6c8da69427",
-          "output_path": "upgrade_measures/docs/upgrade_measures/env_ext_wall_insulation.md",
+          "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/env_ext_wall_insulation.md",
           "output_sha256": "cd11aac65cf864647af79d3aefa4647fc1f97d740bab23aa7996b75866de9eef"
         },
         {
@@ -544,7 +544,7 @@
           "source_type": "measures",
           "title": "Window Replacement",
           "input_sha256": "497dd2df0b3e05a8fac4584a654433cbcded2a4740038109d86d9adfc8bc450c",
-          "output_path": "upgrade_measures/docs/upgrade_measures/env_ext_window_replacement.md",
+          "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/env_ext_window_replacement.md",
           "output_sha256": "ec67c497986ea75fa6b0cfec6112eb3e3415f362a6b3b3fbd3d100174345dfef"
         },
         {
@@ -552,7 +552,7 @@
           "source_type": "measures",
           "title": "Roof Insulation",
           "input_sha256": "ff64c90258e39d1cbd56d7edb587ed698ec411ccc384b990f2362b856a3e6d5a",
-          "output_path": "upgrade_measures/docs/upgrade_measures/env_roof_insulation.md",
+          "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/env_roof_insulation.md",
           "output_sha256": "107b0188785f803bf07ceb4ce1f23a47857982f2ad6eea86a4a42a91e73fc760"
         },
         {
@@ -560,7 +560,7 @@
           "source_type": "measures",
           "title": "Window Film",
           "input_sha256": "9aecf35790f36883b35a5cd81346b82124b8d244bace87048e5867810b4480fb",
-          "output_path": "upgrade_measures/docs/upgrade_measures/env_window_film.md",
+          "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/env_window_film.md",
           "output_sha256": "2ac7168994ce2811bd1a910c8e89cc9572f7f4fbc165372245400ec2417347d6"
         },
         {
@@ -568,7 +568,7 @@
           "source_type": "measures",
           "title": "DOAS with Mini Split Heat Pumps",
           "input_sha256": "2d76398f21c560da3ee0972360659d7a47d114736d2df7ca36603f8df1cf37b0",
-          "output_path": "upgrade_measures/docs/upgrade_measures/hvac_doas_mshp.md",
+          "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/hvac_doas_mshp.md",
           "output_sha256": "d5c8a5a06393956c8b045a09714c153dbcfa323095876ef886f1a0fcc162624e"
         },
         {
@@ -984,7 +984,7 @@
           "source_type": "pdf",
           "title": "Heat Pump Rooftop Units With Higher Compressor Lockout Temperature for Heating",
           "input_sha256": "4a9ec2da0c73739e62864378fde4a9d2ebfc7c7872aeaa4c338564c588c69973",
-          "output_path": "upgrade_measures/assets/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.md",
+          "output_path": "upgrade_measures/draft_publications/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.md",
           "output_sha256": "697cee4792e07ea9399b02f9e68b5f94edca8ebb68428b25f170e82217ca6ff1"
         },
         {
@@ -992,7 +992,7 @@
           "source_type": "pdf",
           "title": "Photovoltaics With 40% Rooftop Coverage and Battery Storage",
           "input_sha256": "8d88850523d4a3a0223bdba0b370575ab9642272b0ca0c825c1d65df81b532bf",
-          "output_path": "upgrade_measures/assets/files/ComStock Measure Doc_PV with Battery Storage.md",
+          "output_path": "upgrade_measures/draft_publications/files/ComStock Measure Doc_PV with Battery Storage.md",
           "output_sha256": "144fedf7b20dfc8ad4137ab29da14e1c9c5f7d314bb00ff07c9c7f15a746719b"
         }
       ]

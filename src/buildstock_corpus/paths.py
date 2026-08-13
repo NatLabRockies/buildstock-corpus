@@ -41,3 +41,31 @@ def manifest_file(product: str, release: str) -> Path:
 
 def chunks_file(product: str, release: str) -> Path:
     return processed_root(product, release) / "chunks.jsonl"
+
+
+def remap_dir(rel: str, remap: dict[str, str] | None = None) -> str:
+    """Rewrite the leading directory of a source-relative path per `output_remap`.
+
+    Output normally mirrors the repo-relative source path, which keeps the relative
+    image/link refs inside each page resolvable. A source may remap a leading directory
+    when the corpus must not reuse upstream's name for it (see `output_remap` in the
+    source registry): given {"docs/x": "unpublished_docs/x"}, "docs/x/page.md" becomes
+    "unpublished_docs/x/page.md".
+
+    Matching is on whole path segments, so "docs/x_notes/" never matches "docs/x". When
+    several prefixes match, the longest (most specific) one wins. Paths outside every
+    remapped directory are returned unchanged.
+    """
+    if not remap:
+        return rel
+    for key in sorted(remap, key=len, reverse=True):
+        src_dir = key.strip("/")
+        if rel == src_dir or rel.startswith(f"{src_dir}/"):
+            return remap[key].strip("/") + rel[len(src_dir):]
+    return rel
+
+
+def output_rel(source_id: str, source_path: str, remap: dict[str, str] | None = None) -> str:
+    """processed/-relative output path for one document: <source_id>/<source_path>.md."""
+    rel = Path(source_path).with_suffix(".md").as_posix()
+    return f"{source_id}/{remap_dir(rel, remap)}"

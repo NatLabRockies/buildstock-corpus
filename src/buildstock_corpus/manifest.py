@@ -19,7 +19,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from .index import EMBED_MODEL
-from .paths import manifest_file, processed_root
+from .paths import manifest_file, output_rel, processed_root
 
 PIPELINE_VERSION = "0.1.0"
 _COVERED_KINDS = {"internal_md", "external_pdf", "local_pdf"}
@@ -64,11 +64,6 @@ def _input_hashes(src_state: dict) -> dict[str, str]:
     return hashes
 
 
-def _output_rel(source_id: str, source_path: str) -> str:
-    """processed/-relative output path for a doc (mirrors build._write_processed)."""
-    return f"{source_id}/{Path(source_path).with_suffix('.md').as_posix()}"
-
-
 def _by_type(docs) -> dict[str, int]:
     out: dict[str, int] = {}
     for d in docs:
@@ -85,14 +80,21 @@ def build_manifest(
     excluded: dict[str, list[str]],
     state: dict,
     n_chunks: int,
+    remaps: dict[str, tuple[str, str]] | None = None,
 ) -> dict:
-    """Assemble and write manifest.json from the just-built documents + fetch state."""
+    """Assemble and write manifest.json from the just-built documents + fetch state.
+
+    `remaps` mirrors the output-dir remapping build applied when writing the files, so
+    recorded output_paths point at where the artifacts actually landed. source_path
+    stays as-is — it is the upstream citation anchor.
+    """
     proot = processed_root(product, release)
+    remaps = remaps or {}
     src_hashes = {sid: _input_hashes(st) for sid, st in state.get("sources", {}).items()}
 
     sources_out: dict[str, dict] = {}
     for doc in docs:
-        out_rel = _output_rel(doc.source_id, doc.source_path)
+        out_rel = output_rel(doc.source_id, doc.source_path, remaps.get(doc.source_id))
         out_abs = proot / out_rel
         grp = sources_out.setdefault(
             doc.source_id,

@@ -39,4 +39,14 @@ sources:
     sparse: ["docs/upgrade_measures", "assets/files"]
     index_page: "docs/upgrade_measures/upgrade_measures.md"
     internal_dir: "docs/upgrade_measures"
+    # Output-side directory renames. Source paths above are untouched: these only change
+    # where artifacts land under processed/, so the corpus does not inherit upstream dir
+    # names that misdescribe the content's publication status.
+    output_remap:
+      # Pages absent from the live ComStock site (their canonical public form is the
+      # external measure PDF), so they must not sit in a dir called "docs".
+      "docs/upgrade_measures": "unpublished_docs/upgrade_measures"
+      # PDFs committed in the site repo rather than published to the NREL publications
+      # site. Once published they move to measure_pdfs/ and leave draft status.
+      "assets": "draft_publications"
     crosswalk_csv: "assets/files/measure_name_crosswalk_2025_3.csv"

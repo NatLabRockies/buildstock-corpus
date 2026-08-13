@@ -21,7 +21,7 @@ from .extract.measures_index import MeasureRef, parse_index
 from .extract.pdf import PdfSpec, load_pdf_docs
 from .manifest import build_manifest
 from .normalize import Document
-from .paths import chunks_file, manifest_file, processed_root, raw_root
+from .paths import chunks_file, manifest_file, output_rel, processed_root, raw_root, remap_dir
 from .registry import Source, load_registry
 
 
@@ -163,7 +163,8 @@ def _extract_documents(
             docs += pdf_docs
             warnings += [f"{src.id}: {w}" for w in pdf_warn]
             for rel_dir, cache_dir in pdf_imgs.items():
-                pdf_images[f"{src.id}/{rel_dir}"] = cache_dir
+                # follow the .md files if their dir is remapped, so `![](x_images/...)` resolves
+                pdf_images[f"{src.id}/{remap_dir(rel_dir, src.output_remap)}"] = cache_dir
             # crosswalk join (CSV + index)
             cw = src_state.get("crosswalk")
             if cw:
@@ -182,10 +183,12 @@ def _strip_leading_heading(title: str, body: str) -> str:
     return body
 
 
-def _write_processed(product: str, release: str, docs: list[Document]) -> None:
+def _write_processed(
+    product: str, release: str, docs: list[Document], remaps: dict[str, tuple[str, str]]
+) -> None:
     root = processed_root(product, release)
     for doc in docs:
-        out = root / doc.source_id / Path(doc.source_path).with_suffix(".md")
+        out = root / output_rel(doc.source_id, doc.source_path, remaps.get(doc.source_id))
         out.parent.mkdir(parents=True, exist_ok=True)
         front = f"<!-- {doc.product} {doc.release} | {doc.source_id} | {doc.source_path} -->\n"
         body = _strip_leading_heading(doc.title, doc.body)
@@ -217,10 +220,12 @@ def _copy_source_images(product: str, release: str, pdf_images: dict[str, Path])
     for src in reg.sources:
         clone_dir = _clone_dir(product, release, src)
         if src.type == "measures":
-            # measures pages reference media/*.png relative to the page's directory
+            # measures pages reference media/*.png relative to the page's directory,
+            # so media follows the pages when that directory is remapped
             src_media = clone_dir / (src.internal_dir or "") / "media"
             if src_media.is_dir():
-                dst = root / src.id / (src.internal_dir or "") / "media"
+                rel_media = f"{(src.internal_dir or '').strip('/')}/media"
+                dst = root / src.id / remap_dir(rel_media, src.output_remap)
                 _replace_dir(src_media, dst)
                 copied += sum(1 for p in dst.rglob("*") if p.is_file())
         elif src.type == "markdown":
@@ -246,7 +251,8 @@ def _copy_source_images(product: str, release: str, pdf_images: dict[str, Path])
 def build_release(product: str, release: str) -> dict:
     state = _load_fetch_state(product, release)
     docs, excluded, warnings, crosswalk, pdf_images = _extract_documents(product, release, state)
-    _write_processed(product, release, docs)
+    remaps = load_registry(product, release).output_remaps()
+    _write_processed(product, release, docs, remaps)
     n_images = _copy_source_images(product, release, pdf_images)
 
     chunks = chunk_documents(docs)
@@ -262,7 +268,7 @@ def build_release(product: str, release: str) -> dict:
         )
 
     manifest = build_manifest(
-        product, release, docs, crosswalk, warnings, excluded, state, len(chunks)
+        product, release, docs, crosswalk, warnings, excluded, state, len(chunks), remaps
     )
 
     by_type: dict[str, int] = defaultdict(int)
