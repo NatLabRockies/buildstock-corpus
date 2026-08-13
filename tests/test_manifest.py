@@ -7,6 +7,7 @@ processed_root / manifest_file are monkeypatched to a tmp dir so these run herme
 
 from __future__ import annotations
 
+import hashlib
 import json
 
 import buildstock_corpus.manifest as M
@@ -206,3 +207,104 @@ def test_gaps_and_unreachable_pdfs_recorded(tmp_path, monkeypatch):
     # crosswalk.json on disk would let validate confirm dr_0005 is a tracked gap
     (proot / "crosswalk.json").write_text(json.dumps(crosswalk), encoding="utf-8")
     assert M.validate_manifest("comstock", "2025-3", _load(proot)) == []
+
+
+# --- overlay provenance: a hand-authored table must trace to the bitmap it was read from --
+
+OV_REL = "upgrade_measures/docs/upgrade_measures/env_roof_insulation.yaml"
+PNG_BYTES = b"\x89PNG\r\n\x1a\nnot-a-real-png-just-stable-bytes"
+
+
+def _overlay_fixture(tmp_path, monkeypatch, proot, *, png: bytes | None = PNG_BYTES):
+    """An artifact with one applied overlay table, plus the sidecar and image on disk.
+
+    `png=None` leaves the image absent, which is the state of a fresh clone:
+    .gitignore excludes processed/**/*.png, so the pictures are simply not there.
+    """
+    ov_root = tmp_path / "overlays"
+    monkeypatch.setattr(M, "OVERLAYS_DIR", ov_root)
+    ov_abs = ov_root / OV_REL
+    ov_abs.parent.mkdir(parents=True, exist_ok=True)
+    ov_abs.write_text(
+        "tables:\n"
+        '  - label: "Table 1"\n'
+        "    source_image: media/roof.png\n"
+        f'    source_image_sha256: "{hashlib.sha256(PNG_BYTES).hexdigest()}"\n',
+        encoding="utf-8",
+        newline="\n",
+    )
+    if png is not None:
+        img = (proot / OUT_REL).parent / "media" / "roof.png"
+        img.parent.mkdir(parents=True, exist_ok=True)
+        img.write_bytes(png)
+    return {
+        "path": OV_REL,
+        "sha256": hashlib.sha256(ov_abs.read_bytes()).hexdigest(),
+        "tables_applied": ["Table 1"],
+    }
+
+
+def _manifest_with_overlay(proot, overlay: dict) -> dict:
+    manifest = M.build_manifest(
+        "comstock", "2025-3", [_doc()], None, [], {}, _state(), 1, None, None,
+        {"technical_reference": {"documentation/reference_doc/4_9_hvac.tex": overlay}},
+    )
+    return manifest
+
+
+def test_overlay_recorded_and_verified_against_its_source_image(tmp_path, monkeypatch):
+    proot = _patch(tmp_path, monkeypatch)
+    _write_output(proot)
+    overlay = _overlay_fixture(tmp_path, monkeypatch, proot)
+
+    manifest = _manifest_with_overlay(proot, overlay)
+
+    art = manifest["sources"][0]["artifacts"][0]
+    assert art["overlay"]["tables_applied"] == ["Table 1"]
+    assert manifest["counts"]["overlay_tables"] == 1
+    stats: dict = {}
+    assert M.validate_manifest("comstock", "2025-3", manifest, stats) == []
+    assert stats == {"overlay_checked": 1, "overlay_unverifiable": 0}
+
+
+def test_absent_source_image_is_unverifiable_not_a_violation(tmp_path, monkeypatch):
+    """A fresh clone has the transcription and the manifest but none of the pictures.
+
+    processed/**/*.png is gitignored on purpose (~250 MB, regenerable), so failing here
+    would report a provenance break on every clone where there is none.
+    """
+    proot = _patch(tmp_path, monkeypatch)
+    _write_output(proot)
+    overlay = _overlay_fixture(tmp_path, monkeypatch, proot, png=None)
+
+    manifest = _manifest_with_overlay(proot, overlay)
+
+    stats: dict = {}
+    assert M.validate_manifest("comstock", "2025-3", manifest, stats) == []
+    assert stats == {"overlay_checked": 0, "overlay_unverifiable": 1}
+
+
+def test_redrawn_source_image_is_a_violation(tmp_path, monkeypatch):
+    """Image present but changed = the transcription no longer describes it. That is a break."""
+    proot = _patch(tmp_path, monkeypatch)
+    _write_output(proot)
+    overlay = _overlay_fixture(tmp_path, monkeypatch, proot, png=PNG_BYTES + b"redrawn")
+
+    errors = M.validate_manifest("comstock", "2025-3", _manifest_with_overlay(proot, overlay))
+
+    assert len(errors) == 1
+    assert "source image changed since transcription" in errors[0]
+
+
+def test_edited_sidecar_is_a_violation(tmp_path, monkeypatch):
+    """The shipped table came from the sidecar; if it changed after the build, say so."""
+    proot = _patch(tmp_path, monkeypatch)
+    _write_output(proot)
+    overlay = _overlay_fixture(tmp_path, monkeypatch, proot)
+    manifest = _manifest_with_overlay(proot, overlay)
+    (tmp_path / "overlays" / OV_REL).write_text("tables: []\n", encoding="utf-8", newline="\n")
+
+    errors = M.validate_manifest("comstock", "2025-3", manifest)
+
+    assert len(errors) == 1
+    assert "overlay hash mismatch" in errors[0]

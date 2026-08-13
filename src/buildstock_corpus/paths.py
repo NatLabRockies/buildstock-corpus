@@ -7,6 +7,7 @@ works regardless of the caller's working directory.
 
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 # src/buildstock_corpus/paths.py -> project root is three parents up.
@@ -16,6 +17,7 @@ RAW_DIR = PROJECT_ROOT / "raw"
 PROCESSED_DIR = PROJECT_ROOT / "processed"
 INDEX_DIR = PROJECT_ROOT / "index"
 SOURCES_DIR = PROJECT_ROOT / "sources"
+OVERLAYS_DIR = PROJECT_ROOT / "overlays"
 
 # Sandbox root for derived outputs, set by `--work-dir` (see use_workspace).
 _WORKSPACE: Path | None = None
@@ -39,6 +41,26 @@ def _derived_base(name: str, default: Path) -> Path:
     return (_WORKSPACE / name) if _WORKSPACE else default
 
 
+def long_path(path: str | Path) -> str:
+    """A form of `path` that Win32 will accept even past the 260-character MAX_PATH limit.
+
+    docling names each extracted image `image_NNNNNN_<sha256>.png`, an 81-character
+    filename. Copied under processed/<product>/<release>/<source_id>/<upstream dirs>/, a
+    few of those land at ~267 characters, and Windows without LongPathsEnabled cannot
+    reach them at all: os.stat reports ERROR_PATH_NOT_FOUND for a file that is really
+    there, so shutil.rmtree fails to clear a stale output tree and copytree fails to write
+    a new one. Prefixing with \\\\?\\ opts that call out of path normalization and the
+    limit.
+
+    Returns str, not Path, because pathlib re-normalizes the prefix away. Off Windows this
+    is just str(path).
+    """
+    if os.name != "nt":
+        return str(path)
+    text = str(Path(path).resolve())
+    return text if text.startswith("\\\\?\\") else f"\\\\?\\{text}"
+
+
 def raw_root(product: str, release: str) -> Path:
     return RAW_DIR / product / release
 
@@ -54,6 +76,22 @@ def index_root(product: str, release: str) -> Path:
 
 def sources_file(product: str, release: str) -> Path:
     return SOURCES_DIR / f"{product}_{release}.yaml"
+
+
+def overlay_file(product: str, release: str, source_id: str, source_path: str) -> Path:
+    """Sidecar overlay for one document: overlays/<product>_<release>/<source_id>/<path>.yaml.
+
+    Overlays carry content that no extractor can recover from the source — tables the
+    upstream document embeds as a bitmap, transcribed by hand. They are *inputs* to the
+    build, not derived outputs, so like sources_file() they live at the project root and
+    ignore the `--work-dir` sandbox: a sandboxed smoke build should read the same overlays
+    as a release build, and must never write to them.
+
+    The <source_id>/<source_path> layout mirrors output_rel(), so an overlay sits at the
+    same relative position as the artifact it patches.
+    """
+    rel = Path(source_path).with_suffix(".yaml").as_posix()
+    return OVERLAYS_DIR / f"{product}_{release}" / source_id / rel
 
 
 def manifest_file(product: str, release: str) -> Path:

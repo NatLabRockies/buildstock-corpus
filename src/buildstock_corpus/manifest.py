@@ -18,8 +18,10 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 
+import yaml
+
 from .index import EMBED_MODEL
-from .paths import manifest_file, output_rel, processed_root
+from .paths import OVERLAYS_DIR, manifest_file, output_rel, processed_root
 
 PIPELINE_VERSION = "0.1.0"
 _COVERED_KINDS = {"internal_md", "external_pdf", "local_pdf"}
@@ -82,6 +84,7 @@ def build_manifest(
     n_chunks: int,
     remaps: dict[str, tuple[str, str]] | None = None,
     sample: int | None = None,
+    overlays: dict[str, dict] | None = None,
 ) -> dict:
     """Assemble and write manifest.json from the just-built documents + fetch state.
 
@@ -92,9 +95,15 @@ def build_manifest(
     `sample` records that the build was capped per category. It is stamped into the
     manifest as `sample.partial` because a manifest is the record of what a release
     contains: an unmarked 4-document manifest tagged 2025-3 would be a false record.
+
+    `overlays` records which artifacts carry hand-authored content (see overlay.py),
+    keyed source_id -> source_path. Without it a reader could not tell a transcribed table
+    from an extracted one, which is the whole reason the transcriptions live in versioned
+    sidecars rather than being edited into processed/.
     """
     proot = processed_root(product, release)
     remaps = remaps or {}
+    overlays = overlays or {}
     src_hashes = {sid: _input_hashes(st) for sid, st in state.get("sources", {}).items()}
 
     sources_out: dict[str, dict] = {}
@@ -110,16 +119,18 @@ def build_manifest(
                 "artifacts": [],
             },
         )
-        grp["artifacts"].append(
-            {
-                "source_path": doc.source_path,
-                "source_type": doc.source_type,
-                "title": doc.title,
-                "input_sha256": src_hashes.get(doc.source_id, {}).get(doc.source_path),
-                "output_path": out_rel,
-                "output_sha256": _sha256_file(out_abs) if out_abs.is_file() else None,
-            }
-        )
+        artifact = {
+            "source_path": doc.source_path,
+            "source_type": doc.source_type,
+            "title": doc.title,
+            "input_sha256": src_hashes.get(doc.source_id, {}).get(doc.source_path),
+            "output_path": out_rel,
+            "output_sha256": _sha256_file(out_abs) if out_abs.is_file() else None,
+        }
+        ov = overlays.get(doc.source_id, {}).get(doc.source_path)
+        if ov:
+            artifact["overlay"] = ov
+        grp["artifacts"].append(artifact)
 
     unreachable_pdfs = [
         {"source_id": sid, **m}
@@ -138,6 +149,10 @@ def build_manifest(
             "documents": len(docs),
             "chunks": n_chunks,
             "by_type": _by_type(docs),
+            "overlay_documents": sum(len(v) for v in overlays.values()),
+            "overlay_tables": sum(
+                len(rec["tables_applied"]) for v in overlays.values() for rec in v.values()
+            ),
         },
         "crosswalk": {
             "file": "crosswalk.json",
@@ -155,14 +170,76 @@ def build_manifest(
 
     mf = manifest_file(product, release)
     mf.parent.mkdir(parents=True, exist_ok=True)
-    mf.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+    mf.write_text(json.dumps(manifest, indent=2), encoding="utf-8", newline="\n")
     return manifest
 
 
-def validate_manifest(product: str, release: str, manifest: dict) -> list[str]:
-    """Return a list of invariant violations ([] means valid). Pure — no printing."""
+def _validate_overlay(proot: Path, artifact: dict, where: str) -> tuple[list[str], int, int]:
+    """Check a hand-authored overlay is intact and still matches the images it transcribed.
+
+    Returns (violations, tables_checked, tables_unverifiable).
+
+    Two things can silently rot: the sidecar itself can be edited after the build (so the
+    shipped table no longer matches the recorded source), or upstream can redraw the image
+    a table was read from (so the transcription is stale). Both leave a plausible table in
+    the corpus with nothing backing it, which is what the manifest exists to prevent, so
+    both are violations.
+
+    An *absent* image is not. .gitignore deliberately excludes processed/**/*.png (~250 MB
+    of regenerable binaries), so a fresh clone has the transcriptions and the manifest but
+    none of the pictures. Treating that as a violation would make `bsc validate` fail on
+    every clone until someone re-ran fetch+build — reporting a provenance break where
+    there is none. Those tables are counted as unverifiable here and surfaced by
+    validate_release, so a clean run never overstates what it actually checked.
+    """
+    ov = artifact["overlay"]
+    errors: list[str] = []
+
+    ov_abs = OVERLAYS_DIR / ov.get("path", "")
+    if not ov_abs.is_file():
+        return [f"{where}: overlay file missing on disk: {ov.get('path')}"], 0, 0
+    if _sha256_file(ov_abs) != ov.get("sha256"):
+        return [f"{where}: overlay hash mismatch (sidecar changed since build): {ov['path']}"], 0, 0
+
+    try:
+        data = yaml.safe_load(ov_abs.read_text(encoding="utf-8")) or {}
+    except yaml.YAMLError as exc:
+        return [f"{where}: overlay is not readable YAML: {str(exc)[:120]}"], 0, 0
+
+    applied = set(ov.get("tables_applied") or [])
+    page_dir = (proot / artifact.get("output_path", "")).parent
+    checked = unverifiable = 0
+    for entry in data.get("tables") or []:
+        label = str(entry.get("label", "")).strip()
+        if label not in applied:
+            continue  # recorded as not applied; nothing was injected to back up
+        img = page_dir / str(entry.get("source_image", ""))
+        if not img.is_file():
+            unverifiable += 1
+        elif _sha256_file(img) != entry.get("source_image_sha256"):
+            checked += 1
+            errors.append(
+                f"{where}: {label}: source image changed since transcription "
+                f"({img.name}); the injected table may no longer match it"
+            )
+        else:
+            checked += 1
+    return errors, checked, unverifiable
+
+
+def validate_manifest(
+    product: str, release: str, manifest: dict, stats: dict | None = None
+) -> list[str]:
+    """Return a list of invariant violations ([] means valid). Pure — no printing.
+
+    `stats`, if given, is filled with counts the caller may want to report but which are
+    not violations: `overlay_checked` and `overlay_unverifiable` (see _validate_overlay).
+    It is an out-parameter rather than part of the return value so the return stays a plain
+    error list, which is what every caller and test asserts on.
+    """
     proot = processed_root(product, release)
     errors: list[str] = []
+    checked = unverifiable = 0
 
     if manifest.get("product") != product or manifest.get("release") != release:
         errors.append(
@@ -185,8 +262,16 @@ def validate_manifest(product: str, release: str, manifest: dict) -> list[str]:
                 errors.append(f"{where}: output file missing on disk")
             elif _sha256_file(out_abs) != recorded:
                 errors.append(f"{where}: output hash mismatch (file changed since build)")
+            if a.get("overlay"):
+                ov_errors, n_ok, n_skip = _validate_overlay(proot, a, where)
+                errors += ov_errors
+                checked += n_ok
+                unverifiable += n_skip
     if n_art == 0:
         errors.append("manifest records zero artifacts")
+    if stats is not None:
+        stats["overlay_checked"] = checked
+        stats["overlay_unverifiable"] = unverifiable
 
     cw_file = proot / "crosswalk.json"
     if cw_file.is_file():
@@ -208,7 +293,8 @@ def validate_release(product: str, release: str) -> bool:
         print(f"validate: no manifest at {mf}; run `bsc build` first")
         return False
     manifest = json.loads(mf.read_text(encoding="utf-8"))
-    errors = validate_manifest(product, release, manifest)
+    stats: dict = {}
+    errors = validate_manifest(product, release, manifest, stats)
 
     n_art = sum(len(s.get("artifacts", [])) for s in manifest.get("sources", []))
     if errors:
@@ -227,6 +313,23 @@ def validate_release(product: str, release: str) -> bool:
             f"at most {sample.get('per_category')} document(s) per category"
         )
     print(f"  {n_art} artifacts, all traced to hashed inputs and present on disk with matching hashes")
+    counts = manifest.get("counts", {})
+    n_ov = counts.get("overlay_tables") or 0
+    if n_ov:
+        # State what was actually re-verified. On a fresh clone the source images are
+        # absent by design (.gitignore drops processed/**/*.png), and claiming those
+        # transcriptions were checked against their pictures would be a false record.
+        skipped = stats.get("overlay_unverifiable", 0)
+        detail = f"{stats.get('overlay_checked', 0)} re-verified against its source image"
+        if skipped:
+            detail += (
+                f", {skipped} unverifiable here (source image not in the working tree; "
+                f"run `bsc fetch && bsc build` to restore it)"
+            )
+        print(
+            f"  {n_ov} hand-authored table(s) across "
+            f"{counts.get('overlay_documents')} doc(s): {detail}"
+        )
     gaps = manifest.get("gaps", {})
     gm = gaps.get("measures", [])
     if gm:
