@@ -15,6 +15,7 @@ command so `bsc --help` and unrelated commands stay fast.
 from __future__ import annotations
 
 import sys
+from pathlib import Path
 from typing import Annotated
 
 import typer
@@ -35,6 +36,23 @@ app = typer.Typer(
 
 ProductOpt = Annotated[str, typer.Option(help="Dataset product, e.g. 'comstock'.")]
 ReleaseOpt = Annotated[str, typer.Option(help="Dataset release tag, e.g. '2025-3'.")]
+WorkDirOpt = Annotated[
+    Path | None,
+    typer.Option(
+        help="Write derived outputs (processed/, index/) under this root instead of the "
+        "project defaults, leaving the release artifacts untouched. raw/ and the "
+        "conversion caches are still shared.",
+    ),
+]
+
+
+def _workspace(work_dir: Path | None) -> None:
+    """Point the derived-output paths at a sandbox root for this invocation."""
+    from . import paths
+
+    if work_dir is not None:
+        work_dir.mkdir(parents=True, exist_ok=True)
+    paths.use_workspace(work_dir)
 
 
 @app.command()
@@ -46,18 +64,36 @@ def fetch(product: ProductOpt = "comstock", release: ReleaseOpt = "2025-3") -> N
 
 
 @app.command()
-def build(product: ProductOpt = "comstock", release: ReleaseOpt = "2025-3") -> None:
+def build(
+    product: ProductOpt = "comstock",
+    release: ReleaseOpt = "2025-3",
+    sample: Annotated[
+        int | None,
+        typer.Option(
+            help="Smoke test: build at most N documents per category (latex, markdown, "
+            "measures, pdf). The manifest is stamped partial. Pair with --work-dir so the "
+            "release artifacts are not overwritten.",
+        ),
+    ] = None,
+    work_dir: WorkDirOpt = None,
+) -> None:
     """Extract, normalize, and chunk raw sources into release-tagged artifacts + manifest."""
     from . import build as _build
 
-    _build.build_release(product, release)
+    _workspace(work_dir)
+    _build.build_release(product, release, sample=sample)
 
 
 @app.command()
-def index(product: ProductOpt = "comstock", release: ReleaseOpt = "2025-3") -> None:
+def index(
+    product: ProductOpt = "comstock",
+    release: ReleaseOpt = "2025-3",
+    work_dir: WorkDirOpt = None,
+) -> None:
     """Embed chunks into a persistent Chroma collection for this release."""
     from . import index as _index
 
+    _workspace(work_dir)
     _index.build_index(product, release)
 
 
@@ -70,18 +106,25 @@ def query(
     answer: Annotated[
         bool, typer.Option(help="Also synthesize an answer via an LLM (requires an API key).")
     ] = False,
+    work_dir: WorkDirOpt = None,
 ) -> None:
     """Retrieve top-k cited passages for a question, scoped to a release."""
     from . import query as _query
 
+    _workspace(work_dir)
     _query.query_corpus(text, product=product, release=release, k=k, answer=answer)
 
 
 @app.command()
-def validate(product: ProductOpt = "comstock", release: ReleaseOpt = "2025-3") -> None:
+def validate(
+    product: ProductOpt = "comstock",
+    release: ReleaseOpt = "2025-3",
+    work_dir: WorkDirOpt = None,
+) -> None:
     """Check manifest provenance invariants; exit non-zero on failure."""
     from . import manifest as _manifest
 
+    _workspace(work_dir)
     ok = _manifest.validate_release(product, release)
     raise typer.Exit(code=0 if ok else 1)
 

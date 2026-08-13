@@ -88,6 +88,30 @@ def test_manifest_roundtrip_valid(tmp_path, monkeypatch):
     assert M.validate_release("comstock", "2025-3") is True
 
 
+def test_sampled_build_is_stamped_partial(tmp_path, monkeypatch):
+    """A capped smoke-test build must never read as the record for this release tag."""
+    proot = _patch(tmp_path, monkeypatch)
+    _write_output(proot)
+
+    manifest = M.build_manifest(
+        "comstock", "2025-3", [_doc()], None, [], {}, _state(), 1, None, 1
+    )
+
+    assert manifest["sample"] == {"per_category": 1, "partial": True}
+    # still a valid, fully traced manifest — just an explicitly partial one
+    assert M.validate_manifest("comstock", "2025-3", manifest) == []
+    assert M.validate_release("comstock", "2025-3") is True
+
+
+def test_full_build_has_no_sample_key(tmp_path, monkeypatch):
+    proot = _patch(tmp_path, monkeypatch)
+    _write_output(proot)
+
+    manifest = M.build_manifest("comstock", "2025-3", [_doc()], None, [], {}, _state(), 1)
+
+    assert "sample" not in manifest
+
+
 def test_validate_fails_when_output_deleted(tmp_path, monkeypatch):
     proot = _patch(tmp_path, monkeypatch)
     out = _write_output(proot)

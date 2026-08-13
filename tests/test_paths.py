@@ -1,6 +1,21 @@
-"""Output-path mapping: processed/ layout mirrors source paths unless a source remaps a dir."""
+"""Output-path mapping: processed/ layout mirrors source paths unless a source remaps a dir.
 
-from buildstock_corpus.paths import output_rel, remap_dir
+Also covers the --work-dir sandbox: derived outputs move, inputs and caches do not.
+"""
+
+import pytest
+
+from buildstock_corpus.paths import (
+    INDEX_DIR,
+    PROCESSED_DIR,
+    index_root,
+    output_rel,
+    processed_root,
+    raw_root,
+    remap_dir,
+    sources_file,
+    use_workspace,
+)
 
 REMAP = {
     "docs/upgrade_measures": "unpublished_docs/upgrade_measures",
@@ -69,3 +84,28 @@ def test_remap_tolerates_trailing_slashes():
     assert output_rel("upgrade_measures", "docs/upgrade_measures/env_window_film.md", remap) == (
         "upgrade_measures/unpublished_docs/upgrade_measures/env_window_film.md"
     )
+
+
+@pytest.fixture
+def workspace(tmp_path):
+    """Activate a sandbox root, always restoring the project defaults afterwards."""
+    use_workspace(tmp_path)
+    yield tmp_path
+    use_workspace(None)
+
+
+def test_workspace_redirects_derived_outputs(workspace):
+    assert processed_root("comstock", "2025-3") == workspace / "processed" / "comstock" / "2025-3"
+    assert index_root("comstock", "2025-3") == workspace / "index" / "comstock-2025-3"
+
+
+def test_workspace_leaves_inputs_alone(workspace):
+    """raw/ and sources/ are inputs — a sandbox reuses them instead of re-fetching."""
+    assert raw_root("comstock", "2025-3") == PROCESSED_DIR.parent / "raw" / "comstock" / "2025-3"
+    assert sources_file("comstock", "2025-3").parent == PROCESSED_DIR.parent / "sources"
+
+
+def test_workspace_can_be_cleared(workspace):
+    use_workspace(None)
+    assert processed_root("comstock", "2025-3") == PROCESSED_DIR / "comstock" / "2025-3"
+    assert index_root("comstock", "2025-3") == INDEX_DIR / "comstock-2025-3"

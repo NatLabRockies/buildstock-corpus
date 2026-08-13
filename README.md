@@ -23,6 +23,22 @@ uv run bsc query "How does ComStock determine HVAC system type?" --release 2025-
 uv run bsc validate  --release 2025-3   # enforce provenance invariants
 ```
 
+### Smoke test
+
+To check the pipeline end to end without building the whole corpus, cap the documents per
+category and send the output to a sandbox root:
+
+```bash
+uv run bsc build --release 2025-3 --sample 1 --work-dir .smoketest   # 1 doc per category
+uv run bsc validate --release 2025-3 --work-dir .smoketest
+```
+
+`--sample N` keeps the first N documents of each category (latex, markdown, measures, pdf)
+and stamps the manifest `sample: {partial: true}`, so a smoke-test manifest can never be
+mistaken for the record of a release. `--work-dir` redirects `processed/` and `index/` only:
+`raw/` and the conversion caches stay shared, so the sandbox run reuses fetched sources and
+the warm docling cache and leaves the release artifacts untouched.
+
 The heavy extractors (LaTeX via pandoc, PDF via docling) live in an optional extra:
 
 ```bash
