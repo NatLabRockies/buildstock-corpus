@@ -24,8 +24,8 @@ extract = [
     "docling>=2.0",
     "pypandoc-binary>=1.13",
 ]
-# Optional LLM calls: `bsc query --answer` and the `bsc eval` head-to-head / judge passes.
-# Retrieval and retrieval-only eval work without this.
+# Optional LLM calls: `bsc query --answer` synthesizes an answer from the retrieved
+# passages. Retrieval itself works without this.
 llm = [
     "anthropic>=0.75",
 ]

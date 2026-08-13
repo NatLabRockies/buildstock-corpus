@@ -325,9 +325,8 @@ def main() -> None:
 
     findings, totals = audit(processed, kinds)
 
-    out_md = REPO / "eval" / "md_fidelity_report.md"
-    out_json = REPO / "eval" / "md_fidelity_report.json"
-    out_md.parent.mkdir(parents=True, exist_ok=True)
+    out_md = REPO / "md_fidelity_report.md"
+    out_json = REPO / "md_fidelity_report.json"
     write_report(out_md, findings, totals, args.product, args.release)
     out_json.write_text(
         json.dumps(
