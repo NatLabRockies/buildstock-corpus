@@ -7,7 +7,6 @@ Commands map to pipeline stages, all addressed by (product, release):
     bsc index     embed chunks into a persistent Chroma collection
     bsc query     retrieve cited passages (optionally answer via an LLM)
     bsc validate  enforce provenance invariants on the manifest
-    bsc eval      score the index against a gold set, vs. bare Claude as the baseline
 
 Heavy dependencies (docling, fastembed, ...) are imported lazily inside each
 command so `bsc --help` and unrelated commands stay fast.
@@ -16,7 +15,6 @@ command so `bsc --help` and unrelated commands stay fast.
 from __future__ import annotations
 
 import sys
-from pathlib import Path
 from typing import Annotated
 
 import typer
@@ -86,37 +84,6 @@ def validate(product: ProductOpt = "comstock", release: ReleaseOpt = "2025-3") -
 
     ok = _manifest.validate_release(product, release)
     raise typer.Exit(code=0 if ok else 1)
-
-
-@app.command()
-def eval(
-    gold: Annotated[
-        Path | None, typer.Option(help="Gold question set (default: eval/gold_set.yaml).")
-    ] = None,
-    product: Annotated[str | None, typer.Option(help="Override the gold set's product.")] = None,
-    release: Annotated[str | None, typer.Option(help="Override the gold set's release.")] = None,
-    k: Annotated[int, typer.Option(help="Passages retrieved per question.")] = 5,
-    answer: Annotated[
-        bool,
-        typer.Option(help="Also generate index-backed and bare-Claude answers (needs an API key)."),
-    ] = False,
-    judge: Annotated[
-        bool, typer.Option(help="Grade both answers with an LLM judge; implies --answer.")
-    ] = False,
-    out: Annotated[Path | None, typer.Option(help="Results JSON (default: eval/results.json).")] = None,
-) -> None:
-    """Score retrieval against a gold set, with bare Claude as the baseline."""
-    from . import evaluate as _evaluate
-
-    _evaluate.evaluate_release(
-        product=product,
-        release=release,
-        gold_path=gold or _evaluate.DEFAULT_GOLD,
-        k=k,
-        answer=answer,
-        judge=judge,
-        out_path=out or _evaluate.DEFAULT_RESULTS,
-    )
 
 
 if __name__ == "__main__":

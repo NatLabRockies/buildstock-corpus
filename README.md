@@ -21,7 +21,6 @@ uv run bsc build     --release 2025-3   # extract -> normalize -> chunks + manif
 uv run bsc index     --release 2025-3   # embed chunks -> index/
 uv run bsc query "How does ComStock determine HVAC system type?" --release 2025-3
 uv run bsc validate  --release 2025-3   # enforce provenance invariants
-uv run bsc eval                         # score the index against eval/gold_set.yaml
 ```
 
 The heavy extractors (LaTeX via pandoc, PDF via docling) live in an optional extra:
@@ -29,37 +28,6 @@ The heavy extractors (LaTeX via pandoc, PDF via docling) live in an optional ext
 ```bash
 uv sync --extra extract
 ```
-
-## Evaluation
-
-`bsc eval` answers one question: **does the index beat just asking Claude?** The baseline is
-what a user would otherwise do — paste the question into a Claude chat — so the comparison
-holds the model and generation config fixed and varies only whether the retrieved ComStock
-passages are in the prompt.
-
-It runs in three layers, cheapest first:
-
-```bash
-uv run bsc eval                    # retrieval only: recall@k, MRR, gold points in context
-uv run bsc eval --answer           # + index-backed and bare-Claude answers side by side
-uv run bsc eval --judge            # + an LLM judge grading each gold fact per side
-```
-
-Layers 2 and 3 need `ANTHROPIC_API_KEY` and `uv sync --extra llm`. Without a key the run
-falls back to retrieval only and writes `eval/baseline_prompts.md`, so the bare-Claude side
-can be done by hand in claude.ai.
-
-The headline retrieval metric is **gold points in context**: the share of required facts that
-appear verbatim in the retrieved passages. It is the ceiling on what retrieval can contribute
-— if a number isn't in the passages, no prompting recovers it. The judge's
-`baseline_contradictions` count is the sharper argument for retrieval: a confidently wrong
-release-specific number is worse than a refusal.
-
-`eval/gold_set.yaml` deliberately keeps questions marked `known_gap: true` — places the corpus
-is known *not* to cover (image-only tables, structured artifacts that aren't chunked). They are
-excluded from recall@k and reported separately so the summary can't credit the index for
-coverage it doesn't have. Results land in `eval/results.json` (tracked, so scores are
-comparable across releases).
 
 ## Layout
 
