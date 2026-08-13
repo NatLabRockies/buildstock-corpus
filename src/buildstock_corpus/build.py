@@ -21,7 +21,16 @@ from .extract.measures_index import MeasureRef, parse_index
 from .extract.pdf import PdfSpec, load_pdf_docs
 from .manifest import build_manifest
 from .normalize import Document
-from .paths import chunks_file, manifest_file, output_rel, processed_root, raw_root, remap_dir
+from .overlay import apply_overlays
+from .paths import (
+    chunks_file,
+    long_path,
+    manifest_file,
+    output_rel,
+    processed_root,
+    raw_root,
+    remap_dir,
+)
 from .registry import Source, load_registry
 
 
@@ -203,20 +212,36 @@ def _strip_leading_heading(title: str, body: str) -> str:
 def _write_processed(
     product: str, release: str, docs: list[Document], remaps: dict[str, tuple[str, str]]
 ) -> None:
+    """Write one .md per document.
+
+    newline="\\n" is load-bearing, not style: manifest.json records the sha256 of these
+    bytes, so letting the platform pick the line ending would make the same inputs hash
+    differently on Windows than on Linux and `bsc validate` would depend on who ran the
+    build. See .gitattributes, which pins the checkout to match.
+    """
     root = processed_root(product, release)
     for doc in docs:
         out = root / output_rel(doc.source_id, doc.source_path, remaps.get(doc.source_id))
         out.parent.mkdir(parents=True, exist_ok=True)
         front = f"<!-- {doc.product} {doc.release} | {doc.source_id} | {doc.source_path} -->\n"
         body = _strip_leading_heading(doc.title, doc.body)
-        out.write_text(front + f"# {doc.title}\n\n{body}", encoding="utf-8")
+        out.write_text(front + f"# {doc.title}\n\n{body}", encoding="utf-8", newline="\n")
 
 
-def _replace_dir(src_dir: Path, dst: Path) -> None:
+def _replace_dir(src_dir: Path, dst: Path) -> int:
+    """Replace `dst` with a copy of `src_dir`, returning the number of files copied.
+
+    Every filesystem call goes through long_path(): a handful of docling's image filenames
+    push these destinations past Windows' 260-character limit, where both the rmtree of the
+    previous build's tree and the copytree of the new one fail on paths that plainly exist.
+    Counting here rather than at the call sites means the count uses the same reachable
+    form — a plain rglob().is_file() silently reports False for those files.
+    """
     if dst.exists():
-        shutil.rmtree(dst)
+        shutil.rmtree(long_path(dst))
     dst.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copytree(src_dir, dst)
+    shutil.copytree(long_path(src_dir), long_path(dst))
+    return sum(1 for p in Path(long_path(dst)).rglob("*") if p.is_file())
 
 
 def _copy_source_images(product: str, release: str, pdf_images: dict[str, Path]) -> int:
@@ -231,8 +256,7 @@ def _copy_source_images(product: str, release: str, pdf_images: dict[str, Path])
 
     for rel_dir, cache_dir in pdf_images.items():
         dst = root / rel_dir
-        _replace_dir(cache_dir, dst)
-        copied += sum(1 for p in dst.rglob("*") if p.is_file())
+        copied += _replace_dir(cache_dir, dst)
 
     for src in reg.sources:
         clone_dir = _clone_dir(product, release, src)
@@ -243,16 +267,14 @@ def _copy_source_images(product: str, release: str, pdf_images: dict[str, Path])
             if src_media.is_dir():
                 rel_media = f"{(src.internal_dir or '').strip('/')}/media"
                 dst = root / src.id / remap_dir(rel_media, src.output_remap)
-                _replace_dir(src_media, dst)
-                copied += sum(1 for p in dst.rglob("*") if p.is_file())
+                copied += _replace_dir(src_media, dst)
         elif src.type == "markdown":
             # site pages reach up to the repo-root asset dir (../../assets/images/...);
             # output mirrors repo-relative depth, so one copy serves every page depth.
             src_assets = clone_dir / "assets" / "images"
             if src_assets.is_dir():
                 dst = root / src.id / "assets" / "images"
-                _replace_dir(src_assets, dst)
-                copied += sum(1 for p in dst.rglob("*") if p.is_file())
+                copied += _replace_dir(src_assets, dst)
         elif src.type == "latex":
             # pandoc emits <img src="figures/..."> relative to the chapter .tex files
             latex_main = clone_dir / (src.latex_main or "")
@@ -260,45 +282,65 @@ def _copy_source_images(product: str, release: str, pdf_images: dict[str, Path])
             if src_figures.is_dir():
                 rel = latex_main.parent.relative_to(clone_dir).as_posix()
                 dst = root / src.id / rel / "figures"
-                _replace_dir(src_figures, dst)
-                copied += sum(1 for p in dst.rglob("*") if p.is_file())
+                copied += _replace_dir(src_figures, dst)
     return copied
 
 
-def build_release(product: str, release: str, sample: int | None = None) -> dict:
+def build_release(
+    product: str, release: str, sample: int | None = None, overlays: bool = True
+) -> dict:
     """Build processed artifacts for a release; `sample` caps documents per category.
 
     A sampled build is a smoke test, not a release: its manifest is stamped partial (see
     build_manifest) so it can never be read as the record for this release tag.
+
+    `overlays=False` skips the sidecar transcriptions (see overlay.apply_overlays), which
+    is how you reproduce the pre-overlay output for a before/after comparison. A release
+    build should leave them on — without them the affected tables exist only as bitmaps.
     """
     state = _load_fetch_state(product, release)
     docs, excluded, warnings, crosswalk, pdf_images = _extract_documents(
         product, release, state, sample
     )
-    remaps = load_registry(product, release).output_remaps()
+    reg = load_registry(product, release)
+
+    applied: dict[str, dict] = {}
+    if overlays:
+        # Inject before writing, so the transcribed tables reach both the processed .md
+        # files and chunks.jsonl. Images resolve relative to the page inside the clone.
+        clone_dirs = {src.id: _clone_dir(product, release, src) for src in reg.sources}
+        applied, overlay_warnings = apply_overlays(docs, product, release, clone_dirs)
+        warnings += overlay_warnings
+
+    remaps = reg.output_remaps()
     _write_processed(product, release, docs, remaps)
     n_images = _copy_source_images(product, release, pdf_images)
 
     chunks = chunk_documents(docs)
     cf = chunks_file(product, release)
     cf.parent.mkdir(parents=True, exist_ok=True)
-    with cf.open("w", encoding="utf-8") as f:
+    with cf.open("w", encoding="utf-8", newline="\n") as f:
         for c in chunks:
             f.write(json.dumps({"id": c.id, "text": c.text, "metadata": c.metadata}) + "\n")
 
     if crosswalk is not None:
         (processed_root(product, release) / "crosswalk.json").write_text(
-            json.dumps(crosswalk, indent=2), encoding="utf-8"
+            json.dumps(crosswalk, indent=2), encoding="utf-8", newline="\n"
         )
 
     manifest = build_manifest(
-        product, release, docs, crosswalk, warnings, excluded, state, len(chunks), remaps, sample
+        product, release, docs, crosswalk, warnings, excluded, state, len(chunks), remaps,
+        sample, applied,
     )
 
     by_type: dict[str, int] = defaultdict(int)
     for d in docs:
         by_type[d.source_type] += 1
     n_excluded = sum(len(v) for v in excluded.values())
+    n_overlay_docs = sum(len(v) for v in applied.values())
+    n_overlay_tables = sum(
+        len(rec["tables_applied"]) for docs_ in applied.values() for rec in docs_.values()
+    )
     summary = {
         "sample": sample,
         "documents": len(docs),
@@ -306,6 +348,7 @@ def build_release(product: str, release: str, sample: int | None = None) -> dict
         "images": n_images,
         "by_type": dict(by_type),
         "excluded_unpublished": excluded,
+        "overlay_tables": n_overlay_tables,
         "warnings": warnings,
         "crosswalk": crosswalk["counts"] if crosswalk else None,
         "chunks_file": str(cf),
@@ -315,6 +358,10 @@ def build_release(product: str, release: str, sample: int | None = None) -> dict
         print(f"build: SAMPLE - at most {sample} document(s) per category; partial corpus")
     print(f"build: {len(docs)} docs -> {len(chunks)} chunks (by type: {dict(by_type)}) -> {cf}")
     print(f"  copied {n_images} image file(s) into processed/")
+    if not overlays:
+        print("  overlays: SKIPPED (--no-overlays); bitmap-only tables stay unconverted")
+    elif n_overlay_tables:
+        print(f"  overlays: injected {n_overlay_tables} table(s) into {n_overlay_docs} doc(s)")
     if crosswalk:
         c = crosswalk["counts"]
         note = " (full crosswalk: measure->doc mapping, not the sampled docs)" if sample else ""

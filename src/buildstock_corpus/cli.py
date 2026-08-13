@@ -75,13 +75,21 @@ def build(
             "release artifacts are not overwritten.",
         ),
     ] = None,
+    overlays: Annotated[
+        bool,
+        typer.Option(
+            help="Inject the hand-authored sidecar overlays (tables the source embeds only "
+            "as bitmaps). Use --no-overlays to reproduce the pre-overlay output for a "
+            "before/after comparison; a release build wants them on.",
+        ),
+    ] = True,
     work_dir: WorkDirOpt = None,
 ) -> None:
     """Extract, normalize, and chunk raw sources into release-tagged artifacts + manifest."""
     from . import build as _build
 
     _workspace(work_dir)
-    _build.build_release(product, release, sample=sample)
+    _build.build_release(product, release, sample=sample, overlays=overlays)
 
 
 @app.command()

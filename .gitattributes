@@ -1,0 +1,18 @@
+# manifest.json records the sha256 of each artifact's bytes as they sit on disk, and
+# `bsc validate` recomputes those hashes from the working tree. So a checkout has to
+# reproduce the committed bytes exactly. Without this file, core.autocrlf=true rewrites
+# line endings on a Windows checkout and every artifact reads as "changed since build",
+# while the same clone on Linux validates clean -- the provenance chain would hold or
+# fail depending on who cloned it.
+#
+# eol=lf pins the working tree to LF on every platform, matching what the pipeline writes.
+* text=auto eol=lf
+
+# Binary assets: never touch these, and never diff them as text.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.svg binary
+*.ico binary
+*.pdf binary
+*.onnx binary

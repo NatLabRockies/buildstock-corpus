@@ -126,7 +126,33 @@ Each combination of climate zone and energy code included 2--12 window configura
 
 Table 4. Window Distribution Assumptions Example From Climate Zone 4A
 
-![Table Description automatically generated](./media/1225d411-9c12-4555-b633-bcbd69a6bfbd.png)
+<!-- table recovered from ./media/1225d411-9c12-4555-b633-bcbd69a6bfbd.png
+     overlay: comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_ext_secondary_window.yaml
+     method: vision-transcription -->
+
+**Allowable assembly maximums by the energy code followed during the last windows replacement**
+
+| Allowable Assembly Maximum | Pre-1980 | 1980-2004 | 90.1-2004 | 90.1-2007 | 90.1-2010 | 90.1-2013 |
+|---|---|---|---|---|---|---|
+| U-Value | 1.22 | 0.59 | 0.57 | 0.55 | 0.55 | 0.42 |
+| SHGC | 0.54 | 0.36 | 0.39 | 0.4 | 0.4 | 0.4 |
+
+**Window types that meet each code minimum (X = this window type meets code minimums)**
+
+| Window Type | Pre-1980 | 1980-2004 | 90.1-2004 | 90.1-2007 | 90.1-2010 | 90.1-2013 |
+|---|---|---|---|---|---|---|
+| Single - No LowE - Clear - Aluminum U-1.178 SHGC-0.744 | X |  |  |  |  |  |
+| Single - No LowE - Tinted/Reflective - Aluminum U-1.178 SHGC-0.579 | X |  |  |  |  |  |
+| Single - No LowE - Clear - Wood U-0.91 SHGC-0.683 | X | X |  |  |  |  |
+| Single - No LowE - Tinted/Reflective - Wood U-0.91 SHGC-0.525 | X | X |  |  |  |  |
+| Double - No LowE - Tinted/Reflective - Aluminum U-0.749 SHGC-0.484 | X | X |  |  |  |  |
+| Double - No LowE - Clear - Aluminum U-0.746 SHGC-0.646 | X | X |  |  |  |  |
+| Double - LowE - Clear - Aluminum U-0.559 SHGC-0.386 |  | X | X | X | X |  |
+| Double - LowE - Tinted/Reflective - Aluminum U-0.557 SHGC-0.274 |  | X | X | X | X |  |
+| Double - LowE - Clear - Thermally Broken Aluminum U-0.499 SHGC-0.378 |  |  | X | X | X | X |
+| Double - LowE - Tinted/Reflective - Thermally Broken Aluminum U-0.496 SHGC-0.266 |  |  | X | X | X | X |
+| Triple - LowE - Clear - Thermally Broken Aluminum U-0.3 SHGC-0.328 |  |  | X | X | X | X |
+| Triple - LowE - Tinted/Reflective - Thermally Broken Aluminum U-0.299 SHGC-0.224 |  |  | X | X | X | X |
 
 As can be seen in Table 4, for DOE Ref Pre-1980, the only windows that met code and are realistic are single-pane or double-pane windows with no low-E coating. For DOE Ref 1980--2004, the maximum U-value dropped significantly, such that single-pane aluminum windows no longer met code. However, double-pane low-E windows became available on the market at that time. For 90.1-2004 through 90.1-2010, code required a U-value equivalent to double-pane low-E or better, and in 90.1-2013, the code improved again, meaning that double-pane low-E with a thermal break or better was required. This type of logic was applied to all combinations of climate zone and energy code. Then, we converted the data into the distributions used in sampling.
 
@@ -138,7 +164,24 @@ Once the 12 new window constructions were determined, a team from LBNL's Windows
 
 Table 5. Window Thermal Performance
 
-![Table Description automatically generated](./media/fd012e1d-53a4-4b03-b432-a24f61cb469e.png)
+<!-- table recovered from ./media/fd012e1d-53a4-4b03-b432-a24f61cb469e.png
+     overlay: comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_ext_secondary_window.yaml
+     method: vision-transcription -->
+
+| Number of Panes | Glazing Type | Frame Material | Low-E Coating | Frame ID | WINDOW ID | U-Factor IP (Btu/h-ft2-F) | SHGC | VLT |
+|---|---|---|---|---|---|---|---|---|
+| Single | Clear | Aluminum | No | 5 | 2000 | 1.178 | 0.744 | 0.754 |
+| Single | Tinted/Reflective | Aluminum | No | 5 | 2001 | 1.178 | 0.579 | 0.455 |
+| Single | Clear | Wood | No | 9 | 2002 | 0.910 | 0.683 | 0.723 |
+| Single | Tinted/Reflective | Wood | No | 9 | 2003 | 0.910 | 0.525 | 0.436 |
+| Double | Clear | Aluminum | No | 5 | 2004 | 0.746 | 0.646 | 0.671 |
+| Double | Tinted/Reflective | Aluminum | No | 5 | 2005 | 0.749 | 0.484 | 0.411 |
+| Double | Clear | Aluminum | Yes | 5 | 2006 | 0.559 | 0.386 | 0.591 |
+| Double | Clear | Aluminum With Thermal Break | Yes | 7 | 2007 | 0.499 | 0.378 | 0.591 |
+| Double | Tinted/Reflective | Aluminum | Yes | 5 | 2008 | 0.557 | 0.274 | 0.359 |
+| Double | Tinted/Reflective | Aluminum With Thermal Break | Yes | 7 | 2009 | 0.496 | 0.266 | 0.359 |
+| Triple | Clear | Aluminum With Thermal Break | Yes | 8 | 2010 | 0.300 | 0.328 | 0.527 |
+| Triple | Tinted/Reflective | Aluminum With Thermal Break | Yes | 8 | 2011 | 0.299 | 0.224 | 0.320 |
 
 The U-factors originally ranged from U-1.18 (Btu/hr-ft2-°F) for the worst-performing single-pane window to U-0.30 (Btu/hr-ft2-°F) for the best-performing triple-pane window. As mentioned earlier in this section, the maximum U-factor that EnergyPlus can model with a simple glazing object is U-1.02 (Btu/hr-ft2-°F), which is governed by the limitations of a 2D heat transfer model when interior and exterior air films are included. Therefore, we adjusted the U-factor for the first two single-pane windows to be U-1.02 (Btu/hr-ft2-°F) rather than U-1.18 (Btu/hr-ft2-°F). This allowed these windows to be modeled in ComStock. This results in a slight overestimate of the thermal performance of single-pane windows.
 
@@ -172,7 +215,89 @@ Table 7. Proposed Combinations for Performance of Existing Window Plus Secondary
 
 Table 8. Comparison of Existing Window Plus Secondary Window Combinations to ASHRAE *Small and Medium Office Zero Energy AEDG* Performance Targets by Climate Zone
 
-![Table Description automatically generated](./media/0f54f116-2001-4833-b8ba-bff84c446d15.png)
+<!-- table recovered from ./media/0f54f116-2001-4833-b8ba-bff84c446d15.png
+     overlay: comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_ext_secondary_window.yaml
+     method: vision-transcription -->
+
+**Existing window**
+
+| ID | Pane | Glazing | Frame | Low-e |
+|---|---|---|---|---|
+| 1 | Single | Clear | Aluminum | No |
+| 2 | Single | Tinted/Reflective | Aluminum | No |
+| 3 | Single | Clear | Wood | No |
+| 4 | Single | Tinted/Reflective | Wood | No |
+| 5 | Double | Clear | Aluminum | No |
+| 6 | Double | Tinted/Reflective | Aluminum | No |
+| 7 | Double | Clear | Aluminum | Yes |
+| 8 | Double | Clear | Aluminum with thermal break | Yes |
+| 9 | Double | Tinted/Reflective | Aluminum | Yes |
+| 10 | Double | Tinted/Reflective | Aluminum with thermal break | Yes |
+| 11 | Triple | Clear | Aluminum with thermal break | Yes |
+| 12 | Triple | Tinted/Reflective | Aluminum with thermal break | Yes |
+
+**Secondary window (climate zones 1-8 = one value the source merged across every zone band)**
+
+| ID | Climate Zones | Pane | Glazing | Frame | Low-e |
+|---|---|---|---|---|---|
+| 1 | 1-8 | Double | Tinted/Reflective | Aluminum with thermal break | Yes |
+| 2 | 1-8 | Double | Clear | Aluminum with thermal break | Yes |
+| 3 | 1-8 | Double | Tinted/Reflective | Aluminum with thermal break | Yes |
+| 4 | 1-8 | Double | Clear | Aluminum with thermal break | Yes |
+| 5 | 1-8 | Single | Tinted/Reflective | Aluminum with thermal break | Yes |
+| 6 | 1-8 | Single | Clear | Aluminum with thermal break | Yes |
+| 7 | 1, 2, 3 | Single | Tinted/Reflective | Aluminum with thermal break | No |
+| 7 | 4, 5, 6 | Single | Clear | Aluminum with thermal break | No |
+| 7 | 7, 8 | Single | Clear | Aluminum with thermal break | No |
+| 8 | 1, 2, 3 | Single | Tinted/Reflective | Aluminum with thermal break | No |
+| 8 | 4, 5, 6 | Single | Clear | Aluminum with thermal break | No |
+| 8 | 7, 8 | Single | Clear | Aluminum with thermal break | No |
+| 9 | 1-8 | Single | Clear | Aluminum with thermal break | No |
+| 10 | 1-8 | Single | Clear | Aluminum with thermal break | No |
+| 11 | 1-8 | No secondary window applied |  |  |  |
+| 12 | 1-8 | No secondary window applied |  |  |  |
+
+**Total assembly performance with secondary window added (climate zones 1-8 = one value the source merged across every zone band)**
+
+| ID | Climate Zones | U-Factor (IP) (Btu/hr*ft2*F) | R-value (IP) (hr*ft2*F/Btu) | SHGC | VLT |
+|---|---|---|---|---|---|
+| 1 | 1-8 | 0.61 | 1.63 | 0.54 | 0.47 |
+| 2 | 1-8 | 0.61 | 1.63 | 0.43 | 0.37 |
+| 3 | 1-8 | 0.37 | 2.70 | 0.49 | 0.45 |
+| 4 | 1-8 | 0.37 | 2.70 | 0.38 | 0.36 |
+| 5 | 1-8 | 0.61 | 1.64 | 0.54 | 0.36 |
+| 6 | 1-8 | 0.61 | 1.64 | 0.42 | 0.37 |
+| 7 | 1, 2, 3 | 0.50 | 1.98 | 0.35 | 0.32 |
+| 7 | 4, 5, 6 | 0.50 | 1.98 | 0.35 | 0.32 |
+| 7 | 7, 8 | 0.50 | 1.98 | 0.36 | 0.53 |
+| 8 | 1, 2, 3 | 0.44 | 2.25 | 0.34 | 0.32 |
+| 8 | 4, 5, 6 | 0.44 | 2.25 | 0.35 | 0.53 |
+| 8 | 7, 8 | 0.44 | 2.25 | 0.35 | 0.53 |
+| 9 | 1-8 | 0.50 | 1.99 | 0.25 | 0.32 |
+| 10 | 1-8 | 0.44 | 2.26 | 0.24 | 0.32 |
+
+**AEDG recommendation (average of recommendation for included climate zones)**
+
+| Climate Zones | U-Factor (IP) (Btu/hr*ft2*F) | R-value (IP) (hr*ft2*F/Btu) | SHGC |
+|---|---|---|---|
+| 1, 2, 3 | 0.44 | 2.27 | 0.23 |
+| 4, 5, 6 | 0.33 | 3.03 | 0.35 |
+| 7, 8 | 0.27 | 3.70 | 0.38 |
+
+**Comparison to AEDG (difference from the recommendation above; IDs 11 and 12 have no secondary window applied)**
+
+| ID | R-value diff (zones 1, 2, 3) | R-value diff (zones 4, 5, 6) | R-value diff (zones 7, 8) | SHGC diff (zones 1, 2, 3) | SHGC diff (zones 4, 5, 6) | SHGC diff (zones 7, 8) |
+|---|---|---|---|---|---|---|
+| 1 | -28% | -46% | -56% | 136% | 55% | 43% |
+| 2 | -28% | -46% | -56% | 85% | 22% | 12% |
+| 3 | 19% | -11% | -27% | 113% | 40% | 29% |
+| 4 | 19% | -11% | -27% | 65% | 8% | 0% |
+| 5 | -28% | -46% | -56% | 134% | 54% | 42% |
+| 6 | -28% | -46% | -56% | 83% | 20% | 11% |
+| 7 | -13% | -35% | -47% | 51% | -1% | -8% |
+| 8 | -1% | -26% | -39% | 51% | -1% | -8% |
+| 9 | -13% | -34% | -46% | 10% | -28% | -34% |
+| 10 | -1% | -26% | -39% | 6% | -30% | -36% |
 
 # 5.  Applicability
 

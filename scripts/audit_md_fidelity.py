@@ -329,7 +329,7 @@ def write_report(path: Path, findings: list[dict], totals: dict, product: str, r
                 f"- unconverted raw `<img>` at line(s): {', '.join(map(str, f['unconverted_html_imgs']))}"
             )
         lines.append("")
-    path.write_text("\n".join(lines), encoding="utf-8")
+    path.write_text("\n".join(lines), encoding="utf-8", newline="\n")
 
 
 def main() -> None:
@@ -353,6 +353,7 @@ def main() -> None:
             indent=2,
         ),
         encoding="utf-8",
+        newline="\n",
     )
 
     print(

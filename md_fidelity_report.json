@@ -44,13 +44,13 @@
     "measures": {
       "files": 6,
       "table_captions": 39,
-      "orphan_tables": 16,
+      "orphan_tables": 0,
       "figure_captions": 58,
       "orphan_figures": 0,
-      "md_tables": 24,
+      "md_tables": 64,
       "html_tables": 0,
       "html_imgs": 0,
-      "md_images": 96,
+      "md_images": 80,
       "dangling_refs": 0,
       "duplicate_h1": 0
     }
@@ -409,130 +409,6 @@
           "line": 285,
           "label": "Table 2",
           "caption": "Table 2. Mapping of Data Sources to RTU Performance Curves"
-        }
-      ],
-      "orphan_figures": [],
-      "dangling_refs": [],
-      "duplicate_h1": [],
-      "unconverted_html_tables": [],
-      "unconverted_html_imgs": []
-    },
-    {
-      "file": "upgrade_measures/unpublished_docs/upgrade_measures/env_ext_secondary_window.md",
-      "extractor": "measures",
-      "orphan_tables": [
-        {
-          "line": 127,
-          "label": "Table 4",
-          "caption": "Table 4. Window Distribution Assumptions Example From Climate Zone 4A"
-        },
-        {
-          "line": 139,
-          "label": "Table 5",
-          "caption": "Table 5. Window Thermal Performance"
-        },
-        {
-          "line": 173,
-          "label": "Table 8",
-          "caption": "Table 8. Comparison of Existing Window Plus Secondary Window Combinations to ASHRAE *Small and Medium Office Zero Energy AEDG* Per"
-        }
-      ],
-      "orphan_figures": [],
-      "dangling_refs": [],
-      "duplicate_h1": [],
-      "unconverted_html_tables": [],
-      "unconverted_html_imgs": []
-    },
-    {
-      "file": "upgrade_measures/unpublished_docs/upgrade_measures/env_ext_wall_insulation.md",
-      "extractor": "measures",
-      "orphan_tables": [
-        {
-          "line": 88,
-          "label": "Table 4",
-          "caption": "Table 4. Mapping of Wall Construction Types from Database to ComStock"
-        },
-        {
-          "line": 96,
-          "label": "Table 5",
-          "caption": "Table 5. Input Distribution of Wall Construction Types by Climate Zone and Number of Stories"
-        },
-        {
-          "line": 112,
-          "label": "Table 6",
-          "caption": "Table 6. Wall Assembly Thermal Performance (Outside California)"
-        },
-        {
-          "line": 116,
-          "label": "Table 7",
-          "caption": "Table 7. Wall Assembly Thermal Performance (In California)"
-        },
-        {
-          "line": 126,
-          "label": "Table 8",
-          "caption": "Table 8. Summary of Average Wall R-Value by ASHRAE Climate Zone and Wall Type"
-        }
-      ],
-      "orphan_figures": [],
-      "dangling_refs": [],
-      "duplicate_h1": [],
-      "unconverted_html_tables": [],
-      "unconverted_html_imgs": []
-    },
-    {
-      "file": "upgrade_measures/unpublished_docs/upgrade_measures/env_roof_insulation.md",
-      "extractor": "measures",
-      "orphan_tables": [
-        {
-          "line": 67,
-          "label": "Table 1",
-          "caption": "Table 1. Roof Construction Types"
-        },
-        {
-          "line": 85,
-          "label": "Table 2",
-          "caption": "Table 2. ASHRAE 90.1 IEAD Nonresidential Roof R-Value (c.i.)"
-        },
-        {
-          "line": 89,
-          "label": "Table 3",
-          "caption": "Table 3. ASHRAE 90.1 IEAD Residential Roof R-Value (c.i.)"
-        },
-        {
-          "line": 95,
-          "label": "Table 4",
-          "caption": "Table 4. DEER Roof R-Values (c.i.)"
-        },
-        {
-          "line": 119,
-          "label": "Table 5",
-          "caption": "Table 5. Overall Target Assembly Performance Characteristics by Climate Zone per AEDG [3]"
-        },
-        {
-          "line": 126,
-          "label": "Table 6",
-          "caption": "Table 6. Comparison of ComStock Existing Roof Thermal Performance to AEDG Performance Targets by Climate Zone"
-        },
-        {
-          "line": 188,
-          "label": "Table 9",
-          "caption": "Table 9. Summary of Roof Insulation Measure for Comstock Baseline"
-        }
-      ],
-      "orphan_figures": [],
-      "dangling_refs": [],
-      "duplicate_h1": [],
-      "unconverted_html_tables": [],
-      "unconverted_html_imgs": []
-    },
-    {
-      "file": "upgrade_measures/unpublished_docs/upgrade_measures/env_window_film.md",
-      "extractor": "measures",
-      "orphan_tables": [
-        {
-          "line": 134,
-          "label": "Table 3",
-          "caption": "Table 3. Applicability Criteria of Window Films"
         }
       ],
       "orphan_figures": [],

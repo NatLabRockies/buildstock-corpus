@@ -15,34 +15,12 @@ tables use rowspan/colspan, which GFM cannot express, so those stay as HTML by d
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | latex | 19 | 0 | **0** | 0 | **0** | 50 | 113 | **0** | **0** | 35 | 113 |
 | markdown | 40 | 4 | **0** | 11 | **0** | 19 | 39 | **0** | **0** | 1 | 5 |
-| measures | 6 | 39 | **16** | 58 | **0** | 24 | 96 | **0** | **0** | 0 | 0 |
+| measures | 6 | 39 | **0** | 58 | **0** | 64 | 80 | **0** | **0** | 0 | 0 |
 | pdf | 53 | 300 | **20** | 697 | **1** | 627 | 1254 | **0** | **0** | 0 | 0 |
 
-**Totals.** 36/343 table captions orphaned; 1/766 figure captions orphaned; 720 tables converted to markdown; 1502 image refs present with 0 dangling; 0 duplicated H1 heading(s).
+**Totals.** 20/343 table captions orphaned; 1/766 figure captions orphaned; 760 tables converted to markdown; 1486 image refs present with 0 dangling; 0 duplicated H1 heading(s).
 
 ## Gaps by file
-
-### `upgrade_measures/unpublished_docs/upgrade_measures/env_roof_insulation.md`
-
-extractor: **measures** — 7 issue(s)
-
-- L67 **ORPHANED TABLE** — Table 1. Roof Construction Types
-- L85 **ORPHANED TABLE** — Table 2. ASHRAE 90.1 IEAD Nonresidential Roof R-Value (c.i.)
-- L89 **ORPHANED TABLE** — Table 3. ASHRAE 90.1 IEAD Residential Roof R-Value (c.i.)
-- L95 **ORPHANED TABLE** — Table 4. DEER Roof R-Values (c.i.)
-- L119 **ORPHANED TABLE** — Table 5. Overall Target Assembly Performance Characteristics by Climate Zone per AEDG [3]
-- L126 **ORPHANED TABLE** — Table 6. Comparison of ComStock Existing Roof Thermal Performance to AEDG Performance Targets by Climate Zone
-- L188 **ORPHANED TABLE** — Table 9. Summary of Roof Insulation Measure for Comstock Baseline
-
-### `upgrade_measures/unpublished_docs/upgrade_measures/env_ext_wall_insulation.md`
-
-extractor: **measures** — 5 issue(s)
-
-- L88 **ORPHANED TABLE** — Table 4. Mapping of Wall Construction Types from Database to ComStock
-- L96 **ORPHANED TABLE** — Table 5. Input Distribution of Wall Construction Types by Climate Zone and Number of Stories
-- L112 **ORPHANED TABLE** — Table 6. Wall Assembly Thermal Performance (Outside California)
-- L116 **ORPHANED TABLE** — Table 7. Wall Assembly Thermal Performance (In California)
-- L126 **ORPHANED TABLE** — Table 8. Summary of Average Wall R-Value by ASHRAE Climate Zone and Wall Type
 
 ### `upgrade_measures/measure_pdfs/86103.md`
 
@@ -69,14 +47,6 @@ extractor: **pdf** — 3 issue(s)
 - L348 **ORPHANED TABLE** — Table 1. Cooling Capacity Difference Between Low and High Cooling Stages
 - L358 **ORPHANED TABLE** — Table 3. List of New Performance Maps for Standard Performance Modeling
 - L516 **ORPHANED TABLE** — Table 7. Single Building Results: Annual End-Use Consumptions
-
-### `upgrade_measures/unpublished_docs/upgrade_measures/env_ext_secondary_window.md`
-
-extractor: **measures** — 3 issue(s)
-
-- L127 **ORPHANED TABLE** — Table 4. Window Distribution Assumptions Example From Climate Zone 4A
-- L139 **ORPHANED TABLE** — Table 5. Window Thermal Performance
-- L173 **ORPHANED TABLE** — Table 8. Comparison of Existing Window Plus Secondary Window Combinations to ASHRAE *Small and Medium Office Zero Energy AEDG* Per
 
 ### `upgrade_measures/measure_pdfs/86199.md`
 
@@ -122,12 +92,6 @@ extractor: **pdf** — 1 issue(s)
 extractor: **pdf** — 1 issue(s)
 
 - L285 **ORPHANED TABLE** — Table 2. Mapping of Data Sources to RTU Performance Curves
-
-### `upgrade_measures/unpublished_docs/upgrade_measures/env_window_film.md`
-
-extractor: **measures** — 1 issue(s)
-
-- L134 **ORPHANED TABLE** — Table 3. Applicability Criteria of Window Films
 
 ### `github_site/docs/resources/explanations/combining_measure_results.md`
 
