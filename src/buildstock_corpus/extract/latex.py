@@ -126,8 +126,14 @@ def load_latex_docs(
     product: str,
     release: str,
     source_id: str,
+    limit: int | None = None,
 ) -> tuple[list[Document], list[str]]:
-    """Convert each chapter of the LaTeX project into a Document. Returns (docs, warnings)."""
+    """Convert each chapter of the LaTeX project into a Document. Returns (docs, warnings).
+
+    `limit` stops after that many converted chapters (smoke-test sampling). Each chapter
+    costs its own pandoc subprocess, so stopping early is a real saving rather than a
+    post-hoc filter.
+    """
     main_tex = clone_dir / latex_main_rel
     proj_dir = main_tex.parent
     docs: list[Document] = []
@@ -162,4 +168,6 @@ def load_latex_docs(
         )
         if stderr.strip():
             warnings.append(f"{tex_name}: {stderr.strip()[:150]}")
+        if limit is not None and len(docs) >= limit:
+            break
     return docs, warnings

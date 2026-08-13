@@ -17,18 +17,39 @@ PROCESSED_DIR = PROJECT_ROOT / "processed"
 INDEX_DIR = PROJECT_ROOT / "index"
 SOURCES_DIR = PROJECT_ROOT / "sources"
 
+# Sandbox root for derived outputs, set by `--work-dir` (see use_workspace).
+_WORKSPACE: Path | None = None
+
+
+def use_workspace(root: str | Path | None) -> None:
+    """Redirect derived outputs (processed/, index/) under `root`, or back to the defaults.
+
+    Inputs and caches — raw/, sources/, .cache/ — are deliberately left alone, so a
+    sandbox run reuses the already-fetched sources and the warm docling/fastembed caches
+    instead of re-downloading and re-converting. This is what makes a throwaway build
+    (`bsc build --sample 1 --work-dir .smoketest`) both cheap and unable to overwrite the
+    release-tagged artifacts in processed/.
+    """
+    global _WORKSPACE
+    _WORKSPACE = Path(root).resolve() if root else None
+
+
+def _derived_base(name: str, default: Path) -> Path:
+    """Base dir for a derived output tree, honoring an active workspace override."""
+    return (_WORKSPACE / name) if _WORKSPACE else default
+
 
 def raw_root(product: str, release: str) -> Path:
     return RAW_DIR / product / release
 
 
 def processed_root(product: str, release: str) -> Path:
-    return PROCESSED_DIR / product / release
+    return _derived_base("processed", PROCESSED_DIR) / product / release
 
 
 def index_root(product: str, release: str) -> Path:
     # Chroma dislikes ':' and other separators; keep the dir name filesystem-safe.
-    return INDEX_DIR / f"{product}-{release}"
+    return _derived_base("index", INDEX_DIR) / f"{product}-{release}"
 
 
 def sources_file(product: str, release: str) -> Path:

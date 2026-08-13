@@ -104,6 +104,15 @@ def _pdf_specs(
     return specs
 
 
+def _cap(items: list, sample: int | None) -> list:
+    """First `sample` items (all of them when sample is None) — the per-category cap.
+
+    Sampling is always a deterministic prefix of the existing registry/fetch-state order,
+    never random, so a smoke test is reproducible and its manifest is comparable run to run.
+    """
+    return items if sample is None else items[:sample]
+
+
 def _attach_internal_measure_identity(docs: list[Document], refs: list[MeasureRef]) -> None:
     """Tag internal measure pages with their measure id (index internal_md target = path)."""
     by_path: dict[str, list[MeasureRef]] = defaultdict(list)
@@ -117,8 +126,16 @@ def _attach_internal_measure_identity(docs: list[Document], refs: list[MeasureRe
 
 
 def _extract_documents(
-    product: str, release: str, state: dict
+    product: str, release: str, state: dict, sample: int | None = None
 ) -> tuple[list[Document], dict[str, list[str]], list[str], dict | None, dict[str, Path]]:
+    """Extract every fetched source into Documents.
+
+    `sample` caps the documents kept per category (latex / markdown / measures / pdf) for
+    smoke tests. Where the cap can be pushed down into an extractor cheaply it is — latex
+    stops after N pandoc runs, PDFs after N conversions — but markdown extracts fully and
+    caps the resulting docs, because `published: false` pages are filtered during
+    extraction and the first N input paths could all be unpublished.
+    """
     reg = load_registry(product, release)
     docs: list[Document] = []
     excluded: dict[str, list[str]] = {}
@@ -132,7 +149,7 @@ def _extract_documents(
 
         if src.type == "latex":
             latex_docs, latex_warn = load_latex_docs(
-                clone_dir, src.latex_main or "", product, release, src.id
+                clone_dir, src.latex_main or "", product, release, src.id, limit=sample
             )
             docs += latex_docs
             warnings += [f"{src.id}: {w}" for w in latex_warn]
@@ -142,7 +159,7 @@ def _extract_documents(
             md_docs, md_excl = load_markdown_docs(
                 clone_dir, rels, product, release, src.id, "markdown"
             )
-            docs += md_docs
+            docs += _cap(md_docs, sample)
             if md_excl:
                 excluded[src.id] = md_excl
 
@@ -154,11 +171,11 @@ def _extract_documents(
                 clone_dir, rels, product, release, src.id, "measures"
             )
             _attach_internal_measure_identity(page_docs, refs)
-            docs += page_docs
+            docs += _cap(page_docs, sample)
             if page_excl:
                 excluded[src.id] = page_excl
             # external + local measure PDFs
-            specs = _pdf_specs(product, release, clone_dir, src_state, refs)
+            specs = _cap(_pdf_specs(product, release, clone_dir, src_state, refs), sample)
             pdf_docs, pdf_warn, pdf_imgs = load_pdf_docs(specs, product, release, src.id)
             docs += pdf_docs
             warnings += [f"{src.id}: {w}" for w in pdf_warn]
@@ -248,9 +265,16 @@ def _copy_source_images(product: str, release: str, pdf_images: dict[str, Path])
     return copied
 
 
-def build_release(product: str, release: str) -> dict:
+def build_release(product: str, release: str, sample: int | None = None) -> dict:
+    """Build processed artifacts for a release; `sample` caps documents per category.
+
+    A sampled build is a smoke test, not a release: its manifest is stamped partial (see
+    build_manifest) so it can never be read as the record for this release tag.
+    """
     state = _load_fetch_state(product, release)
-    docs, excluded, warnings, crosswalk, pdf_images = _extract_documents(product, release, state)
+    docs, excluded, warnings, crosswalk, pdf_images = _extract_documents(
+        product, release, state, sample
+    )
     remaps = load_registry(product, release).output_remaps()
     _write_processed(product, release, docs, remaps)
     n_images = _copy_source_images(product, release, pdf_images)
@@ -268,7 +292,7 @@ def build_release(product: str, release: str) -> dict:
         )
 
     manifest = build_manifest(
-        product, release, docs, crosswalk, warnings, excluded, state, len(chunks), remaps
+        product, release, docs, crosswalk, warnings, excluded, state, len(chunks), remaps, sample
     )
 
     by_type: dict[str, int] = defaultdict(int)
@@ -276,6 +300,7 @@ def build_release(product: str, release: str) -> dict:
         by_type[d.source_type] += 1
     n_excluded = sum(len(v) for v in excluded.values())
     summary = {
+        "sample": sample,
         "documents": len(docs),
         "chunks": len(chunks),
         "images": n_images,
@@ -286,11 +311,16 @@ def build_release(product: str, release: str) -> dict:
         "chunks_file": str(cf),
         "manifest_file": str(manifest_file(product, release)),
     }
+    if sample is not None:
+        print(f"build: SAMPLE - at most {sample} document(s) per category; partial corpus")
     print(f"build: {len(docs)} docs -> {len(chunks)} chunks (by type: {dict(by_type)}) -> {cf}")
     print(f"  copied {n_images} image file(s) into processed/")
     if crosswalk:
         c = crosswalk["counts"]
-        print(f"  crosswalk: {c['measures']} measures, {c['covered']} covered, {c['gaps']} gaps")
+        note = " (full crosswalk: measure->doc mapping, not the sampled docs)" if sample else ""
+        print(
+            f"  crosswalk: {c['measures']} measures, {c['covered']} covered, {c['gaps']} gaps{note}"
+        )
     if n_excluded:
         print(f"  excluded {n_excluded} unpublished page(s): "
               + ", ".join(f"{k}={len(v)}" for k, v in excluded.items()))

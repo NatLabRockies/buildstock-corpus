@@ -81,12 +81,17 @@ def build_manifest(
     state: dict,
     n_chunks: int,
     remaps: dict[str, tuple[str, str]] | None = None,
+    sample: int | None = None,
 ) -> dict:
     """Assemble and write manifest.json from the just-built documents + fetch state.
 
     `remaps` mirrors the output-dir remapping build applied when writing the files, so
     recorded output_paths point at where the artifacts actually landed. source_path
     stays as-is — it is the upstream citation anchor.
+
+    `sample` records that the build was capped per category. It is stamped into the
+    manifest as `sample.partial` because a manifest is the record of what a release
+    contains: an unmarked 4-document manifest tagged 2025-3 would be a false record.
     """
     proot = processed_root(product, release)
     remaps = remaps or {}
@@ -145,6 +150,8 @@ def build_manifest(
         },
         "warnings": warnings,
     }
+    if sample is not None:
+        manifest["sample"] = {"per_category": sample, "partial": True}
 
     mf = manifest_file(product, release)
     mf.parent.mkdir(parents=True, exist_ok=True)
@@ -213,6 +220,12 @@ def validate_release(product: str, release: str) -> bool:
         return False
 
     print(f"validate: OK - {product} {release}")
+    sample = manifest.get("sample")
+    if sample:
+        print(
+            f"  SAMPLE (partial corpus - NOT a release record): "
+            f"at most {sample.get('per_category')} document(s) per category"
+        )
     print(f"  {n_art} artifacts, all traced to hashed inputs and present on disk with matching hashes")
     gaps = manifest.get("gaps", {})
     gm = gaps.get("measures", [])
