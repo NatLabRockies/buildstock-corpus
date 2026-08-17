@@ -1,0 +1,134 @@
+# Hand-authored table transcriptions for measure_pdfs/89040.pdf
+#
+# Tables 1, 4 and 5 are rasterized regions with no text layer: docling keeps the captions and
+# emits nothing beneath them. See overlays/README.md for the schema.
+#
+# Authoring notes:
+#   * Table 1 shares its caption with Table 1 of measure_pdfs/86103.pdf but is a revised
+#     version of it, not a reprint: the row labels are Title Case here, the operating
+#     temperature cells carry both °F and °C, the dual piping/height units are printed
+#     ft-first, and the refrigerant is spelled "R-410A". It is transcribed from this PDF's own
+#     page render. Like 86103's, it is printed transposed, so the first printed row (the
+#     manufacturer names) becomes the pipe table's header row.
+#   * Table 4 has a two-level header: "Before upsizing" and "After upsizing" each span five
+#     columns. A pipe table has one header row, so the group name is folded into each column
+#     name ("Before upsizing: Design Capacity [W]"). Note the two groups do not list the same
+#     columns in the same order — "Capacity Change from Original Sizing [%]" appears only under
+#     "After upsizing", in second position.
+#   * Table 4 is 11 columns wide and 27 rows deep, well past the chunker's paragraph limit, so
+#     it is decomposed along the seam the source already rules: three sub-tables of three
+#     indoor units each. Its folded header is long enough that each sub-table lands at 1,349 of
+#     the 1,400 characters a paragraph may hold — adding a fourth unit to any of them, or
+#     lengthening the header, would push it over, so split further rather than growing these.
+#   * Table 4 gives each indoor unit three rows and only the cooling-coil row carries the
+#     design capacity, load coverage, CFM/ton and capacity-change values; the heating and
+#     backup rows leave those cells empty. That is transcribed as printed rather than filled
+#     down, because the blanks are the source's statement that those quantities are reported
+#     per unit and not per coil.
+#   * The yellow fill on Table 4's "Capacity Change from Original Sizing" cells and the orange
+#     and blue fills on its two group headers carry no legend and no meaning beyond marking the
+#     column groups, so they are dropped rather than described.
+#   * Table 5's first header cell is blank — the metric names sit in an unlabeled left-hand
+#     column. "Metric" is supplied so the pipe table is well-formed. Its orange/blue cell fills
+#     restate the "Impact on energy" value they sit behind, so they add nothing to transcribe.
+#   * Table 5 prints the two capacity figures without thousands separators (51089, 59599) where
+#     every other number in the table is formatted; that is left as printed.
+
+product: comstock
+release: "2025-3"
+source_id: upgrade_measures
+source_path: measure_pdfs/89040.pdf
+
+tables:
+  - label: "Table 1"
+    caption: "Specifications of Available VRF (HR) Systems on the Market"
+    source_pdf: measure_pdfs/89040.pdf
+    source_pdf_sha256: "28cea1febfd6bdabb0fc0635f0c89efd44a183c80158b7f5562f83e969698762"
+    page: 13
+    method: vision-transcription
+    transcribed_utc: "2026-08-17"
+    markdown: |
+      | Manufacturer | Daikin | Mitsubishi Electric | Carrier | LG Electronics |
+      |---|---|---|---|---|
+      | Model | VRV | PURY-P | 38VMR | Multi V |
+      | Outdoor unit capacity range | 6-40 tons | 6-28 tons | 6-28 tons | 1.7-17 tons |
+      | Heat recovery mode available? | yes | yes | yes | yes |
+      | Operating temperature (cooling) | -4 to 122°F (-20 to 50°C) | 23 to 126°F (-5 to 52°C) | 14 to 122°F (-10 to 50°C) | 5 to 118°F (-15 to 48°C) |
+      | Operating temperature (heating) | -22 to 60°F (-30 to 16°C) | -22 to 60°F (-30 to 16°C) | -13 to 60°F (-25 to 16°C) | -13 to 64°F (-25 to 18°C) |
+      | Max height difference between outdoor vs indoor unit | 361 ft (110 m) | 360 ft (110 m) | - | 360 ft (110 m) |
+      | Max length between indoor units | 295 ft (90 m) | 98 ft (30 m) | - | 131 ft (40 m) |
+      | Max total piping length | 3,281 ft (1,000 m) | 2,624-3,280 ft (800-1000 m) | 3,280 ft (1,000 m) | 3,281 ft (1,000 m) |
+      | Refrigerant | R-410A | R-410A | R-410A | R-410A |
+
+  - label: "Table 4"
+    caption: "Single Building Model Results: Sizing Results Before and After Upsizing Allowance"
+    source_pdf: measure_pdfs/89040.pdf
+    source_pdf_sha256: "28cea1febfd6bdabb0fc0635f0c89efd44a183c80158b7f5562f83e969698762"
+    page: 25
+    method: vision-transcription
+    transcribed_utc: "2026-08-17"
+    markdown: |
+      **Indoor units 1-3**
+
+      | Coil Type | Reference Design Load [W] | Before upsizing: Final Rated Capacity [W] | Before upsizing: Design Capacity [W] | Before upsizing: Design Heating Load Coverage [%] | Before upsizing: CFM/ton bound violated? | After upsizing: Final Rated Capacity [W] | After upsizing: Capacity Change from Original Sizing [%] | After upsizing: Design Capacity [W] | After upsizing: Design Heating Load Coverage [%] | After upsizing: CFM/ton bound violated? |
+      |---|---|---|---|---|---|---|---|---|---|---|
+      | Indoor unit 1 VRF cooling coil | 4,599 | 6,349 | 5,251 | 80% | Max | 7,918 | 25% | 6,595 | 100% | No |
+      | Indoor unit 1 VRF heating coil | 6,595 | 6,349 |  |  |  | 7,918 |  |  |  |  |
+      | Indoor unit 1 backup electric resistance coil | 6,595 | 6,595 |  |  |  | 6,595 |  |  |  |  |
+      | Indoor unit 2 VRF cooling coil | 1,464 | 2,291 | 1,900 | 68% | Max | 2,863 | 25% | 2,393 | 85% | No |
+      | Indoor unit 2 VRF heating coil | 2,808 | 2,291 |  |  |  | 2,863 |  |  |  |  |
+      | Indoor unit 2 backup electric resistance coil | 2,808 | 2,808 |  |  |  | 2,808 |  |  |  |  |
+      | Indoor unit 3 VRF cooling coil | 1,301 | 2,285 | 1,892 | 68% | Max | 2,856 | 25% | 2,383 | 85% | No |
+      | Indoor unit 3 VRF heating coil | 2,801 | 2,285 |  |  |  | 2,856 |  |  |  |  |
+      | Indoor unit 3 backup electric resistance coil | 2,801 | 2,801 |  |  |  | 2,801 |  |  |  |  |
+
+      **Indoor units 4-6**
+
+      | Coil Type | Reference Design Load [W] | Before upsizing: Final Rated Capacity [W] | Before upsizing: Design Capacity [W] | Before upsizing: Design Heating Load Coverage [%] | Before upsizing: CFM/ton bound violated? | After upsizing: Final Rated Capacity [W] | After upsizing: Capacity Change from Original Sizing [%] | After upsizing: Design Capacity [W] | After upsizing: Design Heating Load Coverage [%] | After upsizing: CFM/ton bound violated? |
+      |---|---|---|---|---|---|---|---|---|---|---|
+      | Indoor unit 4 VRF cooling coil | 14,787 | 20,418 | 16,886 | 165% | Max | 20,418 | 0% | 16,886 | 165% | Max |
+      | Indoor unit 4 VRF heating coil | 10,261 | 20,418 |  |  |  | 20,418 |  |  |  |  |
+      | Indoor unit 4 backup electric resistance coil | 10,261 | 10,261 |  |  |  | 10,261 |  |  |  |  |
+      | Indoor unit 5 VRF cooling coil | 4,912 | 6,782 | 5,626 | 85% | Max | 7,910 | 17% | 6,595 | 100% | No |
+      | Indoor unit 5 VRF heating coil | 6,595 | 6,782 |  |  |  | 7,910 |  |  |  |  |
+      | Indoor unit 5 backup electric resistance coil | 6,595 | 6,595 |  |  |  | 6,595 |  |  |  |  |
+      | Indoor unit 6 VRF cooling coil | 4,320 | 5,964 | 4,932 | 75% | Max | 7,455 | 25% | 6,211 | 95% | No |
+      | Indoor unit 6 VRF heating coil | 6,567 | 5,964 |  |  |  | 7,455 |  |  |  |  |
+      | Indoor unit 6 backup electric resistance coil | 6,567 | 6,567 |  |  |  | 6,567 |  |  |  |  |
+
+      **Indoor units 7-9**
+
+      | Coil Type | Reference Design Load [W] | Before upsizing: Final Rated Capacity [W] | Before upsizing: Design Capacity [W] | Before upsizing: Design Heating Load Coverage [%] | Before upsizing: CFM/ton bound violated? | After upsizing: Final Rated Capacity [W] | After upsizing: Capacity Change from Original Sizing [%] | After upsizing: Design Capacity [W] | After upsizing: Design Heating Load Coverage [%] | After upsizing: CFM/ton bound violated? |
+      |---|---|---|---|---|---|---|---|---|---|---|
+      | Indoor unit 7 VRF cooling coil | 4,552 | 6,285 | 5,221 | 80% | Max | 7,848 | 25% | 6,567 | 100% | No |
+      | Indoor unit 7 VRF heating coil | 6,567 | 6,285 |  |  |  | 7,848 |  |  |  |  |
+      | Indoor unit 7 backup electric resistance coil | 6,567 | 6,567 |  |  |  | 6,567 |  |  |  |  |
+      | Indoor unit 8 VRF cooling coil | 1,459 | 2,285 | 1,908 | 68% | Max | 2,856 | 25% | 2,402 | 86% | No |
+      | Indoor unit 8 VRF heating coil | 2,801 | 2,285 |  |  |  | 2,856 |  |  |  |  |
+      | Indoor unit 8 backup electric resistance coil | 2,801 | 2,801 |  |  |  | 2,801 |  |  |  |  |
+      | Indoor unit 9 VRF cooling coil | 1,293 | 2,278 | 1,902 | 68% | Max | 2,848 | 25% | 2,395 | 86% | No |
+      | Indoor unit 9 VRF heating coil | 2,793 | 2,278 |  |  |  | 2,848 |  |  |  |  |
+      | Indoor unit 9 backup electric resistance coil | 2,793 | 2,793 |  |  |  | 2,793 |  |  |  |  |
+
+  - label: "Table 5"
+    caption: "Single Building Model Results: Annual Results Before and After Upsizing Allowance"
+    source_pdf: measure_pdfs/89040.pdf
+    source_pdf_sha256: "28cea1febfd6bdabb0fc0635f0c89efd44a183c80158b7f5562f83e969698762"
+    page: 27
+    method: vision-transcription
+    transcribed_utc: "2026-08-17"
+    markdown: |
+      | Metric | Before upsizing | After upsizing | Difference after upsizing | Impact on energy |
+      |---|---|---|---|---|
+      | VRF outdoor unit capacity [W] | 51089 | 59599 | 16.66% | - |
+      | Average operating COP: cooling | 7.13 | 6.76 | -5.19% | Negative |
+      | Average operating COP: heating | 2.31 | 2.14 | -7.05% | Negative |
+      | Average overall COP: heating (including backup heating energy) | 1.93 | 1.92 | -0.28% | Negative |
+      | Design heating COP at -22°F | 1.44 | 1.41 | -1.76% | Negative |
+      | Design heating COP at 0°F | 1.90 | 1.87 | -1.76% | Negative |
+      | Design heating COP at 20°F | 2.85 | 2.80 | -1.76% | Negative |
+      | Fraction of backup electric resistance heating | 6.48% | 3.16% | -51.15% | Positive |
+      | Annual electricity consumption [GJ]: heating | 181.22 | 181.42 | 0.11% | Negative |
+      | Annual electricity consumption [GJ]: cooling | 10.09 | 11.25 | 11.50% | Negative |
+      | Annual electricity consumption [GJ]: fan | 24.40 | 22.66 | -7.13% | Positive |
+      | Annual electricity consumption [GJ]: total impacted end-use | 215.71 | 215.33 | -0.18% | Positive |

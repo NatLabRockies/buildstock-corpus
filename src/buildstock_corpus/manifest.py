@@ -21,6 +21,7 @@ from pathlib import Path
 import yaml
 
 from .index import EMBED_MODEL
+from .overlay import entry_kind
 from .paths import OVERLAYS_DIR, manifest_file, output_rel, processed_root
 
 PIPELINE_VERSION = "0.1.0"
@@ -66,6 +67,16 @@ def _input_hashes(src_state: dict) -> dict[str, str]:
     return hashes
 
 
+def input_hashes(state: dict) -> dict[str, dict[str, str]]:
+    """source_id -> source_path -> sha256, for every hashed input in a fetch state.
+
+    Shared with the build (see overlay.apply_overlays) so a caption-anchored overlay's pinned
+    `source_pdf_sha256` is checked against exactly the value recorded as the artifact's
+    `input_sha256` — one source of truth rather than two that can drift.
+    """
+    return {sid: _input_hashes(st) for sid, st in (state.get("sources") or {}).items()}
+
+
 def _by_type(docs) -> dict[str, int]:
     out: dict[str, int] = {}
     for d in docs:
@@ -104,7 +115,7 @@ def build_manifest(
     proot = processed_root(product, release)
     remaps = remaps or {}
     overlays = overlays or {}
-    src_hashes = {sid: _input_hashes(st) for sid, st in state.get("sources", {}).items()}
+    src_hashes = input_hashes(state)
 
     sources_out: dict[str, dict] = {}
     for doc in docs:
@@ -174,10 +185,13 @@ def build_manifest(
     return manifest
 
 
-def _validate_overlay(proot: Path, artifact: dict, where: str) -> tuple[list[str], int, int]:
-    """Check a hand-authored overlay is intact and still matches the images it transcribed.
+def _validate_overlay(proot: Path, artifact: dict, where: str) -> tuple[list[str], int, int, int]:
+    """Check a hand-authored overlay is intact and still matches the source it transcribed.
 
-    Returns (violations, tables_checked, tables_unverifiable).
+    Returns (violations, image_anchored_checked, caption_anchored_checked, unverifiable).
+    The two checked counts are reported separately because they are not the same claim: one
+    says a bitmap on disk still hashes to what the transcriber saw, the other says the PDF
+    this artifact was built from is the revision that was transcribed.
 
     Two things can silently rot: the sidecar itself can be edited after the build (so the
     shipped table no longer matches the recorded source), or upstream can redraw the image
@@ -191,28 +205,49 @@ def _validate_overlay(proot: Path, artifact: dict, where: str) -> tuple[list[str
     every clone until someone re-ran fetch+build — reporting a provenance break where
     there is none. Those tables are counted as unverifiable here and surfaced by
     validate_release, so a clean run never overstates what it actually checked.
+
+    Caption-anchored entries (overlay.entry_kind == 'pdf') pin the source PDF rather than a
+    bitmap, and are checked against this artifact's own `input_sha256`. That value is in the
+    manifest, so unlike an image these are always verifiable — including in a fresh clone,
+    where raw/ holds no PDFs at all.
     """
     ov = artifact["overlay"]
     errors: list[str] = []
 
     ov_abs = OVERLAYS_DIR / ov.get("path", "")
     if not ov_abs.is_file():
-        return [f"{where}: overlay file missing on disk: {ov.get('path')}"], 0, 0
+        return [f"{where}: overlay file missing on disk: {ov.get('path')}"], 0, 0, 0
     if _sha256_file(ov_abs) != ov.get("sha256"):
-        return [f"{where}: overlay hash mismatch (sidecar changed since build): {ov['path']}"], 0, 0
+        return (
+            [f"{where}: overlay hash mismatch (sidecar changed since build): {ov['path']}"],
+            0,
+            0,
+            0,
+        )
 
     try:
         data = yaml.safe_load(ov_abs.read_text(encoding="utf-8")) or {}
     except yaml.YAMLError as exc:
-        return [f"{where}: overlay is not readable YAML: {str(exc)[:120]}"], 0, 0
+        return [f"{where}: overlay is not readable YAML: {str(exc)[:120]}"], 0, 0, 0
 
     applied = set(ov.get("tables_applied") or [])
     page_dir = (proot / artifact.get("output_path", "")).parent
-    checked = unverifiable = 0
+    checked = checked_pdf = unverifiable = 0
     for entry in data.get("tables") or []:
         label = str(entry.get("label", "")).strip()
         if label not in applied:
             continue  # recorded as not applied; nothing was injected to back up
+
+        if entry_kind(entry) == "pdf":
+            checked_pdf += 1
+            if entry.get("source_pdf_sha256") != artifact.get("input_sha256"):
+                errors.append(
+                    f"{where}: {label}: transcribed from a different revision of "
+                    f"{entry.get('source_pdf')} than this artifact was built from; "
+                    f"the injected table may no longer match it"
+                )
+            continue
+
         img = page_dir / str(entry.get("source_image", ""))
         if not img.is_file():
             unverifiable += 1
@@ -224,7 +259,7 @@ def _validate_overlay(proot: Path, artifact: dict, where: str) -> tuple[list[str
             )
         else:
             checked += 1
-    return errors, checked, unverifiable
+    return errors, checked, checked_pdf, unverifiable
 
 
 def validate_manifest(
@@ -233,13 +268,13 @@ def validate_manifest(
     """Return a list of invariant violations ([] means valid). Pure — no printing.
 
     `stats`, if given, is filled with counts the caller may want to report but which are
-    not violations: `overlay_checked` and `overlay_unverifiable` (see _validate_overlay).
-    It is an out-parameter rather than part of the return value so the return stays a plain
-    error list, which is what every caller and test asserts on.
+    not violations: `overlay_checked`, `overlay_checked_pdf` and `overlay_unverifiable`
+    (see _validate_overlay). It is an out-parameter rather than part of the return value so
+    the return stays a plain error list, which is what every caller and test asserts on.
     """
     proot = processed_root(product, release)
     errors: list[str] = []
-    checked = unverifiable = 0
+    checked = checked_pdf = unverifiable = 0
 
     if manifest.get("product") != product or manifest.get("release") != release:
         errors.append(
@@ -263,14 +298,16 @@ def validate_manifest(
             elif _sha256_file(out_abs) != recorded:
                 errors.append(f"{where}: output hash mismatch (file changed since build)")
             if a.get("overlay"):
-                ov_errors, n_ok, n_skip = _validate_overlay(proot, a, where)
+                ov_errors, n_ok, n_ok_pdf, n_skip = _validate_overlay(proot, a, where)
                 errors += ov_errors
                 checked += n_ok
+                checked_pdf += n_ok_pdf
                 unverifiable += n_skip
     if n_art == 0:
         errors.append("manifest records zero artifacts")
     if stats is not None:
         stats["overlay_checked"] = checked
+        stats["overlay_checked_pdf"] = checked_pdf
         stats["overlay_unverifiable"] = unverifiable
 
     cw_file = proot / "crosswalk.json"
@@ -316,16 +353,26 @@ def validate_release(product: str, release: str) -> bool:
     counts = manifest.get("counts", {})
     n_ov = counts.get("overlay_tables") or 0
     if n_ov:
-        # State what was actually re-verified. On a fresh clone the source images are
-        # absent by design (.gitignore drops processed/**/*.png), and claiming those
-        # transcriptions were checked against their pictures would be a false record.
+        # State what was actually re-verified, and against what: the two anchors are not the
+        # same claim. On a fresh clone the source images are absent by design (.gitignore
+        # drops processed/**/*.png), and claiming those transcriptions were checked against
+        # their pictures would be a false record; the PDF-pinned ones check against a hash
+        # the manifest itself carries, so they are verifiable even there.
         skipped = stats.get("overlay_unverifiable", 0)
-        detail = f"{stats.get('overlay_checked', 0)} re-verified against its source image"
+        parts = []
+        if stats.get("overlay_checked_pdf"):
+            parts.append(
+                f"{stats['overlay_checked_pdf']} re-verified against the source PDF hash "
+                f"recorded in this manifest"
+            )
+        if stats.get("overlay_checked"):
+            parts.append(f"{stats['overlay_checked']} re-verified against its source image")
         if skipped:
-            detail += (
-                f", {skipped} unverifiable here (source image not in the working tree; "
+            parts.append(
+                f"{skipped} unverifiable here (source image not in the working tree; "
                 f"run `bsc fetch && bsc build` to restore it)"
             )
+        detail = ", ".join(parts) if parts else "none re-verified"
         print(
             f"  {n_ov} hand-authored table(s) across "
             f"{counts.get('overlay_documents')} doc(s): {detail}"

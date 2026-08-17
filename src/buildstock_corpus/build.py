@@ -19,7 +19,7 @@ from .extract.latex import load_latex_docs
 from .extract.markdown import load_markdown_docs
 from .extract.measures_index import MeasureRef, parse_index
 from .extract.pdf import PdfSpec, load_pdf_docs
-from .manifest import build_manifest
+from .manifest import build_manifest, input_hashes
 from .normalize import Document
 from .overlay import apply_overlays
 from .paths import (
@@ -136,7 +136,14 @@ def _attach_internal_measure_identity(docs: list[Document], refs: list[MeasureRe
 
 def _extract_documents(
     product: str, release: str, state: dict, sample: int | None = None
-) -> tuple[list[Document], dict[str, list[str]], list[str], dict | None, dict[str, Path]]:
+) -> tuple[
+    list[Document],
+    dict[str, list[str]],
+    list[str],
+    dict | None,
+    dict[str, Path],
+    dict[tuple[str, str], Path],
+]:
     """Extract every fetched source into Documents.
 
     `sample` caps the documents kept per category (latex / markdown / measures / pdf) for
@@ -144,6 +151,11 @@ def _extract_documents(
     stops after N pandoc runs, PDFs after N conversions — but markdown extracts fully and
     caps the resulting docs, because `published: false` pages are filtered during
     extraction and the first N input paths could all be unpublished.
+
+    Returns the two image maps separately because they answer different questions:
+    `pdf_images` says where a PDF's bitmaps are copied *to* under processed/, while
+    `image_dirs` says where any document's bitmaps can be read *from* right now, which is
+    what overlay.apply_overlays needs to hash one it has pinned.
     """
     reg = load_registry(product, release)
     docs: list[Document] = []
@@ -151,10 +163,12 @@ def _extract_documents(
     warnings: list[str] = []
     crosswalk: dict | None = None
     pdf_images: dict[str, Path] = {}
+    image_dirs: dict[tuple[str, str], Path] = {}
 
     for src in reg.sources:
         src_state = state["sources"][src.id]
         clone_dir = _clone_dir(product, release, src)
+        first = len(docs)  # so this source's own docs can be post-processed below
 
         if src.type == "latex":
             latex_docs, latex_warn = load_latex_docs(
@@ -188,15 +202,24 @@ def _extract_documents(
             pdf_docs, pdf_warn, pdf_imgs = load_pdf_docs(specs, product, release, src.id)
             docs += pdf_docs
             warnings += [f"{src.id}: {w}" for w in pdf_warn]
-            for rel_dir, cache_dir in pdf_imgs.items():
+            for source_path, (rel_dir, cache_dir) in pdf_imgs.items():
                 # follow the .md files if their dir is remapped, so `![](x_images/...)` resolves
                 pdf_images[f"{src.id}/{remap_dir(rel_dir, src.output_remap)}"] = cache_dir
+                # a PDF's bitmaps are only in the cache until _copy_source_images runs
+                image_dirs[(src.id, source_path)] = cache_dir
             # crosswalk join (CSV + index)
             cw = src_state.get("crosswalk")
             if cw:
                 crosswalk = build_crosswalk(clone_dir / cw["path"], refs, release)
 
-    return docs, excluded, warnings, crosswalk, pdf_images
+        # Everything not filled in above is a clone-sourced page, whose images sit beside it
+        # at the same relative depth they keep in processed/.
+        for doc in docs[first:]:
+            image_dirs.setdefault(
+                (doc.source_id, doc.source_path), (clone_dir / doc.source_path).parent
+            )
+
+    return docs, excluded, warnings, crosswalk, pdf_images, image_dirs
 
 
 def _strip_leading_heading(title: str, body: str) -> str:
@@ -299,7 +322,7 @@ def build_release(
     build should leave them on — without them the affected tables exist only as bitmaps.
     """
     state = _load_fetch_state(product, release)
-    docs, excluded, warnings, crosswalk, pdf_images = _extract_documents(
+    docs, excluded, warnings, crosswalk, pdf_images, image_dirs = _extract_documents(
         product, release, state, sample
     )
     reg = load_registry(product, release)
@@ -307,9 +330,11 @@ def build_release(
     applied: dict[str, dict] = {}
     if overlays:
         # Inject before writing, so the transcribed tables reach both the processed .md
-        # files and chunks.jsonl. Images resolve relative to the page inside the clone.
-        clone_dirs = {src.id: _clone_dir(product, release, src) for src in reg.sources}
-        applied, overlay_warnings = apply_overlays(docs, product, release, clone_dirs)
+        # files and chunks.jsonl. Image-anchored entries hash the bitmap where it lives now;
+        # caption-anchored entries verify against the fetched input hashes instead.
+        applied, overlay_warnings = apply_overlays(
+            docs, product, release, image_dirs, input_hashes(state)
+        )
         warnings += overlay_warnings
 
     remaps = reg.output_remaps()

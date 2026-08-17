@@ -30,14 +30,14 @@
     },
     "pdf": {
       "files": 53,
-      "table_captions": 300,
-      "orphan_tables": 20,
+      "table_captions": 302,
+      "orphan_tables": 0,
       "figure_captions": 697,
       "orphan_figures": 1,
-      "md_tables": 627,
+      "md_tables": 698,
       "html_tables": 0,
       "html_imgs": 0,
-      "md_images": 1254,
+      "md_images": 1252,
       "dangling_refs": 0,
       "duplicate_h1": 0
     },
@@ -202,216 +202,16 @@
       "unconverted_html_imgs": []
     },
     {
-      "file": "upgrade_measures/draft_publications/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.md",
-      "extractor": "pdf",
-      "orphan_tables": [
-        {
-          "line": 212,
-          "label": "Table 1",
-          "caption": "Table 1. Descriptions of Compressor Lockout Temperature in Manufacturer Manuals [3], [4], [5], [6], [7], [8], [9], [10], [11], [12"
-        }
-      ],
-      "orphan_figures": [],
-      "dangling_refs": [],
-      "duplicate_h1": [],
-      "unconverted_html_tables": [],
-      "unconverted_html_imgs": []
-    },
-    {
-      "file": "upgrade_measures/measure_pdfs/86103.md",
-      "extractor": "pdf",
-      "orphan_tables": [
-        {
-          "line": 238,
-          "label": "Table 1",
-          "caption": "Table 1. Specifications of Available VRF (HR) Systems on the Market"
-        },
-        {
-          "line": 357,
-          "label": "Table 2",
-          "caption": "Table 2. Performance Indicators Between Four Different VRF Modeling Options"
-        },
-        {
-          "line": 399,
-          "label": "Table 3",
-          "caption": "Table 3. Configuration of All Curves Used in VRF Object"
-        },
-        {
-          "line": 475,
-          "label": "Table 5",
-          "caption": "Table 5. On-Site Fossil Fuel Emissions Factors"
-        }
-      ],
-      "orphan_figures": [],
-      "dangling_refs": [],
-      "duplicate_h1": [],
-      "unconverted_html_tables": [],
-      "unconverted_html_imgs": []
-    },
-    {
-      "file": "upgrade_measures/measure_pdfs/86199.md",
-      "extractor": "pdf",
-      "orphan_tables": [
-        {
-          "line": 286,
-          "label": "Table 1",
-          "caption": "Table 1. Boiler Efficiency and Performance Curve Assignment"
-        },
-        {
-          "line": 288,
-          "label": "Table 2",
-          "caption": "Table 2. Boiler Performance Curves"
-        }
-      ],
-      "orphan_figures": [],
-      "dangling_refs": [],
-      "duplicate_h1": [],
-      "unconverted_html_tables": [],
-      "unconverted_html_imgs": []
-    },
-    {
-      "file": "upgrade_measures/measure_pdfs/86601.md",
-      "extractor": "pdf",
-      "orphan_tables": [
-        {
-          "line": 391,
-          "label": "Table 3",
-          "caption": "Table 3. Boiler Efficiency and Performance Curve Assignment"
-        }
-      ],
-      "orphan_figures": [],
-      "dangling_refs": [],
-      "duplicate_h1": [],
-      "unconverted_html_tables": [],
-      "unconverted_html_imgs": []
-    },
-    {
-      "file": "upgrade_measures/measure_pdfs/86602.md",
-      "extractor": "pdf",
-      "orphan_tables": [
-        {
-          "line": 434,
-          "label": "Table 6",
-          "caption": "Table 6. Boiler Efficiency and Performance Curve Assignment"
-        }
-      ],
-      "orphan_figures": [],
-      "dangling_refs": [],
-      "duplicate_h1": [],
-      "unconverted_html_tables": [],
-      "unconverted_html_imgs": []
-    },
-    {
-      "file": "upgrade_measures/measure_pdfs/87536.md",
-      "extractor": "pdf",
-      "orphan_tables": [
-        {
-          "line": 270,
-          "label": "Table 1",
-          "caption": "Table 1. Boiler Efficiency and Performance Curve Assignment"
-        },
-        {
-          "line": 272,
-          "label": "Table 2",
-          "caption": "Table 2. Boiler Performance Curves"
-        }
-      ],
-      "orphan_figures": [],
-      "dangling_refs": [],
-      "duplicate_h1": [],
-      "unconverted_html_tables": [],
-      "unconverted_html_imgs": []
-    },
-    {
       "file": "upgrade_measures/measure_pdfs/89040.md",
       "extractor": "pdf",
-      "orphan_tables": [
-        {
-          "line": 227,
-          "label": "Table 1",
-          "caption": "Table 1. Specifications of Available VRF (HR) Systems on the Market"
-        },
-        {
-          "line": 378,
-          "label": "Table 4",
-          "caption": "Table 4. Single Building Model Results: Sizing Results Before and After Upsizing Allowance"
-        },
-        {
-          "line": 394,
-          "label": "Table 5",
-          "caption": "Table 5. Single Building Model Results: Annual Results Before and After Upsizing Allowance"
-        }
-      ],
+      "orphan_tables": [],
       "orphan_figures": [
         {
-          "line": 288,
+          "line": 304,
           "label": "Figure 5",
           "caption": "Figure 5. Narrative description of upsizing algorithm in measure implementation"
         }
       ],
-      "dangling_refs": [],
-      "duplicate_h1": [],
-      "unconverted_html_tables": [],
-      "unconverted_html_imgs": []
-    },
-    {
-      "file": "upgrade_measures/measure_pdfs/89042.md",
-      "extractor": "pdf",
-      "orphan_tables": [
-        {
-          "line": 348,
-          "label": "Table 1",
-          "caption": "Table 1. Cooling Capacity Difference Between Low and High Cooling Stages"
-        },
-        {
-          "line": 358,
-          "label": "Table 3",
-          "caption": "Table 3. List of New Performance Maps for Standard Performance Modeling"
-        },
-        {
-          "line": 516,
-          "label": "Table 7",
-          "caption": "Table 7. Single Building Results: Annual End-Use Consumptions"
-        }
-      ],
-      "orphan_figures": [],
-      "dangling_refs": [],
-      "duplicate_h1": [],
-      "unconverted_html_tables": [],
-      "unconverted_html_imgs": []
-    },
-    {
-      "file": "upgrade_measures/measure_pdfs/89128.md",
-      "extractor": "pdf",
-      "orphan_tables": [
-        {
-          "line": 319,
-          "label": "Table 1",
-          "caption": "Table 1 . Boiler Efficiency and Performance Curve Assignment"
-        },
-        {
-          "line": 451,
-          "label": "Table 5",
-          "caption": "Table 5 . Economizer C onfiguration S uggestions in ASHRAE 90.1-2010"
-        }
-      ],
-      "orphan_figures": [],
-      "dangling_refs": [],
-      "duplicate_h1": [],
-      "unconverted_html_tables": [],
-      "unconverted_html_imgs": []
-    },
-    {
-      "file": "upgrade_measures/measure_pdfs/98224.md",
-      "extractor": "pdf",
-      "orphan_tables": [
-        {
-          "line": 285,
-          "label": "Table 2",
-          "caption": "Table 2. Mapping of Data Sources to RTU Performance Curves"
-        }
-      ],
-      "orphan_figures": [],
       "dangling_refs": [],
       "duplicate_h1": [],
       "unconverted_html_tables": [],

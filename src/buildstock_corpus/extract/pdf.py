@@ -6,16 +6,19 @@ provenance-sound (same bytes -> same markdown). One Document is produced per phy
 PDF; when several measures cite the same file (mirror URLs, shared package docs) their
 identities are aggregated into that one Document's extra metadata.
 
-The cache stores one directory per PDF (keyed by sha256) containing the markdown and any
-images docling extracted from embedded figures. Old single-file caches are detected and
-re-converted automatically on the next build.
+The cache stores one directory per PDF (keyed by sha256) containing the markdown, any images
+docling extracted from embedded figures, and a pipeline.json recording the conversion options
+that produced it. Old single-file caches, and caches whose options no longer match, are
+detected and re-converted automatically on the next build.
 """
 
 from __future__ import annotations
 
+import json
 import re
 import shutil
 import tempfile
+import time
 from dataclasses import dataclass, field
 from pathlib import Path, PureWindowsPath
 
@@ -25,11 +28,13 @@ from ..paths import PROJECT_ROOT
 PDF_CACHE = PROJECT_ROOT / ".cache" / "pdf_md"
 CACHE_MD_NAME = "document.md"
 CACHE_IMG_DIR = "images"
+CACHE_OPTS_NAME = "pipeline.json"
 _HTML_COMMENT_RE = re.compile(r"<!--.*?-->", re.DOTALL)  # docling emits <!-- image --> placeholders
 _MD_IMAGE_RE = re.compile(r"!\[([^\]]*)\]\(([^)]*)\)")
 _UNSAFE_REF_RE = re.compile(r"[^A-Za-z0-9._-]+")  # chars needing escaping in a link target
 
 _converter = None  # docling DocumentConverter is costly to build; make one and reuse it
+_fingerprint: dict | None = None  # memoized: importing docling's options module isn't free
 
 
 @dataclass
@@ -41,33 +46,99 @@ class PdfSpec:
     extra: dict = field(default_factory=dict)  # measure identity folded into chunk metadata
 
 
+def _pipeline_options():
+    """The docling conversion options. Cheap to build — no models load until conversion.
+
+    Most of these tables are drawn text and come through fine. A minority in the measure PDFs
+    are rasterized regions with an empty text layer; OCR does read them, but on inspection it
+    mis-associates merged cells (collapsing min/max capacity columns, shifting Notes onto the
+    wrong energy-code row), which trades a visible gap for plausible wrong numbers. Those are
+    recovered by hand-authored overlays instead (see overlay.py), so OCR stays off.
+    """
+    from docling.datamodel.pipeline_options import (
+        AcceleratorOptions,
+        PdfPipelineOptions,
+        TableFormerMode,
+    )
+
+    # These measure docs are born-digital NREL reports with a real text layer, so OCR
+    # (RapidOCR on CPU) is pure cost — it drove conversion to minutes/PDF. Disable it but
+    # keep the layout + table-structure models, which are the point of a layout-aware reader.
+    # TableFormer FAST (vs ACCURATE) and more CPU threads keep the one-time cache warm to
+    # tens of minutes instead of hours; tables still get real structure, just less refinement.
+    opts = PdfPipelineOptions()
+    opts.do_ocr = False
+    opts.do_table_structure = True
+    opts.table_structure_options.mode = TableFormerMode.FAST
+    opts.table_structure_options.do_cell_matching = True
+    opts.accelerator_options = AcceleratorOptions(num_threads=12)
+    # Without this docling only emits <!-- image --> placeholders; the figure bitmaps
+    # are needed so the "as shown in Figure N" prose isn't left pointing at nothing.
+    opts.generate_picture_images = True
+    return opts
+
+
+def _pipeline_fingerprint() -> dict:
+    """The output-affecting conversion options, as stored in each cache dir's pipeline.json.
+
+    The cache is keyed by PDF content hash, which alone is *not* enough: editing an option
+    here would leave every already-cached PDF untouched, so the change would silently apply
+    to nothing. Recording the options next to the output closes that: a cache dir whose
+    fingerprint differs from the current one is re-converted, and only the PDFs actually
+    affected pay for it.
+
+    Deliberately excluded:
+      * `num_threads` — a speed knob; it does not change the markdown.
+      * the docling version — a patch bump would invalidate all 53 caches at once (hours of
+        CPU). Tool versions are already recorded per release in manifest._tooling(), so a
+        version change is visible in the manifest diff and re-converting is a decision
+        someone makes, not a surprise. An options edit had no such trace, which is the gap
+        this file closes.
+    """
+    global _fingerprint
+    if _fingerprint is None:
+        opts = _pipeline_options()
+        tbl = opts.table_structure_options
+        _fingerprint = {
+            "do_ocr": bool(opts.do_ocr),
+            "do_table_structure": bool(opts.do_table_structure),
+            "table_mode": str(getattr(tbl.mode, "value", tbl.mode)),
+            "do_cell_matching": bool(tbl.do_cell_matching),
+            "generate_picture_images": bool(opts.generate_picture_images),
+        }
+    return _fingerprint
+
+
+def _read_fingerprint(cached: Path) -> dict | None:
+    """The options a cache dir was built with; None if unreadable or not a mapping.
+
+    Callers distinguish *absent* (a pre-fingerprint cache, adoptable) from *unreadable* by
+    testing the file's existence — a corrupt record proves nothing about how the markdown
+    next to it was produced, so it must not be treated as agreement.
+    """
+    try:
+        data = json.loads((cached / CACHE_OPTS_NAME).read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError, UnicodeDecodeError):
+        return None
+    return data if isinstance(data, dict) else None
+
+
+def _write_fingerprint(cached: Path) -> None:
+    (cached / CACHE_OPTS_NAME).write_text(
+        json.dumps(_pipeline_fingerprint(), indent=2, sort_keys=True),
+        encoding="utf-8",
+        newline="\n",
+    )
+
+
 def _get_converter():
     global _converter
     if _converter is None:
         from docling.datamodel.base_models import InputFormat
-        from docling.datamodel.pipeline_options import (
-            AcceleratorOptions,
-            PdfPipelineOptions,
-            TableFormerMode,
-        )
         from docling.document_converter import DocumentConverter, PdfFormatOption
 
-        # These measure docs are born-digital NREL reports with a real text layer, so OCR
-        # (RapidOCR on CPU) is pure cost — it drove conversion to minutes/PDF. Disable it but
-        # keep the layout + table-structure models, which are the point of a layout-aware reader.
-        # TableFormer FAST (vs ACCURATE) and more CPU threads keep the one-time cache warm to
-        # tens of minutes instead of hours; tables still get real structure, just less refinement.
-        opts = PdfPipelineOptions()
-        opts.do_ocr = False
-        opts.do_table_structure = True
-        opts.table_structure_options.mode = TableFormerMode.FAST
-        opts.table_structure_options.do_cell_matching = True
-        opts.accelerator_options = AcceleratorOptions(num_threads=12)
-        # Without this docling only emits <!-- image --> placeholders; the figure bitmaps
-        # are needed so the "as shown in Figure N" prose isn't left pointing at nothing.
-        opts.generate_picture_images = True
         _converter = DocumentConverter(
-            format_options={InputFormat.PDF: PdfFormatOption(pipeline_options=opts)}
+            format_options={InputFormat.PDF: PdfFormatOption(pipeline_options=_pipeline_options())}
         )
     return _converter
 
@@ -107,17 +178,50 @@ def _convert_into(abs_path: Path, dest: Path) -> None:
     )
     md = md_path.read_text(encoding="utf-8")
     md_path.write_text(_relativize_image_refs(md, dest / CACHE_IMG_DIR), encoding="utf-8")
+    _write_fingerprint(dest)
+
+
+def _promote(staging: Path, cached: Path) -> None:
+    """Rename a finished staging dir into its cache slot, retrying a denied rename.
+
+    Renaming a directory on Windows needs exclusive access to it, and something outside this
+    process (an on-access scanner, an indexer) can still be holding the just-written files
+    open — measured here at a few percent of attempts, and it clears within milliseconds.
+    Letting that propagate would throw away a conversion that took minutes and report the
+    PDF as a tracked gap, so a bounded retry is worth the four lines.
+    """
+    for delay in (0.05, 0.2, 0.5, None):
+        try:
+            staging.replace(cached)
+            return
+        except PermissionError:
+            if delay is None:
+                raise
+            time.sleep(delay)
 
 
 def _cache_dir_for(spec: PdfSpec) -> Path:
     """Return the cache directory for this PDF, converting if not already cached.
+
+    A hit requires both the same PDF bytes and the same conversion options, so editing
+    _pipeline_options() re-converts instead of silently applying to nothing.
 
     Writes to a temp sibling and renames, so an interrupted conversion can't leave a
     half-populated directory that later looks like a valid cache hit.
     """
     cached = PDF_CACHE / spec.sha256
     if (cached / CACHE_MD_NAME).is_file():
-        return cached
+        if not (cached / CACHE_OPTS_NAME).exists():
+            # Cache dir predates pipeline.json. The options in this module have never been
+            # edited since these were converted (single commit in the file's history), so the
+            # current fingerprint does describe them: adopt it in place rather than spending
+            # hours re-converting the whole corpus to learn nothing.
+            _write_fingerprint(cached)
+            return cached
+        if _read_fingerprint(cached) == _pipeline_fingerprint():
+            return cached
+        # Options changed since this was converted (or the record is unreadable, which is no
+        # evidence they didn't) — the cached markdown can't be trusted to reflect them.
 
     # Pre-image-extraction caches were a single <sha256>.md file; drop so we re-convert.
     legacy = PDF_CACHE / f"{spec.sha256}.md"
@@ -130,7 +234,7 @@ def _cache_dir_for(spec: PdfSpec) -> Path:
     staging = Path(tempfile.mkdtemp(dir=PDF_CACHE, prefix=f".{spec.sha256[:12]}-"))
     try:
         _convert_into(spec.abs_path, staging)
-        staging.replace(cached)
+        _promote(staging, cached)
     except BaseException:
         shutil.rmtree(staging, ignore_errors=True)
         raise
@@ -150,15 +254,18 @@ def _image_dir_name(source_path: str) -> str:
 
 def load_pdf_docs(
     specs: list[PdfSpec], product: str, release: str, source_id: str
-) -> tuple[list[Document], list[str], dict[str, Path]]:
+) -> tuple[list[Document], list[str], dict[str, tuple[str, Path]]]:
     """Convert each PDF spec into a Document.
 
-    Returns (docs, warnings, image_dirs), where image_dirs maps a path relative to
-    processed/<source_id>/ to the cache directory holding that PDF's extracted images.
+    Returns (docs, warnings, image_dirs), where image_dirs maps a PDF's source_path to
+    (path relative to processed/<source_id>/, cache directory holding its extracted images).
+    Callers need both: the relative path is where the images are copied to, while the cache
+    directory is where they can be read *during* the build — before anything is written to
+    processed/ — which is what an overlay pinning one of those bitmaps has to hash.
     """
     docs: list[Document] = []
     warnings: list[str] = []
-    image_dirs: dict[str, Path] = {}
+    image_dirs: dict[str, tuple[str, Path]] = {}
     for spec in specs:
         try:
             cache_dir = _cache_dir_for(spec)
@@ -171,7 +278,7 @@ def load_pdf_docs(
         cache_imgs = cache_dir / CACHE_IMG_DIR
         if cache_imgs.is_dir() and any(cache_imgs.iterdir()):
             rel_dir = (Path(spec.source_path).parent / img_name).as_posix()
-            image_dirs[rel_dir] = cache_imgs
+            image_dirs[spec.source_path] = (rel_dir, cache_imgs)
             md = md.replace(f"]({CACHE_IMG_DIR}/", f"]({img_name}/")
 
         body = collapse_blank_lines(_HTML_COMMENT_RE.sub("", md))

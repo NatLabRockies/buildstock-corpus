@@ -16,82 +16,17 @@ tables use rowspan/colspan, which GFM cannot express, so those stay as HTML by d
 | latex | 19 | 0 | **0** | 0 | **0** | 50 | 113 | **0** | **0** | 35 | 113 |
 | markdown | 40 | 4 | **0** | 11 | **0** | 19 | 39 | **0** | **0** | 1 | 5 |
 | measures | 6 | 39 | **0** | 58 | **0** | 64 | 80 | **0** | **0** | 0 | 0 |
-| pdf | 53 | 300 | **20** | 697 | **1** | 627 | 1254 | **0** | **0** | 0 | 0 |
+| pdf | 53 | 302 | **0** | 697 | **1** | 698 | 1252 | **0** | **0** | 0 | 0 |
 
-**Totals.** 20/343 table captions orphaned; 1/766 figure captions orphaned; 760 tables converted to markdown; 1486 image refs present with 0 dangling; 0 duplicated H1 heading(s).
+**Totals.** 0/345 table captions orphaned; 1/766 figure captions orphaned; 831 tables converted to markdown; 1484 image refs present with 0 dangling; 0 duplicated H1 heading(s).
 
 ## Gaps by file
 
-### `upgrade_measures/measure_pdfs/86103.md`
-
-extractor: **pdf** — 4 issue(s)
-
-- L238 **ORPHANED TABLE** — Table 1. Specifications of Available VRF (HR) Systems on the Market
-- L357 **ORPHANED TABLE** — Table 2. Performance Indicators Between Four Different VRF Modeling Options
-- L399 **ORPHANED TABLE** — Table 3. Configuration of All Curves Used in VRF Object
-- L475 **ORPHANED TABLE** — Table 5. On-Site Fossil Fuel Emissions Factors
-
 ### `upgrade_measures/measure_pdfs/89040.md`
 
-extractor: **pdf** — 4 issue(s)
-
-- L227 **ORPHANED TABLE** — Table 1. Specifications of Available VRF (HR) Systems on the Market
-- L378 **ORPHANED TABLE** — Table 4. Single Building Model Results: Sizing Results Before and After Upsizing Allowance
-- L394 **ORPHANED TABLE** — Table 5. Single Building Model Results: Annual Results Before and After Upsizing Allowance
-- L288 **ORPHANED FIGURE** — Figure 5. Narrative description of upsizing algorithm in measure implementation
-
-### `upgrade_measures/measure_pdfs/89042.md`
-
-extractor: **pdf** — 3 issue(s)
-
-- L348 **ORPHANED TABLE** — Table 1. Cooling Capacity Difference Between Low and High Cooling Stages
-- L358 **ORPHANED TABLE** — Table 3. List of New Performance Maps for Standard Performance Modeling
-- L516 **ORPHANED TABLE** — Table 7. Single Building Results: Annual End-Use Consumptions
-
-### `upgrade_measures/measure_pdfs/86199.md`
-
-extractor: **pdf** — 2 issue(s)
-
-- L286 **ORPHANED TABLE** — Table 1. Boiler Efficiency and Performance Curve Assignment
-- L288 **ORPHANED TABLE** — Table 2. Boiler Performance Curves
-
-### `upgrade_measures/measure_pdfs/87536.md`
-
-extractor: **pdf** — 2 issue(s)
-
-- L270 **ORPHANED TABLE** — Table 1. Boiler Efficiency and Performance Curve Assignment
-- L272 **ORPHANED TABLE** — Table 2. Boiler Performance Curves
-
-### `upgrade_measures/measure_pdfs/89128.md`
-
-extractor: **pdf** — 2 issue(s)
-
-- L319 **ORPHANED TABLE** — Table 1 . Boiler Efficiency and Performance Curve Assignment
-- L451 **ORPHANED TABLE** — Table 5 . Economizer C onfiguration S uggestions in ASHRAE 90.1-2010
-
-### `upgrade_measures/draft_publications/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.md`
-
 extractor: **pdf** — 1 issue(s)
 
-- L212 **ORPHANED TABLE** — Table 1. Descriptions of Compressor Lockout Temperature in Manufacturer Manuals [3], [4], [5], [6], [7], [8], [9], [10], [11], [12
-
-### `upgrade_measures/measure_pdfs/86601.md`
-
-extractor: **pdf** — 1 issue(s)
-
-- L391 **ORPHANED TABLE** — Table 3. Boiler Efficiency and Performance Curve Assignment
-
-### `upgrade_measures/measure_pdfs/86602.md`
-
-extractor: **pdf** — 1 issue(s)
-
-- L434 **ORPHANED TABLE** — Table 6. Boiler Efficiency and Performance Curve Assignment
-
-### `upgrade_measures/measure_pdfs/98224.md`
-
-extractor: **pdf** — 1 issue(s)
-
-- L285 **ORPHANED TABLE** — Table 2. Mapping of Data Sources to RTU Performance Curves
+- L304 **ORPHANED FIGURE** — Figure 5. Narrative description of upsizing algorithm in measure implementation
 
 ### `github_site/docs/resources/explanations/combining_measure_results.md`
 

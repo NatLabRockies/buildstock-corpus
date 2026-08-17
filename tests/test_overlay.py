@@ -1,8 +1,10 @@
-"""Sidecar overlay injection: transcribed tables replace the bitmap refs they were read
-from, and every failure mode degrades to a warning that leaves the body untouched.
+"""Sidecar overlay injection, in both anchor modes: an image-anchored transcription replaces
+the bitmap ref it was read from, a caption-anchored one is inserted below a caption that the
+extractor left with nothing under it. Every failure mode degrades to a warning that leaves
+the body untouched.
 
-The pinned source_image_sha256 is the point of most of these tests — an overlay that no
-longer matches the image it was transcribed from must not silently ship.
+The pinned hash is the point of most of these tests — an overlay that no longer matches the
+image or the PDF revision it was transcribed from must not silently ship.
 """
 
 from __future__ import annotations
@@ -61,7 +63,14 @@ def env(tmp_path, monkeypatch):
 
     class Env:
         root = overlays
-        clone_dirs = {"upgrade_measures": clone}
+        # (source_id, source_path) -> the dir that document's image refs resolve against.
+        image_dirs = {
+            ("upgrade_measures", f"docs/upgrade_measures/{name}.md"): clone
+            / "docs"
+            / "upgrade_measures"
+            for name in ("env_roof", "env_walls")
+        }
+        input_shas = {"upgrade_measures": {}}
         image = png
         sha = hashlib.sha256(png.read_bytes()).hexdigest()
 
@@ -90,7 +99,7 @@ def env(tmp_path, monkeypatch):
 
 
 def _apply(docs, env):
-    return O.apply_overlays(docs, "comstock", "2025-3", env.clone_dirs)
+    return O.apply_overlays(docs, "comstock", "2025-3", env.image_dirs, env.input_shas)
 
 
 def test_injects_table_and_drops_the_image_ref(env):
@@ -285,6 +294,158 @@ def test_decomposed_sub_tables_are_not_flagged_on_total_size(env):
 
     for text in (c.text for c in chunk_document(doc)):
         assert text.count("|---|---|") == text.count("| a | b |")
+
+
+def test_flat_cache_image_is_found_by_basename(env):
+    """A PDF's refs name a per-document subdir that does not exist yet at build time.
+
+    docling writes `86103_images/x.png` into the body but keeps the bitmaps flat in the
+    conversion cache, so the ref only resolves once the images are copied out — after
+    overlays run. Falling back to the basename is what makes the pin verifiable.
+    """
+    flat = env.image.parent.parent  # docs/upgrade_measures — roof.png is one level down
+    (flat / "roof.png").write_bytes(env.image.read_bytes())
+    body = BODY.replace("![](media/roof.png)", "![](86103_images/roof.png)")
+    env.write([env.entry(source_image="86103_images/roof.png")])
+    doc = _doc(body)
+    applied, warnings = _apply([doc], env)
+
+    assert warnings == [] and applied
+    assert TABLE in doc.body
+
+
+# --- caption-anchored mode: nothing followed the caption, so there is no ref to replace ----
+
+PDF_SHA = "a" * 64
+PDF_PATH = "measure_pdfs/89040.pdf"
+PDF_BODY = """## 3 Modeling Approach
+
+Sizing results are given in Table 1.
+
+Table 1. Roof Construction Types
+
+## 4 Results
+
+Energy savings are reported below.
+"""
+
+
+def _pdf_doc(body: str = PDF_BODY) -> Document:
+    return Document(
+        product="comstock",
+        release="2025-3",
+        source_id="upgrade_measures",
+        source_type="pdf",
+        source_path=PDF_PATH,
+        title="VRF Upsizing",
+        body=body,
+    )
+
+
+@pytest.fixture
+def pdf_env(env):
+    """`env`, plus a caption-anchored entry writer and the fetch-recorded input hash."""
+    env.input_shas["upgrade_measures"][PDF_PATH] = PDF_SHA
+
+    def entry(**kw):
+        base = {
+            "label": "Table 1",
+            "caption": "Roof Construction Types",
+            "source_pdf": PDF_PATH,
+            "source_pdf_sha256": PDF_SHA,
+            "page": 25,
+            "method": "vision-transcription",
+            "markdown": TABLE,
+        }
+        return {**base, **kw}
+
+    env.pdf_entry = entry
+    return env
+
+
+def test_caption_anchored_table_is_inserted_below_the_caption(pdf_env):
+    pdf_env.write([pdf_env.pdf_entry()], source_path=PDF_PATH)
+    doc = _pdf_doc()
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert warnings == []
+    assert TABLE in doc.body
+    # provenance names the page, since there is no bitmap to name
+    assert f"<!-- table recovered from {PDF_PATH} p.25" in doc.body
+    lines = doc.body.split("\n")
+    assert (
+        lines.index("Table 1. Roof Construction Types")
+        < lines.index("| Building Type | Construction |")
+        < lines.index("## 4 Results")
+    )
+    rec = applied["upgrade_measures"][PDF_PATH]
+    assert rec["tables_applied"] == ["Table 1"]
+
+
+def test_caption_anchored_injection_is_idempotent(pdf_env):
+    """Re-running the build must not stack a second copy under the same caption."""
+    pdf_env.write([pdf_env.pdf_entry()], source_path=PDF_PATH)
+    doc = _pdf_doc()
+    _apply([doc], pdf_env)
+    once = doc.body
+
+    applied, warnings = _apply([doc], pdf_env)
+    assert doc.body == once and once.count(TABLE) == 1
+    assert applied == {} and warnings == []
+
+
+def test_stale_source_pdf_hash_warns_and_changes_nothing(pdf_env):
+    """Upstream reissued the PDF: the page the table was read from may not exist any more."""
+    pdf_env.write([pdf_env.pdf_entry(source_pdf_sha256="b" * 64)], source_path=PDF_PATH)
+    doc = _pdf_doc()
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {} and doc.body == PDF_BODY
+    assert "source PDF changed since transcription" in warnings[0]
+
+
+def test_unknown_input_hash_is_refused(pdf_env):
+    """No recorded input hash means the pin cannot be checked, so it is not trusted."""
+    del pdf_env.input_shas["upgrade_measures"][PDF_PATH]
+    pdf_env.write([pdf_env.pdf_entry()], source_path=PDF_PATH)
+    doc = _pdf_doc()
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {} and doc.body == PDF_BODY
+    assert "cannot verify source_pdf_sha256" in warnings[0]
+
+
+def test_caption_anchored_entry_must_pin_a_page(pdf_env):
+    """Without the page there is no way to re-find what was transcribed."""
+    entry = pdf_env.pdf_entry()
+    del entry["page"]
+    pdf_env.write([entry], source_path=PDF_PATH)
+    applied, warnings = _apply([_pdf_doc()], pdf_env)
+
+    assert applied == {}
+    assert "missing required field 'page'" in warnings[0]
+
+
+def test_caption_anchored_overlay_is_flagged_redundant_if_a_table_is_there(pdf_env):
+    """A later docling can extract these; then the overlay should be retired, not stacked."""
+    body = PDF_BODY.replace("## 4 Results", f"{TABLE}\n\n## 4 Results")
+    pdf_env.write([pdf_env.pdf_entry()], source_path=PDF_PATH)
+    doc = _pdf_doc(body)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {} and doc.body == body
+    assert "overlay is redundant" in warnings[0]
+
+
+def test_entry_naming_neither_anchor_is_refused(pdf_env):
+    entry = pdf_env.pdf_entry()
+    del entry["source_pdf"]
+    del entry["source_pdf_sha256"]
+    pdf_env.write([entry], source_path=PDF_PATH)
+    applied, warnings = _apply([_pdf_doc()], pdf_env)
+
+    assert applied == {}
+    assert "neither 'source_image' nor 'source_pdf'" in warnings[0]
 
 
 def test_documents_without_an_overlay_are_untouched(env):

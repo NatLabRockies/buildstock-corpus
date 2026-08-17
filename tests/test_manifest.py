@@ -264,7 +264,7 @@ def test_overlay_recorded_and_verified_against_its_source_image(tmp_path, monkey
     assert manifest["counts"]["overlay_tables"] == 1
     stats: dict = {}
     assert M.validate_manifest("comstock", "2025-3", manifest, stats) == []
-    assert stats == {"overlay_checked": 1, "overlay_unverifiable": 0}
+    assert stats == {"overlay_checked": 1, "overlay_checked_pdf": 0, "overlay_unverifiable": 0}
 
 
 def test_absent_source_image_is_unverifiable_not_a_violation(tmp_path, monkeypatch):
@@ -281,7 +281,7 @@ def test_absent_source_image_is_unverifiable_not_a_violation(tmp_path, monkeypat
 
     stats: dict = {}
     assert M.validate_manifest("comstock", "2025-3", manifest, stats) == []
-    assert stats == {"overlay_checked": 0, "overlay_unverifiable": 1}
+    assert stats == {"overlay_checked": 0, "overlay_checked_pdf": 0, "overlay_unverifiable": 1}
 
 
 def test_redrawn_source_image_is_a_violation(tmp_path, monkeypatch):
@@ -308,3 +308,59 @@ def test_edited_sidecar_is_a_violation(tmp_path, monkeypatch):
 
     assert len(errors) == 1
     assert "overlay hash mismatch" in errors[0]
+
+
+# --- caption-anchored overlays: pinned to the source document, not to a bitmap -------------
+
+
+def _pdf_overlay_fixture(tmp_path, monkeypatch, *, pinned_sha: str = "deadbeef") -> dict:
+    """An artifact whose overlay table is pinned to the source document's own hash.
+
+    No image is written: that is the point of this anchor. The table was read from a page
+    render of a source with no extractable bitmap, so the only thing that can be re-verified
+    is that the source revision transcribed is the one this artifact was built from.
+    """
+    ov_root = tmp_path / "overlays"
+    monkeypatch.setattr(M, "OVERLAYS_DIR", ov_root)
+    ov_abs = ov_root / OV_REL
+    ov_abs.parent.mkdir(parents=True, exist_ok=True)
+    ov_abs.write_text(
+        "tables:\n"
+        '  - label: "Table 1"\n'
+        '    caption: "Sizing results"\n'
+        "    source_pdf: documentation/reference_doc/4_9_hvac.tex\n"
+        f'    source_pdf_sha256: "{pinned_sha}"\n'
+        "    page: 12\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+    return {
+        "path": OV_REL,
+        "sha256": hashlib.sha256(ov_abs.read_bytes()).hexdigest(),
+        "tables_applied": ["Table 1"],
+    }
+
+
+def test_caption_anchored_overlay_verified_against_the_artifacts_input_hash(tmp_path, monkeypatch):
+    """Counted separately from image-anchored: it is a different claim, always verifiable."""
+    proot = _patch(tmp_path, monkeypatch)
+    _write_output(proot)
+    overlay = _pdf_overlay_fixture(tmp_path, monkeypatch)
+
+    manifest = _manifest_with_overlay(proot, overlay)
+
+    stats: dict = {}
+    assert M.validate_manifest("comstock", "2025-3", manifest, stats) == []
+    assert stats == {"overlay_checked": 0, "overlay_checked_pdf": 1, "overlay_unverifiable": 0}
+
+
+def test_caption_anchored_overlay_pinned_to_another_revision_is_a_violation(tmp_path, monkeypatch):
+    """Upstream reissued the document: the transcription describes a page that may be gone."""
+    proot = _patch(tmp_path, monkeypatch)
+    _write_output(proot)
+    overlay = _pdf_overlay_fixture(tmp_path, monkeypatch, pinned_sha="0ldrevision")
+
+    errors = M.validate_manifest("comstock", "2025-3", _manifest_with_overlay(proot, overlay))
+
+    assert len(errors) == 1
+    assert "transcribed from a different revision" in errors[0]
