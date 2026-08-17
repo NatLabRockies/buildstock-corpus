@@ -1,0 +1,116 @@
+# Hand-authored table transcriptions for measure_pdfs/86199.pdf
+#
+# Both tables on p.11 of this PDF are rasterized regions with no text layer. docling keeps
+# the captions but emits neither a table nor a picture for them, so the numbers are absent
+# from the extracted markdown entirely. Each entry below is transcribed from the rendered
+# page and inserted below its caption at build time by overlay.py. See overlays/README.md
+# for the schema and the review procedure.
+#
+# source_pdf_sha256 is the same hash fetch recorded for this PDF and the manifest stores as
+# the artifact's input_sha256: if upstream ships a revised report, the build reports a stale
+# overlay instead of injecting numbers that no longer match it.
+#
+# Authoring notes for Table 1:
+#   * Decomposed into one sub-table per energy-code template family. As one 26-row table it
+#     is a single ~3,400-char paragraph, which the chunker would hard-split mid-row.
+#   * Merged EFFFPLR and Notes cells are repeated on every row they span, so each row is
+#     readable on its own.
+#   * The Notes cell spanning all eight 90.1-2013 and 90.1-2016 rows is one merged cell in
+#     the source holding both phrases; it is transcribed as "From 90.1-2013; From 90.1-2016"
+#     on each of those rows rather than split per family, which the source does not do.
+#   * Row 3 records Minimum Capacity 250,000,000 above Maximum Capacity 249,999,999. That
+#     inversion is in the source and is left as printed.
+
+product: comstock
+release: "2025-3"
+source_id: upgrade_measures
+source_path: measure_pdfs/86199.pdf
+
+tables:
+  - label: "Table 1"
+    caption: "Boiler Efficiency and Performance Curve Assignment"
+    source_pdf: measure_pdfs/86199.pdf
+    source_pdf_sha256: "be173f2dbe730146ceb402874c867c9be75438d2ecb00b4e1d93dde4f3b87270"
+    page: 11
+    method: vision-transcription
+    transcribed_utc: "2026-08-17"
+    markdown: |
+      **Pre-1980**
+
+      | Template | Minimum Capacity (Btu/hr) | Maximum Capacity (Btu/hr) | Minimum Annual Fuel Utilization Efficiency (AFUE) | Minimum Thermal Efficiency (%) | Minimum Combustion Efficiency (%) | Efficiency Function of Part Load Ratio (EFFFPLR) | Notes |
+      |---|---|---|---|---|---|---|---|
+      | Pre-1980 | - | 299,999 |  | 0.73 |  | Boiler Constant Efficiency Curve | From DOE Reference Buildings |
+      | Pre-1980 | 300,000 | no max |  | 0.74 |  | Boiler Constant Efficiency Curve | From DOE Reference Buildings |
+      | Pre-1980 | 250,000,000 | 249,999,999 |  | 0.76 |  | Boiler Constant Efficiency Curve | From DOE Reference Buildings |
+
+      **1980-2004**
+
+      | Template | Minimum Capacity (Btu/hr) | Maximum Capacity (Btu/hr) | Minimum Annual Fuel Utilization Efficiency (AFUE) | Minimum Thermal Efficiency (%) | Minimum Combustion Efficiency (%) | Efficiency Function of Part Load Ratio (EFFFPLR) | Notes |
+      |---|---|---|---|---|---|---|---|
+      | 1980-2004 | - | 299,999 | 0.8 |  |  | Boiler Constant Efficiency Curve | From 90.1-1989 |
+      | 1980-2004 | 300,000 | 249,999,999 |  |  | 0.8 | Boiler Constant Efficiency Curve | From 90.1-1989 |
+
+      **90.1-2004**
+
+      | Template | Minimum Capacity (Btu/hr) | Maximum Capacity (Btu/hr) | Minimum Annual Fuel Utilization Efficiency (AFUE) | Minimum Thermal Efficiency (%) | Minimum Combustion Efficiency (%) | Efficiency Function of Part Load Ratio (EFFFPLR) | Notes |
+      |---|---|---|---|---|---|---|---|
+      | 90.1-2004 | - | 299,999 | 0.8 |  |  | Boiler with No Minimum Turndown | From 90.1-2004 |
+      | 90.1-2004 | 300,000 | 249,999,999 |  | 0.75 |  | Boiler with No Minimum Turndown | From 90.1-2004 |
+      | 90.1-2004 | 250,000,000 | no max |  |  | 0.8 | Boiler with No Minimum Turndown | From 90.1-2004 |
+
+      **90.1-2007**
+
+      | Template | Minimum Capacity (Btu/hr) | Maximum Capacity (Btu/hr) | Minimum Annual Fuel Utilization Efficiency (AFUE) | Minimum Thermal Efficiency (%) | Minimum Combustion Efficiency (%) | Efficiency Function of Part Load Ratio (EFFFPLR) | Notes |
+      |---|---|---|---|---|---|---|---|
+      | 90.1-2007 | - | 299,999 | 0.8 |  |  | Boiler with No Minimum Turndown | From 90.1-2007 |
+      | 90.1-2007 | 300,000 | 249,999,999 |  | 0.8 |  | Boiler with No Minimum Turndown | From 90.1-2007 |
+      | 90.1-2007 | 250,000,000 | no max |  |  | 0.82 | Boiler with No Minimum Turndown | From 90.1-2007 |
+
+      **90.1-2010**
+
+      | Template | Minimum Capacity (Btu/hr) | Maximum Capacity (Btu/hr) | Minimum Annual Fuel Utilization Efficiency (AFUE) | Minimum Thermal Efficiency (%) | Minimum Combustion Efficiency (%) | Efficiency Function of Part Load Ratio (EFFFPLR) | Notes |
+      |---|---|---|---|---|---|---|---|
+      | 90.1-2010 | - | 299,999 | 0.8 |  |  | Boiler with No Minimum Turndown | From 90.1-2010 |
+      | 90.1-2010 | 300,000 | 249,999,999 |  | 0.8 |  | Boiler with No Minimum Turndown | From 90.1-2010 |
+      | 90.1-2010 | 250,000,000 | no max |  |  | 0.82 | Boiler with No Minimum Turndown | From 90.1-2010 |
+
+      **90.1-2013**
+
+      | Template | Minimum Capacity (Btu/hr) | Maximum Capacity (Btu/hr) | Minimum Annual Fuel Utilization Efficiency (AFUE) | Minimum Thermal Efficiency (%) | Minimum Combustion Efficiency (%) | Efficiency Function of Part Load Ratio (EFFFPLR) | Notes |
+      |---|---|---|---|---|---|---|---|
+      | 90.1-2013 | - | 299,999 | 0.82 |  |  | Boiler with No Minimum Turndown | From 90.1-2013; From 90.1-2016 |
+      | 90.1-2013 | 300,000 | 999,999 |  | 0.8 |  | Boiler with No Minimum Turndown | From 90.1-2013; From 90.1-2016 |
+      | 90.1-2013 | 1,000,000 | 249,999,999 |  | 0.8 |  | Boiler with Minimum Turndown | From 90.1-2013; From 90.1-2016 |
+      | 90.1-2013 | 250,000,000 | no max |  |  | 0.82 | Boiler with Minimum Turndown | From 90.1-2013; From 90.1-2016 |
+
+      **90.1-2016**
+
+      | Template | Minimum Capacity (Btu/hr) | Maximum Capacity (Btu/hr) | Minimum Annual Fuel Utilization Efficiency (AFUE) | Minimum Thermal Efficiency (%) | Minimum Combustion Efficiency (%) | Efficiency Function of Part Load Ratio (EFFFPLR) | Notes |
+      |---|---|---|---|---|---|---|---|
+      | 90.1-2016 | - | 299,999 | 0.82 |  |  | Boiler with No Minimum Turndown | From 90.1-2013; From 90.1-2016 |
+      | 90.1-2016 | 300,000 | 999,999 |  | 0.8 |  | Boiler with No Minimum Turndown | From 90.1-2013; From 90.1-2016 |
+      | 90.1-2016 | 1,000,000 | 249,999,999 |  | 0.8 |  | Boiler with Minimum Turndown | From 90.1-2013; From 90.1-2016 |
+      | 90.1-2016 | 250,000,000 | no max |  |  | 0.82 | Boiler with Minimum Turndown | From 90.1-2013; From 90.1-2016 |
+
+      **90.1-2019**
+
+      | Template | Minimum Capacity (Btu/hr) | Maximum Capacity (Btu/hr) | Minimum Annual Fuel Utilization Efficiency (AFUE) | Minimum Thermal Efficiency (%) | Minimum Combustion Efficiency (%) | Efficiency Function of Part Load Ratio (EFFFPLR) | Notes |
+      |---|---|---|---|---|---|---|---|
+      | 90.1-2019 | - | 299,999 | 0.84 |  |  | Boiler with No Minimum Turndown | From 90.1-2019 |
+      | 90.1-2019 | 300,000 | 999,999 |  | 0.8 |  | Boiler with No Minimum Turndown | From 90.1-2019 |
+      | 90.1-2019 | 1,000,000 | 249,999,999 |  | 0.8 |  | Boiler with Minimum Turndown | From 90.1-2019 |
+      | 90.1-2019 | 250,000,000 | no max |  |  | 0.82 | Boiler with Minimum Turndown | From 90.1-2019 |
+
+  - label: "Table 2"
+    caption: "Boiler Performance Curves"
+    source_pdf: measure_pdfs/86199.pdf
+    source_pdf_sha256: "be173f2dbe730146ceb402874c867c9be75438d2ecb00b4e1d93dde4f3b87270"
+    page: 11
+    method: vision-transcription
+    transcribed_utc: "2026-08-17"
+    markdown: |
+      | Name | Form | Dependent Variable | Independent Variable 1 | coeff_1 | coeff_2 | coeff_3 | coeff_4 | Notes |
+      |---|---|---|---|---|---|---|---|---|
+      | Boiler Constant Efficiency Curve | Cubic | Efficiency Multiplier | Part Load Ratio | 1 | 0 | 0 | 0 | From DOE Reference Building |
+      | Boiler with Minimum Turndown | Cubic | Efficiency Multiplier | Part Load Ratio | 0.7791 | 1.4745 | -2.5795 | 1.3467 | From Regression of Prototype Building EMS |
+      | Boiler with No Minimum Turndown | Cubic | Efficiency Multiplier | Part Load Ratio | 0.7463 | 1.3196 | -2.2154 | 1.1674 | From Regression of Prototype Building EMS |

@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "2025-3",
-  "generated_utc": "2026-08-13T23:35:42.932401+00:00",
+  "generated_utc": "2026-08-17T17:59:22.815999+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -729,7 +729,14 @@
           "title": "High-Efficiency Rooftop Unit",
           "input_sha256": "3d1422392c2bbfbefc9763156db9583c5bd65f2447fb75651dccf15c4c134691",
           "output_path": "upgrade_measures/measure_pdfs/98224.md",
-          "output_sha256": "cd084ab33d5d1714418c02e9ad51d1bf5148b6fa0b36e292cdd58644200a006c"
+          "output_sha256": "17607b1efe98672a523fe81199ab580adac169933497d9aca75489797435f7f8",
+          "overlay": {
+            "path": "comstock_2025-3/upgrade_measures/measure_pdfs/98224.yaml",
+            "sha256": "48f631fd9f119ad7d33472390bdece044e727b156b7e362f67a933ffd078cd60",
+            "tables_applied": [
+              "Table 2"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/98345.pdf",
@@ -769,7 +776,17 @@
           "title": "VRF Heat Recovery with DOAS",
           "input_sha256": "6e6d96010400f6b37978b8e930a630d81d2d4b1497f4d8081c278f9a59dce99c",
           "output_path": "upgrade_measures/measure_pdfs/86103.md",
-          "output_sha256": "1e53360f4c220570d1503d5109b204e10f831306f4eba9ad292e892b0ff869c1"
+          "output_sha256": "449074a06f97cc338a5905ffe9846591ffd2997738609719f3f011807f96f3aa",
+          "overlay": {
+            "path": "comstock_2025-3/upgrade_measures/measure_pdfs/86103.yaml",
+            "sha256": "4157c6751f3a3202bc2c30c850fd16016ac574b8fbfa776decc4cd4074c5f904",
+            "tables_applied": [
+              "Table 1",
+              "Table 2",
+              "Table 3",
+              "Table 5"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/86105.pdf",
@@ -785,7 +802,15 @@
           "title": "Air-Source Heat Pump Boiler",
           "input_sha256": "be173f2dbe730146ceb402874c867c9be75438d2ecb00b4e1d93dde4f3b87270",
           "output_path": "upgrade_measures/measure_pdfs/86199.md",
-          "output_sha256": "9050b4459ff82b40b300c3903899a7342d20608f7c48ddd314753d72de7880ad"
+          "output_sha256": "538bf8e0e1c0abdbe42b3bf213776bc857bec3e7d5f4c04e8ed43c99a0c9a0c2",
+          "overlay": {
+            "path": "comstock_2025-3/upgrade_measures/measure_pdfs/86199.yaml",
+            "sha256": "74dc34d584d77956d0470d0f9da393c475aafae81d0c7ef2b91b13713bb67c35",
+            "tables_applied": [
+              "Table 1",
+              "Table 2"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/86585.pdf",
@@ -809,7 +834,14 @@
           "title": "LED Lighting, HP-RTU and ASHP-Boiler",
           "input_sha256": "edee583b88290066a942c92d99f64f6a859058bf63f201cb005cf2b63098ac66",
           "output_path": "upgrade_measures/measure_pdfs/86601.md",
-          "output_sha256": "5196e11d8648e52f6fe5e8e6f872afc4eb4753c6eac6a5a106e9056a4b2b3836"
+          "output_sha256": "81374ed9b1773d68a3f4ed4e5eb2866596b2373e8b31336a7f3f4c9d078ebe03",
+          "overlay": {
+            "path": "comstock_2025-3/upgrade_measures/measure_pdfs/86601.yaml",
+            "sha256": "afdf315c76946791dd0af76a63e8ce8715f4a6985a041c981976e8ce78a00722",
+            "tables_applied": [
+              "Table 3"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/86602.pdf",
@@ -817,7 +849,14 @@
           "title": "Wall and Roof Insulation, New Windows, LED Lighting, HP-RTU and ASHP-Boiler",
           "input_sha256": "cc5b290f302c11bf0a218b86e98c4300d616d094d0f5b20764c167e21bf38a73",
           "output_path": "upgrade_measures/measure_pdfs/86602.md",
-          "output_sha256": "d189cffb171f4196d26b40205437f93a44d49eca9407b767455ebe26a6805ccc"
+          "output_sha256": "0944068bc95bc030e2799cca9a4678cb0fcadc039c90a34df63f0ddf047bc46b",
+          "overlay": {
+            "path": "comstock_2025-3/upgrade_measures/measure_pdfs/86602.yaml",
+            "sha256": "cbc1eef26e9497f9e8d5fe4b39ff4c4d31fd6ddc4eedc3adbd3ce9e17c056f5c",
+            "tables_applied": [
+              "Table 6"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/86897.pdf",
@@ -833,7 +872,15 @@
           "title": "Air-Source Heat Pump Boiler and Natural Gas Boiler Backup",
           "input_sha256": "337aee5d46a0849ba0ecec47df7248341bcf7bbecf64048baf7155ba8552ea84",
           "output_path": "upgrade_measures/measure_pdfs/87536.md",
-          "output_sha256": "9c5573a7341b26f93ce9168d987b0f59b91a5e7da5ff97ce7deb9913e7700385"
+          "output_sha256": "871e4b44a3303d2ee7c6e6c322076fd9e964adb151f773c9da886962a8a9e87e",
+          "overlay": {
+            "path": "comstock_2025-3/upgrade_measures/measure_pdfs/87536.yaml",
+            "sha256": "ad4f46d4a72edb19ec728edc5b331a0ff969cbd4e1eb25e5b99fa9f5f927a80e",
+            "tables_applied": [
+              "Table 1",
+              "Table 2"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/87542.pdf",
@@ -865,7 +912,16 @@
           "title": "Variable Refrigerant Flow With 25% Upsizing Allowance for Heating",
           "input_sha256": "28cea1febfd6bdabb0fc0635f0c89efd44a183c80158b7f5562f83e969698762",
           "output_path": "upgrade_measures/measure_pdfs/89040.md",
-          "output_sha256": "55b48d136b7722d2a54dda19615ff83bbbdacba22783d249226ac86dd9bb6506"
+          "output_sha256": "8f5f7627225a9b3063507af7a5c5cfc6bf180fcea4f25abaf6743170ef7e6b06",
+          "overlay": {
+            "path": "comstock_2025-3/upgrade_measures/measure_pdfs/89040.yaml",
+            "sha256": "481e2ef5191c274c24547f79a07a9078b662beccac7a34d4c9bab8a862c20130",
+            "tables_applied": [
+              "Table 1",
+              "Table 4",
+              "Table 5"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/89117.pdf",
@@ -889,7 +945,15 @@
           "title": "HP-RTU + ASHP Boiler + Demand Control Ventilation + Heat/Energy Recovery + Economizers",
           "input_sha256": "68cc557325046095d37ac589ab50a713377945180193b43154422f5a981046f8",
           "output_path": "upgrade_measures/measure_pdfs/89128.md",
-          "output_sha256": "ca55cfe29a662603d7aaac3c97b9fdc051e730852f44c1923bb5a7a9e8902f74"
+          "output_sha256": "d0f39053c6e8503efaa2d7d383fa2a8722337288870d7ac631cda41fe117ee1d",
+          "overlay": {
+            "path": "comstock_2025-3/upgrade_measures/measure_pdfs/89128.yaml",
+            "sha256": "bb50739b5258e629bdae5a5151073d5e8813aaeff67a8d2bcf27de6d1d250ae5",
+            "tables_applied": [
+              "Table 1",
+              "Table 5"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/89130.pdf",
@@ -977,7 +1041,16 @@
           "title": "Heat Pump Rooftop Units With Standard Performance",
           "input_sha256": "73340f4db3973580c0244e6d44c4b730832c495437270fd26baa9dbfba8543c0",
           "output_path": "upgrade_measures/measure_pdfs/89042.md",
-          "output_sha256": "ce9730c516f4b6497f8a222621437b932a6c396fe9cdf0bd6fd35461e031cb98"
+          "output_sha256": "8f05bdfa315472f30e32a0d1fc0c7f3ba5827cdcd3e53c75a819f16340f697c8",
+          "overlay": {
+            "path": "comstock_2025-3/upgrade_measures/measure_pdfs/89042.yaml",
+            "sha256": "30a24353cf5081b160e1dc034a6bd667ac1c4d5d33df2016a750ff297b3f0bb3",
+            "tables_applied": [
+              "Table 1",
+              "Table 3",
+              "Table 7"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/89126.pdf",
@@ -1025,7 +1098,14 @@
           "title": "Heat Pump Rooftop Units With Higher Compressor Lockout Temperature for Heating",
           "input_sha256": "4a9ec2da0c73739e62864378fde4a9d2ebfc7c7872aeaa4c338564c588c69973",
           "output_path": "upgrade_measures/draft_publications/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.md",
-          "output_sha256": "2e3772681d7fb798271d1f92ec2b08c15408345befdc5c97b54d263eb7c7d10a"
+          "output_sha256": "a8ba52f0b4d796a8d2b21b93f6512388abd0474cbebee082a6487225ccdbe764",
+          "overlay": {
+            "path": "comstock_2025-3/upgrade_measures/assets/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.yaml",
+            "sha256": "34327d5aa56ac4a6d5c0ce0645201914078620f933ecc08f109945787272e0df",
+            "tables_applied": [
+              "Table 1"
+            ]
+          }
         },
         {
           "source_path": "assets/files/ComStock Measure Doc_PV with Battery Storage.pdf",
@@ -1040,15 +1120,15 @@
   ],
   "counts": {
     "documents": 118,
-    "chunks": 7176,
+    "chunks": 7233,
     "by_type": {
       "latex": 19,
       "markdown": 40,
       "measures": 6,
       "pdf": 53
     },
-    "overlay_documents": 4,
-    "overlay_tables": 16
+    "overlay_documents": 14,
+    "overlay_tables": 36
   },
   "crosswalk": {
     "file": "crosswalk.json",

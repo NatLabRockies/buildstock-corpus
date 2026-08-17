@@ -1,0 +1,137 @@
+# Hand-authored table transcriptions for measure_pdfs/86103.pdf
+#
+# Four tables in this report are lost in extraction. Tables 1, 2 and 3 are rasterized regions
+# with no text layer, so docling keeps the caption and emits nothing beneath it; those are
+# anchored to the PDF's own sha256 and page. Table 5 did come through as a picture, so it is
+# anchored to that bitmap and replaces the image ref. See overlays/README.md for the schema.
+#
+# Authoring notes:
+#   * Tables 1 and 2 are printed transposed — field names run down a shaded left-hand column
+#     and each option gets a column. That is transcribed as-is: the first printed row becomes
+#     the pipe table's header row. Row labels keep the source's lowercase styling ("model",
+#     "manufacturer", "LG electronics").
+#   * Table 2 carries meaning in cell shading, which a pipe table cannot express. The values
+#     are transcribed plain and the legend plus a cell-by-cell shading note follow the table
+#     as separate paragraphs, so nothing is silently dropped and nothing is invented either.
+#     Its three "older VRF" columns share a header, so the shading note names manufacturers.
+#   * Table 3 is decomposed into its own three row groups (cooling / heating / other) and the
+#     merged group label is repeated per row. The source leaves the first two header cells
+#     blank; "Group" and "Curve Name" are supplied so the pipe table is well-formed. The check
+#     marks are transcribed as printed (√) rather than collapsed into one "assignment" column.
+#   * Table 5 has no header row at all — the fuel names sit in a shaded label column. "Fuel"
+#     and "On-Site Fossil Fuel Emissions Factor" are taken from the caption for the same
+#     reason. Its footnote is transcribed because it did not survive extraction as prose in
+#     this document (it does in nine sibling measure docs, but not this one), and its marker
+#     is written "(a)" rather than as a superscript.
+
+product: comstock
+release: "2025-3"
+source_id: upgrade_measures
+source_path: measure_pdfs/86103.pdf
+
+tables:
+  - label: "Table 1"
+    caption: "Specifications of Available VRF (HR) Systems on the Market"
+    source_pdf: measure_pdfs/86103.pdf
+    source_pdf_sha256: "6e6d96010400f6b37978b8e930a630d81d2d4b1497f4d8081c278f9a59dce99c"
+    page: 14
+    method: vision-transcription
+    transcribed_utc: "2026-08-17"
+    markdown: |
+      | manufacturer | Daikin | Mitsubishi Electric | Carrier | LG electronics |
+      |---|---|---|---|---|
+      | model | VRV | PURY-P | 38VMR | Multi V |
+      | outdoor unit capacity range | 6-40 tons | 6-28 tons | 6-28 tons | 1.7-17 tons |
+      | heat recovery mode available? | yes | yes | yes | yes |
+      | operating T (cooling) | -4 to 122°F | 23 to 126°F | 14 to 122°F | 5 to 118°F |
+      | operating T (heating) | -22 to 60°F | -22 to 60°F | -13 to 60°F | -13 to 64°F |
+      | max height diff outdoor vs indoor unit | 110 m (361 ft) | 110 m (360 ft) | - | 110 m (360 ft) |
+      | max length between indoor units | 90 m (295 ft) | 30 m (98 ft) | - | 40 m (131 ft) |
+      | max total piping length | 1,000 m (3,281 ft) | 800-1000 m (2,624-3,280 ft) | 1,000 m (3,280 ft) | 1,000 m (3,281 ft) |
+      | refrigerant | R-410a | R-410a | R-410a | R-410a |
+
+  - label: "Table 2"
+    caption: "Performance Indicators Between Four Different VRF Modeling Options"
+    source_pdf: measure_pdfs/86103.pdf
+    source_pdf_sha256: "6e6d96010400f6b37978b8e930a630d81d2d4b1497f4d8081c278f9a59dce99c"
+    page: 26
+    method: vision-transcription
+    transcribed_utc: "2026-08-17"
+    markdown: |
+      | EnergyPlus object | older VRF | older VRF | older VRF | newer VRF |
+      |---|---|---|---|---|
+      | manufacturer | Daikin | Mitsubishi Electric | LG Electronics | Daikin |
+      | reference model | REYQ72T | PUHY-HP72 | ARUB072BTE4 | generalized |
+      | source | Building Component Library | OpenStudio Standards | Building Component Library | EnergyPlus |
+      | outdoor unit capacity | 6 ton | 6 ton | 6 ton | generalized |
+      | heat recovery mode available? | yes | no | yes | yes |
+      | 2 pipe or 3 pipe system? | 3 | 2 | 3 | 3 |
+      | vapor injection technology? | no | yes | yes | generalized |
+      | operating temperature (cooling) | 23 to 122°F (DB) | 23 to 109°F (DB) | 14 to 122°F (DB) | generalized |
+      | operating temperature (heating) | -13 to 60°F (WB) | -13 to 60°F (WB) | -13 to 61°F (WB) | generalized |
+      | published reference available? | no | no | no | yes |
+      | validation against field data? | no | no | no | yes |
+
+      Legend: orange = "not representing the latest/best technology"; blue = "generalized and not representing specific product".
+
+      Shading in the source, which a pipe table cannot carry. Orange: "heat recovery mode available?" and "2 pipe or 3 pipe system?" in the Mitsubishi Electric column; "vapor injection technology?" in the Daikin older-VRF column; "operating temperature (heating)" in all three older-VRF columns (Daikin, Mitsubishi Electric, LG Electronics). Blue: "outdoor unit capacity", "vapor injection technology?", "operating temperature (cooling)" and "operating temperature (heating)" in the newer-VRF (Daikin) column.
+
+  - label: "Table 3"
+    caption: "Configuration of All Curves Used in VRF Object"
+    source_pdf: measure_pdfs/86103.pdf
+    source_pdf_sha256: "6e6d96010400f6b37978b8e930a630d81d2d4b1497f4d8081c278f9a59dce99c"
+    page: 31
+    method: vision-transcription
+    transcribed_utc: "2026-08-17"
+    markdown: |
+      **Cooling curves**
+
+      | Group | Curve Name | Source 1 | Source 2 | Unused | New |
+      |---|---|---|---|---|---|
+      | Cooling curves | Cooling Capacity Ratio Modifier Function of Low Temperature Curve Name | √ |  |  |  |
+      | Cooling curves | Cooling Capacity Ratio Boundary Curve Name |  |  | √ |  |
+      | Cooling curves | Cooling Capacity Ratio Modifier Function of High Temperature Curve |  |  | √ |  |
+      | Cooling curves | Cooling Energy Input Ratio Modifier Function of Low Temperature Curve Name | √ |  |  |  |
+      | Cooling curves | Cooling Energy Input Ratio Boundary Curve Name |  |  | √ |  |
+      | Cooling curves | Cooling Energy Input Ratio Modifier Function of High Temperature Curve Name |  |  | √ |  |
+      | Cooling curves | Cooling Energy Input Ratio Modifier Function of Low Part-Load Ratio Curve Name |  |  |  | √ |
+      | Cooling curves | Cooling Energy Input Ratio Modifier Function of High Part-Load Ratio Curve Name |  |  | √ |  |
+      | Cooling curves | Cooling Combination Ratio Correction Factor Curve Name |  | √ |  |  |
+      | Cooling curves | Cooling Part-Load Fraction Correlation Curve Name |  | √ |  |  |
+
+      **Heating curves**
+
+      | Group | Curve Name | Source 1 | Source 2 | Unused | New |
+      |---|---|---|---|---|---|
+      | Heating curves | Heating Capacity Ratio Modifier Function of Low Temperature Curve Name | √ |  |  |  |
+      | Heating curves | Heating Capacity Ratio Boundary Curve Name |  |  | √ |  |
+      | Heating curves | Heating Capacity Ratio Modifier Function of High Temperature Curve |  |  | √ |  |
+      | Heating curves | Heating Energy Input Ratio Modifier Function of Low Temperature Curve Name | √ |  |  |  |
+      | Heating curves | Heating Energy Input Ratio Boundary Curve Name |  |  | √ |  |
+      | Heating curves | Heating Energy Input Ratio Modifier Function of High Temperature Curve Name |  |  | √ |  |
+      | Heating curves | Heating Energy Input Ratio Modifier Function of Low Part-Load Ratio Curve Name |  | √ |  |  |
+      | Heating curves | Heating Energy Input Ratio Modifier Function of High Part-Load Ratio Curve Name |  |  | √ |  |
+      | Heating curves | Heating Combination Ratio Correction Factor Curve Name |  | √ |  |  |
+      | Heating curves | Heating Part-Load Fraction Correlation Curve Name |  | √ |  |  |
+
+      **Other**
+
+      | Group | Curve Name | Source 1 | Source 2 | Unused | New |
+      |---|---|---|---|---|---|
+      | Other | Piping Correction Factor for Length in Cooling Mode Curve Name |  | √ |  |  |
+      | Other | Defrost Energy Input Ratio Modifier Function of Temperature Curve Name |  | √ |  |  |
+
+  - label: "Table 5"
+    caption: "On-Site Fossil Fuel Emissions Factors"
+    source_image: 86103_images/image_000020_4272884809aa240a9207936de8b390e92b54aeca224dbb77ae454ec94a92794a.png
+    source_image_sha256: "37a19d0b56fc6214def576ded841c70ea65143c325c870d83b2005c7e72a6960"
+    method: vision-transcription
+    transcribed_utc: "2026-08-17"
+    markdown: |
+      | Fuel | On-Site Fossil Fuel Emissions Factor |
+      |---|---|
+      | Natural gas | 147.3 lb/MMBtu (228.0 kg/MWh) (a) |
+      | Propane | 177.8 lb/MMBtu (182.3 kg/MWh) |
+      | Fuel oil | 195.9 lb/MMBtu (303.2 kg/MWh) |
+
+      (a) lb = pound; MMBtu = million British thermal units; kg = kilogram; MWh = megawatt-hour
