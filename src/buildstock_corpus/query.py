@@ -28,15 +28,22 @@ def search(product: str, release: str, text: str, k: int = 5) -> list[dict]:
     if not idx_dir.exists():
         raise FileNotFoundError(f"no index at {idx_dir}; run `bsc index` first")
     client = chromadb.PersistentClient(path=str(idx_dir))
-    coll = client.get_collection(collection_name(product, release))
+    # Close before returning: reading mmaps the segment files and chroma caches the client
+    # by path, so a leaked one keeps the store locked and a later `bsc index` in the same
+    # process cannot replace it (WinError 32 on Windows). Every hit is copied out of `res`
+    # below, so nothing here outlives the client.
+    try:
+        coll = client.get_collection(collection_name(product, release))
 
-    qvec = next(iter(_embedder().query_embed([text]))).tolist()
-    res = coll.query(query_embeddings=[qvec], n_results=k)
+        qvec = next(iter(_embedder().query_embed([text]))).tolist()
+        res = coll.query(query_embeddings=[qvec], n_results=k)
 
-    hits: list[dict] = []
-    for doc, meta, dist in zip(res["documents"][0], res["metadatas"][0], res["distances"][0]):
-        hits.append({"text": doc, "metadata": meta, "score": round(1.0 - dist, 4)})
-    return hits
+        hits: list[dict] = []
+        for doc, meta, dist in zip(res["documents"][0], res["metadatas"][0], res["distances"][0]):
+            hits.append({"text": doc, "metadata": dict(meta), "score": round(1.0 - dist, 4)})
+        return hits
+    finally:
+        client.close()
 
 
 def format_hits(hits: list[dict]) -> str:
