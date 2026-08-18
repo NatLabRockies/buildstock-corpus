@@ -71,7 +71,25 @@ Data from the National Fenestration Rating Council (NFRC) Commercial Fenestratio
 
 Table 2. Window Property Data Sources
 
-![Calendar Description automatically generated](./media/50c87ca1-cdd0-4a78-abec-9ca69ee5fa0f.png)
+<!-- table recovered from ./media/50c87ca1-cdd0-4a78-abec-9ca69ee5fa0f.png
+     overlay: comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_ext_secondary_window.yaml
+     method: vision-transcription -->
+
+| Source | Data Collection Year | Samples | Regions | Window Area | Panes | Glazing Type | Frame/Thermal Break | Low-E Coating | Retrofit/New | Window Vintage | U-Factor/SHGC | Gas Fill |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Guidehouse Survey | 2020 | 800 | National | P | P | P | P | P | P | P | P | P |
+| NEEA CBSA | 2014, 2018 | 1,996 | WA, OR, MT, ID | P | P | P | P | P | P | P | P |  |
+| DOE Code Study | 2016–2019 | 104 | FL, IA, IL, NE | P | P | P | P | P |  |  | P |  |
+| CAEUS | 2006 | 5,862 | California |  | P | P | P | P |  |  |  |  |
+| EIA CBECS | 2012 | 6,721 | National |  | P | P |  |  | P |  |  |  |
+| EIA RECS | 2015 | 858 | National (Multifamily) | P | P |  | P | P |  |  |  |  |
+| Programs | 2020 | 30 | TX, CO, WA | P | P |  | P |  | P |  | P |  |
+| Other | 2019 | 6 | WA, TN | P | P | P | P | P |  |  |  | P |
+| AAMA | 2017 | Summary Level | National (Sales) | P | P | P | P | P | P |  |  |  |
+| Manufacturer Data | 2019 | 3,000+ | National (Sales) |  | P | P | P | P | P |  |  |  |
+| Guidehouse Market Size Estimates | 2020 | Summary Level | National |  |  |  |  |  |  |  |  |  |
+
+P = Present in Data Source
 
 ![A picture containing table Description automatically generated](./media/c1dbe272-0b99-4cab-993a-a044485ea2b6.png)
 
@@ -211,7 +229,89 @@ Adding double-pane secondary windows to existing single-pane windows achieved a 
 
 Table 7. Proposed Combinations for Performance of Existing Window Plus Secondary Window Combinations by Climate Zone
 
-![Table Description automatically generated with medium confidence](./media/00e9bd9d-633e-459e-9841-231c488010c5.png)
+<!-- table recovered from ./media/00e9bd9d-633e-459e-9841-231c488010c5.png
+     overlay: comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_ext_secondary_window.yaml
+     method: vision-transcription -->
+
+**Existing window (one value per ID; the source merges these across all three climate zone bands)**
+
+| ID | Pane | Glazing | Frame | Low-e | U-Factor (IP) (Btu/hr*ft2*F) | R-value (IP) (hr*ft2*F/Btu) | SHGC | VLT |
+|---|---|---|---|---|---|---|---|---|
+| 1 | Single | Clear | Aluminum | No | 1.18 | 0.85 | 0.74 | 0.75 |
+| 2 | Single | Tinted/Reflective | Aluminum | No | 1.18 | 0.85 | 0.58 | 0.46 |
+| 3 | Single | Clear | Wood | No | 0.91 | 1.10 | 0.68 | 0.72 |
+| 4 | Single | Tinted/Reflective | Wood | No | 0.91 | 1.10 | 0.53 | 0.44 |
+| 5 | Double | Clear | Aluminum | No | 0.75 | 1.34 | 0.65 | 0.67 |
+| 6 | Double | Tinted/Reflective | Aluminum | No | 0.75 | 1.34 | 0.48 | 0.41 |
+| 7 | Double | Clear | Aluminum | Yes | 0.56 | 1.79 | 0.39 | 0.59 |
+| 8 | Double | Clear | Aluminum with thermal break | Yes | 0.50 | 2.00 | 0.38 | 0.59 |
+| 9 | Double | Tinted/Reflective | Aluminum | Yes | 0.56 | 1.80 | 0.27 | 0.36 |
+| 10 | Double | Tinted/Reflective | Aluminum with thermal break | Yes | 0.50 | 2.02 | 0.27 | 0.36 |
+| 11 | Triple | Clear | Aluminum with thermal break | Yes | 0.30 | 3.33 | 0.33 | 0.53 |
+| 12 | Triple | Tinted/Reflective | Aluminum with thermal break | Yes | 0.30 | 3.34 | 0.22 | 0.32 |
+
+**Secondary window (climate zones 1-8 = one value the source merged across every zone band)**
+
+| ID | Climate Zones | Applicable? | Pane | Glazing | Frame | Low-e |
+|---|---|---|---|---|---|---|
+| 1 | 1-8 | TRUE | Double | Tinted/Reflective | Aluminum with thermal break | Yes |
+| 2 | 1-8 | TRUE | Double | Clear | Aluminum with thermal break | Yes |
+| 3 | 1-8 | TRUE | Double | Tinted/Reflective | Aluminum with thermal break | Yes |
+| 4 | 1-8 | TRUE | Double | Clear | Aluminum with thermal break | Yes |
+| 5 | 1-8 | TRUE | Single | Tinted/Reflective | Aluminum with thermal break | Yes |
+| 6 | 1-8 | TRUE | Single | Clear | Aluminum with thermal break | Yes |
+| 7 | 1, 2, 3 | TRUE | Single | Tinted/Reflective | Aluminum with thermal break | No |
+| 7 | 4, 5, 6 | TRUE | Single | Clear | Aluminum with thermal break | No |
+| 7 | 7, 8 | TRUE | Single | Clear | Aluminum with thermal break | No |
+| 8 | 1, 2, 3 | TRUE | Single | Tinted/Reflective | Aluminum with thermal break | No |
+| 8 | 4, 5, 6 | TRUE | Single | Clear | Aluminum with thermal break | No |
+| 8 | 7, 8 | TRUE | Single | Clear | Aluminum with thermal break | No |
+| 9 | 1-8 | TRUE | Single | Clear | Aluminum with thermal break | No |
+| 10 | 1-8 | TRUE | Single | Clear | Aluminum with thermal break | No |
+| 11 | 1-8 | FALSE | No secondary window applied |  |  |  |
+| 12 | 1-8 | FALSE | No secondary window applied |  |  |  |
+
+**Total assembly performance with secondary window added (blank for IDs 11 and 12, which have no secondary window applied)**
+
+| ID | Climate Zones | U-Factor (IP) (Btu/hr*ft2*F) | R-value (IP) (hr*ft2*F/Btu) | SHGC | VLT |
+|---|---|---|---|---|---|
+| 1 | 1-8 | 0.61 | 1.63 | 0.54 | 0.47 |
+| 2 | 1-8 | 0.61 | 1.63 | 0.43 | 0.37 |
+| 3 | 1-8 | 0.37 | 2.70 | 0.49 | 0.45 |
+| 4 | 1-8 | 0.37 | 2.70 | 0.38 | 0.36 |
+| 5 | 1-8 | 0.61 | 1.64 | 0.54 | 0.36 |
+| 6 | 1-8 | 0.61 | 1.64 | 0.42 | 0.37 |
+| 7 | 1, 2, 3 | 0.50 | 1.98 | 0.35 | 0.32 |
+| 7 | 4, 5, 6 | 0.50 | 1.98 | 0.35 | 0.32 |
+| 7 | 7, 8 | 0.50 | 1.98 | 0.36 | 0.53 |
+| 8 | 1, 2, 3 | 0.44 | 2.25 | 0.34 | 0.32 |
+| 8 | 4, 5, 6 | 0.44 | 2.25 | 0.35 | 0.53 |
+| 8 | 7, 8 | 0.44 | 2.25 | 0.35 | 0.53 |
+| 9 | 1-8 | 0.50 | 1.99 | 0.25 | 0.32 |
+| 10 | 1-8 | 0.44 | 2.26 | 0.24 | 0.32 |
+| 11 | 1-8 |  |  |  |  |
+| 12 | 1-8 |  |  |  |  |
+
+**Performance change of the total assembly against the existing window (blank for IDs 11 and 12)**
+
+| ID | Climate Zones | R-value (%) | SHGC (%) | VLT (%) |
+|---|---|---|---|---|
+| 1 | 1-8 | 92% | -27% | -38% |
+| 2 | 1-8 | 92% | -26% | -18% |
+| 3 | 1-8 | 146% | -28% | -38% |
+| 4 | 1-8 | 146% | -28% | -18% |
+| 5 | 1-8 | 23% | -17% | -46% |
+| 6 | 1-8 | 23% | -13% | -11% |
+| 7 | 1, 2, 3 | 11% | -10% | -46% |
+| 7 | 4, 5, 6 | 11% | -10% | -46% |
+| 7 | 7, 8 | 11% | -8% | -11% |
+| 8 | 1, 2, 3 | 12% | -10% | -46% |
+| 8 | 4, 5, 6 | 12% | -8% | -11% |
+| 8 | 7, 8 | 12% | -8% | -11% |
+| 9 | 1-8 | 11% | -8% | -11% |
+| 10 | 1-8 | 12% | -8% | -11% |
+| 11 | 1-8 |  |  |  |
+| 12 | 1-8 |  |  |  |
 
 Table 8. Comparison of Existing Window Plus Secondary Window Combinations to ASHRAE *Small and Medium Office Zero Energy AEDG* Performance Targets by Climate Zone
 
@@ -327,7 +427,22 @@ The percent changes in U-value, SHGC, and VLT were determined from the WINDOW mo
 
 Table 10. U-Value and SHGC Comparison Before and After the Measure Was Applied
 
-![Timeline Description automatically generated with medium confidence](./media/e4cd0292-c3cc-4911-b1dd-de678a3b9970.png)
+<!-- table recovered from ./media/e4cd0292-c3cc-4911-b1dd-de678a3b9970.png
+     overlay: comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_ext_secondary_window.yaml
+     method: vision-transcription -->
+
+| Build Existing Model.Baseline Window Type | U-Value Before (SI) | SHGC Before | U-Value After (SI) | SHGC After | U-Value % Decrease | SHGC % Decrease |
+|---|---|---|---|---|---|---|
+| Single - No LowE - Clear - Aluminum | 5.724 | 0.744 | 2.992 | 0.541 | 0.477 | 0.273 |
+| Single - No LowE - Tinted/Reflective - Aluminum | 5.724 | 0.579 | 2.992 | 0.422 | 0.477 | 0.271 |
+| Single - No LowE - Tinted/Reflective - Wood | 5.164 | 0.525 | 2.099 | 0.373 | 0.594 | 0.290 |
+| Single - No LowE - Clear - Wood | 5.164 | 0.683 | 2.099 | 0.486 | 0.594 | 0.288 |
+| Double - No LowE - Tinted/Reflective - Aluminum | 4.256 | 0.488 | 3.466 | 0.417 | 0.186 | 0.145 |
+| Double - No LowE - Clear - Aluminum | 4.239 | 0.650 | 3.457 | 0.538 | 0.184 | 0.172 |
+| Double - LowE - Clear - Aluminum | 3.178 | 0.381 | 2.870 | 0.344 | 0.097 | 0.097 |
+| Double - LowE - Tinted/Reflective - Aluminum | 3.167 | 0.271 | 2.863 | 0.254 | 0.096 | 0.063 |
+| Double - LowE - Clear - Thermally Broken Aluminum | 2.837 | 0.373 | 2.529 | 0.339 | 0.109 | 0.091 |
+| Double - LowE - Tinted/Reflective - Thermally Broken Aluminum | 2.820 | 0.265 | 2.520 | 0.246 | 0.106 | 0.072 |
 
 ## 7.2  Non-Energy Impacts
 

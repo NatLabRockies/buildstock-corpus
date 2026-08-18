@@ -15,20 +15,12 @@ tables use rowspan/colspan, which GFM cannot express, so those stay as HTML by d
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | latex | 19 | 0 | **0** | 0 | **0** | 50 | 113 | **0** | **0** | 35 | 113 |
 | markdown | 40 | 4 | **0** | 11 | **0** | 19 | 39 | **0** | **0** | 1 | 5 |
-| measures | 6 | 39 | **6** | 58 | **0** | 64 | 80 | **0** | **0** | 0 | 0 |
+| measures | 6 | 39 | **0** | 58 | **0** | 89 | 74 | **0** | **0** | 0 | 0 |
 | pdf | 53 | 302 | **0** | 697 | **7** | 731 | 1245 | **0** | **0** | 0 | 0 |
 
-**Totals.** 6/345 table captions orphaned; 7/766 figure captions orphaned; 864 tables converted to markdown; 1477 image refs present with 0 dangling; 0 duplicated H1 heading(s).
+**Totals.** 0/345 table captions orphaned; 7/766 figure captions orphaned; 889 tables converted to markdown; 1471 image refs present with 0 dangling; 0 duplicated H1 heading(s).
 
 ## Gaps by file
-
-### `upgrade_measures/unpublished_docs/upgrade_measures/env_ext_secondary_window.md`
-
-extractor: **measures** — 3 issue(s)
-
-- L72 **ORPHANED TABLE** — Table 2. Window Property Data Sources
-- L212 **ORPHANED TABLE** — Table 7. Proposed Combinations for Performance of Existing Window Plus Secondary Window Combinations by Climate Zone
-- L328 **ORPHANED TABLE** — Table 10. U-Value and SHGC Comparison Before and After the Measure Was Applied
 
 ### `upgrade_measures/draft_publications/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.md`
 
@@ -61,24 +53,6 @@ extractor: **pdf** — 1 issue(s)
 extractor: **pdf** — 1 issue(s)
 
 - L549 **ORPHANED FIGURE** — Figure 6. Distributions of the percentage of max daily peak load reduction by month compared to the baseline model
-
-### `upgrade_measures/unpublished_docs/upgrade_measures/env_ext_wall_insulation.md`
-
-extractor: **measures** — 1 issue(s)
-
-- L64 **ORPHANED TABLE** — Table 3. Comparison of ComStock Existing Opaque Wall Thermal Performance to ASHRAE Small and Medium Office Zero Energy AEDG Perfor
-
-### `upgrade_measures/unpublished_docs/upgrade_measures/env_ext_window_replacement.md`
-
-extractor: **measures** — 1 issue(s)
-
-- L59 **ORPHANED TABLE** — Table 2. Example of Available Window Assignment Options for Climate Zone 4 Based on the Energy Code Followed During the Last Windo
-
-### `upgrade_measures/unpublished_docs/upgrade_measures/env_window_film.md`
-
-extractor: **measures** — 1 issue(s)
-
-- L120 **ORPHANED TABLE** — Table 2. Performance Range Baseline Windows With Window Films
 
 ### `github_site/docs/resources/explanations/combining_measure_results.md`
 

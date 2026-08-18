@@ -60,7 +60,35 @@ Table 2. Example of Available Window Assignment Options for Climate Zone 4 Based
 
 Table from \[1\]
 
-![Table Description automatically generated](./media/af2de490-bde0-40ce-b9d9-b48fb43e822e.png)
+<!-- table recovered from ./media/af2de490-bde0-40ce-b9d9-b48fb43e822e.png
+     overlay: comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_ext_window_replacement.yaml
+     method: vision-transcription -->
+
+**Allowable assembly maximums by the energy code followed during the last windows replacement**
+
+| Allowable Assembly Maximum | Pre-1980 | 1980-2004 | 90.1-2004 | 90.1-2007 | 90.1-2010 | 90.1-2013 |
+|---|---|---|---|---|---|---|
+| U-Value | 1.22 | 0.59 | 0.57 | 0.55 | 0.55 | 0.42 |
+| SHGC | 0.54 | 0.36 | 0.39 | 0.4 | 0.4 | 0.4 |
+
+**Window types that meet each code minimum**
+
+| Window Type | Pre-1980 | 1980-2004 | 90.1-2004 | 90.1-2007 | 90.1-2010 | 90.1-2013 |
+|---|---|---|---|---|---|---|
+| Single - No LowE - Clear - Aluminum U-1.178 SHGC-0.744 | X |  |  |  |  |  |
+| Single - No LowE - Tinted/Reflective - Aluminum U-1.178 SHGC-0.579 | X |  |  |  |  |  |
+| Single - No LowE - Clear - Wood U-0.91 SHGC-0.683 | X | X |  |  |  |  |
+| Single - No LowE - Tinted/Reflective - Wood U-0.91 SHGC-0.525 | X | X |  |  |  |  |
+| Double - No LowE - Tinted/Reflective - Aluminum U-0.749 SHGC-0.484 | X | X |  |  |  |  |
+| Double - No LowE - Clear - Aluminum U-0.746 SHGC-0.646 | X | X |  |  |  |  |
+| Double - LowE - Clear - Aluminum U-0.559 SHGC-0.386 |  | X | X | X | X |  |
+| Double - LowE - Tinted/Reflective - Aluminum U-0.557 SHGC-0.274 |  | X | X | X | X |  |
+| Double - LowE - Clear - Thermally Broken Aluminum U-0.499 SHGC-0.378 |  |  | X | X | X | X |
+| Double - LowE - Tinted/Reflective - Thermally Broken Aluminum U-0.496 SHGC-0.266 |  |  | X | X | X | X |
+| Triple - LowE - Clear - Thermally Broken Aluminum U-0.3 SHGC-0.328 |  |  | X | X | X | X |
+| Triple - LowE - Tinted/Reflective - Thermally Broken Aluminum U-0.299 SHGC-0.224 |  |  | X | X | X | X |
+
+X = This window type meets code minimums
 
 <br>
 <br>
