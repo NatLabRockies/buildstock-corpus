@@ -1,11 +1,19 @@
-# Hand-authored table transcription for measure_pdfs/86602.pdf
+# Hand-authored table transcriptions for measure_pdfs/86602.pdf
 #
-# Table 6 on p.17 is a rasterized region with no text layer: docling keeps the caption and
-# emits nothing beneath it. See overlays/README.md for the schema, and
-# measure_pdfs/86199.yaml for the authoring notes on this table (decomposition by energy-code
-# family, repeated merged cells, the 90.1-2013/2016 Notes cell, the capacity inversion in
-# row 3). It is the same table this report reprints under a different number, transcribed
-# from this PDF's own page render rather than copied on the strength of a shared caption.
+# Tables 2 (p.13) and 6 (p.17) are rasterized regions with no text layer: docling keeps the
+# caption and emits nothing beneath it. See overlays/README.md for the schema.
+#
+# Table 6: see measure_pdfs/86199.yaml for the authoring notes on that table (decomposition by
+# energy-code family, repeated merged cells, the 90.1-2013/2016 Notes cell, the capacity
+# inversion in row 3). It is the same table this report reprints under a different number,
+# transcribed from this PDF's own page render rather than copied on the strength of a shared
+# caption.
+#
+# Table 2: see measure_pdfs/86599.yaml for the authoring notes. That PDF embeds the
+# byte-identical bitmap of this same table on its own p.13 (sha256 fbe9f72d2cc511bccbfdbf37...),
+# and this transcription agrees with it cell for cell - but it was read from this PDF's own page
+# and is pinned to this PDF's hash, per overlays/README.md's rule that a shared caption is not
+# evidence of a shared table. The agreement is a finding, not an assumption.
 
 product: comstock
 release: "2025-3"
@@ -13,6 +21,62 @@ source_id: upgrade_measures
 source_path: measure_pdfs/86602.pdf
 
 tables:
+  - label: "Table 2"
+    caption: "Wall Assembly Thermal Performance (Outside California)"
+    source_pdf: measure_pdfs/86602.pdf
+    source_pdf_sha256: "cc5b290f302c11bf0a218b86e98c4300d616d094d0f5b20764c167e21bf38a73"
+    page: 13
+    method: vision-transcription
+    transcribed_utc: "2026-08-18"
+    markdown: |
+      **Whole Wall Assembly R-value by ASHRAE Climate Zone (ft²*F*hr/Btu)**
+
+      **Includes interior and exterior air films**
+
+      **Mass**
+
+      | Energy Code | 1A | 2A | 2B | 3A | 3B | 4A | 4B | 4C | 5A | 5B | 6A | 6B | 7 | 8 |
+      |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+      | Pre-1980 | 4.3 | 4.3 | 4.3 | 4.4 | 4.3 | 5.6 | 5.4 | 5.7 | 6.4 | 6.2 | 6.9 | 6.9 | 7.4 | 8 |
+      | 1980–2004 | 1 | 2.9 | 2.4 | 3.4 | 3.4 | 8.3 | 5.3 | 10 | 10 | 7.1 | 14.1 | 12.7 | 16.4 | 21.3 |
+      | 90.1-2004 | 1.7 | 1.7 | 1.7 | 6.6 | 6.6 | 6.6 | 6.6 | 6.6 | 8.1 | 8.1 | 9.6 | 9.6 | 11.1 | 12.5 |
+      | 90.1-2007 | 1.7 | 6.6 | 6.6 | 8.1 | 8.1 | 9.6 | 9.6 | 9.6 | 11.1 | 11.1 | 12.5 | 12.5 | 14.1 | 14.1 |
+      | 90.1-2010 | 1.7 | 6.6 | 6.6 | 8.1 | 8.1 | 9.6 | 9.6 | 9.6 | 11.1 | 11.1 | 12.5 | 12.5 | 14.1 | 14.1 |
+      | 90.1-2013 | 1.7 | 6.6 | 6.6 | 8.1 | 8.1 | 9.6 | 9.6 | 9.6 | 11.1 | 11.1 | 12.5 | 12.5 | 14.1 | 20.8 |
+
+      **Metal Building**
+
+      | Energy Code | 1A | 2A | 2B | 3A | 3B | 4A | 4B | 4C | 5A | 5B | 6A | 6B | 7 | 8 |
+      |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+      | Pre-1980 | 4.3 | 4.3 | 4.3 | 4.4 | 4.3 | 5.6 | 5.4 | 5.7 | 6.4 | 6.2 | 6.9 | 6.9 | 7.4 | 8 |
+      | 1980–2004 | 1 | 6.7 | 4.2 | 7.7 | 6.3 | 11.2 | 10 | 10.9 | 12.2 | 12.2 | 15.4 | 13.9 | 17.2 | 22.2 |
+      | 90.1-2004 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 17.5 | 17.5 |
+      | 90.1-2007 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 17.5 | 17.5 |
+      | 90.1-2010 | 10.8 | 10.8 | 10.8 | 11.9 | 11.9 | 11.9 | 11.9 | 11.9 | 14.5 | 14.5 | 14.5 | 14.5 | 17.5 | 17.5 |
+      | 90.1-2013 | 10.6 | 10.6 | 10.6 | 10.6 | 10.6 | 16.7 | 16.7 | 16.7 | 20 | 20 | 20 | 20 | 22.7 | 25.6 |
+
+      **Steel Framed**
+
+      | Energy Code | 1A | 2A | 2B | 3A | 3B | 4A | 4B | 4C | 5A | 5B | 6A | 6B | 7 | 8 |
+      |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+      | Pre-1980 | 4.3 | 4.3 | 4.3 | 4.4 | 4.3 | 5.6 | 5.4 | 5.7 | 6.4 | 6.2 | 6.9 | 6.9 | 7.4 | 8 |
+      | 1980–2004 | 1 | 6.7 | 4.2 | 7.7 | 6.3 | 11.2 | 10 | 10.9 | 12.2 | 12.2 | 15.4 | 13.9 | 17.2 | 22.2 |
+      | 90.1-2004 | 8.1 | 8.1 | 8.1 | 8.1 | 8.1 | 8.1 | 8.1 | 8.1 | 11.9 | 11.9 | 11.9 | 11.9 | 15.6 | 15.6 |
+      | 90.1-2007 | 8.1 | 8.1 | 8.1 | 11.9 | 11.9 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 |
+      | 90.1-2010 | 8.1 | 8.1 | 8.1 | 11.9 | 11.9 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 |
+      | 90.1-2013 | 8.1 | 11.9 | 11.9 | 13 | 13 | 15.6 | 15.6 | 15.6 | 18.2 | 18.2 | 20.4 | 20.4 | 20.4 | 27 |
+
+      **Wood Framed**
+
+      | Energy Code | 1A | 2A | 2B | 3A | 3B | 4A | 4B | 4C | 5A | 5B | 6A | 6B | 7 | 8 |
+      |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+      | Pre-1980 | 4.3 | 4.3 | 4.3 | 4.4 | 4.3 | 5.6 | 5.4 | 5.7 | 6.4 | 6.2 | 6.9 | 6.9 | 7.4 | 8 |
+      | 1980–2004 | 1 | 6.7 | 4.2 | 7.7 | 6.3 | 11.2 | 10 | 10.9 | 12.2 | 12.2 | 15.4 | 13.9 | 17.2 | 22.2 |
+      | 90.1-2004 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 19.6 |
+      | 90.1-2007 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 15.6 | 15.6 | 19.6 | 19.6 | 19.6 | 27.8 |
+      | 90.1-2010 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 15.6 | 15.6 | 19.6 | 19.6 | 19.6 | 27.8 |
+      | 90.1-2013 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 15.6 | 15.6 | 15.6 | 19.6 | 19.6 | 19.6 | 19.6 | 19.6 | 31.3 |
+
   - label: "Table 6"
     caption: "Boiler Efficiency and Performance Curve Assignment"
     source_pdf: measure_pdfs/86602.pdf

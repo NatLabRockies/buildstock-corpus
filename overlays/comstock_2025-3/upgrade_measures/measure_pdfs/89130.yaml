@@ -1,0 +1,150 @@
+# Hand-authored table transcriptions for measure_pdfs/89130.pdf
+#
+# Tables 2, 4, 6, 8, 10 and 12 are pasted screenshots of retailer product listings. docling
+# emitted each as a picture, so the caption survived and the specifications did not. Each entry
+# is anchored to that bitmap and replaces the image ref. See overlays/README.md for the schema.
+#
+# Authoring notes:
+#   * The numbers are not vision reads. Every product row in these tables still has a text layer
+#     in the PDF (the screenshots cover only the product photographs and their names), so the
+#     fuel and rated-input values were extracted with pymupdf's word boxes, clustered by line,
+#     and then checked against the rendered bitmap. Only the product names come from the image.
+#     `method` records both.
+#   * Each table is printed transposed: field names run down the left column and each product
+#     gets a column. The first printed row is the product row, so it becomes the pipe table's
+#     header — its left-hand cell keeps the source's own "Image" / "Image [10]" label rather
+#     than being replaced with an invented one.
+#   * Every table is really two stacked blocks, gas above electric, with a repeated "Image" row
+#     between them and a different set of rated-input rows in each (electric adds kW). They are
+#     transcribed as two sub-tables so neither block inherits the other's header, and so the
+#     chunker cannot split a header away from its rows.
+#   * Product names are transcribed exactly as printed, including the ones the source truncates
+#     mid-phrase ("... Range with Standard", "... Electric Floor Steamer -"). The listings'
+#     photographs and their fuel/voltage badges are dropped; a note under each table records
+#     that, per overlays/README.md, rather than describing the photos.
+
+product: comstock
+release: "2025-3"
+source_id: upgrade_measures
+source_path: measure_pdfs/89130.pdf
+
+tables:
+  - label: "Table 2"
+    caption: "Specifications for Commercially Available Gas and Electric Broilers [10] [11]"
+    source_image: 89130_images/image_000006_da3d606d0dde7a1e2940038d72b459235957a5f4cf2c841a94dbb757a6e728fe.png
+    source_image_sha256: "3efb30dc620541a02d3c2d1e83f2e9d6aaf55204a830e892294f97f5b1bec054"
+    method: pdf-text-layer (values) + vision-transcription (product names)
+    transcribed_utc: "2026-08-18"
+    markdown: |
+      | Image [10] | Vulcan VBB1BF-NAT Natural Gas Upright Ceramic Broiler | Vulcan VBB1CF-NAT Natural Gas Upright Ceramic Broiler |
+      |---|---|---|
+      | Fuel | Gas | Gas |
+      | Rated Input (Btu/h) | 100,500 | 132,500 |
+
+      | Image [11] | Southbend E-170 12 kW Freestanding Electric Single Deck Broiler | Southbend E-171 12 kW Freestanding Electric Single Deck Broiler w/ Warming Oven |
+      |---|---|---|
+      | Fuel | Electric | Electric |
+      | Rated Input (kW) | 12 | 12 |
+      | Rated Input (Btu/h) | 40,945 | 40,945 |
+
+      Each header cell also carries a product photograph and a "NATURAL GAS" fuel badge from the retailer listing; neither is transcribed.
+
+  - label: "Table 4"
+    caption: "Specifications for Commercially Available Gas and Electric Fryers [13]"
+    source_image: 89130_images/image_000008_3690540ed9767580164a5b9b6a00ee47c50f030ee0e5a6c26e32fff2d6b84277.png
+    source_image_sha256: "c968b6567f5bf423cbd1fc993ae5b2a23595fc87f97736bcbac2f51165555909"
+    method: pdf-text-layer (values) + vision-transcription (product names)
+    transcribed_utc: "2026-08-18"
+    markdown: |
+      | Image | MoTak MGF3-N-C Gas Fryer - (1) 40 lb Vat, Floor Model, Natural Gas | MoTak MGF4-N-C Gas Fryer - (1) 50 lb Vat, Floor Model, Natural Gas |
+      |---|---|---|
+      | Fuel | Gas | Gas |
+      | Rated Input (Btu/h) | 90,000 | 120,000 |
+
+      | Image | Dean SR114E Electric Fryer - (1) 40 lb. Vat, Floor Model, 240v/1ph | Imperial IFS-50-E Electric Fryer - (1) 50 lb Vat, Floor Model, 208v/3ph |
+      |---|---|---|
+      | Fuel | Electric | Electric |
+      | Rated Input (kW) | 14 | 15.25 |
+      | Rated Input (Btu/h) | 47,800 | 52,000 |
+
+      Each header cell also carries a product photograph and a fuel or voltage badge ("Natural Gas", "240 Volts", "208 Volts") from the retailer listing; neither is transcribed.
+
+  - label: "Table 6"
+    caption: "Specifications of Commercially Available Gas and Electric Griddles [10]"
+    source_image: 89130_images/image_000010_43e419a0d42312f3d5a62393120964e4c2da2a3eaf317d9a9b308689930b2e2e.png
+    source_image_sha256: "e4e68157567f54b0e3f137d52bcc4730d097234a99aad55800ea6453a7914394"
+    method: pdf-text-layer (values) + vision-transcription (product names)
+    transcribed_utc: "2026-08-18"
+    markdown: |
+      | Image | Cooking Performance Group GM-CPG-36-NL 36" Gas Countertop Griddle with | Avantco Chef Series CAG-48-MG 48" Countertop Gas Griddle with Manual Controls |
+      |---|---|---|
+      | Fuel | Gas | Gas |
+      | Rated Input (Btu/h) | 90,000 | 120,000 |
+
+      | Image | Vulcan HEG36E 36" Electric Countertop Griddle with Snap-Action Thermostatic | Cooking Performance Group G-CPG-48-M 48" Electric Countertop Griddle - 12,000W |
+      |---|---|---|
+      | Fuel | Electric | Electric |
+      | Rated Input (kW) | 16.2 | 12 |
+      | Rated Input (Btu/h) | 55,200 | 41,000 |
+
+      Two product names are cut off mid-phrase in the source and are transcribed as printed. Each header cell also carries a product photograph and a fuel or voltage badge ("NATURAL GAS", "208 VOLTS", "208/240 VOLTS"); neither is transcribed.
+
+  - label: "Table 8"
+    caption: "Specifications of Commercially Available Gas and Electric Ovens [13]"
+    source_image: 89130_images/image_000012_548aeb9d90327a05256fade02e6306be653d587504f45f45195c45ba072d3c60.png
+    source_image_sha256: "5f61307da218cc8fea245de19ff6c143299d287bd005c8db474df4c36d6b8f7d"
+    method: pdf-text-layer (values) + vision-transcription (product names)
+    transcribed_utc: "2026-08-18"
+    markdown: |
+      | Image | Blodgett DFG-100 Single Full Size Natural Gas Convection Oven - Base Oven, No Legs, 55,000 BTU | Southbend BGS/12SC Bronze Single Full Size Natural Gas Convection Oven - 54,000 BTU |
+      |---|---|---|
+      | Fuel | Gas | Gas |
+      | Rated Input (Btu/h) | 55,000 | 54,000 |
+
+      | Image | Vulcan VC4ED Single Full Size Electric Convection Oven - 12.5 kW, 208v/3ph | Blodgett ZEPH-100-E SGL Zephaire Single Full Size Electric Convection Oven - 11kW, 208v/3ph |
+      |---|---|---|
+      | Fuel | Electric | Electric |
+      | Rated Input (kW) | 12.5 | 11 |
+      | Rated Input (Btu/h) | 42,600 | 37,500 |
+
+      Each header cell also carries a product photograph and a fuel or voltage badge ("Natural Gas", "208 Volts") from the retailer listing; neither is transcribed.
+
+  - label: "Table 10"
+    caption: "Specifications of Commercially Availably Gas and Electric Induction Ranges"
+    source_image: 89130_images/image_000014_312a69f9a1ef0f41ed8ab9c0fbb24b0fcd0a6ed9b94a2ebd92e4a2895a37f8a2.png
+    source_image_sha256: "3117e2a8d57dec74bd7558bcb4542f84386e39a18f748d82687105753dc25cfd"
+    method: pdf-text-layer (values) + vision-transcription (product names)
+    transcribed_utc: "2026-08-18"
+    markdown: |
+      | Image [10] | Cooking Performance Group S36-N Natural Gas 6 Burner 36" Range with Standard | Vulcan 36C-6BN Endurance 6 Burner 36" Natural Gas Range with Convection Oven Base - |
+      |---|---|---|
+      | Fuel | Gas | Gas |
+      | Rated Input (Btu/h) | 180,000 | 180,000 |
+
+      | Image [16] | Southbend P36T-III 36" Floor Model Induction Range | Lang RI36C-ATE Floor Model Induction Range |
+      |---|---|---|
+      | Fuel | Electric Induction | Electric Induction |
+      | Rated Input (kW) | 21 | 21.6 |
+      | Rated Input (Btu/h) | 71,700 | 73,700 |
+
+      Both gas product names are cut off mid-phrase in the source and are transcribed as printed. Each header cell also carries a product photograph and a "NATURAL GAS" badge; the two gas photographs additionally carry the retailer's "Better" and "Best" ranking labels, in that column order. None of these is transcribed.
+
+  - label: "Table 12"
+    caption: "Specifications of Commercially Available Gas and Electric Steamers [10]"
+    source_image: 89130_images/image_000016_2b0ca833fda5b20e1f093f6a3f063fc426ceb3c1280268be4769a202d7f7edf9.png
+    source_image_sha256: "9a7d93e29e78f16a1b27860a69e90267360af94af6ea554c46036b717dbaabac"
+    method: pdf-text-layer (values) + vision-transcription (product names)
+    transcribed_utc: "2026-08-18"
+    markdown: |
+      | Image | Cleveland 24-CGM-200 Classic Series Natural Gas 6 Pan Convection Floor | Cleveland 24-CGP-10 SteamCraft Power Natural Gas 10 Pan Floor Convection |
+      |---|---|---|
+      | Fuel | Gas | Gas |
+      | Rated Input (Btu/h) | 200,000 | 240,000 |
+
+      | Image | Cleveland (2) 22CET3.1 SteamChef 3 Double Deck 6 Pan Electric Floor Steamer - | Cleveland 24CEA10 SteamCraft Gemini 10 Pan Electric Floor Steamer - 240V, |
+      |---|---|---|
+      | Fuel | Electric | Electric |
+      | Rated Input (kW) | 24 | 32 |
+      | Rated Input (Btu/h) | 81,900 | 109,000 |
+
+      All four product names are cut off mid-phrase in the source and are transcribed as printed. Each header cell also carries a product photograph and a fuel or voltage badge ("NATURAL GAS", "240 VOLTS"); neither is transcribed.

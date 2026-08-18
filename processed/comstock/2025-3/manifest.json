@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "2025-3",
-  "generated_utc": "2026-08-17T17:59:22.815999+00:00",
+  "generated_utc": "2026-08-18T15:22:13.015462+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -641,7 +641,14 @@
           "title": "Geothermal Heat Pumps + High-Efficiency Envelope Package",
           "input_sha256": "594820f09b44e2d762e7092bfe1a951e9fcbae67fd94c0596f3b25e0b2b4e847",
           "output_path": "upgrade_measures/measure_pdfs/95005.md",
-          "output_sha256": "624ad980b77510645f6d3cc3cdb70616c376aa6df6573853e62da36aeb9c9a09"
+          "output_sha256": "44431a90399c1d35e1fef3e550ab677ee2641da37ccb0cd576405e3ed0c32196",
+          "overlay": {
+            "path": "comstock_2025-3/upgrade_measures/measure_pdfs/95005.yaml",
+            "sha256": "1915a04e14a5dbdb0ced3b8b274d4b421c93a5beb149aab2c5df5acee2121217",
+            "tables_applied": [
+              "Table 4"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/95006.pdf",
@@ -826,7 +833,14 @@
           "title": "Wall and Roof Insulation and New Windows",
           "input_sha256": "c8c286e4939049366b50b203a8f6cac0f4201ca4d3aed2219a2089fefa45f2f3",
           "output_path": "upgrade_measures/measure_pdfs/86599.md",
-          "output_sha256": "dd6219b518f32ec1e7a6c75c65889467207741d28dbf04d7845d0c9b13aabdd7"
+          "output_sha256": "850aa80c36d3e211baa0fe14c3b21179766e2ea65a478ad9359e3ce02b476707",
+          "overlay": {
+            "path": "comstock_2025-3/upgrade_measures/measure_pdfs/86599.yaml",
+            "sha256": "713e09d431f7ccf900b40a3a73e8414f1dd909196fc67353f6b917366a91c82f",
+            "tables_applied": [
+              "Table 2"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/86601.pdf",
@@ -849,11 +863,12 @@
           "title": "Wall and Roof Insulation, New Windows, LED Lighting, HP-RTU and ASHP-Boiler",
           "input_sha256": "cc5b290f302c11bf0a218b86e98c4300d616d094d0f5b20764c167e21bf38a73",
           "output_path": "upgrade_measures/measure_pdfs/86602.md",
-          "output_sha256": "0944068bc95bc030e2799cca9a4678cb0fcadc039c90a34df63f0ddf047bc46b",
+          "output_sha256": "22749151c29c18312c1378eadeb771d9d2e0bec0d03916f49b9ca0e7ef88f712",
           "overlay": {
             "path": "comstock_2025-3/upgrade_measures/measure_pdfs/86602.yaml",
-            "sha256": "cbc1eef26e9497f9e8d5fe4b39ff4c4d31fd6ddc4eedc3adbd3ce9e17c056f5c",
+            "sha256": "6f3a2b024e659da59c6e7a7d3fd2973d4ff138aeec74b091a646ba89c1cc2912",
             "tables_applied": [
+              "Table 2",
               "Table 6"
             ]
           }
@@ -961,7 +976,19 @@
           "title": "Electric Cooking Equipment",
           "input_sha256": "917d4d390ae5079df21c37db82e6bf09c55af54f642c1b574b903d592fcd134e",
           "output_path": "upgrade_measures/measure_pdfs/89130.md",
-          "output_sha256": "5fa369f8fa27b789a413ef964c1fffcde9ffac95836e3e58910c21b055fc3dd2"
+          "output_sha256": "c8f708cba93445ced795387bcfa209bd8614639b8b9c47c7eb7183233d0f8d19",
+          "overlay": {
+            "path": "comstock_2025-3/upgrade_measures/measure_pdfs/89130.yaml",
+            "sha256": "b7637f623e9acfddefe4eabc0a9a13599c13f0d2c796b2afcdff1442587461b0",
+            "tables_applied": [
+              "Table 2",
+              "Table 4",
+              "Table 6",
+              "Table 8",
+              "Table 10",
+              "Table 12"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/89131.pdf",
@@ -1120,15 +1147,15 @@
   ],
   "counts": {
     "documents": 118,
-    "chunks": 7233,
+    "chunks": 7253,
     "by_type": {
       "latex": 19,
       "markdown": 40,
       "measures": 6,
       "pdf": 53
     },
-    "overlay_documents": 14,
-    "overlay_tables": 36
+    "overlay_documents": 17,
+    "overlay_tables": 45
   },
   "crosswalk": {
     "file": "crosswalk.json",

@@ -437,6 +437,62 @@ def test_caption_anchored_overlay_is_flagged_redundant_if_a_table_is_there(pdf_e
     assert "overlay is redundant" in warnings[0]
 
 
+def test_a_neighbours_table_does_not_make_our_overlay_look_redundant(pdf_env):
+    """The 96598 shape: a dense caption pair where only the second one kept its table.
+
+    Table 1's caption is followed by a citation stub, then Table 2's caption, then Table 2's
+    table. An undirected proximity window reaches that table and refuses Table 1's overlay as
+    redundant — silently leaving the gap the overlay exists to close. The scan is bounded by the
+    next caption for exactly this case.
+    """
+    body = PDF_BODY.replace(
+        "## 4 Results",
+        f"Table from [11]\n\nTable 2. Wall Construction Types\n\n{TABLE}\n\n## 4 Results",
+    )
+    pdf_env.write([pdf_env.pdf_entry()], source_path=PDF_PATH)
+    doc = _pdf_doc(body)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert warnings == [] and applied
+    lines = doc.body.split("\n")
+    assert (
+        lines.index("Table 1. Roof Construction Types")
+        < lines.index("| Building Type | Construction |")
+        < lines.index("Table 2. Wall Construction Types")
+    )
+
+
+def test_a_sub_numbered_title_between_caption_and_table_still_reads_as_redundant(pdf_env):
+    """The 89128 shape: the table's own printed title sits between caption and table.
+
+    "**TABLE 6.5.1.1.3A ...**" matches the caption pattern but is not the next caption, so it
+    must not stop the scan — otherwise the document looks table-less and gets a second,
+    duplicate copy injected under the same caption.
+    """
+    body = PDF_BODY.replace(
+        "## 4 Results",
+        f"**TABLE 6.5.1.1.3A Roof Construction Options**\n\n{TABLE}\n\n## 4 Results",
+    )
+    pdf_env.write([pdf_env.pdf_entry()], source_path=PDF_PATH)
+    doc = _pdf_doc(body)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {} and doc.body == body
+    assert "overlay is redundant" in warnings[0]
+
+
+def test_a_heading_between_caption_and_table_stops_the_scan(pdf_env):
+    """A table under the *next section's* heading is not this caption's table."""
+    body = PDF_BODY.replace("## 4 Results", f"## 4 Results\n\n{TABLE}")
+    pdf_env.write([pdf_env.pdf_entry()], source_path=PDF_PATH)
+    doc = _pdf_doc(body)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert warnings == [] and applied
+    lines = doc.body.split("\n")
+    assert lines.index("| Building Type | Construction |") < lines.index("## 4 Results")
+
+
 def test_entry_naming_neither_anchor_is_refused(pdf_env):
     entry = pdf_env.pdf_entry()
     del entry["source_pdf"]

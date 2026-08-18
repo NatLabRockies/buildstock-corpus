@@ -31,13 +31,13 @@
     "pdf": {
       "files": 53,
       "table_captions": 302,
-      "orphan_tables": 12,
+      "orphan_tables": 3,
       "figure_captions": 697,
       "orphan_figures": 7,
-      "md_tables": 698,
+      "md_tables": 722,
       "html_tables": 0,
       "html_imgs": 0,
-      "md_images": 1252,
+      "md_images": 1245,
       "dangling_refs": 0,
       "duplicate_h1": 0
     },
@@ -260,38 +260,6 @@
       "unconverted_html_imgs": []
     },
     {
-      "file": "upgrade_measures/measure_pdfs/86599.md",
-      "extractor": "pdf",
-      "orphan_tables": [
-        {
-          "line": 284,
-          "label": "Table 2",
-          "caption": "Table 2. Wall Assembly Thermal Performance (Outside California)"
-        }
-      ],
-      "orphan_figures": [],
-      "dangling_refs": [],
-      "duplicate_h1": [],
-      "unconverted_html_tables": [],
-      "unconverted_html_imgs": []
-    },
-    {
-      "file": "upgrade_measures/measure_pdfs/86602.md",
-      "extractor": "pdf",
-      "orphan_tables": [
-        {
-          "line": 352,
-          "label": "Table 2",
-          "caption": "Table 2. Wall Assembly Thermal Performance (Outside California)"
-        }
-      ],
-      "orphan_figures": [],
-      "dangling_refs": [],
-      "duplicate_h1": [],
-      "unconverted_html_tables": [],
-      "unconverted_html_imgs": []
-    },
-    {
       "file": "upgrade_measures/measure_pdfs/89040.md",
       "extractor": "pdf",
       "orphan_tables": [],
@@ -308,47 +276,6 @@
       "unconverted_html_imgs": []
     },
     {
-      "file": "upgrade_measures/measure_pdfs/89130.md",
-      "extractor": "pdf",
-      "orphan_tables": [
-        {
-          "line": 264,
-          "label": "Table 2",
-          "caption": "Table 2. Specifications for Commercially Available Gas and Electric Broilers [10] [11]"
-        },
-        {
-          "line": 291,
-          "label": "Table 4",
-          "caption": "Table 4. Specifications for Commercially Available Gas and Electric Fryers [13]"
-        },
-        {
-          "line": 320,
-          "label": "Table 6",
-          "caption": "Table 6. Specifications of Commercially Available Gas and Electric Griddles [10]"
-        },
-        {
-          "line": 351,
-          "label": "Table 8",
-          "caption": "Table 8. Specifications of Commercially Available Gas and Electric Ovens [13]"
-        },
-        {
-          "line": 384,
-          "label": "Table 10",
-          "caption": "Table 10. Specifications of Commercially Availably Gas and Electric Induction Ranges"
-        },
-        {
-          "line": 413,
-          "label": "Table 12",
-          "caption": "Table 12. Specifications of Commercially Available Gas and Electric Steamers [10]"
-        }
-      ],
-      "orphan_figures": [],
-      "dangling_refs": [],
-      "duplicate_h1": [],
-      "unconverted_html_tables": [],
-      "unconverted_html_imgs": []
-    },
-    {
       "file": "upgrade_measures/measure_pdfs/92502.md",
       "extractor": "pdf",
       "orphan_tables": [],
@@ -359,22 +286,6 @@
           "caption": "Figure 6. Distributions of the percentage of max daily peak load reduction by month compared to the baseline model"
         }
       ],
-      "dangling_refs": [],
-      "duplicate_h1": [],
-      "unconverted_html_tables": [],
-      "unconverted_html_imgs": []
-    },
-    {
-      "file": "upgrade_measures/measure_pdfs/95005.md",
-      "extractor": "pdf",
-      "orphan_tables": [
-        {
-          "line": 429,
-          "label": "Table 4",
-          "caption": "Table 4. Wall Assembly Thermal Performance (Inside California)"
-        }
-      ],
-      "orphan_figures": [],
       "dangling_refs": [],
       "duplicate_h1": [],
       "unconverted_html_tables": [],

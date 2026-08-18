@@ -99,6 +99,22 @@ tables:
 is required in caption-anchored mode — without it a reviewer cannot re-find what was read.
 Both `source_pdf` and `page` also appear in the injected provenance comment.
 
+`method` is free text and lands verbatim in that comment, so it should name how the values
+were actually obtained rather than defaulting to a house style. Three routes are in use:
+
+* `vision-transcription` — read off a render or a bitmap by eye. The only option when the
+  region has no text layer at all (86599/86602 Table 2, where the whole table is one
+  embedded bitmap).
+* `pdf-text-layer` — the region is *classified* as a picture by docling but still has a live
+  text layer, so the cells can be recovered exactly with `pymupdf`'s word boxes clustered by
+  line. Prefer this whenever it is available: it is not a reading, and a 479×321 cached
+  thumbnail is often too coarse to read reliably anyway (95005 Table 4, 576 values).
+* A compound like `pdf-text-layer (values) + vision-transcription (product names)` — part of
+  the table has a text layer and part does not. 89130's tables are pasted retailer listings
+  whose screenshots cover the product names while the specification rows below them stay
+  selectable. Say which part came from which; a reviewer checking one number should know
+  whether to trust it to the digit or to re-read the picture.
+
 ## Provenance
 
 Two rules keep hand-authored text distinguishable from extracted text:

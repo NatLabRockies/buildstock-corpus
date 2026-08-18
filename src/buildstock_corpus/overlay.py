@@ -61,6 +61,14 @@ _CAPTION = re.compile(
 )
 _MD_IMAGE_TARGET = re.compile(r"!\[[^\]]*\]\(\s*([^)\s]+)")
 _MD_TABLE_DELIM = re.compile(r"^\s*\|[\s:|\-]+\|\s*$")
+_MD_HEADING = re.compile(r"^#{1,6}\s+\S")
+# A table's own printed title, which docling emits between the caption and the table — e.g.
+# "**TABLE 6.5.1.1.3A High-Limit Shutoff Control Options...**". It matches _CAPTION but is not
+# the next caption, and multi-level numbering is what separates the two. Same regex and same
+# reason as SUBNUMBERED in scripts/audit_md_fidelity.py, which verifies this work landed.
+_SUBNUMBERED = re.compile(
+    r"^\s*(?:\*\*|__|\*|_)?\s*(?:Table|Figure|Fig\.?)\s*[0-9]+(?:\.[0-9]+)+", re.IGNORECASE
+)
 
 _MARKER = "<!-- table recovered from"  # our own injection, for idempotency
 
@@ -130,9 +138,25 @@ def _find_image(lines: list[str], start: int, source_image: str) -> tuple[int, s
 
 
 def _has_table_below(lines: list[str], start: int) -> bool:
-    """A real markdown table (confirmed by its delimiter row) already sits below `start`."""
-    window = lines[start + 1 : start + 1 + _IMAGE_WINDOW + 3]
-    return any(_MD_TABLE_DELIM.match(line) for line in window)
+    """Whether a real markdown table (confirmed by its delimiter row) already labels `start`.
+
+    Directional and bounded by the next caption or heading, for the same reason
+    scripts/audit_md_fidelity.py binds captions directionally: where captions are dense, a plain
+    proximity window reaches past the next caption into the table that belongs to *it*. In
+    96598.md the Table 10 caption is followed by a citation stub, then the Table 11 caption, then
+    Table 11's table four lines further down — close enough for an undirected window to read
+    Table 10 as already recovered and refuse its overlay as redundant.
+
+    A sub-numbered bold line is the table's own printed title, not the next caption, so it does
+    not stop the scan; otherwise 89128-shaped documents would look table-less and get a second,
+    duplicate injection.
+    """
+    for line in lines[start + 1 : start + 1 + _IMAGE_WINDOW + 3]:
+        if _MD_TABLE_DELIM.match(line):
+            return True
+        if _MD_HEADING.match(line) or (_CAPTION.match(line) and not _SUBNUMBERED.match(line)):
+            return False
+    return False
 
 
 def entry_kind(entry: dict) -> str:

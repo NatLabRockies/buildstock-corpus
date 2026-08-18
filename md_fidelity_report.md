@@ -16,22 +16,11 @@ tables use rowspan/colspan, which GFM cannot express, so those stay as HTML by d
 | latex | 19 | 0 | **0** | 0 | **0** | 50 | 113 | **0** | **0** | 35 | 113 |
 | markdown | 40 | 4 | **0** | 11 | **0** | 19 | 39 | **0** | **0** | 1 | 5 |
 | measures | 6 | 39 | **6** | 58 | **0** | 64 | 80 | **0** | **0** | 0 | 0 |
-| pdf | 53 | 302 | **12** | 697 | **7** | 698 | 1252 | **0** | **0** | 0 | 0 |
+| pdf | 53 | 302 | **3** | 697 | **7** | 722 | 1245 | **0** | **0** | 0 | 0 |
 
-**Totals.** 18/345 table captions orphaned; 7/766 figure captions orphaned; 831 tables converted to markdown; 1484 image refs present with 0 dangling; 0 duplicated H1 heading(s).
+**Totals.** 9/345 table captions orphaned; 7/766 figure captions orphaned; 855 tables converted to markdown; 1477 image refs present with 0 dangling; 0 duplicated H1 heading(s).
 
 ## Gaps by file
-
-### `upgrade_measures/measure_pdfs/89130.md`
-
-extractor: **pdf** — 6 issue(s)
-
-- L264 **ORPHANED TABLE** — Table 2. Specifications for Commercially Available Gas and Electric Broilers [10] [11]
-- L291 **ORPHANED TABLE** — Table 4. Specifications for Commercially Available Gas and Electric Fryers [13]
-- L320 **ORPHANED TABLE** — Table 6. Specifications of Commercially Available Gas and Electric Griddles [10]
-- L351 **ORPHANED TABLE** — Table 8. Specifications of Commercially Available Gas and Electric Ovens [13]
-- L384 **ORPHANED TABLE** — Table 10. Specifications of Commercially Availably Gas and Electric Induction Ranges
-- L413 **ORPHANED TABLE** — Table 12. Specifications of Commercially Available Gas and Electric Steamers [10]
 
 ### `upgrade_measures/measure_pdfs/96598.md`
 
@@ -69,18 +58,6 @@ extractor: **pdf** — 1 issue(s)
 
 - L224 **ORPHANED FIGURE** — Figure 5. Economizer configuration suggestions in ASHRAE 90.1-2010
 
-### `upgrade_measures/measure_pdfs/86599.md`
-
-extractor: **pdf** — 1 issue(s)
-
-- L284 **ORPHANED TABLE** — Table 2. Wall Assembly Thermal Performance (Outside California)
-
-### `upgrade_measures/measure_pdfs/86602.md`
-
-extractor: **pdf** — 1 issue(s)
-
-- L352 **ORPHANED TABLE** — Table 2. Wall Assembly Thermal Performance (Outside California)
-
 ### `upgrade_measures/measure_pdfs/89040.md`
 
 extractor: **pdf** — 1 issue(s)
@@ -92,12 +69,6 @@ extractor: **pdf** — 1 issue(s)
 extractor: **pdf** — 1 issue(s)
 
 - L549 **ORPHANED FIGURE** — Figure 6. Distributions of the percentage of max daily peak load reduction by month compared to the baseline model
-
-### `upgrade_measures/measure_pdfs/95005.md`
-
-extractor: **pdf** — 1 issue(s)
-
-- L429 **ORPHANED TABLE** — Table 4. Wall Assembly Thermal Performance (Inside California)
 
 ### `upgrade_measures/unpublished_docs/upgrade_measures/env_ext_wall_insulation.md`
 

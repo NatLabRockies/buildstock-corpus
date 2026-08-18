@@ -86,7 +86,15 @@ SUBFIGURE = re.compile(r"^\s*(?:[-*+]\s*)?(?:\*\*|__|\*|_)?\(?[A-Za-z]\)")
 COMMENT_OPEN = re.compile(r"<!--")
 COMMENT_CLOSE = re.compile(r"-->")
 
-WINDOW = 10  # forward lines from a caption before giving up on its artifact
+# Forward lines from a caption before giving up on its artifact. Only a backstop for
+# pathological input: what actually keeps a caption from claiming its neighbour's table is
+# boundary(), and _bind_below_strict stops at the first non-skippable line regardless. The
+# budget has to clear the widest thing an overlay puts between a caption and its table — a
+# three-line provenance comment, then the table's own two title lines, then a sub-table label,
+# twelve lines all told in 86599.md — or a recovered table reads as still missing. Measured
+# corpus-wide, orphan counts are flat from 12 all the way out to 60, which is the evidence that
+# this number is not the operative bound; 16 leaves headroom without pretending otherwise.
+WINDOW = 16
 BACK_WINDOW = 6  # lines above a caption, for docs that put the caption under the artifact
 
 

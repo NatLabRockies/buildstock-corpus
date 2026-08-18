@@ -233,6 +233,38 @@ Table 1. Specifications of Available VRF (HR) Systems
     assert tables == []
 
 
+def test_a_decomposed_overlay_injection_is_not_read_as_still_missing(tmp_path):
+    """The widest gap an overlay puts between a caption and its first table row — 86599.md:284.
+
+    A wide table is decomposed into bold-labelled sub-tables so chunk._pack cannot split it
+    mid-row, and the table's own printed title lines are transcribed as bold lines rather than
+    folded into the caption. Provenance comment, blanks, two title lines and a sub-table label
+    put the delimiter row twelve lines below the caption, and a WINDOW of 10 reported all three
+    of chunk 3's caption-anchored recoveries as still dropped right after applying them.
+    """
+    tables, _ = orphans(
+        tmp_path,
+        """
+Table 2. Wall Assembly Thermal Performance (Outside California)
+
+<!-- table recovered from measure_pdfs/86599.pdf p.13
+     overlay: comstock_2025-3/upgrade_measures/measure_pdfs/86599.yaml
+     method: vision-transcription -->
+
+**Whole Wall Assembly R-value by ASHRAE Climate Zone (ft^2*F*hr/Btu)**
+
+**Includes interior and exterior air films**
+
+**Mass**
+
+| Energy Code | 1A | 2A |
+|---|---|---|
+| Pre-1980 | 4.3 | 4.3 |
+""",
+    )
+    assert tables == []
+
+
 def test_section_numbered_in_table_title_is_not_the_next_caption(tmp_path):
     """Tolerance 2 — 89128.md:521.
 

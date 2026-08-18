@@ -19,6 +19,10 @@ index/
 # Sandbox roots for `bsc build --work-dir` smoke tests (partial, throwaway corpora)
 .smoketest/
 
+# Transcription working files (page renders, text-layer dumps) used while authoring an
+# overlay. The overlay's own pins are what make it re-checkable; these are notes.
+.scratch/
+
 # Extracted figure assets under processed/ (~250 MB of binaries, regenerable
 # via `bsc fetch && bsc build`). The clean markdown keeps its image references,
 # so audit_md_fidelity.py still reports them -- only the binaries are uncommitted.
