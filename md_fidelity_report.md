@@ -15,18 +15,113 @@ tables use rowspan/colspan, which GFM cannot express, so those stay as HTML by d
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | latex | 19 | 0 | **0** | 0 | **0** | 50 | 113 | **0** | **0** | 35 | 113 |
 | markdown | 40 | 4 | **0** | 11 | **0** | 19 | 39 | **0** | **0** | 1 | 5 |
-| measures | 6 | 39 | **0** | 58 | **0** | 64 | 80 | **0** | **0** | 0 | 0 |
-| pdf | 53 | 302 | **0** | 697 | **1** | 698 | 1252 | **0** | **0** | 0 | 0 |
+| measures | 6 | 39 | **6** | 58 | **0** | 64 | 80 | **0** | **0** | 0 | 0 |
+| pdf | 53 | 302 | **13** | 697 | **7** | 698 | 1252 | **0** | **0** | 0 | 0 |
 
-**Totals.** 0/345 table captions orphaned; 1/766 figure captions orphaned; 831 tables converted to markdown; 1484 image refs present with 0 dangling; 0 duplicated H1 heading(s).
+**Totals.** 19/345 table captions orphaned; 7/766 figure captions orphaned; 831 tables converted to markdown; 1484 image refs present with 0 dangling; 0 duplicated H1 heading(s).
 
 ## Gaps by file
+
+### `upgrade_measures/measure_pdfs/89130.md`
+
+extractor: **pdf** — 6 issue(s)
+
+- L264 **ORPHANED TABLE** — Table 2. Specifications for Commercially Available Gas and Electric Broilers [10] [11]
+- L291 **ORPHANED TABLE** — Table 4. Specifications for Commercially Available Gas and Electric Fryers [13]
+- L320 **ORPHANED TABLE** — Table 6. Specifications of Commercially Available Gas and Electric Griddles [10]
+- L351 **ORPHANED TABLE** — Table 8. Specifications of Commercially Available Gas and Electric Ovens [13]
+- L384 **ORPHANED TABLE** — Table 10. Specifications of Commercially Availably Gas and Electric Induction Ranges
+- L413 **ORPHANED TABLE** — Table 12. Specifications of Commercially Available Gas and Electric Steamers [10]
+
+### `upgrade_measures/measure_pdfs/96598.md`
+
+extractor: **pdf** — 3 issue(s)
+
+- L393 **ORPHANED TABLE** — Table 5. Baseline Roof R-Value by Roof Type, Energy Code, and Climate Zone for Non-California Buildings.
+- L714 **ORPHANED TABLE** — Table 10. Upgrade Wall R-Value by Wall Type, Energy Code, and Climate Zone for Non-California Buildings.
+- L765 **ORPHANED TABLE** — Table 12. Upgrade Roof R-Value by Roof Type, Energy Code, and Climate Zone for Non-California Buildings.
+
+### `upgrade_measures/unpublished_docs/upgrade_measures/env_ext_secondary_window.md`
+
+extractor: **measures** — 3 issue(s)
+
+- L72 **ORPHANED TABLE** — Table 2. Window Property Data Sources
+- L212 **ORPHANED TABLE** — Table 7. Proposed Combinations for Performance of Existing Window Plus Secondary Window Combinations by Climate Zone
+- L328 **ORPHANED TABLE** — Table 10. U-Value and SHGC Comparison Before and After the Measure Was Applied
+
+### `upgrade_measures/draft_publications/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.md`
+
+extractor: **pdf** — 2 issue(s)
+
+- L190 **ORPHANED FIGURE** — Figure 1. ComStock baseline in-force energy code followed as a percentage of applicable floor area.
+- L397 **ORPHANED FIGURE** — Figure 8. Lockout temperature sensitivity results: stock-level utility bills
+
+### `upgrade_measures/draft_publications/files/ComStock Measure Doc_PV with Battery Storage.md`
+
+extractor: **pdf** — 2 issue(s)
+
+- L381 **ORPHANED FIGURE** — Figure 5. Percent annual utility bill savings distribution for ComStock models with PV 40% measure scenario by climate zone PRE-PU
+- L403 **ORPHANED FIGURE** — Figure 8. Total installed battery charge/discharge capacity (GW) for the 40% PV with battery storage measure scenario for building
+
+### `upgrade_measures/measure_pdfs/86105.md`
+
+extractor: **pdf** — 1 issue(s)
+
+- L224 **ORPHANED FIGURE** — Figure 5. Economizer configuration suggestions in ASHRAE 90.1-2010
+
+### `upgrade_measures/measure_pdfs/86599.md`
+
+extractor: **pdf** — 1 issue(s)
+
+- L284 **ORPHANED TABLE** — Table 2. Wall Assembly Thermal Performance (Outside California)
+
+### `upgrade_measures/measure_pdfs/86602.md`
+
+extractor: **pdf** — 1 issue(s)
+
+- L352 **ORPHANED TABLE** — Table 2. Wall Assembly Thermal Performance (Outside California)
 
 ### `upgrade_measures/measure_pdfs/89040.md`
 
 extractor: **pdf** — 1 issue(s)
 
 - L304 **ORPHANED FIGURE** — Figure 5. Narrative description of upsizing algorithm in measure implementation
+
+### `upgrade_measures/measure_pdfs/92502.md`
+
+extractor: **pdf** — 1 issue(s)
+
+- L549 **ORPHANED FIGURE** — Figure 6. Distributions of the percentage of max daily peak load reduction by month compared to the baseline model
+
+### `upgrade_measures/measure_pdfs/92618.md`
+
+extractor: **pdf** — 1 issue(s)
+
+- L272 **ORPHANED TABLE** — Table 2. On-Site Fossil-Fuel Emissions Factors
+
+### `upgrade_measures/measure_pdfs/95005.md`
+
+extractor: **pdf** — 1 issue(s)
+
+- L429 **ORPHANED TABLE** — Table 4. Wall Assembly Thermal Performance (Inside California)
+
+### `upgrade_measures/unpublished_docs/upgrade_measures/env_ext_wall_insulation.md`
+
+extractor: **measures** — 1 issue(s)
+
+- L64 **ORPHANED TABLE** — Table 3. Comparison of ComStock Existing Opaque Wall Thermal Performance to ASHRAE Small and Medium Office Zero Energy AEDG Perfor
+
+### `upgrade_measures/unpublished_docs/upgrade_measures/env_ext_window_replacement.md`
+
+extractor: **measures** — 1 issue(s)
+
+- L59 **ORPHANED TABLE** — Table 2. Example of Available Window Assignment Options for Climate Zone 4 Based on the Energy Code Followed During the Last Windo
+
+### `upgrade_measures/unpublished_docs/upgrade_measures/env_window_film.md`
+
+extractor: **measures** — 1 issue(s)
+
+- L120 **ORPHANED TABLE** — Table 2. Performance Range Baseline Windows With Window Films
 
 ### `github_site/docs/resources/explanations/combining_measure_results.md`
 

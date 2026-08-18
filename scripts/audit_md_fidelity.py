@@ -5,14 +5,23 @@ caption describes never made it into the markdown. That is the failure mode wort
 finding: the surrounding prose still says "as shown in Table 5", so a reader (or an
 LLM) is promised a table that isn't there and has to either hallucinate it or give up.
 
-For every processed .md file this script pairs each caption against nearby evidence
-that the artifact actually converted:
+For every processed .md file this script pairs each caption against the artifact it
+actually binds to:
 
   table caption   satisfied by a markdown table block, or a raw <table> (unconverted)
   figure caption  satisfied by a markdown image ![...], a raw <img>, or a fenced code
                   block (some "figures" are listings, e.g. an EnergyPlus object)
 
-A caption with no evidence in its window is reported as ORPHANED — the content is gone.
+The binding is *directional*: scan forward from the caption to the first decisive line
+(an artifact of any kind, the next caption, or the next heading) and let that line decide.
+Only if nothing forward decides it do we scan a short way backward, for the docs that put
+the caption underneath its artifact. An undirected "is there a table within N lines"
+window is not enough — where captions are dense it lets a caption whose own table is
+missing be satisfied by its *neighbour's* table, which is exactly how 13 dropped tables
+in measure_pdfs/ hid behind a clean report.
+
+A caption that binds to nothing, or to the wrong kind of artifact, is reported as
+ORPHANED — the content is gone.
 
 Image references are also resolved against the filesystem: a ref pointing at a file that
 was never copied into processed/ is reported as DANGLING. Raw <table>/<img> HTML that
@@ -63,7 +72,22 @@ HEADING = re.compile(r"^#{1,6}\s+(.*?)\s*$")
 # every caption with no artifact beside them; counting those as orphans is a false positive.
 TOC_HEADING = re.compile(r"^(?:list of (?:figures|tables)|(?:table of )?contents)\b", re.IGNORECASE)
 
-WINDOW = 10  # lines either side of a caption to look for its artifact
+# A section-numbered title reproduced *inside* a table ("**TABLE 6.5.1.1.3A High-Limit
+# Shutoff...**", lifted from ASHRAE 90.1) matches CAPTION but is not one of our captions.
+# Multi-level dotted numbering is the tell: a real caption reads "Table 6. Something".
+# Treating these as "the next caption" ends the forward scan one line early and reports a
+# recovered table as dropped (89128.md:521).
+SUBNUMBERED = re.compile(
+    r"^\s*(?:\*\*|__|\*|_)?\s*(?:Table|Figure|Fig\.?)\s*[0-9]+(?:\.[0-9]+)+", re.IGNORECASE
+)
+# Sub-figure labels between a multi-panel image and its caption: "- (a) Three-pipe system".
+# Requires the parenthesised single letter, so ordinary bullets are not swallowed.
+SUBFIGURE = re.compile(r"^\s*(?:[-*+]\s*)?(?:\*\*|__|\*|_)?\(?[A-Za-z]\)")
+COMMENT_OPEN = re.compile(r"<!--")
+COMMENT_CLOSE = re.compile(r"-->")
+
+WINDOW = 10  # forward lines from a caption before giving up on its artifact
+BACK_WINDOW = 6  # lines above a caption, for docs that put the caption under the artifact
 
 
 def toc_lines(lines: list[str]) -> set[int]:
@@ -153,8 +177,88 @@ def marker_lines(lines: list[str], pattern: re.Pattern) -> set[int]:
     return {i for i, line in enumerate(lines) if pattern.search(line)}
 
 
-def near(target: set[int], line_no: int, window: int = WINDOW) -> bool:
-    return any(abs(t - line_no) <= window for t in target)
+def comment_lines(lines: list[str]) -> set[int]:
+    """Line numbers inside an HTML comment span.
+
+    Every chunk-1/chunk-2 overlay recovery puts a multi-line `<!-- table recovered from
+    ... -->` provenance block between the caption and the table, so the scan has to step
+    over comments rather than treat them as content.
+    """
+    out: set[int] = set()
+    depth = 0
+    for i, line in enumerate(lines):
+        opens = len(COMMENT_OPEN.findall(line))
+        closes = len(COMMENT_CLOSE.findall(line))
+        if depth or opens:
+            out.add(i)
+        depth = max(0, depth + opens - closes)
+    return out
+
+
+def artifact_at(i: int, tables: set[int], images: set[int], fences: set[int]) -> str | None:
+    """Which kind of artifact, if any, line `i` is evidence of."""
+    if i in tables:
+        return "table"
+    if i in images:
+        return "image"
+    if i in fences:
+        return "fence"
+    return None
+
+
+SATISFIES = {"table": {"table"}, "figure": {"image", "fence"}}
+
+
+def skippable(lines: list[str], i: int, comments: set[int]) -> bool:
+    """Lines that may sit between a caption and its artifact without severing them."""
+    return (
+        not lines[i].strip()
+        or i in comments
+        or bool(SUBNUMBERED.match(lines[i]))
+        or bool(SUBFIGURE.match(lines[i]))
+    )
+
+
+def boundary(line: str) -> bool:
+    """A line that ends the caption's claim on what follows."""
+    return bool(HEADING.match(line)) or (bool(CAPTION.match(line)) and not SUBNUMBERED.match(line))
+
+
+def has_artifact(
+    lines: list[str],
+    i: int,
+    want: str,
+    tables: set[int],
+    images: set[int],
+    fences: set[int],
+    comments: set[int],
+) -> bool:
+    """Whether the caption on line `i` binds to an artifact of kind `want`.
+
+    Forward first — a caption normally sits above its artifact. Prose between the two is
+    tolerated (some docs put a sentence of setup after the caption), but the next caption
+    or heading ends the search, so a caption cannot borrow its neighbour's table. The
+    first artifact found forward *decides*: if a table caption is followed by a bitmap,
+    the table is gone, and we must not then look upward and accept the previous caption's
+    table (92618.md:272 and 95005.md:429 are exactly that shape). So the backward pass
+    runs only when nothing forward answered the question either way.
+    """
+    accept = SATISFIES[want]
+    for j in range(i + 1, min(len(lines), i + 1 + WINDOW)):
+        found = artifact_at(j, tables, images, fences)
+        if found:
+            return found in accept
+        if skippable(lines, j, comments):
+            continue
+        if boundary(lines[j]):
+            break
+    for j in range(i - 1, max(-1, i - 1 - BACK_WINDOW), -1):
+        found = artifact_at(j, tables, images, fences)
+        if found:
+            return found in accept
+        if not skippable(lines, j, comments):
+            break
+    return False
 
 
 def classify_sources(manifest: dict) -> dict[str, str]:
@@ -216,6 +320,9 @@ def audit(processed: Path, kinds: dict[str, str]) -> tuple[list[dict], dict]:
         t["duplicate_h1"] += len(dup_h1)
 
         in_toc = toc_lines(lines)
+        comments = comment_lines(lines)
+        tables = tbl | html_tbl
+        images = img | html_img
         orphan_t: list[dict] = []
         orphan_f: list[dict] = []
         for i, line in enumerate(lines):
@@ -224,14 +331,16 @@ def audit(processed: Path, kinds: dict[str, str]) -> tuple[list[dict], dict]:
                 continue
             label = f"{m.group(1).title()} {m.group(2)}"
             caption = " ".join(line.split())[:130]
-            if m.group(1).lower().startswith("t"):
+            want = "table" if m.group(1).lower().startswith("t") else "figure"
+            bound = has_artifact(lines, i, want, tables, images, fence, comments)
+            if want == "table":
                 t["table_captions"] += 1
-                if not (near(tbl, i) or near(html_tbl, i)):
+                if not bound:
                     t["orphan_tables"] += 1
                     orphan_t.append({"line": i + 1, "label": label, "caption": caption})
             else:
                 t["figure_captions"] += 1
-                if not (near(img, i) or near(html_img, i) or near(fence, i)):
+                if not bound:
                     t["orphan_figures"] += 1
                     orphan_f.append({"line": i + 1, "label": label, "caption": caption})
 
