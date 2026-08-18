@@ -31,7 +31,7 @@
     "pdf": {
       "files": 53,
       "table_captions": 302,
-      "orphan_tables": 13,
+      "orphan_tables": 12,
       "figure_captions": 697,
       "orphan_figures": 7,
       "md_tables": 698,
@@ -359,22 +359,6 @@
           "caption": "Figure 6. Distributions of the percentage of max daily peak load reduction by month compared to the baseline model"
         }
       ],
-      "dangling_refs": [],
-      "duplicate_h1": [],
-      "unconverted_html_tables": [],
-      "unconverted_html_imgs": []
-    },
-    {
-      "file": "upgrade_measures/measure_pdfs/92618.md",
-      "extractor": "pdf",
-      "orphan_tables": [
-        {
-          "line": 272,
-          "label": "Table 2",
-          "caption": "Table 2. On-Site Fossil-Fuel Emissions Factors"
-        }
-      ],
-      "orphan_figures": [],
       "dangling_refs": [],
       "duplicate_h1": [],
       "unconverted_html_tables": [],

@@ -41,7 +41,7 @@ def orphans(tmp_path: Path, body: str) -> tuple[list[int], list[int]]:
 # --- the shapes that must be reported -----------------------------------------------------
 
 def test_caption_followed_by_bitmap_is_orphaned_despite_a_sibling_table_above(tmp_path):
-    """92618.md:272 / 95005.md:429 — the case that motivated the fix.
+    """95005.md:429 — the case that motivated the fix.
 
     The previous caption's table ends 2 lines above and the dropped table's own content is a
     bitmap below. Both an undirected window and a prose-tolerant backward scan accept this.
@@ -49,17 +49,17 @@ def test_caption_followed_by_bitmap_is_orphaned_despite_a_sibling_table_above(tm
     tables, _ = orphans(
         tmp_path,
         """
-Table 1. Fuels Modeled
+Table 3. Wall Assembly Thermal Performance (Outside California)
 
-| Fuel | Modeled |
-|---|---|
-| Natural gas | yes |
+| Wall Type | Energy Code | 1A |
+|---|---|---|
+| Mass | Pre-1980 | 4.3 |
 
-Table 2. On-Site Fossil-Fuel Emissions Factors
+Table 4. Wall Assembly Thermal Performance (Inside California)
 
-![Image](doc_images/image_000004.png)
+![Image](doc_images/image_000002.png)
 
-## 3.4 Utility Bills
+## 2.4 Roofs
 """,
     )
     assert tables == [8]
@@ -136,6 +136,62 @@ Figure 1. Below its image
 """,
     )
     assert (tables, figures) == ([], [])
+
+
+def test_rows_detached_above_their_caption_are_not_a_dropped_table(tmp_path):
+    """92618.md:272 — the same silhouette as 95005 above, and the opposite verdict.
+
+    docling put Table 2's three rows *above* its caption and kept a picture of the same
+    table below. From the caption's own line the two documents are indistinguishable: table
+    above, bitmap below. What separates them is who owns the table above — here prose, so
+    these rows are Table 2's and the numbers are in the text; in 95005 a Table 3 caption,
+    so Table 4 is genuinely gone. Flagging this one would have us inject an overlay that
+    duplicates body text.
+    """
+    tables, _ = orphans(
+        tmp_path,
+        """
+## 3.3 Greenhouse Gas Emissions
+
+Three electricity grid scenarios are presented to compare the emissions of the baseline.
+
+| Natural gas | 147.3 lb/MMBtu (228.0 kg/MWh) a |
+|---|---|
+| Propane | 177.8 lb/MMBtu (182.3 kg/MWh) |
+
+Table 2. On-Site Fossil-Fuel Emissions Factors
+
+![Image](doc_images/image_000004.png)
+
+## 3.4 Utility Bills
+""",
+    )
+    assert tables == []
+
+
+def test_a_chain_of_images_captioned_underneath_orphans_none_of_them(tmp_path):
+    """env_roof_insulation.md:222 — why ownership is inferred for tables but not images.
+
+    Every image in this document is captioned below, so every image also has the *previous*
+    figure's caption above it. Reading that as ownership — the inference that is correct for
+    tables, which this corpus captions above without exception — orphans 8 correctly
+    captioned figures corpus-wide.
+    """
+    _, figures = orphans(
+        tmp_path,
+        """
+![Image](media/f93fbe14.png)
+
+Figure 3. Average roof assembly R-value for each energy code followed
+
+![Image](media/6879600c.png)
+
+Figure 4. Climate zone floor area percentage per energy code followed
+
+# 4. Modeling Approach
+""",
+    )
+    assert figures == []
 
 
 def test_prose_between_a_caption_and_its_own_table_is_tolerated(tmp_path):

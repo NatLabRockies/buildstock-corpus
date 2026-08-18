@@ -16,9 +16,9 @@ tables use rowspan/colspan, which GFM cannot express, so those stay as HTML by d
 | latex | 19 | 0 | **0** | 0 | **0** | 50 | 113 | **0** | **0** | 35 | 113 |
 | markdown | 40 | 4 | **0** | 11 | **0** | 19 | 39 | **0** | **0** | 1 | 5 |
 | measures | 6 | 39 | **6** | 58 | **0** | 64 | 80 | **0** | **0** | 0 | 0 |
-| pdf | 53 | 302 | **13** | 697 | **7** | 698 | 1252 | **0** | **0** | 0 | 0 |
+| pdf | 53 | 302 | **12** | 697 | **7** | 698 | 1252 | **0** | **0** | 0 | 0 |
 
-**Totals.** 19/345 table captions orphaned; 7/766 figure captions orphaned; 831 tables converted to markdown; 1484 image refs present with 0 dangling; 0 duplicated H1 heading(s).
+**Totals.** 18/345 table captions orphaned; 7/766 figure captions orphaned; 831 tables converted to markdown; 1484 image refs present with 0 dangling; 0 duplicated H1 heading(s).
 
 ## Gaps by file
 
@@ -92,12 +92,6 @@ extractor: **pdf** — 1 issue(s)
 extractor: **pdf** — 1 issue(s)
 
 - L549 **ORPHANED FIGURE** — Figure 6. Distributions of the percentage of max daily peak load reduction by month compared to the baseline model
-
-### `upgrade_measures/measure_pdfs/92618.md`
-
-extractor: **pdf** — 1 issue(s)
-
-- L272 **ORPHANED TABLE** — Table 2. On-Site Fossil-Fuel Emissions Factors
 
 ### `upgrade_measures/measure_pdfs/95005.md`
 
