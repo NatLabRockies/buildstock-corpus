@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "2025-3",
-  "generated_utc": "2026-08-18T15:22:13.015462+00:00",
+  "generated_utc": "2026-08-18T17:11:07.568340+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -720,7 +720,20 @@
           "title": "Upgrade Envelope to Latest Code",
           "input_sha256": "612945456f16d2907f426ae300cf0df50373c5ebe29e217b84c7160ae0f10ce4",
           "output_path": "upgrade_measures/measure_pdfs/96598.md",
-          "output_sha256": "ad5ce11b555d37d7d96d85fd696241268fc7807d9ab2a06522a82bff379e2ac1"
+          "output_sha256": "ad802deb9143c04b189daccda419612a68118208355802935e3bc7e9537c50f9",
+          "overlay": {
+            "path": "comstock_2025-3/upgrade_measures/measure_pdfs/96598.yaml",
+            "sha256": "58dc5b65f1b5139b3382bd789bbb9e04c9bca58a16561710cb64fa24140fae51",
+            "tables_applied": [
+              "Table 5.",
+              "Table 6.",
+              "Table 10.",
+              "Table 11.",
+              "Table 12.",
+              "Table 13."
+            ],
+            "text_repairs_applied": 1
+          }
         },
         {
           "source_path": "measure_pdfs/98223.pdf",
@@ -1147,15 +1160,16 @@
   ],
   "counts": {
     "documents": 118,
-    "chunks": 7253,
+    "chunks": 7177,
     "by_type": {
       "latex": 19,
       "markdown": 40,
       "measures": 6,
       "pdf": 53
     },
-    "overlay_documents": 17,
-    "overlay_tables": 45
+    "overlay_documents": 18,
+    "overlay_tables": 51,
+    "overlay_text_repairs": 1
   },
   "crosswalk": {
     "file": "crosswalk.json",

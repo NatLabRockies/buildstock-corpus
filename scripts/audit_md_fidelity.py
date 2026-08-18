@@ -86,16 +86,36 @@ SUBFIGURE = re.compile(r"^\s*(?:[-*+]\s*)?(?:\*\*|__|\*|_)?\(?[A-Za-z]\)")
 COMMENT_OPEN = re.compile(r"<!--")
 COMMENT_CLOSE = re.compile(r"-->")
 
-# Forward lines from a caption before giving up on its artifact. Only a backstop for
-# pathological input: what actually keeps a caption from claiming its neighbour's table is
-# boundary(), and _bind_below_strict stops at the first non-skippable line regardless. The
-# budget has to clear the widest thing an overlay puts between a caption and its table — a
-# three-line provenance comment, then the table's own two title lines, then a sub-table label,
-# twelve lines all told in 86599.md — or a recovered table reads as still missing. Measured
+# How far a caption may reach for its artifact, counted in *content* lines: blank lines, HTML
+# comments and in-table titles are walked for free (see skippable / _reach). Only a backstop for
+# pathological input — what actually keeps a caption from claiming its neighbour's table is
+# boundary(), and _bind_below_strict stops at the first non-skippable line regardless. Measured
 # corpus-wide, orphan counts are flat from 12 all the way out to 60, which is the evidence that
 # this number is not the operative bound; 16 leaves headroom without pretending otherwise.
+#
+# Counting content rather than raw lines is what makes the budget mean something stable. An
+# overlay's provenance comment is as long as its justification needs to be — 96598's replacement
+# entries carry a paragraph explaining what they superseded and why, ten comment lines before
+# the table starts — and under a raw line budget, writing a fuller explanation would push a
+# recovered table out of reach and report it as still missing. Distance between a caption and its
+# table is a property of the document, not of how much we had to say about it.
 WINDOW = 16
-BACK_WINDOW = 6  # lines above a caption, for docs that put the caption under the artifact
+BACK_WINDOW = 6  # content lines above a caption, for docs that put the caption under the artifact
+# Absolute line cap on either reach, so an unterminated comment cannot run a scan away.
+SCAN_CAP = 200
+
+
+def _reach(lines: list[str], i: int, comments: set[int], step: int, budget: int):
+    """Line indices out from caption `i`, spending `budget` only on non-skippable lines."""
+    for n in range(1, SCAN_CAP + 1):
+        j = i + step * n
+        if not 0 <= j < len(lines):
+            return
+        yield j
+        if not skippable(lines, j, comments):
+            budget -= 1
+            if budget <= 0:
+                return
 
 
 def toc_lines(lines: list[str]) -> set[int]:
@@ -279,7 +299,7 @@ def _bind_below_strict(
     comments: set[int],
 ) -> int | None:
     """Artifact directly below caption `i`, nothing but skippables in between."""
-    for j in range(i + 1, min(len(lines), i + 1 + WINDOW)):
+    for j in _reach(lines, i, comments, 1, WINDOW):
         found = artifact_at(j, tables, images, fences)
         if found:
             return j if found in accept else None
@@ -304,7 +324,7 @@ def _bind_forward(
     next caption or heading ends the search, so a caption cannot borrow its neighbour's
     table.
     """
-    for j in range(i + 1, min(len(lines), i + 1 + WINDOW)):
+    for j in _reach(lines, i, comments, 1, WINDOW):
         found = artifact_at(j, tables, images, fences)
         if found:
             return j if found in accept else None
@@ -342,7 +362,7 @@ def _bind_backward(
     those, every image has a caption above it — the previous figure's — and reading that as
     ownership orphans 8 correctly-captioned figures (measured corpus-wide).
     """
-    for j in range(i - 1, max(-1, i - 1 - BACK_WINDOW), -1):
+    for j in _reach(lines, i, comments, -1, BACK_WINDOW):
         found = artifact_at(j, tables, images, fences)
         if found:
             if found not in accept:

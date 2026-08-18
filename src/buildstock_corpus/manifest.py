@@ -164,6 +164,11 @@ def build_manifest(
             "overlay_tables": sum(
                 len(rec["tables_applied"]) for v in overlays.values() for rec in v.values()
             ),
+            "overlay_text_repairs": sum(
+                rec.get("text_repairs_applied", 0)
+                for v in overlays.values()
+                for rec in v.values()
+            ),
         },
         "crosswalk": {
             "file": "crosswalk.json",
@@ -377,6 +382,12 @@ def validate_release(product: str, release: str) -> bool:
             f"  {n_ov} hand-authored table(s) across "
             f"{counts.get('overlay_documents')} doc(s): {detail}"
         )
+    n_fix = counts.get("overlay_text_repairs") or 0
+    if n_fix:
+        # Reported separately from the tables because it is a different kind of claim: these
+        # overrode extracted text rather than supplying text no extractor could reach. The
+        # sidecar hash check above is what backs them; each one names its reason in the artifact.
+        print(f"  {n_fix} hand-authored repair(s) to extracted text (see the overlay sidecars)")
     gaps = manifest.get("gaps", {})
     gm = gaps.get("measures", [])
     if gm:

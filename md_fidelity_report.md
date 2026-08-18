@@ -16,19 +16,11 @@ tables use rowspan/colspan, which GFM cannot express, so those stay as HTML by d
 | latex | 19 | 0 | **0** | 0 | **0** | 50 | 113 | **0** | **0** | 35 | 113 |
 | markdown | 40 | 4 | **0** | 11 | **0** | 19 | 39 | **0** | **0** | 1 | 5 |
 | measures | 6 | 39 | **6** | 58 | **0** | 64 | 80 | **0** | **0** | 0 | 0 |
-| pdf | 53 | 302 | **3** | 697 | **7** | 722 | 1245 | **0** | **0** | 0 | 0 |
+| pdf | 53 | 302 | **0** | 697 | **7** | 731 | 1245 | **0** | **0** | 0 | 0 |
 
-**Totals.** 9/345 table captions orphaned; 7/766 figure captions orphaned; 855 tables converted to markdown; 1477 image refs present with 0 dangling; 0 duplicated H1 heading(s).
+**Totals.** 6/345 table captions orphaned; 7/766 figure captions orphaned; 864 tables converted to markdown; 1477 image refs present with 0 dangling; 0 duplicated H1 heading(s).
 
 ## Gaps by file
-
-### `upgrade_measures/measure_pdfs/96598.md`
-
-extractor: **pdf** — 3 issue(s)
-
-- L393 **ORPHANED TABLE** — Table 5. Baseline Roof R-Value by Roof Type, Energy Code, and Climate Zone for Non-California Buildings.
-- L714 **ORPHANED TABLE** — Table 10. Upgrade Wall R-Value by Wall Type, Energy Code, and Climate Zone for Non-California Buildings.
-- L765 **ORPHANED TABLE** — Table 12. Upgrade Roof R-Value by Roof Type, Energy Code, and Climate Zone for Non-California Buildings.
 
 ### `upgrade_measures/unpublished_docs/upgrade_measures/env_ext_secondary_window.md`
 

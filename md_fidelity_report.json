@@ -31,10 +31,10 @@
     "pdf": {
       "files": 53,
       "table_captions": 302,
-      "orphan_tables": 3,
+      "orphan_tables": 0,
       "figure_captions": 697,
       "orphan_figures": 7,
-      "md_tables": 722,
+      "md_tables": 731,
       "html_tables": 0,
       "html_imgs": 0,
       "md_images": 1245,
@@ -286,32 +286,6 @@
           "caption": "Figure 6. Distributions of the percentage of max daily peak load reduction by month compared to the baseline model"
         }
       ],
-      "dangling_refs": [],
-      "duplicate_h1": [],
-      "unconverted_html_tables": [],
-      "unconverted_html_imgs": []
-    },
-    {
-      "file": "upgrade_measures/measure_pdfs/96598.md",
-      "extractor": "pdf",
-      "orphan_tables": [
-        {
-          "line": 393,
-          "label": "Table 5",
-          "caption": "Table 5. Baseline Roof R-Value by Roof Type, Energy Code, and Climate Zone for Non-California Buildings."
-        },
-        {
-          "line": 714,
-          "label": "Table 10",
-          "caption": "Table 10. Upgrade Wall R-Value by Wall Type, Energy Code, and Climate Zone for Non-California Buildings."
-        },
-        {
-          "line": 765,
-          "label": "Table 12",
-          "caption": "Table 12. Upgrade Roof R-Value by Roof Type, Energy Code, and Climate Zone for Non-California Buildings."
-        }
-      ],
-      "orphan_figures": [],
       "dangling_refs": [],
       "duplicate_h1": [],
       "unconverted_html_tables": [],

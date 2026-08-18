@@ -1,0 +1,312 @@
+# Hand-authored transcriptions for ComStock measure documentation 96598
+# (Roof and Wall Insulation Upgrades).
+#
+# Unlike the other measure_pdfs overlays in this release, these entries do not fill gaps --
+# they correct damage. Pages 20, 31 and 32 each carry two tables, and on all three pages
+# docling shifted the reading order by one caption: every grid was emitted under the *next*
+# table's caption. Table 5's numbers appeared under the Table 6 caption, Table 10's under
+# Table 11's, Table 12's under Table 13's. On top of that, three grids lost the Roof Type /
+# Wall Type column the captions name and one had it emitted empty, one lost a row to a merged
+# cell, and one had two climate-zone labels merged so zones 12-16 were labelled 11-15.
+#
+# All six also lost their header row: docling filled the markdown header with the table's
+# subtitle repeated across every column and pushed the real climate-zone labels down into the
+# body as an ordinary data row.
+#
+# That is worse than a dropped table. A missing table is a visible gap; a table whose rows are
+# attached to the wrong assembly, or whose columns are attached to the wrong climate zone,
+# reads as authoritative and is wrong. So each entry here carries `replaces:`, pinned to the
+# fingerprint of the damaged table it removes -- if a later docling emits anything different,
+# including a correct table, the build reports it rather than discarding the better output.
+#
+# method: pdf-text-layer. Every value was read from the PDF's own text layer (pymupdf
+# `get_text("words")`, clustered by y-centre), not transcribed by eye, and each row was
+# checked to map each value to a distinct climate-zone column in order -- a shifted column
+# fails rather than passing quietly. All six tables were then cross-read against 210-dpi
+# renders of their page regions and match cell for cell.
+#
+# Observations recorded rather than corrected, per overlays/README.md ("transcribe, don't
+# improve"):
+#   * Table 6's caption reads "Baseline Roof U-Value" while the table's own printed title
+#     reads "Whole Roof Assembly R-Value", and the values (15-38) are R-values. The
+#     inconsistency is in the source. Both are transcribed as printed.
+#   * Table 5's Metal building group genuinely has no Pre-1980 row -- five rows, not six.
+#     docling's omission there was correct and is preserved.
+#   * Table 10 covers 15 ASHRAE zones, not 16: the source has no 5C column.
+#   * Trailing zeros are kept as printed (20.0, 13.0), as is the en-dash in "1980-2004".
+#
+# The grouping column is restored as a bold sub-table label per Roof/Wall Type, which both
+# keeps each paragraph under the chunker's limit and puts the assembly name in the same chunk
+# as its numbers. Tables 11 and 13 have exactly one row per type, so there the grouping stays
+# a real column -- decomposing a one-row table would only separate the label from the data.
+
+product: comstock
+release: 2025-3
+text_repairs:
+- find: '## Data from [11], [23]'
+  replace: Data from [11], [23]
+  why: |-
+    docling promoted this one-line source note to a level-2 heading. Because the
+    chunker is heading-aware, that filed 30 of this document's chunks under a
+    section named 'Data from [11], [23]' instead of '3.2.4 Roof Insulation
+    Upgrade Methodology' -- and replaced the breadcrumb rather than nesting under
+    it, so the section those chunks belong to was not recoverable from them. The
+    line is restored to the prose it is in the source. A corpus-wide scan found
+    this to be the only citation note promoted to a heading in the release.
+tables:
+- label: Table 5.
+  source_pdf: measure_pdfs/96598.pdf
+  source_pdf_sha256: 612945456f16d2907f426ae300cf0df50373c5ebe29e217b84c7160ae0f10ce4
+  page: 20
+  method: pdf-text-layer
+  replaces:
+    table_sha256: 521126274c2a6882c021f8a4a878072f4c65befc1bfd87ed9708efa37c411d9c
+    why: "docling emitted this grid under the Table 6 caption and dropped the Roof Type column\nentirely,\
+      \ so the Attic and other / IEAD / Metal building groups ran together as 17\nundifferentiated rows\
+      \ -- three different assemblies sharing the same energy-code\nlabels, with nothing to say which\
+      \ R-value belongs to which. \nAs in all six grids on these pages, the markdown header row held the\
+      \ table's subtitle\nrepeated across every column and the real climate-zone header was demoted into\
+      \ the body\nas a data row, so the table had no usable header."
+  markdown: |
+    **Whole Roof Assembly R-Value by ASHRAE Climate Zone (ft²*F*h/Btu)**
+    **Includes interior and exterior air films**
+
+    **Roof Type: Attic and other**
+
+    | Energy Code | 1A | 2A | 2B | 3A | 3B | 3C | 4A | 4B | 4C | 5A | 5B | 5C | 6A | 6B | 7 | 8 |
+    |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+    | Pre-1980 | 10 | 10 | 10 | 10 | 10 | 10 | 12 | 11 | 12 | 14 | 13 | 13 | 17 | 17 | 17 | 17 |
+    | 1980–2004 | 14 | 15 | 22 | 14 | 21 | 11 | 17 | 17 | 16 | 19 | 20 | 20 | 22 | 20 | 25 | 32 |
+    | 90.1-2004 | 29 | 29 | 29 | 29 | 29 | 29 | 29 | 29 | 29 | 29 | 29 | 29 | 37 | 37 | 37 | 37 |
+    | 90.1-2007 | 29 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 48 |
+    | 90.1-2010 | 29 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 48 |
+    | 90.1-2013 | 37 | 37 | 37 | 37 | 37 | 37 | 48 | 48 | 48 | 48 | 48 | 48 | 48 | 48 | 59 | 59 |
+
+    **Roof Type: IEAD**
+
+    | Energy Code | 1A | 2A | 2B | 3A | 3B | 3C | 4A | 4B | 4C | 5A | 5B | 5C | 6A | 6B | 7 | 8 |
+    |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+    | Pre-1980 | 10 | 10 | 10 | 10 | 10 | 10 | 12 | 11 | 12 | 14 | 13 | 13 | 17 | 17 | 17 | 17 |
+    | 1980–2004 | 14 | 15 | 22 | 14 | 21 | 11 | 17 | 17 | 16 | 19 | 20 | 20 | 22 | 20 | 25 | 32 |
+    | 90.1-2004 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 21 |
+    | 90.1-2007 | 16 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 |
+    | 90.1-2010 | 16 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 |
+    | 90.1-2013 | 21 | 26 | 26 | 26 | 26 | 26 | 31 | 31 | 31 | 31 | 31 | 31 | 31 | 31 | 36 | 36 |
+
+    **Roof Type: Metal building**
+
+    | Energy Code | 1A | 2A | 2B | 3A | 3B | 3C | 4A | 4B | 4C | 5A | 5B | 5C | 6A | 6B | 7 | 8 |
+    |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+    | 1980–2004 | 10 | 10 | 10 | 10 | 10 | 10 | 12 | 11 | 12 | 14 | 13 | 13 | 22 | 20 | 25 | 32 |
+    | 90.1-2004 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 20 |
+    | 90.1-2007 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 20 |
+    | 90.1-2010 | 15 | 18 | 18 | 18 | 18 | 18 | 18 | 18 | 18 | 18 | 18 | 18 | 20 | 20 | 20 | 29 |
+    | 90.1-2013 | 24 | 24 | 24 | 24 | 24 | 24 | 27 | 27 | 27 | 27 | 27 | 27 | 32 | 32 | 34 | 38 |
+- label: Table 6.
+  source_pdf: measure_pdfs/96598.pdf
+  source_pdf_sha256: 612945456f16d2907f426ae300cf0df50373c5ebe29e217b84c7160ae0f10ce4
+  page: 20
+  method: pdf-text-layer
+  replaces:
+    table_sha256: 1be1e582894fa7ccadf125092985daefe4dc5c65185578cf756aaea575335485
+    why: "docling kept the Roof Type column but left it empty in all 27 rows, and in the Wood\nframed\
+      \ group merged the DEER 2014 and DEER 2015 rows into a single row of doubled\nvalues ('20 20', '26\
+      \ 26'), which also displaced values in the two rows above it. \nAs in all six grids on these pages,\
+      \ the markdown header row held the table's subtitle\nrepeated across every column and the real climate-zone\
+      \ header was demoted into the body\nas a data row, so the table had no usable header."
+  markdown: |
+    **Whole Roof Assembly R-Value by CEC Climate Zone (ft²*F*h/Btu)**
+    **Includes interior and exterior air films**
+
+    **Roof Type: IEAD**
+
+    | Energy Code | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
+    |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+    | DEER pre-1975 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 |
+    | DEER 1985 | 17 | 17 | 17 | 17 | 17 | 17 | 17 | 17 | 17 | 17 | 17 | 17 | 17 | 17 | 17 | 17 |
+    | DEER 1996 | 18 | 18 | 18 | 18 | 18 | 13 | 13 | 13 | 13 | 13 | 18 | 18 | 18 | 18 | 18 | 18 |
+    | DEER 2003 | 18 | 18 | 18 | 18 | 18 | 13 | 13 | 13 | 13 | 18 | 18 | 18 | 18 | 18 | 18 | 18 |
+    | DEER 2007 | 20 | 20 | 20 | 20 | 20 | 13 | 13 | 13 | 13 | 20 | 20 | 20 | 20 | 20 | 20 | 20 |
+    | DEER 2011 | 20 | 26 | 26 | 26 | 20 | 13 | 15 | 15 | 26 | 26 | 26 | 26 | 26 | 26 | 26 | 26 |
+    | DEER 2014 | 20 | 26 | 26 | 26 | 20 | 13 | 15 | 15 | 26 | 26 | 26 | 26 | 26 | 26 | 26 | 26 |
+    | DEER 2015 | 20 | 26 | 26 | 26 | 20 | 13 | 15 | 15 | 26 | 26 | 26 | 26 | 26 | 26 | 26 | 26 |
+    | DEER 2017 | 20 | 26 | 26 | 26 | 20 | 13 | 15 | 15 | 26 | 26 | 26 | 26 | 26 | 26 | 26 | 26 |
+
+    **Roof Type: Mass**
+
+    | Energy Code | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
+    |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+    | DEER pre-1975 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 |
+    | DEER 1985 | 17 | 17 | 17 | 17 | 17 | 17 | 17 | 17 | 17 | 17 | 17 | 17 | 17 | 17 | 17 | 17 |
+    | DEER 1996 | 18 | 18 | 18 | 18 | 18 | 13 | 13 | 13 | 13 | 13 | 18 | 18 | 18 | 18 | 18 | 18 |
+    | DEER 2003 | 18 | 18 | 18 | 18 | 18 | 13 | 13 | 13 | 13 | 18 | 18 | 18 | 18 | 18 | 18 | 18 |
+    | DEER 2007 | 20 | 20 | 20 | 20 | 20 | 13 | 13 | 13 | 13 | 20 | 20 | 20 | 20 | 20 | 20 | 20 |
+    | DEER 2011 | 20 | 26 | 26 | 26 | 20 | 13 | 15 | 15 | 26 | 26 | 26 | 26 | 26 | 26 | 26 | 26 |
+    | DEER 2014 | 20 | 26 | 26 | 26 | 20 | 13 | 15 | 15 | 26 | 26 | 26 | 26 | 26 | 26 | 26 | 26 |
+    | DEER 2015 | 20 | 26 | 26 | 26 | 20 | 13 | 15 | 15 | 26 | 26 | 26 | 26 | 26 | 26 | 26 | 26 |
+    | DEER 2017 | 20 | 26 | 26 | 26 | 20 | 13 | 15 | 15 | 26 | 26 | 26 | 26 | 26 | 26 | 26 | 26 |
+
+    **Roof Type: Wood framed**
+
+    | Energy Code | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
+    |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+    | DEER pre-1975 | 14 | 14 | 14 | 14 | 14 | 14 | 14 | 14 | 14 | 14 | 14 | 14 | 14 | 14 | 14 | 14 |
+    | DEER 1985 | 14 | 14 | 14 | 14 | 14 | 14 | 14 | 14 | 14 | 14 | 14 | 14 | 14 | 14 | 14 | 14 |
+    | DEER 1996 | 18 | 18 | 18 | 18 | 18 | 13 | 13 | 13 | 13 | 13 | 18 | 18 | 18 | 18 | 18 | 18 |
+    | DEER 2003 | 18 | 18 | 18 | 18 | 18 | 13 | 13 | 13 | 13 | 18 | 18 | 18 | 18 | 18 | 18 | 18 |
+    | DEER 2007 | 20 | 20 | 20 | 20 | 20 | 13 | 13 | 13 | 13 | 20 | 20 | 20 | 20 | 20 | 20 | 20 |
+    | DEER 2011 | 20 | 26 | 26 | 26 | 20 | 13 | 15 | 15 | 26 | 26 | 26 | 26 | 26 | 26 | 26 | 26 |
+    | DEER 2014 | 20 | 26 | 26 | 26 | 20 | 13 | 15 | 15 | 26 | 26 | 26 | 26 | 26 | 26 | 26 | 26 |
+    | DEER 2015 | 20 | 26 | 26 | 26 | 20 | 13 | 15 | 15 | 26 | 26 | 26 | 26 | 26 | 26 | 26 | 26 |
+    | DEER 2017 | 20 | 26 | 26 | 26 | 20 | 13 | 15 | 15 | 26 | 26 | 26 | 26 | 26 | 26 | 26 | 26 |
+- label: Table 10.
+  source_pdf: measure_pdfs/96598.pdf
+  source_pdf_sha256: 612945456f16d2907f426ae300cf0df50373c5ebe29e217b84c7160ae0f10ce4
+  page: 31
+  method: pdf-text-layer
+  replaces:
+    table_sha256: 5b19951008685ee8f38d5d395cc470d49a6736efbf7640d885a033cb8071f3f0
+    why: "docling emitted this grid under the Table 11 caption and dropped the Wall Type column\nentirely,\
+      \ so the Mass / Metal building / Steel framed / Wood framed groups ran\ntogether as 24 undifferentiated\
+      \ rows. \nAs in all six grids on these pages, the markdown header row held the table's subtitle\n\
+      repeated across every column and the real climate-zone header was demoted into the body\nas a data\
+      \ row, so the table had no usable header."
+  markdown: |
+    **Whole Wall Assembly R-Value by ASHRAE Climate Zone (ft²*F*h/Btu)**
+    **Includes interior and exterior air films**
+
+    **Wall Type: Mass**
+
+    | Energy Code | 1A | 2A | 2B | 3A | 3B | 3C | 4A | 4B | 4C | 5A | 5B | 6A | 6B | 7 | 8 |
+    |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+    | 90.1-2004 | 1.7 | 1.7 | 1.7 | 6.6 | 6.6 | 6.6 | 6.6 | 6.6 | 6.6 | 8.1 | 8.1 | 9.6 | 9.6 | 11.1 | 12.5 |
+    | 90.1-2007 | 1.7 | 6.6 | 6.6 | 8.1 | 8.1 | 8.1 | 9.6 | 9.6 | 9.6 | 11.1 | 11.1 | 12.5 | 12.5 | 14.1 | 14.1 |
+    | 90.1-2010 | 1.7 | 6.6 | 6.6 | 8.1 | 8.1 | 8.1 | 9.6 | 9.6 | 9.6 | 11.1 | 11.1 | 12.5 | 12.5 | 14.1 | 14.1 |
+    | 90.1-2013 | 1.7 | 6.6 | 6.6 | 8.1 | 8.1 | 8.1 | 9.6 | 9.6 | 9.6 | 11.1 | 11.1 | 12.5 | 12.5 | 14.1 | 20.8 |
+    | 90.1-2016 | 1.7 | 6.6 | 6.6 | 8.1 | 8.1 | 8.1 | 9.6 | 9.6 | 9.6 | 11.1 | 11.1 | 12.5 | 12.5 | 14.1 | 20.8 |
+    | 90.1-2019 | 1.7 | 6.6 | 6.6 | 8.1 | 8.1 | 8.1 | 9.6 | 9.6 | 9.6 | 11.1 | 11.1 | 12.5 | 12.5 | 14.1 | 20.8 |
+
+    **Wall Type: Metal building**
+
+    | Energy Code | 1A | 2A | 2B | 3A | 3B | 3C | 4A | 4B | 4C | 5A | 5B | 6A | 6B | 7 | 8 |
+    |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+    | 90.1-2004 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 17.5 | 17.5 |
+    | 90.1-2007 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 17.5 | 17.5 |
+    | 90.1-2010 | 10.8 | 10.8 | 10.8 | 11.9 | 11.9 | 11.9 | 11.9 | 11.9 | 11.9 | 14.5 | 14.5 | 14.5 | 14.5 | 17.5 | 17.5 |
+    | 90.1-2013 | 10.6 | 10.6 | 10.6 | 10.6 | 10.6 | 10.6 | 16.7 | 16.7 | 16.7 | 20.0 | 20.0 | 20.0 | 20.0 | 22.7 | 25.6 |
+    | 90.1-2016 | 10.6 | 10.6 | 10.6 | 10.6 | 10.6 | 10.6 | 16.7 | 16.7 | 16.7 | 20.0 | 20.0 | 20.0 | 20.0 | 22.7 | 25.6 |
+    | 90.1-2019 | 10.6 | 10.6 | 10.6 | 10.6 | 10.6 | 10.6 | 16.7 | 16.7 | 16.7 | 20.0 | 20.0 | 20.0 | 20.0 | 22.7 | 25.6 |
+
+    **Wall Type: Steel framed**
+
+    | Energy Code | 1A | 2A | 2B | 3A | 3B | 3C | 4A | 4B | 4C | 5A | 5B | 6A | 6B | 7 | 8 |
+    |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+    | 90.1-2004 | 8.1 | 8.1 | 8.1 | 8.1 | 8.1 | 8.1 | 8.1 | 8.1 | 8.1 | 11.9 | 11.9 | 11.9 | 11.9 | 15.6 | 15.6 |
+    | 90.1-2007 | 8.1 | 8.1 | 8.1 | 11.9 | 11.9 | 11.9 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 |
+    | 90.1-2010 | 8.1 | 8.1 | 8.1 | 11.9 | 11.9 | 11.9 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 |
+    | 90.1-2013 | 8.1 | 11.9 | 11.9 | 13.0 | 13.0 | 13.0 | 15.6 | 15.6 | 15.6 | 18.2 | 18.2 | 20.4 | 20.4 | 20.4 | 27.0 |
+    | 90.1-2016 | 8.1 | 11.9 | 11.9 | 13.0 | 13.0 | 13.0 | 15.6 | 15.6 | 15.6 | 18.2 | 18.2 | 20.4 | 20.4 | 20.4 | 27.0 |
+    | 90.1-2019 | 8.1 | 11.9 | 11.9 | 13.0 | 13.0 | 13.0 | 15.6 | 15.6 | 15.6 | 18.2 | 18.2 | 20.4 | 20.4 | 20.4 | 27.0 |
+
+    **Wall Type: Wood framed**
+
+    | Energy Code | 1A | 2A | 2B | 3A | 3B | 3C | 4A | 4B | 4C | 5A | 5B | 6A | 6B | 7 | 8 |
+    |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+    | 90.1-2004 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 19.6 |
+    | 90.1-2007 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 15.6 | 15.6 | 19.6 | 19.6 | 19.6 | 27.8 |
+    | 90.1-2010 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 15.6 | 15.6 | 19.6 | 19.6 | 19.6 | 27.8 |
+    | 90.1-2013 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 15.6 | 15.6 | 15.6 | 19.6 | 19.6 | 19.6 | 19.6 | 19.6 | 31.3 |
+    | 90.1-2016 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 15.6 | 15.6 | 15.6 | 19.6 | 19.6 | 19.6 | 19.6 | 19.6 | 31.3 |
+    | 90.1-2019 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 15.6 | 15.6 | 15.6 | 19.6 | 19.6 | 19.6 | 19.6 | 19.6 | 31.3 |
+- label: Table 11.
+  source_pdf: measure_pdfs/96598.pdf
+  source_pdf_sha256: 612945456f16d2907f426ae300cf0df50373c5ebe29e217b84c7160ae0f10ce4
+  page: 31
+  method: pdf-text-layer
+  replaces:
+    table_sha256: b4d67476d5fcb92c6e1d8870a91ae86fee00870c695d054efb2ba0e44a5f67d6
+    why: "docling split the stub header across cells ('Wall Type' / 'Energy' / 'Code CEC\nClimate' repeated\
+      \ 16 times) and emitted it twice. The four data rows survived intact,\nbut the table carried two\
+      \ junk rows and no header. \nAs in all six grids on these pages, the markdown header row held the\
+      \ table's subtitle\nrepeated across every column and the real climate-zone header was demoted into\
+      \ the body\nas a data row, so the table had no usable header."
+  markdown: |
+    **Whole Wall Assembly R-Value by CEC Climate Zone (ft²*F*h/Btu)**
+    **Includes interior and exterior air films**
+
+    | Wall Type | Energy Code | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
+    |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+    | Mass | DEER 2020 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 |
+    | Metal building | DEER 2020 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 |
+    | Steel framed | DEER 2020 | 5.7 | 5.7 | 5.7 | 5.7 | 5.7 | 5.7 | 5.7 | 5.7 | 5.7 | 5.7 | 5.7 | 5.7 | 5.7 | 5.7 | 5.7 | 5.7 |
+    | Wood framed | DEER 2020 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 |
+- label: Table 12.
+  source_pdf: measure_pdfs/96598.pdf
+  source_pdf_sha256: 612945456f16d2907f426ae300cf0df50373c5ebe29e217b84c7160ae0f10ce4
+  page: 32
+  method: pdf-text-layer
+  replaces:
+    table_sha256: 709463b764108daa44629247fd62ab2bc64a78e9a29a4534fe37dac95345dcfe
+    why: "docling emitted this grid under the Table 13 caption and dropped the Roof Type column\nentirely,\
+      \ so the Attic and other / IEAD / Metal building groups ran together as 18\nundifferentiated rows.\
+      \ \nAs in all six grids on these pages, the markdown header row held the table's subtitle\nrepeated\
+      \ across every column and the real climate-zone header was demoted into the body\nas a data row,\
+      \ so the table had no usable header."
+  markdown: |
+    **Whole Roof Assembly R-Value by ASHRAE Climate Zone (ft²*F*h/Btu)**
+    **Includes interior and exterior air films**
+
+    **Roof Type: Attic and other**
+
+    | Energy Code | 1A | 2A | 2B | 3A | 3B | 3C | 4A | 4B | 4C | 5A | 5B | 5C | 6A | 6B | 7 | 8 |
+    |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+    | 90.1-2004 | 29 | 29 | 29 | 29 | 29 | 29 | 29 | 29 | 29 | 29 | 29 | 29 | 37 | 37 | 37 | 37 |
+    | 90.1-2007 | 29 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 48 |
+    | 90.1-2010 | 29 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 37 | 48 |
+    | 90.1-2013 | 37 | 37 | 37 | 37 | 37 | 37 | 48 | 48 | 48 | 48 | 48 | 48 | 48 | 48 | 59 | 59 |
+    | 90.1-2016 | 37 | 37 | 37 | 37 | 37 | 37 | 48 | 48 | 48 | 48 | 48 | 48 | 48 | 48 | 59 | 59 |
+    | 90.1-2019 | 37 | 37 | 37 | 37 | 37 | 37 | 48 | 48 | 48 | 48 | 48 | 48 | 48 | 48 | 59 | 59 |
+
+    **Roof Type: IEAD**
+
+    | Energy Code | 1A | 2A | 2B | 3A | 3B | 3C | 4A | 4B | 4C | 5A | 5B | 5C | 6A | 6B | 7 | 8 |
+    |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+    | 90.1-2004 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 21 |
+    | 90.1-2007 | 16 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 |
+    | 90.1-2010 | 16 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 |
+    | 90.1-2013 | 21 | 26 | 26 | 26 | 26 | 26 | 31 | 31 | 31 | 31 | 31 | 31 | 31 | 31 | 36 | 36 |
+    | 90.1-2016 | 21 | 26 | 26 | 26 | 26 | 26 | 31 | 31 | 31 | 31 | 31 | 31 | 31 | 31 | 36 | 36 |
+    | 90.1-2019 | 21 | 26 | 26 | 26 | 26 | 26 | 31 | 31 | 31 | 31 | 31 | 31 | 31 | 31 | 36 | 36 |
+
+    **Roof Type: Metal building**
+
+    | Energy Code | 1A | 2A | 2B | 3A | 3B | 3C | 4A | 4B | 4C | 5A | 5B | 5C | 6A | 6B | 7 | 8 |
+    |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+    | 90.1-2004 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 20 |
+    | 90.1-2007 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 20 |
+    | 90.1-2010 | 15 | 18 | 18 | 18 | 18 | 18 | 18 | 18 | 18 | 18 | 18 | 18 | 20 | 20 | 20 | 29 |
+    | 90.1-2013 | 24 | 24 | 24 | 24 | 24 | 24 | 27 | 27 | 27 | 27 | 27 | 27 | 32 | 32 | 34 | 38 |
+    | 90.1-2016 | 24 | 24 | 24 | 24 | 24 | 24 | 27 | 27 | 27 | 27 | 27 | 27 | 32 | 32 | 34 | 38 |
+    | 90.1-2019 | 24 | 24 | 24 | 24 | 24 | 24 | 27 | 27 | 27 | 27 | 27 | 27 | 32 | 32 | 34 | 38 |
+- label: Table 13.
+  source_pdf: measure_pdfs/96598.pdf
+  source_pdf_sha256: 612945456f16d2907f426ae300cf0df50373c5ebe29e217b84c7160ae0f10ce4
+  page: 32
+  method: pdf-text-layer
+  replaces:
+    table_sha256: 694ffd87c89ec6d5589b7c37257319c101b03818f13fd12ab9565d7c6840f6a1
+    why: "docling merged the '10' and '11' CEC zone labels into one cell and left the next cell\nempty,\
+      \ so from that point on the zone labels sat one column to the right of the\nvalues they label: the\
+      \ figures for zones 12 through 16 read as belonging to zones 11\nthrough 15. The values themselves\
+      \ are correct. \nAs in all six grids on these pages, the markdown header row held the table's subtitle\n\
+      repeated across every column and the real climate-zone header was demoted into the body\nas a data\
+      \ row, so the table had no usable header."
+  markdown: |
+    **Whole Roof Assembly R-Value by CEC Climate Zone (ft²*F*h/Btu)**
+    **Includes interior and exterior air films**
+
+    | Roof Type | Energy Code | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
+    |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+    | IEAD | DEER 2020 | 25 | 29 | 29 | 29 | 26 | 15 | 20 | 20 | 29 | 29 | 29 | 29 | 29 | 29 | 29 | 29 |
+    | Mass | DEER 2020 | 25 | 29 | 29 | 29 | 26 | 15 | 20 | 20 | 29 | 29 | 29 | 29 | 29 | 29 | 29 | 29 |
+    | Wood framed | DEER 2020 | 25 | 29 | 29 | 29 | 26 | 15 | 20 | 20 | 29 | 29 | 29 | 29 | 29 | 29 | 29 | 29 |
