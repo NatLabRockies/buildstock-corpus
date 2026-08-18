@@ -1,0 +1,87 @@
+# Hand-authored table transcription for
+# assets/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.pdf
+#
+# Table 1 on p.15 is a rasterized region with no text layer: docling keeps the caption and
+# emits nothing beneath it. See overlays/README.md for the schema.
+#
+# Authoring notes:
+#   * The table is 17 rows of prose descriptions, well past the chunker's paragraph limit, so
+#     it is decomposed along the seam the source already rules: one sub-table per brand, which
+#     is exactly what the merged "Brand from data" cells mark. The brand is repeated in every
+#     row so each sub-table still stands on its own once the chunker separates them.
+#   * The source prints the lockout value it took from each manual in bold red: "32°F (0°C)"
+#     for all four Carrier models, "-15F" for the Lennox Enlight, "0°F" for the Trane
+#     Precedent, "35°F" for both Rheem entries, and "0°F" for the Daikin Rebel. Color is not
+#     something a pipe table can carry, so the emphasis is recorded in the note below the
+#     tables rather than dropped.
+#   * The Daikin Maverick's description cell is empty, which is not the same as the "N/A" the
+#     source writes in six other cells. The blank is transcribed as a blank.
+#   * The Lennox Enlight row writes its temperatures without degree signs ("min = -50F") where
+#     every other row uses "°F". That is left as printed.
+#   * The source uses en dashes for negative signs and ranges ("-45°F", "-20°F-50°F"); those
+#     are normalized to the ASCII hyphen-minus that the rest of this corpus uses.
+#   * The Carrier 50TCQ row puts both Fahrenheit values before both Celsius values where the
+#     other three Carrier rows pair each unit with its conversion. Transcribed as printed.
+
+product: comstock
+release: "comstock_amy2018_2025_release_3"
+source_id: upgrade_measures
+source_path: assets/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.pdf
+
+tables:
+  - label: "Table 1"
+    caption: "Descriptions of Compressor Lockout Temperature in Manufacturer Manuals [3], [4], [5], [6], [7], [8], [9], [10], [11], [12], [13], [14]"
+    source_pdf: assets/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.pdf
+    source_pdf_sha256: "4a9ec2da0c73739e62864378fde4a9d2ebfc7c7872aeaa4c338564c588c69973"
+    page: 15
+    method: vision-transcription
+    transcribed_utc: "2026-08-17"
+    markdown: |
+      **Carrier**
+
+      | Brand from data | Model name | Keywords | Lockout description in actual manuals |
+      |---|---|---|---|
+      | Carrier | WeatherMaker 50FCQ | EcoBlue | adjustable from -45°F (-43°C) to 80°F (27°C), set at a factory default of 32°F (0°C). |
+      | Carrier | WeatherMaster 50GCQ | EcoBlue | adjustable from -45°F (-43°C) to 80°F (27°C), set at a factory default of 32°F (0°C). |
+      | Carrier | WeatherMaker 50TCQ | Std efficiency | adjustable from -45°F to 80°F (-43°C to 27°C), set at a factory default of 32°F (0°C). |
+      | Carrier | WeatherMaster 50HCQ | High efficiency | adjustable from -45°F (-43°C) to 80°F (27°C), set at a factory default of 32°F (0°C). |
+
+      **Lennox**
+
+      | Brand from data | Model name | Keywords | Lockout description in actual manuals |
+      |---|---|---|---|
+      | Lennox | Enlight | High efficiency | min = -50F, default = -15F, max = 0F. This parameter controls when heat pump operation will be locked-out. If mechanical heating is already active and OAT drops to or below this setpoint, mechanical heating will be stopped. |
+      | Lennox | Xion | Std efficiency | N/A |
+
+      **Trane**
+
+      | Brand from data | Model name | Keywords | Lockout description in actual manuals |
+      |---|---|---|---|
+      | Trane | Impack | 2-5 tons | N/A |
+      | Trane | Precedent | 3-25 tons | The factory default setpoint is 0°F, but is user adjustable between -18 and 45°F. |
+
+      **Rheem**
+
+      | Brand from data | Model name | Keywords | Lockout description in actual manuals |
+      |---|---|---|---|
+      | Rheem | Resolute line classic | Std efficiency | Compressor lockout sensor on the unit controller is factory set at 35°F and is adjustable from 30°F (-1°C) to 50°F (10°C) and resets the cooling lockout at 5°F (+2.7°C) above the set point. |
+      | Rheem | Renaissance line classic | High efficiency | N/A |
+      | Rheem | Endeavor line classic | 2-5 tons | N/A |
+      | Rheem | Commercial classic | - | Compressor lockout sensor on the unit controller is factory set at 35°F and is adjustable from 30°F (-1°C) to 50°F (10°C) and resets the cooling lockout at 5°F (+2.7°C) above the set point. |
+
+      **Daikin**
+
+      | Brand from data | Model name | Keywords | Lockout description in actual manuals |
+      |---|---|---|---|
+      | Daikin | Rebel | High efficiency | Default 0°F and range -20°F-50°F. 45°F if 100% OA unit w/o ER and range 45°F-50°F. |
+      | Daikin | Maverick | Std efficiency |  |
+
+      **YORK**
+
+      | Brand from data | Model name | Keywords | Lockout description in actual manuals |
+      |---|---|---|---|
+      | YORK | Sun Core | 3-10 tons | N/A based on compressor suction pressure |
+      | YORK | Sun Pro | 6.5-12.5 tons | N/A |
+      | YORK | Sunline | 15-20 tons | N/A |
+
+      Emphasis in the source, which a pipe table cannot carry: the lockout value taken from each manual is printed in bold red - "32°F (0°C)" in all four Carrier rows, "-15F" for the Lennox Enlight, "0°F" for the Trane Precedent, "35°F" for both Rheem rows, and "0°F" for the Daikin Rebel.

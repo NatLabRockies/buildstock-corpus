@@ -6,6 +6,8 @@ from __future__ import annotations
 from buildstock_corpus.chunk import chunk_document
 from buildstock_corpus.normalize import Document
 
+RELEASE = "comstock_amy2018_2025_release_3"
+
 BODY = """\
 # HVAC Systems
 
@@ -24,7 +26,7 @@ Heat pumps provide both heating and cooling.
 def _doc(**over) -> Document:
     kw = dict(
         product="comstock",
-        release="2025-3",
+        release=RELEASE,
         source_id="technical_reference",
         source_type="latex",
         source_path="documentation/reference_doc/4_9_hvac.tex",
@@ -49,7 +51,7 @@ def test_chunk_metadata_and_breadcrumbs():
     # provenance carried on every chunk, tagged to the release
     for c in chunks:
         assert c.metadata["product"] == "comstock"
-        assert c.metadata["release"] == "2025-3"
+        assert c.metadata["release"] == RELEASE
         assert c.metadata["source_type"] == "latex"
         assert c.metadata["source_path"] == "documentation/reference_doc/4_9_hvac.tex"
         assert c.metadata["doc_title"] == "HVAC Systems"
@@ -91,4 +93,4 @@ def test_chunk_body_without_headings():
     chunks = chunk_document(doc)
     assert len(chunks) == 1
     assert chunks[0].metadata["section"] == ""
-    assert chunks[0].metadata["release"] == "2025-3"
+    assert chunks[0].metadata["release"] == RELEASE

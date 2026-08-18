@@ -40,7 +40,7 @@ literally. Those are invisible in a rendered view, so they need a counted scoreb
 Results are grouped by extractor (latex / markdown / measures / pdf) so it is clear
 which path is losing content.
 
-Usage:  uv run python scripts/audit_md_fidelity.py [--release 2025-3] [--product comstock]
+Usage:  uv run python scripts/audit_md_fidelity.py [--release comstock_amy2018_2025_release_3] [--product comstock]
 """
 
 from __future__ import annotations
@@ -688,7 +688,7 @@ def write_report(path: Path, findings: list[dict], totals: dict, product: str, r
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--product", default="comstock")
-    ap.add_argument("--release", default="2025-3")
+    ap.add_argument("--release", default="comstock_amy2018_2025_release_3")
     args = ap.parse_args()
 
     processed = REPO / "processed" / args.product / args.release

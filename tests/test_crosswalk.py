@@ -2,11 +2,14 @@
 
 from __future__ import annotations
 
-from buildstock_corpus.extract.crosswalk import build_crosswalk
+from buildstock_corpus.extract.crosswalk import _release_columns, build_crosswalk
+from buildstock_corpus.extract.doc_dates import DocDate
 from buildstock_corpus.extract.measures_index import (
     local_pdf_paths,
     parse_index,
 )
+
+RELEASE = "comstock_amy2018_2025_release_3"
 
 INDEX_PATH = "docs/upgrade_measures/upgrade_measures.md"
 
@@ -72,7 +75,7 @@ def test_build_crosswalk_join_counts_and_gaps(tmp_path):
     csv_path.write_text(CSV, encoding="utf-8")
     refs = parse_index(INDEX_MD, INDEX_PATH)
 
-    cw = build_crosswalk(csv_path, refs, "2025-3")
+    cw = build_crosswalk(csv_path, refs, RELEASE)
 
     # 4 CSV rows + 2 index-only measures (ltg_0003, dr_0006) = 6; covered/gaps partition them
     assert cw["counts"] == {"measures": 6, "covered": 3, "gaps": 3}
@@ -93,3 +96,73 @@ def test_build_crosswalk_join_counts_and_gaps(tmp_path):
     # a CSV measure absent from the index is a distinct gap reason
     xyz_gap = next(g for g in cw["gaps"] if g["measure_id"] == "xyz_0009")
     assert "index" in xyz_gap["reason"]
+
+
+def test_measures_carry_their_documents_date_and_its_source(tmp_path):
+    """date_last_updated answers 'how current is this doc', so it travels with its source."""
+    csv_path = tmp_path / "crosswalk.csv"
+    csv_path.write_text(CSV, encoding="utf-8")
+    refs = parse_index(INDEX_MD, INDEX_PATH)
+    dates = {
+        "https://docs.nlr.gov/measures/hvac_0001.pdf": DocDate("2025-09-09", "pdf_moddate"),
+        "assets/files/env_roof.pdf": DocDate("2026-01-21", "pdf_moddate"),
+        "docs/upgrade_measures/ltg_led.md": DocDate("2026-03-09", "git_commit"),
+    }
+
+    cw = build_crosswalk(csv_path, refs, RELEASE, dates)
+    by_id = {m["measure_id"]: m for m in cw["measures"]}
+
+    assert by_id["hvac_0001"]["date_last_updated"] == "2025-09-09"
+    assert by_id["hvac_0001"]["date_last_updated_source"] == "pdf_moddate"
+    assert by_id["env_0002"]["date_last_updated"] == "2026-01-21"
+    # index-only measure (no CSV row) is dated on the same footing as a joined one
+    assert by_id["ltg_0003"]["date_last_updated"] == "2026-03-09"
+    assert by_id["ltg_0003"]["date_last_updated_source"] == "git_commit"
+
+
+def test_undocumented_measures_are_undated_not_backfilled(tmp_path):
+    """A measure with no documentation has no document date; the release date is not a proxy."""
+    csv_path = tmp_path / "crosswalk.csv"
+    csv_path.write_text(CSV, encoding="utf-8")
+    refs = parse_index(INDEX_MD, INDEX_PATH)
+
+    cw = build_crosswalk(csv_path, refs, RELEASE, {})
+    by_id = {m["measure_id"]: m for m in cw["measures"]}
+
+    for mid in ("dr_0005", "dr_0006", "xyz_0009"):
+        assert by_id[mid]["date_last_updated"] is None
+        # never a date without the source that established it, or the reverse
+        assert by_id[mid]["date_last_updated_source"] is None
+
+
+def test_dates_are_optional_so_the_join_stands_alone(tmp_path):
+    """The fields are always present, so a consumer never has to probe for them."""
+    csv_path = tmp_path / "crosswalk.csv"
+    csv_path.write_text(CSV, encoding="utf-8")
+
+    cw = build_crosswalk(csv_path, parse_index(INDEX_MD, INDEX_PATH), RELEASE)
+
+    assert all("date_last_updated" in m for m in cw["measures"])
+    assert all(m["date_last_updated"] is None for m in cw["measures"])
+
+
+def test_release_columns_found_however_the_release_id_orders_its_parts():
+    """The CSV names its columns 2025_comstock_amy2018_release_3; our id says
+    comstock_amy2018_2025_release_3. Same release, different order — match on year + number."""
+    fields = list(CSV.split("\n")[0].split(","))
+
+    assert _release_columns(fields, "comstock_amy2018_2025_release_3") == (
+        "2025_comstock_amy2018_release_3_upgrade_id",
+        "2025_comstock_amy2018_release_3_upgrade_name",
+    )
+    # the pre-OEDI tag form still resolves, so an older release stays buildable
+    assert _release_columns(fields, "2025-3") == (
+        "2025_comstock_amy2018_release_3_upgrade_id",
+        "2025_comstock_amy2018_release_3_upgrade_name",
+    )
+
+
+def test_release_id_without_a_year_and_number_matches_no_column():
+    """No silent wrong column: an id that encodes neither yields nothing to join on."""
+    fields = list(CSV.split("\n")[0].split(","))
+    assert _release_columns(fields, "comstock_amy2018_latest") == (None, None)

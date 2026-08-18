@@ -1,0 +1,141 @@
+# Hand-authored table transcriptions for measure_pdfs/89128.pdf
+#
+# Table 1 (p.15) and Table 5 (p.24) are rasterized regions with no text layer: docling keeps
+# the captions and emits nothing beneath them. See overlays/README.md for the schema.
+#
+# This PDF's text layer also has broken kerning, so the extracted captions read
+# "Table 1 . Boiler ..." and "Table 5 . Economizer C onfiguration S uggestions ...". Matching
+# is by label, which overlay._find_caption normalizes, so the spacing artifacts do not matter;
+# the `caption` fields below record the caption as the page prints it.
+#
+# Table 1 is the same boiler assignment table five of these reports reprint; see
+# measure_pdfs/86199.yaml for its authoring notes.
+#
+# Authoring notes for Table 5:
+#   * The figure is a screenshot of two ASHRAE 90.1-2010 tables, so it is transcribed as two
+#     sub-tables under their own ASHRAE numbers, each followed by its footnotes as separate
+#     paragraphs. Keeping the footnotes out of the table paragraph is what holds sub-table B
+#     under the chunker's 1400-char paragraph limit.
+#   * 6.5.1.1.3A lists allowed control types stacked vertically inside one cell; they are
+#     joined with "; " because a pipe table has no way to hold a list.
+#   * 6.5.1.1.3B's first visual row carries two climate/equation/description triples in one
+#     undivided row. It is split into two rows repeating "Fixed dry bulb".
+#   * Subscripts are rendered inline (T_OA, h_RA, DP_oa). The source prints the last row's
+#     subscripts lowercase where every other row is uppercase; that inconsistency is left as
+#     printed.
+#   * Footnote markers are written "(a)"/"(b)" rather than superscripts, and the footnote text
+#     is transcribed because none of it survived extraction as prose in this document.
+
+product: comstock
+release: "comstock_amy2018_2025_release_3"
+source_id: upgrade_measures
+source_path: measure_pdfs/89128.pdf
+
+tables:
+  - label: "Table 1"
+    caption: "Boiler Efficiency and Performance Curve Assignment"
+    source_pdf: measure_pdfs/89128.pdf
+    source_pdf_sha256: "68cc557325046095d37ac589ab50a713377945180193b43154422f5a981046f8"
+    page: 15
+    method: vision-transcription
+    transcribed_utc: "2026-08-17"
+    markdown: |
+      **Pre-1980**
+
+      | Template | Minimum Capacity (Btu/hr) | Maximum Capacity (Btu/hr) | Minimum Annual Fuel Utilization Efficiency (AFUE) | Minimum Thermal Efficiency (%) | Minimum Combustion Efficiency (%) | Efficiency Function of Part Load Ratio (EFFFPLR) | Notes |
+      |---|---|---|---|---|---|---|---|
+      | Pre-1980 | - | 299,999 |  | 0.73 |  | Boiler Constant Efficiency Curve | From DOE Reference Buildings |
+      | Pre-1980 | 300,000 | no max |  | 0.74 |  | Boiler Constant Efficiency Curve | From DOE Reference Buildings |
+      | Pre-1980 | 250,000,000 | 249,999,999 |  | 0.76 |  | Boiler Constant Efficiency Curve | From DOE Reference Buildings |
+
+      **1980-2004**
+
+      | Template | Minimum Capacity (Btu/hr) | Maximum Capacity (Btu/hr) | Minimum Annual Fuel Utilization Efficiency (AFUE) | Minimum Thermal Efficiency (%) | Minimum Combustion Efficiency (%) | Efficiency Function of Part Load Ratio (EFFFPLR) | Notes |
+      |---|---|---|---|---|---|---|---|
+      | 1980-2004 | - | 299,999 | 0.8 |  |  | Boiler Constant Efficiency Curve | From 90.1-1989 |
+      | 1980-2004 | 300,000 | 249,999,999 |  |  | 0.8 | Boiler Constant Efficiency Curve | From 90.1-1989 |
+
+      **90.1-2004**
+
+      | Template | Minimum Capacity (Btu/hr) | Maximum Capacity (Btu/hr) | Minimum Annual Fuel Utilization Efficiency (AFUE) | Minimum Thermal Efficiency (%) | Minimum Combustion Efficiency (%) | Efficiency Function of Part Load Ratio (EFFFPLR) | Notes |
+      |---|---|---|---|---|---|---|---|
+      | 90.1-2004 | - | 299,999 | 0.8 |  |  | Boiler with No Minimum Turndown | From 90.1-2004 |
+      | 90.1-2004 | 300,000 | 249,999,999 |  | 0.75 |  | Boiler with No Minimum Turndown | From 90.1-2004 |
+      | 90.1-2004 | 250,000,000 | no max |  |  | 0.8 | Boiler with No Minimum Turndown | From 90.1-2004 |
+
+      **90.1-2007**
+
+      | Template | Minimum Capacity (Btu/hr) | Maximum Capacity (Btu/hr) | Minimum Annual Fuel Utilization Efficiency (AFUE) | Minimum Thermal Efficiency (%) | Minimum Combustion Efficiency (%) | Efficiency Function of Part Load Ratio (EFFFPLR) | Notes |
+      |---|---|---|---|---|---|---|---|
+      | 90.1-2007 | - | 299,999 | 0.8 |  |  | Boiler with No Minimum Turndown | From 90.1-2007 |
+      | 90.1-2007 | 300,000 | 249,999,999 |  | 0.8 |  | Boiler with No Minimum Turndown | From 90.1-2007 |
+      | 90.1-2007 | 250,000,000 | no max |  |  | 0.82 | Boiler with No Minimum Turndown | From 90.1-2007 |
+
+      **90.1-2010**
+
+      | Template | Minimum Capacity (Btu/hr) | Maximum Capacity (Btu/hr) | Minimum Annual Fuel Utilization Efficiency (AFUE) | Minimum Thermal Efficiency (%) | Minimum Combustion Efficiency (%) | Efficiency Function of Part Load Ratio (EFFFPLR) | Notes |
+      |---|---|---|---|---|---|---|---|
+      | 90.1-2010 | - | 299,999 | 0.8 |  |  | Boiler with No Minimum Turndown | From 90.1-2010 |
+      | 90.1-2010 | 300,000 | 249,999,999 |  | 0.8 |  | Boiler with No Minimum Turndown | From 90.1-2010 |
+      | 90.1-2010 | 250,000,000 | no max |  |  | 0.82 | Boiler with No Minimum Turndown | From 90.1-2010 |
+
+      **90.1-2013**
+
+      | Template | Minimum Capacity (Btu/hr) | Maximum Capacity (Btu/hr) | Minimum Annual Fuel Utilization Efficiency (AFUE) | Minimum Thermal Efficiency (%) | Minimum Combustion Efficiency (%) | Efficiency Function of Part Load Ratio (EFFFPLR) | Notes |
+      |---|---|---|---|---|---|---|---|
+      | 90.1-2013 | - | 299,999 | 0.82 |  |  | Boiler with No Minimum Turndown | From 90.1-2013; From 90.1-2016 |
+      | 90.1-2013 | 300,000 | 999,999 |  | 0.8 |  | Boiler with No Minimum Turndown | From 90.1-2013; From 90.1-2016 |
+      | 90.1-2013 | 1,000,000 | 249,999,999 |  | 0.8 |  | Boiler with Minimum Turndown | From 90.1-2013; From 90.1-2016 |
+      | 90.1-2013 | 250,000,000 | no max |  |  | 0.82 | Boiler with Minimum Turndown | From 90.1-2013; From 90.1-2016 |
+
+      **90.1-2016**
+
+      | Template | Minimum Capacity (Btu/hr) | Maximum Capacity (Btu/hr) | Minimum Annual Fuel Utilization Efficiency (AFUE) | Minimum Thermal Efficiency (%) | Minimum Combustion Efficiency (%) | Efficiency Function of Part Load Ratio (EFFFPLR) | Notes |
+      |---|---|---|---|---|---|---|---|
+      | 90.1-2016 | - | 299,999 | 0.82 |  |  | Boiler with No Minimum Turndown | From 90.1-2013; From 90.1-2016 |
+      | 90.1-2016 | 300,000 | 999,999 |  | 0.8 |  | Boiler with No Minimum Turndown | From 90.1-2013; From 90.1-2016 |
+      | 90.1-2016 | 1,000,000 | 249,999,999 |  | 0.8 |  | Boiler with Minimum Turndown | From 90.1-2013; From 90.1-2016 |
+      | 90.1-2016 | 250,000,000 | no max |  |  | 0.82 | Boiler with Minimum Turndown | From 90.1-2013; From 90.1-2016 |
+
+      **90.1-2019**
+
+      | Template | Minimum Capacity (Btu/hr) | Maximum Capacity (Btu/hr) | Minimum Annual Fuel Utilization Efficiency (AFUE) | Minimum Thermal Efficiency (%) | Minimum Combustion Efficiency (%) | Efficiency Function of Part Load Ratio (EFFFPLR) | Notes |
+      |---|---|---|---|---|---|---|---|
+      | 90.1-2019 | - | 299,999 | 0.84 |  |  | Boiler with No Minimum Turndown | From 90.1-2019 |
+      | 90.1-2019 | 300,000 | 999,999 |  | 0.8 |  | Boiler with No Minimum Turndown | From 90.1-2019 |
+      | 90.1-2019 | 1,000,000 | 249,999,999 |  | 0.8 |  | Boiler with Minimum Turndown | From 90.1-2019 |
+      | 90.1-2019 | 250,000,000 | no max |  |  | 0.82 | Boiler with Minimum Turndown | From 90.1-2019 |
+
+  - label: "Table 5"
+    caption: "Economizer Configuration Suggestions in ASHRAE 90.1-2010"
+    source_pdf: measure_pdfs/89128.pdf
+    source_pdf_sha256: "68cc557325046095d37ac589ab50a713377945180193b43154422f5a981046f8"
+    page: 24
+    method: vision-transcription
+    transcribed_utc: "2026-08-17"
+    markdown: |
+      **TABLE 6.5.1.1.3A High-Limit Shutoff Control Options for Air Economizers**
+
+      | Climate Zones | Allowed Control Types | Prohibited Control Types |
+      |---|---|---|
+      | 1b, 2b, 3b, 3c, 4b, 4c, 5b, 5c, 6b, 7, 8 | Fixed dry bulb; Differential dry bulb; Electronic enthalpy (a); Differential enthalpy; Dew-point and dry-bulb temperatures | Fixed enthalpy |
+      | 1a, 2a, 3a, 4a | Fixed enthalpy; Electronic enthalpy; Differential enthalpy; Dew-point and dry-bulb temperatures | Fixed dry bulb; Differential dry bulb |
+      | 5a, 6a | Fixed dry bulb; Differential dry bulb; Fixed enthalpy; Electronic enthalpy (a); Differential enthalpy; Dew-point and dry-bulb temperatures |  |
+
+      (a) Electronic enthalpy controllers are devices that use a combination of humidity and dry-bulb temperature in their switching algorithm.
+
+      **TABLE 6.5.1.1.3B High-Limit Shutoff Control Settings for Air Economizers**
+
+      | Device Type | Climate | Required High Limit (Economizer Off When): Equation | Required High Limit (Economizer Off When): Description |
+      |---|---|---|---|
+      | Fixed dry bulb | 1b, 2b, 3b, 3c, 4b, 4c, 5b, 5c, 6b, 7, 8 | T_OA > 75°F | Outdoor air temperature exceeds 75°F |
+      | Fixed dry bulb | 5a, 6a | T_OA > 70°F | Outdoor air temperature exceeds 70°F |
+      | Differential dry bulb | 1b, 2b, 3b, 3c, 4b, 4c, 5a, 5b, 5c, 6a, 6b, 7, 8 | T_OA > T_RA | Outdoor air temperature exceeds return air temperature |
+      | Fixed enthalpy | 2a, 3a, 4a, 5a, 6a | h_OA > 28 Btu/lb (a) | Outdoor air enthalpy exceeds 28 Btu/lb of dry air (a) |
+      | Electronic enthalpy | All | (T_OA , RH_OA) > A | Outdoor air temperature/RH exceeds the "A" setpoint curve (b) |
+      | Differential enthalpy | All | h_OA > h_RA | Outdoor air enthalpy exceeds return air enthalpy |
+      | Dew-point and dry-bulb temperatures | All | DP_oa > 55°F or T_oa > 75°F | Outdoor air dry bulb exceeds 75°F or outside dew point exceeds 55°F (65 gr/lb) |
+
+      (a) At altitudes substantially different than sea level, the Fixed Enthalpy limit shall be set to the enthalpy value at 75°F and 50% relative humidity. As an example, at approximately 6000 ft elevation the fixed enthalpy limit is approximately 30.7 Btu/lb.
+
+      (b) Setpoint "A" corresponds to a curve on the psychrometric chart that goes through a point at approximately 75°F and 40% relative humidity and is nearly parallel to dry-bulb lines at low humidity levels and nearly parallel to enthalpy lines at high humidity levels.

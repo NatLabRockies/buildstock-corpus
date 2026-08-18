@@ -1,0 +1,223 @@
+# Hand-authored table transcriptions for env_window_film.md
+#
+# The upstream page embeds these tables as pictures, so the extracted markdown keeps the
+# caption and an image link while the numbers stay invisible to retrieval. Each entry below
+# is a transcription of one such picture, injected at build time by overlay.py in place of
+# the image ref. See overlays/README.md for the schema and the review procedure.
+#
+# Baseline window, film product, retrofit performance, and climate-zone applicability for each
+# window film pairing: the full 12-configuration x 6-film performance range (Table 2) and the
+# subset that passes the applicability criteria (Table 3).
+#
+# Table 2 is a 20-column, 62-row grid with five header groups, too wide for GFM and far too
+# long for one chunk, so it is decomposed. The baseline window configuration becomes its own
+# 12-row table with a "Config" number the sub-tables key off; the six "Baseline Compared to
+# AEDG ZE" booleans are constant within a configuration - the source simply repeats them on
+# each of that configuration's six film rows - so they become a second 12-row table rather
+# than 60 repeated rows; and the film rows become one table per configuration, named in the
+# bold label. Configs 11 and 12 (Triple pane) have no film options and carry "n/a" in every
+# retrofit column, which is transcribed as printed. The source writes the third climate zone
+# band as "CZ7, 8" while writing "CZ 1, 2, 3" and "CZ 4, 5, 6" with spaces; the space is
+# normalized here. Pane reads lowercase "single" in the source for configs 1-4 and is left
+# as-is. The Low-E column is one tall merged cell per value ("No" for configs 1-6, "Yes" for
+# 7-12) and is repeated on every row. The orange/grey/blue/cream heatmap fills only restate
+# the percentages and TRUE/FALSE values already printed in the cells, so they are dropped.
+#
+# source_image_sha256 pins each transcription to the exact bitmap it was read from: if
+# upstream redraws a table, the build reports a stale overlay instead of shipping numbers
+# that no longer match the picture.
+
+product: comstock
+release: "comstock_amy2018_2025_release_3"
+source_id: upgrade_measures
+source_path: docs/upgrade_measures/env_window_film.md
+
+tables:
+  - label: "Table 2"
+    caption: "Performance Range Baseline Windows With Window Films"
+    source_image: "media/ec67b834b3070ddae5461a3e344bc230.png"
+    source_image_sha256: "ba4c7f35e82014bfee53f61739bf3c629f9c7702e558f4478f105f16bb568515"
+    method: vision-transcription
+    transcribed_utc: "2026-08-18"
+    markdown: |
+      **Baseline window configuration**
+
+      | Config | Pane | Low-E | Glazing | Frame |
+      |---|---|---|---|---|
+      | 1 | single | No | Clear | Aluminum |
+      | 2 | single | No | Tinted/Reflective | Aluminum |
+      | 3 | single | No | Clear | Wood |
+      | 4 | single | No | Tinted/Reflective | Wood |
+      | 5 | Double | No | Clear | Aluminum |
+      | 6 | Double | No | Tinted/Reflective | Aluminum |
+      | 7 | Double | Yes | Clear | Aluminum |
+      | 8 | Double | Yes | Clear | Aluminum with thermal break |
+      | 9 | Double | Yes | Tinted/Reflective | Aluminum |
+      | 10 | Double | Yes | Tinted/Reflective | Aluminum with thermal break |
+      | 11 | Triple | Yes | Clear | Aluminum with thermal break |
+      | 12 | Triple | Yes | Tinted/Reflective | Aluminum with thermal break |
+
+      **Baseline compared to AEDG ZE (one value per configuration; the source repeats it on every film row of the configuration)**
+
+      | Config | U-factor within 10%? (CZ 1, 2, 3) | U-factor within 10%? (CZ 4, 5, 6) | U-factor within 10%? (CZ 7, 8) | SHGC within 10%? (CZ 1, 2, 3) | SHGC within 10%? (CZ 4, 5, 6) | SHGC within 10%? (CZ 7, 8) |
+      |---|---|---|---|---|---|---|
+      | 1 | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE |
+      | 2 | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE |
+      | 3 | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE |
+      | 4 | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE |
+      | 5 | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE |
+      | 6 | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE |
+      | 7 | FALSE | FALSE | FALSE | FALSE | FALSE | TRUE |
+      | 8 | FALSE | FALSE | FALSE | FALSE | TRUE | TRUE |
+      | 9 | FALSE | FALSE | FALSE | FALSE | TRUE | TRUE |
+      | 10 | FALSE | FALSE | FALSE | FALSE | TRUE | TRUE |
+      | 11 | TRUE | TRUE | FALSE | FALSE | TRUE | TRUE |
+      | 12 | TRUE | TRUE | FALSE | TRUE | TRUE | TRUE |
+
+      **Config 1 (single pane, low-E No, Clear glazing, Aluminum frame): window film retrofit options, retrofit compared to baseline, and retrofit compared to AEDG ZE**
+
+      | Film Position | Film Product | Retrofit vs baseline U-factor | Retrofit vs baseline SHGC | U-factor within 10%? (CZ 1, 2, 3) | U-factor within 10%? (CZ 4, 5, 6) | U-factor within 10%? (CZ 7, 8) | SHGC within 10%? (CZ 1, 2, 3) | SHGC within 10%? (CZ 4, 5, 6) | SHGC within 10%? (CZ 7, 8) |
+      |---|---|---|---|---|---|---|---|---|---|
+      | Interior | Affinity 15 | 1% | 68% | FALSE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Interior | Affinity 30 | 3% | 49% | FALSE | FALSE | FALSE | FALSE | TRUE | TRUE |
+      | Interior | Low e 20 | 18% | 67% | FALSE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Interior | Low e 35 | 14% | 68% | FALSE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Exterior | Prestige exterior 20 | 0% | 55% | FALSE | FALSE | FALSE | FALSE | TRUE | TRUE |
+      | Exterior | Prestige exterior 70 | 0% | 39% | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE |
+
+      **Config 2 (single pane, low-E No, Tinted/Reflective glazing, Aluminum frame): window film retrofit options, retrofit compared to baseline, and retrofit compared to AEDG ZE**
+
+      | Film Position | Film Product | Retrofit vs baseline U-factor | Retrofit vs baseline SHGC | U-factor within 10%? (CZ 1, 2, 3) | U-factor within 10%? (CZ 4, 5, 6) | U-factor within 10%? (CZ 7, 8) | SHGC within 10%? (CZ 1, 2, 3) | SHGC within 10%? (CZ 4, 5, 6) | SHGC within 10%? (CZ 7, 8) |
+      |---|---|---|---|---|---|---|---|---|---|
+      | Interior | Affinity 15 | 1% | 51% | FALSE | FALSE | FALSE | FALSE | TRUE | TRUE |
+      | Interior | Affinity 30 | 3% | 39% | FALSE | FALSE | FALSE | FALSE | TRUE | TRUE |
+      | Interior | Low e 20 | 18% | 55% | FALSE | FALSE | FALSE | FALSE | TRUE | TRUE |
+      | Interior | Low e 35 | 14% | 54% | FALSE | FALSE | FALSE | FALSE | TRUE | TRUE |
+      | Exterior | Prestige exterior 20 | 0% | 48% | FALSE | FALSE | FALSE | FALSE | TRUE | TRUE |
+      | Exterior | Prestige exterior 70 | 0% | 35% | FALSE | FALSE | FALSE | FALSE | TRUE | TRUE |
+
+      **Config 3 (single pane, low-E No, Clear glazing, Wood frame): window film retrofit options, retrofit compared to baseline, and retrofit compared to AEDG ZE**
+
+      | Film Position | Film Product | Retrofit vs baseline U-factor | Retrofit vs baseline SHGC | U-factor within 10%? (CZ 1, 2, 3) | U-factor within 10%? (CZ 4, 5, 6) | U-factor within 10%? (CZ 7, 8) | SHGC within 10%? (CZ 1, 2, 3) | SHGC within 10%? (CZ 4, 5, 6) | SHGC within 10%? (CZ 7, 8) |
+      |---|---|---|---|---|---|---|---|---|---|
+      | Interior | Affinity 15 | 1% | 71% | FALSE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Interior | Affinity 30 | 4% | 51% | FALSE | FALSE | FALSE | FALSE | TRUE | TRUE |
+      | Interior | Low e 20 | 22% | 70% | FALSE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Interior | Low e 35 | 17% | 71% | FALSE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Exterior | Prestige exterior 20 | 0% | 58% | FALSE | FALSE | FALSE | FALSE | TRUE | TRUE |
+      | Exterior | Prestige exterior 70 | 0% | 41% | FALSE | FALSE | FALSE | FALSE | FALSE | TRUE |
+
+      **Config 4 (single pane, low-E No, Tinted/Reflective glazing, Wood frame): window film retrofit options, retrofit compared to baseline, and retrofit compared to AEDG ZE**
+
+      | Film Position | Film Product | Retrofit vs baseline U-factor | Retrofit vs baseline SHGC | U-factor within 10%? (CZ 1, 2, 3) | U-factor within 10%? (CZ 4, 5, 6) | U-factor within 10%? (CZ 7, 8) | SHGC within 10%? (CZ 1, 2, 3) | SHGC within 10%? (CZ 4, 5, 6) | SHGC within 10%? (CZ 7, 8) |
+      |---|---|---|---|---|---|---|---|---|---|
+      | Interior | Affinity 15 | 1% | 54% | FALSE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Interior | Affinity 30 | 4% | 41% | FALSE | FALSE | FALSE | FALSE | TRUE | TRUE |
+      | Interior | Low e 20 | 22% | 58% | FALSE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Interior | Low e 35 | 17% | 57% | FALSE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Exterior | Prestige exterior 20 | 0% | 51% | FALSE | FALSE | FALSE | FALSE | TRUE | TRUE |
+      | Exterior | Prestige exterior 70 | 0% | 37% | FALSE | FALSE | FALSE | FALSE | TRUE | TRUE |
+
+      **Config 5 (Double pane, low-E No, Clear glazing, Aluminum frame): window film retrofit options, retrofit compared to baseline, and retrofit compared to AEDG ZE**
+
+      | Film Position | Film Product | Retrofit vs baseline U-factor | Retrofit vs baseline SHGC | U-factor within 10%? (CZ 1, 2, 3) | U-factor within 10%? (CZ 4, 5, 6) | U-factor within 10%? (CZ 7, 8) | SHGC within 10%? (CZ 1, 2, 3) | SHGC within 10%? (CZ 4, 5, 6) | SHGC within 10%? (CZ 7, 8) |
+      |---|---|---|---|---|---|---|---|---|---|
+      | Interior | Affinity 15 | 0% | 49% | FALSE | FALSE | FALSE | FALSE | TRUE | TRUE |
+      | Interior | Affinity 30 | 1% | 31% | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE |
+      | Interior | Low e 20 | 8% | 50% | FALSE | FALSE | FALSE | FALSE | TRUE | TRUE |
+      | Interior | Low e 35 | 6% | 53% | FALSE | FALSE | FALSE | FALSE | TRUE | TRUE |
+      | Exterior | Prestige exterior 20 | 0% | 62% | FALSE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Exterior | Prestige exterior 70 | 0% | 42% | FALSE | FALSE | FALSE | FALSE | TRUE | TRUE |
+
+      **Config 6 (Double pane, low-E No, Tinted/Reflective glazing, Aluminum frame): window film retrofit options, retrofit compared to baseline, and retrofit compared to AEDG ZE**
+
+      | Film Position | Film Product | Retrofit vs baseline U-factor | Retrofit vs baseline SHGC | U-factor within 10%? (CZ 1, 2, 3) | U-factor within 10%? (CZ 4, 5, 6) | U-factor within 10%? (CZ 7, 8) | SHGC within 10%? (CZ 1, 2, 3) | SHGC within 10%? (CZ 4, 5, 6) | SHGC within 10%? (CZ 7, 8) |
+      |---|---|---|---|---|---|---|---|---|---|
+      | Interior | Affinity 15 | 0% | 44% | FALSE | FALSE | FALSE | FALSE | TRUE | TRUE |
+      | Interior | Affinity 30 | 1% | 29% | FALSE | FALSE | FALSE | FALSE | TRUE | TRUE |
+      | Interior | Low e 20 | 8% | 46% | FALSE | FALSE | FALSE | FALSE | TRUE | TRUE |
+      | Interior | Low e 35 | 6% | 49% | FALSE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Exterior | Prestige exterior 20 | 0% | 56% | FALSE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Exterior | Prestige exterior 70 | 0% | 39% | FALSE | FALSE | FALSE | FALSE | TRUE | TRUE |
+
+      **Config 7 (Double pane, low-E Yes, Clear glazing, Aluminum frame): window film retrofit options, retrofit compared to baseline, and retrofit compared to AEDG ZE**
+
+      | Film Position | Film Product | Retrofit vs baseline U-factor | Retrofit vs baseline SHGC | U-factor within 10%? (CZ 1, 2, 3) | U-factor within 10%? (CZ 4, 5, 6) | U-factor within 10%? (CZ 7, 8) | SHGC within 10%? (CZ 1, 2, 3) | SHGC within 10%? (CZ 4, 5, 6) | SHGC within 10%? (CZ 7, 8) |
+      |---|---|---|---|---|---|---|---|---|---|
+      | Interior | Affinity 15 | 0% | 39% | FALSE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Interior | Affinity 30 | 1% | 20% | FALSE | FALSE | FALSE | FALSE | TRUE | TRUE |
+      | Interior | Low e 20 | 4% | 37% | FALSE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Interior | Low e 35 | 3% | 41% | FALSE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Exterior | Prestige exterior 20 | 0% | 60% | FALSE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Exterior | Prestige exterior 70 | 0% | 25% | FALSE | FALSE | FALSE | FALSE | TRUE | TRUE |
+
+      **Config 8 (Double pane, low-E Yes, Clear glazing, Aluminum with thermal break frame): window film retrofit options, retrofit compared to baseline, and retrofit compared to AEDG ZE**
+
+      | Film Position | Film Product | Retrofit vs baseline U-factor | Retrofit vs baseline SHGC | U-factor within 10%? (CZ 1, 2, 3) | U-factor within 10%? (CZ 4, 5, 6) | U-factor within 10%? (CZ 7, 8) | SHGC within 10%? (CZ 1, 2, 3) | SHGC within 10%? (CZ 4, 5, 6) | SHGC within 10%? (CZ 7, 8) |
+      |---|---|---|---|---|---|---|---|---|---|
+      | Interior | Affinity 15 | 0% | 39% | FALSE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Interior | Affinity 30 | 1% | 20% | FALSE | FALSE | FALSE | FALSE | TRUE | TRUE |
+      | Interior | Low e 20 | 5% | 38% | TRUE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Interior | Low e 35 | 4% | 42% | TRUE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Exterior | Prestige exterior 20 | 0% | 61% | FALSE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Exterior | Prestige exterior 70 | 0% | 25% | FALSE | FALSE | FALSE | FALSE | TRUE | TRUE |
+
+      **Config 9 (Double pane, low-E Yes, Tinted/Reflective glazing, Aluminum frame): window film retrofit options, retrofit compared to baseline, and retrofit compared to AEDG ZE**
+
+      | Film Position | Film Product | Retrofit vs baseline U-factor | Retrofit vs baseline SHGC | U-factor within 10%? (CZ 1, 2, 3) | U-factor within 10%? (CZ 4, 5, 6) | U-factor within 10%? (CZ 7, 8) | SHGC within 10%? (CZ 1, 2, 3) | SHGC within 10%? (CZ 4, 5, 6) | SHGC within 10%? (CZ 7, 8) |
+      |---|---|---|---|---|---|---|---|---|---|
+      | Interior | Affinity 15 | 0% | 32% | FALSE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Interior | Affinity 30 | 1% | 17% | FALSE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Interior | Low e 20 | 4% | 32% | FALSE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Interior | Low e 35 | 3% | 35% | FALSE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Exterior | Prestige exterior 20 | 0% | 53% | FALSE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Exterior | Prestige exterior 70 | 0% | 22% | FALSE | FALSE | FALSE | TRUE | TRUE | TRUE |
+
+      **Config 10 (Double pane, low-E Yes, Tinted/Reflective glazing, Aluminum with thermal break frame): window film retrofit options, retrofit compared to baseline, and retrofit compared to AEDG ZE**
+
+      | Film Position | Film Product | Retrofit vs baseline U-factor | Retrofit vs baseline SHGC | U-factor within 10%? (CZ 1, 2, 3) | U-factor within 10%? (CZ 4, 5, 6) | U-factor within 10%? (CZ 7, 8) | SHGC within 10%? (CZ 1, 2, 3) | SHGC within 10%? (CZ 4, 5, 6) | SHGC within 10%? (CZ 7, 8) |
+      |---|---|---|---|---|---|---|---|---|---|
+      | Interior | Affinity 15 | 0% | 34% | FALSE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Interior | Affinity 30 | 1% | 17% | FALSE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Interior | Low e 20 | 5% | 33% | TRUE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Interior | Low e 35 | 3% | 36% | TRUE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Exterior | Prestige exterior 20 | 0% | 55% | FALSE | FALSE | FALSE | TRUE | TRUE | TRUE |
+      | Exterior | Prestige exterior 70 | 0% | 23% | FALSE | FALSE | FALSE | TRUE | TRUE | TRUE |
+
+      **Configs 11 and 12 (Triple pane): no window film retrofit options, so every retrofit column is n/a**
+
+      | Config | Film Position | Film Product | Retrofit vs baseline U-factor | Retrofit vs baseline SHGC | U-factor within 10%? (CZ 1, 2, 3) | U-factor within 10%? (CZ 4, 5, 6) | U-factor within 10%? (CZ 7, 8) | SHGC within 10%? (CZ 1, 2, 3) | SHGC within 10%? (CZ 4, 5, 6) | SHGC within 10%? (CZ 7, 8) |
+      |---|---|---|---|---|---|---|---|---|---|---|
+      | 11 | n/a | n/a | n/a | n/a | n/a | n/a | n/a | n/a | n/a | n/a |
+      | 12 | n/a | n/a | n/a | n/a | n/a | n/a | n/a | n/a | n/a | n/a |
+  - label: "Table 3"
+    caption: "Applicability Criteria of Window Films"
+    source_image: "media/a6223bfbd567aa7a8a925536b2e5ad8c.png"
+    source_image_sha256: "17ff86ccdd24ce441b6e8af07647da2c9f90b68b6f7a56dcd0baa3fa4ff7e26c"
+    method: vision-transcription
+    transcribed_utc: "2026-08-13"
+    markdown: |
+      **Single-pane baseline windows**
+
+      | Pane | Low-E | Glazing | Frame | Baseline U (SI) | Baseline U (IP) | Baseline SHGC | Baseline VLT | Film Position | Film Product | Retrofit U (SI) | Retrofit U (IP) | Retrofit SHGC | Retrofit VLT | Retrofit vs Baseline U | Retrofit vs Baseline SHGC | Applicability with Climate Zone Number |
+      |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+      | Single | No | Clear | Aluminum | 6.689 | 1.178 | 0.744 | 0.754 | Interior | Low E 20 | 5.502 | 0.969 | 0.248 | 0.170 | 18% | 67% | 1,2,3,4,5,6,7,8 |
+      | Single | No | Tinted/Reflective | Aluminum | 6.688 | 1.178 | 0.579 | 0.455 | Interior | Low E 20 | 5.502 | 0.969 | 0.259 | 0.100 | 18% | 55% | 1,2,3,4,5,6,7,8 |
+      | Single | No | Clear | Wood | 5.169 | 0.910 | 0.683 | 0.723 | Interior | Low E 20 | 4.031 | 0.710 | 0.208 | 0.163 | 22% | 70% | 1,2,3,4,5,6,7,8 |
+      | Single | No | Tinted/Reflective | Wood | 5.168 | 0.910 | 0.525 | 0.436 | Interior | Low E 20 | 4.031 | 0.710 | 0.219 | 0.096 | 22% | 58% | 1,2,3,4,5,6,7,8 |
+
+      **Double-pane baseline windows without a low-E coating**
+
+      | Pane | Low-E | Glazing | Frame | Baseline U (SI) | Baseline U (IP) | Baseline SHGC | Baseline VLT | Film Position | Film Product | Retrofit U (SI) | Retrofit U (IP) | Retrofit SHGC | Retrofit VLT | Retrofit vs Baseline U | Retrofit vs Baseline SHGC | Applicability with Climate Zone Number |
+      |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+      | Double | No | Clear | Aluminum | 4.238 | 0.746 | 0.646 | 0.671 | Exterior | Prestige exterior 20 | 4.236 | 0.746 | 0.246 | 0.154 | 0% | 62% | 1,2,3,4,5,6 |
+      | Double | No | Tinted/Reflective | Aluminum | 4.255 | 0.749 | 0.484 | 0.411 | Exterior | Prestige exterior 20 | 4.253 | 0.749 | 0.214 | 0.095 | 0% | 56% | 1,2,3,4,5,6 |
+
+      **Double-pane baseline windows with a low-E coating**
+
+      | Pane | Low-E | Glazing | Frame | Baseline U (SI) | Baseline U (IP) | Baseline SHGC | Baseline VLT | Film Position | Film Product | Retrofit U (SI) | Retrofit U (IP) | Retrofit SHGC | Retrofit VLT | Retrofit vs Baseline U | Retrofit vs Baseline SHGC | Applicability with Climate Zone Number |
+      |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+      | Double | Yes | Clear | Aluminum | 3.174 | 0.559 | 0.386 | 0.591 | Exterior | Prestige exterior 20 | 3.173 | 0.559 | 0.154 | 0.136 | 0% | 60% | 1,2,3,4,5,6 |
+      | Double | Yes | Clear | Aluminum with thermal break | 2.833 | 0.499 | 0.378 | 0.591 | Exterior | Prestige exterior 20 | 2.832 | 0.499 | 0.146 | 0.136 | 0% | 61% | 1,2,3,4,5,6 |
+      | Double | Yes | Tinted/Reflective | Aluminum | 3.160 | 0.557 | 0.274 | 0.359 | Exterior | Prestige exterior 20 | 3.159 | 0.556 | 0.129 | 0.083 | 0% | 53% | 1,2,3,4,5,6 |
+      | Double | Yes | Tinted/Reflective | Aluminum with thermal break | 2.818 | 0.496 | 0.266 | 0.359 | Exterior | Prestige exterior 20 | 2.817 | 0.496 | 0.121 | 0.083 | 0% | 55% | 1,2,3,4,5,6 |

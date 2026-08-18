@@ -13,9 +13,12 @@ import json
 import buildstock_corpus.manifest as M
 from buildstock_corpus.normalize import Document
 
+RELEASE = "comstock_amy2018_2025_release_3"
+
 OUT_REL = "technical_reference/documentation/reference_doc/4_9_hvac.md"
 OUT_CONTENT = (
-    "<!-- comstock 2025-3 | technical_reference | documentation/reference_doc/4_9_hvac.tex -->\n"
+    f"<!-- comstock {RELEASE} | technical_reference"
+    " | documentation/reference_doc/4_9_hvac.tex -->\n"
     "# HVAC Systems\n\nbody\n"
 )
 
@@ -23,7 +26,7 @@ OUT_CONTENT = (
 def _doc() -> Document:
     return Document(
         product="comstock",
-        release="2025-3",
+        release=RELEASE,
         source_id="technical_reference",
         source_type="latex",
         source_path="documentation/reference_doc/4_9_hvac.tex",
@@ -75,9 +78,9 @@ def test_manifest_roundtrip_valid(tmp_path, monkeypatch):
     proot = _patch(tmp_path, monkeypatch)
     _write_output(proot)
 
-    manifest = M.build_manifest("comstock", "2025-3", [_doc()], None, [], {}, _state(), 1)
+    manifest = M.build_manifest("comstock", RELEASE, [_doc()], None, [], {}, _state(), 1)
 
-    assert manifest["product"] == "comstock" and manifest["release"] == "2025-3"
+    assert manifest["product"] == "comstock" and manifest["release"] == RELEASE
     art = manifest["sources"][0]["artifacts"][0]
     assert art["input_sha256"] == "deadbeef"  # traced to the hashed source input
     assert art["output_sha256"]  # output hashed at build time
@@ -85,8 +88,8 @@ def test_manifest_roundtrip_valid(tmp_path, monkeypatch):
     assert manifest["clones"][0]["sha"] == "abc123"  # commit provenance recorded
     assert manifest["counts"]["chunks"] == 1
 
-    assert M.validate_manifest("comstock", "2025-3", manifest) == []
-    assert M.validate_release("comstock", "2025-3") is True
+    assert M.validate_manifest("comstock", RELEASE, manifest) == []
+    assert M.validate_release("comstock", RELEASE) is True
 
 
 def test_sampled_build_is_stamped_partial(tmp_path, monkeypatch):
@@ -95,20 +98,20 @@ def test_sampled_build_is_stamped_partial(tmp_path, monkeypatch):
     _write_output(proot)
 
     manifest = M.build_manifest(
-        "comstock", "2025-3", [_doc()], None, [], {}, _state(), 1, None, 1
+        "comstock", RELEASE, [_doc()], None, [], {}, _state(), 1, None, 1
     )
 
     assert manifest["sample"] == {"per_category": 1, "partial": True}
     # still a valid, fully traced manifest — just an explicitly partial one
-    assert M.validate_manifest("comstock", "2025-3", manifest) == []
-    assert M.validate_release("comstock", "2025-3") is True
+    assert M.validate_manifest("comstock", RELEASE, manifest) == []
+    assert M.validate_release("comstock", RELEASE) is True
 
 
 def test_full_build_has_no_sample_key(tmp_path, monkeypatch):
     proot = _patch(tmp_path, monkeypatch)
     _write_output(proot)
 
-    manifest = M.build_manifest("comstock", "2025-3", [_doc()], None, [], {}, _state(), 1)
+    manifest = M.build_manifest("comstock", RELEASE, [_doc()], None, [], {}, _state(), 1)
 
     assert "sample" not in manifest
 
@@ -116,21 +119,21 @@ def test_full_build_has_no_sample_key(tmp_path, monkeypatch):
 def test_validate_fails_when_output_deleted(tmp_path, monkeypatch):
     proot = _patch(tmp_path, monkeypatch)
     out = _write_output(proot)
-    M.build_manifest("comstock", "2025-3", [_doc()], None, [], {}, _state(), 1)
+    M.build_manifest("comstock", RELEASE, [_doc()], None, [], {}, _state(), 1)
 
     out.unlink()  # artifact vanishes after build
-    errors = M.validate_manifest("comstock", "2025-3", _load(proot))
+    errors = M.validate_manifest("comstock", RELEASE, _load(proot))
     assert any("missing on disk" in e for e in errors)
-    assert M.validate_release("comstock", "2025-3") is False
+    assert M.validate_release("comstock", RELEASE) is False
 
 
 def test_validate_fails_when_output_tampered(tmp_path, monkeypatch):
     proot = _patch(tmp_path, monkeypatch)
     out = _write_output(proot)
-    M.build_manifest("comstock", "2025-3", [_doc()], None, [], {}, _state(), 1)
+    M.build_manifest("comstock", RELEASE, [_doc()], None, [], {}, _state(), 1)
 
     out.write_text(OUT_CONTENT + "\nEDITED AFTER BUILD\n", encoding="utf-8")
-    errors = M.validate_manifest("comstock", "2025-3", _load(proot))
+    errors = M.validate_manifest("comstock", RELEASE, _load(proot))
     assert any("hash mismatch" in e for e in errors)
 
 
@@ -139,16 +142,16 @@ def test_validate_fails_on_orphan_output(tmp_path, monkeypatch):
     _write_output(proot)
     # fetch hashed a different input, so this doc's output traces to nothing
     state = _state(input_path="documentation/reference_doc/other_chapter.tex")
-    M.build_manifest("comstock", "2025-3", [_doc()], None, [], {}, state, 1)
+    M.build_manifest("comstock", RELEASE, [_doc()], None, [], {}, state, 1)
 
-    errors = M.validate_manifest("comstock", "2025-3", _load(proot))
+    errors = M.validate_manifest("comstock", RELEASE, _load(proot))
     assert any("no hashed source input" in e for e in errors)
 
 
 def test_validate_fails_on_release_mismatch(tmp_path, monkeypatch):
     proot = _patch(tmp_path, monkeypatch)
     _write_output(proot)
-    M.build_manifest("comstock", "2025-3", [_doc()], None, [], {}, _state(), 1)
+    M.build_manifest("comstock", RELEASE, [_doc()], None, [], {}, _state(), 1)
 
     errors = M.validate_manifest("comstock", "2025-4", _load(proot))
     assert any("release tag mismatch" in e for e in errors)
@@ -156,16 +159,16 @@ def test_validate_fails_on_release_mismatch(tmp_path, monkeypatch):
 
 def test_validate_fails_on_zero_artifacts(tmp_path, monkeypatch):
     proot = _patch(tmp_path, monkeypatch)
-    M.build_manifest("comstock", "2025-3", [], None, [], {}, _state(), 0)
+    M.build_manifest("comstock", RELEASE, [], None, [], {}, _state(), 0)
 
-    errors = M.validate_manifest("comstock", "2025-3", _load(proot))
+    errors = M.validate_manifest("comstock", RELEASE, _load(proot))
     assert any("zero artifacts" in e for e in errors)
 
 
 def test_validate_fails_on_untracked_crosswalk_measure(tmp_path, monkeypatch):
     proot = _patch(tmp_path, monkeypatch)
     _write_output(proot)
-    M.build_manifest("comstock", "2025-3", [_doc()], None, [], {}, _state(), 1)
+    M.build_manifest("comstock", RELEASE, [_doc()], None, [], {}, _state(), 1)
 
     # an undocumented measure that is NOT listed as a tracked gap must fail validation
     (proot / "crosswalk.json").write_text(
@@ -181,7 +184,7 @@ def test_validate_fails_on_untracked_crosswalk_measure(tmp_path, monkeypatch):
         ),
         encoding="utf-8",
     )
-    errors = M.validate_manifest("comstock", "2025-3", _load(proot))
+    errors = M.validate_manifest("comstock", RELEASE, _load(proot))
     assert any("bad_0002" in e and "neither covered nor a tracked gap" in e for e in errors)
 
 
@@ -200,13 +203,13 @@ def test_gaps_and_unreachable_pdfs_recorded(tmp_path, monkeypatch):
         "gaps": [{"measure_id": "dr_0005", "reason": "documentation expected soon"}],
     }
 
-    manifest = M.build_manifest("comstock", "2025-3", [_doc()], crosswalk, [], {}, state, 1)
+    manifest = M.build_manifest("comstock", RELEASE, [_doc()], crosswalk, [], {}, state, 1)
 
     assert manifest["gaps"]["measures"] == ["dr_0005"]
     assert manifest["gaps"]["unreachable_pdfs"][0]["url"].endswith("gone.pdf")
     # crosswalk.json on disk would let validate confirm dr_0005 is a tracked gap
     (proot / "crosswalk.json").write_text(json.dumps(crosswalk), encoding="utf-8")
-    assert M.validate_manifest("comstock", "2025-3", _load(proot)) == []
+    assert M.validate_manifest("comstock", RELEASE, _load(proot)) == []
 
 
 # --- overlay provenance: a hand-authored table must trace to the bitmap it was read from --
@@ -246,7 +249,7 @@ def _overlay_fixture(tmp_path, monkeypatch, proot, *, png: bytes | None = PNG_BY
 
 def _manifest_with_overlay(proot, overlay: dict) -> dict:
     manifest = M.build_manifest(
-        "comstock", "2025-3", [_doc()], None, [], {}, _state(), 1, None, None,
+        "comstock", RELEASE, [_doc()], None, [], {}, _state(), 1, None, None,
         {"technical_reference": {"documentation/reference_doc/4_9_hvac.tex": overlay}},
     )
     return manifest
@@ -263,7 +266,7 @@ def test_overlay_recorded_and_verified_against_its_source_image(tmp_path, monkey
     assert art["overlay"]["tables_applied"] == ["Table 1"]
     assert manifest["counts"]["overlay_tables"] == 1
     stats: dict = {}
-    assert M.validate_manifest("comstock", "2025-3", manifest, stats) == []
+    assert M.validate_manifest("comstock", RELEASE, manifest, stats) == []
     assert stats == {"overlay_checked": 1, "overlay_checked_pdf": 0, "overlay_unverifiable": 0}
 
 
@@ -280,7 +283,7 @@ def test_absent_source_image_is_unverifiable_not_a_violation(tmp_path, monkeypat
     manifest = _manifest_with_overlay(proot, overlay)
 
     stats: dict = {}
-    assert M.validate_manifest("comstock", "2025-3", manifest, stats) == []
+    assert M.validate_manifest("comstock", RELEASE, manifest, stats) == []
     assert stats == {"overlay_checked": 0, "overlay_checked_pdf": 0, "overlay_unverifiable": 1}
 
 
@@ -290,7 +293,7 @@ def test_redrawn_source_image_is_a_violation(tmp_path, monkeypatch):
     _write_output(proot)
     overlay = _overlay_fixture(tmp_path, monkeypatch, proot, png=PNG_BYTES + b"redrawn")
 
-    errors = M.validate_manifest("comstock", "2025-3", _manifest_with_overlay(proot, overlay))
+    errors = M.validate_manifest("comstock", RELEASE, _manifest_with_overlay(proot, overlay))
 
     assert len(errors) == 1
     assert "source image changed since transcription" in errors[0]
@@ -304,7 +307,7 @@ def test_edited_sidecar_is_a_violation(tmp_path, monkeypatch):
     manifest = _manifest_with_overlay(proot, overlay)
     (tmp_path / "overlays" / OV_REL).write_text("tables: []\n", encoding="utf-8", newline="\n")
 
-    errors = M.validate_manifest("comstock", "2025-3", manifest)
+    errors = M.validate_manifest("comstock", RELEASE, manifest)
 
     assert len(errors) == 1
     assert "overlay hash mismatch" in errors[0]
@@ -350,7 +353,7 @@ def test_caption_anchored_overlay_verified_against_the_artifacts_input_hash(tmp_
     manifest = _manifest_with_overlay(proot, overlay)
 
     stats: dict = {}
-    assert M.validate_manifest("comstock", "2025-3", manifest, stats) == []
+    assert M.validate_manifest("comstock", RELEASE, manifest, stats) == []
     assert stats == {"overlay_checked": 0, "overlay_checked_pdf": 1, "overlay_unverifiable": 0}
 
 
@@ -360,7 +363,7 @@ def test_caption_anchored_overlay_pinned_to_another_revision_is_a_violation(tmp_
     _write_output(proot)
     overlay = _pdf_overlay_fixture(tmp_path, monkeypatch, pinned_sha="0ldrevision")
 
-    errors = M.validate_manifest("comstock", "2025-3", _manifest_with_overlay(proot, overlay))
+    errors = M.validate_manifest("comstock", RELEASE, _manifest_with_overlay(proot, overlay))
 
     assert len(errors) == 1
     assert "transcribed from a different revision" in errors[0]

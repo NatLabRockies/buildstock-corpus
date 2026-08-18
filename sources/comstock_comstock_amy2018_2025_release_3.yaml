@@ -1,0 +1,57 @@
+# Source registry for ComStock dataset release comstock_amy2018_2025_release_3.
+#
+# The release id follows the OEDI data lake convention,
+# <dataset type>_<weather data>_<year of publication>_release_<release number>, so a
+# corpus artifact names the same release the published data does.
+#
+# Upstream refs do not use that convention and are pinned verbatim below: the ComStock
+# code repo tags this release with a dash (2025-3), the github.io site branches it with
+# an underscore (2025_3), and the crosswalk CSV filename uses its own form again. Each
+# source pins its own git_ref so artifacts stay aligned to this dataset release.
+product: comstock
+release: "comstock_amy2018_2025_release_3"
+
+sources:
+  # ComStock technical reference — LaTeX source, converted with pandoc.
+  - id: technical_reference
+    type: latex
+    repo: https://github.com/NatLabRockies/ComStock.git
+    git_ref: "2025-3"
+    sparse: ["documentation"]
+    root_hint: documentation        # LaTeX project root within the repo
+    doc_glob: "documentation/**/*.tex"
+    latex_main: "documentation/reference_doc/main.tex"  # \include list drives chapter conversion
+
+  # Public how-to / methodology site — Jekyll markdown, read directly.
+  # Upgrade-measure pages are excluded here and handled by the measures source.
+  - id: github_site
+    type: markdown
+    repo: https://github.com/NatLabRockies/ComStock.github.io.git
+    git_ref: "2025_3"
+    # assets/images is checked out for the figures the docs pages reference
+    # (../assets/images/...), not for doc_glob — it holds no markdown.
+    sparse: ["docs", "assets/images"]
+    doc_glob: "docs/**/*.md"
+    exclude_globs:
+      - "docs/upgrade_measures/**"
+
+  # Upgrade measures — mixed internal markdown pages + external PDFs, plus the
+  # crosswalk CSV that maps each measure to its initial dataset release.
+  - id: upgrade_measures
+    type: measures
+    repo: https://github.com/NatLabRockies/ComStock.github.io.git
+    git_ref: "2025_3"
+    sparse: ["docs/upgrade_measures", "assets/files"]
+    index_page: "docs/upgrade_measures/upgrade_measures.md"
+    internal_dir: "docs/upgrade_measures"
+    # Output-side directory renames. Source paths above are untouched: these only change
+    # where artifacts land under processed/, so the corpus does not inherit upstream dir
+    # names that misdescribe the content's publication status.
+    output_remap:
+      # Pages absent from the live ComStock site (their canonical public form is the
+      # external measure PDF), so they must not sit in a dir called "docs".
+      "docs/upgrade_measures": "unpublished_docs/upgrade_measures"
+      # PDFs committed in the site repo rather than published to the NREL publications
+      # site. Once published they move to measure_pdfs/ and leave draft status.
+      "assets": "draft_publications"
+    crosswalk_csv: "assets/files/measure_name_crosswalk_2025_3.csv"

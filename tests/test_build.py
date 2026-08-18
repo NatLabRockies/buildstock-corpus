@@ -7,6 +7,8 @@ from __future__ import annotations
 import buildstock_corpus.extract.latex as L
 from buildstock_corpus.build import _cap
 
+RELEASE = "comstock_amy2018_2025_release_3"
+
 
 def test_cap_none_keeps_everything():
     assert _cap([1, 2, 3], None) == [1, 2, 3]
@@ -53,7 +55,7 @@ def test_latex_limit_stops_converting_after_n_chapters(tmp_path, monkeypatch):
     converted = _count_conversions(monkeypatch)
 
     docs, warnings = L.load_latex_docs(
-        clone, "documentation/reference_doc/main.tex", "comstock", "2025-3", "tr", limit=1
+        clone, "documentation/reference_doc/main.tex", "comstock", RELEASE, "tr", limit=1
     )
 
     assert len(docs) == 1
@@ -68,7 +70,7 @@ def test_latex_without_limit_converts_every_chapter(tmp_path, monkeypatch):
     converted = _count_conversions(monkeypatch)
 
     docs, _ = L.load_latex_docs(
-        clone, "documentation/reference_doc/main.tex", "comstock", "2025-3", "tr"
+        clone, "documentation/reference_doc/main.tex", "comstock", RELEASE, "tr"
     )
 
     assert len(docs) == 3

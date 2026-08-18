@@ -1,0 +1,226 @@
+# Hand-authored table transcriptions for env_roof_insulation.md
+#
+# The upstream page embeds these tables as pictures, so the extracted markdown keeps the
+# caption and an image link while the numbers stay invisible to retrieval. Each entry below
+# is a transcription of one such picture, injected at build time by overlay.py in place of
+# the image ref. See overlays/README.md for the schema and the review procedure.
+#
+# Roof construction types, code and DEER R-value grids, and the AEDG comparison. All seven were embedded as pictures by the upstream .docx conversion.
+#
+# source_image_sha256 pins each transcription to the exact bitmap it was read from: if
+# upstream redraws a table, the build reports a stale overlay instead of shipping numbers
+# that no longer match the picture.
+
+product: comstock
+release: "comstock_amy2018_2025_release_3"
+source_id: upgrade_measures
+source_path: docs/upgrade_measures/env_roof_insulation.md
+
+tables:
+  - label: "Table 1"
+    caption: "Roof Construction Types"
+    source_image: "media/1d093dd8864b636f6dd02a3d70bcc1c1.png"
+    source_image_sha256: "de93e5397d30fc2560896ddad8dc7b00f69e82e551f567553d4b6a4ebecc05f6"
+    method: vision-transcription
+    transcribed_utc: "2026-08-13"
+    markdown: |
+      | Building Type | DOE Ref and 90.1: Construction Type | DOE Ref and 90.1: Building Category for Exterior Roofs | DEER (CA ONLY): Construction Type | DEER (CA ONLY): Building Category for Exterior Roofs |
+      |---|---|---|---|---|
+      | Full-Service Restaurant | IEAD | Nonresidential | Wood Framed | Nonresidential |
+      | Hospital | IEAD | Nonresidential | Mass | Nonresidential |
+      | Large Hotel | IEAD | Residential | IEAD | Residential |
+      | Large Office | IEAD | Nonresidential | Mass | Nonresidential |
+      | Medium Office | IEAD | Nonresidential | Mass | Nonresidential |
+      | Outpatient | IEAD | Nonresidential | Mass | Nonresidential |
+      | Primary School | IEAD | Nonresidential | Wood Framed | Nonresidential |
+      | Quick-Service Restaurant | IEAD | Nonresidential | Wood Framed | Nonresidential |
+      | Retail | IEAD | Nonresidential | IEAD | Nonresidential |
+      | Secondary School | IEAD | Nonresidential | Wood Framed | Nonresidential |
+      | Small Hotel | IEAD | Residential | Wood Framed | Residential |
+      | Small Office | IEAD | Nonresidential | Wood Framed | Nonresidential |
+      | Strip Mall | IEAD | Nonresidential | Wood Framed | Nonresidential |
+      | Warehouse | Metal* | Semiheated* | Wood Framed | Nonresidential |
+
+  - label: "Table 2"
+    caption: "ASHRAE 90.1 IEAD Nonresidential Roof R-Value (c.i.)"
+    source_image: "media/18037d38ef99b57c02dadc77d31718da.png"
+    source_image_sha256: "01aeaab23fa39b1c25729555f89dc101dcfa92460c1f52a05edda8cc4eee52c9"
+    method: vision-transcription
+    transcribed_utc: "2026-08-13"
+    markdown: |
+      | ComStock Energy Code | 1A | 1B | 2A | 2B | 3A | 3B | 3C | 4A | 4B | 4C | 5A | 5B | 5C | 6A | 6B | 7 | 8 |
+      |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+      | DOE Ref Pre-1980 | 10 | - | 10 | 10 | 10 | 10 | 10 | 12 | 11 | 12 | 14 | 13 | 13 | 17 | 17 | 17 | 17 |
+      | DOE Ref 1980-2004 | 14 | - | 15 | 22 | 14 | 21 | 11 | 17 | 17 | 16 | 19 | 20 | 20 | 22 | 20 | 24 | 31 |
+      | 90.1-2004 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 21 |
+      | 90.1-2007 | 16 | 16 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 |
+      | 90.1-2010 | 16 | 16 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 |
+      | 90.1-2013 | 21 | 21 | 26 | 26 | 26 | 26 | 26 | 31 | 31 | 31 | 31 | 31 | 31 | 31 | 31 | 36 | 36 |
+      | 90.1-2016 | 21 | 21 | 26 | 26 | 26 | 26 | 26 | 31 | 31 | 31 | 31 | 31 | 31 | 31 | 31 | 36 | 36 |
+      | 90.1-2019 | 21 | 21 | 26 | 26 | 26 | 26 | 26 | 31 | 31 | 31 | 31 | 31 | 31 | 31 | 31 | 36 | 36 |
+
+  - label: "Table 3"
+    caption: "ASHRAE 90.1 IEAD Residential Roof R-Value (c.i.)"
+    source_image: "media/966c33bf3e0e85644df23434a31aaf2e.png"
+    source_image_sha256: "aefeff23533602847108b8d853d19e5f3f8c7764fde409c18f697246eced41eb"
+    method: vision-transcription
+    transcribed_utc: "2026-08-13"
+    markdown: |
+      | ComStock Energy Code | 1A | 1B |
+      |---|---|---|
+      | 90.1-2010 | 21 | 21 |
+      | 90.1-2013 | 26 | 26 |
+      | 90.1-2016 | 26 | 26 |
+      | 90.1-2019 | 26 | 26 |
+
+  - label: "Table 4"
+    caption: "DEER Roof R-Values (c.i.)"
+    source_image: "media/5b3aa079ea5a972fa681e72f08e872af.png"
+    source_image_sha256: "113f3770e03dfa898e0642f1096eaa04d2db4768000526a8c4064e2879a7421c"
+    method: vision-transcription
+    transcribed_utc: "2026-08-13"
+    markdown: |
+      **DEER Wood-Framed Nonresidential**
+
+      | ComStock Energy Code | T24-CEC 1 | T24-CEC 2 | T24-CEC 3 | T24-CEC 4 | T24-CEC 5 | T24-CEC 6 | T24-CEC 7 | T24-CEC 8 | T24-CEC 9 | T24-CEC 10 | T24-CEC 11 | T24-CEC 12 | T24-CEC 13 | T24-CEC 15 | T24-CEC 16 |
+      |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+      | DEER Pre-1975 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 |
+      | DEER 1985 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 | 15 |
+      | DEER 1996 | 18 | 18 | 18 | 18 | 18 | 13 | 13 | 13 | 13 | 13 | 18 | 18 | 18 | 18 | 18 |
+      | DEER 2003 | - | 18 | 18 | 18 | 18 | 13 | 13 | 13 | 13 | 18 | 18 | 18 | 18 | 18 | - |
+      | DEER 2007 | - | 20 | 20 | 20 | 20 | 14 | 14 | 14 | 14 | 20 | 20 | 20 | 20 | 20 | - |
+      | DEER 2011 | - | 26 | 26 | 26 | 21 | 14 | 16 | 16 | 26 | 26 | 26 | 26 | 26 | - | - |
+      | DEER 2014 | - | 26 | 26 | 26 | 21 |  | 16 | 16 | 26 | 26 | 26 | 26 | 26 | - | - |
+      | DEER 2015 | - | 26 | 26 | 26 | 21 | 14 | 16 | 16 | 26 | 26 | 26 | 26 | 26 | - | - |
+      | DEER 2017 | - | 26 | 26 | 26 | 21 | 14 | 16 | 16 | 26 | 26 | 26 | 26 | 26 | - | - |
+
+      **DEER Wood-Framed Residential**
+
+      | ComStock Energy Code | T24-CEC 1 | T24-CEC 2 | T24-CEC 3 | T24-CEC 4 | T24-CEC 5 | T24-CEC 6 | T24-CEC 7 | T24-CEC 8 | T24-CEC 9 | T24-CEC 10 | T24-CEC 11 | T24-CEC 12 | T24-CEC 13 | T24-CEC 15 | T24-CEC 16 |
+      |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+      | DEER Pre-1975 | 13 | 13 | - | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 |
+      | DEER 1985 | - | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | - | - |
+      | DEER 1996 | - | 20 | 20 | 20 | 20 | 20 | 20 | 20 | 20 | 20 | - | 28 | 28 | - | - |
+      | DEER 2003 | - | - | 20 | 20 | - | - | - | - | 20 | 28 | - | 28 | 28 | - | - |
+      | DEER 2007 | - | 29 | 20 | 20 | - | - | - | - | - | 29 | - | 29 | - | - | - |
+      | DEER 2011 | 30 | 36 | 26 | - | - | 26 | - | - | - | 36 | - | 36 | - | - | - |
+      | DEER 2014 | - | - | - | - | - | - | - | - |  | - | - | 36 | - | - | - |
+      | DEER 2015 | - | - | - | - | - | - | - | - | 36 | 36 | - | 36 | - | - | - |
+      | DEER 2017 | - | - | - | 36 | - | 26 | - | - | 36 | - | - | 36 | - | - | - |
+
+      **DEER Mass Nonresidential**
+
+      | ComStock Energy Code | T24-CEC 1 | T24-CEC 2 | T24-CEC 3 | T24-CEC 4 | T24-CEC 5 | T24-CEC 6 | T24-CEC 7 | T24-CEC 8 | T24-CEC 9 | T24-CEC 10 | T24-CEC 11 | T24-CEC 12 | T24-CEC 13 | T24-CEC 15 | T24-CEC 16 |
+      |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+      | DEER Pre-1975 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 |
+      | DEER 1985 | 18 | 18 | 18 | 18 | 18 | 18 | 18 | 18 | 18 | 18 | 18 | 18 | 18 | 18 | 18 |
+      | DEER 1996 | 18 | 18 | 18 | 18 | 18 | 13 | 13 | 13 | 13 | 13 | 18 | 18 | 18 | - | - |
+      | DEER 2003 | - | 18 | 18 | 18 | 18 | 13 | 13 | 13 | 13 | 18 | 18 | 18 | 18 | - | - |
+      | DEER 2007 | 20 | 20 | 20 | 20 | 20 | 14 | 14 | 14 | 14 | 20 | 20 | 20 | 20 | 20 | - |
+      | DEER 2011 | 21 | 26 | 26 | 26 | - | 14 | 16 | 16 | 26 | 26 | 26 | 26 | - | - | - |
+      | DEER 2014 | - | 26 | 26 | 26 | - | 14 | 16 | - | 26 | 26 | - | 26 | 26 | - | - |
+      | DEER 2015 | - | - | 26 | 26 | 21 | 14 | 16 | - | 26 | - | - | 26 | 26 | - | - |
+      | DEER 2017 | - | - | - | 26 | 21 | - | 16 | - | 26 | 26 | 26 | 26 | 26 | - | - |
+
+      **DEER IEAD Nonresidential**
+
+      | ComStock Energy Code | T24-CEC 1 | T24-CEC 2 | T24-CEC 3 | T24-CEC 4 | T24-CEC 5 | T24-CEC 6 | T24-CEC 7 | T24-CEC 8 | T24-CEC 9 | T24-CEC 10 | T24-CEC 11 | T24-CEC 12 | T24-CEC 13 | T24-CEC 15 | T24-CEC 16 |
+      |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+      | DEER Pre-1975 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 |
+      | DEER 1985 | - | 18 | 18 | 18 | 18 | 18 | 18 | 18 | 18 | 18 | 18 | 18 | 18 | 18 | - |
+      | DEER 1996 | - | 18 | 18 | 18 | 18 | 13 | 13 | 13 | 13 | 13 | 18 | 18 | 18 | - | 18 |
+      | DEER 2003 | - | 18 | 18 | 18 | 18 | 13 | 13 | 13 | 13 | 18 | 18 | 18 | 18 | 18 | - |
+      | DEER 2007 | - | 20 | 20 | 20 | 20 | 14 | 14 | 14 | 14 | 20 | 20 | 20 | 20 | 20 | 20 |
+      | DEER 2011 | - | 26 | 26 | 26 | 21 | 14 | 16 | 16 | 26 | 26 | 26 | 26 | 26 | 26 | 26 |
+      | DEER 2014 | - | 26 | 26 | 26 | 21 | 14 | 16 | 16 | 26 | 26 | 26 | 26 | 26 | - | - |
+      | DEER 2015 | 21 | 26 | 26 | 26 | 21 | - | 16 | - | 26 | 26 | 26 | 26 | 26 | 26 | - |
+      | DEER 2017 | 21 | - | 26 | 26 | 21 | 14 | 16 | - | 26 | 26 | 26 | 26 | 26 | 26 | - |
+
+      **DEER IEAD Residential**
+
+      | ComStock Energy Code | T24-CEC 1 | T24-CEC 2 | T24-CEC 3 | T24-CEC 4 | T24-CEC 5 | T24-CEC 6 | T24-CEC 7 | T24-CEC 8 | T24-CEC 9 | T24-CEC 10 | T24-CEC 11 | T24-CEC 12 | T24-CEC 13 | T24-CEC 15 | T24-CEC 16 |
+      |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+      | DEER Pre-1975 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | - | 16 |
+      | DEER 1985 | - | - | 18 | 18 | - | - | 18 | - | 18 | - | 18 | 18 | - | - | - |
+      | DEER 1996 | - | 18 | - | - | - | - | - | 13 | 13 | 13 | - | - | - | - | - |
+      | DEER 2003 | - | - | - | - | - | - | - | 13 | 13 | - | - | 18 | 18 | - | - |
+      | DEER 2007 | - | 20 | 20 | - | - | 14 | 14 | - | - | - | - | - | 20 | - | - |
+      | DEER 2011 | - | - | - | 26 | - | - | - | - | - | - | - | - | 26 | - | - |
+      | DEER 2014 | - | - | - | - | - | - | - | - | 26 | - | - | - | - | - | - |
+      | DEER 2015 | - | - | - | - | - | 14 | - | - | - | - | - | - | - | - | - |
+      | DEER 2017 | - | - | - | - | - | 14 | - | - | - | - | - | - | - | - | - |
+
+  - label: "Table 5"
+    caption: "Overall Target Assembly Performance Characteristics by Climate Zone per AEDG [3]"
+    source_image: "media/0379b78f3c35327610fbdfa65e3fac94.png"
+    source_image_sha256: "abb4e9d6733c9c1bee2bde518fabbf913719fbd5e708bac7a570d63e2714f62a"
+    method: vision-transcription
+    transcribed_utc: "2026-08-13"
+    markdown: |
+      | Climate Zone | CZ 1 | CZ 2 | CZ 3 | CZ 4 | CZ 5 | CZ 6 | CZ 7 | CZ 8 |
+      |---|---|---|---|---|---|---|---|---|
+      | R-Value | 21 | 26 | 26 | 33 | 33 | 33 | 37 | 37 |
+
+  - label: "Table 6"
+    caption: "Comparison of ComStock Existing Roof Thermal Performance to AEDG Performance Targets by Climate Zone"
+    source_image: "media/00fe2fa136ffe4432caf0f0f462a8d81.png"
+    source_image_sha256: "c02f1536f51af60c5efc0ebd84df2a8121bb8ec97e57102b62fed50019367566"
+    method: vision-transcription
+    transcribed_utc: "2026-08-13"
+    markdown: |
+      **ComStock Baseline R-value**
+
+      | Roof R-value / Climate Zone | 1A | 1B | 2A | 2B | 3A | 3B | 3C | 4A | 4B | 4C | 5A | 5B | 5C | 6A | 6B | 7 | 8 |
+      |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+      | AEDG Recommendation* | 21 | 21 | 26 | 26 | 26 | 26 | 26 | 33 | 33 | 33 | 33 | 33 | 33 | 33 | 33 | 37 | 37 |
+      | ComStock DOE Ref Pre-1980 | 10 |  | 10 | 10 | 10 | 10 | 10 | 12 | 11 | 12 | 14 | 13 | 13 | 17 | 17 | 17 | 17 |
+      | ComStock DOE Ref 1980-2004 | 14 |  | 15 | 22 | 14 | 21 | 11 | 17 | 17 | 16 | 19 | 20 | 20 | 22 | 20 | 24 | 31 |
+      | ComStock 90.1-2004 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 16 | 21 |
+      | ComStock 90.1-2007 | 16 | 16 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 |
+      | ComStock 90.1-2010 | 16 | 16 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 | 21 |
+      | ComStock 90.1-2013 | 21 | 21 | 26 | 26 | 26 | 26 | 26 | 31 | 31 | 31 | 31 | 31 | 31 | 31 | 31 | 36 | 36 |
+      | ComStock 90.1-2016 | 21 | 21 | 26 | 26 | 26 | 26 | 26 | 31 | 31 | 31 | 31 | 31 | 31 | 31 | 31 | 36 | 36 |
+      | ComStock 90.1-2019 | 21 | 21 | 26 | 26 | 26 | 26 | 26 | 31 | 31 | 31 | 31 | 31 | 31 | 31 | 31 | 36 | 36 |
+
+      **Inches of XPS to Meet AEDG Recommendation (R-5/inch)**
+
+      | Roof R-value / Climate Zone | 1A | 1B | 2A | 2B | 3A | 3B | 3C | 4A | 4B | 4C | 5A | 5B | 5C | 6A | 6B | 7 | 8 |
+      |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+      | AEDG Recommendation* |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+      | ComStock DOE Ref Pre-1980 | 2 |  | 3 | 3 | 3 | 3 | 3 | 4 | 4 | 4 | 4 | 4 | 4 | 3 | 3 | 4 | 4 |
+      | ComStock DOE Ref 1980-2004 | 1 |  | 2 | 1 | 2 | 1 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 2 | 3 | 3 | 1 |
+      | ComStock 90.1-2004 | 1 | 1 | 2 | 2 | 2 | 2 | 2 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 4 | 3 |
+      | ComStock 90.1-2007 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 3 | 3 |
+      | ComStock 90.1-2010 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 3 | 3 |
+      | ComStock 90.1-2013 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+      | ComStock 90.1-2016 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+      | ComStock 90.1-2019 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+
+      \*From ASHRAE Advanced Eenrgy Design Guide for Small to Medium Office Buildings - Achieving Zero Energy, Table 5-4
+
+  - label: "Table 9"
+    caption: "Summary of Roof Insulation Measure for Comstock Baseline"
+    source_image: "media/8d9229694413bdc8f5321a544038f684.png"
+    source_image_sha256: "47fd5cb06c0376e507ee499197f54ceec81c310db3175854ac6c325417298b52"
+    method: vision-transcription
+    transcribed_utc: "2026-08-13"
+    markdown: |
+      | Climate Zone | Applied Roof R-value | Target Roof R-value | Average Baseline Roof R-value | Average R-value Added | Average % Site Energy Savings |
+      |---|---|---|---|---|---|
+      | 1A | 21.8 | 21.0 | 10.9 | 10.9 | 1% |
+      | 2A | 26.8 | 26.0 | 12.0 | 14.8 | 2% |
+      | 2B | 26.8 | 26.0 | 14.6 | 12.2 | 2% |
+      | 3A | 26.8 | 26.0 | 11.6 | 15.2 | 4% |
+      | 3B | 26.8 | 26.0 | 15.7 | 11.1 | 2% |
+      | 3C | 26.8 | 26.0 | 16.0 | 10.8 | 2% |
+      | 4A | 33.8 | 33.0 | 13.0 | 20.8 | 4% |
+      | 4B | 33.8 | 33.0 | 13.7 | 20.1 | 4% |
+      | 4C | 33.8 | 33.0 | 12.8 | 21.0 | 4% |
+      | 5A | 33.8 | 33.0 | 15.0 | 18.8 | 5% |
+      | 5B | 33.8 | 33.0 | 15.0 | 18.8 | 5% |
+      | 6A | 33.8 | 33.0 | 18.3 | 15.5 | 4% |
+      | 6B | 33.8 | 33.0 | 18.1 | 15.7 | 4% |
+      | 7 | 37.8 | 37.0 | 20.8 | 17.0 | 4% |
+      | 7A | 37.8 | 37.0 | 19.9 | 17.9 | 4% |
+      | 7B | 37.8 | 37.0 | 19.6 | 18.2 | 3% |
+      | 8 | 37.8 | 37.0 | 24.0 | 13.8 | 3% |

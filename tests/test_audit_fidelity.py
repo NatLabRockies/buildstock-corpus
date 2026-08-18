@@ -222,7 +222,7 @@ def test_overlay_provenance_comment_does_not_sever_caption_from_table(tmp_path):
 Table 1. Specifications of Available VRF (HR) Systems
 
 <!-- table recovered from measure_pdfs/86103.pdf p.14
-     overlay: comstock_2025-3/upgrade_measures/measure_pdfs/86103.yaml
+     overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86103.yaml
      method: vision-transcription -->
 
 | manufacturer | Daikin |
@@ -248,7 +248,7 @@ def test_a_decomposed_overlay_injection_is_not_read_as_still_missing(tmp_path):
 Table 2. Wall Assembly Thermal Performance (Outside California)
 
 <!-- table recovered from measure_pdfs/86599.pdf p.13
-     overlay: comstock_2025-3/upgrade_measures/measure_pdfs/86599.yaml
+     overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86599.yaml
      method: vision-transcription -->
 
 **Whole Wall Assembly R-value by ASHRAE Climate Zone (ft^2*F*hr/Btu)**

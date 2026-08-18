@@ -17,6 +17,8 @@ from buildstock_corpus.paths import (
     use_workspace,
 )
 
+RELEASE = "comstock_amy2018_2025_release_3"
+
 REMAP = {
     "docs/upgrade_measures": "unpublished_docs/upgrade_measures",
     "assets": "draft_publications",
@@ -95,17 +97,17 @@ def workspace(tmp_path):
 
 
 def test_workspace_redirects_derived_outputs(workspace):
-    assert processed_root("comstock", "2025-3") == workspace / "processed" / "comstock" / "2025-3"
-    assert index_root("comstock", "2025-3") == workspace / "index" / "comstock-2025-3"
+    assert processed_root("comstock", RELEASE) == workspace / "processed" / "comstock" / RELEASE
+    assert index_root("comstock", RELEASE) == workspace / "index" / f"comstock-{RELEASE}"
 
 
 def test_workspace_leaves_inputs_alone(workspace):
     """raw/ and sources/ are inputs — a sandbox reuses them instead of re-fetching."""
-    assert raw_root("comstock", "2025-3") == PROCESSED_DIR.parent / "raw" / "comstock" / "2025-3"
-    assert sources_file("comstock", "2025-3").parent == PROCESSED_DIR.parent / "sources"
+    assert raw_root("comstock", RELEASE) == PROCESSED_DIR.parent / "raw" / "comstock" / RELEASE
+    assert sources_file("comstock", RELEASE).parent == PROCESSED_DIR.parent / "sources"
 
 
 def test_workspace_can_be_cleared(workspace):
     use_workspace(None)
-    assert processed_root("comstock", "2025-3") == PROCESSED_DIR / "comstock" / "2025-3"
-    assert index_root("comstock", "2025-3") == INDEX_DIR / "comstock-2025-3"
+    assert processed_root("comstock", RELEASE) == PROCESSED_DIR / "comstock" / RELEASE
+    assert index_root("comstock", RELEASE) == INDEX_DIR / f"comstock-{RELEASE}"
