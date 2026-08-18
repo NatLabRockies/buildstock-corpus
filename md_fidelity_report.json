@@ -13,7 +13,10 @@
       "html_imgs": 5,
       "md_images": 34,
       "dangling_refs": 0,
-      "duplicate_h1": 0
+      "duplicate_h1": 0,
+      "soft_hyphens": 0,
+      "nbsp": 1,
+      "range_en_dashes": 4
     },
     "latex": {
       "files": 19,
@@ -26,7 +29,10 @@
       "html_imgs": 113,
       "md_images": 0,
       "dangling_refs": 0,
-      "duplicate_h1": 0
+      "duplicate_h1": 0,
+      "soft_hyphens": 0,
+      "nbsp": 0,
+      "range_en_dashes": 0
     },
     "pdf": {
       "files": 53,
@@ -39,7 +45,10 @@
       "html_imgs": 0,
       "md_images": 1245,
       "dangling_refs": 0,
-      "duplicate_h1": 0
+      "duplicate_h1": 0,
+      "soft_hyphens": 0,
+      "nbsp": 0,
+      "range_en_dashes": 11
     },
     "measures": {
       "files": 6,
@@ -52,10 +61,31 @@
       "html_imgs": 0,
       "md_images": 74,
       "dangling_refs": 0,
-      "duplicate_h1": 0
+      "duplicate_h1": 0,
+      "soft_hyphens": 0,
+      "nbsp": 0,
+      "range_en_dashes": 1
     }
   },
   "findings": [
+    {
+      "file": "github_site/docs/data.md",
+      "extractor": "markdown",
+      "orphan_tables": [],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [],
+      "unconverted_html_imgs": [
+        48,
+        50,
+        52,
+        54
+      ],
+      "characters": {
+        "nbsp": 1
+      }
+    },
     {
       "file": "github_site/docs/resources/explanations/combining_measure_results.md",
       "extractor": "markdown",
@@ -66,7 +96,34 @@
       "unconverted_html_tables": [
         22
       ],
-      "unconverted_html_imgs": []
+      "unconverted_html_imgs": [],
+      "characters": {}
+    },
+    {
+      "file": "github_site/docs/resources/explanations/comstock_calibration.md",
+      "extractor": "markdown",
+      "orphan_tables": [],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [],
+      "unconverted_html_imgs": [],
+      "characters": {
+        "range_en_dashes": 3
+      }
+    },
+    {
+      "file": "github_site/docs/resources/explanations/costing_analysis.md",
+      "extractor": "markdown",
+      "orphan_tables": [],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [],
+      "unconverted_html_imgs": [],
+      "characters": {
+        "range_en_dashes": 1
+      }
     },
     {
       "file": "technical_reference/documentation/reference_doc/3_sampling.md",
@@ -82,7 +139,8 @@
         216,
         405,
         412
-      ]
+      ],
+      "characters": {}
     },
     {
       "file": "technical_reference/documentation/reference_doc/4_10_simulation_settings.md",
@@ -94,7 +152,8 @@
       "unconverted_html_tables": [
         10
       ],
-      "unconverted_html_imgs": []
+      "unconverted_html_imgs": [],
+      "characters": {}
     },
     {
       "file": "technical_reference/documentation/reference_doc/4_5_envelope.md",
@@ -113,7 +172,8 @@
         280,
         291,
         366
-      ]
+      ],
+      "characters": {}
     },
     {
       "file": "technical_reference/documentation/reference_doc/4_7_plug_and_process.md",
@@ -128,7 +188,8 @@
       "unconverted_html_imgs": [
         103,
         141
-      ]
+      ],
+      "characters": {}
     },
     {
       "file": "technical_reference/documentation/reference_doc/4_9_hvac.md",
@@ -165,7 +226,8 @@
         654,
         661,
         2173
-      ]
+      ],
+      "characters": {}
     },
     {
       "file": "technical_reference/documentation/reference_doc/6_AppendixA.md",
@@ -199,7 +261,8 @@
         10958,
         11103
       ],
-      "unconverted_html_imgs": []
+      "unconverted_html_imgs": [],
+      "characters": {}
     },
     {
       "file": "upgrade_measures/draft_publications/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.md",
@@ -220,7 +283,8 @@
       "dangling_refs": [],
       "duplicate_h1": [],
       "unconverted_html_tables": [],
-      "unconverted_html_imgs": []
+      "unconverted_html_imgs": [],
+      "characters": {}
     },
     {
       "file": "upgrade_measures/draft_publications/files/ComStock Measure Doc_PV with Battery Storage.md",
@@ -241,7 +305,8 @@
       "dangling_refs": [],
       "duplicate_h1": [],
       "unconverted_html_tables": [],
-      "unconverted_html_imgs": []
+      "unconverted_html_imgs": [],
+      "characters": {}
     },
     {
       "file": "upgrade_measures/measure_pdfs/86105.md",
@@ -257,7 +322,34 @@
       "dangling_refs": [],
       "duplicate_h1": [],
       "unconverted_html_tables": [],
-      "unconverted_html_imgs": []
+      "unconverted_html_imgs": [],
+      "characters": {}
+    },
+    {
+      "file": "upgrade_measures/measure_pdfs/86599.md",
+      "extractor": "pdf",
+      "orphan_tables": [],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [],
+      "unconverted_html_imgs": [],
+      "characters": {
+        "range_en_dashes": 4
+      }
+    },
+    {
+      "file": "upgrade_measures/measure_pdfs/86602.md",
+      "extractor": "pdf",
+      "orphan_tables": [],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [],
+      "unconverted_html_imgs": [],
+      "characters": {
+        "range_en_dashes": 4
+      }
     },
     {
       "file": "upgrade_measures/measure_pdfs/89040.md",
@@ -273,7 +365,8 @@
       "dangling_refs": [],
       "duplicate_h1": [],
       "unconverted_html_tables": [],
-      "unconverted_html_imgs": []
+      "unconverted_html_imgs": [],
+      "characters": {}
     },
     {
       "file": "upgrade_measures/measure_pdfs/92502.md",
@@ -289,7 +382,34 @@
       "dangling_refs": [],
       "duplicate_h1": [],
       "unconverted_html_tables": [],
-      "unconverted_html_imgs": []
+      "unconverted_html_imgs": [],
+      "characters": {}
+    },
+    {
+      "file": "upgrade_measures/measure_pdfs/96598.md",
+      "extractor": "pdf",
+      "orphan_tables": [],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [],
+      "unconverted_html_imgs": [],
+      "characters": {
+        "range_en_dashes": 3
+      }
+    },
+    {
+      "file": "upgrade_measures/unpublished_docs/upgrade_measures/env_ext_secondary_window.md",
+      "extractor": "measures",
+      "orphan_tables": [],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [],
+      "unconverted_html_imgs": [],
+      "characters": {
+        "range_en_dashes": 1
+      }
     }
   ]
 }

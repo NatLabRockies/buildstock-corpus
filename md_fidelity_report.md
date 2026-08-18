@@ -20,6 +20,26 @@ tables use rowspan/colspan, which GFM cannot express, so those stay as HTML by d
 
 **Totals.** 0/345 table captions orphaned; 7/766 figure captions orphaned; 889 tables converted to markdown; 1471 image refs present with 0 dangling; 0 duplicated H1 heading(s).
 
+## Character hygiene by extractor
+
+The content is present but spelled with characters that defeat retrieval, all of them
+a converter rendering a *typesetting hint* literally. **SOFT HYPHEN** (U+00AD, pandoc's
+`\-`) is the worst of the three because it lands inside identifiers invisibly, so a
+search for the real spelling misses. **NBSP** (U+00A0, from `~`) is not a space to a
+whitespace tokenizer. **RANGE EN DASH** is a digit-flanked U+2013 (`1980–2004`), and the
+corpus spells the same vintage bin both ways, so one entity has two spellings. Zero is
+the target for all three. An en dash standing alone in a table cell is an empty-value
+placeholder, not a defect, and is deliberately not counted here.
+
+| extractor | files | soft hyphen | nbsp | range en dash |
+|---|---:|---:|---:|---:|
+| latex | 19 | **0** | **0** | **0** |
+| markdown | 40 | **0** | **1** | **4** |
+| measures | 6 | **0** | **0** | **1** |
+| pdf | 53 | **0** | **0** | **11** |
+
+**Totals.** 0 soft hyphen(s); 1 nbsp; 16 range en dash(es).
+
 ## Gaps by file
 
 ### `upgrade_measures/draft_publications/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.md`
@@ -54,11 +74,30 @@ extractor: **pdf** — 1 issue(s)
 
 - L549 **ORPHANED FIGURE** — Figure 6. Distributions of the percentage of max daily peak load reduction by month compared to the baseline model
 
+### `github_site/docs/data.md`
+
+extractor: **markdown** — 0 issue(s)
+
+- unconverted raw `<img>` at line(s): 48, 50, 52, 54
+- **CHARACTER HYGIENE** — 1 nbsp
+
 ### `github_site/docs/resources/explanations/combining_measure_results.md`
 
 extractor: **markdown** — 0 issue(s)
 
 - unconverted raw `<table>` at line(s): 22
+
+### `github_site/docs/resources/explanations/comstock_calibration.md`
+
+extractor: **markdown** — 0 issue(s)
+
+- **CHARACTER HYGIENE** — 3 range en dashes
+
+### `github_site/docs/resources/explanations/costing_analysis.md`
+
+extractor: **markdown** — 0 issue(s)
+
+- **CHARACTER HYGIENE** — 1 range en dashes
 
 ### `technical_reference/documentation/reference_doc/3_sampling.md`
 
@@ -99,3 +138,27 @@ extractor: **latex** — 0 issue(s)
 extractor: **latex** — 0 issue(s)
 
 - unconverted raw `<table>` at line(s): 31, 485, 773, 1135, 1281, 1653, 2125, 2708, 3714, 3930, 4310, 4890, 5015, 5207, 6020, 9585, 9916, 10399, 10514, 10833, 10883, 10958, 11103
+
+### `upgrade_measures/measure_pdfs/86599.md`
+
+extractor: **pdf** — 0 issue(s)
+
+- **CHARACTER HYGIENE** — 4 range en dashes
+
+### `upgrade_measures/measure_pdfs/86602.md`
+
+extractor: **pdf** — 0 issue(s)
+
+- **CHARACTER HYGIENE** — 4 range en dashes
+
+### `upgrade_measures/measure_pdfs/96598.md`
+
+extractor: **pdf** — 0 issue(s)
+
+- **CHARACTER HYGIENE** — 3 range en dashes
+
+### `upgrade_measures/unpublished_docs/upgrade_measures/env_ext_secondary_window.md`
+
+extractor: **measures** — 0 issue(s)
+
+- **CHARACTER HYGIENE** — 1 range en dashes

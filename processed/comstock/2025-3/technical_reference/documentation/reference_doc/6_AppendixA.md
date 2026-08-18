@@ -1348,19 +1348,19 @@ Occupancy Schedule Data Sources
 
 | **Schedule Name** | **Outside CA Activity Level (W/person)** | **Inside CA Activity Level (W/person)** |
 |:---|:--:|:--:|
-| Hospital | 120 | 132–220 |
-| Large Hotel | 120 | 117–220 |
-| Small Hotel | 132 | 117–220 |
-| Outpatient | 120 | 117–220 |
-| Quick Service Restaurant | 120 | 132–220 |
-| Full Service Restaurant | 120 | 132–220 |
-| Retail | 120 | 132–220 |
-| Primary School | 120 | 117–331 |
-| Secondary School | 120 | 117–331 |
-| Warehouse | 131.85 | 132–220 |
-| Small Office | 120 | 117–220 |
-| Medium Office | 120 | 117–220 |
-| Large Office | 120 | 117–220 |
+| Hospital | 120 | 132-220 |
+| Large Hotel | 120 | 117-220 |
+| Small Hotel | 132 | 117-220 |
+| Outpatient | 120 | 117-220 |
+| Quick Service Restaurant | 120 | 132-220 |
+| Full Service Restaurant | 120 | 132-220 |
+| Retail | 120 | 132-220 |
+| Primary School | 120 | 117-331 |
+| Secondary School | 120 | 117-331 |
+| Warehouse | 131.85 | 132-220 |
+| Small Office | 120 | 117-220 |
+| Medium Office | 120 | 117-220 |
+| Large Office | 120 | 117-220 |
 
 Occupant Activity Schedules by Building Type
 
@@ -1621,26 +1621,26 @@ Mapping of Wall Construction Types from Database to ComStock
 
 | **Climate** | **Mass** | **Metal Building** | **Steel Framed** | **Wood Framed** |
 |:---|---:|---:|---:|---:|
-| Cold (Zones 5–8) | 51% | 0% | 40% | 9% |
-| 1–2 stories | 23% | 1% | 46% | 30% |
-| 3–5 stories | 38% | 0% | 35% | 27% |
-| 6–10 stories | 71% | 0% | 29% | 0% |
-| 11–14 stories | 57% | 0% | 43% | 0% |
-| 15–25 stories | 41% | 0% | 59% | 0% |
+| Cold (Zones 5-8) | 51% | 0% | 40% | 9% |
+| 1-2 stories | 23% | 1% | 46% | 30% |
+| 3-5 stories | 38% | 0% | 35% | 27% |
+| 6-10 stories | 71% | 0% | 29% | 0% |
+| 11-14 stories | 57% | 0% | 43% | 0% |
+| 15-25 stories | 41% | 0% | 59% | 0% |
 | over 25 stories | 33% | 0% | 67% | 0% |
-| Hot (Zones 1–3) | 52% | 0% | 43% | 5% |
-| 1–2 stories | 46% | 1% | 33% | 19% |
-| 3–5 stories | 49% | 0% | 39% | 12% |
-| 6–10 stories | 64% | 0% | 36% | 0% |
-| 11–14 stories | 53% | 0% | 47% | 0% |
-| 15–25 stories | 34% | 0% | 66% | 0% |
+| Hot (Zones 1-3) | 52% | 0% | 43% | 5% |
+| 1-2 stories | 46% | 1% | 33% | 19% |
+| 3-5 stories | 49% | 0% | 39% | 12% |
+| 6-10 stories | 64% | 0% | 36% | 0% |
+| 11-14 stories | 53% | 0% | 47% | 0% |
+| 15-25 stories | 34% | 0% | 66% | 0% |
 | over 25 stories | 23% | 0% | 77% | 0% |
 | Mixed (Zone 4) | 65% | 0% | 31% | 4% |
-| 1–2 stories | 43% | 1% | 40% | 16% |
-| 3–5 stories | 60% | 0% | 28% | 12% |
-| 6–10 stories | 78% | 0% | 22% | 0% |
-| 11–14 stories | 69% | 0% | 31% | 0% |
-| 15–25 stories | 56% | 0% | 44% | 0% |
+| 1-2 stories | 43% | 1% | 40% | 16% |
+| 3-5 stories | 60% | 0% | 28% | 12% |
+| 6-10 stories | 78% | 0% | 22% | 0% |
+| 11-14 stories | 69% | 0% | 31% | 0% |
+| 15-25 stories | 56% | 0% | 44% | 0% |
 | over 25 stories | 47% | 0% | 53% | 0% |
 | Grand Total | 54% | 0% | 40% | 7% |
 
@@ -1703,7 +1703,7 @@ Input Distribution of Wall Construction Types by Climate Zone and Number of Stor
 </tr>
 <tr>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">1980–2004</td>
+<td style="text-align: left;">1980-2004</td>
 <td style="text-align: left;">1</td>
 <td style="text-align: left;">2.9</td>
 <td style="text-align: left;">2.4</td>
@@ -1811,7 +1811,7 @@ Input Distribution of Wall Construction Types by Climate Zone and Number of Stor
 </tr>
 <tr>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">1980–2004</td>
+<td style="text-align: left;">1980-2004</td>
 <td style="text-align: left;">1</td>
 <td style="text-align: left;">6.7</td>
 <td style="text-align: left;">4.2</td>
@@ -1919,7 +1919,7 @@ Input Distribution of Wall Construction Types by Climate Zone and Number of Stor
 </tr>
 <tr>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">1980–2004</td>
+<td style="text-align: left;">1980-2004</td>
 <td style="text-align: left;">1</td>
 <td style="text-align: left;">6.7</td>
 <td style="text-align: left;">4.2</td>
@@ -2027,7 +2027,7 @@ Input Distribution of Wall Construction Types by Climate Zone and Number of Stor
 </tr>
 <tr>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">1980–2004</td>
+<td style="text-align: left;">1980-2004</td>
 <td style="text-align: left;">1</td>
 <td style="text-align: left;">6.7</td>
 <td style="text-align: left;">4.2</td>
@@ -2984,7 +2984,7 @@ Input Distribution of Wall Construction Types by Climate Zone and Number of Stor
 </tr>
 <tr>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">1980–2004</td>
+<td style="text-align: left;">1980-2004</td>
 <td style="text-align: left;">2.4</td>
 <td style="text-align: left;">2.98</td>
 <td style="text-align: left;">2.48</td>
@@ -3098,7 +3098,7 @@ Input Distribution of Wall Construction Types by Climate Zone and Number of Stor
 </tr>
 <tr>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">1980–2004</td>
+<td style="text-align: left;">1980-2004</td>
 <td style="text-align: left;">2.4</td>
 <td style="text-align: left;">6.7</td>
 <td style="text-align: left;">4.17</td>
@@ -3383,7 +3383,7 @@ Input Distribution of Wall Construction Types by Climate Zone and Number of Stor
 </tr>
 <tr>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">1980–2004</td>
+<td style="text-align: left;">1980-2004</td>
 <td style="text-align: left;">2.18</td>
 <td style="text-align: left;">6.67</td>
 <td style="text-align: left;">4.17</td>
@@ -3668,7 +3668,7 @@ Input Distribution of Wall Construction Types by Climate Zone and Number of Stor
 </tr>
 <tr>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">1980–2004</td>
+<td style="text-align: left;">1980-2004</td>
 <td style="text-align: left;">2.18</td>
 <td style="text-align: left;">6.67</td>
 <td style="text-align: left;">4.17</td>
@@ -3763,7 +3763,7 @@ Input Distribution of Wall Construction Types by Climate Zone and Number of Stor
 </tr>
 <tr>
 <td style="text-align: left;">DOE Code Study</td>
-<td style="text-align: left;">2016–2019</td>
+<td style="text-align: left;">2016-2019</td>
 <td style="text-align: left;">104</td>
 <td style="text-align: left;">FL, IA, IL, NE</td>
 <td style="text-align: left;">P</td>
@@ -3982,7 +3982,7 @@ Window Thermal Performance
 </tr>
 <tr>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">1980–2004</td>
+<td style="text-align: left;">1980-2004</td>
 <td style="text-align: left;">14</td>
 <td style="text-align: left;">15</td>
 <td style="text-align: left;">22</td>
@@ -4102,7 +4102,7 @@ Window Thermal Performance
 </tr>
 <tr>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">1980–2004</td>
+<td style="text-align: left;">1980-2004</td>
 <td style="text-align: left;">14</td>
 <td style="text-align: left;">15</td>
 <td style="text-align: left;">22</td>
@@ -4202,7 +4202,7 @@ Window Thermal Performance
 </tr>
 <tr>
 <td style="text-align: left;">Metal Building</td>
-<td style="text-align: left;">1980–2004</td>
+<td style="text-align: left;">1980-2004</td>
 <td style="text-align: left;">10</td>
 <td style="text-align: left;">10</td>
 <td style="text-align: left;">10</td>
@@ -4891,7 +4891,7 @@ Window Thermal Performance
 <caption>Roof Construction Types</caption>
 <thead>
 <tr>
-<th style="text-align: left;"> </th>
+<th style="text-align: left;"> </th>
 <th colspan="2" style="text-align: left;">DOE Ref and 90.1</th>
 <th colspan="2" style="text-align: left;">DEER (CA only)</th>
 </tr>
@@ -5044,7 +5044,7 @@ Window Thermal Performance
 <td style="text-align: right;">0.54</td>
 </tr>
 <tr>
-<td style="text-align: left;">DOE Ref 1980–2004</td>
+<td style="text-align: left;">DOE Ref 1980-2004</td>
 <td style="text-align: right;">0.73</td>
 <td style="text-align: right;">0.73</td>
 <td style="text-align: right;">0.73</td>
@@ -7122,7 +7122,7 @@ Window Thermal Performance
 <tr>
 <td style="text-align: left;">Office</td>
 <td style="text-align: left;">NA (typical all bldgs)</td>
-<td style="text-align: left;">Office - open plan </td>
+<td style="text-align: left;">Office - open plan </td>
 <td style="text-align: left;">office_open</td>
 <td style="text-align: left;">38.5</td>
 <td style="text-align: left;">0.96</td>
@@ -9329,7 +9329,7 @@ Parking; Values From (Thornton et al. 2011) Table 4.17
 | **Template** | **Building Facade and Landscape Automatic Shutoff** | **Occupancy Setback Reduction** | **Base Site Allowance Power (W)** | **Base Site Allowance Fraction** | **Parking Areas and Drives (W/ft<sup>2</sup>)** | **Main Entries (W/ft)** | **Other Doors (W/ft)** | **Entry Canopies (W/ft<sup>2</sup>)** | **Building Facades (W/ft<sup>2</sup>)** | **Loading Areas For Emergency Vehicles (W/ft<sup>2</sup>)** | **Drive Through Windows and Doors (W)** |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
 | Pre-1980 | FALSE | 0 |  | 0.05 | 0.18 | 30 | 25 | 10 | 0.25 | 4 | 400 |
-| 1980–2004 | FALSE | 0 |  | 0.05 | 0.049749 | 30 | 25 | 1.5 | 0.25 | 4 | 400 |
+| 1980-2004 | FALSE | 0 |  | 0.05 | 0.049749 | 30 | 25 | 1.5 | 0.25 | 4 | 400 |
 | 90.1-2004 | TRUE | 0 |  | 0.05 | 0.041458 | 30 | 20 | 1.25 | 0.2 | 0.5 | 400 |
 | 90.1-2007 | TRUE | 0 |  | 0.05 | 0.041458 | 30 | 20 | 1.25 | 0.2 | 0.5 | 400 |
 | 90.1-2010 | TRUE | 0.3 | 750 |  | 0.027638 | 30 | 20 | 0.4 | 0.15 | 0.5 | 400 |
@@ -9374,7 +9374,7 @@ Entryways; Values From (Thornton et al. 2011) Table 4.18
 
 | **Building Type** | **Space Type** | **Pre-1980** | **1980-2004** | **90.1-2004** | **90.1-2007** | **90.1-2010** | **90.1-2013** |
 |:---|:---|:---|:---|:---|:---|:---|:---|
-| **Building Type** | **Space Type** | **Pre-1980** | **1980–2004** | **90.1-2004** | **90.1-2007** | **90.1-2010** | **90.1-2013** |
+| **Building Type** | **Space Type** | **Pre-1980** | **1980-2004** | **90.1-2004** | **90.1-2007** | **90.1-2010** | **90.1-2013** |
 | FullServiceRestaurant | Dining | 2.5 | 2.5 | 2.5 | 2.5 | 2.5 | 2.5 |
 |  | Basement | 0.7 | 0.7 | 0.8 | 0.8 | 0.8 | 0.8 |
 |  | Corridor | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
@@ -9603,7 +9603,7 @@ Freight Elevators
 </thead>
 <tbody>
 <tr>
-<td rowspan="3" style="text-align: left;"><strong>Pre-1980 Through 1980–2004</strong></td>
+<td rowspan="3" style="text-align: left;"><strong>Pre-1980 Through 1980-2004</strong></td>
 <td style="text-align: left;">Electricity</td>
 <td style="text-align: left;">0</td>
 <td style="text-align: left;">40945.99</td>
@@ -9983,7 +9983,7 @@ Service Water Heating Flow Rate and Schedule Assignments Based on Template, Buil
 <td style="text-align: left;"></td>
 </tr>
 <tr>
-<td style="text-align: left;"><span>1-6</span> <strong>1980–2004</strong></td>
+<td style="text-align: left;"><span>1-6</span> <strong>1980-2004</strong></td>
 <td style="text-align: left;">-</td>
 <td style="text-align: left;">64,999</td>
 <td style="text-align: left;">9.7</td>
@@ -9992,7 +9992,7 @@ Service Water Heating Flow Rate and Schedule Assignments Based on Template, Buil
 <td style="text-align: left;"></td>
 </tr>
 <tr>
-<td style="text-align: left;"><span>1-6</span> <strong>1980–2004</strong></td>
+<td style="text-align: left;"><span>1-6</span> <strong>1980-2004</strong></td>
 <td style="text-align: left;">65,000</td>
 <td style="text-align: left;">134,999</td>
 <td style="text-align: left;">-</td>
@@ -10001,7 +10001,7 @@ Service Water Heating Flow Rate and Schedule Assignments Based on Template, Buil
 <td style="text-align: left;"></td>
 </tr>
 <tr>
-<td style="text-align: left;"><span>1-6</span> <strong>1980–2004</strong></td>
+<td style="text-align: left;"><span>1-6</span> <strong>1980-2004</strong></td>
 <td style="text-align: left;">135,000</td>
 <td style="text-align: left;">759,999</td>
 <td style="text-align: left;">-</td>
@@ -10010,7 +10010,7 @@ Service Water Heating Flow Rate and Schedule Assignments Based on Template, Buil
 <td style="text-align: left;"></td>
 </tr>
 <tr>
-<td style="text-align: left;"><span>1-6</span> <strong>1980–2004</strong></td>
+<td style="text-align: left;"><span>1-6</span> <strong>1980-2004</strong></td>
 <td style="text-align: left;">760,000</td>
 <td style="text-align: left;">no max</td>
 <td style="text-align: left;">-</td>
@@ -10124,7 +10124,7 @@ Service Water Heating Flow Rate and Schedule Assignments Based on Template, Buil
 <td rowspan="5" style="text-align: left;">DX Coil Cap-FF</td>
 <td rowspan="5" style="text-align: left;">PSZ-AC DX Coil EIR-FT</td>
 <td rowspan="5" style="text-align: left;">Split DX Coil EIR-FF</td>
-<td rowspan="5" style="text-align: left;">HPA­CCOOL­PLFFPLR</td>
+<td rowspan="5" style="text-align: left;">HPACCOOLPLFFPLR</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr>
@@ -10153,11 +10153,11 @@ Service Water Heating Flow Rate and Schedule Assignments Based on Template, Buil
 <td rowspan="3" style="text-align: left;">-</td>
 <td rowspan="3" style="text-align: left;">10.8</td>
 <td rowspan="3" style="text-align: left;">-</td>
-<td rowspan="9" style="text-align: left;">PSZ-AC­Cool­CLennox­Standard­10Ton­TGA12­0S2B­CapFT</td>
-<td rowspan="9" style="text-align: left;">AHU-1­CoolC­Standard­10Ton­CapFF</td>
-<td rowspan="9" style="text-align: left;">PSZ-AC­CoolC­Standard­10Ton­EIRFT</td>
-<td rowspan="9" style="text-align: left;">CoolC­Lennox­Standard10­Ton­TGA12­0S2B­EIRFFF</td>
-<td rowspan="9" style="text-align: left;">PSZ-AC­CoolC­Lennox­Standard­10Ton­TGA12­0S2B­PLR</td>
+<td rowspan="9" style="text-align: left;">PSZ-ACCoolCLennoxStandard10TonTGA120S2BCapFT</td>
+<td rowspan="9" style="text-align: left;">AHU-1CoolCStandard10TonCapFF</td>
+<td rowspan="9" style="text-align: left;">PSZ-ACCoolCStandard10TonEIRFT</td>
+<td rowspan="9" style="text-align: left;">CoolCLennoxStandard10TonTGA120S2BEIRFFF</td>
+<td rowspan="9" style="text-align: left;">PSZ-ACCoolCLennoxStandard10TonTGA120S2BPLR</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr>
@@ -10207,11 +10207,11 @@ Service Water Heating Flow Rate and Schedule Assignments Based on Template, Buil
 <td style="text-align: left;">13</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">-</td>
-<td rowspan="20" style="text-align: left;">PSZ-AC_Unitary_Package­coolCapFT</td>
-<td rowspan="20" style="text-align: left;">PSZ-AC_Unitary_Package­coolFFF</td>
+<td rowspan="20" style="text-align: left;">PSZ-AC_Unitary_PackagecoolCapFT</td>
+<td rowspan="20" style="text-align: left;">PSZ-AC_Unitary_PackagecoolFFF</td>
 <td rowspan="20" style="text-align: left;">PSZ-AC DX Unitary Package EIRFT</td>
-<td rowspan="20" style="text-align: left;">PSZ-AC_Unitary_Package­cool­EIRFFF</td>
-<td rowspan="20" style="text-align: left;">PSZ-AC_Unitary_Package­coolPLR</td>
+<td rowspan="20" style="text-align: left;">PSZ-AC_Unitary_PackagecoolEIRFFF</td>
+<td rowspan="20" style="text-align: left;">PSZ-AC_Unitary_PackagecoolPLR</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr>
@@ -10428,7 +10428,7 @@ Service Water Heating Flow Rate and Schedule Assignments Based on Template, Buil
 <td rowspan="2" style="text-align: left;">DOE Ref DX Clg Coil Cool-PLF-fPLR</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span>1-6</span> 1980–2004</td>
+<td style="text-align: left;"><span>1-6</span> 1980-2004</td>
 <td style="text-align: left;">-</td>
 <td style="text-align: left;">no max</td>
 <td style="text-align: left;"></td>
@@ -10446,7 +10446,7 @@ Service Water Heating Flow Rate and Schedule Assignments Based on Template, Buil
 <td rowspan="8" style="text-align: left;">DX Coil Cap-FF</td>
 <td rowspan="8" style="text-align: left;">PSZ-AC DX Coil EIR-FT</td>
 <td rowspan="8" style="text-align: left;">Split DX Coil EIR-FF</td>
-<td rowspan="8" style="text-align: left;">HPAC­COOLPL­FFPLR</td>
+<td rowspan="8" style="text-align: left;">HPACCOOLPLFFPLR</td>
 </tr>
 <tr>
 <td style="text-align: left;"><span>1-6</span> 90.1-2007</td>
@@ -10807,16 +10807,16 @@ AHU Unoccupied Operation Mode Percentages by Building Type Informed by BAS Data 
 
 <div id="tab:dcv_prev">
 
-| **Building Type** | **DOE Ref Pre-1980** | **DOE Ref 1980–2004** | **90.1-2004** | **90.1-2007** | **90.1-2010** | **90.1-2013** | **DEER: All Years** |
+| **Building Type** | **DOE Ref Pre-1980** | **DOE Ref 1980-2004** | **90.1-2004** | **90.1-2007** | **90.1-2010** | **90.1-2013** | **DEER: All Years** |
 |:---|:---|:---|:---|:---|:---|:---|:---|
-| FullService­Restaurant | 0 | 0 | 0 | 0.349 | 0.072 | 0.085 | 0 |
+| FullServiceRestaurant | 0 | 0 | 0 | 0.349 | 0.072 | 0.085 | 0 |
 | Hospital | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | LargeHotel | 0 | 0 | 0 | 0.001 | 0.001 | 0.016 | 0 |
 | LargeOffice | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | MediumOffice | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | Outpatient | 0 | 0 | 0 | 0.036 | 0.028 | 0.027 | 0 |
 | PrimarySchool | 0 | 0 | 0 | 0.111 | 0.009 | 0.046 | 0 |
-| QuickService­Restaurant | 0 | 0 | 0 | 0.05 | 0.008 | 0.045 | 0 |
+| QuickServiceRestaurant | 0 | 0 | 0 | 0.05 | 0.008 | 0.045 | 0 |
 | RetailStandalone | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | RetailStripmall | 0 | 0 | 0 | 0.105 | 0.043 | 0.026 | 0 |
 | SecondarySchool | 0 | 0 | 0 | 0.045 | 0.004 | 0.054 | 0 |
@@ -10838,10 +10838,10 @@ Fraction of Floor Area Controlled by HVAC System With DCV by Building Type and C
 <th style="text-align: left;"><strong>Form</strong></th>
 <th style="text-align: left;"><strong>Dependent Variable</strong></th>
 <th style="text-align: left;"><strong>Independent Variable 1</strong></th>
-<th style="text-align: left;"><strong>coefficient 1</strong></th>
-<th style="text-align: left;"><strong>coefficient 2</strong></th>
-<th style="text-align: left;"><strong>coefficient 3</strong></th>
-<th style="text-align: left;"><strong>coefficient 4</strong></th>
+<th style="text-align: left;"><strong>coefficient 1</strong></th>
+<th style="text-align: left;"><strong>coefficient 2</strong></th>
+<th style="text-align: left;"><strong>coefficient 3</strong></th>
+<th style="text-align: left;"><strong>coefficient 4</strong></th>
 <th style="text-align: left;"><strong>Notes</strong></th>
 </tr>
 </thead>
@@ -10924,11 +10924,11 @@ Fraction of Floor Area Controlled by HVAC System With DCV by Building Type and C
 <td style="text-align: left;">Split System</td>
 <td style="text-align: left;">0</td>
 <td style="text-align: left;">64,999</td>
-<td rowspan="4" style="text-align: left;">HPACHeat­CapFT</td>
-<td rowspan="4" style="text-align: left;">HPACHeat­CapFFF</td>
-<td rowspan="4" style="text-align: left;">HPACHeat­EIRFT</td>
-<td rowspan="4" style="text-align: left;">HPACHeat­EIRFFF</td>
-<td rowspan="4" style="text-align: left;">HPACCOOL­PLFFPLR</td>
+<td rowspan="4" style="text-align: left;">HPACHeatCapFT</td>
+<td rowspan="4" style="text-align: left;">HPACHeatCapFFF</td>
+<td rowspan="4" style="text-align: left;">HPACHeatEIRFT</td>
+<td rowspan="4" style="text-align: left;">HPACHeatEIRFFF</td>
+<td rowspan="4" style="text-align: left;">HPACCOOLPLFFPLR</td>
 </tr>
 <tr>
 <td style="text-align: left;"><span>2-4</span></td>
@@ -11120,7 +11120,7 @@ Fraction of Floor Area Controlled by HVAC System With DCV by Building Type and C
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">ChlrWtr­PosDisp­PathA­All­EIRRatio_fQRatio</td>
+<td style="text-align: left;">ChlrWtrPosDispPathAAllEIRRatio_fQRatio</td>
 <td style="text-align: left;">Quadratic</td>
 <td style="text-align: left;">EIRPLR</td>
 <td style="text-align: left;">QRatio</td>
@@ -11134,7 +11134,7 @@ Fraction of Floor Area Controlled by HVAC System With DCV by Building Type and C
 <td rowspan="3" style="text-align: left;">From CBECC Appendix_3.7_Performance_Curves-S901G.xlsx</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span>1-11</span> ChlrWtr­PosDisp­PathA­All­QRatio_fTchwsTcwsSI</td>
+<td style="text-align: left;"><span>1-11</span> ChlrWtrPosDispPathAAllQRatio_fTchwsTcwsSI</td>
 <td style="text-align: left;">Biquadratic</td>
 <td style="text-align: left;">CapFT</td>
 <td style="text-align: left;">Tchws</td>
@@ -11147,7 +11147,7 @@ Fraction of Floor Area Controlled by HVAC System With DCV by Building Type and C
 <td style="text-align: left;">-0.00027</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span>1-11</span> ChlrWtr­PosDisp­PathA­All­EIRRatio_fTchwsTcwsSI</td>
+<td style="text-align: left;"><span>1-11</span> ChlrWtrPosDispPathAAllEIRRatio_fTchwsTcwsSI</td>
 <td style="text-align: left;">Biquadratic</td>
 <td style="text-align: left;">EIRFT</td>
 <td style="text-align: left;">Tchws</td>
@@ -11292,14 +11292,14 @@ Refrigeration Compressor Data
 | stat.dx_cooling_average_cop | DX cooling COP during operation averaged across all cooling coils |
 | stat.dx_cooling_capacity_tons | Sum of dx cooling capacity |
 | stat.dx_cooling_design_cop | DX cooling COP at rated conditions averaged across all cooling coils |
-| stat.dx_cooling_design_seer_0_to_30_kbtuh | Design seer of dx cooling coils for 0–30 kBtuh equipment |
-| stat.dx_cooling_design_seer_30_to_65_kbtuh | Design seer of dx cooling coils for 30–65 kBtuh equipment |
-| stat.dx_cooling_design_eer_65_to_135_kbtuh | Design eer of dx cooling coils for 65–135 kBtuh equipment |
-| stat.dx_cooling_design_ieer_65_to_135_kbtuh | Design ieer of dx cooling coils for 65–135 kBtuh equipment |
-| stat.dx_cooling_design_eer_135_to_240_kbtuh | Design eer of dx cooling coils for 135–240 kBtuh equipment |
-| stat.dx_cooling_design_ieer_135_to_240_kbtuh | Design ieer of dx cooling coils for 135–240 kBtuh equipment |
-| stat.dx_cooling_design_eer_240_to_760_kbtuh | Design eer of dx cooling coils for 240–760 kBtuh equipment |
-| stat.dx_cooling_design_ieer_240_to_760_kbtuh | Design ieer of dx cooling coils for 240–760 kBtuh equipment |
+| stat.dx_cooling_design_seer_0_to_30_kbtuh | Design seer of dx cooling coils for 0-30 kBtuh equipment |
+| stat.dx_cooling_design_seer_30_to_65_kbtuh | Design seer of dx cooling coils for 30-65 kBtuh equipment |
+| stat.dx_cooling_design_eer_65_to_135_kbtuh | Design eer of dx cooling coils for 65-135 kBtuh equipment |
+| stat.dx_cooling_design_ieer_65_to_135_kbtuh | Design ieer of dx cooling coils for 65-135 kBtuh equipment |
+| stat.dx_cooling_design_eer_135_to_240_kbtuh | Design eer of dx cooling coils for 135-240 kBtuh equipment |
+| stat.dx_cooling_design_ieer_135_to_240_kbtuh | Design ieer of dx cooling coils for 135-240 kBtuh equipment |
+| stat.dx_cooling_design_eer_240_to_760_kbtuh | Design eer of dx cooling coils for 240-760 kBtuh equipment |
+| stat.dx_cooling_design_ieer_240_to_760_kbtuh | Design ieer of dx cooling coils for 240-760 kBtuh equipment |
 | stat.dx_cooling_design_eer_760_plus_kbtuh | Design eer of dx cooling coils for 760 plus kBtuh equipment |
 | stat.dx_cooling_design_ieer_760_plus_kbtuh | Design ieer of dx cooling coils for 760 plus kBtuh equipment |
 | stat.dx_heating_average_cop | Average dx heating cop |
@@ -11308,13 +11308,13 @@ Refrigeration Compressor Data
 | stat.dx_heating_capacity_at_5F | Sum of dx heating capacity at 5$`^{\circ}`$F |
 | stat.dx_heating_capacity_at_rated | Sum of dx heating capacity |
 | stat.dx_heating_design_cop | Design cop of dx heating coils |
-| stat.dx_heating_design_cop_135_to_240_kbtuh | Design cop of dx heating coils for 135–240 kBtuh equipment |
+| stat.dx_heating_design_cop_135_to_240_kbtuh | Design cop of dx heating coils for 135-240 kBtuh equipment |
 | stat.dx_heating_design_cop_17f | Design cop of dx heating coils at 17$`^{\circ}`$F |
 | stat.dx_heating_design_cop_240_plus_kbtuh | Design cop of dx heating coils for 240 plus kBtuh equipment |
 | stat.dx_heating_design_cop_5f | Design cop of dx heating coils at 5$`^{\circ}`$F |
-| stat.dx_heating_design_cop_65_to_135_kbtuh | Design cop of dx heating coils for 65–135 kBtuh equipment |
-| stat.dx_heating_design_hspf_0_to_30_kbtuh | Design hspf of dx heating coils for 0–30 kBtuh equipment |
-| stat.dx_heating_design_hspf_30_to_65_kbtuh | Design hspf of dx heating coils for 30–65 kBtuh equipment |
+| stat.dx_heating_design_cop_65_to_135_kbtuh | Design cop of dx heating coils for 65-135 kBtuh equipment |
+| stat.dx_heating_design_hspf_0_to_30_kbtuh | Design hspf of dx heating coils for 0-30 kBtuh equipment |
+| stat.dx_heating_design_hspf_30_to_65_kbtuh | Design hspf of dx heating coils for 30-65 kBtuh equipment |
 | stat.dx_heating_supplemental_capacity_electric | Sum of dx heating supplemental capacity electric |
 | stat.dx_heating_supplemental_capacity_gas | Sum of dx heating supplemental capacity gas |
 | stat.dx_heating_supplemental_capacity | Sum of dx heating supplemental capacity |
