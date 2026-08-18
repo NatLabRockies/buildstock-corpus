@@ -99,6 +99,97 @@ tables:
 is required in caption-anchored mode — without it a reviewer cannot re-find what was read.
 Both `source_pdf` and `page` also appear in the injected provenance comment.
 
+### Superseding a table the extractor got wrong
+
+The two modes above close *gaps*. A caption-anchored entry may instead carry `replaces:`, which
+removes a table the extractor did emit and puts the transcription in its place. That is a
+stronger act, and it is for a narrower problem: a table that is present, plausible, and wrong.
+
+96598 is the case that forced it. Pages 20, 31 and 32 each carry two tables, and on all three
+docling shifted the reading order by one caption — every grid landed under the *next* table's
+caption — while dropping the Roof Type / Wall Type column that the captions name. Nothing was
+missing; everything was mislabelled, which a reader has no way to notice. An insert cannot fix
+that, because the damage is text that is already there.
+
+```yaml
+  - label: "Table 5"
+    source_pdf: measure_pdfs/96598.pdf
+    source_pdf_sha256: "61294545…"
+    page: 20
+    method: pdf-text-layer
+    replaces:
+      table_sha256: "52112627…"   # fingerprint of the extracted table to remove
+      why: |
+        docling emitted this grid under the Table 6 caption and dropped the Roof
+        Type column, so three assemblies ran together as 17 undifferentiated rows.
+    markdown: |
+      …
+```
+
+`table_sha256` is a fingerprint of the extracted table's **values**: each cell stripped, the
+delimiter row flattened to one dash per column, then sha256 over the result. Padding and column
+width are normalized away so reformatting alone cannot trip it, while a dropped column, a merged
+row or a shifted value all change it. Get it from the document you are patching:
+
+```bash
+uv run python -c "import sys; sys.path.insert(0,'src'); from pathlib import Path; from buildstock_corpus.overlay import _table_blocks, _table_fingerprint as fp; L=Path(sys.argv[1]).read_text(encoding='utf-8').split('\n'); [print(fp(L[s:e])[:16], f'L{s+1}-{e}', L[s][:60]) for s,e in _table_blocks(L)]" processed/comstock/2025-3/upgrade_measures/measure_pdfs/96598.md
+```
+
+The fingerprint locates the table, not its position — position is the thing that is wrong here,
+so the entry for `Table 5` legitimately removes a block sitting under the Table 6 caption. It
+must match **exactly one** table in the document. Zero matches or several, and nothing is
+replaced and the build warns; on zero it distinguishes "this caption now has a table of its own,
+so the extractor may have fixed it" from "the extracted body changed" — the first is a reason to
+retire the entry, the second a reason to re-derive it. Either way a better extraction is never
+silently thrown away.
+
+`why` is **required**, and lands in the artifact next to the table it justifies rather than only
+in this sidecar. The redundancy refusal is skipped for these entries: a table under the caption
+is the premise, not a reason to back off.
+
+### Repairing a line of extracted text
+
+`text_repairs:` is a top-level list, for extractor artifacts that corrupt document *structure*
+rather than table content:
+
+```yaml
+text_repairs:
+  - find: "## Data from [11], [23]"
+    replace: "Data from [11], [23]"
+    why: |
+      docling promoted this one-line source note to a level-2 heading. The chunker is
+      heading-aware, so that filed 30 of this document's chunks under a section named
+      "Data from [11], [23]" instead of "3.2.4 Roof Insulation Upgrade Methodology".
+```
+
+Whole-line, exact match, and it must match exactly once — `find: "Data from [11], [23]"` as a
+substring would also hit the three legitimate copies of that note elsewhere in 96598. A match
+count of anything but one is refused with a warning. `why` is required and lands in an HTML
+comment above the repaired line. Repairs run before the table entries, since they fix the
+headings those entries are located against.
+
+This is deliberately the narrowest tool here. It is not for editing prose, fixing typos (see
+"transcribe, don't improve" below), or normalizing characters. Before writing one, scan the
+corpus for the pattern: a defect in more than one document is an extractor problem, and belongs
+in `extract/`, not in a per-document sidecar. The 96598 repair was written only after a
+corpus-wide scan found it to be the release's single citation note promoted to a heading.
+
+`method` is free text and lands verbatim in that comment, so it should name how the values
+were actually obtained rather than defaulting to a house style. Three routes are in use:
+
+* `vision-transcription` — read off a render or a bitmap by eye. The only option when the
+  region has no text layer at all (86599/86602 Table 2, where the whole table is one
+  embedded bitmap).
+* `pdf-text-layer` — the region is *classified* as a picture by docling but still has a live
+  text layer, so the cells can be recovered exactly with `pymupdf`'s word boxes clustered by
+  line. Prefer this whenever it is available: it is not a reading, and a 479×321 cached
+  thumbnail is often too coarse to read reliably anyway (95005 Table 4, 576 values).
+* A compound like `pdf-text-layer (values) + vision-transcription (product names)` — part of
+  the table has a text layer and part does not. 89130's tables are pasted retailer listings
+  whose screenshots cover the product names while the specification rows below them stay
+  selectable. Say which part came from which; a reviewer checking one number should know
+  whether to trust it to the digit or to re-read the picture.
+
 ## Provenance
 
 Two rules keep hand-authored text distinguishable from extracted text:
@@ -106,7 +197,12 @@ Two rules keep hand-authored text distinguishable from extracted text:
 * **Every injection is labelled in the artifact.** The injected block carries an HTML comment
   naming what it was transcribed from (the image, or the PDF and page), the overlay file, and
   the method. The manifest records the overlay's path, its sha256, and the labels applied next
-  to the artifact it patched, plus `counts.overlay_tables` at the top level.
+  to the artifact it patched, plus `counts.overlay_tables` at the top level. An entry that
+  *superseded* extracted text says so in that comment, quotes the fingerprint of the block it
+  removed, and carries its `why` — "this supplements the extractor" and "this overrules the
+  extractor" have to be tellable apart by a reader who never opens the sidecar. Repairs are
+  counted separately, as `counts.overlay_text_repairs` and `text_repairs_applied` on the
+  artifact, and `bsc validate` reports them on their own line for the same reason.
 * **A transcription is only trustworthy for the thing it was made from.** Every entry pins a
   hash, checked at build time and again by `bsc validate`:
   * `source_image_sha256` is re-hashed from the bitmap on disk. If upstream redraws or

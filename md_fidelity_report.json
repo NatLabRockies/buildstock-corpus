@@ -33,18 +33,18 @@
       "table_captions": 302,
       "orphan_tables": 0,
       "figure_captions": 697,
-      "orphan_figures": 1,
-      "md_tables": 698,
+      "orphan_figures": 7,
+      "md_tables": 731,
       "html_tables": 0,
       "html_imgs": 0,
-      "md_images": 1252,
+      "md_images": 1245,
       "dangling_refs": 0,
       "duplicate_h1": 0
     },
     "measures": {
       "files": 6,
       "table_captions": 39,
-      "orphan_tables": 0,
+      "orphan_tables": 6,
       "figure_captions": 58,
       "orphan_figures": 0,
       "md_tables": 64,
@@ -202,6 +202,64 @@
       "unconverted_html_imgs": []
     },
     {
+      "file": "upgrade_measures/draft_publications/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.md",
+      "extractor": "pdf",
+      "orphan_tables": [],
+      "orphan_figures": [
+        {
+          "line": 190,
+          "label": "Figure 1",
+          "caption": "Figure 1. ComStock baseline in-force energy code followed as a percentage of applicable floor area."
+        },
+        {
+          "line": 397,
+          "label": "Figure 8",
+          "caption": "Figure 8. Lockout temperature sensitivity results: stock-level utility bills"
+        }
+      ],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [],
+      "unconverted_html_imgs": []
+    },
+    {
+      "file": "upgrade_measures/draft_publications/files/ComStock Measure Doc_PV with Battery Storage.md",
+      "extractor": "pdf",
+      "orphan_tables": [],
+      "orphan_figures": [
+        {
+          "line": 381,
+          "label": "Figure 5",
+          "caption": "Figure 5. Percent annual utility bill savings distribution for ComStock models with PV 40% measure scenario by climate zone PRE-PU"
+        },
+        {
+          "line": 403,
+          "label": "Figure 8",
+          "caption": "Figure 8. Total installed battery charge/discharge capacity (GW) for the 40% PV with battery storage measure scenario for building"
+        }
+      ],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [],
+      "unconverted_html_imgs": []
+    },
+    {
+      "file": "upgrade_measures/measure_pdfs/86105.md",
+      "extractor": "pdf",
+      "orphan_tables": [],
+      "orphan_figures": [
+        {
+          "line": 224,
+          "label": "Figure 5",
+          "caption": "Figure 5. Economizer configuration suggestions in ASHRAE 90.1-2010"
+        }
+      ],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [],
+      "unconverted_html_imgs": []
+    },
+    {
       "file": "upgrade_measures/measure_pdfs/89040.md",
       "extractor": "pdf",
       "orphan_tables": [],
@@ -212,6 +270,96 @@
           "caption": "Figure 5. Narrative description of upsizing algorithm in measure implementation"
         }
       ],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [],
+      "unconverted_html_imgs": []
+    },
+    {
+      "file": "upgrade_measures/measure_pdfs/92502.md",
+      "extractor": "pdf",
+      "orphan_tables": [],
+      "orphan_figures": [
+        {
+          "line": 549,
+          "label": "Figure 6",
+          "caption": "Figure 6. Distributions of the percentage of max daily peak load reduction by month compared to the baseline model"
+        }
+      ],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [],
+      "unconverted_html_imgs": []
+    },
+    {
+      "file": "upgrade_measures/unpublished_docs/upgrade_measures/env_ext_secondary_window.md",
+      "extractor": "measures",
+      "orphan_tables": [
+        {
+          "line": 72,
+          "label": "Table 2",
+          "caption": "Table 2. Window Property Data Sources"
+        },
+        {
+          "line": 212,
+          "label": "Table 7",
+          "caption": "Table 7. Proposed Combinations for Performance of Existing Window Plus Secondary Window Combinations by Climate Zone"
+        },
+        {
+          "line": 328,
+          "label": "Table 10",
+          "caption": "Table 10. U-Value and SHGC Comparison Before and After the Measure Was Applied"
+        }
+      ],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [],
+      "unconverted_html_imgs": []
+    },
+    {
+      "file": "upgrade_measures/unpublished_docs/upgrade_measures/env_ext_wall_insulation.md",
+      "extractor": "measures",
+      "orphan_tables": [
+        {
+          "line": 64,
+          "label": "Table 3",
+          "caption": "Table 3. Comparison of ComStock Existing Opaque Wall Thermal Performance to ASHRAE Small and Medium Office Zero Energy AEDG Perfor"
+        }
+      ],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [],
+      "unconverted_html_imgs": []
+    },
+    {
+      "file": "upgrade_measures/unpublished_docs/upgrade_measures/env_ext_window_replacement.md",
+      "extractor": "measures",
+      "orphan_tables": [
+        {
+          "line": 59,
+          "label": "Table 2",
+          "caption": "Table 2. Example of Available Window Assignment Options for Climate Zone 4 Based on the Energy Code Followed During the Last Windo"
+        }
+      ],
+      "orphan_figures": [],
+      "dangling_refs": [],
+      "duplicate_h1": [],
+      "unconverted_html_tables": [],
+      "unconverted_html_imgs": []
+    },
+    {
+      "file": "upgrade_measures/unpublished_docs/upgrade_measures/env_window_film.md",
+      "extractor": "measures",
+      "orphan_tables": [
+        {
+          "line": 120,
+          "label": "Table 2",
+          "caption": "Table 2. Performance Range Baseline Windows With Window Films"
+        }
+      ],
+      "orphan_figures": [],
       "dangling_refs": [],
       "duplicate_h1": [],
       "unconverted_html_tables": [],

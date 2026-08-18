@@ -24,11 +24,36 @@ There are two anchor modes, because the same loss shows up in two shapes:
     as the artifact's `input_sha256`, so `bsc validate` can re-verify it from a fresh clone
     where raw/ (gitignored) is absent.
 
+A caption-anchored entry may additionally carry `replaces:`, which supersedes a table the
+extractor *did* emit but got wrong. The gap and the error are different failures and want
+different remedies: a missing table is closed by adding text, whereas a wrong table has to
+be taken out, or the artifact ends up holding two contradictory copies of the same numbers.
+The case that forced this is 96598, where docling shifted a page's reading order by one
+caption — every grid landed under the *next* table's caption — and dropped the Roof/Wall
+Type column that the captions name. The numbers were all present and all mislabelled, which
+is worse than absent: a retrieval hit reads confidently off the wrong row.
+
+Because this is the one place hand-authored text overrides extracted text, it is pinned from
+both ends. `replaces.table_sha256` is the fingerprint of the extracted table being removed
+(see _table_fingerprint), so if a later docling emits anything different — including a
+correct table — the fingerprint stops matching and the build says so instead of silently
+discarding better output. `replaces.why` is required, and lands in the artifact next to the
+transcription, so the reason is reviewable where the consequence is visible.
+
+`text_repairs:` is the same bargain for a single line of non-table text: an exact-match
+find/replace, also with a required `why`. It exists for extractor artifacts that corrupt
+document *structure* rather than content — in 96598 a one-line source note ("Data from
+[11], [23]") was promoted to an H2, which silently refiled 30 chunks of section 3.2.4 under
+a section named after a citation. It is not for editing prose, and a `find` that does not
+match exactly once is refused.
+
 Two governance rules shape this module:
 
   * Hand-authored text is never mistaken for extracted text. Each injection leaves an HTML
     comment naming what it was transcribed from and the method, and the manifest records the
-    overlay file's hash next to the artifact it patched.
+    overlay file's hash next to the artifact it patched. A replacement or a repair says so in
+    that comment too, because "this supplements the extractor" and "this overrules the
+    extractor" are claims a reviewer has to be able to tell apart.
   * A transcription is only trustworthy for the thing it was made from. Every entry pins a
     hash; if upstream repoints the picture or ships a new PDF the hash stops matching and
     the build reports it instead of shipping a stale table.
@@ -61,8 +86,19 @@ _CAPTION = re.compile(
 )
 _MD_IMAGE_TARGET = re.compile(r"!\[[^\]]*\]\(\s*([^)\s]+)")
 _MD_TABLE_DELIM = re.compile(r"^\s*\|[\s:|\-]+\|\s*$")
+_MD_HEADING = re.compile(r"^#{1,6}\s+\S")
+# A table's own printed title, which docling emits between the caption and the table — e.g.
+# "**TABLE 6.5.1.1.3A High-Limit Shutoff Control Options...**". It matches _CAPTION but is not
+# the next caption, and multi-level numbering is what separates the two. Same regex and same
+# reason as SUBNUMBERED in scripts/audit_md_fidelity.py, which verifies this work landed.
+_SUBNUMBERED = re.compile(
+    r"^\s*(?:\*\*|__|\*|_)?\s*(?:Table|Figure|Fig\.?)\s*[0-9]+(?:\.[0-9]+)+", re.IGNORECASE
+)
+
+_MD_TABLE_LINE = re.compile(r"^\s*\|")
 
 _MARKER = "<!-- table recovered from"  # our own injection, for idempotency
+_REPAIR_MARKER = "<!-- text repaired by overlay:"
 
 # How far below a caption to look for the image it labels. The observed shape is caption,
 # blank, image — a small window keeps us from stealing the next section's figure.
@@ -130,9 +166,68 @@ def _find_image(lines: list[str], start: int, source_image: str) -> tuple[int, s
 
 
 def _has_table_below(lines: list[str], start: int) -> bool:
-    """A real markdown table (confirmed by its delimiter row) already sits below `start`."""
-    window = lines[start + 1 : start + 1 + _IMAGE_WINDOW + 3]
-    return any(_MD_TABLE_DELIM.match(line) for line in window)
+    """Whether a real markdown table (confirmed by its delimiter row) already labels `start`.
+
+    Directional and bounded by the next caption or heading, for the same reason
+    scripts/audit_md_fidelity.py binds captions directionally: where captions are dense, a plain
+    proximity window reaches past the next caption into the table that belongs to *it*. In
+    96598.md the Table 10 caption is followed by a citation stub, then the Table 11 caption, then
+    Table 11's table four lines further down — close enough for an undirected window to read
+    Table 10 as already recovered and refuse its overlay as redundant.
+
+    A sub-numbered bold line is the table's own printed title, not the next caption, so it does
+    not stop the scan; otherwise 89128-shaped documents would look table-less and get a second,
+    duplicate injection.
+    """
+    for line in lines[start + 1 : start + 1 + _IMAGE_WINDOW + 3]:
+        if _MD_TABLE_DELIM.match(line):
+            return True
+        if _MD_HEADING.match(line) or (_CAPTION.match(line) and not _SUBNUMBERED.match(line)):
+            return False
+    return False
+
+
+def _table_blocks(lines: list[str]) -> list[tuple[int, int]]:
+    """Half-open [start, end) spans of every contiguous run of markdown table lines."""
+    blocks: list[tuple[int, int]] = []
+    i = 0
+    while i < len(lines):
+        if _MD_TABLE_LINE.match(lines[i]):
+            j = i
+            while j < len(lines) and _MD_TABLE_LINE.match(lines[j]):
+                j += 1
+            blocks.append((i, j))
+            i = j
+        else:
+            i += 1
+    return blocks
+
+
+def _table_fingerprint(block: list[str]) -> str:
+    """sha256 of a table's *values* — column padding and delimiter width normalized away.
+
+    A pin has to be stable against everything that is not a change in content, or it turns
+    into a tripwire that fires on reformatting and trains readers to re-pin without looking.
+    Cells are stripped and the delimiter row is flattened to one dash per column, so what the
+    hash actually commits to is: this many columns, these cell texts, in this order. A dropped
+    column, a merged row or a shifted value all change it, which is exactly the set of
+    extractor changes a replacement entry must not survive.
+    """
+    norm = []
+    for line in block:
+        cells = line.strip().strip("|").split("|")
+        if _MD_TABLE_DELIM.match(line):
+            norm.append("|".join("-" for _ in cells))
+        else:
+            norm.append("|".join(c.strip() for c in cells))
+    return hashlib.sha256("\n".join(norm).encode("utf-8")).hexdigest()
+
+
+def _remove_block(lines: list[str], start: int, end: int) -> None:
+    """Delete [start, end) and the blank line the deletion would otherwise double up."""
+    del lines[start:end]
+    if 0 < start < len(lines) and not lines[start - 1].strip() and not lines[start].strip():
+        del lines[start]
 
 
 def entry_kind(entry: dict) -> str:
@@ -156,17 +251,30 @@ def _origin(entry: dict) -> str:
     return f"{entry.get('source_pdf')} p.{page}" if page else str(entry.get("source_pdf"))
 
 
-def _injection(entry: dict, overlay_rel: str) -> str:
-    """The injected block: provenance comment, then the transcribed table."""
+def _comment_lines(text: str, indent: str) -> list[str]:
+    """A free-text field as comment body lines, indented and stripped of blanks."""
+    return [f"{indent}{ln.strip()}" for ln in str(text).strip().split("\n") if ln.strip()]
+
+
+def _injection(entry: dict, overlay_rel: str, replaced_sha: str | None = None) -> str:
+    """The injected block: provenance comment, then the transcribed table.
+
+    `replaced_sha` is set when this entry superseded an extracted table, and turns the comment
+    from "here is text the extractor could not reach" into "here is text that overruled the
+    extractor, and this is why" — a stronger claim, so it is stated where it applies rather
+    than only in the sidecar a reader may never open.
+    """
     markdown = entry["markdown"].strip("\n")
     method = entry.get("method", "unspecified")
-    return (
-        f"{_MARKER} {_origin(entry)}\n"
-        f"     overlay: {overlay_rel}\n"
-        f"     method: {method} -->\n"
-        f"\n"
-        f"{markdown}"
-    )
+    head = [
+        f"{_MARKER} {_origin(entry)}",
+        f"     overlay: {overlay_rel}",
+        f"     method: {method}",
+    ]
+    if replaced_sha:
+        head.append(f"     supersedes the extractor's own table here (values {replaced_sha[:12]}…):")
+        head += _comment_lines((entry.get("replaces") or {}).get("why", ""), "       ")
+    return "\n".join(head) + " -->\n\n" + markdown
 
 
 def _resolve_image_anchor(
@@ -206,6 +314,47 @@ def _resolve_image_anchor(
         )
         return None
     return j
+
+
+def _resolve_replacement(
+    lines: list[str], i: int, replaces: dict, out: list[str]
+) -> tuple[int, int] | None:
+    """Span of the extracted table this entry supersedes, or None (reason -> `out`).
+
+    Located by fingerprint rather than by position, because position is the thing that is
+    wrong: in 96598 the grid belonging to a caption is not below it. The fingerprint has to
+    match exactly one table in the document — zero means the extracted body changed and the
+    replacement must not be applied blind, more than one means the pin does not identify a
+    single table and could remove the wrong one.
+    """
+    for field in ("table_sha256", "why"):
+        if not replaces.get(field):
+            out.append(f"overlay entry's 'replaces' is missing required field '{field}'")
+            return None
+    if "-->" in str(replaces["why"]):
+        out.append("'replaces.why' contains '-->', which would truncate the provenance comment")
+        return None
+
+    want = str(replaces["table_sha256"]).strip().lower()
+    hits = [(s, e) for s, e in _table_blocks(lines) if _table_fingerprint(lines[s:e]) == want]
+    if len(hits) == 1:
+        return hits[0]
+    if not hits:
+        # Two very different situations, and the difference decides what a maintainer does next.
+        out.append(
+            f"no extracted table matches the pinned fingerprint {want[:12]}…, and this caption "
+            f"now has a table of its own; the extractor may have fixed this, so re-check the "
+            f"output before re-pinning"
+            if _has_table_below(lines, i)
+            else f"no extracted table matches the pinned fingerprint {want[:12]}…; the extracted "
+            f"body changed, so the table to supersede cannot be identified"
+        )
+    else:
+        out.append(
+            f"pinned fingerprint {want[:12]}… matches {len(hits)} extracted tables; it does not "
+            f"identify one table, so nothing was replaced"
+        )
+    return None
 
 
 def _insert_below_caption(lines: list[str], i: int, block: str) -> None:
@@ -265,7 +414,11 @@ def _apply_entry(
             return False, warn(reasons[0])
         lines[j] = _injection(entry, overlay_rel)
     else:
-        if _has_table_below(lines, i):
+        replaces = entry.get("replaces") or {}
+        # A replacement's anchor is the pinned fingerprint, not "is this caption bare", so the
+        # redundancy check is skipped for it: the caption having a table is the premise here,
+        # not a reason to back off. Correctness comes from the fingerprint instead.
+        if not replaces and _has_table_below(lines, i):
             return False, warn(
                 "caption already has a markdown table; the extractor may now handle this "
                 "table, so the overlay is redundant"
@@ -280,7 +433,20 @@ def _apply_entry(
                 f"source PDF changed since transcription (recorded {expect[:12]}…, build "
                 f"input {input_sha[:12]}…); transcription may be stale"
             )
-        _insert_below_caption(lines, i, _injection(entry, overlay_rel))
+        replaced_sha = None
+        if replaces:
+            reasons = []
+            span = _resolve_replacement(lines, i, replaces, reasons)
+            if span is None:
+                return False, warn(reasons[0])
+            replaced_sha = str(replaces["table_sha256"]).lower()
+            _remove_block(lines, *span)
+            # Re-find rather than adjust: the removed block can sit either side of the caption,
+            # and sequential entries each shift what follows. Re-finding cannot drift.
+            i = _find_caption(lines, label)
+            if i is None:  # unreachable — removal only deletes table lines
+                return False, warn("caption vanished while replacing the extracted table")
+        _insert_below_caption(lines, i, _injection(entry, overlay_rel, replaced_sha))
 
     # chunk._pack splits on blank lines, so what matters is the largest single paragraph,
     # not the size of the whole injected block: a table decomposed into blank-line-separated
@@ -291,6 +457,64 @@ def _apply_entry(
             f"largest table paragraph is {longest} chars, over the {_CHUNK_MAX_CHARS}-char "
             f"chunk limit; decompose it into sub-tables or it will be split mid-row"
         )
+    return True, []
+
+
+def _repaired_above(lines: list[str], n: int) -> bool:
+    """Whether line `n` is the replacement text of an already-applied repair.
+
+    Walks the comment block immediately above `n` rather than scanning a fixed window, so a
+    long multi-line `why` cannot push the marker out of range and make an applied repair look
+    unapplied — which would re-warn on every build about work that already landed.
+    """
+    k = n - 1
+    while k >= 0 and not lines[k].strip():
+        k -= 1
+    if k < 0 or not lines[k].rstrip().endswith("-->"):
+        return False
+    while k >= 0 and "<!--" not in lines[k]:
+        k -= 1
+    return k >= 0 and lines[k].lstrip().startswith(_REPAIR_MARKER)
+
+
+def _apply_repair(lines: list[str], repair: dict, overlay_rel: str) -> tuple[bool, list[str]]:
+    """Apply one exact-match text repair in place. Returns (applied, warnings).
+
+    Whole-line matching, and the match must be unique. A substring find/replace over a
+    100-page document is a blunt instrument — `find: "Data from [11], [23]"` would also hit
+    the three legitimate copies of that note elsewhere in 96598 — so the pin is the whole line
+    and the uniqueness requirement is what makes it a pin rather than a sweep.
+    """
+    where = f"{overlay_rel}: text_repairs"
+    find = str(repair.get("find", ""))
+    warn = lambda msg: [f"{where}: {find[:60]!r}: {msg}"]  # noqa: E731
+
+    for field in ("find", "replace", "why"):
+        if not str(repair.get(field, "")).strip():
+            return False, [f"{where}: repair is missing required field '{field}'"]
+    replace = str(repair["replace"])
+    if "-->" in str(repair["why"]):
+        return False, warn("'why' contains '-->', which would truncate the provenance comment")
+
+    hits = [n for n, line in enumerate(lines) if line.strip() == find.strip()]
+    if len(hits) != 1:
+        already = any(
+            line.strip() == replace.strip() and _repaired_above(lines, n)
+            for n, line in enumerate(lines)
+        )
+        if not hits and already:
+            return False, []  # already repaired — idempotent, not a problem
+        return False, warn(
+            f"matches {len(hits)} lines in the extracted body; a repair must identify exactly "
+            f"one line, so nothing was changed"
+        )
+
+    n = hits[0]
+    comment = "\n".join(
+        [f"{_REPAIR_MARKER} {overlay_rel}", *_comment_lines(repair["why"], "     ")]
+    )
+    indent = lines[n][: len(lines[n]) - len(lines[n].lstrip())]
+    lines[n] = f"{comment} -->\n\n{indent}{replace.strip()}"
     return True, []
 
 
@@ -342,14 +566,23 @@ def apply_overlays(
                 break
         else:
             entries = data.get("tables") or []
-            if not entries:
-                warnings.append(f"{overlay_rel}: overlay has no table entries")
+            repairs = data.get("text_repairs") or []
+            if not entries and not repairs:
+                warnings.append(f"{overlay_rel}: overlay has no table entries or text repairs")
                 continue
 
             image_dir = image_dirs.get((doc.source_id, doc.source_path))
             input_sha = input_shas.get(doc.source_id, {}).get(doc.source_path)
 
             lines = doc.body.split("\n")
+            # Repairs run first: they fix document structure (a note mis-parsed as a heading),
+            # and the table entries below are located relative to headings and captions.
+            n_repairs = 0
+            for repair in repairs:
+                ok, warns = _apply_repair(lines, repair, overlay_rel)
+                warnings += warns
+                n_repairs += ok
+
             labels: list[str] = []
             for entry in entries:
                 ok, warns = _apply_entry(
@@ -358,12 +591,17 @@ def apply_overlays(
                 warnings += warns
                 if ok:
                     labels.append(str(entry["label"]).strip())
-            if labels:
+            if labels or n_repairs:
                 doc.body = "\n".join(lines)
-                applied.setdefault(doc.source_id, {})[doc.source_path] = {
+                record = {
                     "path": overlay_rel,
                     "sha256": _sha256_file(path),
                     "tables_applied": labels,
                 }
+                if n_repairs:
+                    # Recorded so a reader of the manifest can see this artifact carries a
+                    # hand-authored correction to extracted text, not only additions to it.
+                    record["text_repairs_applied"] = n_repairs
+                applied.setdefault(doc.source_id, {})[doc.source_path] = record
 
     return applied, warnings

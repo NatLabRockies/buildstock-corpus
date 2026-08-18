@@ -437,6 +437,62 @@ def test_caption_anchored_overlay_is_flagged_redundant_if_a_table_is_there(pdf_e
     assert "overlay is redundant" in warnings[0]
 
 
+def test_a_neighbours_table_does_not_make_our_overlay_look_redundant(pdf_env):
+    """The 96598 shape: a dense caption pair where only the second one kept its table.
+
+    Table 1's caption is followed by a citation stub, then Table 2's caption, then Table 2's
+    table. An undirected proximity window reaches that table and refuses Table 1's overlay as
+    redundant — silently leaving the gap the overlay exists to close. The scan is bounded by the
+    next caption for exactly this case.
+    """
+    body = PDF_BODY.replace(
+        "## 4 Results",
+        f"Table from [11]\n\nTable 2. Wall Construction Types\n\n{TABLE}\n\n## 4 Results",
+    )
+    pdf_env.write([pdf_env.pdf_entry()], source_path=PDF_PATH)
+    doc = _pdf_doc(body)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert warnings == [] and applied
+    lines = doc.body.split("\n")
+    assert (
+        lines.index("Table 1. Roof Construction Types")
+        < lines.index("| Building Type | Construction |")
+        < lines.index("Table 2. Wall Construction Types")
+    )
+
+
+def test_a_sub_numbered_title_between_caption_and_table_still_reads_as_redundant(pdf_env):
+    """The 89128 shape: the table's own printed title sits between caption and table.
+
+    "**TABLE 6.5.1.1.3A ...**" matches the caption pattern but is not the next caption, so it
+    must not stop the scan — otherwise the document looks table-less and gets a second,
+    duplicate copy injected under the same caption.
+    """
+    body = PDF_BODY.replace(
+        "## 4 Results",
+        f"**TABLE 6.5.1.1.3A Roof Construction Options**\n\n{TABLE}\n\n## 4 Results",
+    )
+    pdf_env.write([pdf_env.pdf_entry()], source_path=PDF_PATH)
+    doc = _pdf_doc(body)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {} and doc.body == body
+    assert "overlay is redundant" in warnings[0]
+
+
+def test_a_heading_between_caption_and_table_stops_the_scan(pdf_env):
+    """A table under the *next section's* heading is not this caption's table."""
+    body = PDF_BODY.replace("## 4 Results", f"## 4 Results\n\n{TABLE}")
+    pdf_env.write([pdf_env.pdf_entry()], source_path=PDF_PATH)
+    doc = _pdf_doc(body)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert warnings == [] and applied
+    lines = doc.body.split("\n")
+    assert lines.index("| Building Type | Construction |") < lines.index("## 4 Results")
+
+
 def test_entry_naming_neither_anchor_is_refused(pdf_env):
     entry = pdf_env.pdf_entry()
     del entry["source_pdf"]
@@ -446,6 +502,329 @@ def test_entry_naming_neither_anchor_is_refused(pdf_env):
 
     assert applied == {}
     assert "neither 'source_image' nor 'source_pdf'" in warnings[0]
+
+
+# --- replace mode: the extractor emitted a table, and got it wrong -------------------------
+#
+# The shape below is 96598's: docling shifted the reading order by one caption, so Table 1's
+# caption has nothing under it while Table 1's grid sits under the Table 2 caption. Both grids
+# are present and both are mislabelled, which no insert can fix.
+
+GRID_A = "| Energy Code | 1A | 2A |\n|---|---|---|\n| Pre-1980 | 10 | 10 |"
+GRID_B = "| Energy Code | 1 | 2 |\n|---|---|---|\n| DEER 2020 | 25 | 29 |"
+FIXED_A = "| Roof Type | Energy Code | 1A | 2A |\n|---|---|---|---|\n| Attic | Pre-1980 | 10 | 10 |"
+FIXED_B = "| Roof Type | Energy Code | 1 | 2 |\n|---|---|---|---|\n| IEAD | DEER 2020 | 25 | 29 |"
+
+SHIFTED_BODY = f"""## 3 Modeling Approach
+
+Table 1. Roof R-Value for Non-California Buildings
+
+Table from [11]
+
+Table 2. Roof R-Value for California Buildings
+
+{GRID_A}
+
+Table from [23]
+
+{GRID_B}
+
+## 4 Results
+"""
+
+
+def _fp(table: str) -> str:
+    return O._table_fingerprint(table.split("\n"))
+
+
+def _replacer(pdf_env, label, markdown, table_sha, why="docling put it under the next caption"):
+    return pdf_env.pdf_entry(
+        label=label,
+        markdown=markdown,
+        method="pdf-text-layer",
+        replaces={"table_sha256": table_sha, "why": why},
+    )
+
+
+def test_replacement_removes_the_wrong_table_and_inserts_under_the_right_caption(pdf_env):
+    pdf_env.write(
+        [_replacer(pdf_env, "Table 1", FIXED_A, _fp(GRID_A))], source_path=PDF_PATH
+    )
+    doc = _pdf_doc(SHIFTED_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert warnings == []
+    assert GRID_A not in doc.body  # the mislabelled grid is gone, not left alongside
+    assert FIXED_A in doc.body
+    lines = doc.body.split("\n")
+    assert (
+        lines.index("Table 1. Roof R-Value for Non-California Buildings")
+        < lines.index("| Roof Type | Energy Code | 1A | 2A |")
+        < lines.index("Table 2. Roof R-Value for California Buildings")
+    )
+    assert applied["upgrade_measures"][PDF_PATH]["tables_applied"] == ["Table 1"]
+
+
+def test_replacement_says_in_the_artifact_that_it_overruled_the_extractor(pdf_env):
+    """A reader who never opens the sidecar still sees that this overrode extracted text."""
+    pdf_env.write(
+        [_replacer(pdf_env, "Table 1", FIXED_A, _fp(GRID_A), why="dropped the Roof Type column")],
+        source_path=PDF_PATH,
+    )
+    doc = _pdf_doc(SHIFTED_BODY)
+    _apply([doc], pdf_env)
+
+    assert "supersedes the extractor's own table here" in doc.body
+    assert _fp(GRID_A)[:12] in doc.body
+    assert "dropped the Roof Type column" in doc.body
+
+
+def test_both_halves_of_a_shifted_pair_are_repaired_without_index_drift(pdf_env):
+    """Sequential replacements each re-find their caption, so removals cannot shift the next."""
+    pdf_env.write(
+        [
+            _replacer(pdf_env, "Table 1", FIXED_A, _fp(GRID_A)),
+            _replacer(pdf_env, "Table 2", FIXED_B, _fp(GRID_B)),
+        ],
+        source_path=PDF_PATH,
+    )
+    doc = _pdf_doc(SHIFTED_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert warnings == []
+    assert applied["upgrade_measures"][PDF_PATH]["tables_applied"] == ["Table 1", "Table 2"]
+    lines = doc.body.split("\n")
+    assert (
+        lines.index("Table 1. Roof R-Value for Non-California Buildings")
+        < lines.index("| Roof Type | Energy Code | 1A | 2A |")
+        < lines.index("Table 2. Roof R-Value for California Buildings")
+        < lines.index("| Roof Type | Energy Code | 1 | 2 |")
+        < lines.index("## 4 Results")
+    )
+    # the prose between the two captions is left where the extractor put it
+    assert doc.body.index("Table from [11]") < doc.body.index("Table from [23]")
+
+
+def test_fingerprint_ignores_padding_and_delimiter_width(pdf_env):
+    """The pin tracks values, not formatting, or reflowing a table alone would trip it."""
+    padded = "|  Energy Code  |  1A  | 2A |\n|---------------|------|----|\n| Pre-1980 | 10 | 10 |"
+    assert _fp(padded) == _fp(GRID_A)
+
+    pdf_env.write([_replacer(pdf_env, "Table 1", FIXED_A, _fp(padded))], source_path=PDF_PATH)
+    doc = _pdf_doc(SHIFTED_BODY)
+    _, warnings = _apply([doc], pdf_env)
+    assert warnings == [] and FIXED_A in doc.body
+
+
+def test_fingerprint_changes_when_a_column_is_dropped():
+    """The failure this pin exists to catch has to actually change the hash."""
+    lost_column = "| Energy Code | 1A |\n|---|---|\n| Pre-1980 | 10 |"
+    assert _fp(lost_column) != _fp(GRID_A)
+
+
+def test_replacement_is_refused_when_the_extracted_table_changed(pdf_env):
+    pdf_env.write([_replacer(pdf_env, "Table 1", FIXED_A, "b" * 64)], source_path=PDF_PATH)
+    doc = _pdf_doc(SHIFTED_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {}
+    assert doc.body == SHIFTED_BODY
+    assert "the extracted body changed" in warnings[0]
+
+
+def test_a_fingerprint_miss_under_a_now_populated_caption_reads_as_maybe_fixed(pdf_env):
+    """Distinguishing this from the case above is what stops a better extraction being lost."""
+    pdf_env.write([_replacer(pdf_env, "Table 1", FIXED_A, "b" * 64)], source_path=PDF_PATH)
+    doc = _pdf_doc(PDF_BODY.replace("## 4 Results", f"{TABLE}\n\n## 4 Results"))
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {}
+    assert "the extractor may have fixed this" in warnings[0]
+
+
+def test_an_ambiguous_fingerprint_replaces_nothing(pdf_env):
+    """Two tables with the same values: the pin does not say which, so it removes neither."""
+    pdf_env.write([_replacer(pdf_env, "Table 1", FIXED_A, _fp(GRID_A))], source_path=PDF_PATH)
+    twice = SHIFTED_BODY.replace(GRID_B, GRID_A)
+    doc = _pdf_doc(twice)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {}
+    assert doc.body == twice
+    assert "matches 2 extracted tables" in warnings[0]
+
+
+def test_replacement_requires_a_stated_reason(pdf_env):
+    entry = _replacer(pdf_env, "Table 1", FIXED_A, _fp(GRID_A))
+    del entry["replaces"]["why"]
+    pdf_env.write([entry], source_path=PDF_PATH)
+    doc = _pdf_doc(SHIFTED_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {} and doc.body == SHIFTED_BODY
+    assert "'replaces' is missing required field 'why'" in warnings[0]
+
+
+def test_a_reason_cannot_truncate_the_provenance_comment(pdf_env):
+    """`why` lands inside an HTML comment, so it must not be able to close it early."""
+    pdf_env.write(
+        [_replacer(pdf_env, "Table 1", FIXED_A, _fp(GRID_A), why="oops --> escaped")],
+        source_path=PDF_PATH,
+    )
+    doc = _pdf_doc(SHIFTED_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {} and doc.body == SHIFTED_BODY
+    assert "would truncate the provenance comment" in warnings[0]
+
+
+def test_a_stale_pdf_hash_still_blocks_a_replacement(pdf_env):
+    """The source pin gates replacements too — this is the mode that deletes text."""
+    entry = _replacer(pdf_env, "Table 1", FIXED_A, _fp(GRID_A))
+    entry["source_pdf_sha256"] = "c" * 64
+    pdf_env.write([entry], source_path=PDF_PATH)
+    doc = _pdf_doc(SHIFTED_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {} and doc.body == SHIFTED_BODY
+    assert "source PDF changed since transcription" in warnings[0]
+
+
+def test_replacement_is_idempotent(pdf_env):
+    pdf_env.write([_replacer(pdf_env, "Table 1", FIXED_A, _fp(GRID_A))], source_path=PDF_PATH)
+    doc = _pdf_doc(SHIFTED_BODY)
+    _apply([doc], pdf_env)
+    once = doc.body
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert doc.body == once and warnings == [] and applied == {}
+    assert once.count(FIXED_A) == 1
+
+
+# --- text repairs: an extractor artifact that corrupts structure, not table content ---------
+
+
+def _repair(**kw):
+    base = {
+        "find": "## Data from [11], [23]",
+        "replace": "Data from [11], [23]",
+        "why": "docling promoted a source note to a heading, refiling 30 chunks under it",
+    }
+    return {**base, **kw}
+
+
+REPAIR_BODY = """## 3.2.4 Roof Insulation Methodology
+
+Table 1. Roof R-Value
+
+## Data from [11], [23]
+
+Energy savings are reported below.
+"""
+
+
+def test_text_repair_demotes_a_mis_parsed_heading(pdf_env):
+    pdf_env.write([], source_path=PDF_PATH, text_repairs=[_repair()])
+    doc = _pdf_doc(REPAIR_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert warnings == []
+    assert "## Data from [11], [23]" not in doc.body
+    assert "\nData from [11], [23]\n" in doc.body
+    rec = applied["upgrade_measures"][PDF_PATH]
+    assert rec["text_repairs_applied"] == 1 and rec["tables_applied"] == []
+    # the reason travels with the change, same rule as a table replacement
+    assert "<!-- text repaired by overlay: comstock_2025-3/" in doc.body
+    assert "refiling 30 chunks under it" in doc.body
+
+
+def test_text_repair_matching_several_lines_is_refused(pdf_env):
+    """A find that hits twice is a sweep, not a pin."""
+    pdf_env.write([], source_path=PDF_PATH, text_repairs=[_repair()])
+    doubled = REPAIR_BODY + "\n## Data from [11], [23]\n"
+    doc = _pdf_doc(doubled)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {} and doc.body == doubled
+    assert "matches 2 lines" in warnings[0]
+
+
+def test_text_repair_matching_nothing_is_refused(pdf_env):
+    pdf_env.write([], source_path=PDF_PATH, text_repairs=[_repair(find="## Not present")])
+    doc = _pdf_doc(REPAIR_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {} and doc.body == REPAIR_BODY
+    assert "matches 0 lines" in warnings[0]
+
+
+def test_text_repair_is_idempotent(pdf_env):
+    pdf_env.write([], source_path=PDF_PATH, text_repairs=[_repair()])
+    doc = _pdf_doc(REPAIR_BODY)
+    _apply([doc], pdf_env)
+    once = doc.body
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert doc.body == once and warnings == [] and applied == {}
+
+
+def test_text_repair_survives_a_long_reason(pdf_env):
+    """Idempotency walks the comment block, so a wordy `why` cannot re-warn every build."""
+    pdf_env.write(
+        [], source_path=PDF_PATH, text_repairs=[_repair(why="\n".join(f"line {n}" for n in range(30)))]
+    )
+    doc = _pdf_doc(REPAIR_BODY)
+    _apply([doc], pdf_env)
+    _, warnings = _apply([doc], pdf_env)
+    assert warnings == []
+
+
+def test_text_repair_requires_a_stated_reason(pdf_env):
+    repair = _repair()
+    del repair["why"]
+    pdf_env.write([], source_path=PDF_PATH, text_repairs=[repair])
+    doc = _pdf_doc(REPAIR_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {} and doc.body == REPAIR_BODY
+    assert "missing required field 'why'" in warnings[0]
+
+
+def test_an_overlay_with_neither_tables_nor_repairs_warns(pdf_env):
+    pdf_env.write([], source_path=PDF_PATH)
+    applied, warnings = _apply([_pdf_doc(REPAIR_BODY)], pdf_env)
+
+    assert applied == {}
+    assert "no table entries or text repairs" in warnings[0]
+
+
+def test_repairs_and_table_entries_compose_in_one_overlay(pdf_env):
+    """96598's real shape: a demoted heading and a superseded table in the same sidecar."""
+    body = f"""## 3 Modeling Approach
+
+Table 1. Roof R-Value
+
+## Data from [11], [23]
+
+{GRID_A}
+"""
+    pdf_env.write(
+        [_replacer(pdf_env, "Table 1", FIXED_A, _fp(GRID_A))],
+        source_path=PDF_PATH,
+        text_repairs=[_repair()],
+    )
+    doc = _pdf_doc(body)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert warnings == []
+    rec = applied["upgrade_measures"][PDF_PATH]
+    assert rec["tables_applied"] == ["Table 1"] and rec["text_repairs_applied"] == 1
+    lines = doc.body.split("\n")
+    assert (
+        lines.index("Table 1. Roof R-Value")
+        < lines.index("| Roof Type | Energy Code | 1A | 2A |")
+        < lines.index("Data from [11], [23]")
+    )
 
 
 def test_documents_without_an_overlay_are_untouched(env):

@@ -5,14 +5,23 @@ caption describes never made it into the markdown. That is the failure mode wort
 finding: the surrounding prose still says "as shown in Table 5", so a reader (or an
 LLM) is promised a table that isn't there and has to either hallucinate it or give up.
 
-For every processed .md file this script pairs each caption against nearby evidence
-that the artifact actually converted:
+For every processed .md file this script pairs each caption against the artifact it
+actually binds to:
 
   table caption   satisfied by a markdown table block, or a raw <table> (unconverted)
   figure caption  satisfied by a markdown image ![...], a raw <img>, or a fenced code
                   block (some "figures" are listings, e.g. an EnergyPlus object)
 
-A caption with no evidence in its window is reported as ORPHANED — the content is gone.
+The binding is *directional*: scan forward from the caption to the first decisive line
+(an artifact of any kind, the next caption, or the next heading) and let that line decide.
+Only if nothing forward decides it do we scan a short way backward, for the docs that put
+the caption underneath its artifact. An undirected "is there a table within N lines"
+window is not enough — where captions are dense it lets a caption whose own table is
+missing be satisfied by its *neighbour's* table, which is exactly how 13 dropped tables
+in measure_pdfs/ hid behind a clean report.
+
+A caption that binds to nothing, or to the wrong kind of artifact, is reported as
+ORPHANED — the content is gone.
 
 Image references are also resolved against the filesystem: a ref pointing at a file that
 was never copied into processed/ is reported as DANGLING. Raw <table>/<img> HTML that
@@ -63,7 +72,50 @@ HEADING = re.compile(r"^#{1,6}\s+(.*?)\s*$")
 # every caption with no artifact beside them; counting those as orphans is a false positive.
 TOC_HEADING = re.compile(r"^(?:list of (?:figures|tables)|(?:table of )?contents)\b", re.IGNORECASE)
 
-WINDOW = 10  # lines either side of a caption to look for its artifact
+# A section-numbered title reproduced *inside* a table ("**TABLE 6.5.1.1.3A High-Limit
+# Shutoff...**", lifted from ASHRAE 90.1) matches CAPTION but is not one of our captions.
+# Multi-level dotted numbering is the tell: a real caption reads "Table 6. Something".
+# Treating these as "the next caption" ends the forward scan one line early and reports a
+# recovered table as dropped (89128.md:521).
+SUBNUMBERED = re.compile(
+    r"^\s*(?:\*\*|__|\*|_)?\s*(?:Table|Figure|Fig\.?)\s*[0-9]+(?:\.[0-9]+)+", re.IGNORECASE
+)
+# Sub-figure labels between a multi-panel image and its caption: "- (a) Three-pipe system".
+# Requires the parenthesised single letter, so ordinary bullets are not swallowed.
+SUBFIGURE = re.compile(r"^\s*(?:[-*+]\s*)?(?:\*\*|__|\*|_)?\(?[A-Za-z]\)")
+COMMENT_OPEN = re.compile(r"<!--")
+COMMENT_CLOSE = re.compile(r"-->")
+
+# How far a caption may reach for its artifact, counted in *content* lines: blank lines, HTML
+# comments and in-table titles are walked for free (see skippable / _reach). Only a backstop for
+# pathological input — what actually keeps a caption from claiming its neighbour's table is
+# boundary(), and _bind_below_strict stops at the first non-skippable line regardless. Measured
+# corpus-wide, orphan counts are flat from 12 all the way out to 60, which is the evidence that
+# this number is not the operative bound; 16 leaves headroom without pretending otherwise.
+#
+# Counting content rather than raw lines is what makes the budget mean something stable. An
+# overlay's provenance comment is as long as its justification needs to be — 96598's replacement
+# entries carry a paragraph explaining what they superseded and why, ten comment lines before
+# the table starts — and under a raw line budget, writing a fuller explanation would push a
+# recovered table out of reach and report it as still missing. Distance between a caption and its
+# table is a property of the document, not of how much we had to say about it.
+WINDOW = 16
+BACK_WINDOW = 6  # content lines above a caption, for docs that put the caption under the artifact
+# Absolute line cap on either reach, so an unterminated comment cannot run a scan away.
+SCAN_CAP = 200
+
+
+def _reach(lines: list[str], i: int, comments: set[int], step: int, budget: int):
+    """Line indices out from caption `i`, spending `budget` only on non-skippable lines."""
+    for n in range(1, SCAN_CAP + 1):
+        j = i + step * n
+        if not 0 <= j < len(lines):
+            return
+        yield j
+        if not skippable(lines, j, comments):
+            budget -= 1
+            if budget <= 0:
+                return
 
 
 def toc_lines(lines: list[str]) -> set[int]:
@@ -153,8 +205,223 @@ def marker_lines(lines: list[str], pattern: re.Pattern) -> set[int]:
     return {i for i, line in enumerate(lines) if pattern.search(line)}
 
 
-def near(target: set[int], line_no: int, window: int = WINDOW) -> bool:
-    return any(abs(t - line_no) <= window for t in target)
+def comment_lines(lines: list[str]) -> set[int]:
+    """Line numbers inside an HTML comment span.
+
+    Every chunk-1/chunk-2 overlay recovery puts a multi-line `<!-- table recovered from
+    ... -->` provenance block between the caption and the table, so the scan has to step
+    over comments rather than treat them as content.
+    """
+    out: set[int] = set()
+    depth = 0
+    for i, line in enumerate(lines):
+        opens = len(COMMENT_OPEN.findall(line))
+        closes = len(COMMENT_CLOSE.findall(line))
+        if depth or opens:
+            out.add(i)
+        depth = max(0, depth + opens - closes)
+    return out
+
+
+def artifact_at(i: int, tables: set[int], images: set[int], fences: set[int]) -> str | None:
+    """Which kind of artifact, if any, line `i` is evidence of."""
+    if i in tables:
+        return "table"
+    if i in images:
+        return "image"
+    if i in fences:
+        return "fence"
+    return None
+
+
+def block_start(
+    i: int, kind: str, tables: set[int], images: set[int], fences: set[int]
+) -> int:
+    """First line of the artifact that line `i` belongs to.
+
+    Consecutive lines of the same kind are one artifact: a caption binds to a table, not to
+    one of its rows, so the question "whose table is this?" is asked of the whole block.
+    """
+    while i > 0 and artifact_at(i - 1, tables, images, fences) == kind:
+        i -= 1
+    return i
+
+
+SATISFIES = {"table": {"table"}, "figure": {"image", "fence"}}
+
+
+def skippable(lines: list[str], i: int, comments: set[int]) -> bool:
+    """Lines that may sit between a caption and its artifact without severing them."""
+    return (
+        not lines[i].strip()
+        or i in comments
+        or bool(SUBNUMBERED.match(lines[i]))
+        or bool(SUBFIGURE.match(lines[i]))
+    )
+
+
+def boundary(line: str) -> bool:
+    """A line that ends the caption's claim on what follows."""
+    return bool(HEADING.match(line)) or (bool(CAPTION.match(line)) and not SUBNUMBERED.match(line))
+
+
+def _bind_adjacent(
+    lines: list[str],
+    i: int,
+    accept: set[str],
+    tables: set[int],
+    images: set[int],
+    fences: set[int],
+    comments: set[int],
+) -> int | None:
+    """The artifact immediately below caption `i`, else the one immediately above it.
+
+    "Immediately" meaning nothing but blank lines, comments, sub-figure labels or an
+    in-table title in between. Below wins ties: captioning above the artifact is the
+    common convention, and the measure pages that caption underneath are consistent about
+    it. This runs before the prose-tolerant reach below so that a caption cannot claim the
+    *next* figure's image while its own sits right above it.
+    """
+    for probe in (_bind_below_strict, _bind_backward):
+        j = probe(lines, i, accept, tables, images, fences, comments)
+        if j is not None:
+            return j
+    return None
+
+
+def _bind_below_strict(
+    lines: list[str],
+    i: int,
+    accept: set[str],
+    tables: set[int],
+    images: set[int],
+    fences: set[int],
+    comments: set[int],
+) -> int | None:
+    """Artifact directly below caption `i`, nothing but skippables in between."""
+    for j in _reach(lines, i, comments, 1, WINDOW):
+        found = artifact_at(j, tables, images, fences)
+        if found:
+            return j if found in accept else None
+        if not skippable(lines, j, comments):
+            return None
+    return None
+
+
+def _bind_forward(
+    lines: list[str],
+    i: int,
+    accept: set[str],
+    tables: set[int],
+    images: set[int],
+    fences: set[int],
+    comments: set[int],
+) -> int | None:
+    """First artifact line below caption `i`, if it is one this caption accepts.
+
+    Prose between a caption and its artifact is tolerated — the PDF docs routinely put a
+    sentence of setup under a caption, and forbidding it costs 32 false positives — but the
+    next caption or heading ends the search, so a caption cannot borrow its neighbour's
+    table.
+    """
+    for j in _reach(lines, i, comments, 1, WINDOW):
+        found = artifact_at(j, tables, images, fences)
+        if found:
+            return j if found in accept else None
+        if skippable(lines, j, comments):
+            continue
+        if boundary(lines[j]):
+            break
+    return None
+
+
+def _bind_backward(
+    lines: list[str],
+    i: int,
+    accept: set[str],
+    tables: set[int],
+    images: set[int],
+    fences: set[int],
+    comments: set[int],
+) -> int | None:
+    """Artifact directly above caption `i`, for the docs that caption underneath it.
+
+    Strict: only blank lines, comments, sub-figure labels and in-table titles may
+    intervene. A prose-tolerant version re-borrows the previous caption's table.
+
+    For a *table* found above, refused if that table already carries a caption of its own
+    directly above it — which is what separates the two shapes that look identical from
+    this caption's line. In 92618.md:272 docling emitted Table 2's rows above its caption
+    (with a picture of the same table below) and prose, not a caption, sits above those
+    rows, so the content is present. At 95005.md:429 the table above is captioned Table 3
+    from above, so Table 4 really is gone and must not be excused by its neighbour's table.
+
+    The same inference does not hold for images, so it is not applied to them: tables in
+    this corpus are captioned above without exception, but figures are captioned above in
+    some documents and below in others, and several caption *every* figure underneath. In
+    those, every image has a caption above it — the previous figure's — and reading that as
+    ownership orphans 8 correctly-captioned figures (measured corpus-wide).
+    """
+    for j in _reach(lines, i, comments, -1, BACK_WINDOW):
+        found = artifact_at(j, tables, images, fences)
+        if found:
+            if found not in accept:
+                return None
+            if found == "table" and _captioned_from_above(
+                lines, j, found, tables, images, fences, comments
+            ):
+                return None
+            return j
+        if not skippable(lines, j, comments):
+            break
+    return None
+
+
+def _captioned_from_above(
+    lines: list[str],
+    j: int,
+    kind: str,
+    tables: set[int],
+    images: set[int],
+    fences: set[int],
+    comments: set[int],
+) -> bool:
+    """Whether the artifact containing line `j` is already labelled by the caption above it."""
+    for k in range(block_start(j, kind, tables, images, fences) - 1, -1, -1):
+        if skippable(lines, k, comments):
+            continue
+        return bool(CAPTION.match(lines[k])) and not SUBNUMBERED.match(lines[k])
+    return False
+
+
+def bind_captions(
+    lines: list[str],
+    captions: list[tuple[int, str]],
+    tables: set[int],
+    images: set[int],
+    fences: set[int],
+    comments: set[int],
+) -> dict[int, bool]:
+    """Bind every caption in a document to its artifact. Returns {caption line: bound}.
+
+    Two probes, the confident one first:
+
+    1. **Adjacent** — the artifact directly below the caption, else directly above it.
+    2. **Prose-tolerant forward** — for the captions adjacency left unbound.
+
+    Adjacency has to come first. Reaching across prose earlier lets a caption in a
+    caption-below-image document bind to the *next* figure's image while its own sits right
+    above it: the count stays the same but the binding is wrong, and any later use of these
+    pairings inherits the error.
+    """
+    bound: dict[int, bool] = {}
+    for i, want in captions:
+        accept = SATISFIES[want]
+        bound[i] = any(
+            probe(lines, i, accept, tables, images, fences, comments) is not None
+            for probe in (_bind_adjacent, _bind_forward)
+        )
+    return bound
 
 
 def classify_sources(manifest: dict) -> dict[str, str]:
@@ -216,22 +483,32 @@ def audit(processed: Path, kinds: dict[str, str]) -> tuple[list[dict], dict]:
         t["duplicate_h1"] += len(dup_h1)
 
         in_toc = toc_lines(lines)
-        orphan_t: list[dict] = []
-        orphan_f: list[dict] = []
+        comments = comment_lines(lines)
+        tables = tbl | html_tbl
+        images = img | html_img
+
+        captions: list[tuple[int, str, str, str]] = []
         for i, line in enumerate(lines):
             m = CAPTION.match(line)
             if not m or i in in_toc:
                 continue
-            label = f"{m.group(1).title()} {m.group(2)}"
-            caption = " ".join(line.split())[:130]
-            if m.group(1).lower().startswith("t"):
+            want = "table" if m.group(1).lower().startswith("t") else "figure"
+            captions.append((i, want, f"{m.group(1).title()} {m.group(2)}", " ".join(line.split())[:130]))
+        bound = bind_captions(
+            lines, [(i, want) for i, want, _, _ in captions], tables, images, fence, comments
+        )
+
+        orphan_t: list[dict] = []
+        orphan_f: list[dict] = []
+        for i, want, label, caption in captions:
+            if want == "table":
                 t["table_captions"] += 1
-                if not (near(tbl, i) or near(html_tbl, i)):
+                if not bound[i]:
                     t["orphan_tables"] += 1
                     orphan_t.append({"line": i + 1, "label": label, "caption": caption})
             else:
                 t["figure_captions"] += 1
-                if not (near(img, i) or near(html_img, i) or near(fence, i)):
+                if not bound[i]:
                     t["orphan_figures"] += 1
                     orphan_f.append({"line": i + 1, "label": label, "caption": caption})
 

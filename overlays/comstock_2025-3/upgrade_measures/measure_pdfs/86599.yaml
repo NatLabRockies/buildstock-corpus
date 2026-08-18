@@ -1,0 +1,90 @@
+# Hand-authored table transcription for measure_pdfs/86599.pdf
+#
+# Table 2 on p.13 is a rasterized region with no text layer: docling keeps the caption and emits
+# nothing beneath it, so the extracted body runs straight from the caption into "## 2.3 Roofs".
+# See overlays/README.md for the schema.
+#
+# Authoring notes:
+#   * Vision read, unlike most of chunk 3's entries. The page carries the table as a single
+#     embedded bitmap (xref 34, 1051x730) and has no text layer for it at all, so there are no
+#     word boxes to cluster; the transcription comes from a 300-dpi render of the table region.
+#   * 86602.pdf embeds the byte-identical bitmap of this same table on its own p.13
+#     (sha256 fbe9f72d2cc511bccbfdbf37...), and that report reprints it under the same number.
+#     Each is still transcribed and pinned against its own PDF, per overlays/README.md's rule
+#     that a shared caption is not evidence of a shared table — here the two happen to agree,
+#     which is a finding rather than an assumption.
+#   * Cross-checked against Table 10 of 96598.pdf, which prints the same assembly R-values with
+#     climate zone 3C added: every value matches once 3C is removed. Where the two disagree it is
+#     only in printed precision - this table prints bare integers ("8", "1", "10", "20", "13",
+#     "27") where 96598 prints "20.0", "13.0", "27.0". Transcribed as printed here.
+#   * Decomposed into one sub-table per wall type, which is how the source groups it (the wall
+#     type is a merged cell spanning its six energy-code rows). A single 24-row, 15-column pipe
+#     table would be one ~2,900-character paragraph and chunk._pack would split it mid-row.
+#   * The two lines above the column headers are the table's own title, not the caption, so they
+#     are transcribed as bold lines rather than folded into it. The source sets the "2" of "ft2"
+#     as a superscript; it is transcribed as the Unicode superscript.
+#   * The first two rows of each block are stock averages (hence values like 4.4 and 6.7) and the
+#     rest are code minima; the source marks that distinction only by the row labels, which are
+#     preserved. Column-group shading is dropped - it restates the climate-zone header.
+
+product: comstock
+release: "2025-3"
+source_id: upgrade_measures
+source_path: measure_pdfs/86599.pdf
+
+tables:
+  - label: "Table 2"
+    caption: "Wall Assembly Thermal Performance (Outside California)"
+    source_pdf: measure_pdfs/86599.pdf
+    source_pdf_sha256: "c8c286e4939049366b50b203a8f6cac0f4201ca4d3aed2219a2089fefa45f2f3"
+    page: 13
+    method: vision-transcription
+    transcribed_utc: "2026-08-18"
+    markdown: |
+      **Whole Wall Assembly R-value by ASHRAE Climate Zone (ft²*F*hr/Btu)**
+
+      **Includes interior and exterior air films**
+
+      **Mass**
+
+      | Energy Code | 1A | 2A | 2B | 3A | 3B | 4A | 4B | 4C | 5A | 5B | 6A | 6B | 7 | 8 |
+      |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+      | Pre-1980 | 4.3 | 4.3 | 4.3 | 4.4 | 4.3 | 5.6 | 5.4 | 5.7 | 6.4 | 6.2 | 6.9 | 6.9 | 7.4 | 8 |
+      | 1980–2004 | 1 | 2.9 | 2.4 | 3.4 | 3.4 | 8.3 | 5.3 | 10 | 10 | 7.1 | 14.1 | 12.7 | 16.4 | 21.3 |
+      | 90.1-2004 | 1.7 | 1.7 | 1.7 | 6.6 | 6.6 | 6.6 | 6.6 | 6.6 | 8.1 | 8.1 | 9.6 | 9.6 | 11.1 | 12.5 |
+      | 90.1-2007 | 1.7 | 6.6 | 6.6 | 8.1 | 8.1 | 9.6 | 9.6 | 9.6 | 11.1 | 11.1 | 12.5 | 12.5 | 14.1 | 14.1 |
+      | 90.1-2010 | 1.7 | 6.6 | 6.6 | 8.1 | 8.1 | 9.6 | 9.6 | 9.6 | 11.1 | 11.1 | 12.5 | 12.5 | 14.1 | 14.1 |
+      | 90.1-2013 | 1.7 | 6.6 | 6.6 | 8.1 | 8.1 | 9.6 | 9.6 | 9.6 | 11.1 | 11.1 | 12.5 | 12.5 | 14.1 | 20.8 |
+
+      **Metal Building**
+
+      | Energy Code | 1A | 2A | 2B | 3A | 3B | 4A | 4B | 4C | 5A | 5B | 6A | 6B | 7 | 8 |
+      |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+      | Pre-1980 | 4.3 | 4.3 | 4.3 | 4.4 | 4.3 | 5.6 | 5.4 | 5.7 | 6.4 | 6.2 | 6.9 | 6.9 | 7.4 | 8 |
+      | 1980–2004 | 1 | 6.7 | 4.2 | 7.7 | 6.3 | 11.2 | 10 | 10.9 | 12.2 | 12.2 | 15.4 | 13.9 | 17.2 | 22.2 |
+      | 90.1-2004 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 17.5 | 17.5 |
+      | 90.1-2007 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 8.8 | 17.5 | 17.5 |
+      | 90.1-2010 | 10.8 | 10.8 | 10.8 | 11.9 | 11.9 | 11.9 | 11.9 | 11.9 | 14.5 | 14.5 | 14.5 | 14.5 | 17.5 | 17.5 |
+      | 90.1-2013 | 10.6 | 10.6 | 10.6 | 10.6 | 10.6 | 16.7 | 16.7 | 16.7 | 20 | 20 | 20 | 20 | 22.7 | 25.6 |
+
+      **Steel Framed**
+
+      | Energy Code | 1A | 2A | 2B | 3A | 3B | 4A | 4B | 4C | 5A | 5B | 6A | 6B | 7 | 8 |
+      |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+      | Pre-1980 | 4.3 | 4.3 | 4.3 | 4.4 | 4.3 | 5.6 | 5.4 | 5.7 | 6.4 | 6.2 | 6.9 | 6.9 | 7.4 | 8 |
+      | 1980–2004 | 1 | 6.7 | 4.2 | 7.7 | 6.3 | 11.2 | 10 | 10.9 | 12.2 | 12.2 | 15.4 | 13.9 | 17.2 | 22.2 |
+      | 90.1-2004 | 8.1 | 8.1 | 8.1 | 8.1 | 8.1 | 8.1 | 8.1 | 8.1 | 11.9 | 11.9 | 11.9 | 11.9 | 15.6 | 15.6 |
+      | 90.1-2007 | 8.1 | 8.1 | 8.1 | 11.9 | 11.9 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 |
+      | 90.1-2010 | 8.1 | 8.1 | 8.1 | 11.9 | 11.9 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 |
+      | 90.1-2013 | 8.1 | 11.9 | 11.9 | 13 | 13 | 15.6 | 15.6 | 15.6 | 18.2 | 18.2 | 20.4 | 20.4 | 20.4 | 27 |
+
+      **Wood Framed**
+
+      | Energy Code | 1A | 2A | 2B | 3A | 3B | 4A | 4B | 4C | 5A | 5B | 6A | 6B | 7 | 8 |
+      |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+      | Pre-1980 | 4.3 | 4.3 | 4.3 | 4.4 | 4.3 | 5.6 | 5.4 | 5.7 | 6.4 | 6.2 | 6.9 | 6.9 | 7.4 | 8 |
+      | 1980–2004 | 1 | 6.7 | 4.2 | 7.7 | 6.3 | 11.2 | 10 | 10.9 | 12.2 | 12.2 | 15.4 | 13.9 | 17.2 | 22.2 |
+      | 90.1-2004 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 19.6 |
+      | 90.1-2007 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 15.6 | 15.6 | 19.6 | 19.6 | 19.6 | 27.8 |
+      | 90.1-2010 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 15.6 | 15.6 | 19.6 | 19.6 | 19.6 | 27.8 |
+      | 90.1-2013 | 11.2 | 11.2 | 11.2 | 11.2 | 11.2 | 15.6 | 15.6 | 15.6 | 19.6 | 19.6 | 19.6 | 19.6 | 19.6 | 31.3 |

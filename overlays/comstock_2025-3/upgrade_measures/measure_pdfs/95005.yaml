@@ -1,0 +1,93 @@
+# Hand-authored table transcription for measure_pdfs/95005.pdf
+#
+# Table 4 is the California half of the wall-assembly pair on page 18. Its sibling Table 3
+# extracted as a markdown table; Table 4 did not — docling classified it as a picture, so the
+# caption survived with a bitmap under it. The entry is anchored to that bitmap and replaces the
+# image ref. See overlays/README.md for the schema.
+#
+# Authoring notes:
+#   * Not a vision read: the table still has a full text layer in the PDF, so all 576 values were
+#     extracted with pymupdf's word boxes clustered by line, then spot-checked against a 250-dpi
+#     render of the region. The cached bitmap is only 479x321, too coarse to read reliably, which
+#     is the reason to go back to the PDF rather than transcribe the picture.
+#   * Decomposed into one sub-table per wall type, which is how the source groups it (the wall
+#     type is a merged cell spanning its nine energy-code rows). A single 36-row, 18-column pipe
+#     table would be one ~4,700-character paragraph and chunk._pack would split it mid-row.
+#   * The two title lines above the column headers are the table's own, not the caption, so they
+#     are transcribed as bold lines rather than folded into the caption. "ft^2" is written the way
+#     the PDF's text layer spells it.
+#   * Values are transcribed as printed, trailing zeros included ("4.0", "8.0"), so they stay
+#     comparable with Table 3 in the same document.
+
+product: comstock
+release: "2025-3"
+source_id: upgrade_measures
+source_path: measure_pdfs/95005.pdf
+
+tables:
+  - label: "Table 4"
+    caption: "Wall Assembly Thermal Performance (Inside California)"
+    source_image: 95005_images/image_000002_5f775732f503ac82d2679d78ff1b918103256d8185d89bbced7a5d7eab445012.png
+    source_image_sha256: "2b2d5738f94a881bf8b741e8d3e119d9262d8fcfcd1b94378d40fa090a4f5440"
+    method: pdf-text-layer
+    transcribed_utc: "2026-08-18"
+    markdown: |
+      **Whole Wall Assembly R-Value by CEC Climate Zone (ft^2*F*hr/Btu)**
+
+      **Includes interior and exterior air films**
+
+      **Mass**
+
+      | Energy Code | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
+      |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+      | DEER Pre-1975 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 |
+      | DEER 1985 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 |
+      | DEER 1996 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 |
+      | DEER 2003 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 |
+      | DEER 2007 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 |
+      | DEER 2011 | 4.0 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 5.4 | 4.0 | 4.7 | 5.4 | 5.4 | 6.3 |
+      | DEER 2014 | 4.0 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 5.4 | 4.0 | 4.7 | 5.4 | 5.4 | 6.3 |
+      | DEER 2015 | 4.0 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 5.4 | 4.0 | 4.7 | 5.4 | 5.4 | 6.3 |
+      | DEER 2017 | 4.0 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 3.5 | 5.4 | 4.0 | 4.7 | 5.4 | 5.4 | 6.3 |
+
+      **Metal Building**
+
+      | Energy Code | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
+      |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+      | DEER Pre-1975 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 |
+      | DEER 1985 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 |
+      | DEER 1996 | 12.5 | 12.5 | 12.5 | 12.5 | 12.5 | 12.5 | 12.5 | 12.5 | 11.3 | 11.3 | 12.5 | 12.5 | 12.5 | 12.5 | 12.5 | 12.5 |
+      | DEER 2003 | 12.5 | 12.5 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 12.5 | 12.5 | 12.5 | 12.5 | 12.5 | 12.5 | 12.5 |
+      | DEER 2007 | 12.5 | 12.5 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 12.5 | 12.5 | 12.5 | 12.5 | 12.5 | 12.5 | 12.5 |
+      | DEER 2011 | 12.5 | 16.9 | 11.3 | 16.9 | 11.3 | 11.3 | 11.3 | 11.3 | 16.9 | 16.9 | 16.9 | 16.9 | 16.9 | 16.9 | 23.8 | 16.9 |
+      | DEER 2014 | 12.5 | 16.9 | 11.3 | 16.9 | 11.3 | 11.3 | 11.3 | 11.3 | 16.9 | 16.9 | 16.9 | 16.9 | 16.9 | 16.9 | 23.8 | 16.9 |
+      | DEER 2015 | 12.5 | 16.9 | 11.3 | 16.9 | 11.3 | 11.3 | 11.3 | 11.3 | 16.9 | 16.9 | 16.9 | 16.9 | 16.9 | 16.9 | 23.8 | 16.9 |
+      | DEER 2017 | 12.5 | 16.9 | 11.3 | 16.9 | 11.3 | 11.3 | 11.3 | 11.3 | 16.9 | 16.9 | 16.9 | 16.9 | 16.9 | 16.9 | 23.8 | 16.9 |
+
+      **Steel Framed**
+
+      | Energy Code | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
+      |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+      | DEER Pre-1975 | 5.7 | 5.7 | 5.7 | 5.7 | 5.7 | 5.7 | 5.7 | 5.7 | 5.7 | 5.7 | 5.7 | 5.7 | 5.7 | 5.7 | 5.7 | 5.7 |
+      | DEER 1985 | 7.0 | 7.0 | 7.0 | 7.0 | 7.0 | 7.0 | 7.0 | 7.0 | 7.0 | 7.0 | 7.0 | 7.0 | 7.0 | 7.0 | 7.0 | 7.0 |
+      | DEER 1996 | 8.0 | 8.0 | 7.2 | 7.2 | 7.2 | 7.2 | 7.2 | 7.2 | 7.2 | 7.4 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 |
+      | DEER 2003 | 8.0 | 8.0 | 7.4 | 7.4 | 7.4 | 7.4 | 7.4 | 7.2 | 7.2 | 7.2 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 |
+      | DEER 2007 | 8.0 | 8.0 | 7.4 | 7.4 | 7.4 | 7.4 | 7.4 | 7.2 | 7.2 | 7.2 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 |
+      | DEER 2011 | 10.2 | 16.1 | 12.2 | 16.1 | 16.1 | 10.2 | 10.2 | 16.1 | 16.1 | 16.1 | 16.1 | 16.1 | 16.1 | 16.1 | 16.1 | 16.1 |
+      | DEER 2014 | 10.2 | 16.1 | 12.2 | 16.1 | 16.1 | 10.2 | 10.2 | 16.1 | 16.1 | 16.1 | 16.1 | 16.1 | 16.1 | 16.1 | 16.1 | 16.1 |
+      | DEER 2015 | 10.2 | 16.1 | 12.2 | 16.1 | 16.1 | 10.2 | 10.2 | 16.1 | 16.1 | 16.1 | 16.1 | 16.1 | 16.1 | 16.1 | 16.1 | 16.1 |
+      | DEER 2017 | 10.2 | 16.1 | 12.2 | 16.1 | 16.1 | 10.2 | 10.2 | 16.1 | 16.1 | 16.1 | 16.1 | 16.1 | 16.1 | 16.1 | 16.1 | 16.1 |
+
+      **Wood Framed**
+
+      | Energy Code | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
+      |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+      | DEER Pre-1975 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 | 8.0 |
+      | DEER 1985 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 |
+      | DEER 1996 | 12.5 | 12.5 | 12.5 | 12.5 | 12.5 | 12.5 | 12.5 | 12.5 | 11.3 | 11.3 | 12.5 | 12.5 | 12.5 | 12.5 | 12.5 | 12.5 |
+      | DEER 2003 | 12.5 | 12.5 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 12.5 | 12.5 | 12.5 | 12.5 | 12.5 | 12.5 | 12.5 |
+      | DEER 2007 | 12.5 | 12.5 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 11.3 | 12.5 | 12.5 | 12.5 | 12.5 | 12.5 | 12.5 | 12.5 |
+      | DEER 2011 | 12.5 | 16.9 | 11.3 | 16.9 | 11.3 | 11.3 | 11.3 | 11.3 | 16.9 | 16.9 | 16.9 | 16.9 | 16.9 | 16.9 | 23.8 | 16.9 |
+      | DEER 2014 | 12.5 | 16.9 | 11.3 | 16.9 | 11.3 | 11.3 | 11.3 | 11.3 | 16.9 | 16.9 | 16.9 | 16.9 | 16.9 | 16.9 | 23.8 | 16.9 |
+      | DEER 2015 | 12.5 | 16.9 | 11.3 | 16.9 | 11.3 | 11.3 | 11.3 | 11.3 | 16.9 | 16.9 | 16.9 | 16.9 | 16.9 | 16.9 | 23.8 | 16.9 |
+      | DEER 2017 | 12.5 | 16.9 | 11.3 | 16.9 | 11.3 | 11.3 | 11.3 | 11.3 | 16.9 | 16.9 | 16.9 | 16.9 | 16.9 | 16.9 | 23.8 | 16.9 |
