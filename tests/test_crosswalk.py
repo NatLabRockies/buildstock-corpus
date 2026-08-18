@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from buildstock_corpus.extract.crosswalk import build_crosswalk
+from buildstock_corpus.extract.crosswalk import _release_columns, build_crosswalk
 from buildstock_corpus.extract.measures_index import (
     local_pdf_paths,
     parse_index,
 )
+
+RELEASE = "comstock_amy2018_2025_release_3"
 
 INDEX_PATH = "docs/upgrade_measures/upgrade_measures.md"
 
@@ -72,7 +74,7 @@ def test_build_crosswalk_join_counts_and_gaps(tmp_path):
     csv_path.write_text(CSV, encoding="utf-8")
     refs = parse_index(INDEX_MD, INDEX_PATH)
 
-    cw = build_crosswalk(csv_path, refs, "2025-3")
+    cw = build_crosswalk(csv_path, refs, RELEASE)
 
     # 4 CSV rows + 2 index-only measures (ltg_0003, dr_0006) = 6; covered/gaps partition them
     assert cw["counts"] == {"measures": 6, "covered": 3, "gaps": 3}
@@ -93,3 +95,25 @@ def test_build_crosswalk_join_counts_and_gaps(tmp_path):
     # a CSV measure absent from the index is a distinct gap reason
     xyz_gap = next(g for g in cw["gaps"] if g["measure_id"] == "xyz_0009")
     assert "index" in xyz_gap["reason"]
+
+
+def test_release_columns_found_however_the_release_id_orders_its_parts():
+    """The CSV names its columns 2025_comstock_amy2018_release_3; our id says
+    comstock_amy2018_2025_release_3. Same release, different order — match on year + number."""
+    fields = list(CSV.split("\n")[0].split(","))
+
+    assert _release_columns(fields, "comstock_amy2018_2025_release_3") == (
+        "2025_comstock_amy2018_release_3_upgrade_id",
+        "2025_comstock_amy2018_release_3_upgrade_name",
+    )
+    # the pre-OEDI tag form still resolves, so an older release stays buildable
+    assert _release_columns(fields, "2025-3") == (
+        "2025_comstock_amy2018_release_3_upgrade_id",
+        "2025_comstock_amy2018_release_3_upgrade_name",
+    )
+
+
+def test_release_id_without_a_year_and_number_matches_no_column():
+    """No silent wrong column: an id that encodes neither yields nothing to join on."""
+    fields = list(CSV.split("\n")[0].split(","))
+    assert _release_columns(fields, "comstock_amy2018_latest") == (None, None)

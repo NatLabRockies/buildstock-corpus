@@ -18,10 +18,34 @@ from .measures_index import MeasureRef
 _COVERED_KINDS = {"internal_md", "external_pdf", "local_pdf"}
 
 
+# Release ids in OEDI form (comstock_amy2018_2025_release_3) and the older tag form
+# (2025-3). Both are reduced to the (year, release number) pair the CSV columns key on;
+# the dataset type and weather year in between are not part of that key.
+_OEDI_RELEASE = re.compile(r"_(?P<year>\d{4})_release_(?P<num>\d+)$")
+_TAG_RELEASE = re.compile(r"^(?P<year>\d{4})-(?P<num>\d+)$")
+
+
+def _release_parts(release: str) -> tuple[str, str] | None:
+    """(year, release number) for a release id, or None if it encodes neither."""
+    for pattern in (_OEDI_RELEASE, _TAG_RELEASE):
+        m = pattern.search(release)
+        if m:
+            return m.group("year"), m.group("num")
+    return None
+
+
 def _release_columns(fieldnames: list[str], release: str) -> tuple[str | None, str | None]:
-    """Find the upgrade_id/upgrade_name CSV columns for this release (e.g. 2025-3 ->
-    '2025_comstock_amy2018_release_3_upgrade_{id,name}'), tolerant of the exact prefix."""
-    year, _, num = release.partition("-")
+    """Find the upgrade_id/upgrade_name CSV columns for this release.
+
+    The CSV names them for the release in its own way — comstock_amy2018_2025_release_3 ->
+    '2025_comstock_amy2018_release_3_upgrade_{id,name}', which orders the same parts
+    differently — so match on the year and release number and stay tolerant of whatever
+    sits between them.
+    """
+    parts = _release_parts(release)
+    if parts is None:
+        return None, None
+    year, num = parts
     id_pat = re.compile(rf"{re.escape(year)}.*release_{re.escape(num)}_upgrade_id$")
     name_pat = re.compile(rf"{re.escape(year)}.*release_{re.escape(num)}_upgrade_name$")
     id_col = next((f for f in fieldnames if id_pat.search(f)), None)

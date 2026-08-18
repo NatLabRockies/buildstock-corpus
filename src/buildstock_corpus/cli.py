@@ -35,7 +35,14 @@ app = typer.Typer(
 )
 
 ProductOpt = Annotated[str, typer.Option(help="Dataset product, e.g. 'comstock'.")]
-ReleaseOpt = Annotated[str, typer.Option(help="Dataset release tag, e.g. '2025-3'.")]
+ReleaseOpt = Annotated[
+    str,
+    typer.Option(
+        help="Dataset release id, following the OEDI data lake convention "
+        "<dataset type>_<weather data>_<year of publication>_release_<release number>, "
+        "e.g. 'comstock_amy2018_2025_release_3'.",
+    ),
+]
 WorkDirOpt = Annotated[
     Path | None,
     typer.Option(
@@ -56,7 +63,10 @@ def _workspace(work_dir: Path | None) -> None:
 
 
 @app.command()
-def fetch(product: ProductOpt = "comstock", release: ReleaseOpt = "2025-3") -> None:
+def fetch(
+    product: ProductOpt = "comstock",
+    release: ReleaseOpt = "comstock_amy2018_2025_release_3",
+) -> None:
     """Download and hash raw sources for a release."""
     from . import fetch as _fetch
 
@@ -66,7 +76,7 @@ def fetch(product: ProductOpt = "comstock", release: ReleaseOpt = "2025-3") -> N
 @app.command()
 def build(
     product: ProductOpt = "comstock",
-    release: ReleaseOpt = "2025-3",
+    release: ReleaseOpt = "comstock_amy2018_2025_release_3",
     sample: Annotated[
         int | None,
         typer.Option(
@@ -95,7 +105,7 @@ def build(
 @app.command()
 def index(
     product: ProductOpt = "comstock",
-    release: ReleaseOpt = "2025-3",
+    release: ReleaseOpt = "comstock_amy2018_2025_release_3",
     work_dir: WorkDirOpt = None,
 ) -> None:
     """Embed chunks into a persistent Chroma collection for this release."""
@@ -109,7 +119,7 @@ def index(
 def query(
     text: Annotated[str, typer.Argument(help="Natural-language question.")],
     product: ProductOpt = "comstock",
-    release: ReleaseOpt = "2025-3",
+    release: ReleaseOpt = "comstock_amy2018_2025_release_3",
     k: Annotated[int, typer.Option(help="Number of passages to retrieve.")] = 5,
     answer: Annotated[
         bool, typer.Option(help="Also synthesize an answer via an LLM (requires an API key).")
@@ -126,7 +136,7 @@ def query(
 @app.command()
 def validate(
     product: ProductOpt = "comstock",
-    release: ReleaseOpt = "2025-3",
+    release: ReleaseOpt = "comstock_amy2018_2025_release_3",
     work_dir: WorkDirOpt = None,
 ) -> None:
     """Check manifest provenance invariants; exit non-zero on failure."""

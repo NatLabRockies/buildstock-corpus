@@ -16,6 +16,8 @@ import buildstock_corpus.index as I
 import buildstock_corpus.query as Q
 from buildstock_corpus.paths import chunks_file, use_workspace
 
+RELEASE = "comstock_amy2018_2025_release_3"
+
 DIM = 8
 
 
@@ -72,6 +74,6 @@ def workspace(tmp_path, monkeypatch):
 @pytest.fixture
 def indexed(workspace, write_chunks):
     """A small real Chroma store, already built, in a tmp workspace."""
-    write_chunks("comstock", "2025-3", 4)
-    I.build_index("comstock", "2025-3", batch_size=2)
+    write_chunks("comstock", RELEASE, 4)
+    I.build_index("comstock", RELEASE, batch_size=2)
     return workspace

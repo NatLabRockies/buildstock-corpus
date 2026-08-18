@@ -1,6 +1,6 @@
 {
   "product": "comstock",
-  "release": "2025-3",
+  "release": "comstock_amy2018_2025_release_3",
   "generated_utc": "2026-08-18T20:38:18.989723+00:00",
   "tooling": {
     "pipeline": "0.1.0",
@@ -531,8 +531,8 @@
           "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/env_ext_secondary_window.md",
           "output_sha256": "dc5bcf513cbf9d1bc3ec82d055fe2cb2a253599e2e6fd89500c62b27fcf1b119",
           "overlay": {
-            "path": "comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_ext_secondary_window.yaml",
-            "sha256": "68f9a521bed07289198f2482f73256972e8d8de17051da516b9c988f488098f8",
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_ext_secondary_window.yaml",
+            "sha256": "e1249a2e40be36a60594457e5e2a5797524a562670e16664733c7b3f9b783cf4",
             "tables_applied": [
               "Table 2",
               "Table 4",
@@ -551,8 +551,8 @@
           "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/env_ext_wall_insulation.md",
           "output_sha256": "c9c405eaabe87b9c451dfe3261a47cb5ebd881a7ec07ae5837c3ea23ea253df5",
           "overlay": {
-            "path": "comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_ext_wall_insulation.yaml",
-            "sha256": "c09343f292f677b9e1987fe68f73579e4a67001e89f8afac9d630fe0da72140b",
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_ext_wall_insulation.yaml",
+            "sha256": "2e85f3d672bfa16cdd7d45831c719c5cae754d6aabbb2aac35edc562ab32a69c",
             "tables_applied": [
               "Table 3",
               "Table 4",
@@ -571,8 +571,8 @@
           "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/env_ext_window_replacement.md",
           "output_sha256": "3ff73305e93744fd4dd6db444be67b93eac0233011ee988d23e438eb9c96ccec",
           "overlay": {
-            "path": "comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_ext_window_replacement.yaml",
-            "sha256": "1a07e37f305b0f64daefe0085525a0900bc7828575a1ebafe51ca766be510802",
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_ext_window_replacement.yaml",
+            "sha256": "7b24b424c24d0fb0e7197da5e4a2ee0fcf2f4f5a4d84acfeed7fdf185e1ce62b",
             "tables_applied": [
               "Table 2"
             ]
@@ -586,8 +586,8 @@
           "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/env_roof_insulation.md",
           "output_sha256": "265c1dc416a2ec54e4436b44d185e481211339d940d3cc07d6d8520470b4039d",
           "overlay": {
-            "path": "comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_roof_insulation.yaml",
-            "sha256": "c0f2f1897bcd2005ef79fdcc4d9e809aeed226609106692cd6ae38db840c6089",
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_roof_insulation.yaml",
+            "sha256": "fc34ddec7b32cd3bc5b2ddeda867769d5b8abd48181ff7ef62373277c21db661",
             "tables_applied": [
               "Table 1",
               "Table 2",
@@ -607,8 +607,8 @@
           "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/env_window_film.md",
           "output_sha256": "9f4fb6dd84a60fc98947774d2b39ca37674b7815b4699c1aece443da03f117c7",
           "overlay": {
-            "path": "comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_window_film.yaml",
-            "sha256": "a15f33301e2ba148f4b328d6e2424cbf82b75f0109923c236d18d2b167250916",
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_window_film.yaml",
+            "sha256": "2d165f0cd1850f38d759c0f0ed1d03e853157e29c184222470ff6e7072802087",
             "tables_applied": [
               "Table 2",
               "Table 3"
@@ -655,8 +655,8 @@
           "output_path": "upgrade_measures/measure_pdfs/95005.md",
           "output_sha256": "44431a90399c1d35e1fef3e550ab677ee2641da37ccb0cd576405e3ed0c32196",
           "overlay": {
-            "path": "comstock_2025-3/upgrade_measures/measure_pdfs/95005.yaml",
-            "sha256": "1915a04e14a5dbdb0ced3b8b274d4b421c93a5beb149aab2c5df5acee2121217",
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95005.yaml",
+            "sha256": "cc136e17a3c5245a86dbaed90a23ffb267f744c9633c8afe1b9f0fff9c32b5a5",
             "tables_applied": [
               "Table 4"
             ]
@@ -734,8 +734,8 @@
           "output_path": "upgrade_measures/measure_pdfs/96598.md",
           "output_sha256": "ad802deb9143c04b189daccda419612a68118208355802935e3bc7e9537c50f9",
           "overlay": {
-            "path": "comstock_2025-3/upgrade_measures/measure_pdfs/96598.yaml",
-            "sha256": "58dc5b65f1b5139b3382bd789bbb9e04c9bca58a16561710cb64fa24140fae51",
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/96598.yaml",
+            "sha256": "2cca86ffe28ece79fad87910db8b1d22e0b2e7a0a923f2fd27f94a2d6a0de0ef",
             "tables_applied": [
               "Table 5.",
               "Table 6.",
@@ -763,8 +763,8 @@
           "output_path": "upgrade_measures/measure_pdfs/98224.md",
           "output_sha256": "17607b1efe98672a523fe81199ab580adac169933497d9aca75489797435f7f8",
           "overlay": {
-            "path": "comstock_2025-3/upgrade_measures/measure_pdfs/98224.yaml",
-            "sha256": "48f631fd9f119ad7d33472390bdece044e727b156b7e362f67a933ffd078cd60",
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/98224.yaml",
+            "sha256": "89ef95cae485690903e130c4aa73f51e05ffa1334fdd96a66967f0fdda5145ae",
             "tables_applied": [
               "Table 2"
             ]
@@ -810,8 +810,8 @@
           "output_path": "upgrade_measures/measure_pdfs/86103.md",
           "output_sha256": "449074a06f97cc338a5905ffe9846591ffd2997738609719f3f011807f96f3aa",
           "overlay": {
-            "path": "comstock_2025-3/upgrade_measures/measure_pdfs/86103.yaml",
-            "sha256": "4157c6751f3a3202bc2c30c850fd16016ac574b8fbfa776decc4cd4074c5f904",
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86103.yaml",
+            "sha256": "e5ba506797f733eb7d7b04288a79c58b0e89c1aba99c3e24697ab22ecf0803b6",
             "tables_applied": [
               "Table 1",
               "Table 2",
@@ -836,8 +836,8 @@
           "output_path": "upgrade_measures/measure_pdfs/86199.md",
           "output_sha256": "538bf8e0e1c0abdbe42b3bf213776bc857bec3e7d5f4c04e8ed43c99a0c9a0c2",
           "overlay": {
-            "path": "comstock_2025-3/upgrade_measures/measure_pdfs/86199.yaml",
-            "sha256": "74dc34d584d77956d0470d0f9da393c475aafae81d0c7ef2b91b13713bb67c35",
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86199.yaml",
+            "sha256": "a526bebb596e0bab4b8b59786a557f546f8f8b9c52be06dafb1c3cca8e0351df",
             "tables_applied": [
               "Table 1",
               "Table 2"
@@ -860,8 +860,8 @@
           "output_path": "upgrade_measures/measure_pdfs/86599.md",
           "output_sha256": "850aa80c36d3e211baa0fe14c3b21179766e2ea65a478ad9359e3ce02b476707",
           "overlay": {
-            "path": "comstock_2025-3/upgrade_measures/measure_pdfs/86599.yaml",
-            "sha256": "713e09d431f7ccf900b40a3a73e8414f1dd909196fc67353f6b917366a91c82f",
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86599.yaml",
+            "sha256": "b81dcf2c5f50d5eb72dc1b29e51ab09eb09009f3eae7d294ee811da69f5d27ad",
             "tables_applied": [
               "Table 2"
             ]
@@ -875,8 +875,8 @@
           "output_path": "upgrade_measures/measure_pdfs/86601.md",
           "output_sha256": "81374ed9b1773d68a3f4ed4e5eb2866596b2373e8b31336a7f3f4c9d078ebe03",
           "overlay": {
-            "path": "comstock_2025-3/upgrade_measures/measure_pdfs/86601.yaml",
-            "sha256": "afdf315c76946791dd0af76a63e8ce8715f4a6985a041c981976e8ce78a00722",
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86601.yaml",
+            "sha256": "058d67f97de9fb232427d3f779d75108d9268f6b53fafdd53f95954daf9d4e51",
             "tables_applied": [
               "Table 3"
             ]
@@ -890,8 +890,8 @@
           "output_path": "upgrade_measures/measure_pdfs/86602.md",
           "output_sha256": "22749151c29c18312c1378eadeb771d9d2e0bec0d03916f49b9ca0e7ef88f712",
           "overlay": {
-            "path": "comstock_2025-3/upgrade_measures/measure_pdfs/86602.yaml",
-            "sha256": "6f3a2b024e659da59c6e7a7d3fd2973d4ff138aeec74b091a646ba89c1cc2912",
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86602.yaml",
+            "sha256": "ff90b9bbf171ec2941fe77ca6f298d67e08741af6970dd996fca2811111b4b1a",
             "tables_applied": [
               "Table 2",
               "Table 6"
@@ -914,8 +914,8 @@
           "output_path": "upgrade_measures/measure_pdfs/87536.md",
           "output_sha256": "871e4b44a3303d2ee7c6e6c322076fd9e964adb151f773c9da886962a8a9e87e",
           "overlay": {
-            "path": "comstock_2025-3/upgrade_measures/measure_pdfs/87536.yaml",
-            "sha256": "ad4f46d4a72edb19ec728edc5b331a0ff969cbd4e1eb25e5b99fa9f5f927a80e",
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/87536.yaml",
+            "sha256": "e3244c89b3d90090e1516bd96213e6f9d7052fa01794353ab0bae1234c1f4d7f",
             "tables_applied": [
               "Table 1",
               "Table 2"
@@ -954,8 +954,8 @@
           "output_path": "upgrade_measures/measure_pdfs/89040.md",
           "output_sha256": "8f5f7627225a9b3063507af7a5c5cfc6bf180fcea4f25abaf6743170ef7e6b06",
           "overlay": {
-            "path": "comstock_2025-3/upgrade_measures/measure_pdfs/89040.yaml",
-            "sha256": "481e2ef5191c274c24547f79a07a9078b662beccac7a34d4c9bab8a862c20130",
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89040.yaml",
+            "sha256": "1820ff4efcaf2456b8682a6d66dcae4349dfa627c535b81bb6a630663d4d3cd7",
             "tables_applied": [
               "Table 1",
               "Table 4",
@@ -987,8 +987,8 @@
           "output_path": "upgrade_measures/measure_pdfs/89128.md",
           "output_sha256": "d0f39053c6e8503efaa2d7d383fa2a8722337288870d7ac631cda41fe117ee1d",
           "overlay": {
-            "path": "comstock_2025-3/upgrade_measures/measure_pdfs/89128.yaml",
-            "sha256": "bb50739b5258e629bdae5a5151073d5e8813aaeff67a8d2bcf27de6d1d250ae5",
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89128.yaml",
+            "sha256": "68dbc1ad0bb4d2841eb7a3d7d1b1ba3a0cff48889310852f60337e7bd131d366",
             "tables_applied": [
               "Table 1",
               "Table 5"
@@ -1003,8 +1003,8 @@
           "output_path": "upgrade_measures/measure_pdfs/89130.md",
           "output_sha256": "c8f708cba93445ced795387bcfa209bd8614639b8b9c47c7eb7183233d0f8d19",
           "overlay": {
-            "path": "comstock_2025-3/upgrade_measures/measure_pdfs/89130.yaml",
-            "sha256": "b7637f623e9acfddefe4eabc0a9a13599c13f0d2c796b2afcdff1442587461b0",
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89130.yaml",
+            "sha256": "b2b89abd76b063a08a09bd1392929e78099c8d7d2ae523c44aea1ed5e27e9eba",
             "tables_applied": [
               "Table 2",
               "Table 4",
@@ -1095,8 +1095,8 @@
           "output_path": "upgrade_measures/measure_pdfs/89042.md",
           "output_sha256": "8f05bdfa315472f30e32a0d1fc0c7f3ba5827cdcd3e53c75a819f16340f697c8",
           "overlay": {
-            "path": "comstock_2025-3/upgrade_measures/measure_pdfs/89042.yaml",
-            "sha256": "30a24353cf5081b160e1dc034a6bd667ac1c4d5d33df2016a750ff297b3f0bb3",
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89042.yaml",
+            "sha256": "4aaea53f4fe6e228633661dae0be5afad30b0dd6fb8695b9ab4c35210c2a3ebb",
             "tables_applied": [
               "Table 1",
               "Table 3",
@@ -1152,8 +1152,8 @@
           "output_path": "upgrade_measures/draft_publications/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.md",
           "output_sha256": "a8ba52f0b4d796a8d2b21b93f6512388abd0474cbebee082a6487225ccdbe764",
           "overlay": {
-            "path": "comstock_2025-3/upgrade_measures/assets/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.yaml",
-            "sha256": "34327d5aa56ac4a6d5c0ce0645201914078620f933ecc08f109945787272e0df",
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/assets/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.yaml",
+            "sha256": "5e1c2241254fd9634cb476389346ad741d18245abe7da28d456fc3a3a908d89d",
             "tables_applied": [
               "Table 1"
             ]

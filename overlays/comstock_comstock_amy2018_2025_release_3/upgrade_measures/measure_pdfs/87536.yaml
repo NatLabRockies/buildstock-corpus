@@ -1,36 +1,22 @@
-# Hand-authored table transcriptions for measure_pdfs/86199.pdf
+# Hand-authored table transcriptions for measure_pdfs/87536.pdf
 #
-# Both tables on p.11 of this PDF are rasterized regions with no text layer. docling keeps
-# the captions but emits neither a table nor a picture for them, so the numbers are absent
-# from the extracted markdown entirely. Each entry below is transcribed from the rendered
-# page and inserted below its caption at build time by overlay.py. See overlays/README.md
-# for the schema and the review procedure.
-#
-# source_pdf_sha256 is the same hash fetch recorded for this PDF and the manifest stores as
-# the artifact's input_sha256: if upstream ships a revised report, the build reports a stale
-# overlay instead of injecting numbers that no longer match it.
-#
-# Authoring notes for Table 1:
-#   * Decomposed into one sub-table per energy-code template family. As one 26-row table it
-#     is a single ~3,400-char paragraph, which the chunker would hard-split mid-row.
-#   * Merged EFFFPLR and Notes cells are repeated on every row they span, so each row is
-#     readable on its own.
-#   * The Notes cell spanning all eight 90.1-2013 and 90.1-2016 rows is one merged cell in
-#     the source holding both phrases; it is transcribed as "From 90.1-2013; From 90.1-2016"
-#     on each of those rows rather than split per family, which the source does not do.
-#   * Row 3 records Minimum Capacity 250,000,000 above Maximum Capacity 249,999,999. That
-#     inversion is in the source and is left as printed.
+# Both tables on p.11 are rasterized regions with no text layer, so docling keeps the
+# captions and emits nothing beneath them. See overlays/README.md for the schema, and
+# measure_pdfs/86199.yaml for the authoring notes on the boiler assignment table — the
+# two tables here are the same tables, reprinted in this report under the same captions
+# and verified against this PDF's own page render rather than copied on the assumption
+# that a shared caption means shared content.
 
 product: comstock
-release: "2025-3"
+release: "comstock_amy2018_2025_release_3"
 source_id: upgrade_measures
-source_path: measure_pdfs/86199.pdf
+source_path: measure_pdfs/87536.pdf
 
 tables:
   - label: "Table 1"
     caption: "Boiler Efficiency and Performance Curve Assignment"
-    source_pdf: measure_pdfs/86199.pdf
-    source_pdf_sha256: "be173f2dbe730146ceb402874c867c9be75438d2ecb00b4e1d93dde4f3b87270"
+    source_pdf: measure_pdfs/87536.pdf
+    source_pdf_sha256: "337aee5d46a0849ba0ecec47df7248341bcf7bbecf64048baf7155ba8552ea84"
     page: 11
     method: vision-transcription
     transcribed_utc: "2026-08-17"
@@ -103,8 +89,8 @@ tables:
 
   - label: "Table 2"
     caption: "Boiler Performance Curves"
-    source_pdf: measure_pdfs/86199.pdf
-    source_pdf_sha256: "be173f2dbe730146ceb402874c867c9be75438d2ecb00b4e1d93dde4f3b87270"
+    source_pdf: measure_pdfs/87536.pdf
+    source_pdf_sha256: "337aee5d46a0849ba0ecec47df7248341bcf7bbecf64048baf7155ba8552ea84"
     page: 11
     method: vision-transcription
     transcribed_utc: "2026-08-17"

@@ -20,7 +20,7 @@
 #     comparable with Table 3 in the same document.
 
 product: comstock
-release: "2025-3"
+release: "comstock_amy2018_2025_release_3"
 source_id: upgrade_measures
 source_path: measure_pdfs/95005.pdf
 

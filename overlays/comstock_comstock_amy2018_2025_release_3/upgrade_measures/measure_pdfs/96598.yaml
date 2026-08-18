@@ -41,7 +41,7 @@
 # a real column -- decomposing a one-row table would only separate the label from the data.
 
 product: comstock
-release: 2025-3
+release: "comstock_amy2018_2025_release_3"
 text_repairs:
 - find: '## Data from [11], [23]'
   replace: Data from [11], [23]

@@ -18,6 +18,8 @@ import buildstock_corpus.overlay as O
 import buildstock_corpus.paths as P
 from buildstock_corpus.normalize import Document
 
+RELEASE = "comstock_amy2018_2025_release_3"
+
 TABLE = "| Building Type | Construction |\n|---|---|\n| Hospital | IEAD |"
 
 BODY = """# 3.  ComStock Baseline Approach
@@ -35,7 +37,7 @@ Table 1. Roof Construction Types
 def _doc(body: str = BODY, source_path: str = "docs/upgrade_measures/env_roof.md") -> Document:
     return Document(
         product="comstock",
-        release="2025-3",
+        release=RELEASE,
         source_id="upgrade_measures",
         source_type="measures",
         source_path=source_path,
@@ -75,10 +77,10 @@ def env(tmp_path, monkeypatch):
         sha = hashlib.sha256(png.read_bytes()).hexdigest()
 
         def write(self, tables, source_path="docs/upgrade_measures/env_roof.md", **top):
-            path = P.overlay_file("comstock", "2025-3", "upgrade_measures", source_path)
+            path = P.overlay_file("comstock", RELEASE, "upgrade_measures", source_path)
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(
-                yaml.safe_dump({"product": "comstock", "release": "2025-3", **top,
+                yaml.safe_dump({"product": "comstock", "release": RELEASE, **top,
                                 "tables": tables}),
                 encoding="utf-8",
             )
@@ -99,7 +101,7 @@ def env(tmp_path, monkeypatch):
 
 
 def _apply(docs, env):
-    return O.apply_overlays(docs, "comstock", "2025-3", env.image_dirs, env.input_shas)
+    return O.apply_overlays(docs, "comstock", RELEASE, env.image_dirs, env.input_shas)
 
 
 def test_injects_table_and_drops_the_image_ref(env):
@@ -127,7 +129,9 @@ def test_records_what_was_applied_for_the_manifest(env):
     rec = applied["upgrade_measures"]["docs/upgrade_measures/env_roof.md"]
     assert rec["tables_applied"] == ["Table 1"]
     assert rec["sha256"] == hashlib.sha256(path.read_bytes()).hexdigest()
-    assert rec["path"] == "comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_roof.yaml"
+    assert rec["path"] == (
+        f"comstock_{RELEASE}/upgrade_measures/docs/upgrade_measures/env_roof.yaml"
+    )
 
 
 @pytest.mark.parametrize("ref", ["media/roof.png", "./media/roof.png"])
@@ -333,7 +337,7 @@ Energy savings are reported below.
 def _pdf_doc(body: str = PDF_BODY) -> Document:
     return Document(
         product="comstock",
-        release="2025-3",
+        release=RELEASE,
         source_id="upgrade_measures",
         source_type="pdf",
         source_path=PDF_PATH,
@@ -734,7 +738,7 @@ def test_text_repair_demotes_a_mis_parsed_heading(pdf_env):
     rec = applied["upgrade_measures"][PDF_PATH]
     assert rec["text_repairs_applied"] == 1 and rec["tables_applied"] == []
     # the reason travels with the change, same rule as a table replacement
-    assert "<!-- text repaired by overlay: comstock_2025-3/" in doc.body
+    assert f"<!-- text repaired by overlay: comstock_{RELEASE}/" in doc.body
     assert "refiling 30 chunks under it" in doc.body
 
 
@@ -844,17 +848,17 @@ def test_no_overlay_root_at_all_is_not_an_error(env):
 
 def test_overlay_file_path_mirrors_output_layout():
     """Overlays sit at the same relative position as the artifact they patch."""
-    p = P.overlay_file("comstock", "2025-3", "upgrade_measures", "docs/x/env_roof.md")
+    p = P.overlay_file("comstock", RELEASE, "upgrade_measures", "docs/x/env_roof.md")
     assert p.relative_to(P.OVERLAYS_DIR).as_posix() == (
-        "comstock_2025-3/upgrade_measures/docs/x/env_roof.yaml"
+        f"comstock_{RELEASE}/upgrade_measures/docs/x/env_roof.yaml"
     )
 
 
 def test_overlay_file_ignores_the_work_dir_sandbox(tmp_path):
     """Overlays are inputs; a sandboxed smoke build must read the real ones."""
-    before = P.overlay_file("comstock", "2025-3", "s", "a.md")
+    before = P.overlay_file("comstock", RELEASE, "s", "a.md")
     P.use_workspace(tmp_path)
     try:
-        assert P.overlay_file("comstock", "2025-3", "s", "a.md") == before
+        assert P.overlay_file("comstock", RELEASE, "s", "a.md") == before
     finally:
         P.use_workspace(None)

@@ -56,7 +56,7 @@ entry is pinned to. An entry naming neither `source_image` nor `source_pdf` is r
 
 ```yaml
 product: comstock
-release: "2025-3"
+release: "comstock_amy2018_2025_release_3"
 source_id: upgrade_measures
 source_path: docs/upgrade_measures/env_roof_insulation.md
 
@@ -77,7 +77,7 @@ tables:
 
 ```yaml
 product: comstock
-release: "2025-3"
+release: "comstock_amy2018_2025_release_3"
 source_id: upgrade_measures
 source_path: measure_pdfs/89040.pdf
 
@@ -132,7 +132,7 @@ width are normalized away so reformatting alone cannot trip it, while a dropped 
 row or a shifted value all change it. Get it from the document you are patching:
 
 ```bash
-uv run python -c "import sys; sys.path.insert(0,'src'); from pathlib import Path; from buildstock_corpus.overlay import _table_blocks, _table_fingerprint as fp; L=Path(sys.argv[1]).read_text(encoding='utf-8').split('\n'); [print(fp(L[s:e])[:16], f'L{s+1}-{e}', L[s][:60]) for s,e in _table_blocks(L)]" processed/comstock/2025-3/upgrade_measures/measure_pdfs/96598.md
+uv run python -c "import sys; sys.path.insert(0,'src'); from pathlib import Path; from buildstock_corpus.overlay import _table_blocks, _table_fingerprint as fp; L=Path(sys.argv[1]).read_text(encoding='utf-8').split('\n'); [print(fp(L[s:e])[:16], f'L{s+1}-{e}', L[s][:60]) for s,e in _table_blocks(L)]" processed/comstock/comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/96598.md
 ```
 
 The fingerprint locates the table, not its position — position is the thing that is wrong here,
@@ -265,8 +265,8 @@ an image-anchored entry, or `page` of the PDF named by `source_pdf` for a captio
 one. Then:
 
 ```bash
-uv run bsc build --product comstock --release 2025-3
-uv run bsc validate --product comstock --release 2025-3
+uv run bsc build --product comstock --release comstock_amy2018_2025_release_3
+uv run bsc validate --product comstock --release comstock_amy2018_2025_release_3
 uv run python scripts/audit_md_fidelity.py
 ```
 

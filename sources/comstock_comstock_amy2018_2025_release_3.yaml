@@ -1,10 +1,15 @@
-# Source registry for ComStock dataset release 2025-3.
+# Source registry for ComStock dataset release comstock_amy2018_2025_release_3.
 #
-# Note the ref naming differs per repo: the ComStock code repo tags releases with a
-# dash (2025-3); the github.io site branches them with an underscore (2025_3). Each
+# The release id follows the OEDI data lake convention,
+# <dataset type>_<weather data>_<year of publication>_release_<release number>, so a
+# corpus artifact names the same release the published data does.
+#
+# Upstream refs do not use that convention and are pinned verbatim below: the ComStock
+# code repo tags this release with a dash (2025-3), the github.io site branches it with
+# an underscore (2025_3), and the crosswalk CSV filename uses its own form again. Each
 # source pins its own git_ref so artifacts stay aligned to this dataset release.
 product: comstock
-release: "2025-3"
+release: "comstock_amy2018_2025_release_3"
 
 sources:
   # ComStock technical reference — LaTeX source, converted with pandoc.

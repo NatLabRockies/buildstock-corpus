@@ -25,7 +25,7 @@
 #     is written "(a)" rather than as a superscript.
 
 product: comstock
-release: "2025-3"
+release: "comstock_amy2018_2025_release_3"
 source_id: upgrade_measures
 source_path: measure_pdfs/86103.pdf
 
