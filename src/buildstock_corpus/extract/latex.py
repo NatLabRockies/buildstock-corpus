@@ -75,6 +75,35 @@ def _expand_inputs(text: str, proj_dir: Path, _depth: int = 0) -> str:
     return text
 
 
+# Character-level fidelity. pandoc faithfully renders TeX's typesetting hints as Unicode:
+# `\-` (a discretionary hyphen — a *hint* about where a word may break) becomes U+00AD, `~`
+# becomes U+00A0, `--` becomes an en dash. The expanded chapter source carries `\-` in bulk
+# (1369 in 6_AppendixA alone), so the character is introduced by our conversion, not upstream.
+# The hints mean nothing in markdown, and the soft hyphens land *inside* identifiers where
+# they are invisible — `HPA<AD>CCOOL<AD>PLFFPLR`, `FullService<AD>Restaurant`, `EIA<AD>861` —
+# so any lexical or hybrid retrieval on the real spelling misses them. Normalize per class;
+# one blanket ASCII fold would be wrong (see the placeholder note below).
+_SOFT_HYPHEN = "\u00ad"  # deleted outright: a line-break hint with no meaning in markdown
+_NBSP = "\u00a0"  # -> plain space
+# An en dash between digits is a range: `1980–2004`, `132–220`. The corpus spells the same
+# vintage bin both ways — 71 ASCII `1980-2004` against 47 en-dashed, while `Pre-1980` is ASCII
+# in all 135 occurrences — so one entity has two spellings and a search for either misses the
+# other. Only digit-flanked dashes fold, which is what makes this safe:
+_RANGE_DASH_RE = re.compile(r"(?<=\d)\u2013(?=\d)")
+# Deliberately NOT folded: the ~204 en dashes that stand alone in a table cell as an
+# empty-value placeholder (`| QuickServiceRestaurant | – | – | ... |`). They mean "no value";
+# an ASCII `-` there reads as a value or a minus sign, so folding them would put data into a
+# cell that has none. Also untouched, none of them a fidelity problem: ° ® ™ ·, smart quotes,
+# em dashes, and U+2212 minus.
+
+
+def _normalize_characters(md: str) -> str:
+    """Fold pandoc's typesetting-hint characters to their searchable spelling, per class."""
+    md = md.replace(_SOFT_HYPHEN, "")
+    md = md.replace(_NBSP, " ")
+    return _RANGE_DASH_RE.sub("-", md)
+
+
 def _dedupe_repeated_header(md: str) -> str:
     """Drop a longtable's header row where pandoc repeats it as the first data row
     (\\endfirsthead + \\endhead both carry the header). GFM shape: row, separator, row==row."""
@@ -150,7 +179,7 @@ def load_latex_docs(
         except RuntimeError as exc:  # one unparseable chapter must not abort the build
             warnings.append(str(exc))
             continue
-        md = _dedupe_repeated_header(md)
+        md = _normalize_characters(_dedupe_repeated_header(md))
         body = collapse_blank_lines(md)
         if not body.strip():
             continue

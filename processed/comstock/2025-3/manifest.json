@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "2025-3",
-  "generated_utc": "2026-08-18T19:13:05.256100+00:00",
+  "generated_utc": "2026-08-18T20:38:18.989723+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -67,7 +67,7 @@
           "title": "Introduction",
           "input_sha256": "18c08d5f729c3f48ccdac686e44b121138d32761ccd2e76e67a2e30acdf445f0",
           "output_path": "technical_reference/documentation/reference_doc/1_introduction.md",
-          "output_sha256": "b33d57ccf565909de36d6953ea204d8c8ae9541aa2f7baa6d1493cbbaa57e735"
+          "output_sha256": "fc66674882cf36a80587e0d369653d84b4d2bf31c10b06879af667da7057085b"
         },
         {
           "source_path": "documentation/reference_doc/2_workflow.tex",
@@ -75,7 +75,7 @@
           "title": "ComStock Workflow",
           "input_sha256": "02df0eb5ecad175e558dd1728c88826772debbed70afef472fd588a9ca9fd903",
           "output_path": "technical_reference/documentation/reference_doc/2_workflow.md",
-          "output_sha256": "606a547fabf1e7aa504173a3d41c880e06957f5e7c5306b375754168598ca7cc"
+          "output_sha256": "98a1b4568299f74622268d389a1562b43a047f586fe5095155ec3653e8ce73c1"
         },
         {
           "source_path": "documentation/reference_doc/3_sampling.tex",
@@ -83,7 +83,7 @@
           "title": "Building Characteristic Sampling",
           "input_sha256": "9386d8ea1f6a44a0640d36466950fdc1b7709b9b869845a9ddb3c7581f0de0e0",
           "output_path": "technical_reference/documentation/reference_doc/3_sampling.md",
-          "output_sha256": "a6c6beb199c516de9e23ca32629bba9a0d420ce2741700016b417846cac17a11"
+          "output_sha256": "83cd5a51685450472b31ccc752245d2183db17d67781ef877b51fddf3513f166"
         },
         {
           "source_path": "documentation/reference_doc/4_1_introduction.tex",
@@ -91,7 +91,7 @@
           "title": "ComStock Building Models",
           "input_sha256": "6cbfcb541d1357ec81469ea316ec2417f5886b5fb6df7e9be11eb4dd05a8a600",
           "output_path": "technical_reference/documentation/reference_doc/4_1_introduction.md",
-          "output_sha256": "25054f7a23e1043c51126712ec2c86c38d98735c16b237f18065ec74026dc9c4"
+          "output_sha256": "723d22f774233716b195ba8800b90e0d1ab21b974940474da3e5f35ac13e5603"
         },
         {
           "source_path": "documentation/reference_doc/4_2_meta.tex",
@@ -99,7 +99,7 @@
           "title": "Location, Type, Age, Space Programming, Energy Code, and Change Over Time",
           "input_sha256": "a01de853a3139ef0239b8045eed470220c07a96be321207f75e316fc86e8eb44",
           "output_path": "technical_reference/documentation/reference_doc/4_2_meta.md",
-          "output_sha256": "36e16536ee6ace8a655021b62c14529408b226cfaf9c690868b2e5b184a8d117"
+          "output_sha256": "25f0bb39390f1bb05ade9ebc4acf5d37eb7f7b307c19dcd6dd707329bf6da520"
         },
         {
           "source_path": "documentation/reference_doc/4_3_occupancy.tex",
@@ -107,7 +107,7 @@
           "title": "Hours of Operation and Occupancy",
           "input_sha256": "8e7100ddf2307411dc4f5cbb4a7a2b6a04ca002eb43d02ef32ce766d08b67cdc",
           "output_path": "technical_reference/documentation/reference_doc/4_3_occupancy.md",
-          "output_sha256": "a51d445440142bd228798ef0e77d72637769991af025f6af3d58e81fa9507b9e"
+          "output_sha256": "a8f062b34044f988d7620e32ff31e8911f90008edebb6fe52c25756d1d48164e"
         },
         {
           "source_path": "documentation/reference_doc/4_4_geometry.tex",
@@ -115,7 +115,7 @@
           "title": "Geometry",
           "input_sha256": "0f65d439ae800d24b91d3178aa6aca7a3665267b3f7d6bdaa2dffcecf4f1466b",
           "output_path": "technical_reference/documentation/reference_doc/4_4_geometry.md",
-          "output_sha256": "c07d7054ec3d61a7ea5060c0ed62c22d2fc364d47176cea66a6dd21f81fd4ad4"
+          "output_sha256": "49d649ca11ee6b4b352be3a30f23a90f8a391399432f8c8083ef29e0a6851256"
         },
         {
           "source_path": "documentation/reference_doc/4_5_envelope.tex",
@@ -123,7 +123,7 @@
           "title": "Envelope",
           "input_sha256": "b68cc9ffc4c00af3f664b5a65a1adfd5c5fabd1ca1148e591c81baf08d11e327",
           "output_path": "technical_reference/documentation/reference_doc/4_5_envelope.md",
-          "output_sha256": "772f64144a5dc8f4ff5c17d09efa1c45312957b8aaab6dfd389d537ab33ff681"
+          "output_sha256": "e4f45511b6f73416c05b3b69b6520fb4658a86d854ee1e7ff08b355768883d89"
         },
         {
           "source_path": "documentation/reference_doc/4_6_lighting.tex",
@@ -131,7 +131,7 @@
           "title": "Lighting",
           "input_sha256": "da554c08c16238d31467a546badf4d0b13c4cc177e3baac2cc7a9cd09f654c1c",
           "output_path": "technical_reference/documentation/reference_doc/4_6_lighting.md",
-          "output_sha256": "d91c3bad794c99679e499a9700cca361efef26fd3430f6bbf69d400f3ea59bfe"
+          "output_sha256": "26253c29149b2d4b9570d1156721a67beb56f5d26a8946b14653e6f07e5ead0a"
         },
         {
           "source_path": "documentation/reference_doc/4_7_plug_and_process.tex",
@@ -139,7 +139,7 @@
           "title": "Plug and Process Loads",
           "input_sha256": "f1134b58c14e786ec6f8e0cbf75c9c2cd76f97151616e8b21b6740c9148a7ae8",
           "output_path": "technical_reference/documentation/reference_doc/4_7_plug_and_process.md",
-          "output_sha256": "14612539871067d14d2a4bc2764d64d2a369b4f92b280b07c19b946d72ce5dc2"
+          "output_sha256": "2eaf5ac7aa83bbe7d2292ede672a6f0a6765292a55050fe9cfd4aaa36063fbca"
         },
         {
           "source_path": "documentation/reference_doc/4_8_service_water_heating.tex",
@@ -147,7 +147,7 @@
           "title": "Service Water Heating",
           "input_sha256": "9d23275e41232044ad6cbfa954b0594c56384794e6b3e2fe40e9040e1a75f7cd",
           "output_path": "technical_reference/documentation/reference_doc/4_8_service_water_heating.md",
-          "output_sha256": "122ba70ffee92787c6ee68bd2af667ee3ebf3aacb861450f6df8a32a8516ca79"
+          "output_sha256": "db925204c47c338e95a94b59d892dec51c2ac6953a704d036efff21e3aa753ee"
         },
         {
           "source_path": "documentation/reference_doc/4_9_hvac.tex",
@@ -155,7 +155,7 @@
           "title": "Heating, Ventilating, Air Conditioning, and Refrigeration",
           "input_sha256": "b21f5fc7c2c008d355cc13e9d2eb6445ba6ce53c6079cb2f10d953b29cbbd485",
           "output_path": "technical_reference/documentation/reference_doc/4_9_hvac.md",
-          "output_sha256": "60ab869f690541ca657a0542aba1102cd2813343cfdf4ab04a00a6e9c9ba8cac"
+          "output_sha256": "45be3ae185d0a8fbe860f92aac24613c000d091cc45925577dd2ad3488c40986"
         },
         {
           "source_path": "documentation/reference_doc/4_10_simulation_settings.tex",
@@ -163,7 +163,7 @@
           "title": "Simulation Settings",
           "input_sha256": "b5f739794ed359bf8da4ae73bdf9223333fa5bc7ef12fef0fc36a43a36bac9b5",
           "output_path": "technical_reference/documentation/reference_doc/4_10_simulation_settings.md",
-          "output_sha256": "a2f03a326785062a76ad9a9249d69ccb5ebfdbe2ca3e2dc61660b8567c1f6c73"
+          "output_sha256": "2d18b5428b0fad316553a7ed2f13d354f0d13d9ff2601e1ef9636a8bbd2107fb"
         },
         {
           "source_path": "documentation/reference_doc/5_outputs.tex",
@@ -171,7 +171,7 @@
           "title": "ComStock Outputs",
           "input_sha256": "7c31ecba9445664d8dab1fe9b3f7b36a1cbd7f1b1a71479fe54ba5ff74f98f30",
           "output_path": "technical_reference/documentation/reference_doc/5_outputs.md",
-          "output_sha256": "4af3413baa6d4dcebbe21221090cc5a4f8d2bc50fe6feff2fd874002ec2dc794"
+          "output_sha256": "f67dea976041bd6e5fb6891d20d3caeb4ef601a758c59e6a55eb8d7150578e21"
         },
         {
           "source_path": "documentation/reference_doc/6_AppendixA.tex",
@@ -179,7 +179,7 @@
           "title": "6_AppendixA",
           "input_sha256": "8544772829f7a2626d9607e13bdf01165044707425c05067569fc6d872a36eaa",
           "output_path": "technical_reference/documentation/reference_doc/6_AppendixA.md",
-          "output_sha256": "840b27b22d954d7b71dff8e67e741711d366264ce554a4f1b679bc71ffa8d677"
+          "output_sha256": "bf39b348b47cef53f58c0ffa89dae16aec0763579562fb53a12bda9ec5fadd2e"
         },
         {
           "source_path": "documentation/reference_doc/7_AppendixB.tex",

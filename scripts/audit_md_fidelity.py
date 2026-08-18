@@ -32,6 +32,11 @@ cannot express, so those are expected to remain HTML.)
 Duplicated H1 headings are reported too: the write step injects `# {title}` above a body
 that may already start with the same heading.
 
+Separately from the caption/artifact audit, each file is scored for CHARACTER HYGIENE: soft
+hyphens, non-breaking spaces and digit-flanked en dashes. There the content is present but
+spelled with a character that defeats retrieval — a converter rendering a typesetting hint
+literally. Those are invisible in a rendered view, so they need a counted scoreboard.
+
 Results are grouped by extractor (latex / markdown / measures / pdf) so it is clear
 which path is losing content.
 
@@ -103,6 +108,28 @@ WINDOW = 16
 BACK_WINDOW = 6  # content lines above a caption, for docs that put the caption under the artifact
 # Absolute line cap on either reach, so an unterminated comment cannot run a scan away.
 SCAN_CAP = 200
+
+# Character hygiene. Separate from the caption/artifact audit: the content is present, but
+# spelled with characters that defeat retrieval. All three come from a converter rendering a
+# *typesetting hint* as a literal character, and all three are invisible or near-invisible in
+# a rendered view, which is why they need a counted scoreboard rather than a reader's eye.
+#
+#   soft hyphen (U+00AD)  pandoc's rendering of TeX's `\-`. Sits *inside* identifiers —
+#                         `HPA<AD>CCOOL<AD>PLFFPLR`, `FullService<AD>Restaurant`, `EIA<AD>861` —
+#                         so a lexical or hybrid search for the real spelling misses the doc.
+#   nbsp (U+00A0)         from `~`. Not a space to anything that tokenizes on whitespace.
+#   range en dash         a digit-flanked U+2013: `1980–2004`, `132–220`. The corpus spells the
+#                         same vintage bin both ways, so one entity has two spellings and a
+#                         search for either misses the other.
+#
+# Only digit-flanked en dashes are counted. An en dash standing alone in a table cell is an
+# empty-value placeholder meaning "no value" — folding those to ASCII would read as a value or
+# a minus sign, so they are left alone by design and are not a finding. ° ® ™ · smart quotes,
+# em dashes and U+2212 minus are all legitimate and deliberately unmeasured.
+SOFT_HYPHEN = "\u00ad"
+NBSP = "\u00a0"
+RANGE_EN_DASH = re.compile(r"(?<=\d)\u2013(?=\d)")
+CHAR_CLASSES = ("soft_hyphens", "nbsp", "range_en_dashes")
 
 
 def _reach(lines: list[str], i: int, comments: set[int], step: int, budget: int):
@@ -180,6 +207,15 @@ def duplicate_h1(lines: list[str]) -> list[dict]:
         if a == b and not any(ln.strip() for ln in lines[i + 1 : j]):
             out.append({"line": j + 1, "heading": a[:100]})
     return out
+
+
+def character_hygiene(text: str) -> dict[str, int]:
+    """Counts of the retrieval-defeating characters, by class. Zero is the target for all."""
+    return {
+        "soft_hyphens": text.count(SOFT_HYPHEN),
+        "nbsp": text.count(NBSP),
+        "range_en_dashes": len(RANGE_EN_DASH.findall(text)),
+    }
 
 
 def table_block_lines(lines: list[str]) -> set[int]:
@@ -455,13 +491,17 @@ def audit(processed: Path, kinds: dict[str, str]) -> tuple[list[dict], dict]:
             "md_images": 0,
             "dangling_refs": 0,
             "duplicate_h1": 0,
+            "soft_hyphens": 0,
+            "nbsp": 0,
+            "range_en_dashes": 0,
         }
     )
 
     for path in sorted(processed.rglob("*.md")):
         rel = path.relative_to(processed).as_posix()
         kind = kinds.get(rel, "unknown")
-        lines = path.read_text(encoding="utf-8").split("\n")
+        raw = path.read_text(encoding="utf-8")
+        lines = raw.split("\n")
 
         tbl = table_block_lines(lines)
         html_tbl = marker_lines(lines, HTML_TABLE)
@@ -481,6 +521,10 @@ def audit(processed: Path, kinds: dict[str, str]) -> tuple[list[dict], dict]:
         dup_h1 = duplicate_h1(lines)
         t["dangling_refs"] += len(dangling)
         t["duplicate_h1"] += len(dup_h1)
+
+        chars = character_hygiene(raw)
+        for cls, n in chars.items():
+            t[cls] += n
 
         in_toc = toc_lines(lines)
         comments = comment_lines(lines)
@@ -512,7 +556,7 @@ def audit(processed: Path, kinds: dict[str, str]) -> tuple[list[dict], dict]:
                     t["orphan_figures"] += 1
                     orphan_f.append({"line": i + 1, "label": label, "caption": caption})
 
-        if orphan_t or orphan_f or dangling or dup_h1 or html_tbl:
+        if orphan_t or orphan_f or dangling or dup_h1 or html_tbl or any(chars.values()):
             findings.append(
                 {
                     "file": rel,
@@ -523,6 +567,7 @@ def audit(processed: Path, kinds: dict[str, str]) -> tuple[list[dict], dict]:
                     "duplicate_h1": dup_h1,
                     "unconverted_html_tables": sorted(n + 1 for n in html_tbl),
                     "unconverted_html_imgs": sorted(n + 1 for n in html_img),
+                    "characters": {k: v for k, v in chars.items() if v},
                 }
             )
     return findings, dict(totals)
@@ -560,6 +605,7 @@ def write_report(path: Path, findings: list[dict], totals: dict, product: str, r
         for k in (
             "table_captions", "orphan_tables", "figure_captions", "orphan_figures",
             "md_tables", "md_images", "html_imgs", "dangling_refs", "duplicate_h1",
+            *CHAR_CLASSES,
         )
     }
     lines += [
@@ -569,6 +615,31 @@ def write_report(path: Path, findings: list[dict], totals: dict, product: str, r
         f"{agg['md_tables']} tables converted to markdown; "
         f"{agg['md_images'] + agg['html_imgs']} image refs present with "
         f"{agg['dangling_refs']} dangling; {agg['duplicate_h1']} duplicated H1 heading(s).",
+        "",
+        "## Character hygiene by extractor",
+        "",
+        "The content is present but spelled with characters that defeat retrieval, all of them",
+        "a converter rendering a *typesetting hint* literally. **SOFT HYPHEN** (U+00AD, pandoc's",
+        "`\\-`) is the worst of the three because it lands inside identifiers invisibly, so a",
+        "search for the real spelling misses. **NBSP** (U+00A0, from `~`) is not a space to a",
+        "whitespace tokenizer. **RANGE EN DASH** is a digit-flanked U+2013 (`1980–2004`), and the",
+        "corpus spells the same vintage bin both ways, so one entity has two spellings. Zero is",
+        "the target for all three. An en dash standing alone in a table cell is an empty-value",
+        "placeholder, not a defect, and is deliberately not counted here.",
+        "",
+        "| extractor | files | soft hyphen | nbsp | range en dash |",
+        "|---|---:|---:|---:|---:|",
+    ]
+    for kind in [k for k in order if k in totals] + [k for k in totals if k not in order]:
+        t = totals[kind]
+        lines.append(
+            f"| {kind} | {t['files']} | **{t['soft_hyphens']}** | **{t['nbsp']}** | "
+            f"**{t['range_en_dashes']}** |"
+        )
+    lines += [
+        "",
+        f"**Totals.** {agg['soft_hyphens']} soft hyphen(s); {agg['nbsp']} nbsp; "
+        f"{agg['range_en_dashes']} range en dash(es).",
         "",
         "## Gaps by file",
         "",
@@ -605,6 +676,11 @@ def write_report(path: Path, findings: list[dict], totals: dict, product: str, r
             lines.append(
                 f"- unconverted raw `<img>` at line(s): {', '.join(map(str, f['unconverted_html_imgs']))}"
             )
+        if f["characters"]:
+            detail = ", ".join(
+                f"{v} {cls.replace('_', ' ')}" for cls, v in f["characters"].items()
+            )
+            lines.append(f"- **CHARACTER HYGIENE** — {detail}")
         lines.append("")
     path.write_text("\n".join(lines), encoding="utf-8", newline="\n")
 
@@ -645,6 +721,16 @@ def main() -> None:
             f"{t['md_images'] + t['html_imgs']:>7}{t['dangling_refs']:>8}"
             f"{t['duplicate_h1']:>7}{t['html_tables']:>9}"
         )
+    print(
+        f"\n{'extractor':<12}{'files':>6}{'softHyp':>9}{'nbsp':>7}{'rangeEn':>9}"
+    )
+    print("-" * 43)
+    for kind, t in totals.items():
+        print(
+            f"{kind:<12}{t['files']:>6}{t['soft_hyphens']:>9}{t['nbsp']:>7}"
+            f"{t['range_en_dashes']:>9}"
+        )
+
     print(f"\nfiles with gaps: {len(findings)}")
     print(f"wrote {out_md.relative_to(REPO)}")
     print(f"wrote {out_json.relative_to(REPO)}")

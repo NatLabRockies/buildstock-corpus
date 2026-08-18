@@ -3,7 +3,7 @@
 
 ## EnergyPlus Simulation Settings
 
-The EnergyPlus simulation settings are a crucial part of any run because they set the length of the run, the calendar year, the number of time steps, and a number of other inputs. A list of all the simulation settings used in ComStock and their descriptions is shown in Table <a href="#tab:simulation_settings" data-reference-type="ref" data-reference="tab:simulation_settings">1</a>.
+The EnergyPlus simulation settings are a crucial part of any run because they set the length of the run, the calendar year, the number of time steps, and a number of other inputs. A list of all the simulation settings used in ComStock and their descriptions is shown in Table <a href="#tab:simulation_settings" data-reference-type="ref" data-reference="tab:simulation_settings">1</a>.
 
 <div id="tab:simulation_settings">
 
