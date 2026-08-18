@@ -57,4 +57,10 @@ uv sync --extra extract
 - `sources/<product>_<release>.yaml` — source registry (repos, tag, measure URLs)
 - `raw/<product>/<release>/` — downloaded originals (gitignored)
 - `processed/<product>/<release>/` — clean markdown, referenced image assets, `crosswalk.json`, `chunks.jsonl`, `manifest.json`
+  - `crosswalk.json` maps each measure to its documentation and its upgrade id in this
+    release. Every measure also carries `date_last_updated` — when its document last
+    changed at its source — alongside the `date_last_updated_source` that established it
+    (`pdf_moddate` from the published PDF's own metadata, or `git_commit` from the site
+    repo). A measure whose documentation does not exist yet is undated rather than given a
+    stand-in.
 - `index/<product>-<release>/` — persistent Chroma store (gitignored)

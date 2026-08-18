@@ -13,6 +13,8 @@
       "initial_release": "2024 Release 1",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy24osti/89340.pdf",
+      "date_last_updated": "2024-05-06",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "32",
       "upgrade_name": "Demand Flexibility, Thermostat Control, Load Shed for Daily Bldg Peak Reduction"
@@ -24,6 +26,8 @@
       "initial_release": "2024 Release 1",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy24osti/89341.pdf",
+      "date_last_updated": "2024-05-06",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "33",
       "upgrade_name": "Demand Flexibility, Thermostat Control, Load Shift for Daily Bldg Peak Reduction"
@@ -35,6 +39,8 @@
       "initial_release": "2024 Release 2",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy26osti/92502.pdf",
+      "date_last_updated": "2025-11-24",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "34",
       "upgrade_name": "Demand Flexibility, Lighting Control, Load Shed for Daily Bldg Peak Reduction"
@@ -46,6 +52,8 @@
       "initial_release": "2024 Release 2",
       "doc_kind": "none",
       "doc_target": null,
+      "date_last_updated": null,
+      "date_last_updated_source": null,
       "in_release": true,
       "upgrade_id": "35",
       "upgrade_name": "Demand Flexibility, Lighting Control, Load Shed for Daily GHG Emission Reduction"
@@ -57,6 +65,8 @@
       "initial_release": "2025 Release 1",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy26osti/92504.pdf",
+      "date_last_updated": "2025-11-24",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "36",
       "upgrade_name": "Demand Flexibility, Thermostat Control, Load Shed for Grid Peak Reduction"
@@ -68,6 +78,8 @@
       "initial_release": "2025 Release 1",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy26osti/92504.pdf",
+      "date_last_updated": "2025-11-24",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "37",
       "upgrade_name": "Demand Flexibility, Lighting Control, Load Shed for Grid Peak Reduction"
@@ -79,6 +91,8 @@
       "initial_release": "2025 Release 1",
       "doc_kind": "none",
       "doc_target": null,
+      "date_last_updated": null,
+      "date_last_updated_source": null,
       "in_release": true,
       "upgrade_id": "38",
       "upgrade_name": "Demand Flexibility, Plug Load Control (GEB Gem), Load Shed for Grid Peak Reduction"
@@ -90,6 +104,8 @@
       "initial_release": "2025 Release 1",
       "doc_kind": "none",
       "doc_target": null,
+      "date_last_updated": null,
+      "date_last_updated_source": null,
       "in_release": true,
       "upgrade_id": "39",
       "upgrade_name": "Demand Flexibility, Lighting Control (GEB Gem), Load Shed for Grid Peak Reduction"
@@ -101,6 +117,8 @@
       "initial_release": "2025 Release 1",
       "doc_kind": "none",
       "doc_target": null,
+      "date_last_updated": null,
+      "date_last_updated_source": null,
       "in_release": true,
       "upgrade_id": "40",
       "upgrade_name": "Demand Flexibility, Thermostat Control (GEB Gem), Load Shed for Grid Peak Reduction"
@@ -112,6 +130,8 @@
       "initial_release": "2025 Release 1",
       "doc_kind": "none",
       "doc_target": null,
+      "date_last_updated": null,
+      "date_last_updated_source": null,
       "in_release": true,
       "upgrade_id": "41",
       "upgrade_name": "Demand Flexibility, Preheat (GEB Gem), Load Shift for Grid Peak Reduction"
@@ -123,6 +143,8 @@
       "initial_release": "2025 Release 1",
       "doc_kind": "none",
       "doc_target": null,
+      "date_last_updated": null,
+      "date_last_updated_source": null,
       "in_release": true,
       "upgrade_id": "42",
       "upgrade_name": "Demand Flexibility, Precool (GEB Gem), Load Shift for Grid Peak Reduction"
@@ -134,6 +156,8 @@
       "initial_release": "2023 Release 1",
       "doc_kind": "internal_md",
       "doc_target": "docs/upgrade_measures/env_ext_wall_insulation.md",
+      "date_last_updated": "2026-03-09",
+      "date_last_updated_source": "git_commit",
       "in_release": true,
       "upgrade_id": "48",
       "upgrade_name": "Wall Insulation"
@@ -145,6 +169,8 @@
       "initial_release": "2023 Release 1",
       "doc_kind": "internal_md",
       "doc_target": "docs/upgrade_measures/env_roof_insulation.md",
+      "date_last_updated": "2026-03-09",
+      "date_last_updated_source": "git_commit",
       "in_release": true,
       "upgrade_id": "49",
       "upgrade_name": "Roof Insulation"
@@ -156,6 +182,8 @@
       "initial_release": "2023 Release 1",
       "doc_kind": "internal_md",
       "doc_target": "docs/upgrade_measures/env_ext_secondary_window.md",
+      "date_last_updated": "2026-03-09",
+      "date_last_updated_source": "git_commit",
       "in_release": true,
       "upgrade_id": "50",
       "upgrade_name": "Secondary Windows"
@@ -167,6 +195,8 @@
       "initial_release": "2023 Release 1",
       "doc_kind": "internal_md",
       "doc_target": "docs/upgrade_measures/env_window_film.md",
+      "date_last_updated": "2026-03-09",
+      "date_last_updated_source": "git_commit",
       "in_release": true,
       "upgrade_id": "51",
       "upgrade_name": "Window Film"
@@ -178,6 +208,8 @@
       "initial_release": "2023 Release 1",
       "doc_kind": "internal_md",
       "doc_target": "docs/upgrade_measures/env_ext_window_replacement.md",
+      "date_last_updated": "2026-03-09",
+      "date_last_updated_source": "git_commit",
       "in_release": true,
       "upgrade_id": "52",
       "upgrade_name": "New Windows"
@@ -189,6 +221,8 @@
       "initial_release": "2025 Release 2",
       "doc_kind": "external_pdf",
       "doc_target": "https://docs.nlr.gov/docs/fy26osti/96598.pdf",
+      "date_last_updated": "2026-01-25",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "49",
       "upgrade_name": "Code Envelope"
@@ -200,6 +234,8 @@
       "initial_release": "2025 Release 1",
       "doc_kind": "external_pdf",
       "doc_target": "https://docs.nlr.gov/docs/fy25osti/95004.pdf",
+      "date_last_updated": "2025-09-09",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "46",
       "upgrade_name": "Photovoltaics with 40pct Roof Coverage"
@@ -211,6 +247,8 @@
       "initial_release": "2025 Release 2",
       "doc_kind": "local_pdf",
       "doc_target": "assets/files/ComStock Measure Doc_PV with Battery Storage.pdf",
+      "date_last_updated": "2026-01-28",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "47",
       "upgrade_name": "Photovoltaics with 40pct Roof Coverage + Battery Storage"
@@ -222,6 +260,8 @@
       "initial_release": "2023 Release 1",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy24osti/86199.pdf",
+      "date_last_updated": "2024-05-22",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "15",
       "upgrade_name": "HP Boiler, Electric Backup"
@@ -233,6 +273,8 @@
       "initial_release": "2023 Release 2",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy24osti/87536.pdf",
+      "date_last_updated": "2024-05-24",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "16",
       "upgrade_name": "HP Boiler, Gas Backup"
@@ -244,6 +286,8 @@
       "initial_release": "2023 Release 1",
       "doc_kind": "internal_md",
       "doc_target": "docs/upgrade_measures/hvac_doas_mshp.md",
+      "date_last_updated": "2026-03-09",
+      "date_last_updated_source": "git_commit",
       "in_release": true,
       "upgrade_id": "14",
       "upgrade_name": "DOAS HP Minisplits"
@@ -255,6 +299,8 @@
       "initial_release": "2023 Release 2",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy24osti/87570.pdf",
+      "date_last_updated": "2024-09-04",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "2",
       "upgrade_name": "Variable Speed HP RTU, Original Heating Fuel Backup"
@@ -266,6 +312,8 @@
       "initial_release": "2023 Release 1",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy24osti/86585.pdf",
+      "date_last_updated": "2024-08-29",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "1",
       "upgrade_name": "Variable Speed HP RTU, Electric Backup"
@@ -277,6 +325,8 @@
       "initial_release": "2023 Release 2",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy24osti/86103.pdf",
+      "date_last_updated": "2023-11-10",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "12",
       "upgrade_name": "VRF with DOAS"
@@ -288,6 +338,8 @@
       "initial_release": "2023 Release 2",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy24osti/86897.pdf",
+      "date_last_updated": "2024-01-30",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "20",
       "upgrade_name": "Demand Control Ventilation"
@@ -299,6 +351,8 @@
       "initial_release": "2023 Release 2",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy24osti/87542.pdf",
+      "date_last_updated": "2024-01-29",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "21",
       "upgrade_name": "Energy Recovery for AHUs"
@@ -310,6 +364,8 @@
       "initial_release": "2024 Release 1",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy24osti/86105.pdf",
+      "date_last_updated": "2024-05-16",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "21",
       "upgrade_name": "Air Side Economizers for AHUs"
@@ -321,6 +377,8 @@
       "initial_release": "2024 Release 1",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy24osti/89040.pdf",
+      "date_last_updated": "2024-05-16",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "13",
       "upgrade_name": "VRF with 25pct Upsizing Allowance"
@@ -332,6 +390,8 @@
       "initial_release": "2025 Release 1",
       "doc_kind": "external_pdf",
       "doc_target": "https://docs.nlr.gov/docs/fy25osti/95006.pdf",
+      "date_last_updated": "2025-08-28",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "7",
       "upgrade_name": "Standard Performance HP RTU, Electric Backup + New Windows"
@@ -343,6 +403,8 @@
       "initial_release": "2024 Release 1",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy24osti/89120.pdf",
+      "date_last_updated": "2024-05-02",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "23",
       "upgrade_name": "Unoccupied AHU Control"
@@ -354,6 +416,8 @@
       "initial_release": "2024 Release 1",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy24osti/89481.pdf",
+      "date_last_updated": "2024-04-18",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "3",
       "upgrade_name": "Variable Speed HP RTU, Electric Backup, Energy Recovery"
@@ -365,6 +429,8 @@
       "initial_release": "2024 Release 1",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy24osti/89117.pdf",
+      "date_last_updated": "2024-05-02",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "22",
       "upgrade_name": "Advanced RTU Controls"
@@ -376,6 +442,8 @@
       "initial_release": "2024 Release 1",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy24osti/89239.pdf",
+      "date_last_updated": "2024-05-20",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "28",
       "upgrade_name": "Hydronic Water-to-Water Geothermal Heat Pump"
@@ -387,6 +455,8 @@
       "initial_release": "2024 Release 1",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy24osti/89131.pdf",
+      "date_last_updated": "2024-06-14",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "29",
       "upgrade_name": "Packaged Water-to-Air Geothermal Heat Pump"
@@ -398,6 +468,8 @@
       "initial_release": "2024 Release 1",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy24osti/89132.pdf",
+      "date_last_updated": "2024-06-04",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "30",
       "upgrade_name": "Console Water-to-Air Geothermal Heat Pump"
@@ -409,6 +481,8 @@
       "initial_release": "2024 Release 2",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy25osti/89042.pdf",
+      "date_last_updated": "2025-06-09",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "4",
       "upgrade_name": "Standard Performance HP RTU, Electric Backup"
@@ -420,6 +494,8 @@
       "initial_release": "2024 Release 2",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy25osti/92618.pdf",
+      "date_last_updated": "2025-05-15",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "6",
       "upgrade_name": "Standard Performance HP RTU, Electric Backup + Roof Insulation"
@@ -431,6 +507,8 @@
       "initial_release": "2024 Release 2",
       "doc_kind": "local_pdf",
       "doc_target": "assets/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.pdf",
+      "date_last_updated": "2026-01-21",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "8",
       "upgrade_name": "Standard Performance HP RTU, Electric Backup, 32F Minimum Compressor Lockout"
@@ -442,6 +520,8 @@
       "initial_release": "2024 Release 2",
       "doc_kind": "none",
       "doc_target": null,
+      "date_last_updated": null,
+      "date_last_updated_source": null,
       "in_release": true,
       "upgrade_id": "10",
       "upgrade_name": "Commercial HVAC Challenge HP RTU, Electric Backup"
@@ -453,6 +533,8 @@
       "initial_release": "2024 Release 2",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy25osti/92546.pdf",
+      "date_last_updated": "2025-05-15",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "27",
       "upgrade_name": "Ideal Thermal Air Loads"
@@ -464,6 +546,8 @@
       "initial_release": "2025 Release 1",
       "doc_kind": "external_pdf",
       "doc_target": "https://docs.nlr.gov/docs/fy25osti/95002.pdf",
+      "date_last_updated": "2025-09-09",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "9",
       "upgrade_name": "Standard Performance HP RTU, Electric Backup, 2F Unoccupied Htg Thermostat Setback"
@@ -475,6 +559,8 @@
       "initial_release": "2025 Release 1",
       "doc_kind": "external_pdf",
       "doc_target": "https://docs.nlr.gov/docs/fy25osti/95003.pdf",
+      "date_last_updated": "2025-08-20",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "31",
       "upgrade_name": "Chiller Replacement"
@@ -486,6 +572,8 @@
       "initial_release": "2025 Release 1",
       "doc_kind": "external_pdf",
       "doc_target": "https://docs.nlr.gov/docs/fy25osti/95119.pdf",
+      "date_last_updated": "2025-09-15",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "5",
       "upgrade_name": "Standard Performance HP RTU using Lab Data, Electric Backup"
@@ -497,6 +585,8 @@
       "initial_release": "2025 Release 1",
       "doc_kind": "external_pdf",
       "doc_target": "https://docs.nlr.gov/docs/fy25osti/95014.pdf",
+      "date_last_updated": "2025-09-09",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "17",
       "upgrade_name": "Condensing Gas Boilers"
@@ -508,6 +598,8 @@
       "initial_release": "2025 Release 1",
       "doc_kind": "external_pdf",
       "doc_target": "https://docs.nlr.gov/docs/fy25osti/95015.pdf",
+      "date_last_updated": "2025-09-09",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "18",
       "upgrade_name": "Electric Resistance Boilers"
@@ -519,6 +611,8 @@
       "initial_release": "2025 Release 3",
       "doc_kind": "external_pdf",
       "doc_target": "https://docs.nlr.gov/docs/fy26osti/98224.pdf",
+      "date_last_updated": "2026-02-25",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "11",
       "upgrade_name": "Advanced RTU"
@@ -530,6 +624,8 @@
       "initial_release": "2025 Release 3",
       "doc_kind": "external_pdf",
       "doc_target": "https://docs.nlr.gov/docs/fy26osti/98223.pdf",
+      "date_last_updated": "2026-02-24",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "26",
       "upgrade_name": "VFD Pumps"
@@ -541,6 +637,8 @@
       "initial_release": "2025 Release 3",
       "doc_kind": "external_pdf",
       "doc_target": "https://docs.nlr.gov/docs/fy26osti/98346.pdf",
+      "date_last_updated": "2026-03-03",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "25",
       "upgrade_name": "Thermostat Setbacks"
@@ -552,6 +650,8 @@
       "initial_release": "2025 Release 3",
       "doc_kind": "external_pdf",
       "doc_target": "https://docs.nlr.gov/docs/fy26osti/98345.pdf",
+      "date_last_updated": "2026-03-03",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "24",
       "upgrade_name": "Fan Static Pressure Reset for Multizone VAV"
@@ -563,6 +663,8 @@
       "initial_release": "2023 Release 1",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy24osti/86100.pdf",
+      "date_last_updated": "2023-12-08",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "43",
       "upgrade_name": "LED Lighting"
@@ -574,6 +676,8 @@
       "initial_release": "2025 Release 2",
       "doc_kind": "external_pdf",
       "doc_target": "https://docs.nlr.gov/docs/fy26osti/96597.pdf",
+      "date_last_updated": "2026-01-25",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "44",
       "upgrade_name": "Lighting Controls"
@@ -585,6 +689,8 @@
       "initial_release": "2023 Release 2",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy24osti/86599.pdf",
+      "date_last_updated": "2024-09-05",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "54",
       "upgrade_name": "Package 1, Wall + Roof Insulation + New Windows"
@@ -596,6 +702,8 @@
       "initial_release": "2023 Release 2",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy24osti/86601.pdf",
+      "date_last_updated": "2024-09-05",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "55",
       "upgrade_name": "Package 2, LED Lighting + Variable Speed HP RTU or HP Boilers"
@@ -607,6 +715,8 @@
       "initial_release": "2023 Release 2",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy24osti/86602.pdf",
+      "date_last_updated": "2024-09-09",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "52",
       "upgrade_name": "Package 4, Package 1 + Package 2"
@@ -618,6 +728,8 @@
       "initial_release": "2024 Release 2",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy25osti/89126.pdf",
+      "date_last_updated": "2025-05-14",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "53",
       "upgrade_name": "Package 3, Package 2 with Standard Performance HP RTU"
@@ -629,6 +741,8 @@
       "initial_release": "2024 Release 1",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy24osti/89128.pdf",
+      "date_last_updated": "2024-05-24",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "58",
       "upgrade_name": "Package 5, Variable Speed HP RTU or HP Boilers + Economizer + DCV + Energy Recovery"
@@ -640,6 +754,8 @@
       "initial_release": "2024 Release 1",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy24osti/89133.pdf",
+      "date_last_updated": "2024-09-06",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "59",
       "upgrade_name": "Package 6, Hydronic GHP or Packaged GHP or Console GHP"
@@ -651,6 +767,8 @@
       "initial_release": "2025 Release 1",
       "doc_kind": "external_pdf",
       "doc_target": "https://docs.nlr.gov/docs/fy26osti/92504.pdf",
+      "date_last_updated": "2025-11-24",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "60",
       "upgrade_name": "Package 7, Demand Flexibility, Lighting + Thermostat Control, Load Shed for Grid Peak Reduction"
@@ -662,6 +780,8 @@
       "initial_release": "2025 Release 1",
       "doc_kind": "external_pdf",
       "doc_target": "https://docs.nlr.gov/docs/fy26osti/95013.pdf",
+      "date_last_updated": "2025-11-24",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "61",
       "upgrade_name": "Package 8, Demand Flexibility, Lighting + Thermostat Control Load Shed for Daily Bldg Peak Reduction + PV"
@@ -673,6 +793,8 @@
       "initial_release": "2024 Release 2",
       "doc_kind": "external_pdf",
       "doc_target": "https://docs.nlr.gov/docs/fy26osti/92504.pdf",
+      "date_last_updated": "2025-11-24",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "62",
       "upgrade_name": "Package 9, Demand Flexibility, Lighting + Thermostat Control, Load Shed for Daily Bldg Peak Reduction"
@@ -684,6 +806,8 @@
       "initial_release": "2025 Release 1",
       "doc_kind": "external_pdf",
       "doc_target": "https://docs.nlr.gov/docs/fy25osti/95005.pdf",
+      "date_last_updated": "2025-09-09",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "63",
       "upgrade_name": "Package 10, Package 1 + Package 6"
@@ -695,6 +819,8 @@
       "initial_release": "2025 Release 1",
       "doc_kind": "external_pdf",
       "doc_target": "https://docs.nlr.gov/docs/fy25osti/95009.pdf",
+      "date_last_updated": "2025-09-09",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "64",
       "upgrade_name": "Package 11, Package 10 + LED Lighting"
@@ -706,6 +832,8 @@
       "initial_release": "2025 Release 2",
       "doc_kind": "none",
       "doc_target": null,
+      "date_last_updated": null,
+      "date_last_updated_source": null,
       "in_release": true,
       "upgrade_id": "65",
       "upgrade_name": "Package 12, Photovoltaics with 40pct Roof Coverage + Roof Insulation"
@@ -717,6 +845,8 @@
       "initial_release": "2024 Release 1",
       "doc_kind": "external_pdf",
       "doc_target": "https://www.nlr.gov/docs/fy24osti/89130.pdf",
+      "date_last_updated": "2024-04-30",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "45",
       "upgrade_name": "Electric Kitchen Equipment"

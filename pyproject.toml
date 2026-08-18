@@ -23,6 +23,10 @@ bsc = "buildstock_corpus.cli:app"
 extract = [
     "docling>=2.0",
     "pypandoc-binary>=1.13",
+    # Reads each measure PDF's own revision date for the crosswalk (extract.doc_dates).
+    # docling pulls it in transitively, but only under its format-pdf extras — declared
+    # here so the dependency is ours rather than incidental.
+    "pypdfium2>=4.30",
 ]
 # Optional LLM calls: `bsc query --answer` synthesizes an answer from the retrieved
 # passages. Retrieval itself works without this.

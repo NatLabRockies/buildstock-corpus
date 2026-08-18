@@ -1,6 +1,6 @@
 """Fetch raw sources for a release into raw/<product>/<release>/ and record provenance.
 
-Repos are cloned shallow + sparse (deduped by repo+ref), the exact commit SHA is
+Repos are cloned blobless + sparse (deduped by repo+ref), the exact commit SHA is
 recorded, and every raw input file is sha256-hashed. External upgrade-measure PDFs are
 downloaded; unreachable ones are recorded as gaps rather than aborting the run. The
 resulting fetch_state.json is the provenance input to the build/manifest stage.
@@ -113,18 +113,37 @@ def _git(dest: Path, *args: str) -> str:
     return out.stdout.strip()
 
 
+def _unshallow(dest: Path) -> None:
+    """Give an existing shallow clone its full commit history, keeping it blobless.
+
+    A clone made before commit history mattered here is shallow, and against a shallow
+    clone `git log -- <path>` reports the tip commit for every file (see
+    extract.doc_dates), so a stale clone would silently date every page the same day.
+    """
+    if _git(dest, "rev-parse", "--is-shallow-repository") == "true":
+        subprocess.run(
+            ["git", "-C", str(dest), "fetch", "--unshallow", "--filter=blob:none"],
+            check=False,  # a full-history clone is a nicety; failing it must not abort a fetch
+            capture_output=True,
+            text=True,
+        )
+
+
 def _ensure_clone(clone: Clone, repos_dir: Path) -> None:
     dest = repos_dir / clone.name
     if (dest / ".git").exists():
         if clone.sparse:
             _git(dest, "sparse-checkout", "set", *clone.sparse)
+        _unshallow(dest)
         clone.sha = _git(dest, "rev-parse", "HEAD")
         return
 
-    # Shallow, blobless, sparse clone pinned to the ref (tag or branch).
+    # Blobless, sparse clone pinned to the ref (tag or branch). Full commit history, no
+    # --depth: file contents are what is expensive (filtered out until checkout), while the
+    # commit graph is what dates each document, and one blobless history is ~1 MB.
     subprocess.run(
         [
-            "git", "clone", "--no-checkout", "--depth", "1",
+            "git", "clone", "--no-checkout",
             "--branch", clone.git_ref, "--filter=blob:none",
             clone.repo, str(dest),
         ],

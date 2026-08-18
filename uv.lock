@@ -331,6 +331,7 @@ dependencies = [
 extract = [
     { name = "docling" },
     { name = "pypandoc-binary" },
+    { name = "pypdfium2" },
 ]
 llm = [
     { name = "anthropic" },
@@ -349,6 +350,7 @@ requires-dist = [
     { name = "fastembed", specifier = ">=0.8.0" },
     { name = "httpx", specifier = ">=0.28.1" },
     { name = "pypandoc-binary", marker = "extra == 'extract'", specifier = ">=1.13" },
+    { name = "pypdfium2", marker = "extra == 'extract'", specifier = ">=4.30" },
     { name = "pyyaml", specifier = ">=6.0.3" },
     { name = "typer", specifier = ">=0.24.2" },
 ]

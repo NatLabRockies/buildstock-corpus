@@ -13,6 +13,7 @@ import csv
 import re
 from pathlib import Path
 
+from .doc_dates import DocDate
 from .measures_index import MeasureRef
 
 _COVERED_KINDS = {"internal_md", "external_pdf", "local_pdf"}
@@ -53,11 +54,26 @@ def _release_columns(fieldnames: list[str], release: str) -> tuple[str | None, s
     return id_col, name_col
 
 
-def build_crosswalk(csv_path: Path, refs: list[MeasureRef], release: str) -> dict:
-    """Join the crosswalk CSV with the parsed index refs into a crosswalk document."""
+def build_crosswalk(
+    csv_path: Path,
+    refs: list[MeasureRef],
+    release: str,
+    dates: dict[str, DocDate] | None = None,
+) -> dict:
+    """Join the crosswalk CSV with the parsed index refs into a crosswalk document.
+
+    `dates` maps a doc target to when that document was last updated at its source (see
+    doc_dates.resolve_doc_dates). Measures sharing one document share its date; a measure
+    whose documentation does not exist yet is dated None rather than given a stand-in.
+    """
     ref_by_id = {r.measure_id: r for r in refs}
     measures: list[dict] = []
     gaps: list[dict] = []
+
+    def dated(ref: MeasureRef | None) -> tuple[str | None, str | None]:
+        """(date, source) for a ref's document — both None together, never one alone."""
+        d = dates.get(ref.target) if (dates and ref and ref.target) else None
+        return (d.date, d.source) if d else (None, None)
 
     with csv_path.open(encoding="utf-8-sig", newline="") as f:
         reader = csv.DictReader(f)
@@ -68,6 +84,7 @@ def build_crosswalk(csv_path: Path, refs: list[MeasureRef], release: str) -> dic
                 continue
             ref = ref_by_id.get(mid)
             upgrade_id = (row.get(id_col) or "").strip() if id_col else ""
+            date, date_source = dated(ref)
             entry = {
                 "measure_id": mid,
                 "documentation_name": (row.get("measure_documentation_name") or "").strip(),
@@ -75,6 +92,8 @@ def build_crosswalk(csv_path: Path, refs: list[MeasureRef], release: str) -> dic
                 "initial_release": ref.initial_release if ref else None,
                 "doc_kind": ref.kind if ref else "unknown",
                 "doc_target": ref.target if ref else None,
+                "date_last_updated": date,
+                "date_last_updated_source": date_source,
                 "in_release": bool(upgrade_id),
                 "upgrade_id": upgrade_id or None,
                 "upgrade_name": ((row.get(name_col) or "").strip() or None) if name_col else None,
@@ -89,6 +108,7 @@ def build_crosswalk(csv_path: Path, refs: list[MeasureRef], release: str) -> dic
     csv_ids = {m["measure_id"] for m in measures}
     for r in refs:
         if r.measure_id not in csv_ids:
+            date, date_source = dated(r)
             measures.append({
                 "measure_id": r.measure_id,
                 "documentation_name": r.name,
@@ -96,6 +116,8 @@ def build_crosswalk(csv_path: Path, refs: list[MeasureRef], release: str) -> dic
                 "initial_release": r.initial_release,
                 "doc_kind": r.kind,
                 "doc_target": r.target,
+                "date_last_updated": date,
+                "date_last_updated_source": date_source,
                 "in_release": None,
                 "upgrade_id": None,
                 "upgrade_name": None,

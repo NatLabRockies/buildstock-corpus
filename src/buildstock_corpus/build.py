@@ -15,6 +15,7 @@ from pathlib import Path
 
 from .chunk import chunk_documents
 from .extract.crosswalk import build_crosswalk
+from .extract.doc_dates import resolve_doc_dates
 from .extract.latex import load_latex_docs
 from .extract.markdown import load_markdown_docs
 from .extract.measures_index import MeasureRef, parse_index
@@ -207,10 +208,13 @@ def _extract_documents(
                 pdf_images[f"{src.id}/{remap_dir(rel_dir, src.output_remap)}"] = cache_dir
                 # a PDF's bitmaps are only in the cache until _copy_source_images runs
                 image_dirs[(src.id, source_path)] = cache_dir
-            # crosswalk join (CSV + index)
+            # crosswalk join (CSV + index), each measure dated by its own documentation
             cw = src_state.get("crosswalk")
             if cw:
-                crosswalk = build_crosswalk(clone_dir / cw["path"], refs, release)
+                doc_dates = resolve_doc_dates(
+                    src_state, raw_root(product, release), clone_dir
+                )
+                crosswalk = build_crosswalk(clone_dir / cw["path"], refs, release, doc_dates)
 
         # Everything not filled in above is a clone-sourced page, whose images sit beside it
         # at the same relative depth they keep in processed/.
