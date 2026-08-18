@@ -1,0 +1,61 @@
+# Hand-authored table transcriptions for env_ext_window_replacement.md
+#
+# The upstream page embeds these tables as pictures, so the extracted markdown keeps the
+# caption and an image link while the numbers stay invisible to retrieval. Each entry below
+# is a transcription of one such picture, injected at build time by overlay.py in place of
+# the image ref. See overlays/README.md for the schema and the review procedure.
+#
+# Which of the 12 stock window types satisfy each energy code's allowable assembly maximums,
+# for the climate zone 4 example. The same table appears in env_ext_secondary_window.md as its
+# Table 4 ("Window Distribution Assumptions Example From Climate Zone 4A") under a different
+# caption and from a different bitmap; the two were transcribed independently and agree.
+#
+# The source draws the code columns as a three-line header (code name, allowable assembly
+# maximum U-value, allowable assembly maximum SHGC) above the window-type rows. GFM has one
+# header row, so the two maximums are split off into their own sub-table, following the idiom
+# the env_ext_secondary_window Table 4 entry already uses for this table. The picture carries
+# no shading; the only other flattening is the window-type labels, which the source wraps onto
+# two lines and which are transcribed as one.
+#
+# source_image_sha256 pins each transcription to the exact bitmap it was read from: if
+# upstream redraws a table, the build reports a stale overlay instead of shipping numbers
+# that no longer match the picture.
+
+product: comstock
+release: "2025-3"
+source_id: upgrade_measures
+source_path: docs/upgrade_measures/env_ext_window_replacement.md
+
+tables:
+  - label: "Table 2"
+    caption: "Example of Available Window Assignment Options for Climate Zone 4 Based on the Energy Code Followed During the Last Window Replacement"
+    source_image: "./media/af2de490-bde0-40ce-b9d9-b48fb43e822e.png"
+    source_image_sha256: "d1af0d55ea204de854e4ec61d65b978768192e82cb43bc54c3a50e5b8af5bdcd"
+    method: vision-transcription
+    transcribed_utc: "2026-08-18"
+    markdown: |
+      **Allowable assembly maximums by the energy code followed during the last windows replacement**
+
+      | Allowable Assembly Maximum | Pre-1980 | 1980-2004 | 90.1-2004 | 90.1-2007 | 90.1-2010 | 90.1-2013 |
+      |---|---|---|---|---|---|---|
+      | U-Value | 1.22 | 0.59 | 0.57 | 0.55 | 0.55 | 0.42 |
+      | SHGC | 0.54 | 0.36 | 0.39 | 0.4 | 0.4 | 0.4 |
+
+      **Window types that meet each code minimum**
+
+      | Window Type | Pre-1980 | 1980-2004 | 90.1-2004 | 90.1-2007 | 90.1-2010 | 90.1-2013 |
+      |---|---|---|---|---|---|---|
+      | Single - No LowE - Clear - Aluminum U-1.178 SHGC-0.744 | X |  |  |  |  |  |
+      | Single - No LowE - Tinted/Reflective - Aluminum U-1.178 SHGC-0.579 | X |  |  |  |  |  |
+      | Single - No LowE - Clear - Wood U-0.91 SHGC-0.683 | X | X |  |  |  |  |
+      | Single - No LowE - Tinted/Reflective - Wood U-0.91 SHGC-0.525 | X | X |  |  |  |  |
+      | Double - No LowE - Tinted/Reflective - Aluminum U-0.749 SHGC-0.484 | X | X |  |  |  |  |
+      | Double - No LowE - Clear - Aluminum U-0.746 SHGC-0.646 | X | X |  |  |  |  |
+      | Double - LowE - Clear - Aluminum U-0.559 SHGC-0.386 |  | X | X | X | X |  |
+      | Double - LowE - Tinted/Reflective - Aluminum U-0.557 SHGC-0.274 |  | X | X | X | X |  |
+      | Double - LowE - Clear - Thermally Broken Aluminum U-0.499 SHGC-0.378 |  |  | X | X | X | X |
+      | Double - LowE - Tinted/Reflective - Thermally Broken Aluminum U-0.496 SHGC-0.266 |  |  | X | X | X | X |
+      | Triple - LowE - Clear - Thermally Broken Aluminum U-0.3 SHGC-0.328 |  |  | X | X | X | X |
+      | Triple - LowE - Tinted/Reflective - Thermally Broken Aluminum U-0.299 SHGC-0.224 |  |  | X | X | X | X |
+
+      X = This window type meets code minimums

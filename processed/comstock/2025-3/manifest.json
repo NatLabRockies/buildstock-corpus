@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "2025-3",
-  "generated_utc": "2026-08-18T17:11:07.568340+00:00",
+  "generated_utc": "2026-08-18T19:13:05.256100+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -529,14 +529,17 @@
           "title": "Secondary Window System",
           "input_sha256": "91d7f8e5b641c4072d96dfaf6f4cde4a0c367d69b15eba943e1248254ff2d74e",
           "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/env_ext_secondary_window.md",
-          "output_sha256": "f10432ecc1a86f1fb1c16721d770f2ca6b8eda678a2b94bbf898b8fa9cba3f14",
+          "output_sha256": "dc5bcf513cbf9d1bc3ec82d055fe2cb2a253599e2e6fd89500c62b27fcf1b119",
           "overlay": {
             "path": "comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_ext_secondary_window.yaml",
-            "sha256": "4c89659b8506a907005a090528800d6f3367a6a458dd4aa6516a1ec7233dc101",
+            "sha256": "68f9a521bed07289198f2482f73256972e8d8de17051da516b9c988f488098f8",
             "tables_applied": [
+              "Table 2",
               "Table 4",
               "Table 5",
-              "Table 8"
+              "Table 7",
+              "Table 8",
+              "Table 10"
             ]
           }
         },
@@ -546,11 +549,12 @@
           "title": "Exterior Wall Insulation",
           "input_sha256": "fc7967438ace1780461253dbd100b5473293bfc2857f360c48db0b6c8da69427",
           "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/env_ext_wall_insulation.md",
-          "output_sha256": "5ccd2cc954443053db3dd46eedb28e72ffe78f719f7dbb193d1daaf2a1d2fa51",
+          "output_sha256": "c9c405eaabe87b9c451dfe3261a47cb5ebd881a7ec07ae5837c3ea23ea253df5",
           "overlay": {
             "path": "comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_ext_wall_insulation.yaml",
-            "sha256": "cff5d572759e3b0c33e3786389ee0caa392f1d0bd98b142b15f60a3cbddcce21",
+            "sha256": "c09343f292f677b9e1987fe68f73579e4a67001e89f8afac9d630fe0da72140b",
             "tables_applied": [
+              "Table 3",
               "Table 4",
               "Table 5",
               "Table 6",
@@ -565,7 +569,14 @@
           "title": "Window Replacement",
           "input_sha256": "497dd2df0b3e05a8fac4584a654433cbcded2a4740038109d86d9adfc8bc450c",
           "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/env_ext_window_replacement.md",
-          "output_sha256": "615fa3e971f32ae61d759442f58b2a2038ee24905f02b16941702fd56518b31c"
+          "output_sha256": "3ff73305e93744fd4dd6db444be67b93eac0233011ee988d23e438eb9c96ccec",
+          "overlay": {
+            "path": "comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_ext_window_replacement.yaml",
+            "sha256": "1a07e37f305b0f64daefe0085525a0900bc7828575a1ebafe51ca766be510802",
+            "tables_applied": [
+              "Table 2"
+            ]
+          }
         },
         {
           "source_path": "docs/upgrade_measures/env_roof_insulation.md",
@@ -594,11 +605,12 @@
           "title": "Window Film",
           "input_sha256": "9aecf35790f36883b35a5cd81346b82124b8d244bace87048e5867810b4480fb",
           "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/env_window_film.md",
-          "output_sha256": "733b3d2d62ea4ced6aa7956a291279efb60a1444c3f25618398f273902c9dfce",
+          "output_sha256": "9f4fb6dd84a60fc98947774d2b39ca37674b7815b4699c1aece443da03f117c7",
           "overlay": {
             "path": "comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_window_film.yaml",
-            "sha256": "0ada7e9aaded35fc5d97b56f66373242b1fe96736a0faa0f0d6e76c74939d6e6",
+            "sha256": "a15f33301e2ba148f4b328d6e2424cbf82b75f0109923c236d18d2b167250916",
             "tables_applied": [
+              "Table 2",
               "Table 3"
             ]
           }
@@ -1160,15 +1172,15 @@
   ],
   "counts": {
     "documents": 118,
-    "chunks": 7177,
+    "chunks": 7204,
     "by_type": {
       "latex": 19,
       "markdown": 40,
       "measures": 6,
       "pdf": 53
     },
-    "overlay_documents": 18,
-    "overlay_tables": 51,
+    "overlay_documents": 19,
+    "overlay_tables": 57,
     "overlay_text_repairs": 1
   },
   "crosswalk": {
