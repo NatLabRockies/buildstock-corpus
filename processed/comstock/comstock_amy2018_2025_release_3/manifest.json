@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "comstock_amy2018_2025_release_3",
-  "generated_utc": "2026-08-19T17:17:05.035727+00:00",
+  "generated_utc": "2026-08-19T23:03:08.128475+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -139,7 +139,7 @@
           "title": "Plug and Process Loads",
           "input_sha256": "f1134b58c14e786ec6f8e0cbf75c9c2cd76f97151616e8b21b6740c9148a7ae8",
           "output_path": "technical_reference/documentation/reference_doc/4_7_plug_and_process.md",
-          "output_sha256": "3b2be91831ed586401dc4f3d879bfd7f555e2e01de64997aa4ee8aa2ebdadac3"
+          "output_sha256": "85612e12a533543d7988a14d920cd373a957bd9a75e77878998493a3ef456e78"
         },
         {
           "source_path": "documentation/reference_doc/4_8_service_water_heating.tex",
@@ -1172,7 +1172,7 @@
   ],
   "counts": {
     "documents": 118,
-    "chunks": 7204,
+    "chunks": 7207,
     "by_type": {
       "latex": 19,
       "markdown": 40,
