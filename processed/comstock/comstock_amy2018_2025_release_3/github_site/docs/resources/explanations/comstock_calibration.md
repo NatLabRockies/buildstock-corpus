@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | github_site | docs/resources/explanations/comstock_calibration.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/comstock_calibration.md -->
 # ComStock Calibration, Validation, and Uncertainty
 
 # Considerations for ComStock Calibration, Validation, and Uncertainty

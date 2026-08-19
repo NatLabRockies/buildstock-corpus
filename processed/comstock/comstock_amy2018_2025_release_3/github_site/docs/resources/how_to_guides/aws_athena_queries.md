@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | github_site | docs/resources/how_to_guides/aws_athena_queries.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/how_to_guides/aws_athena_queries.md -->
 # AWS Athena Queries
 
 # Amazon Web Services (AWS) Athena Queries

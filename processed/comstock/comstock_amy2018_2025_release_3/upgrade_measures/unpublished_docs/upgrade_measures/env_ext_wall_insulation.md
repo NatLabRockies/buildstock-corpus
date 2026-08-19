@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | upgrade_measures | docs/upgrade_measures/env_ext_wall_insulation.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | docs/upgrade_measures/env_ext_wall_insulation.md -->
 # Exterior Wall Insulation
 
 Authors: Andrew Parker and Amy LeBar
@@ -64,7 +64,7 @@ Also, the ComStock team is aware that the baseline wall performance characterist
 Table 3. Comparison of ComStock Existing Opaque Wall Thermal Performance to ASHRAE Small and Medium Office Zero Energy AEDG Performance Targets by Climate Zone
 
 <!-- table recovered from ./media/09c5c0be-0aa4-46b1-a2be-b4866aad1f4d.png
-     overlay: comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_ext_wall_insulation.yaml
+     overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_ext_wall_insulation.yaml
      method: vision-transcription -->
 
 **Frame walls: ComStock Baseline R-value* by climate zone**
@@ -178,7 +178,7 @@ To determine the prevalence of each wall construction type, we queried a databas
 Table 4. Mapping of Wall Construction Types from Database to ComStock
 
 <!-- table recovered from ./media/037949da-0ec3-4567-9133-08fbcbaa44e6.png
-     overlay: comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_ext_wall_insulation.yaml
+     overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_ext_wall_insulation.yaml
      method: vision-transcription -->
 
 **Database types covering 1% or more of entries**
@@ -216,7 +216,7 @@ After mapping each entry in the database to one of the ComStock construction typ
 Table 5. Input Distribution of Wall Construction Types by Climate Zone and Number of Stories
 
 <!-- table recovered from ./media/dafea5c3-6536-4788-a383-99d60682e6c0.png
-     overlay: comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_ext_wall_insulation.yaml
+     overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_ext_wall_insulation.yaml
      method: vision-transcription -->
 
 | Climate | Mass | Metal Building | Steel Framed | Wood Framed |
@@ -259,7 +259,7 @@ We did not find any data sources that contained the thermal performance (U-value
 Table 6. Wall Assembly Thermal Performance (Outside California)
 
 <!-- table recovered from ./media/53c0e447-00dc-4d5c-90bb-307c0aaf29ed.png
-     overlay: comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_ext_wall_insulation.yaml
+     overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_ext_wall_insulation.yaml
      method: vision-transcription -->
 
 **Mass**
@@ -309,7 +309,7 @@ Table 6. Wall Assembly Thermal Performance (Outside California)
 Table 7. Wall Assembly Thermal Performance (In California)
 
 <!-- table recovered from ./media/f7d30601-928c-4018-86a8-6cba5a2a37d2.png
-     overlay: comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_ext_wall_insulation.yaml
+     overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_ext_wall_insulation.yaml
      method: vision-transcription -->
 
 **Mass**
@@ -363,7 +363,7 @@ Figure 2. Weighted floor area by wall type and building type
 Table 8. Summary of Average Wall R-Value by ASHRAE Climate Zone and Wall Type
 
 <!-- table recovered from ./media/425951d2-4217-40e8-a7da-9d1dbd0c6f41.png
-     overlay: comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_ext_wall_insulation.yaml
+     overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_ext_wall_insulation.yaml
      method: vision-transcription -->
 
 **Mass — ASHRAE 90.1 and stock-average vintages**

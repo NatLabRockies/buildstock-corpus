@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | github_site | docs/resources/how_to_guides/basic_stock_characterization_workbook.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/how_to_guides/basic_stock_characterization_workbook.md -->
 # Basic Stock Characterization Workbook
 
 # How-to: Perform a basic commercial building stock segmentation analysis in Excel.

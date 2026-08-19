@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | github_site | docs/resources/how_to_guides/example_scripts.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/how_to_guides/example_scripts.md -->
 # Access the ComStock Datasets Programmatically
 
 # How-to: Access the ComStock datasets programmatically

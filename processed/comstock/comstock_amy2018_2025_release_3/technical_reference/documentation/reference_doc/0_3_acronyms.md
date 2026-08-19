@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | technical_reference | documentation/reference_doc/0_3_acronyms.tex -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/0_3_acronyms.tex -->
 # List of Acronyms
 
 <div class="acronym">

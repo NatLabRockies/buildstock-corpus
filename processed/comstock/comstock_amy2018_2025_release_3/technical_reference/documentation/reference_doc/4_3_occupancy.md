@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | technical_reference | documentation/reference_doc/4_3_occupancy.tex -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_3_occupancy.tex -->
 # Hours of Operation and Occupancy
 
 ## Hours of Operation

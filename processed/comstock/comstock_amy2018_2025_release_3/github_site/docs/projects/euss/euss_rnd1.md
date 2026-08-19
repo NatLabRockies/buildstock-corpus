@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | github_site | docs/projects/euss/euss_rnd1.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/projects/euss/euss_rnd1.md -->
 # EUSS Round 1
 
 ![project_logo](../../../assets/images/logo_euss_rnd1.png)

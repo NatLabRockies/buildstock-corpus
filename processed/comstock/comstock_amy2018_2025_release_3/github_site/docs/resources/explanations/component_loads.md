@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | github_site | docs/resources/explanations/component_loads.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/component_loads.md -->
 # Component Loads Data and Analysis
 
 # Commercial Building Load Components Data and Analysis

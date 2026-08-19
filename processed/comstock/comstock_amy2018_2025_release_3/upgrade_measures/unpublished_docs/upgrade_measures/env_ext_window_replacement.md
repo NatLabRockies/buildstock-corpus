@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | upgrade_measures | docs/upgrade_measures/env_ext_window_replacement.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | docs/upgrade_measures/env_ext_window_replacement.md -->
 # Window Replacement
 
 Authors: Chris CaraDonna and Andrew Parker
@@ -61,7 +61,7 @@ Table 2. Example of Available Window Assignment Options for Climate Zone 4 Based
 Table from \[1\]
 
 <!-- table recovered from ./media/af2de490-bde0-40ce-b9d9-b48fb43e822e.png
-     overlay: comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_ext_window_replacement.yaml
+     overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_ext_window_replacement.yaml
      method: vision-transcription -->
 
 **Allowable assembly maximums by the energy code followed during the last windows replacement**

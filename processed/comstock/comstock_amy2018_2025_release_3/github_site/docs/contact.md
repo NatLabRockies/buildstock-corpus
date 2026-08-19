@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | github_site | docs/contact.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/contact.md -->
 # Contact
 
 Contact [ComStock@nlr.gov](mailto:ComStock@nlr.gov) to learn more about how your organization can realize value from ComStock.

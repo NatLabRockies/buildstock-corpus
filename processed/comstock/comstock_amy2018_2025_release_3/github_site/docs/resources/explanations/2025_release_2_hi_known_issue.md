@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | github_site | docs/resources/explanations/2025_release_2_hi_known_issue.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/2025_release_2_hi_known_issue.md -->
 # Hawaii AMY2012 Weather Files in ComStock 2025 Release 2
 
 # Issue Report: Hawaii AMY2012 Weather Files in ComStock 2025 Release 2

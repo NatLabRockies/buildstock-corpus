@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | upgrade_measures | assets/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.pdf -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | assets/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.pdf -->
 # Heat Pump Rooftop Units With Higher Compressor Lockout Temperature for Heating
 
 ComStock Measure Documentation: Heat Pump Rooftop Units With Higher Compressor Lockout Temperature for Heating Janghyun Kim, Chris CaraDonna, and Andrew Parker PRE-PUBLICATIO
@@ -212,7 +212,7 @@ Our previous work analyzing the HP-RTU with standard performance used the settin
 Table 1. Descriptions of Compressor Lockout Temperature in Manufacturer Manuals [3], [4], [5], [6], [7], [8], [9], [10], [11], [12], [13], [14]
 
 <!-- table recovered from assets/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.pdf p.15
-     overlay: comstock_2025-3/upgrade_measures/assets/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.yaml
+     overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/assets/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.yaml
      method: vision-transcription -->
 
 **Carrier**

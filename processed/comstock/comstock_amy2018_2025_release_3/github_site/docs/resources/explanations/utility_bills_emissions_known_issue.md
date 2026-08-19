@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | github_site | docs/resources/explanations/utility_bills_emissions_known_issue.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/utility_bills_emissions_known_issue.md -->
 # Utility Bills and Emissions in ComStock 2024 Release 2
 
 # Issue Report: Utility Bills and Emissions in ComStock 2024 Release 2

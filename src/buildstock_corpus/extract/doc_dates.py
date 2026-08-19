@@ -36,6 +36,13 @@ from ..paths import long_path
 # the document's own claim about its revision day is the thing being recorded.
 _PDF_DATE = re.compile(r"^D:(?P<y>\d{4})(?P<m>\d{2})(?P<d>\d{2})")
 
+# Mirrors extract.latex._INPUT_RE: a LaTeX chapter pulls its dense tables with
+# \input{tables/...}, and those files are inlined into the document before pandoc sees it.
+# Dating a chapter therefore has to walk the same \input set, or a chapter whose prose is
+# old but whose tables were refreshed would report a stale date (6_AppendixA is exactly
+# that case). Keep this pattern in step with latex._INPUT_RE.
+_INPUT_RE = re.compile(r"\\input\{([^}]+)\}")
+
 
 @dataclass(frozen=True)
 class DocDate:
@@ -73,6 +80,26 @@ def _pdf_date(path: Path) -> str | None:
         if m:
             return f"{m['y']}-{m['m']}-{m['d']}"
     return None
+
+
+def _is_shallow(repo: Path) -> bool:
+    """Is `repo` a shallow clone? Then git dating is a lie waiting to happen.
+
+    Against a shallow clone `git log -- <path>` reports the clone tip for every file, so
+    every document collapses onto one date that looks like an answer and is not (see the
+    module docstring). Callers use this to refuse to date rather than emit that fake
+    uniform date. A missing git is not shallow — it is simply undatable, handled downstream.
+    """
+    try:
+        out = subprocess.run(
+            ["git", "-C", str(repo), "rev-parse", "--is-shallow-repository"],
+            capture_output=True,
+            text=True,
+            check=False,
+        ).stdout.strip()
+    except OSError:  # pragma: no cover - git missing
+        return False
+    return out == "true"
 
 
 def _git_date(repo: Path, rel_path: str) -> str | None:
@@ -131,3 +158,55 @@ def resolve_doc_dates(src_state: dict, raw_root: Path, clone_dir: Path) -> dict[
             dates[rel] = DocDate(git, "git_commit")
 
     return dates
+
+
+def git_doc_date(clone_dir: Path, rel_path: str) -> DocDate | None:
+    """Last-updated date of a single repo file, from its last commit (git_commit).
+
+    The github.io how-to/methodology pages carry no document metadata of their own, so the
+    repo is the record — the same rule already applied to internal measure pages in
+    resolve_doc_dates. Caller is responsible for the shallow-clone check (_is_shallow).
+    """
+    git = _git_date(clone_dir, rel_path)
+    return DocDate(git, "git_commit") if git else None
+
+
+def _latex_input_closure(chapter: Path, proj_dir: Path, seen: set[Path], _depth: int = 0) -> None:
+    """Collect `chapter` and every .tex it transitively \\input's that exists on disk.
+
+    Mirrors extract.latex._expand_inputs' file resolution (append '.tex' when absent, drop
+    missing targets, depth cap) so the date covers exactly the text pandoc converts. Results
+    accumulate into `seen`; `\\input` paths are resolved relative to `proj_dir` (the project
+    root), matching how latex.py reads them.
+    """
+    if _depth > 10 or chapter in seen or not chapter.is_file():
+        return
+    seen.add(chapter)
+    text = chapter.read_text(encoding="utf-8", errors="replace")
+    for rel in _INPUT_RE.findall(text):
+        rel = rel.strip()
+        fp = proj_dir / (rel if rel.endswith(".tex") else f"{rel}.tex")
+        _latex_input_closure(fp, proj_dir, seen, _depth + 1)
+
+
+def latex_doc_date(clone_dir: Path, chapter_rel: str) -> DocDate | None:
+    """Last-updated date of a LaTeX chapter, over the chapter file and its \\input'd tables.
+
+    A chapter is not one file: it inlines its dense tables from tables/*.tex, and those can
+    be revised long after the surrounding prose. So the date is the latest commit across the
+    whole \\input closure, not the chapter file alone — otherwise a refreshed table sitting
+    under stale prose would be reported as stale. Source stays 'git_commit'; the closure rule
+    is an implementation detail of how that commit date is established.
+
+    Caller is responsible for the shallow-clone check (_is_shallow); on a shallow clone every
+    path in the closure collapses to the tip commit and this would return a fake uniform date.
+    """
+    chapter = clone_dir / chapter_rel
+    closure: set[Path] = set()
+    _latex_input_closure(chapter, chapter.parent, closure)
+    dates = [
+        d
+        for p in closure
+        if (d := _git_date(clone_dir, p.relative_to(clone_dir).as_posix()))
+    ]
+    return DocDate(max(dates), "git_commit") if dates else None

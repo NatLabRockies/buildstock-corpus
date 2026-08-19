@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | technical_reference | documentation/reference_doc/4_6_lighting.tex -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_6_lighting.tex -->
 # Lighting
 
 ## Interior Lighting

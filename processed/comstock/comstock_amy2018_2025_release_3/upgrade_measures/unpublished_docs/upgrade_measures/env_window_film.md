@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | upgrade_measures | docs/upgrade_measures/env_window_film.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | docs/upgrade_measures/env_window_film.md -->
 # Window Film
 
 Authors: Janghyun Kim, Chris CaraDonna and Andrew Parker
@@ -120,7 +120,7 @@ Figure 5. Workflow of creating new glass, glazing systems, and windows with wind
 Table 2. Performance Range Baseline Windows With Window Films
 
 <!-- table recovered from media/ec67b834b3070ddae5461a3e344bc230.png
-     overlay: comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_window_film.yaml
+     overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_window_film.yaml
      method: vision-transcription -->
 
 **Baseline window configuration**
@@ -287,7 +287,7 @@ Table 3 presents the applicability of the window film measure to ComStock baseli
 Table 3. Applicability Criteria of Window Films
 
 <!-- table recovered from media/a6223bfbd567aa7a8a925536b2e5ad8c.png
-     overlay: comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_window_film.yaml
+     overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_window_film.yaml
      method: vision-transcription -->
 
 **Single-pane baseline windows**

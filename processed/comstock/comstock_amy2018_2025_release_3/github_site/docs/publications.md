@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | github_site | docs/publications.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/publications.md -->
 # Publications
 
 <details markdown="block" class="level1-collapse-section" open>

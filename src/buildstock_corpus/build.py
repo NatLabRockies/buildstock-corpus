@@ -15,7 +15,13 @@ from pathlib import Path
 
 from .chunk import chunk_documents
 from .extract.crosswalk import build_crosswalk
-from .extract.doc_dates import resolve_doc_dates
+from .extract.doc_dates import (
+    DocDate,
+    _is_shallow,
+    git_doc_date,
+    latex_doc_date,
+    resolve_doc_dates,
+)
 from .extract.latex import load_latex_docs
 from .extract.markdown import load_markdown_docs
 from .extract.measures_index import MeasureRef, parse_index
@@ -55,20 +61,53 @@ def _index_refs(clone_dir: Path, src_state: dict) -> list[MeasureRef]:
     return parse_index(text, idx["path"])
 
 
-def _measure_extra(refs: list[MeasureRef]) -> dict:
+def _measure_extra(refs: list[MeasureRef], dates: dict[str, DocDate] | None = None) -> dict:
     """Fold one-or-more measure identities (shared docs) into chunk-metadata scalars."""
     if not refs:
         return {}
     dedupe = dict.fromkeys  # preserve order, drop dups
-    return {
+    extra = {
         "measure_id": ",".join(r.measure_id for r in refs),
         "measure_name": "; ".join(dedupe(r.name for r in refs)),
         "measure_initial_release": ",".join(dedupe(r.initial_release for r in refs)),
     }
+    # Every ref here documents the same physical file, so they share one date. Omit the keys
+    # when there is no date rather than writing None: chunk_document already drops None, and
+    # Chroma metadata cannot hold it. (crosswalk.json keeps the keys always-present instead,
+    # so a consumer never has to probe — that asymmetry is intentional.)
+    d = dates.get(refs[0].target) if (dates and refs[0].target) else None
+    if d:
+        extra["date_last_updated"] = d.date
+        extra["date_last_updated_source"] = d.source
+    return extra
+
+
+def _date_docs(docs: list[Document], clone_dir: Path, src_id: str, dater) -> list[str]:
+    """Stamp date_last_updated/_source into each doc's extra via `dater(clone_dir, rel)`.
+
+    Used for the non-measure sources (latex, github_site markdown), whose docs are dated by
+    their place in the repo rather than by a crosswalk target. On a shallow clone git dating
+    collapses every file onto the tip commit, so we refuse to date and warn once rather than
+    emit a fake uniform date. Undated docs simply keep no date keys (chunk_document drops the
+    absent keys) — the same omission the measure path uses. Returns any warnings to fold in.
+    """
+    if _is_shallow(clone_dir):
+        return [f"{src_id}: shallow clone; docs left undated - run `bsc fetch` to restore history"]
+    for doc in docs:
+        d = dater(clone_dir, doc.source_path)
+        if d:
+            doc.extra["date_last_updated"] = d.date
+            doc.extra["date_last_updated_source"] = d.source
+    return []
 
 
 def _pdf_specs(
-    product: str, release: str, clone_dir: Path, src_state: dict, refs: list[MeasureRef]
+    product: str,
+    release: str,
+    clone_dir: Path,
+    src_state: dict,
+    refs: list[MeasureRef],
+    dates: dict[str, DocDate] | None = None,
 ) -> list[PdfSpec]:
     """Build one PdfSpec per physical PDF, aggregating every measure that cites it."""
     url_refs: dict[str, list[MeasureRef]] = defaultdict(list)
@@ -95,7 +134,7 @@ def _pdf_specs(
                 abs_path=raw_root(product, release) / path,
                 sha256=path_sha[path],
                 title=here[0].name if here else None,
-                extra=_measure_extra(here),
+                extra=_measure_extra(here, dates),
             )
         )
 
@@ -108,7 +147,7 @@ def _pdf_specs(
                 abs_path=clone_dir / lp["path"],
                 sha256=lp["sha256"],
                 title=here[0].name if here else None,
-                extra=_measure_extra(here),
+                extra=_measure_extra(here, dates),
             )
         )
     return specs
@@ -123,7 +162,9 @@ def _cap(items: list, sample: int | None) -> list:
     return items if sample is None else items[:sample]
 
 
-def _attach_internal_measure_identity(docs: list[Document], refs: list[MeasureRef]) -> None:
+def _attach_internal_measure_identity(
+    docs: list[Document], refs: list[MeasureRef], dates: dict[str, DocDate] | None = None
+) -> None:
     """Tag internal measure pages with their measure id (index internal_md target = path)."""
     by_path: dict[str, list[MeasureRef]] = defaultdict(list)
     for r in refs:
@@ -132,7 +173,7 @@ def _attach_internal_measure_identity(docs: list[Document], refs: list[MeasureRe
     for doc in docs:
         here = by_path.get(doc.source_path)
         if here:
-            doc.extra.update(_measure_extra(here))
+            doc.extra.update(_measure_extra(here, dates))
 
 
 def _extract_documents(
@@ -175,6 +216,8 @@ def _extract_documents(
             latex_docs, latex_warn = load_latex_docs(
                 clone_dir, src.latex_main or "", product, release, src.id, limit=sample
             )
+            # Date each chapter by its \input closure, not the chapter file alone.
+            warnings += _date_docs(latex_docs, clone_dir, src.id, latex_doc_date)
             docs += latex_docs
             warnings += [f"{src.id}: {w}" for w in latex_warn]
 
@@ -183,23 +226,32 @@ def _extract_documents(
             md_docs, md_excl = load_markdown_docs(
                 clone_dir, rels, product, release, src.id, "markdown"
             )
-            docs += _cap(md_docs, sample)
+            md_docs = _cap(md_docs, sample)
+            warnings += _date_docs(md_docs, clone_dir, src.id, git_doc_date)
+            docs += md_docs
             if md_excl:
                 excluded[src.id] = md_excl
 
         elif src.type == "measures":
             refs = _index_refs(clone_dir, src_state)
+            # Resolve each measure document's date once, up front: the same dict feeds both
+            # the chunk metadata (via _measure_extra below) and the crosswalk, so there is one
+            # resolution and no chance the two drift. (build_crosswalk keeps its keys always-
+            # present; chunk metadata omits them when undated — see _measure_extra.)
+            doc_dates = resolve_doc_dates(src_state, raw_root(product, release), clone_dir)
             # internal measure markdown pages
             rels = [p["path"] for p in src_state["internal_pages"]]
             page_docs, page_excl = load_markdown_docs(
                 clone_dir, rels, product, release, src.id, "measures"
             )
-            _attach_internal_measure_identity(page_docs, refs)
+            _attach_internal_measure_identity(page_docs, refs, doc_dates)
             docs += _cap(page_docs, sample)
             if page_excl:
                 excluded[src.id] = page_excl
             # external + local measure PDFs
-            specs = _cap(_pdf_specs(product, release, clone_dir, src_state, refs), sample)
+            specs = _cap(
+                _pdf_specs(product, release, clone_dir, src_state, refs, doc_dates), sample
+            )
             pdf_docs, pdf_warn, pdf_imgs = load_pdf_docs(specs, product, release, src.id)
             docs += pdf_docs
             warnings += [f"{src.id}: {w}" for w in pdf_warn]
@@ -211,9 +263,6 @@ def _extract_documents(
             # crosswalk join (CSV + index), each measure dated by its own documentation
             cw = src_state.get("crosswalk")
             if cw:
-                doc_dates = resolve_doc_dates(
-                    src_state, raw_root(product, release), clone_dir
-                )
                 crosswalk = build_crosswalk(clone_dir / cw["path"], refs, release, doc_dates)
 
         # Everything not filled in above is a clone-sourced page, whose images sit beside it

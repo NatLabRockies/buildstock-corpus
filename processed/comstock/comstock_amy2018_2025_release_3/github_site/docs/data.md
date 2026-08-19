@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | github_site | docs/data.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/data.md -->
 # Data
 
 Given the complexity of the ComStock software workflow, and the big-data skill set and computing hardware required, the pathway for professionals and researchers to use ComStock successfully is to interact with the pre-created results, rather than running the ComStock modeling tool. This section provides information about accessing ComStock data, and a list of published datasets.

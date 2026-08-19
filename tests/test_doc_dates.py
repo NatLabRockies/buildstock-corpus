@@ -14,7 +14,10 @@ from pathlib import Path
 from buildstock_corpus.extract.doc_dates import (
     DocDate,
     _git_date,
+    _is_shallow,
     _pdf_date,
+    git_doc_date,
+    latex_doc_date,
     resolve_doc_dates,
 )
 
@@ -250,3 +253,81 @@ def test_missing_file_on_disk_is_absent_rather_than_dated(tmp_path):
     state = {"external_pdfs": [{"url": "u", "path": "measure_pdfs/nope.pdf", "status": "ok"}]}
 
     assert resolve_doc_dates(state, tmp_path / "raw", git_repo(tmp_path / "clone")) == {}
+
+
+# --- _is_shallow ----------------------------------------------------------------------
+
+
+def test_is_shallow_true_for_depth1_clone_false_for_full(tmp_path):
+    """The probe that lets the build refuse to date a shallow clone instead of faking it."""
+    origin = git_repo(tmp_path / "origin")
+    commit(origin, "a.txt", "a", "2024-01-01T10:00:00+00:00")
+    commit(origin, "b.txt", "b", "2024-02-01T10:00:00+00:00")
+
+    shallow = tmp_path / "shallow"
+    subprocess.run(
+        ["git", "clone", "-q", "--depth", "1", origin.as_uri(), str(shallow)], check=True
+    )
+    full = tmp_path / "full"
+    subprocess.run(["git", "clone", "-q", origin.as_uri(), str(full)], check=True)
+
+    assert _is_shallow(shallow) is True
+    assert _is_shallow(full) is False
+
+
+# --- git_doc_date (github_site pages) -------------------------------------------------
+
+
+def test_git_doc_date_wraps_commit_and_is_none_for_untracked(tmp_path):
+    repo = git_repo(tmp_path / "repo")
+    commit(repo, "docs/data.md", "page", "2026-06-24T10:00:00+00:00")
+
+    assert git_doc_date(repo, "docs/data.md") == DocDate("2026-06-24", "git_commit")
+    assert git_doc_date(repo, "docs/never.md") is None
+
+
+# --- latex_doc_date (chapter + its \input closure) ------------------------------------
+
+
+def test_latex_doc_date_uses_latest_of_chapter_and_its_inputs(tmp_path):
+    """The case chapter-file-only dating gets wrong: old prose, a freshly revised table.
+
+    This mirrors 6_AppendixA in the real tech reference (chapter 2024-05, tables 2025-08).
+    The document is the chapter plus everything it \\input's, so its date is the latest of
+    the two, not the chapter file's own commit.
+    """
+    repo = git_repo(tmp_path / "repo")
+    commit(
+        repo,
+        "documentation/reference_doc/appendix.tex",
+        "\\section{Appendix}\n\\input{tables/big}\n",
+        "2024-05-01T10:00:00+00:00",
+    )
+    commit(
+        repo,
+        "documentation/reference_doc/tables/big.tex",
+        "| col |\n| --- |\n| v |\n",
+        "2025-08-20T10:00:00+00:00",
+    )
+
+    dd = latex_doc_date(repo, "documentation/reference_doc/appendix.tex")
+
+    assert dd == DocDate("2025-08-20", "git_commit")
+
+
+def test_latex_doc_date_recurses_nested_inputs(tmp_path):
+    """\\input can nest; the date must reach the deepest file, matching _expand_inputs."""
+    repo = git_repo(tmp_path / "repo")
+    commit(repo, "d/ch.tex", "\\input{a}\n", "2024-01-01T10:00:00+00:00")
+    commit(repo, "d/a.tex", "\\input{b}\n", "2024-06-01T10:00:00+00:00")
+    commit(repo, "d/b.tex", "deepest table\n", "2026-02-02T10:00:00+00:00")
+
+    assert latex_doc_date(repo, "d/ch.tex") == DocDate("2026-02-02", "git_commit")
+
+
+def test_latex_doc_date_ignores_missing_input(tmp_path):
+    """A dropped \\input target (as _expand_inputs drops it) dates by the chapter alone."""
+    repo = git_repo(tmp_path / "repo")
+    commit(repo, "d/ch.tex", "\\input{tables/gone}\nbody\n", "2025-03-03T10:00:00+00:00")
+
+    assert latex_doc_date(repo, "d/ch.tex") == DocDate("2025-03-03", "git_commit")

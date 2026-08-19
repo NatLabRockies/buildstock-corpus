@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | upgrade_measures | assets/files/ComStock Measure Doc_PV with Battery Storage.pdf -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | assets/files/ComStock Measure Doc_PV with Battery Storage.pdf -->
 # Photovoltaics With 40% Rooftop Coverage and Battery Storage
 
 ComStock Measure Documentation: Photovoltaics With 40% Rooftop Coverage and Battery Storage Chris CaraDonna PRE-PUBLICATIO

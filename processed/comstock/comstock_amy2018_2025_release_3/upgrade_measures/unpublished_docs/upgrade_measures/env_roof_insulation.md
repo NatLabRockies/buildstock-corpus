@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | upgrade_measures | docs/upgrade_measures/env_roof_insulation.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | docs/upgrade_measures/env_roof_insulation.md -->
 # Roof Insulation
 
 Authors: Lauren Adams and Chris CaraDonna
@@ -67,7 +67,7 @@ No data sources for roof construction type were found in the CBECS report. For b
 Table 1. Roof Construction Types
 
 <!-- table recovered from media/1d093dd8864b636f6dd02a3d70bcc1c1.png
-     overlay: comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_roof_insulation.yaml
+     overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_roof_insulation.yaml
      method: vision-transcription -->
 
 | Building Type | DOE Ref and 90.1: Construction Type | DOE Ref and 90.1: Building Category for Exterior Roofs | DEER (CA ONLY): Construction Type | DEER (CA ONLY): Building Category for Exterior Roofs |
@@ -104,7 +104,7 @@ No data sources were found that contained thermal performance (U-value/R-value) 
 Table 2. ASHRAE 90.1 IEAD Nonresidential Roof R-Value (c.i.)
 
 <!-- table recovered from media/18037d38ef99b57c02dadc77d31718da.png
-     overlay: comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_roof_insulation.yaml
+     overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_roof_insulation.yaml
      method: vision-transcription -->
 
 | ComStock Energy Code | 1A | 1B | 2A | 2B | 3A | 3B | 3C | 4A | 4B | 4C | 5A | 5B | 5C | 6A | 6B | 7 | 8 |
@@ -121,7 +121,7 @@ Table 2. ASHRAE 90.1 IEAD Nonresidential Roof R-Value (c.i.)
 Table 3. ASHRAE 90.1 IEAD Residential Roof R-Value (c.i.)
 
 <!-- table recovered from media/966c33bf3e0e85644df23434a31aaf2e.png
-     overlay: comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_roof_insulation.yaml
+     overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_roof_insulation.yaml
      method: vision-transcription -->
 
 | ComStock Energy Code | 1A | 1B |
@@ -136,7 +136,7 @@ In general, it appears that the only difference between ASHRAE 90.1 Nonresidenti
 Table 4. DEER Roof R-Values (c.i.)
 
 <!-- table recovered from media/5b3aa079ea5a972fa681e72f08e872af.png
-     overlay: comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_roof_insulation.yaml
+     overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_roof_insulation.yaml
      method: vision-transcription -->
 
 **DEER Wood-Framed Nonresidential**
@@ -232,7 +232,7 @@ As a starting point for target assembly performance of roof insulation based on 
 Table 5. Overall Target Assembly Performance Characteristics by Climate Zone per AEDG [3]
 
 <!-- table recovered from media/0379b78f3c35327610fbdfa65e3fac94.png
-     overlay: comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_roof_insulation.yaml
+     overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_roof_insulation.yaml
      method: vision-transcription -->
 
 | Climate Zone | CZ 1 | CZ 2 | CZ 3 | CZ 4 | CZ 5 | CZ 6 | CZ 7 | CZ 8 |
@@ -245,7 +245,7 @@ R-5/inch needed to bring the total assembly to the AEDG recommended thermal perf
 Table 6. Comparison of ComStock Existing Roof Thermal Performance to AEDG Performance Targets by Climate Zone
 
 <!-- table recovered from media/00fe2fa136ffe4432caf0f0f462a8d81.png
-     overlay: comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_roof_insulation.yaml
+     overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_roof_insulation.yaml
      method: vision-transcription -->
 
 **ComStock Baseline R-value**
@@ -339,7 +339,7 @@ Figure 7. Average site percent energy savings by ComStock building type
 Table 9. Summary of Roof Insulation Measure for Comstock Baseline
 
 <!-- table recovered from media/8d9229694413bdc8f5321a544038f684.png
-     overlay: comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_roof_insulation.yaml
+     overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_roof_insulation.yaml
      method: vision-transcription -->
 
 | Climate Zone | Applied Roof R-value | Target Roof R-value | Average Baseline Roof R-value | Average R-value Added | Average % Site Energy Savings |
