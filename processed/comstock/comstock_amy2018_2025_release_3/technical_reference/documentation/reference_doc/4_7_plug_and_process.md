@@ -129,13 +129,124 @@ Commercial building energy modeling often assumes an energy intensity per area f
 
 ComStock uses published data to create representative probability distributions of commercial cooking equipment counts, by building type, for both gas and electric appliances. Additionally, the equipment distributions are scaled by area to represent the non-linear scaling suggested in the literature. Although other building types likely include some degree of cooking equipment as well, such as larger offices ((U.S. Energy Information Administration 2012)), the current implementation of ComStock only includes cooking equipment in the previously-mentioned six building types plus quick service restaurants found in strip malls.
 
-Commercial kitchens can contain electric or gas cooking equipment, or a mix of both. The prevalence of gas and electric fuel types for each equipment type used in ComStock are derived from a DOE study ((Goetzler et al. 2016)). ComStock requires rated input power values and fractions of radiant, latent, and lost heat for gas and electric kitchen equipment. These values are primarily derived from the ASHRAE Fundamentals Handbook ((American Society of Heating and Air-Conditioning Engineers 2017)) after comparisons with other kitchen equipment studies and commercially available products. More details about how these values were determined can be found in the End Use Savings Shapes documentation ((Praprost 2024)).The assumptions used in ComStock for prevalence, rated input power, and fractions radiant, latent, and lost for gas and electric appliances are shown in Table <a href="#tab:kitchen_prev_and_power" data-reference-type="ref" data-reference="tab:kitchen_prev_and_power">[tab:kitchen_prev_and_power]</a>.
+Commercial kitchens can contain electric or gas cooking equipment, or a mix of both. The prevalence of gas and electric fuel types for each equipment type used in ComStock are derived from a DOE study ((Goetzler et al. 2016)). ComStock requires rated input power values and fractions of radiant, latent, and lost heat for gas and electric kitchen equipment. These values are primarily derived from the ASHRAE Fundamentals Handbook ((American Society of Heating and Air-Conditioning Engineers 2017)) after comparisons with other kitchen equipment studies and commercially available products. More details about how these values were determined can be found in the End Use Savings Shapes documentation ((Praprost 2024)).The assumptions used in ComStock for prevalence, rated input power, and fractions radiant, latent, and lost for gas and electric appliances are shown in Table <a href="#tab:kitchen_prev_and_power" data-reference-type="ref" data-reference="tab:kitchen_prev_and_power">3</a>.
+
+<div id="tab:kitchen_prev_and_power">
+
+<table>
+<caption>Cooking Equipment Fuel Type Prevelance and Rater Power</caption>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Appliance</strong></th>
+<th colspan="2" style="text-align: center;"><strong>Fuel Prevalence Fraction</strong></th>
+<th colspan="2" style="text-align: center;"><strong>Rated Power</strong></th>
+<th colspan="2" style="text-align: center;"><strong>Fraction Radiant</strong></th>
+<th colspan="2" style="text-align: center;"><strong>Fraction Latent</strong></th>
+<th colspan="2" style="text-align: center;"><strong>Fraction Lost</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><span>2-11</span></td>
+<td style="text-align: left;"><strong>Gas</strong></td>
+<td style="text-align: left;"><strong>Electric</strong></td>
+<td style="text-align: left;"><strong>Gas (Btu/h)</strong></td>
+<td style="text-align: left;"><strong>Electric (kW)</strong></td>
+<td style="text-align: left;"><strong>Gas</strong></td>
+<td style="text-align: left;"><strong>Electric</strong></td>
+<td style="text-align: left;"><strong>Gas</strong></td>
+<td style="text-align: left;"><strong>Electric</strong></td>
+<td style="text-align: left;"><strong>Gas</strong></td>
+<td style="text-align: left;"><strong>Electric</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">Broiler</td>
+<td style="text-align: left;">0.91</td>
+<td style="text-align: left;">0.09</td>
+<td style="text-align: left;">96,000</td>
+<td style="text-align: left;">10.8</td>
+<td style="text-align: left;">0.12</td>
+<td style="text-align: left;">0.35</td>
+<td style="text-align: left;">0.1</td>
+<td style="text-align: left;">0.1</td>
+<td style="text-align: left;">0.68</td>
+<td style="text-align: left;">0.45</td>
+</tr>
+<tr>
+<td style="text-align: left;">Griddle</td>
+<td style="text-align: left;">0.58</td>
+<td style="text-align: left;">0.42</td>
+<td style="text-align: left;">90,000</td>
+<td style="text-align: left;">17.1</td>
+<td style="text-align: left;">0.18</td>
+<td style="text-align: left;">0.39</td>
+<td style="text-align: left;">0.1</td>
+<td style="text-align: left;">0.1</td>
+<td style="text-align: left;">0.62</td>
+<td style="text-align: left;">0.41</td>
+</tr>
+<tr>
+<td style="text-align: left;">Fryer</td>
+<td style="text-align: left;">0.5</td>
+<td style="text-align: left;">0.5</td>
+<td style="text-align: left;">80,000</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">0.23</td>
+<td style="text-align: left;">0.36</td>
+<td style="text-align: left;">0.1</td>
+<td style="text-align: left;">0.1</td>
+<td style="text-align: left;">0.57</td>
+<td style="text-align: left;">0.44</td>
+</tr>
+<tr>
+<td style="text-align: left;">Oven</td>
+<td style="text-align: left;">0.55</td>
+<td style="text-align: left;">0.45</td>
+<td style="text-align: left;">44,000</td>
+<td style="text-align: left;">12.1</td>
+<td style="text-align: left;">0.08</td>
+<td style="text-align: left;">0.22</td>
+<td style="text-align: left;">0.1</td>
+<td style="text-align: left;">0.1</td>
+<td style="text-align: left;">0.72</td>
+<td style="text-align: left;">0.58</td>
+</tr>
+<tr>
+<td style="text-align: left;">Range</td>
+<td style="text-align: left;">0.91</td>
+<td style="text-align: left;">0.09</td>
+<td style="text-align: left;">145,000</td>
+<td style="text-align: left;">21</td>
+<td style="text-align: left;">0.11</td>
+<td style="text-align: left;">0.1</td>
+<td style="text-align: left;">0.1</td>
+<td style="text-align: left;">0.1</td>
+<td style="text-align: left;">0.69</td>
+<td style="text-align: left;">0.7</td>
+</tr>
+<tr>
+<td style="text-align: left;">Steamer</td>
+<td style="text-align: left;">0.33</td>
+<td style="text-align: left;">0.67</td>
+<td style="text-align: left;">200,000</td>
+<td style="text-align: left;">27</td>
+<td style="text-align: left;">0.1</td>
+<td style="text-align: left;">0.1</td>
+<td style="text-align: left;">0.1</td>
+<td style="text-align: left;">0.1</td>
+<td style="text-align: left;">0.7</td>
+<td style="text-align: left;">0.7</td>
+</tr>
+</tbody>
+</table>
+
+</div>
 
 Kitchens in ComStock models are assigned a quantity of each equipment type. These can be found in the ComStock metadata files for each model. Equipment quantities are assigned using probability distribtuions with dependencies on building type and food service floor area. The quantities used in the probability distributions are determined using an older dataset of equipment counts per restaurant type combined with the prevalence of the restaurant type ((Rahbar et al. 1996)). The restaurant types were mapped to ComStock building types. This is summarized in Table <a href="#tab:kitchen_cook_counts" data-reference-type="ref" data-reference="tab:kitchen_cook_counts">[tab:kitchen_cook_counts]</a>. Unfortunately, little data of this type was found in literature, so this older source was ultimately used for equipment counts. However, even with changes in culinary trends, it is not expected that counts of equipment types in a restaurant would have changed drastically over the past few decades. Additionally, a “None” restaurant type was created for schools, with a prevalence determined by the fraction of schools in CBECS that have kitchens ((U.S. Energy Information Administration 2012)).
 
 This workflow also includes modifiers to the equipment counts shown in Table <a href="#tab:kitchen_cook_counts" data-reference-type="ref" data-reference="tab:kitchen_cook_counts">[tab:kitchen_cook_counts]</a> to scale equipment count for different kitchen sizes. As mentioned previously, it is not expected that equipment scales linearly with kitchen size, but there is little information in the literature to suggest appropriate scaling ((Zhang et al. 2010)). To account for equipment count scaling, we assume most typically-sized kitchens will have the same quantity of equipment. However, especially small and large kitchens will include scaling factors to account for very large changes in kitchen area that would likely correlate to higher/lower meals served. These factors were determined using engineering judgment and are summarized in Figure <a href="#fig:cooking_equipment_count_scaling_factors_by_building_type_and_area" data-reference-type="ref" data-reference="fig:cooking_equipment_count_scaling_factors_by_building_type_and_area">2</a>.
 
-In summary, ComStock determines quantity and fuel type of cooking equipment based on sampling our probability distributions. A restaurant type is sampled for each model as per the prevenances shown by building type in Table <a href="#tab:kitchen_cook_counts" data-reference-type="ref" data-reference="tab:kitchen_cook_counts">[tab:kitchen_cook_counts]</a>. This yields the corresponding equipment counts for the restaurant type shown in Table <a href="#tab:kitchen_cook_counts" data-reference-type="ref" data-reference="tab:kitchen_cook_counts">[tab:kitchen_cook_counts]</a>, with square footage modifiers applied based on building size and type. Next, the equipment fuel type is sampled as per the prevalence shown in Table <a href="#tab:kitchen_prev_and_power" data-reference-type="ref" data-reference="tab:kitchen_prev_and_power">[tab:kitchen_prev_and_power]</a> for each piece of equipment. Combined, this yields quantities of gas and electric cooking equipment for each ComStock sample. Note that kitchen spaces in ComStock additionally include some prevalence of electric load to account for non-major electrical appliances such as microwaves, heating lamps, toasters, coffee machines, electric kettles, etc. Additionally, the current implementation of cooking equipment in ComStock utilizes the same schedule for each equipment type. Future work could include implementing equipment-specific schedules for the various equipment types, which may better represent reality.
+In summary, ComStock determines quantity and fuel type of cooking equipment based on sampling our probability distributions. A restaurant type is sampled for each model as per the prevenances shown by building type in Table <a href="#tab:kitchen_cook_counts" data-reference-type="ref" data-reference="tab:kitchen_cook_counts">[tab:kitchen_cook_counts]</a>. This yields the corresponding equipment counts for the restaurant type shown in Table <a href="#tab:kitchen_cook_counts" data-reference-type="ref" data-reference="tab:kitchen_cook_counts">[tab:kitchen_cook_counts]</a>, with square footage modifiers applied based on building size and type. Next, the equipment fuel type is sampled as per the prevalence shown in Table <a href="#tab:kitchen_prev_and_power" data-reference-type="ref" data-reference="tab:kitchen_prev_and_power">3</a> for each piece of equipment. Combined, this yields quantities of gas and electric cooking equipment for each ComStock sample. Note that kitchen spaces in ComStock additionally include some prevalence of electric load to account for non-major electrical appliances such as microwaves, heating lamps, toasters, coffee machines, electric kettles, etc. Additionally, the current implementation of cooking equipment in ComStock utilizes the same schedule for each equipment type. Future work could include implementing equipment-specific schedules for the various equipment types, which may better represent reality.
 
 <figure id="fig:cooking_equipment_count_scaling_factors_by_building_type_and_area" data-latex-placement="ht!">
 <img src="figures/kitchen_equipment_count_scaling.png" />

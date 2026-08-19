@@ -25,7 +25,7 @@
       "figure_captions": 0,
       "orphan_figures": 0,
       "md_tables": 50,
-      "html_tables": 35,
+      "html_tables": 36,
       "html_imgs": 113,
       "md_images": 0,
       "dangling_refs": 0,
@@ -183,11 +183,12 @@
       "dangling_refs": [],
       "duplicate_h1": [],
       "unconverted_html_tables": [
-        22
+        22,
+        136
       ],
       "unconverted_html_imgs": [
         103,
-        141
+        252
       ],
       "characters": {}
     },

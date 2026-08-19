@@ -29,6 +29,11 @@ _GFM_SEP_RE = re.compile(r"^\s*\|[\s:|-]*-[\s:|-]*\|\s*$")  # a GFM header separ
 # dropping both delimiters also heals latent source bugs — one HVAC table has a commented-out
 # \begin{center} but a live \end{center}, which pandoc rejects as an unbalanced environment.
 _CENTER_RE = re.compile(r"\\(?:begin|end)\{center\}|\\centering\b")
+# `\resizebox{<width>}{<height>}{<content>}` is a graphicx scaling wrapper. pandoc's LaTeX
+# reader silently DROPS a tabular wrapped in it, so a resized table converts to nothing — the
+# prose still \refs it but the data is gone (kitchen_prev_and_power in 4_7_plug_and_process was
+# the one corpus-wide casualty). Scaling is meaningless in markdown, so unwrap to the content.
+_RESIZEBOX_RE = re.compile(r"\\resizebox\b\s*")
 # Multi-page longtable machinery: pandoc leaves the whole environment as a raw block unless
 # these are removed. Scoped to inside longtable envs so real \caption on \begin{table} survive.
 _LT_MACHINERY = re.compile(
@@ -37,6 +42,44 @@ _LT_MACHINERY = re.compile(
     r"|\\label\{[^}]*\}"
     r"|\\multicolumn\{[^}]*\}\{[^}]*\}\s*\{.*?\}\s*\\\\\s*\\hline"  # "Continued..." row
 )
+
+
+def _skip_braced_group(text: str, i: int) -> int | None:
+    """If text[i] opens a `{...}` group, return the index just past its matching `}`.
+
+    Brace-matched rather than regex'd because the group nests (a resized tabular holds
+    `\\multicolumn{...}{...}` all the way down)."""
+    if i >= len(text) or text[i] != "{":
+        return None
+    depth = 0
+    for j in range(i, len(text)):
+        if text[j] == "{":
+            depth += 1
+        elif text[j] == "}":
+            depth -= 1
+            if depth == 0:
+                return j + 1
+    return None
+
+
+def _strip_resizebox(text: str) -> str:
+    """Unwrap every `\\resizebox{<w>}{<h>}{<content>}` to just `<content>`.
+
+    Leaves the two size arguments behind and keeps the third (content) group verbatim, so a
+    resized tabular reaches pandoc as an ordinary tabular instead of being dropped."""
+    out: list[str] = []
+    pos = 0
+    for m in _RESIZEBOX_RE.finditer(text):
+        w = _skip_braced_group(text, m.end())  # {<width>}
+        h = _skip_braced_group(text, w) if w is not None else None  # {<height>}
+        c = _skip_braced_group(text, h) if h is not None else None  # {<content>}
+        if c is None:  # not the shape we expect — leave it untouched for pandoc to handle
+            continue
+        out.append(text[pos : m.start()])
+        out.append(text[h + 1 : c - 1])  # the content, minus its wrapping braces
+        pos = c
+    out.append(text[pos:])
+    return "".join(out)
 
 
 def _normalize_longtable(block: str) -> str:
@@ -70,6 +113,7 @@ def _expand_inputs(text: str, proj_dir: Path, _depth: int = 0) -> str:
 
     text = _INPUT_RE.sub(repl, text)
     if _depth == 0:
+        text = _strip_resizebox(text)
         text = _LONGTABLE_RE.sub(lambda m: _normalize_longtable(m.group(0)), text)
         text = _CENTER_RE.sub("", text)
     return text
