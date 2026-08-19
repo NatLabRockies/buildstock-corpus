@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | upgrade_measures | docs/upgrade_measures/hvac_doas_mshp.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | docs/upgrade_measures/hvac_doas_mshp.md -->
 # DOAS with Mini Split Heat Pumps
 
 Authors: Chris CaraDonna and Andrew Parker

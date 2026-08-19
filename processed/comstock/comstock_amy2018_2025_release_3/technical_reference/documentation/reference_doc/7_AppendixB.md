@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | technical_reference | documentation/reference_doc/7_AppendixB.tex -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/7_AppendixB.tex -->
 # 7_AppendixB
 
 <span id="appendix:B_figures" label="appendix:B_figures"></span> \[Intentionally Blank\]

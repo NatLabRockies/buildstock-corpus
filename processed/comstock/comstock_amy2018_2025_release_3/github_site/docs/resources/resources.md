@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | github_site | docs/resources/resources.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/resources.md -->
 # Resources
 
 This section provides tutorials, how-to guides, explanations and reference material designed to aid users in answering questions about the ComStock dataset.

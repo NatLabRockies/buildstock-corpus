@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | technical_reference | documentation/reference_doc/2_workflow.tex -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/2_workflow.tex -->
 # ComStock Workflow
 
 Accurately representing commercial building energy usage is complex because of how subsystems of a building interact with one another and with the surrounding environment. Every aspect of a commercial building can influence its energy consumption, so it is difficult to identify which aspects of a building are critical for a given energy-related metric and climate without simulation. To achieve its fundamental goal of representing the U.S. commercial building stock across all energy-related metrics, ComStock must capture the diversity and variability of the building stock. This requires a robust modeling and publishing workflow.

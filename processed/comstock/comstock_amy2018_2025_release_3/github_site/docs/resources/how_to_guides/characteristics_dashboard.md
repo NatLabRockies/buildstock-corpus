@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | github_site | docs/resources/how_to_guides/characteristics_dashboard.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/how_to_guides/characteristics_dashboard.md -->
 # Building Characterization Dashboard
 
 # How-to: Filter the Building Characteristics Dashboard to View Data for a County

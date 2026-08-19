@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | upgrade_measures | docs/upgrade_measures/env_ext_secondary_window.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | docs/upgrade_measures/env_ext_secondary_window.md -->
 # Secondary Window System
 
 Authors: Andrew Parker and Amy LeBar
@@ -72,7 +72,7 @@ Data from the National Fenestration Rating Council (NFRC) Commercial Fenestratio
 Table 2. Window Property Data Sources
 
 <!-- table recovered from ./media/50c87ca1-cdd0-4a78-abec-9ca69ee5fa0f.png
-     overlay: comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_ext_secondary_window.yaml
+     overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_ext_secondary_window.yaml
      method: vision-transcription -->
 
 | Source | Data Collection Year | Samples | Regions | Window Area | Panes | Glazing Type | Frame/Thermal Break | Low-E Coating | Retrofit/New | Window Vintage | U-Factor/SHGC | Gas Fill |
@@ -145,7 +145,7 @@ Each combination of climate zone and energy code included 2--12 window configura
 Table 4. Window Distribution Assumptions Example From Climate Zone 4A
 
 <!-- table recovered from ./media/1225d411-9c12-4555-b633-bcbd69a6bfbd.png
-     overlay: comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_ext_secondary_window.yaml
+     overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_ext_secondary_window.yaml
      method: vision-transcription -->
 
 **Allowable assembly maximums by the energy code followed during the last windows replacement**
@@ -183,7 +183,7 @@ Once the 12 new window constructions were determined, a team from LBNL's Windows
 Table 5. Window Thermal Performance
 
 <!-- table recovered from ./media/fd012e1d-53a4-4b03-b432-a24f61cb469e.png
-     overlay: comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_ext_secondary_window.yaml
+     overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_ext_secondary_window.yaml
      method: vision-transcription -->
 
 | Number of Panes | Glazing Type | Frame Material | Low-E Coating | Frame ID | WINDOW ID | U-Factor IP (Btu/h-ft2-F) | SHGC | VLT |
@@ -230,7 +230,7 @@ Adding double-pane secondary windows to existing single-pane windows achieved a 
 Table 7. Proposed Combinations for Performance of Existing Window Plus Secondary Window Combinations by Climate Zone
 
 <!-- table recovered from ./media/00e9bd9d-633e-459e-9841-231c488010c5.png
-     overlay: comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_ext_secondary_window.yaml
+     overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_ext_secondary_window.yaml
      method: vision-transcription -->
 
 **Existing window (one value per ID; the source merges these across all three climate zone bands)**
@@ -316,7 +316,7 @@ Table 7. Proposed Combinations for Performance of Existing Window Plus Secondary
 Table 8. Comparison of Existing Window Plus Secondary Window Combinations to ASHRAE *Small and Medium Office Zero Energy AEDG* Performance Targets by Climate Zone
 
 <!-- table recovered from ./media/0f54f116-2001-4833-b8ba-bff84c446d15.png
-     overlay: comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_ext_secondary_window.yaml
+     overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_ext_secondary_window.yaml
      method: vision-transcription -->
 
 **Existing window**
@@ -428,7 +428,7 @@ The percent changes in U-value, SHGC, and VLT were determined from the WINDOW mo
 Table 10. U-Value and SHGC Comparison Before and After the Measure Was Applied
 
 <!-- table recovered from ./media/e4cd0292-c3cc-4911-b1dd-de678a3b9970.png
-     overlay: comstock_2025-3/upgrade_measures/docs/upgrade_measures/env_ext_secondary_window.yaml
+     overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_ext_secondary_window.yaml
      method: vision-transcription -->
 
 | Build Existing Model.Baseline Window Type | U-Value Before (SI) | SHGC Before | U-Value After (SI) | SHGC After | U-Value % Decrease | SHGC % Decrease |

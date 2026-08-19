@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | technical_reference | documentation/reference_doc/4_1_introduction.tex -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_1_introduction.tex -->
 # ComStock Building Models
 
 ComStock uses about 30 high-level, whole-building characteristics to describe each building, as discussed in Section <a href="#chap:3_sampling" data-reference-type="ref" data-reference="chap:3_sampling">[chap:3_sampling]</a>. However, whole-building energy models, such as the EnergyPlus<sup>®</sup> model used by ComStock, typically require thousands of inputs to describe a building for simulation. The purpose of the subsequent sections is to describe the assumptions, conventions, and data sources used to transform the high-level descriptions into inputs with the level of detail needed by EnergyPlus. Although the software used to implement this transformation is critical to the workflow, the focus is on the model inputs, not on the software workflow.

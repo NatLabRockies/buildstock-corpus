@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | github_site | docs/resources/explanations/building_type_crosswalks.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/building_type_crosswalks.md -->
 # Building Type Crosswalks
 
 ComStock uses 14 building types to segment the part of the commercial building stock we represent. These building type are: full service restaurant, hospital, large hotel, large office, medium office, outpatient, quick service restaurant, primary school, retail, secondary school, small hotel, small office, strip mall, and warehouse. In some cases, most notably within the strip mall building type, we also model building subtypes. In the case of strip malls the subtypes vary the percent of the building floor area that is used for restaurants, which have significantly different energy use patterns and drastically impact the energy use of a strip mall.

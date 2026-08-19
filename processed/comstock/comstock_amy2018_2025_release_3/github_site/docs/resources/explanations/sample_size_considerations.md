@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | github_site | docs/resources/explanations/sample_size_considerations.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/sample_size_considerations.md -->
 # Sample Size Considerations
 
 A frequently asked question is, “How granular are ComStock™ data sets?” The answer depends in part on which portion of the dataset you are using and the question(s) you are trying to answer. The appropriate geography (e.g., state, county, PUMA, or tract) to use for your analysis depends on several factors, including but not limited to:

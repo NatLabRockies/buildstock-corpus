@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | github_site | docs/resources/how_to_guides/impact_workbook.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/how_to_guides/impact_workbook.md -->
 # Building Stock Characterization and Upgrades Impact Workbook
 
 # How-to: Perform a commercial building stock characterization and upgrades impact analysis in Excel.

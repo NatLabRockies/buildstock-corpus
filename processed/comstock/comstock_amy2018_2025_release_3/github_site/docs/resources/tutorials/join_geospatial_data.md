@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | github_site | docs/resources/tutorials/join_geospatial_data.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/tutorials/join_geospatial_data.md -->
 # Joining External Geospatial Data
 
 # Tutorial: Joining Data from an External Dataset to ComStock using Geospatial Fields

@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | github_site | docs/for_developers/for_developers.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/for_developers/for_developers.md -->
 # For Developers
 
 # Github Repositories Related to ComStock

@@ -1,4 +1,4 @@
-<!-- comstock 2025-3 | github_site | docs/for_state_local/for_state_local.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/for_state_local/for_state_local.md -->
 # For State and Local Government Users
 
 This page is designed to support state and local government users in applying ComStock to their energy and planning efforts. Here, you’ll find analysis products developed by the ComStock team that highlight insights at regional and local scales. You’ll also find user guides and resources to help you conduct your own analyses, so you can tailor ComStock data to the unique needs of your local building stock.
