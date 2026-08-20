@@ -1,0 +1,246 @@
+# Hand-authored figure descriptions for measure PDF 89481
+# "Heat Pump RTU with Exhaust Air Energy Recovery" (NREL/TP-5500-89481, April 2024).
+#
+# 18 real graphics described; image_000000 (NREL cover logo) and image_000001 (cover art)
+# are decorative and deliberately omitted.
+#
+# QA FLAGS -- vision-derived numbers need a human pass:
+#
+# * EXTRACTION GAP, RECOVERED HERE: Table 4 ("On-Site Fossil Fuel Emissions Factors")
+#   exists in the extracted markdown ONLY as bitmap image_000006. There is no "Table 4."
+#   caption line and no table body; only the table-of-contents entry (p. 12) and the
+#   Section 3.3 prose reference survive. image_000006 sits exactly where the table belongs.
+#   The bitmap text is fully legible, so this entry uses method: vision-transcription and
+#   restores all six values. This is the one recoverable case of this defect class found so
+#   far -- 87542's dropped Table 2 has no bitmap to recover from.
+#
+# * SOURCE DEFECT in transcribed Table 4: the propane row pairs 177.8 lb/MMBtu with
+#   (182.3 kg/MWh), but 177.8 lb/MMBtu is roughly 275 kg/MWh. Natural gas and fuel oil
+#   convert correctly. The identical inconsistency appears in 89340's Table 1, so this is a
+#   defect in a shared boilerplate table, not a one-off typo.
+#
+# * Figure 3 (image_000004) -- HIGH confidence. All 15 bar labels legible after a 4x
+#   crop-and-upscale, and they sum to 100.01%. That total also settles the axis basis: the
+#   values are shares OF THE APPLICABLE RTU STOCK, not of total ComStock floor area
+#   (which would have to sum to the 33.3% applicability figure).
+#
+# * Figure 7 (image_000009) -- the labeled bands asserted here all reconcile with Section
+#   5.2: Cooling 667.3 -> 581.9 = 85.4 TBtu (the stated 13% / 85 TBtu); Fans 519.1 -> 424.9
+#   = 94.2 TBtu, which nets to the stated 15% / 81 TBtu once the new ~13 TBtu heat recovery
+#   end use is added; Heating Electricity 175.2 -> 214.1 = +38.9 TBtu (the stated -22% /
+#   -39 TBtu). Panel totals 4338/3983/3956 and 1521/1166/1139 are labeled directly.
+#
+# * Figure 7 -- HEATING NATURAL GAS BAND LABELS NOT ASSERTED. The white-on-hatched-red
+#   labels are illegible at every zoom factor tried (22x LANCZOS and NEAREST); the hatch
+#   strokes are the same color as the glyphs. Pixel-geometry measurement, calibrated on the
+#   labeled 739.7 and 451.9 bands, puts the baseline band at about 847 TBtu (+/- 22 TBtu,
+#   one pixel), which corroborates the text's 28% / 235 TBtu gas heating saving (235/0.28 =
+#   839) and rules out the ~650 value an unaided read of the blur suggests. The description
+#   therefore cites the prose delta (28%, 235 TBtu) and does not quote a band value.
+#
+# * SOURCE DEFECT, Section 5.3 prose: "7%-9% annual GHG emissions avoided (219 to 372 MMT
+#   CO2e)". 219 and 372 are the HP-RTU + ER bar TOTALS in the LRMER Low RE and eGRID panels
+#   of Figure 8, not the amounts avoided. The avoided amounts are 402-372 = 30, 325-299 =
+#   26, and 240-219 = 21 MMT CO2e. The percentages are right; the parenthetical is not.
+#
+# * Figure 8 (image_000010) -- HIGH confidence, all totals and electricity components
+#   labeled. Natural gas 81 -> 65 in every panel, and the fuel oil plus propane residual is
+#   a consistent ~7 MMT CO2e (402-314-81, 325-237-81, 240-152-81).
+#
+# * Figures 10/11 (image_000012/000013) -- HIGH confidence on sample counts: the 17
+#   per-climate-zone n values in Figure 11 sum to exactly 173,190, matching Figure 10's
+#   Site n. As in 89340, the zone list carries both "7 (n=226)" and "7A (n=974)" as separate
+#   rows -- unusual ASHRAE labelling that recurs across ComStock measure documents and is
+#   worth checking upstream.
+#
+# * Figure 12 (image_000014) -- HIGH confidence, all 42 values labeled, and they reproduce
+#   the prose exactly: Cold 3.4 -> 2.8 = 18%, Very Cold 5.5 -> 4.7 = 15%, summer reductions
+#   26%-37% versus baseline.
+#
+# * CAPTION/AXIS MISMATCH, Figure 13 (image_000015): the caption says "Stock annual average
+#   percent heating electricity input used for supplemental heating", but the x-axis reads
+#   "Fraction of Electric Heating Supplemental" on a 0.0-1.0 scale and the graphic is a
+#   distribution of box plots, not a stock average. The description follows the axis.
+#
+# * Appendix figures CHECKED for the 89340 defect and CLEAN: y-axis labels were zoomed 6x
+#   and confirm A-1/A-2 plot "Natural Gas Total Energy Consumption (tbtu)" and A-3/A-4 plot
+#   "Electricity Total Energy Consumption (tbtu)", matching their captions. (In 89340 the
+#   two electricity appendix figures were the wrong graphic entirely.)
+#
+# * Figures 1, 2, 5, 6, 13, A-1, A-2, A-3, A-4 carry no data labels. All magnitudes in those
+#   descriptions are axis estimates, and the interpretive conclusions come from the Section
+#   1, 2, 5.1, 5.5 and 5.6 prose.
+#
+# * Figures 7 and 9 descriptions deliberately mention that heat/energy recovery fan static
+#   pressure is booked to the 'heat recovery' end use rather than 'Fans'. Without that
+#   modeling note, Figure 9's large negative heat recovery savings and Figure 7's small
+#   fans-only decrease read as contradictions.
+#
+# * Figure 9 (image_000011) -- the n=12 interior lighting and n=4 interior equipment
+#   categories are a documented workflow bug (this measure does not touch those end uses).
+#   Negative cooling outliers are the documented EnergyPlus multispeed-coil night-cycling
+#   issue. Both are described in the source prose.
+#
+# * Figure 7 panel (a) has a narrow cross-hatched blue band between the Cooling and Interior
+#   Lighting bands that does not correspond to any of the 15 legend entries in stack order.
+#   Left unnamed rather than guessed.
+#
+# * NON-FIGURE extraction artifacts in this document, for the separate extractor ticket:
+#   Table 1 carries a spurious pseudo-header row "| No Zone Exhaust Fans | No Zone Exhaust
+#   Fans |" embedded mid-table before its "None" rows, and repeats "| Primary School |
+#   Kitchen |" twice. Table 3's header is split across two physical rows (ER/ER/HR/HR then
+#   Heating/Cooling/Heating/Cooling).
+#
+# * SOURCE DEFECT, copy-paste: Section 3.3 says the emissions comparison is between "the
+#   ComStock baseline and the window replacement scenario" -- wrong measure name in an
+#   HP-RTU document. Section 5.4 prose also reads "24 times higher efficiency" where
+#   "2-4 times" is meant (Section 1 and 5.6 both use 2-4x).
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: measure_pdfs/89481.pdf
+figures:
+- source_image: 89481_images/image_000002_87a5a54fa6ee5a4b370fa2af7c12d8db7e4cf6d3e0f9fa1030f8da5454b5cfd8.png
+  source_image_sha256: a0167180a1df436978a7321fa97016267266764299f4ddb74439a12a75831e41
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Five-panel manufacturer product-data chart for the Ventacity VS1000 RT heat/energy recovery ventilator: fan operating range, HRV sensible efficiency, and ERV latent, sensible, and total efficiency versus airflow
+  description: |-
+    Figure 1 reproduces published product data for the Ventacity VS1000 RT rooftop heat/energy recovery ventilator (image from reference 3), used in this report as a source of detailed performance data for energy modeling of heat and energy recovery systems. Five panels are shown. 'Fan operating range' plots external static pressure (0 to 3.0 in. W.C.) against flow rate (0 to 1,200 CFM) as a single declining curve annotated '100% fan speed', with a shaded rectangle marking the recommended operating range and a header noting 175 to 1,020 CFM at 0 to 2.0 in. W.C. external static pressure. 'HRV sensible efficiency' plots percent effectiveness against airflow from 200 to 1,000 CFM for heating mode and cooling mode, declining from roughly 90%-92% at low airflow to roughly 84%-86% at 1,000 CFM. Three further panels give ERV latent, sensible, and total efficiency at AHRI 1060 standard conditions, each with separate heating-mode and cooling-mode curves on a 0%-100% axis that likewise decline as airflow rises, spanning roughly 55%-90%. The declining effectiveness-versus-airflow relationship and the 0 to 2 in. W.C. added static pressure range both inform the modeling assumptions in Section 3.
+- source_image: 89481_images/image_000003_d81eb68cacb1e88a3eb4e10eae409d5a7f8f6fdefc56df6a27ceddc81d765ee5.png
+  source_image_sha256: d7da87d82f6d5f3870159e3b813a0555bdd6026f0ae0974718b1d08570c03075
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Paired box-and-whisker charts of average annual outdoor air fraction and design outdoor airflow rate by ComStock building type for RTU-served buildings
+  description: |-
+    Figure 2 shows distributions of two ventilation characteristics for ComStock buildings served by rooftop units, broken out by building type as box-and-whisker plots. The left panel plots average annual outdoor air fraction on a 0.0 to 1.0 axis; the right panel plots design outdoor airflow rate in m3/s per m2 on a 0 to about 0.005 axis. Building types listed top to bottom are FullServiceRestaurant, QuickServiceRestaurant, SecondarySchool, PrimarySchool, RetailStripmall, RetailStandalone, Hospital, Outpatient, MediumOffice, LargeOffice, SmallOffice, and Warehouse. The two restaurant types sit farthest to the right in both panels, with the highest and widest outdoor air fractions and the largest design outdoor airflow rates; the two school types are next. Offices and Warehouse cluster at the low end, Warehouse showing the smallest values of any type. The wide variation by building type reflects differences in design outdoor airflow rate and supply airflow rate; design outdoor airflow rates in ComStock follow the governing energy code for each model, and annual outdoor air fractions are additionally affected by economizer operation. Because heat and energy recovery works by reducing ventilation loads, building types with higher outdoor airflow rates have the highest savings potential from this measure.
+- source_image: 89481_images/image_000004_e4c9d74ea3a06f588c7a64258b1a5eebda0fe4565b60616f4191e9e6b36ae035.png
+  source_image_sha256: a4b0bb5cce2def71a6caf9bd4cb50ea61fe93013089359dade063a0bfb7c6762
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Horizontal bar chart of ComStock baseline in-force energy code as a percentage of applicable RTU-served stock floor area, from DOE Ref Pre-1980 through DEER 2017
+  description: |-
+    Figure 3 gives the in-force energy code followed by ComStock baseline models as a percent of applicable floor area, where applicable floor area covers buildings with 'PSZ-AC with gas coil' and 'PSZ-AC with electric coil' HVAC system types. The x-axis reads '% of Stock Floor Area Served by Applicable RTUs' and runs 0% to 50%. Fifteen labeled bars, top to bottom: ComStock DOE Ref Pre-1980 0.07%, DOE Ref 1980-2004 46.50%, 90.1-2004 9.10%, 90.1-2007 19.52%, 90.1-2010 5.85%, 90.1-2013 4.28%, DEER Pre-1975 0.07%, DEER 1985 0.86%, DEER 1996 2.38%, DEER 2003 2.66%, DEER 2007 2.93%, DEER 2011 2.14%, DEER 2014 0.75%, DEER 2015 1.52%, and DEER 2017 1.38%. These sum to 100.01%, so the values are shares of the applicable RTU stock rather than of total ComStock floor area. Most applicable baseline RTUs therefore follow energy code requirements from the early 2000s or earlier, which is why they are modeled as constant air volume with single-speed compressors, using gas furnace efficiency near 80% or electric resistance coils at COP 1. DEER denotes the Database for Energy Efficiency Resources, representing California models following Title 24.
+- source_image: 89481_images/image_000005_420b8817e66f06921195251d4dcb330fedbfb37d9bb431a2bf88c553cab99d7b.png
+  source_image_sha256: e5d1d1f7ba6b83219f418d4d061ae7dd3ad52374a665361c62a26cbf56b78dd7
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Three-panel bar chart of ComStock HVAC system type prevalence by stock floor area, floor area percentage, and model count, with the two applicable PSZ-AC types highlighted
+  description: |-
+    Figure 4 ranks ComStock HVAC system types by prevalence, with three side-by-side panels: absolute stock floor area (0 to about 40 billion ft2), percent of stock floor area (0% to about 30%), and percent of model count (0% to about 40%). Bars are colored by an 'Applicability Add Heat Pump Rtu' flag, orange for True and blue for False. The applicable orange types are 'PSZ-AC with gas coil', by a wide margin the largest single system type in the stock, and 'PSZ-AC with electric coil'; together they account for about 33.3% of ComStock floor area. Non-applicable blue types, in descending order, include PVAV with gas boiler reheat, VAV chiller with gas boiler reheat, PVAV with gas heat coils and electric reheat, VAV air-cooled chiller with gas boiler reheat, residential AC with residential forced air furnace, PVAV with PFP boxes, PSZ-HP, PTAC with electric coil, PSZ-AC with gas boiler, PTHP, VAV chiller with PFP boxes, several DOAS variants, and a residual 'All Others' bar under 1% of floor area. PSZ stands for packaged single zone, PVAV for packaged variable air volume, DOAS for dedicated outdoor air system, and PFP for parallel fan power.
+- source_image: 89481_images/image_000006_8b296f7ce980f26dba7f28f8b4e08fbbe2618fde4cae860731fb402a845891c8.png
+  source_image_sha256: 70c0819a74de14acec588e237e60e7bd93a4190d7b6dae94ce32b5eb24325c8d
+  method: vision-transcription
+  described_utc: '2026-08-20'
+  alt: |-
+    Table 4, On-Site Fossil Fuel Emissions Factors, rendered as a bitmap: natural gas, propane, and fuel oil emissions factors in lb per MMBtu and kg per MWh
+  description: |-
+    Table 4, On-Site Fossil Fuel Emissions Factors, appears in the source PDF only as a bitmap image; the extraction produced no caption line and no markdown table for it, so the values below are transcribed from the image. The table has three rows and two value columns, an emissions factor in lb/MMBtu and the same factor restated in kg/MWh. Natural gas: 147.3 lb/MMBtu (228.0 kg/MWh), carrying footnote marker a. Propane: 177.8 lb/MMBtu (182.3 kg/MWh). Fuel oil: 195.9 lb/MMBtu (303.2 kg/MWh). The footnote reads: lb = pound; MMBtu = million British thermal units; kg = kilogram; MWh = megawatt-hour. These on-site combustion emissions factors are applied alongside the three electricity grid emissions scenarios (Cambium LRMER High and Low Renewable Energy Cost 15-year, and eGRID) to produce the greenhouse gas results in Section 5.3 and Figure 8. Note that the propane pair is internally inconsistent: 177.8 lb/MMBtu converts to roughly 275 kg/MWh, not the 182.3 kg/MWh printed. The same discrepancy appears in the equivalent table of other ComStock measure reports.
+- source_image: 89481_images/image_000007_3372d7fe227fac55b0d8a1dc42a0b417da5948ee2284450d948eab883aea806b.png
+  source_image_sha256: cb546178bbcdf8bc53baa8c8d37914adb59037c6e37c610bc59ed25f3cb1661e
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Time-series line chart of outdoor air, post-energy-recovery, and supply air temperatures for a heat pump RTU with heat recovery over a cold week in February
+  description: |-
+    Figure 5 plots three air temperatures in degrees F against date and time for February 19-23, 2018, for the single-building example: a small office in Yellowstone Lake, Wyoming (ASHRAE climate zone 7) with the HP-RTU plus energy recovery scenario applied. Outdoor air temperature (blue) is the coldest trace, ranging from about -25 F to 5 F on a daily cycle; this is the outdoor ventilation air entering the heat recovery section of the RTU. Air temperature after the energy recovery section (orange) tracks above it, roughly 25 F warmer, varying with temperature and flow conditions, because building exhaust air has preheated it before it reaches the heating coils. Supply air temperature (green) is the highest and most sharply cycling trace, rising in tall square-topped pulses to roughly 100 F to 120 F during occupied heating periods and falling back to about 60 F to 70 F otherwise, reflecting mixing with return air, fan heat, and the heat pump plus electric resistance supplemental heating coils. The vertical gap between the outdoor and post-recovery traces is the heating load avoided by energy recovery; without it the heat pump and supplemental coils would have to cover a larger temperature lift.
+- source_image: 89481_images/image_000008_0640683085927bf947f18204b7e14ff3877e73b916acf1590ab15166b01502d9.png
+  source_image_sha256: 5216e06715dca9bd8f43af642355ae47f64399725e0577d58fcd2a29b477e112
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Time-series comparison of total building site electricity consumption for the heat pump RTU with and without energy recovery over a cold February week
+  description: |-
+    Figure 6 plots building site electricity consumption in Wh, on a 0 to 60,000 Wh axis, against date and time for February 19-23, 2018, for the same single small office example in Yellowstone Lake, Wyoming. Two traces are shown: site electricity with no recovery (blue) and site electricity with recovery (orange). Both follow the same daily pattern, with sharp morning startup spikes reaching roughly 45,000 to 50,000 Wh, an occupied plateau near 20,000 to 30,000 Wh, and overnight troughs near 10,000 Wh. The orange with-recovery trace sits at or below the blue no-recovery trace throughout, with the widest gaps at the morning peaks and during cold occupied periods; that difference is the electricity saved by energy recovery reducing loads on the heating and cooling coils. Because the plot shows total building electricity rather than HVAC electricity alone, end uses unaffected by the HVAC scenarios such as lighting and plug loads are included, which makes the proportional impact look smaller than an HVAC-only comparison would. For this model, Table 6 reports a 7% electricity reduction from adding energy recovery.
+- source_image: 89481_images/image_000009_802aee68982e0ff7e60b6f1998d071b86fcbdf4366601ef6a60077e16d26d966.png
+  source_image_sha256: 6582a6e4fb50aa517e58c76080ccf6b4532ed4edcd3b1faad4cefe9452c6c4a8
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Two-panel stacked bar chart of annual site energy consumption by end use and fuel for the baseline, HP-RTU with electric backup, and HP-RTU plus energy recovery scenarios, for total stock and applicable stock
+  description: |-
+    Figure 7 stacks annual site energy consumption in TBtu by end use and fuel for three scenarios: Baseline, HP RTU E Backup, and HP RTU + ER. Panel (a), the total commercial building stock including non-applicable buildings, totals 4,338, 3,983, and 3,956 TBtu, a 382 TBtu or 9% saving. Labeled bands in panel (a): Interior Equipment Electricity 739.7, unchanged in all three bars; Fans Electricity 519.1, 426.2, 424.9; Cooling Electricity 667.3, 592.3, 581.9; Interior Lighting Electricity 451.9, unchanged; Heating Electricity 175.2, 242.7, 214.1. These reproduce the Section 5.2 figures of 13% (85 TBtu) cooling electricity savings, 15% (81 TBtu) combined fan plus heat recovery savings, and -22% (-39 TBtu) heating electricity, the last being an increase from electrifying gas RTUs. The large hatched red Heating Natural Gas band falls 28% (235 TBtu) and is identical between the two upgrade scenarios, since the remainder is heating in non-applicable buildings. Panel (b), the applicable stock only, totals 1,521, 1,166, and 1,139 TBtu; labeled baseline bands include Interior Equipment Electricity 251.2, Fans 226.0, Cooling 261.9, Interior Lighting 173.6, and Exterior Lighting 55.9, with HP RTU E Backup showing Fans 135.1, Cooling 127.0, and Heating Electricity 110.1.
+- source_image: 89481_images/image_000010_86a03585bf7385ab8e2ae84d1455191a2555da779684180a0b9965999c20bfce.png
+  source_image_sha256: 789a3f18d7beedb697ec675ad957c984be43859eb5d87e62cd508d148e6813fa
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Three-panel stacked bar chart of annual greenhouse gas emissions by fuel for the baseline and two heat pump RTU scenarios under eGRID and two Cambium LRMER grid scenarios
+  description: |-
+    Figure 8 compares annual greenhouse gas emissions in MMT CO2e for Baseline, HP RTU E Backup, and HP RTU + ER under three electricity grid scenarios, one panel each: eGRID 2021, Cambium LRMER High Renewable Energy Cost 15-year, and Cambium LRMER Low RE Cost 15-year. Bars stack Electricity (blue), Natural Gas (orange), Fuel Oil, and Propane. Labeled totals, with percent change from baseline: eGRID 2021 402, 375 (-7%), 372 (-8%); LRMER High RE Cost 15 325, 302 (-7%), 299 (-8%); LRMER Low RE Cost 15 240, 221 (-8%), 219 (-9%). The electricity components are 314, 305, 301 under eGRID; 237, 231, 228 under High RE Cost; and 152, 150, 148 under Low RE Cost. Natural gas falls from 81 in every baseline to 65 in both upgrade scenarios, reflecting electrification of gas-heated RTUs, and the residual fuel oil plus propane sliver is about 7 MMT CO2e in every bar. Adding heat and energy recovery to the HP-RTU scenario yields roughly 1% more emissions avoided, an additional 2 to 4 MMT CO2e, consistently across all three grid scenarios.
+- source_image: 89481_images/image_000011_943aed25364b2bf249a411a9b6c80a04d697d4fe96212db4fe7d3d8ab7830a40.png
+  source_image_sha256: a1440bfabf8980d29c46d15d2823f5dc956ffe1bc34a6753486073709753a506
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Violin and box plot distribution of percent site energy savings by end use and fuel type for models with the HP-RTU plus energy recovery measure applied
+  description: |-
+    Figure 9 shows distributions of percent site energy savings by end use and fuel type for applicable ComStock models with the HP-RTU plus heat/energy recovery measure applied, plotted as violin plots with embedded boxes on a -160% to about 125% axis and annotated 'Upgrade 03: HP RTU + ER (unweighted)'. Categories with sample counts, top to bottom: Other Fuel Water Systems (n=85), Other Fuel Heating (n=7805), Natural Gas Water Systems (n=5834), Natural Gas Heating (n=125164), Electricity Water Systems (n=4288), Electricity Refrigeration (n=16921), Electricity Interior Lighting (n=12), Electricity Interior Equipment (n=4), Electricity Heating (n=171990), Electricity Heat Recovery (n=152812), Electricity Fans (n=173172), Electricity Cooling (n=173188). Combustion fuel heating clusters near 100% savings. Electricity heating has a median near 70% but a long negative tail from gas-heated buildings with only a small amount of baseline electric heating. Fans and cooling medians are both roughly 40%, consistent with a PNNL variable-speed RTU study. Heat recovery shows large negative savings because the added static pressure fan power is booked to that end use.
+- source_image: 89481_images/image_000012_5a7c08eb1ead1aa139d79939c43fec03849080969f7e0731cc3977cc9c614c10.png
+  source_image_sha256: b6b0a3701e110e429d3edf870a4e42e24f7267d9a17bf4b7d7b3786a555bed74
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Violin and box plot distribution of percent site energy savings by fuel type for models with the HP-RTU plus energy recovery measure applied
+  description: |-
+    Figure 10 shows distributions of percent site energy savings by fuel type for applicable ComStock models with the HP-RTU plus heat/energy recovery measure applied, as violin plots with embedded boxes on a -160% to about 100% axis, annotated 'Upgrade 03: HP RTU + ER (unweighted)'. Four categories with sample counts, top to bottom: Other Fuel (n=7816), Natural Gas (n=125489), Electricity (n=173181), and Site (n=173190). Other fuel, meaning fuel oils and similar, shows over 90% savings and natural gas over 50%, both from replacing combustion-fuel heating; neither reaches 100% because commercial buildings use gas for cooking and water heating that this measure does not touch, and because the measure does not replace every gas heating device, such as unit heaters or RTUs serving kitchens. The Electricity distribution is centered much lower, with a median around 10% savings, savings above the 25th percentile, and increased electricity use below it, reflecting the mix of buildings electrifying gas heat against those replacing electric resistance RTUs. The overall Site distribution has a median around 25% savings.
+- source_image: 89481_images/image_000013_839dba17fd3bef73bdd17f9abd4eeb50a352842973e08211b59c498ac7e746e7.png
+  source_image_sha256: 350d19910c1fc78e9eb7e9469307ec2c3d0c2dda356b0756cbb32e14b5d9cf3f
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Violin and box plot distribution of percent site energy savings by ASHRAE climate zone for models with the HP-RTU plus energy recovery measure applied
+  description: |-
+    Figure 11 shows distributions of percent site energy savings by ASHRAE climate zone for applicable ComStock models with the HP-RTU plus heat/energy recovery measure applied, as violin plots with embedded boxes on a -10% to 70% axis, annotated 'Upgrade 03: HP RTU + ER (unweighted)'. Zones with sample counts, top to bottom: 1A (n=2357), 2A (n=17939), 2B (n=2857), 3A (n=24660), 3B (n=15176), 3C (n=4701), 4A (n=37415), 4B (n=1455), 4C (n=5090), 5A (n=40589), 5B (n=8860), 6A (n=9474), 6B (n=1274), 7 (n=226), 7A (n=974), 7B (n=112), and 8 (n=31). These counts sum to exactly 173,190, matching the Site sample count in Figure 10. Savings rise with heating load: warmer zones 1 through 3 show median site energy savings of 15% to 25%, while the colder zones from 5 upward show medians between 25% and 30%. The distributions overlap considerably and are highly variable within each zone, indicating that climate is only one of several drivers of savings.
+- source_image: 89481_images/image_000014_ddd2a0d03e2db7495badcfdd89b5fadd04168d25d5822e8fcc1763086431e075.png
+  source_image_sha256: dc1641e7fb142edac350d59587598cc82e60e612a1dc9063921b1e56c70bb25d
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Two-panel horizontal bar chart of median non-coincident winter and summer peak demand intensity by Building America climate zone for the baseline and two heat pump RTU scenarios
+  description: |-
+    Figure 12 compares median non-coincident peak electricity demand intensity for applicable models across Baseline, HP RTU E Backup, and HP RTU + ER, grouped by Building America climate zone, with a Winter panel and a Summer panel both in W/ft2 on a 0 to 6 axis. Labeled winter/summer values by zone, in scenario order: Hot-Humid 2.6/4.0, 2.0/2.8, 1.9/2.5; Hot-Dry 2.2/3.9, 1.9/2.9, 1.9/2.8; Marine 2.3/3.2, 2.0/2.5, 1.9/2.3; Mixed-Dry 2.0/3.4, 2.3/2.6, 2.2/2.5; Mixed-Humid 2.5/4.1, 2.7/2.8, 2.4/2.6; Cold 2.0/3.6, 3.4/2.8, 2.8/2.3; Very Cold 2.7/4.1, 5.5/2.8, 4.7/2.6. Adding heat/energy recovery cuts winter peak intensity 18% in Cold, from 3.4 to 2.8 W/ft2, and 15% in Very Cold, from 5.5 to 4.7, and the gap between the two upgrade scenarios widens as climates get colder. Both upgrade scenarios lower winter peaks versus baseline in warmer climates but raise them in Cold and Very Cold, where added supplemental electric resistance heating dwarfs fan savings. Summer peaks fall 25% to 37% versus baseline in every zone.
+- source_image: 89481_images/image_000015_2af9fc66225dcdfc0be305f017a00aef1e971aec0f08f26e91f4671221c4763b.png
+  source_image_sha256: fe5ab3d3e41053b38851c6f7817f24632efa95d076d70103580153f144c89a94
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Box plot distribution of the fraction of electric heating input used for supplemental heating by Building America climate zone for the two heat pump RTU scenarios
+  description: |-
+    Figure 13 shows the share of heating electricity input that goes to supplemental electric resistance heating for applicable models, as box plots on an x-axis labeled 'Fraction of Electric Heating Supplemental' running 0.0 to 1.0. Rows are grouped by Building America climate zone, each with two bars, HP RTU E Backup and HP RTU + ER: Hot-Humid, Hot-Dry, Marine, Mixed-Dry, Mixed-Humid, Cold, and Very Cold. In every zone the HP RTU + ER box sits to the left of the HP RTU E Backup box, so adding heat/energy recovery reduces supplemental heating prevalence for the median building in all zones, because preconditioning outdoor ventilation air lowers the heating load. Supplemental fractions rise steadily with climate severity, from near 0.05 in the hot and marine zones to roughly 0.25 for Cold and roughly 0.45 to 0.55 for Very Cold, with long whiskers reaching toward 1.0 in the colder zones. Supplemental resistance heat is used whenever the heat pump cannot meet the load, which happens because units are sized to the design cooling load and because heat pump capacity derates at low outdoor temperatures and during defrost. It is 2 to 4 times less efficient than heat pump heating.
+- source_image: 89481_images/image_000016_e484e316d1a35911cf5c34b1f576d15d051be30ccb22fde1cd5c06c65bfaba32.png
+  source_image_sha256: 2028a0afe22d48e2ffb89115593a95164500f235659d5b790d8d60ed0df04956
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Grouped bar chart of site annual natural gas consumption by census division for the ComStock baseline and the two heat pump RTU scenarios
+  description: |-
+    Figure A-1 plots site annual natural gas total energy consumption in TBtu, on a 0 to 350 axis, by census division, with three bars per division: Baseline (darkest), HP RTU E Backup, and HP RTU + ER (lightest). Divisions left to right: New England, Middle Atlantic, East North Central, West North Central, South Atlantic, East South Central, West South Central, Mountain, and Pacific. East North Central is the largest gas consumer at roughly 340 TBtu in the baseline, followed by Middle Atlantic near 215 TBtu, then Pacific and South Atlantic near 140 TBtu; East South Central and New England are smallest at roughly 50 TBtu. Every division shows a baseline-to-upgrade reduction from electrifying gas-heated RTUs, with the largest absolute drops in the cold, gas-heavy East North Central, Middle Atlantic, and West North Central divisions. The two upgrade bars are nearly equal in every division, consistent with Section 5.2: gas heating totals do not change between the HP-RTU and HP-RTU plus energy recovery scenarios, because the remaining gas use is in buildings not applicable to either scenario. Bar magnitudes are read from the axis; this chart carries no data labels.
+- source_image: 89481_images/image_000017_e8fe4d974da1c9a2a7a5c989061882465b4a28193bcec0a60e3fe72cd54f1848.png
+  source_image_sha256: 276607e6b510d3b5961b00f044449462b6a295ed73cc54cfb2f9495187ffc19e
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Grouped bar chart of site annual natural gas consumption by ComStock building type for the baseline and the two heat pump RTU scenarios
+  description: |-
+    Figure A-2 plots site annual natural gas total energy consumption in TBtu, on an axis with gridlines up to 175, by ComStock building type, with three bars per type: Baseline (darkest), HP RTU E Backup, and HP RTU + ER (lightest). Types left to right: FullServiceRestaurant, QuickServiceRestaurant, RetailStripmall, RetailStandalone, SmallOffice, MediumOffice, LargeOffice, PrimarySchool, SecondarySchool, Outpatient, Hospital, SmallHotel, LargeHotel, and Warehouse. RetailStripmall has the largest baseline gas consumption, the only bar extending above the 175 TBtu gridline, followed by SecondarySchool and PrimarySchool near 160 to 170 TBtu, FullServiceRestaurant near 155 TBtu, and Warehouse near 140 TBtu; SmallHotel is smallest at roughly 15 TBtu. Reductions from baseline are largest for the retail and school types. The two restaurant types show comparatively small reductions, consistent with the measure excluding RTUs that serve kitchens and excluding heat/energy recovery for food service building types. The two upgrade bars are nearly identical for every building type. Bar magnitudes are read from the axis; this chart carries no data labels.
+- source_image: 89481_images/image_000018_5be001aa46a371ae8d3eef647c63312c2750892d69ab9c5cdaf7a02f4881300d.png
+  source_image_sha256: 5b1a7dfc280d39a54332736e3e6fd3e543c31b0d9f1aa1c79410e4e3cca4c11f
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Grouped bar chart of site annual electricity consumption by ComStock building type for the baseline and the two heat pump RTU scenarios
+  description: |-
+    Figure A-3 plots site annual electricity total energy consumption in TBtu, on a 0 to 400 axis, by ComStock building type, with three bars per type: Baseline (darkest), HP RTU E Backup, and HP RTU + ER (lightest). Types left to right: FullServiceRestaurant, QuickServiceRestaurant, RetailStripmall, RetailStandalone, SmallOffice, MediumOffice, LargeOffice, PrimarySchool, SecondarySchool, Outpatient, Hospital, SmallHotel, LargeHotel, and Warehouse. RetailStripmall is the largest electricity consumer at roughly 395 TBtu in the baseline, with Warehouse near 360 TBtu, LargeOffice near 290 TBtu, and RetailStandalone near 280 TBtu; SmallHotel is smallest at roughly 40 TBtu. Scenario-to-scenario changes are proportionally far smaller than in the natural gas appendix figures, because the electricity results net two opposing effects: added electric heating from electrifying gas RTUs against savings from higher-efficiency variable-speed compressors and fans and from reduced ventilation loads. RetailStripmall, RetailStandalone, and SmallOffice show visible electricity reductions, while several types are nearly flat. Bar magnitudes are read from the axis; this chart carries no data labels.
+- source_image: 89481_images/image_000019_9a2a8fe60476c71be278642d217f5999ef3aa425d12e979a48ae3e0786f75ecc.png
+  source_image_sha256: 58638b07828121c0828233688e455071021bd7ae601406ef3b5190f5932a7444
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Grouped bar chart of site annual electricity consumption by census division for the ComStock baseline and the two heat pump RTU scenarios
+  description: |-
+    Figure A-4 plots site annual electricity total energy consumption in TBtu, on an axis with gridlines up to 600, by census division, with three bars per division: Baseline (darkest), HP RTU E Backup, and HP RTU + ER (lightest). Divisions left to right: New England, Middle Atlantic, East North Central, West North Central, South Atlantic, East South Central, West South Central, Mountain, and Pacific. South Atlantic is by far the largest electricity consumer, the only bar reaching above the 600 TBtu gridline, followed by West South Central near 430 TBtu, East North Central and Pacific near 395 TBtu, and Middle Atlantic near 355 TBtu; New England is smallest at roughly 125 TBtu. Reductions from baseline are proportionally modest and are largest in the cooling-dominated South Atlantic, West South Central, and Pacific divisions, where cooling and fan electricity savings dominate; the colder East North Central, Middle Atlantic, and New England divisions show the smallest relative change, because added electric heating offsets those savings. Bar magnitudes are read from the axis; this chart carries no data labels.

@@ -1,0 +1,229 @@
+# Hand-authored figure descriptions for measure PDF 89340
+# "Thermostat Control for Load Shedding" (ComStock 2025 release 3 upgrade measure).
+#
+# 20 image refs in the extracted markdown. image_000000 (NREL cover art) and
+# image_000001 (a decorative rule) are decorative and deliberately have no entry.
+# The remaining 18 are real figures: Figures 1-14 plus Appendix Figures A-1 to A-4.
+#
+# Tables 1, 2 and 3 all survived extraction as real markdown, so no
+# vision-transcription entry is needed for this document.
+#
+# QA FLAGS - vision-derived numbers need a human pass before publication.
+#
+# * SOURCE DEFECT, high confidence: Figures A-3 and A-4 are captioned as SITE ANNUAL
+#   ELECTRICITY consumption (by building type and by census division respectively), but
+#   both bitmaps plot "Natural Gas Total Energy Consumption (tbtu)" and reproduce the
+#   bar heights of Figures A-2 and A-1. Verified by cropping and upscaling the y-axis
+#   label on both images. The two PNGs are not byte-identical to A-1/A-2 (different
+#   sha256 and file size, i.e. re-rendered), but they are visually identical. The
+#   intended electricity appendix figures appear to be missing from the source PDF.
+#   The overlay describes what the bitmaps actually show and states the mismatch.
+#
+# * Figure 1 (000002) - HIGH confidence. All 14 left-panel percentages are legible and
+#   sum to 99.99%, and the right-panel LargeOffice split (33.30% heat & cool / 66.70%
+#   cool only) matches Section 3 prose exactly.
+#
+# * Figure 9 (000010) - only band labels that reconcile with the Section 5.3 bullets are
+#   asserted: Fans 519.1->518.2 (0.9 TBtu = 0.17%), Cooling Electricity 667.3->666.3
+#   (1.0 TBtu = 0.15%), Heating Electricity 175.2->174.6 (0.6 TBtu = 0.34%), plus the
+#   unchanged Interior Lighting 451.9 and Interior Equipment Electricity 739.7. The
+#   stock Heating, Natural Gas band pair is NOT asserted: the baseline label is
+#   ambiguous (~654.9 or ~655.9) and neither read reproduces the text's 0.023% for a
+#   0.2 TBtu saving, which would imply a ~870 TBtu base. The text bullet is quoted
+#   instead. Panel totals 4338->4336 are integer-rounded; the sum of the individual
+#   band deltas is ~2.7 TBtu, and the text's headline figure is 2 TBtu / 0.046%.
+#
+# * Figure 9 legend gap (extraction/authoring artifact, not repairable here): a
+#   diagonally hatched dark band of about 452 TBtu, unchanged between bars, sits
+#   between Interior Equipment Electricity and Fans Electricity in the Stock panel but
+#   has no corresponding entry in the 17-item legend. It is left unnamed.
+#
+# * Figure 10 (000011) - HIGH confidence. All printed totals and component values are
+#   legible and internally consistent: 314+81 vs 402, 237+81 vs 325, 152+81 vs 240,
+#   each leaving the same ~7 MMT CO2e Fuel Oil + Propane residual.
+#
+# * Figures 13 and 14 (000014, 000015) - the 15 per-zone n values are legible and sum
+#   to exactly 3158, the stated number of applicable large office model samples. Note
+#   the zone list contains both "7 (n=8)" and "7A (n=8)" as separate rows; that is what
+#   the bitmaps print, and the sum check corroborates it, but it is an unusual ASHRAE
+#   zone labelling worth checking upstream.
+#
+# * CAPTION DEFECT: Figures 12 and 14 are captioned "Percent site EUI savings ...", but
+#   both x-axes read absolute intensity in kBtu/ft2 ("Site EUI Savings by End Use
+#   (kBtu/ft2)" and "Site EUI Savings by Climate Zone (kBtu/ft2)"). This matches the
+#   Section 5.5 prose, which contrasts percent savings with absolute EUI savings, so
+#   the word "Percent" in those two captions is wrong.
+#
+# * Figures 2, 5, 6, 7, 8 - no data labels. All quoted magnitudes are axis estimates,
+#   and the qualitative conclusions come from the Section 5.1/5.2 prose. Figure 2's
+#   secondary y-axis (setpoint) spans roughly 23-28 degrees C; the exact occupied and
+#   setback setpoint values were not read off the axis.
+#
+# * Figure 5 (000006) - IMPORTANT context, from Section 5.1.3: this figure derives from
+#   a reduced ComStock test run of 10,000 building samples in which only 90 large
+#   offices were applicable, NOT the full 350,000-sample run used elsewhere.
+#
+# * Figures 3 and 4 (000004, 000005) - single-building illustrative runs; kWh peaks are
+#   axis estimates.
+#
+# * Figures A-1 and A-2 (000016, 000017) - no data labels; all TBtu magnitudes are axis
+#   estimates. The same estimates are reused in the A-3/A-4 entries because those
+#   bitmaps duplicate these charts.
+#
+# * Extraction artifacts elsewhere in this document (not figure-related): Table 1
+#   (On-Site Fossil Fuel Emissions Factors) lost its header row, so the first data row
+#   "Natural gas | 147.3 lb/MMBtu (228.0 kg/MWh) a" acts as the header. Table 1 also
+#   carries the same propane inconsistency seen in other measure PDFs: 177.8 lb/MMBtu
+#   is paired with (182.3 kg/MWh) where ~275 kg/MWh is expected. Table 2's final row
+#   is split, with "annual_peak_electric_demand_kw" left with an empty description and
+#   the description "Building annual peak electric demand" on a following row with an
+#   empty first cell.
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: measure_pdfs/89340.pdf
+figures:
+- source_image: 89340_images/image_000002_bd5f685cca8bdb40d016098c75df7fa7f11d293ce609cff01370580a37a8f027.png
+  source_image_sha256: 250eaef8a612b52f9a0141df232f409ffe16de1f4bc743a6a51e2cf28c09d90e
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Two-panel bar chart: left, percent of ComStock stock floor area by building type with LargeOffice highlighted at 9.72 percent; right, percent of each building type's floor area applicable to the measure split into heat-and-cool and cool-only electric HVAC, with LargeOffice at 33.30 percent heat and cool plus 66.70 percent cool only
+  description: |-
+    Figure 1 of the ComStock thermostat-control-for-load-shedding measure documentation establishes applicability. The left panel is a horizontal bar chart of each ComStock building type's share of national stock floor area: Warehouse 23.41%, PrimarySchool 11.29%, LargeOffice 9.72% (highlighted green as the only applicable type), RetailStripmall 9.38%, RetailStandalone 9.00%, SmallOffice 8.06%, MediumOffice 6.83%, SecondarySchool 5.63%, LargeHotel 4.82%, Hospital 4.34%, Outpatient 3.28%, FullServiceRestaurant 2.56%, SmallHotel 1.11%, QuickServiceRestaurant 0.56%; the printed values sum to 100%. The right panel is a 100% stacked bar per building type giving the share of that type's floor area with electric HVAC, split into orange 'Applicable: heat & cool' and blue 'Applicable: cool only', with grey 'Not applicable'. The highlighted LargeOffice row is fully applicable: 33.30% of large office floor area has both electric heating and electric cooling and the remaining 66.70% has electric cooling only, matching the text. Every other row retains a non-applicable fraction. The measure therefore applies to large offices only, 9.72% of total stock floor area, corresponding to 3158 large office model samples that weight up to 19,212 buildings nationally.
+- source_image: 89340_images/image_000003_cf4332c6cfd36c54abe022695548a85168b50405d1c86d8ce48d78d6e4a74251.png
+  source_image_sha256: 9625a4b5f1cbe5441ddcf22902cc6ecb256670064537dfb9c79698ae278adbc8
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Three side-by-side stacked area plots of hourly electricity load by end use over three summer days for baseline, load shed without rebound control, and load shed with rebound control, each overlaid with a dashed green thermostat setpoint trace on a secondary axis
+  description: |-
+    Figure 2 of the ComStock thermostat-control-for-load-shedding measure documentation demonstrates why rebound control is needed. Three panels, 'Baseline', 'Control without rebound control', and 'Control with rebound control', plot stacked hourly electricity load (kW, left axis 0 to 20) by end use (Cooling, Fans, HeatRejection, ExteriorLights, Heating, InteriorEquipment, InteriorLights) with a Total line, for three summer days from 08-19 00 to 08-22 00. A dashed green cooling setpoint trace is drawn against a secondary right-hand axis spanning roughly 23 to 28 degrees C. In the baseline the setpoint alternates between occupied and unoccupied-setback levels and the daily load peaks smoothly at about 18 to 19 kW. In both control panels the setpoint is raised during the afternoon peak window, cutting cooling and fan load into a visible valley. Without rebound control the setpoint drops abruptly back to nominal and a narrow load spike appears immediately after the window, exceeding the original baseline peak. With rebound control the setpoint returns along a gradual ramp, the post-window recovery is spread out, and load rises smoothly so the daily peak stays at or below the baseline peak.
+- source_image: 89340_images/image_000004_9b64138ceab7412fe9fdc09d57f67fbd6dbe0c5bd7507ceae6f8ba155c5d7de7.png
+  source_image_sha256: 77fec24b7432ca73a997ea432ef9736bbbac4e781917abe14aa783cf24b5ee60
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Three stacked line charts of hourly load over five days in mid-July comparing baseline and default load shed profiles for Building 1 in ASHRAE climate zone 3A, Building 1 in zone 3B, and Building 2 in zone 3B
+  description: |-
+    Figure 3 of the ComStock thermostat-control-for-load-shedding measure documentation shows that peak windows are building- and weather-specific. Three vertically stacked panels plot hourly load (kWh, axis 50 to 350) for five consecutive days, 7/16 through 7/20: 'Building 1, ASHRAE Climate Zone 3A', 'Building 1, ASHRAE Climate Zone 3B', and 'Building 2, ASHRAE Climate Zone 3B'. Each panel overlays a dashed baseline profile with a solid 'Load shed, Default' profile. Building 1 in zone 3A peaks near 200 kWh daily; the same model in zone 3B peaks slightly lower, near 190 kWh; Building 2 in zone 3B has a much sharper profile peaking near 290 kWh with deeper overnight troughs. In every panel the load-shed curve tracks the baseline except for a distinct daily valley where the shed event occurs, and the timing and depth of that valley reveal the dispatched peak window. It falls at a different hour and has a different shape in each panel. Even the identical building in slightly different climate zones produces different profiles, so stock diversity in weather, internal gains, operating hours, and envelope performance yields a different daily peak window for every model.
+- source_image: 89340_images/image_000005_0d341283ef45889cd4efef35c4c22492901956e2ea3276ede778c29c3f466d8c.png
+  source_image_sha256: d49e4f0334475ed44dcf8bf8273598644518f452b5b0199ea393649c032b5e63
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Line chart of hourly load over five days in mid-July comparing baseline, default load shed, and load shed without rebound control for one building, showing the no-rebound-control case spiking above the baseline peak each day
+  description: |-
+    Figure 4 of the ComStock thermostat-control-for-load-shedding measure documentation isolates the rebound effect for a single large office model. Hourly load (kWh, axis 50 to 250) is plotted for five consecutive days, 7/16 through 7/20, with three traces: a dashed 'Baseline', a solid red 'Load shed, Default', and a solid yellow 'Load shed, No rebound control'. Baseline afternoon peaks reach roughly 190 to 200 kWh. The default scenario clips those peaks to roughly 170 to 180 kWh and returns to the baseline curve gradually. The no-rebound-control scenario sheds the same load during the window but then snaps the setpoint back, producing a narrow spike each day that reaches roughly 210 to 220 kWh, above the original baseline peak on every one of the five days. The text notes this pattern holds throughout the year across different building models and reflects an inherent drawback of load shedding for responsive systems governed by differential-equation dynamics such as HVAC. Rebound control is therefore necessary and is included in the default scenario, which ramps linearly back to the nominal setpoint over two hours.
+- source_image: 89340_images/image_000006_dca1b76a4e9daf0588275fd480bc137d1526bc80e1e2fb9f7fec746223f1a620.png
+  source_image_sha256: fd740c6f766a2bbe8f78649bd99c03e38c634ec8e4b430812bf3ff264a3d20cb
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Grid of box plots with one block per month and four rows per block for the default, more aggressive setback, shorter peak window, and no rebound control scenarios, showing median daily peak savings percentage from minus 30 to plus 20 percent
+  description: |-
+    Figure 5 of the ComStock thermostat-control-for-load-shedding measure documentation compares the four parameter scenarios of Table 3. For each month January through December, four box plots stack vertically, 'Default load shed', 'More aggressive setback', 'Shorter peak window', and 'No rebound control', on a shared x-axis of median daily peak savings from -30% to +20%. Boxes cluster just above zero for the first three scenarios in every month, with visibly wider spread in May through October. The 'More aggressive setback' rows have the widest whiskers, reaching the highest upper limits but also extending furthest negative. 'Shorter peak window' rows sit close to the default but with a lower upper limit in most months. The 'No rebound control' rows shift decisively negative from April through October, with the box centred below zero and whiskers reaching about -20% to -25% in June through August. Results come from a reduced ComStock test run of 10,000 building samples, of which only 90 large offices were applicable, rather than the full 350,000-sample run. No single scenario dominates every month; a larger setpoint adjustment buys shed potential at the cost of higher risk of increasing the daily peak.
+- source_image: 89340_images/image_000007_2601336e826ecef6cb6b6156dae61022978dcd064b882db54022206e91e5d65a.png
+  source_image_sha256: 021a1bfb0afb0ad88910b6eafbdfc0b8d16da44b3aaafc6642e3cb33c31347e3
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Box plot by month of the percentage reduction in median daily peak load for the default scenario, with medians a few percent above zero, widest spread in June through August, and whiskers extending below zero in every month
+  description: |-
+    Figure 6 of the ComStock thermostat-control-for-load-shedding measure documentation shows the distribution of median daily peak load reduction by month for the default scenario relative to the baseline. Twelve box plots, January through December, are drawn on a y-axis of median peak savings in percent spanning -10% to +20%. Every month has a positive median, roughly 1% to 3%, and the interquartile boxes sit almost entirely above zero. The distributions widen through the cooling season: upper whiskers reach about 10% to 11% in January through April, rise to roughly 13% to 15% in May through August, peak in July at about 15.5%, then fall back toward 9% to 10% in November and December. Lower whiskers extend to roughly -5% to -6% in every month, so peak reduction is not guaranteed for an individual building on an individual day. The text attributes the negative tail to the fixed two-hour rebound-control length, which is not optimal for every building and weather combination, and notes larger variance for median statistics in summer and winter. Performance showed no correlation with floor area or heating fuel type.
+- source_image: 89340_images/image_000008_d40f5e987448287276893c4b95adefdb2cc87c30a362caa4a994c531287f6e16.png
+  source_image_sha256: a808e1b61e452903fb3ff5bb326857c2f77ee183399de1fc249de28d40c62d08
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Box plot by month of the percentage reduction in maximum daily peak load for the default scenario, with medians near 1 to 4 percent, upper whiskers near 15 to 18 percent in the cooling season, and lower whiskers reaching about minus 10 percent
+  description: |-
+    Figure 7 of the ComStock thermostat-control-for-load-shedding measure documentation shows the distribution of maximum daily peak load reduction by month for the default scenario relative to the baseline. Twelve box plots, January through December, are drawn on a y-axis of maximum peak savings in percent spanning -10% to +20%. Medians are positive in every month, roughly 1% in the winter months and rising to roughly 3% to 4% from April through October. Interquartile boxes reach about 6% to 8% at the third quartile in the warmer months. Upper whiskers run about 14% to 16% in January through March and about 16% to 18% from April through October, so the best-case daily peak reduction is larger than the median-peak view of Figure 6. Lower whiskers extend to roughly -8% to -10% in most months, again showing that reduction is not guaranteed. Compared with Figure 6, the maximum-peak metric shows both higher upside and a deeper negative tail, consistent with the text's observation that the fixed two-hour rebound period is not tuned per building.
+- source_image: 89340_images/image_000009_1c084fb215dbcfd2bb6c1d1af3411a7ccfb960112eef2e2d4a0d5d8ccf959c77.png
+  source_image_sha256: b708ac8d7b226a24cdb59b9bf877d56fdd604368cedd2d38e1a32712c06a5144
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Box plots of annual utility bill cost savings percentage for the default scenario, split into electric heating and non-electric heating groups, each with savings computed from the maximum, mean, and median bill among applicable utility rate structures
+  description: |-
+    Figure 8 of the ComStock thermostat-control-for-load-shedding measure documentation shows annual utility bill savings for the default scenario. Six box plots are grouped into 'Electric heating' and 'Non-electric heating', each containing 'Savings from max bill', 'Savings from mean bill', and 'Savings from median bill', on a shared x-axis of utility bill cost savings in percent from -3% to +7%. All six distributions are centred in positive territory. The electric-heating group has interquartile boxes spanning roughly 1.5% to 3% with medians near 2% to 2.5% and upper whiskers reaching about 5%. The non-electric-heating group sits about one percentage point lower, with boxes spanning roughly 0.5% to 2% and medians near 1% to 1.5%. Within each group the max-bill row is shifted lowest, indicating that the rate structure producing the highest bill benefits least from peak reduction or lacks a demand component. Whiskers extend to about -2% to -3%, so a minority of buildings see higher bills. The text reports roughly 1% to 3% savings for all comparisons except the no-rebound-control scenario, and attributes savings to net energy reduction, time-of-use rates aligned with the peak window, and reduced demand charges.
+- source_image: 89340_images/image_000010_1b7872b9977de9dfb79c12589483bc706b619e9b16c17bdf9e50ec1d68053e98.png
+  source_image_sha256: 3eb085cb0d26f14c5528fd016c4c2b95044e9eb282c1f155c4b62294e9165a02
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Two stacked bar charts of annual site energy consumption by end use and fuel comparing baseline and load shed, at left for the whole ComStock stock totalling 4338 versus 4336 TBtu and at right for applicable large offices only totalling 318 versus 315 TBtu
+  description: |-
+    Figure 9 of the ComStock thermostat-control-for-load-shedding measure documentation compares annual site energy consumption between the baseline and the default load-shed scenario. The left panel, 'Stock', totals 4338 TBtu at baseline and 4336 TBtu with the measure; the right panel, 'Applicable large offices', totals 318 TBtu and 315 TBtu. Bands are stacked by end use and fuel: Interior Equipment, Fans, Cooling (Electricity and District Cooling), Interior Lighting, Heating (Electricity, Natural Gas, District Heating, Other Fuel), Water Systems (four fuels), Exterior Lighting, Pumps, Heat Recovery, and Heat Rejection. Stock band labels that reconcile exactly with the text: Fans, Electricity 519.1 to 518.2 TBtu (0.9 TBtu, 0.17%); Cooling, Electricity 667.3 to 666.3 (1.0 TBtu, 0.15%); Heating, Electricity 175.2 to 174.6 (0.6 TBtu, 0.34%); Interior Lighting, Electricity 451.9 and Interior Equipment, Electricity 739.7 both unchanged. In the large-office panel: Interior Equipment 108.6 unchanged, Fans 37.5 to 36.6, Cooling 60.7 to 59.6, Interior Lighting 31.4 unchanged, Heating Electricity 13.1 to 12.6, Heating Natural Gas 41.2 to 41.0. Total stock site energy savings are 0.046%, or 2 TBtu.
+- source_image: 89340_images/image_000011_a65ea3aa59d300d280ad0e3bcd7e61674161f9f684b5abc4b1ef0b75b10917f2.png
+  source_image_sha256: 99527532633660c025c296d0be949e18a11f2ba33738d4ae79130dbf75c98177
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Three stacked bar chart panels of annual greenhouse gas emissions in million metric tons CO2e for baseline versus load shed under the eGRID 2021, LRMER High RE Cost 15, and LRMER Low RE Cost 15 grid scenarios, each annotated with a zero percent change
+  description: |-
+    Figure 10 of the ComStock thermostat-control-for-load-shedding measure documentation compares annual stock greenhouse gas emissions between the baseline and the default load-shed scenario under three grid electricity scenarios. Each panel stacks Electricity, Natural Gas, Fuel Oil, and Propane in million metric tons CO2e for a 'Baseline' and a 'Load shed' bar. Under eGRID 2021 the total is 402 MMT CO2e at baseline and 402 with the measure, annotated '(-0%)', with Electricity 314 and Natural Gas 81 in both bars. Under LRMER High RE Cost 15 the total is 325 and 325, again '(-0%)', with Electricity 237 and Natural Gas 81. Under LRMER Low RE Cost 15 the total is 240 and 240, '(-0%)', with Electricity 152 and Natural Gas 81. In all three panels the on-site fossil components are identical between bars and the residual Fuel Oil plus Propane contribution is about 7 MMT CO2e, consistent across scenarios. The measure delivers approximately 0% emission reduction in every grid scenario, as expected given site energy savings of only 0.046%; its objective is daily demand flexibility rather than annual energy or carbon reduction.
+- source_image: 89340_images/image_000012_2f856b33dcb8529a74808435b0cb24f345288837ed3e9cd5a431adc3ce56162d.png
+  source_image_sha256: 15e527005bcdb2ea3d2de907a33822ada55f1ce719e80526a2684056f2015fb2
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Violin plot of percent site energy savings by end use and fuel for applicable ComStock models, with fifteen rows labelled by sample count, most distributions tight around zero to a few percent and a long negative tail on natural gas heating
+  description: |-
+    Figure 11 of the ComStock thermostat-control-for-load-shedding measure documentation shows the distribution of percent site energy savings by end use and fuel across applicable ComStock models. Fifteen horizontal violin plots with embedded box plots are drawn on an x-axis of percent site energy savings by end use spanning -120 to +40. Rows, each annotated with its applicable model count, are Other Fuel Water Systems (n=5), Other Fuel Heating (n=72), District Heating Water Systems (n=20), District Heating Heating (n=311), District Cooling Cooling (n=6), Natural Gas Water Systems (n=216), Natural Gas Heating (n=1646), Electricity Water Systems (n=381), Electricity Pumps (n=2383), Electricity Interior Lighting (n=1), Electricity Heating (n=1376), Electricity Heat Rejection (n=1877), Electricity Heat Recovery (n=107), Electricity Fans (n=3031), Electricity Cooling (n=3152). Electricity Heating shows the widest positive body, consistent with the reported 2% to 10% savings on electric heating; the text reports around 5% on fans and around 3% on electric cooling. Natural Gas Heating carries a long tail toward -120%. Points beyond 1.5 times the interquartile range are outliers.
+- source_image: 89340_images/image_000013_8d3c9e3616538ea964e70ae266980e461d35757b54b297773d118cdc02bd6908.png
+  source_image_sha256: f6b65d7526d498eadb7ae157713e0fb83f61c0cbad7377efb09880b126d8a986
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Violin plot of absolute site EUI savings in kBtu per square foot by end use and fuel for applicable ComStock models, with the same fifteen rows as the percent-savings figure and most distributions concentrated near zero
+  description: |-
+    Figure 12 of the ComStock thermostat-control-for-load-shedding measure documentation shows the distribution of site energy use intensity savings by end use and fuel. Fifteen horizontal violin plots with embedded box plots use the same rows as Figure 11, each label suffixed 'Intensity' with its model count: Other Fuel Water Systems (n=5), Other Fuel Heating (n=72), District Heating Water Systems (n=20), District Heating Heating (n=311), District Cooling Cooling (n=6), Natural Gas Water Systems (n=216), Natural Gas Heating (n=1646), Electricity Water Systems (n=381), Electricity Pumps (n=2383), Electricity Interior Lighting (n=1), Electricity Heating (n=1376), Electricity Heat Rejection (n=1877), Electricity Heat Recovery (n=107), Electricity Fans (n=3031), Electricity Cooling (n=3152). The x-axis reads 'Site EUI Savings by End Use' in kBtu per square foot, spanning -0.8 to +1.6, an absolute intensity rather than a percentage despite the caption's wording. Nearly every distribution is tightly concentrated at or just above zero, with Electricity Heating, Electricity Fans, and Electricity Cooling showing the widest bodies and scattered positive outliers past 1.0.
+- source_image: 89340_images/image_000014_7c1597789fee8eacfab60ccdfe8ede2ec6fa1a3e3ee3509b744452eb00c65475.png
+  source_image_sha256: 71314a16f4ed2517f22326eb2c5b1d9a70a49b5fffabd98074eeb3d9f32ec676
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Violin plot of percent site energy savings by ASHRAE climate zone for applicable ComStock models, with fifteen zone rows labelled by sample count and medians of roughly 1 to 2 percent across all zones
+  description: |-
+    Figure 13 of the ComStock thermostat-control-for-load-shedding measure documentation shows the distribution of percent site energy savings by ASHRAE climate zone. Fifteen horizontal violin plots with embedded box plots are drawn on an x-axis of percent site energy savings by climate zone spanning -4 to +7. Rows, each annotated with its applicable model count, are 1A (n=49), 2A (n=321), 2B (n=47), 3A (n=373), 3B (n=233), 3C (n=107), 4A (n=899), 4B (n=10), 4C (n=106), 5A (n=756), 5B (n=99), 6A (n=137), 6B (n=5), 7 (n=8), and 7A (n=8); the counts sum to 3158, the stated number of applicable large office model samples. Every zone has a positive median, generally between about 1% and 2%, with interquartile boxes lying almost entirely above zero. The mild and mixed zones 2A, 3A, and 4A carry most of the sample and show tight distributions with positive outliers past 5%. The sparsely sampled zones 4B, 6B, 7, and 7A have wide, irregular bodies reflecting their small n. The text concludes the measure is effective across weather zones, so demand-flexibility opportunity is not weather-exclusive.
+- source_image: 89340_images/image_000015_683dffb7c82d63ac1300748945de83b333e43b9b51f2a6694fcab33db5d51cc7.png
+  source_image_sha256: 0f55a052224a7b446a993c6dc36204773bff6a4507a51df7066967434d37e3b0
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Violin plot of absolute site EUI savings in kBtu per square foot by ASHRAE climate zone for applicable ComStock models, with the same fifteen zone rows and medians clustered just above zero
+  description: |-
+    Figure 14 of the ComStock thermostat-control-for-load-shedding measure documentation shows the distribution of site energy use intensity savings by ASHRAE climate zone. Fifteen horizontal violin plots with embedded box plots use the same zone rows and counts as Figure 13: 1A (n=49), 2A (n=321), 2B (n=47), 3A (n=373), 3B (n=233), 3C (n=107), 4A (n=899), 4B (n=10), 4C (n=106), 5A (n=756), 5B (n=99), 6A (n=137), 6B (n=5), 7 (n=8), and 7A (n=8). The x-axis reads 'Site EUI Savings by Climate Zone' in kBtu per square foot, spanning -0.8 to +1.8, an absolute intensity rather than a percentage despite the caption's wording. Medians cluster tightly just above zero, roughly 0.1 to 0.3 kBtu per square foot, for nearly every zone, with scattered positive outliers. The small-sample zones 4B and 6B show the widest bodies, reaching past 1.0, and zone 7A collapses to a narrow blob near zero. Compared with Figure 13, the intensity view compresses the differences between zones: the measure produces a relatively larger percent energy impact at the building level, but savings are modest once normalized by floor area.
+- source_image: 89340_images/image_000016_8aa2593f4dfc2aeaa63649667978079e25d1811917f39ab8d33903f976670230.png
+  source_image_sha256: 0ed6a06d0d9015a0cbc41e0471af88256d8b3316f6b1464e61f295257d69cb1e
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Grouped bar chart of site annual natural gas consumption in TBtu by census division for the ComStock baseline and the shedfb measure scenario, with baseline and measure bars visually identical in all nine divisions
+  description: |-
+    Figure A-1 of the ComStock thermostat-control-for-load-shedding measure documentation compares site annual natural gas consumption between the ComStock baseline and the measure scenario by census division. Paired bars, dark blue 'Baseline' and light blue 'shedfb', are plotted for New England, Middle Atlantic, East North Central, West North Central, South Atlantic, East South Central, West South Central, Mountain, and Pacific, on a y-axis of natural gas total energy consumption in TBtu from 0 to 350. Reading from the axis, since the chart carries no data labels, East North Central is by far the largest at roughly 335 TBtu, followed by Middle Atlantic near 215, Pacific near 147, South Atlantic near 137, West North Central near 115, West South Central near 90, Mountain near 78, and New England and East South Central near 53 to 55. In every division the baseline and measure bars are the same height to the resolution of the chart, consistent with total stock natural gas heating savings of only 0.2 TBtu, or 0.023%. The measure targets electric HVAC load shedding in large offices, so it has essentially no effect on regional gas consumption.
+- source_image: 89340_images/image_000017_c10ed1315a449b877e1ca54b0c9873c3981f94bfb3fbc27f5c4f6d1bfd778a05.png
+  source_image_sha256: f5987280c7bf8f948fb6b8a7ec777170c6bb56cb0dd12dd56738287cba661216
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Grouped bar chart of site annual natural gas consumption in TBtu by ComStock building type for the baseline and the shedfb measure scenario, with baseline and measure bars visually identical for all fourteen building types
+  description: |-
+    Figure A-2 of the ComStock thermostat-control-for-load-shedding measure documentation compares site annual natural gas consumption between the ComStock baseline and the measure scenario by building type. Paired bars, dark blue 'Baseline' and light blue 'shedfb', are plotted for FullServiceRestaurant, QuickServiceRestaurant, RetailStripmall, RetailStandalone, SmallOffice, MediumOffice, LargeOffice, PrimarySchool, SecondarySchool, Outpatient, Hospital, SmallHotel, LargeHotel, and Warehouse, on a y-axis of natural gas total energy consumption in TBtu running to about 190. Reading from the axis, since the chart carries no data labels, RetailStripmall is the largest at roughly 188 TBtu, followed by SecondarySchool near 165, FullServiceRestaurant and Warehouse near 155, PrimarySchool near 123, LargeHotel near 83, RetailStandalone near 78, Hospital near 70, SmallOffice near 53, LargeOffice near 45, QuickServiceRestaurant and MediumOffice near 40, Outpatient near 28, and SmallHotel near 10. Baseline and measure bars are indistinguishable everywhere, including the applicable LargeOffice column, consistent with stock natural gas heating savings of 0.2 TBtu, or 0.023%.
+- source_image: 89340_images/image_000018_0886618a114d2d8d8d276cf3a71157ce97fb5971ec771da0009c0d8da25e8712.png
+  source_image_sha256: feede821376e0ce6e2a2e542b98d4b37aab074609fcb8f8dfaf670e5a0a505d1
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Grouped bar chart captioned as site annual electricity consumption by building type, but the plotted y-axis reads natural gas total energy consumption in TBtu and the chart duplicates the natural gas by building type figure
+  description: |-
+    Figure A-3 of the ComStock thermostat-control-for-load-shedding measure documentation is captioned 'Site annual electricity consumption of the ComStock baseline and the measure scenario by building type', but the plotted graphic does not match that caption: its y-axis reads natural gas total energy consumption in TBtu and the bar heights reproduce Figure A-2. Paired dark blue 'Baseline' and light blue 'shedfb' bars appear for FullServiceRestaurant, QuickServiceRestaurant, RetailStripmall, RetailStandalone, SmallOffice, MediumOffice, LargeOffice, PrimarySchool, SecondarySchool, Outpatient, Hospital, SmallHotel, LargeHotel, and Warehouse, with RetailStripmall largest near 188 TBtu and SmallHotel smallest near 10 TBtu, and baseline and measure bars visually identical throughout. The intended electricity-by-building-type appendix figure appears to be missing from the source PDF, replaced by a second copy of the natural gas chart. Stock electricity impacts must instead be taken from Figure 9, which reports cooling electricity savings of 1.0 TBtu, heating electricity 0.6 TBtu, and fan electricity 0.9 TBtu.
+- source_image: 89340_images/image_000019_b9fb8a38fc1c2a7885d8d60fcb5296e6d226b0aa4b63b3fec4ee86123b0d3c21.png
+  source_image_sha256: 61b4c85436f2b793c9ed80ada9ad508eb5b8a0b3a3b9d1520acd06f90225fdb3
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Grouped bar chart captioned as site annual electricity consumption by census division, but the plotted y-axis reads natural gas total energy consumption in TBtu and the chart duplicates the natural gas by census division figure
+  description: |-
+    Figure A-4 of the ComStock thermostat-control-for-load-shedding measure documentation is captioned 'Site annual electricity consumption of the ComStock baseline and the measure scenario by census division', but the plotted graphic does not match that caption: its y-axis reads natural gas total energy consumption in TBtu and the bar heights reproduce Figure A-1. Paired dark blue 'Baseline' and light blue 'shedfb' bars appear for New England, Middle Atlantic, East North Central, West North Central, South Atlantic, East South Central, West South Central, Mountain, and Pacific, with East North Central largest near 335 TBtu and East South Central and New England smallest near 53 to 55 TBtu, and baseline and measure bars visually identical in every division. The intended electricity-by-census-division appendix figure appears to be missing from the source PDF, replaced by a second copy of the natural gas chart. Neither appendix figure therefore documents the electricity savings the measure actually produces; Figure 9 and Section 5.3 are the only sources for those.
