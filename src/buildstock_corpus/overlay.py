@@ -40,6 +40,20 @@ correct table — the fingerprint stops matching and the build says so instead o
 discarding better output. `replaces.why` is required, and lands in the artifact next to the
 transcription, so the reason is reviewable where the consequence is visible.
 
+`figures:` addresses a different loss than the table modes above. A slide-deck or report
+figure often carries meaning that no surrounding text repeats — a results chart, a workflow
+diagram — but the extractor emits only a bare `![](media/*.png)` ref: empty to a text-embedding
+retrieval pipeline and unreadable to anyone who cannot see the picture. A figure entry pins that
+bitmap by hash and supplies a hand-written `alt` (folded into the image ref, so it renders and
+enters the text stream) and an optional longer `description` paragraph (injected below the image
+purely for retrieval). Unlike the table modes it needs no caption to anchor to — the image ref
+*is* the anchor, matched by basename and required to be unique. `method` records how the text
+was produced (e.g. `vision-description`), which is a weaker claim than the table modes' `vision-
+transcription`: a description interprets a picture rather than copying legible cells, so it is
+labelled as such. The same provenance-comment and hash-pin discipline apply — a described figure
+is hand-authored text *about* a picture, pinned to the exact picture, so if upstream repoints the
+bitmap the description stops being trusted and the build says so instead of shipping a stale one.
+
 `text_repairs:` is the same bargain for a single line of non-table text: an exact-match
 find/replace, also with a required `why`. It exists for extractor artifacts that corrupt
 document *structure* rather than content — in 96598 a one-line source note ("Data from
@@ -99,6 +113,7 @@ _MD_TABLE_LINE = re.compile(r"^\s*\|")
 
 _MARKER = "<!-- table recovered from"  # our own injection, for idempotency
 _REPAIR_MARKER = "<!-- text repaired by overlay:"
+_FIGURE_MARKER = "<!-- figure described by overlay:"
 
 # How far below a caption to look for the image it labels. The observed shape is caption,
 # blank, image — a small window keeps us from stealing the next section's figure.
@@ -460,6 +475,125 @@ def _apply_entry(
     return True, []
 
 
+def _find_image_refs(lines: list[str], source_image: str) -> list[tuple[int, str]]:
+    """Every line holding an image ref whose basename matches `source_image`, with its target.
+
+    Whole-document scan, not a window: a figure has no caption to anchor near, so the ref
+    itself is the anchor. Basename rather than full target for the same reason _find_image
+    matches on it — the body mixes `dir/x.png` and `x.png` spellings for the same file.
+    """
+    want = Path(source_image).name
+    hits: list[tuple[int, str]] = []
+    for i, line in enumerate(lines):
+        for m in _MD_IMAGE_TARGET.finditer(line):
+            if Path(m.group(1)).name == want:
+                hits.append((i, m.group(1)))
+    return hits
+
+
+def _figure_applied_above(lines: list[str], n: int) -> bool:
+    """Whether the image ref on line `n` already carries a figure-overlay provenance comment.
+
+    Same walk as _repaired_above: step over the blank line the injection leaves above the ref,
+    require the line above that to close a comment, then climb to the comment open and check its
+    marker. Walking rather than fixed-window so a long `description`'s comment cannot drift out
+    of range and make an applied figure look unapplied, re-warning every build about work done.
+    """
+    k = n - 1
+    while k >= 0 and not lines[k].strip():
+        k -= 1
+    if k < 0 or not lines[k].rstrip().endswith("-->"):
+        return False
+    while k >= 0 and "<!--" not in lines[k]:
+        k -= 1
+    return k >= 0 and lines[k].lstrip().startswith(_FIGURE_MARKER)
+
+
+def _figure_injection(entry: dict, overlay_rel: str, target: str) -> str:
+    """The injected block: provenance comment, the alt-bearing image ref, then the description.
+
+    The `alt` is folded into the ref (`![alt](target)`) rather than added as separate text so it
+    renders as the picture's alt attribute and travels with the image; the `description` is a
+    plain paragraph below it, present only when non-empty and non-decorative, so a
+    text-embedding retriever has prose to index for a figure that otherwise contributes nothing.
+    """
+    alt = str(entry["alt"]).strip()
+    method = entry.get("method", "unspecified")
+    head = [
+        f"{_FIGURE_MARKER} {overlay_rel}",
+        f"     source: {entry['source_image']}",
+        f"     method: {method}",
+    ]
+    if entry.get("described_utc"):
+        head.append(f"     described: {entry['described_utc']}")
+    block = "\n".join(head) + f" -->\n\n![{alt}]({target})"
+    desc = str(entry.get("description", "")).strip()
+    if desc and not entry.get("decorative"):
+        block += f"\n\n{desc}"
+    return block
+
+
+def _apply_figure(
+    lines: list[str], entry: dict, image_dir: Path | None, overlay_rel: str, where: str
+) -> tuple[bool, list[str]]:
+    """Describe one figure in place: rewrite its image ref with alt + description. (applied, warnings).
+
+    The pin is the picture's sha256, verified against the bitmap on disk exactly as the
+    image-anchored table mode does — a description is only trustworthy for the picture it was
+    written from, so if upstream repoints the bitmap the hash stops matching and nothing is
+    injected. The ref must match exactly one still-undescribed line: zero means the overlay is
+    stale, more than one means the basename does not identify a single figure.
+    """
+    src = str(entry.get("source_image", "")).strip()
+    warn = lambda msg: [f"{where}: {src or '<no source_image>'}: {msg}"]  # noqa: E731
+
+    for field in ("source_image", "source_image_sha256", "alt"):
+        if not entry.get(field):
+            return False, warn(f"figure entry missing required field '{field}'")
+    if "]" in str(entry["alt"]):
+        return False, warn("'alt' contains ']', which would break the markdown image ref")
+
+    hits = _find_image_refs(lines, src)
+    if not hits:
+        return False, warn(
+            f"no image ref matching {Path(src).name} in the extracted body; overlay is stale"
+        )
+    pending = [(i, t) for i, t in hits if not _figure_applied_above(lines, i)]
+    if not pending:
+        return False, []  # already described — idempotent, not a problem
+    if len(pending) > 1:
+        return False, warn(
+            f"image ref {Path(src).name} appears {len(pending)} times; it does not identify one "
+            f"figure, so nothing was described"
+        )
+    i, target = pending[0]
+
+    expect = str(entry["source_image_sha256"])
+    if image_dir is None:
+        return False, warn("source image root unknown; cannot verify source_image_sha256")
+    img = _locate_image(image_dir, target)
+    if img is None:
+        return False, warn(f"source image not found at {image_dir / target}")
+    actual = _sha256_file(img)
+    if actual != expect:
+        return False, warn(
+            f"source image changed since description ({target}: recorded {expect[:12]}…, on disk "
+            f"{actual[:12]}…); description may be stale"
+        )
+
+    lines[i] = _figure_injection(entry, overlay_rel, target)
+
+    desc = str(entry.get("description", "")).strip()
+    if desc and not entry.get("decorative"):
+        longest = max((len(p) for p in _paragraphs(desc.split("\n"))), default=0)
+        if longest > _CHUNK_MAX_CHARS:
+            return True, warn(
+                f"description paragraph is {longest} chars, over the {_CHUNK_MAX_CHARS}-char "
+                f"chunk limit; it will be split mid-sentence"
+            )
+    return True, []
+
+
 def _repaired_above(lines: list[str], n: int) -> bool:
     """Whether line `n` is the replacement text of an already-applied repair.
 
@@ -567,8 +701,11 @@ def apply_overlays(
         else:
             entries = data.get("tables") or []
             repairs = data.get("text_repairs") or []
-            if not entries and not repairs:
-                warnings.append(f"{overlay_rel}: overlay has no table entries or text repairs")
+            figures = data.get("figures") or []
+            if not entries and not repairs and not figures:
+                warnings.append(
+                    f"{overlay_rel}: overlay has no table entries, figures, or text repairs"
+                )
                 continue
 
             image_dir = image_dirs.get((doc.source_id, doc.source_path))
@@ -591,7 +728,19 @@ def apply_overlays(
                 warnings += warns
                 if ok:
                     labels.append(str(entry["label"]).strip())
-            if labels or n_repairs:
+
+            # Figures run after tables: an image-anchored table replaces a picture with its
+            # transcription, so letting it go first means a figure entry that named the same
+            # bitmap correctly finds it already gone rather than describing a picture the
+            # artifact no longer shows.
+            fig_sources: list[str] = []
+            for fig in figures:
+                ok, warns = _apply_figure(lines, fig, image_dir, overlay_rel, overlay_rel)
+                warnings += warns
+                if ok:
+                    fig_sources.append(str(fig["source_image"]).strip())
+
+            if labels or n_repairs or fig_sources:
                 doc.body = "\n".join(lines)
                 record = {
                     "path": overlay_rel,
@@ -602,6 +751,10 @@ def apply_overlays(
                     # Recorded so a reader of the manifest can see this artifact carries a
                     # hand-authored correction to extracted text, not only additions to it.
                     record["text_repairs_applied"] = n_repairs
+                if fig_sources:
+                    # Recorded like tables_applied: the manifest counts these, and re-verifies
+                    # each named bitmap's hash at `bsc validate` time.
+                    record["figures_applied"] = fig_sources
                 applied.setdefault(doc.source_id, {})[doc.source_path] = record
 
     return applied, warnings

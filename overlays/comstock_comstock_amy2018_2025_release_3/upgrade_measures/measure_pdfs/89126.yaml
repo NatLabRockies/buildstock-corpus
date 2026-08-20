@@ -1,0 +1,125 @@
+# Hand-authored figure descriptions for measure_pdfs/89126.pdf (LED Lighting + HP-RTU Standard
+# Performance + ASHP Boiler package).
+# Scope: figures + one embedded table bitmap; cover montage (000000) and NREL logo (000001)
+# omitted; Tables 1-4, 6, 7 are real markdown text. Figures 1-13 = images 000002-000015 EXCEPT
+# 000004, which is a bitmap of Table 5 (On-Site Fossil Fuel Emissions Factors) embedded in the
+# GHG-methods section -- captured with method vision-transcription so its factors are retrievable.
+# All charts use method vision-description (numbers read off charts, need QA). Least-certain reads:
+# Figure 2 (000003) HVAC prevalence and Figure 11 (000013) climate x season peak-intensity matrix
+# have dense small labels -- treat those exact values as provisional. Every entry pins the on-disk
+# PNG sha256.
+
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: measure_pdfs/89126.pdf
+figures:
+- source_image: 89126_images/image_000002_1245f7ee4ca34ab09ef9ec75a8aa3ccf27c534dc168902fdfb9f647b1a8314f5.png
+  source_image_sha256: 7edd6fdd16a0ded2c1c66ad4636a8951727ce7eb670ba9edce49eecf4656f420
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Horizontal bar chart of ComStock baseline in-force energy code followed as a percent of applicable
+    floor area
+  description: |-
+    Figure 1. Horizontal bar chart of the ComStock baseline in-force energy code, as a percent of applicable floor area served by applicable RTUs, x-axis 0 to about 50%. Bars by code vintage: ComStock DOE Ref Pre-1980 0.07%, DOE Ref 1980-2004 46.50% (by far the largest), 90.1-2004 9.10%, 90.1-2007 19.52%, 90.1-2010 5.85%, 90.1-2013 4.28%, DEER Pre-1975 0.07%, DEER 1985 0.86%, DEER 1996 2.38%, DEER 2003 2.66%, DEER 2007 2.93%, DEER 2011 2.14%, DEER 2014 0.75%, DEER 2015 1.52%, and DEER 2017 1.38%. Shows the applicable stock is dominated by older DOE Reference 1980-2004 and 90.1-2007 vintage construction.
+- source_image: 89126_images/image_000003_8e7aa4ad6b4eb1b89fa305071954f9bc10aacac65dc06b75eb0e4ff9b93e3f21.png
+  source_image_sha256: 5803e79a5d555c00debde29adbf31ad66953921339cc7283d28002f6106d067e
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Two-panel horizontal bar chart of ComStock HVAC system type prevalence by stock floor area
+  description: |-
+    Figure 2. Two-panel horizontal bar chart of ComStock HVAC system type prevalence (HVAC systems with <1% floor area prevalence not shown). Left panel: Stock Floor Area (ft2); right panel: Percent of Stock Floor Area. Rows by HVAC system type, largest first: PSZ-AC with gas coil 16.49B ft2 / 29.59%, PVAV with gas boiler reheat 5.418 / 10.08%, PSZ-AC with electric coil 5.418 / 9.70%, PVAV with gas heat with electric reheat 3.428 / 6.14%, PVAV with PFP boxes 3.098 / 5.54%, residential AC with residential forced air furnace 2.458 / 4.40%, PSZ-HP 2.068 / 3.70%, PTAC with electric coil 1.788 / 3.20%, PTHP 1.388 / 2.49%, VAV chiller with PFP boxes 1.488 / 2.66%, plus smaller DOAS and water-source-heat-pump systems. Establishes that packaged single-zone gas/electric rooftop units dominate the applicable stock. (Dense small labels -- flag exact values for QA.)
+- source_image: 89126_images/image_000004_acd8b9c7b1e6856209cd0e5b7288b3b9332b5e02c3745fdab166446f5ccc607f.png
+  source_image_sha256: fdd5c34d3f84f96172da83bce115a4465c9b370690f3911e2e17532ed8626b4c
+  method: vision-transcription
+  described_utc: '2026-08-20'
+  alt: Table of on-site fossil fuel emissions factors for natural gas, propane, and fuel oil
+  description: |-
+    Table 5. On-Site Fossil Fuel Emissions Factors. Natural Gas: 147.3 lb/MMBtu (228.0 kg/MWh). Propane: 177.8 lb/MMBtu (275.7 kg/MWh). Fuel Oil: 195.9 lb/MMBtu (303.2 kg/MWh). Footnote a: lb = pound; MMBtu = million British thermal units; kg = kilogram; MWh = megawatt-hour. These are the combustion emissions factors applied to on-site fossil fuel use when computing greenhouse gas emissions.
+- source_image: 89126_images/image_000005_bcb2e4b9e771557152436fa4885c96e1a3ab121abd7102e328fc78345ccce57d.png
+  source_image_sha256: 4dd638299416a21bdb50cd7e7a299a735096c1e30e8c6e6fe2ea8d14e4e89e85
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Horizontal bar chart of the fraction of floor area applicable per observed upgrade combination
+  description: |-
+    Figure 3. Horizontal bar chart titled 'Fraction of Floor Area Applicable per Upgrade Combination', x-axis 0 to 0.30. Bars by observed measure combination: LED Only 0.28, LED + HP-RTU 0.26, LED + HP-Boiler 0.22, Not Applicable 0.10, HP-RTU Only 0.08, and HP-Boiler Only 0.07. At least one measure applied to about 90% of stock floor area (10% not applicable), with LED lighting present in the great majority of applicable combinations.
+- source_image: 89126_images/image_000006_0d865ddfb35564c218b84f7a52c6597439ab91ff1b3b73b7d5560fdbc3c866d4.png
+  source_image_sha256: fc57cb0644810689c10f86c11844c8b831dd9e25339587b2be1e39c4b2790db6
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Stacked column chart of annual stock site energy consumption by end use and fuel, Baseline vs
+    Package 2 vs Package 3
+  description: |-
+    Figure 4. Stacked column chart of Annual Site Energy Consumption (TBtu), y-axis 0 to 5000, comparing ComStock Baseline (total 4768), Package 2 (LED + HP-RTU + ASHP Boiler, total 3854), and Package 3 (LED + HP-RTU Standard Performance + ASHP Boiler, total 3946). Package 3 saves about 822 TBtu (roughly 17%) versus baseline. Columns are segmented by end use and fuel per the legend. Legible segments: Interior Equipment Electricity 725.7 (unchanged in all three); Fans Electricity 557.7 (baseline) to 452.8 (Pkg 2) / 488.0 (Pkg 3); Cooling Electricity 701.9 to 623.4 / 655.7; Heating Natural Gas 417.0 in the baseline largely replaced by Heating Electricity (503.6 in Pkg 2, 525.7 in Pkg 3) as gas heating is fuel-switched to heat pumps; Water Systems 191.0. Shows savings come from lighting and cooling plus fuel-switching heating to electricity.
+- source_image: 89126_images/image_000007_dae8f65e86ec84032719ec76b9a71046d74291b0ee87a3a347f2011f3b795a0e.png
+  source_image_sha256: db41c39069ec4b1fccfed076b246b7547211c7bb6aa95742165afb978e8b61ae
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Three-panel stacked bar chart of annual greenhouse gas emissions under three grid scenarios, Baseline vs Package 2 vs Package 3
+  description: |-
+    Figure 5. Three-panel stacked bar chart of Annual GHG Emissions (MMT CO2e), y-axis 0 to about 450, under three grid-emissions scenarios (eGRID 2021, LRMER High RE Cost 15, LRMER Low RE Cost 15). Each panel has three bars (Baseline, Package 2, Package 3) stacked by fuel (Electricity, Natural Gas, Fuel Oil, Propane). eGRID 2021: Baseline 436 (Electricity 330, Natural Gas 99), Package 2 378 (-13%), Package 3 388 (-11%). LRMER High RE Cost 15: Baseline 338, Package 2 281 (-17%), Package 3 288 (-15%). LRMER Low RE Cost 15: Baseline 242, Package 2 188 (-22%), Package 3 192 (-20%). Emissions reductions are larger under cleaner (LRMER) grid assumptions, and Package 2 slightly outperforms Package 3.
+- source_image: 89126_images/image_000008_7f12025aefcf37a78c778590b1a65e3a3e1e8dfdc004aea5ba1f33589faa4745.png
+  source_image_sha256: 621bd59a48707e1bc9e89cd8ea93b04b9881f7feffad24d15bc79f13c1412d65
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Three-panel stacked bar chart of national annual utility bills under maximum, mean, and minimum electricity rates, Baseline vs Package 2 vs Package 3
+  description: |-
+    Figure 6. Three-panel stacked bar chart of Annual Utility Bill (Billion USD, 2022), y-axis 0 to about 150, under three electricity-rate assumptions. Each panel has three bars (Baseline, Package 2, Package 3) stacked by fuel (Electricity, Natural Gas, Fuel Oil, Propane). With Max Electricity Rate: Baseline 143 (Electricity 123, Natural Gas 17), Package 2 132 (-7%), Package 3 136 (-5%). With Mean Rate: Baseline 124 (Electricity 104, NG 17), Package 2 113 (-9%), Package 3 116 (-6%). With Min Rate: Baseline 110 (Electricity 90, NG 17), Package 2 99 (-10%), Package 3 101 (-8%). Natural gas cost falls sharply relative to its baseline share as heating is fuel-switched; total bill savings are 5-10% depending on rate.
+- source_image: 89126_images/image_000009_e6a8296e74dc39f9b8e9bb57c0234e20d8ec3a7d5f9783ac3bad35cf751fe502.png
+  source_image_sha256: c48ffa9aab54777e03bbf7cc07269bfcd5d8e1414a09d05fce25e16bb80b5496
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Violin and box plots of percent utility bill savings by building type across the modeled stock
+    for Package 3
+  description: |-
+    Figure 7. Horizontal violin-plus-box plots of Percent Utility Bill Savings by Building Type (%), x-axis about -100% to 80%, titled 'Upgrade 36.0: Package 3 (unweighted)'. Rows are ComStock building types with model counts: FullServiceRestaurant (n=10615), Hospital (n=1727), LargeHotel (n=7939), LargeOffice (n=6410), MediumOffice (n=13950), Outpatient (n=7389), PrimarySchool (n=6586), QuickServiceRestaurant (n=5049), RetailStandalone (n=15963), RetailStripmall (n=13613), SecondarySchool (n=9236), SmallHotel (n=3476), SmallOffice (n=18124), and Warehouse (n=15369). Most types center on small positive median bill savings (roughly 0-10%) with long tails in both directions; a minority of models show bill increases where electrified heating raises electricity cost.
+- source_image: 89126_images/image_000010_7d06d2d35035fb3169e46a7568a8bace469b268a0e481fdf778113c44542313a.png
+  source_image_sha256: d9bd6d157959e460499def7617d03c9800aa0382dcfd4f6799bee16eddbb62e3
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Violin and box plots of percent utility bill savings by fuel type across the modeled stock for
+    Package 3
+  description: |-
+    Figure 8. Horizontal violin-plus-box plots of Percent Utility Bill Savings by Fuel (%), x-axis about -160% to 100%, titled 'Upgrade 36.0: Package 3 (unweighted)'. Rows with model counts: Propane Bill (n=7999), Fuel Oil Bill (n=6588), Natural Gas Bill (n=54995), Electricity Bill with Mean Rate (n=135455), and Total Bill with Mean Electricity Rate (n=135446). Natural gas, propane, and fuel oil bills show large positive savings distributions (fuel switching eliminates much fossil use), the Electricity Bill is roughly centered near 0% with a slight negative skew (added electric heating), and the Total Bill is modestly positive. Consistent with the reported ~59% national natural gas bill reduction.
+- source_image: 89126_images/image_000011_15038d8c2e5b27695fe77eba7b06664b5880a850b8c15521c1d25438c7b1cd08.png
+  source_image_sha256: 3aa518d643933a4fe2c7a1724b58389b6f54a7830d8f836d66ad4a9985e1ab52
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Violin and box plots of percent site energy savings by end use across the modeled stock for Package
+    3
+  description: |-
+    Figure 9. Horizontal violin-plus-box plots of Percent Site Energy Savings by End Use (%), x-axis about -160% to 100%, titled 'Upgrade 36.0: Package 3 (unweighted)'. Rows are end-use/fuel combinations with model counts, including Natural Gas Heating (n=67480), Electricity Cooling (n=122050), Electricity Fans (n=126498), Electricity Heating (n=110299), Electricity Interior Lighting (n=118276), Electricity Interior Equipment (n=8), Electricity Pumps (n=53893), Electricity Refrigeration (n=30409), Electricity Water Systems (n=4872), Natural Gas Water Systems (n=3180), District Cooling (n=4433), District Heating (n=6547), and Other Fuel Heating (n=15961). Natural Gas Heating shows a large positive savings distribution (heating fuel-switched off gas), Interior Lighting and Cooling are positive, while Electricity Heating skews negative (electricity added by the heat pumps). (Dense rows -- flag exact counts for QA.)
+- source_image: 89126_images/image_000012_3b7f537b67a2d186df78ccf460016d351dda4248ac3f3852d09be70872804224.png
+  source_image_sha256: 8713d2865ec13be7913475e0606d7092b15bf6a657742d2433e3bd57e4b3f96f
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Box-and-whisker plots of maximum daily electric peak timing by season, Baseline vs Package 2
+    vs Package 3
+  description: |-
+    Figure 10. Box-and-whisker plots of maximum daily peak timing (hour of day, x-axis 0 to 24) by season, in three stacked panels (summer, winter, shoulder). Each panel has three rows (Baseline, Package 2, Package 3). In summer, peaks cluster in the afternoon (interquartile box roughly hours 11-14) similarly across all scenarios. In winter, the baseline peak is spread across mid-day (box roughly hours 8-14) while Package 2 and Package 3 shift and narrow toward late morning (box roughly hours 9-12) as electrified heating changes the peak. Shoulder season is intermediate. Shows electrification mainly reshapes the winter peak timing.
+- source_image: 89126_images/image_000013_8607266614a095127848a2ffc3d3172d601e2274788e9a37b4c17cdb20eabad4.png
+  source_image_sha256: 2b5d3d059e03340c1921213057ab56961bb79f7a8ead35457960efb0a7ca28d7
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Grouped bar matrix of median electric peak intensity by climate zone and season, Baseline vs
+    Package 2 vs Package 3
+  description: |-
+    Figure 11. Grouped horizontal bar matrix of median electric peak intensity (W/ft2) by IECC climate zone and season. Three value columns -- Median Summer, Median Winter, and Median Shoulder Elect. Peak W/ft2 -- with rows grouped by climate (Hot-Humid, Hot-Dry, Marine, Mixed-Dry, Mixed-Humid, Cold, Very Cold, Subarctic), each split into Baseline, Package 2, and Package 3 bars. Summer peak intensity falls from baseline to the packages in every climate (e.g. Hot-Humid 3.825 baseline to 2.984 Pkg 2 / 3.084 Pkg 3; Mixed-Humid 3.802 to 2.870; Cold 3.280 to 2.533 / 2.601). Winter peak intensity generally rises in the packages as heating is electrified (e.g. Very Cold winter 2.788 baseline to 4.777 Pkg 2 / 4.844 Pkg 3), and shoulder peaks are intermediate. Illustrates the summer-peak reduction versus winter-peak increase trade-off of electrification. (Dense numeric matrix -- the exact per-cell values are the least-certain reads in this doc; flag for QA.)
+- source_image: 89126_images/image_000014_d18a85141956fce0f14295360d80508d51a5ec85d2f57e1edee56f8226a71d28.png
+  source_image_sha256: 8f09cde38c63b15be375b137be181b043dd2a508ad5193b66d5bfe127a47d3b9
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Grouped bar chart of annual stock natural gas energy consumption by building type, Baseline vs
+    Package 3
+  description: |-
+    Figure 12. Grouped bar chart of Natural Gas Total Energy Consumption (TBtu) by ComStock building type, y-axis 0 to about 250. Two bars per type (Baseline, dark blue; Package 3, light blue) across FullServiceRestaurant, QuickServiceRestaurant, RetailStripmall, RetailStandalone, SmallOffice, MediumOffice, LargeOffice, PrimarySchool, SecondarySchool, Outpatient, Hospital, SmallHotel, LargeHotel, and Warehouse. Baseline gas is largest for SecondarySchool (about 245), RetailStripmall (about 225), FullServiceRestaurant (about 195), and PrimarySchool (about 155). Package 3 is dramatically lower for every type (e.g. SecondarySchool falls to roughly 30) as space heating is fuel-switched away from natural gas.
+- source_image: 89126_images/image_000015_7341248ec5ba810f3f82a9b7f3cfca0df4d112e0c8a6dcf225806d2173f59213.png
+  source_image_sha256: f54ce9d838245bca6e44ed78c1bdab6d55091909735c59dc8fb7a43f7014d69d
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Grouped bar chart of annual stock electricity energy consumption by building type, Baseline vs
+    Package 3
+  description: |-
+    Figure 13. Grouped bar chart of Electricity Total Energy Consumption (TBtu) by ComStock building type, y-axis 0 to about 400+. Two bars per type (Baseline, dark blue; Package 3, light blue) across FullServiceRestaurant, QuickServiceRestaurant, RetailStripmall, RetailStandalone, SmallOffice, MediumOffice, LargeOffice, PrimarySchool, SecondarySchool, Outpatient, Hospital, SmallHotel, LargeHotel, and Warehouse. RetailStripmall is the largest (about 420), followed by Warehouse (about 375). Package 3 electricity is close to baseline for most types -- slightly lower where lighting/cooling savings dominate and modestly higher for some types where electrified heating adds load (e.g. SecondarySchool rises toward 345).

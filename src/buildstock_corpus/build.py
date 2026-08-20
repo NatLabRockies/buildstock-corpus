@@ -419,6 +419,11 @@ def build_release(
     n_overlay_tables = sum(
         len(rec["tables_applied"]) for docs_ in applied.values() for rec in docs_.values()
     )
+    n_overlay_figures = sum(
+        len(rec.get("figures_applied") or [])
+        for docs_ in applied.values()
+        for rec in docs_.values()
+    )
     summary = {
         "sample": sample,
         "documents": len(docs),
@@ -427,6 +432,7 @@ def build_release(
         "by_type": dict(by_type),
         "excluded_unpublished": excluded,
         "overlay_tables": n_overlay_tables,
+        "overlay_figures": n_overlay_figures,
         "warnings": warnings,
         "crosswalk": crosswalk["counts"] if crosswalk else None,
         "chunks_file": str(cf),
@@ -438,8 +444,13 @@ def build_release(
     print(f"  copied {n_images} image file(s) into processed/")
     if not overlays:
         print("  overlays: SKIPPED (--no-overlays); bitmap-only tables stay unconverted")
-    elif n_overlay_tables:
-        print(f"  overlays: injected {n_overlay_tables} table(s) into {n_overlay_docs} doc(s)")
+    elif n_overlay_tables or n_overlay_figures:
+        injected = []
+        if n_overlay_tables:
+            injected.append(f"{n_overlay_tables} table(s)")
+        if n_overlay_figures:
+            injected.append(f"{n_overlay_figures} figure description(s)")
+        print(f"  overlays: injected {' and '.join(injected)} into {n_overlay_docs} doc(s)")
     if crosswalk:
         c = crosswalk["counts"]
         note = " (full crosswalk: measure->doc mapping, not the sampled docs)" if sample else ""

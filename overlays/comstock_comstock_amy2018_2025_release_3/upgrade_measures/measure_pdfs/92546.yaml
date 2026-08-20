@@ -1,0 +1,61 @@
+# Hand-authored figure descriptions for measure_pdfs/92546.pdf (Ideal Thermal Air Loads).
+# Scope: figures only; cover montage (000000) and NREL logo (000001) omitted; Figure 2 is a
+# code snippet (text, no bitmap). Figures 1 and 3 reuse the same stacked-column chart.
+# NOTE for QA: images 000006 and 000007 are swapped relative to their captions -- 000006
+# (under the A-3 'by building type' caption) actually plots by census division, and 000007
+# (under the A-4 'by census division' caption) actually plots by building type. Descriptions
+# match the actual bitmap. method is vision-description (numbers read off charts, need QA).
+
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: measure_pdfs/92546.pdf
+figures:
+- source_image: 92546_images/image_000002_543a3e3d13c7a6e6cb9fad1e0a136486212cba88db21e5fd895a0c86c5594d83.png
+  source_image_sha256: 93e23a8b6769feef9f0982405cb773cbc86b9f9cef4f1cf5188db09c5b8a425c
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Stacked column chart of annual stock site energy consumption by end use and fuel, Baseline vs
+    Ideal Thermal Air Loads
+  description: |-
+    Figure 1. Stacked column chart comparing annual stock site energy consumption (TBtu), y-axis 0 to about 5000, for two scenarios: ComStock Baseline (total 4763) and Ideal Thermal Air Loads (total 5049). Each column is segmented by end use and fuel per the legend (Interior Equipment, Fans, Cooling, Interior Lighting, Water Systems, Heating, Heat Recovery, Heat Rejection, Pumps, Refrigeration across Electricity, Natural Gas, District Heating, District Cooling, and Other Fuel). Interior Equipment (726.4 Electricity, 305.6 Natural Gas) is identical in both. In the baseline, legible segments include Fans Electricity 557.4, Cooling Electricity 704.5, and Heating Natural Gas 574.5. In the Ideal Thermal Air Loads scenario, heating and cooling are re-metered as district energy: a large District Cooling segment 1876.3 and a District Heating segment near 1610.6, while Fans Electricity drops to essentially zero. The takeaway: converting all HVAC to 100%-efficient ideal air roughly triples cooling energy (COP 1 vs baseline DX COP 3-4), slightly increases heating, and eliminates supply/return fan energy.
+- source_image: 92546_images/image_000003_9c4aee7474f9cc201c929ea92681c9222a61944b92b9e1a7f4fb113a898ecb6c.png
+  source_image_sha256: 11962b917acde210eb5bb917677c17c3733535520733c23ac185692e929140ed
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Stacked column chart of annual stock site energy consumption by end use and fuel, Baseline vs Ideal Thermal Air Loads (same chart as Figure 1)
+  description: |-
+    Figure 3. Stacked column chart of annual stock site energy consumption (TBtu), y-axis 0 to about 5000, comparing ComStock Baseline (total 4763) and Ideal Thermal Air Loads (total 5049); this is the same chart shown as Figure 1. Columns are segmented by end use and fuel per the legend (Interior Equipment, Fans, Cooling, Interior Lighting, Water Systems, Heating, Heat Recovery, Heat Rejection, Pumps, Refrigeration across Electricity, Natural Gas, District Heating, District Cooling, Other Fuel). Interior Equipment (726.4 Electricity, 305.6 Natural Gas) is unchanged; baseline shows Fans Electricity 557.4, Cooling Electricity 704.5, Heating Natural Gas 574.5, while the Ideal Thermal Air Loads scenario re-meters heating and cooling as district energy (District Cooling about 1876.3, District Heating about 1610.6) and removes fan energy. Illustrates that ideal air roughly triples cooling energy, slightly raises heating, and eliminates fan energy.
+- source_image: 92546_images/image_000004_353bc2702fb53bc0d8cb5e8252159dead80c6faf30dd866354c4cdda2ee4cd6e.png
+  source_image_sha256: 5b287d08c6a8dfd662e2ac3010b692acd1698eaf5b7f679b63f834b4301e5b9c
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Grouped bar chart of site annual natural gas consumption by census division, Baseline vs Ideal
+    Thermal Air Loads
+  description: |-
+    Figure A-1. Grouped bar chart of site annual natural gas total energy consumption (TBtu) by U.S. census division, y-axis 0 to about 350. Two bars per division (Baseline, dark blue; Ideal Thermal Loads, light blue) for New England, Middle Atlantic, East North Central, West North Central, South Atlantic, East South Central, West South Central, Mountain, and Pacific. Baseline gas consumption exceeds the Ideal Thermal Loads scenario in every division; East North Central is the largest (baseline about 370), followed by Middle Atlantic and Pacific (each roughly 210-230 baseline). The Ideal scenario roughly halves natural gas in most divisions because baseline gas heating is re-metered as district heating.
+- source_image: 92546_images/image_000005_79ebdf5c3155030d111a0d2ba3787386cb661c6c685b7119eefbdb83dba4c917.png
+  source_image_sha256: 01fe76b76982dee4049b793ae0607863bae4608ee8330f885d32314422cd221b
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Grouped bar chart of site annual natural gas consumption by building type, Baseline vs Ideal
+    Thermal Air Loads
+  description: |-
+    Figure A-2. Grouped bar chart of site annual natural gas total energy consumption (TBtu) by ComStock building type, y-axis 0 to about 250. Two bars per type (Baseline, dark blue; Ideal Thermal Loads, light blue) across FullServiceRestaurant, QuickServiceRestaurant, RetailStripmall, RetailStandalone, SmallOffice, MediumOffice, LargeOffice, PrimarySchool, SecondarySchool, Outpatient, Hospital, SmallHotel, LargeHotel, and Warehouse. Baseline exceeds Ideal for every type; SecondarySchool is the largest (baseline about 245, Ideal about 25), with RetailStripmall, PrimarySchool, Hospital, and FullServiceRestaurant also high. Gas consumption falls sharply under the Ideal scenario as gas heating shifts to district heating.
+- source_image: 92546_images/image_000006_854906ad2752a06348b51c1ac56eba7283bf23b18d6af04f008fcb6f7a132556.png
+  source_image_sha256: 637117ebabc21423cff6f8d65c6d6407ce371c0ebcee9d12e1a78f1a94a34d34
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Grouped bar chart of site annual electricity consumption by census division, Baseline vs Ideal
+    Thermal Air Loads
+  description: |-
+    Figure A-3 (caption reads 'by building type', but this bitmap actually plots by census division). Grouped bar chart of site annual electricity total energy consumption (TBtu) by U.S. census division, y-axis 0 to about 700. Two bars per division (Baseline, dark blue; Ideal Thermal Loads, light blue) for New England, Middle Atlantic, East North Central, West North Central, South Atlantic, East South Central, West South Central, Mountain, and Pacific. Baseline electricity exceeds the Ideal scenario in every division; South Atlantic is the largest (baseline about 690, Ideal about 340). Electricity falls under the Ideal scenario because baseline electric cooling and fan energy are removed and cooling is re-metered as district cooling.
+- source_image: 92546_images/image_000007_ed7dd5e1e40eacd203d43e6793e3238e0247fce3b93e98bca468e017a929a8ed.png
+  source_image_sha256: 0ffef28695113cc700957a6b3d84cabb4e82415064da74266bfd730a09e16400
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Grouped bar chart of site annual electricity consumption by building type, Baseline vs Ideal
+    Thermal Air Loads
+  description: |-
+    Figure A-4 (caption reads 'by census division', but this bitmap actually plots by building type). Grouped bar chart of site annual electricity total energy consumption (TBtu) by ComStock building type, y-axis 0 to about 400. Two bars per type (Baseline, dark blue; Ideal Thermal Loads, light blue) across FullServiceRestaurant, QuickServiceRestaurant, RetailStripmall, RetailStandalone, SmallOffice, MediumOffice, LargeOffice, PrimarySchool, SecondarySchool, Outpatient, Hospital, SmallHotel, LargeHotel, and Warehouse. Baseline exceeds Ideal for every type; RetailStripmall and Warehouse are the largest (baseline about 410 and 385). Electricity drops under the Ideal scenario as electric cooling and supply/return fan energy are removed.

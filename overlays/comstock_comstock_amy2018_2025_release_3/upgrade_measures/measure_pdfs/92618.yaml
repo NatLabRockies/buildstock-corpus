@@ -1,0 +1,128 @@
+# Hand-authored figure descriptions for measure_pdfs/92618.pdf (Standard Performance Heat Pump
+# Rooftop Unit with New Roof / improved roof insulation).
+# Scope: figures + one embedded table bitmap; cover montage (000000) and NREL logo (000001)
+# omitted; Tables 1, 3, 4, 5 and ES tables are real markdown text. Figures 1-9 and A-1 to A-4 =
+# images 000002-000003 and 000005-000015 EXCEPT 000004, which is a bitmap of Table 2 (On-Site
+# Fossil-Fuel Emissions Factors) captured with method vision-transcription. All charts use method
+# vision-description (numbers read off charts, need QA). NOTE for QA: Figure 7 (000009) is captioned
+# 'by end use and fuel type' in the source but the bitmap actually plots utility bill savings by
+# climate zone -- the description matches the bitmap. Least-certain reads: Figure 2 (000003) HVAC
+# distribution, Figure 4 (000006) energy stacks, and Figure 9 (000011) per-state choropleth labels.
+# See the Table 2 entry for a noted propane kg/MWh inconsistency. Every entry pins the PNG sha256.
+
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: measure_pdfs/92618.pdf
+figures:
+- source_image: 92618_images/image_000002_b4f8bbda90ac5c59f7d81210b41389b033d6214a64944f8db48fa6f1dc2f6624.png
+  source_image_sha256: 811a26f50402c3ecf9c3971cc2e41862582ebb950257bf7c83220f8949146d1f
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Horizontal bar chart of the percent of ComStock floor area by HVAC energy code followed during
+    the last HVAC replacement
+  description: |-
+    Figure 1. Horizontal bar chart of the percent of ComStock floor area by the HVAC energy code followed during the last HVAC replacement, x-axis 0 to 50%. Bars by code vintage: DOE Ref Pre-1980 0%, DOE Ref 1980-2004 46% (by far the largest), 90.1-2004 9%, 90.1-2007 19%, 90.1-2010 6%, 90.1-2013 5%, DEER Pre-1975 0%, DEER 1985 1%, DEER 1996 3%, DEER 2003 3%, DEER 2007 3%, DEER 2011 2%, DEER 2014 1%, DEER 2015 2%, and DEER 2017 1%. Shows the stock is dominated by older DOE Reference 1980-2004 and 90.1-2007 vintage HVAC.
+- source_image: 92618_images/image_000003_23f8c6f6256d8ff6747edb0d28cb3eb658384656604814b633be4d5895d796b9.png
+  source_image_sha256: eac2989e02c749a979662abbd95f177dc6cdd6058c4f003e2255533d8dacb887
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Two-panel horizontal bar chart of ComStock HVAC system type distribution by stock floor area
+    and by number of buildings
+  description: |-
+    Figure 2. Two-panel horizontal bar chart of ComStock HVAC system type distribution; left panel % of Stock Floor Area, right panel % of Buildings. The measure scenario applies to PSZ-AC with gas coil and PSZ-AC with electric coil. Rows (floor area % / buildings %): PSZ-AC with gas coil 27% / 37%, PVAV with gas boiler reheat 9% / 8%, PSZ-AC with electric coil 9% / 13%, VAV chiller with gas boiler reheat 8% / 2%, PVAV with gas heat with electric reheat 6% / 2%, VAV air-cooled chiller with gas boiler reheat 4% / 2%, PVAV with PFP boxes 4% / 7%, Residential AC with residential forced air furnace 3% / 2%, PSZ-HP 3% / 3%, PTAC with electric coil 3% / 2%, PSZ-AC with gas boiler 2% / 3%, VAV chiller with PFP boxes 2% / 1%, PTHP 2% / 1%, DOAS with fan coil chiller with boiler 2% / 0%, VAV district chilled water with district hot water reheat 2% / 0%, DOAS with water source heat pumps cooling tower with boiler 2% / 0%, and Other System Types (<1% each) 8% / 6%. Establishes that PSZ-AC with gas coil dominates the applicable stock. (Dense small labels -- flag exact values for QA.)
+- source_image: 92618_images/image_000004_7460c9f904036288a827593f94be930bb390f0773944a752dbe1605dfb40a647.png
+  source_image_sha256: 8ef714ecf0ef1c2525305e53496c903844ad7462bae14b9411eb4afea1741e11
+  method: vision-transcription
+  described_utc: '2026-08-20'
+  alt: Table of on-site fossil fuel emissions factors for natural gas, propane, and fuel oil
+  description: |-
+    Table 2. On-Site Fossil-Fuel Emissions Factors. Natural Gas: 147.3 lb/MMBtu (228.0 kg/MWh). Propane: 177.8 lb/MMBtu (182.3 kg/MWh). Fuel Oil: 195.9 lb/MMBtu (303.2 kg/MWh). Footnote a: lb = pound; MMBtu = million British thermal units; kg = kilogram; MWh = megawatt-hour. These are the combustion emissions factors applied to on-site fossil fuel use when computing greenhouse gas emissions. (Note for QA: the propane kg/MWh value 182.3 is inconsistent with its 177.8 lb/MMBtu value, which converts to about 275 kg/MWh; transcribed as printed and likely a source typo.)
+- source_image: 92618_images/image_000005_5cc07b0b8d69eeb01e1e1290e85dbe345b8734c2db16c955a00b01532b793f19.png
+  source_image_sha256: 53ce49ea74c212937d9c80f67c6e180401571f40c53b6a7d79f2cda18fe4f6ef
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Line chart comparing predicted sensible heating load over one week for a sample rooftop unit with and without the new roof insulation
+  description: |-
+    Figure 3. Line chart of Predicted Sensible Load (W), y-axis 0 to 6000, over the week Jan 11 to Jan 17, for a single sample rooftop unit on the top floor of a building (including exterior roof area). Two lines are plotted: HP RTU and HP RTU with New Roof. Both follow the same strongly diurnal pattern with peaks near 4000-5000 W; the 'with New Roof' line sits slightly below the plain HP RTU line at the load peaks, showing the added roof insulation modestly reduces the heating load.
+- source_image: 92618_images/image_000006_e74ac67232e1fcb018f081534ffd28d7ab8df4140759ca76eeee61432994d2fb.png
+  source_image_sha256: 58934c4bfd1b82b2cbcd8a4115eebdc5f5226f8731356902145c7a2c45ad6e94
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Two-panel stacked bar chart of annual site energy consumption by end use and fuel, whole stock and applicable subset, Baseline vs HP RTU Std Perf vs Std Perf w Roof
+  description: |-
+    Figure 4. Two-panel stacked bar chart of Annual Energy Consumption (TBtu) by end use and fuel per the legend, comparing ComStock Baseline, HP RTU Std Perf, and Std Perf w Roof. Panel (a) whole commercial building stock, y-axis 0 to 5000: totals Baseline 4763, HP RTU Std Perf 4474, Std Perf w Roof 4457. Panel (b) only buildings applicable to the measure, y-axis 0 to about 1650: totals Baseline 1653, HP RTU Std Perf 1365, Std Perf w Roof 1347. In both panels Interior Equipment Electricity is unchanged (about 725.6 whole stock, 259.5 applicable); the reductions come from Heating Natural Gas being fuel-switched to Heating Electricity plus efficiency gains, with the roof-insulation variant slightly below the HP-RTU-only scenario. (Dense small labels -- flag exact segment values for QA.)
+- source_image: 92618_images/image_000007_079c74f78b43c6276c45c433659f0bbb61864d845b582d4765e35cbb66877e03.png
+  source_image_sha256: f0c66a0a7ea64cf2794e7019a1052315c7ede045e295a6357fadd1c700f5df36
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Three-panel stacked bar chart of annual greenhouse gas emissions under three grid scenarios, Baseline vs HP RTU Std Perf vs Std Perf w Roof
+  description: |-
+    Figure 5. Three-panel stacked bar chart of Annual GHG Emissions (MMT CO2e), y-axis 0 to about 450, under three grid-emissions scenarios (eGRID 2021, LRMER High RE Cost 15, LRMER Low RE Cost 15). Each panel has three bars (Baseline, HP RTU Std Perf, Std Perf w Roof) stacked by fuel (Electricity, Natural Gas, Fuel Oil, Propane). eGRID 2021: Baseline 436 (Electricity 330, Natural Gas 98), HP RTU Std Perf 419 (-4%), Std Perf w Roof 417 (-4%). LRMER High RE Cost 15: Baseline 338, HP RTU Std Perf 321 (-5%), Std Perf w Roof 319 (-6%). LRMER Low RE Cost 15: Baseline 241, HP RTU Std Perf 225 (-7%), Std Perf w Roof 224 (-7%). Emissions reductions of roughly 4-7% grow under cleaner grid assumptions, with the roof variant marginally better.
+- source_image: 92618_images/image_000008_7023cc0180e3eb6ecffdc92c56a61de9ae3582b138210fb47c9c7a4c9cf6d69c.png
+  source_image_sha256: 40e289745d698e22eaa9b5126afd8dd61c5997f7345465024728fb67b4b2d82a
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Three-panel stacked bar chart of annual utility bills under maximum, mean, and minimum electricity rates, Baseline vs HP RTU Std Perf vs Std Perf w Roof
+  description: |-
+    Figure 6. Three-panel stacked bar chart of Annual Utility Bill (Billion USD, 2022), y-axis 0 to about 150, under three electricity-rate assumptions. Each panel has three bars (Baseline, HP RTU Std Perf, Std Perf w Roof) stacked by fuel (Electricity, Natural Gas, Fuel Oil, Propane). With Max Electricity Rate: Baseline 142 (Electricity 123, Natural Gas 17), HP RTU Std Perf 139 (-2%), Std Perf w Roof 138 (-3%). With Mean Rate: Baseline 123 (Electricity 104, NG 17), HP RTU Std Perf 120 (-3%), Std Perf w Roof 119 (-3%). With Min Rate: Baseline 110 (Electricity 90, NG 17), HP RTU Std Perf 106 (-3%), Std Perf w Roof 105 (-4%). Bill savings are a low single-digit percent, slightly larger with the roof-insulation variant.
+- source_image: 92618_images/image_000009_4a794eff8bae602346903fab706200cfc2dff69632324eab30532d6268ec55af.png
+  source_image_sha256: fae4b3d0392bfde99f07722ff0cc67766209ef7caccdf7ae19f3dce8f39ef94f
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Violin and box plots of percent utility bill savings by climate zone across the modeled stock
+    for the measure package
+  description: |-
+    Figure 7. Horizontal violin-plus-box plots of Percent Utility Bill Savings by Climate (%), x-axis about -100% to 80%, titled 'Upgrade 5.0: Std Perf w Roof (unweighted)'. (The source caption labels this 'by end use and fuel type', but the plotted bitmap is by climate zone -- flag the caption mismatch for QA.) Rows are climate zones with model counts: 1A (n=795), 2A (n=1796), 2B (n=1010), 3A (n=3383), 3B (n=3925), 3C (n=1270), 4A (n=5278), 4B (n=1494), 4C (n=526), 5A (n=5313), 5B (n=2854), 6A (n=3038), 6B (n=1288), 7 (n=2131), and 8 (n=249). Most zones show a small positive median bill savings (roughly 5-15%); the coldest zone 8 is the exception, with a negative median (bill increase) as electrified heating raises costs in very cold climates.
+- source_image: 92618_images/image_000010_40fc4e8fa7a8f1279e084442bc4194c0878138afe307f3215bddd37ccdf50141.png
+  source_image_sha256: 249a7496937e1a013bb15329f88a110802134f12e640af21379b50066679c387
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Violin and box plots of percent site energy savings by end use across the modeled stock for the
+    measure package
+  description: |-
+    Figure 8. Horizontal violin-plus-box plots of Percent Site Energy Savings by End Use (%), x-axis about -160% to 100%, titled 'Upgrade 5.0: Std Perf w Roof (unweighted)'. Rows are end-use/fuel combinations with model counts: Other Fuel Water Systems (n=168), Other Fuel Heating (n=6688), Natural Gas Water Systems (n=1380), Natural Gas Heating (n=15608), Electricity Water Systems (n=1601), Electricity Refrigeration (n=7266), Electricity Interior Equipment (n=26), Electricity Heating (n=33914), Electricity Heat Recovery (n=1020), Electricity Fans (n=34348), and Electricity Cooling (n=34342). Natural Gas Heating and Other Fuel Heating show large positive savings distributions (heating fuel-switched off fossil fuels), Electricity Cooling and Fans are positive, while Electricity Heating skews strongly negative (electricity added by the heat pumps).
+- source_image: 92618_images/image_000011_57722dbda8de953f6abe923437de36af5ddfba74e13b6285ddcc4e6267c73f92.png
+  source_image_sha256: efbe856b31afc38adbd2fdc0641ebcdd076977e8c617bce4d7a886c1071343e8
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Two U.S. choropleth maps of mean annual total utility bill savings by state for the HP-RTU-only scenario and the roof-insulation package
+  description: |-
+    Figure 9. Two side-by-side U.S. choropleth maps of Mean Bill Savings (%) by state, with a shared color scale from about -4.6% to 5.5%. Left map: HP RTU Std Perf (retrofit only). Right map: Std Perf w Roof (adds roof insulation). Most states show positive mean bill savings of roughly 1-4% (deeper blue in parts of the West and Southeast), while a handful of states show small negative savings (bill increases, e.g. labels near -0.7% and -0.6% in the north-central states). The roof-insulation package (right) shows modestly larger savings than the HP-RTU-only scenario (left) in most states. (Many small per-state labels -- flag exact state values for QA.)
+- source_image: 92618_images/image_000012_b841943bcf844989328dbbba7c45e5b5340a541baeddd9453128a5f20e4a1595.png
+  source_image_sha256: 01d5b51e60d8d2e7f5de3fc44985f16b1b1b235eb1c64e0c30a611d043963fa3
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Grouped bar chart of site annual natural gas consumption by census division, Baseline vs HP RTU Std Perf vs Std Perf w Roof
+  description: |-
+    Figure A-1. Grouped bar chart of Natural Gas Total Energy Consumption (TBtu) by U.S. census division, y-axis 0 to about 380. Three bars per division (Baseline, HP RTU Std Perf, Std Perf w Roof) for New England, Middle Atlantic, East North Central, West North Central, South Atlantic, East South Central, West South Central, Mountain, and Pacific. East North Central is the largest (baseline about 380, falling to roughly 290 for the measure scenarios), followed by Middle Atlantic and Pacific. Both measure scenarios reduce natural gas below baseline in every division as gas heating is electrified, with the roof variant slightly lower than HP-RTU-only.
+- source_image: 92618_images/image_000013_68fcb10c7b65988b9becad39eea9a935bf58a48211abe97c63d2b7a40db1eb83.png
+  source_image_sha256: d44601fff19d490e32c1492702e736936e66ade4ac6c35aeabbc47379ff376e6
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Grouped bar chart of site annual natural gas consumption by building type, Baseline vs HP RTU Std Perf vs Std Perf w Roof
+  description: |-
+    Figure A-2. Grouped bar chart of Natural Gas Total Energy Consumption (TBtu) by ComStock building type, y-axis 0 to about 250. Three bars per type (Baseline, HP RTU Std Perf, Std Perf w Roof) across FullServiceRestaurant, QuickServiceRestaurant, RetailStripmall, RetailStandalone, SmallOffice, MediumOffice, LargeOffice, PrimarySchool, SecondarySchool, Outpatient, Hospital, SmallHotel, LargeHotel, and Warehouse. SecondarySchool is the largest (baseline about 245), followed by RetailStripmall (about 220) and FullServiceRestaurant (about 195). Both measure scenarios reduce natural gas below baseline for every type, most sharply where gas heating dominates.
+- source_image: 92618_images/image_000014_5f0491ffdde7a270736b5229cffcea1b28b97b3cf1cc846e64eb507fb1acd0e2.png
+  source_image_sha256: a06ff0b8b3661f3bead4457c887ad1c9df8c108b3e533a6194a2eb4589f5cf00
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Grouped bar chart of site annual electricity consumption by building type, Baseline vs HP RTU Std Perf vs Std Perf w Roof
+  description: |-
+    Figure A-3. Grouped bar chart of Electricity Total Energy Consumption (TBtu) by ComStock building type, y-axis 0 to about 400+. Three bars per type (Baseline, HP RTU Std Perf, Std Perf w Roof) across FullServiceRestaurant, QuickServiceRestaurant, RetailStripmall, RetailStandalone, SmallOffice, MediumOffice, LargeOffice, PrimarySchool, SecondarySchool, Outpatient, Hospital, SmallHotel, LargeHotel, and Warehouse. RetailStripmall is the largest (about 420), followed by Warehouse (about 375) and SecondarySchool (about 345). The measure scenarios are close to baseline for most types, slightly higher where electrified heating adds load and slightly lower where cooling efficiency dominates.
+- source_image: 92618_images/image_000015_80288b1c81a61596970a8a805e154de680c1ed58bfe4fde4fb89ff16fc3b1d96.png
+  source_image_sha256: 25941dd41a4dd1897bcb2c9ebc8c30e5c762b45970de1e0f267b7fc7b8d0b0df
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Grouped bar chart of site annual electricity consumption by census division, Baseline vs HP RTU Std Perf vs Std Perf w Roof
+  description: |-
+    Figure A-4. Grouped bar chart of Electricity Total Energy Consumption (TBtu) by U.S. census division, y-axis 0 to about 700. Three bars per division (Baseline, HP RTU Std Perf, Std Perf w Roof) for New England, Middle Atlantic, East North Central, West North Central, South Atlantic, East South Central, West South Central, Mountain, and Pacific. South Atlantic is the largest (about 690), followed by West South Central and Pacific (roughly 460-470). The measure scenarios are close to baseline in every division, reflecting the small net electricity change from the HP-RTU and roof-insulation package.

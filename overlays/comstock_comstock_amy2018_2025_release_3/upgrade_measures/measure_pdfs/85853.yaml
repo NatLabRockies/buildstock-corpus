@@ -1,0 +1,453 @@
+# Hand-authored figure descriptions for measure_pdfs/85853.pdf
+#
+# 85853 is a webinar slide deck (NREL/PR-5500-85853, End-Use Savings Shapes: Commercial
+# 2023 Release 1). docling extracts each slide's picture as a bare ![](...) ref with no
+# caption, so its results charts, workflow diagrams and website screenshots are invisible to
+# retrieval and unreadable without the image. Each figure below is image-anchored (see the
+# figures: schema in overlays/README.md): the ref is rewritten with a hand-written alt, and
+# substantive figures also get a description paragraph injected below for retrieval.
+#
+# Authoring notes:
+#   * method is vision-description, not vision-transcription: these interpret a picture
+#     rather than copy legible cells. Numbers were read off the charts and should get a
+#     human QA pass before this is treated as a release record.
+#   * Decorative images (logos, stock photos, dividers, icons) get a short functional alt
+#     and decorative: true, and no description paragraph.
+#   * Every entry pins the on-disk PNG sha256; if upstream repoints a bitmap the build drops
+#     that injection and warns rather than shipping a stale description.
+
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: measure_pdfs/85853.pdf
+figures:
+- source_image: 85853_images/image_000000_0ed2fa53bfda7817fcc6ab35ca9a4777f836611f5d290b8d0c48ae31ae9f8413.png
+  source_image_sha256: 6e7c5ae1a5f5b34bf3ac6b092e0ee70dcc94298396587f285dc6c9ddc2dc1d9a
+  method: vision-description
+  described_utc: '2026-08-19'
+  decorative: true
+  alt: NREL logo with the tagline Transforming ENERGY
+- source_image: 85853_images/image_000001_648f5136547e0a02e80fd53bcff85f28cf75a5aa286ec5f4ca36dec8ace79966.png
+  source_image_sha256: 70f7c0a1e6f030001e663dadf326d879a542967418a1f3c49402934d88929291
+  method: vision-description
+  described_utc: '2026-08-19'
+  decorative: true
+  alt: Photo of a row of glass-domed utility electric meters on a brick building
+- source_image: 85853_images/image_000002_a85c221433b127f5619615c673522c8bc68f835cd3cd8865fe5c055cc348260a.png
+  source_image_sha256: 59c33bfc294805238d9f7468ae98c10c108db13fe370cb90103ef91af9a55fd6
+  method: vision-description
+  described_utc: '2026-08-19'
+  decorative: true
+  alt: ComStock logo
+- source_image: 85853_images/image_000003_9bf9df5bf523a5c1a25c25ea6ceed24c73659c90caa881dd24237e19484f1f36.png
+  source_image_sha256: 16d415042b556b683da76cbf663d200c9d660b2cee342ac63b5b122fc80b8094
+  method: vision-description
+  described_utc: '2026-08-19'
+  decorative: true
+  alt: Three line icons (bar-chart building, atom, cloud) joined by plus signs
+- source_image: 85853_images/image_000004_cff4cd20412352cffb06cd4a7ee3cbdafc8843ee20b19a0d368f68cfabbedc7c.png
+  source_image_sha256: becb8c0f625e551605c705ad271637e7d649b63675a79b3744c0b61e843bd7ca
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Six horizontal bar charts of ComStock sampling distributions plus a data-source list
+  description: |-
+    A diagram of sampling/characteristic distributions shown as small horizontal bar charts for Location, State, County (subset), DOE Prototype, Vintage, Square Footage, and Number of Stories, with arrows linking the categories. A bulleted list at right names data sources: ASHRAE, HIFLD, NFRC, Analysis of AMI, LightBox, CPUC DEER, Code Adoption. Individual bars carry small percentage labels (e.g. Pacific 13.5%, Mountain 11.5%, Retail 16.8%, Small Office 21.3%).
+- source_image: 85853_images/image_000005_2813be5256f179218578112681296102a438fe64233ee82a34c3e73fa22e2d39.png
+  source_image_sha256: 09ed06d2b36ad7e64e1f6e399d73c69e551b997c1bd790584c7b673f1a73507f
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Color legend mapping building-type categories to colors, headed Building Type
+  description: |-
+    A legend titled Building Type listing color swatches for categories including RetailStripmall, Hospital, LargeOffice, FullServiceRestaurant, MediumOffice, Warehouse, PrimarySchool, RetailStandalone, LargeHotel, SmallOffice, SecondarySchool, Outpatient, QuickServiceRestaurant, and SmallHotel. A top entry notes Other (not modeled in ComStock).
+- source_image: 85853_images/image_000006_6a5fa8bbec7c6037e16107e0e728c38d3ca7747727d049e9bec16898712df241.png
+  source_image_sha256: 7a7cfd07454d51ec629bd6c3148d4b78079823bd9a58f8a1269f7aba6c813de3
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Stacked bar of CBECS building types by annual site energy, with 36% not represented in ComStock
+  description: |-
+    A single stacked bar titled All Buildings Types in CBECS with y-axis Annual Site Energy consumption (TBtu) running to about 7000. The top green segment is labeled 36% Not represented in ComStock; lower colored segments are labeled with percentages 8%, 8%, 6%, 5%, 5%, 5%, 5%, and 4%.
+- source_image: 85853_images/image_000007_5de0b13cf5caf8bbe6459dd68aec96d6997e0cc785e8dd34eed2feffcc44a6dd.png
+  source_image_sha256: 7da5cbcc3fd9e0caae7474774ca0e2265d3f0e02848bded2b61e2f2ac1b9bf89
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Stacked bar titled Not in ComStock of building types by weighted annual site energy, with type
+    legend
+  description: |-
+    A stacked bar chart titled Not in ComStock, y-axis Weighted annual site energy consumption (Tbtu) up to about 2400, with segments labeled by percentage from the top (9%, 7%, 7%, 6%, 6%, 6%, 6%, 5%, 5%, 4%). A Building Type legend lists categories such as College/university, Religious worship, Office, Mixed-use office, Grocery store/food market, Nursing/inpatient/assisted living, Recreation, Laboratory, Refrigerated warehouse, Convenience store, and more.
+- source_image: 85853_images/image_000008_76143e826842506a475ac1b381e7a8f78773794a10a34db372e268e2535f603f.png
+  source_image_sha256: cd90098a5338c9950a0ead7282a41970b0e116e1ae2c5200416d44904ccdd2aa
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Tree diagram of National Datasets flowing to ResStock and ComStock users across consultants,
+    utilities, and cities
+  description: |-
+    A hierarchy diagram with ResStock and ComStock logos over a US map feeding a central National Datasets node, which branches to four columns headed Consultant A, Consultant B, Consultant C, and Nonprofit D. Each column further branches to end users such as Utilities, Software companies, Manufacturers, Research-Academia, Startups, Cities, Companies, and Entities.
+- source_image: 85853_images/image_000009_4c1a5c87d7564b8991959ada495837294b942dee80de417938140b741e555a6e.png
+  source_image_sha256: dfccf703f29d52d5a94b9414a988f8a46cfbbbb8b1ed49dee58fc395a56042cf
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Baseline stacked bar of ComStock annual energy by fuel and end use, total ~4342 TBtu
+  description: |-
+    A single stacked bar labeled Baseline, y-axis Annual Energy Consumption (TBtu) to about 4000+, total annotated 4342. Segments are labeled with values including Interior Equipment, Electricity 775.9; Fans, Electricity 457.6; Cooling, Electricity 591.4; Heating, Natural Gas 667.7; Interior Lighting, Electricity 426.7; Water Systems, Natural Gas 232.9; and Refrigeration, Electricity 456.8. A legend maps colors to end use and fuel combinations.
+- source_image: 85853_images/image_000010_d651af0296522da60229be993093e98b4383b281043f306cc36a90e5dc0d8b86.png
+  source_image_sha256: 2cfa05989430b4b4994cced5b1a6db96d6b5dca121ab82b3a097ea6fb99623a0
+  method: vision-description
+  described_utc: '2026-08-19'
+  decorative: true
+  alt: NREL banner photo collage of a wind turbine, solar panels, researchers, and people
+- source_image: 85853_images/image_000011_648f5136547e0a02e80fd53bcff85f28cf75a5aa286ec5f4ca36dec8ace79966.png
+  source_image_sha256: 70f7c0a1e6f030001e663dadf326d879a542967418a1f3c49402934d88929291
+  method: vision-description
+  described_utc: '2026-08-19'
+  decorative: true
+  alt: Photo of a row of glass-domed utility electric meters on a brick building
+- source_image: 85853_images/image_000012_8dfd2b971059231510b3aa258755171201504fa4e9205ae92bd8c7e143e6bdcf.png
+  source_image_sha256: 851ce2e6c27823e05328e07dd6f195b39b296c72f65caf1c85ab068e54904b4e
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Scatter plot EULP Baseline vs EUSS Baseline total energy by state, noting Baseline similar to
+    EULP 2021 Release
+  description: |-
+    A scatter/dot plot titled EULP Baseline vs EUSS Baseline with x-axis of US state abbreviations and y-axis Total Energy Consumption (TBtu) up to about 1600. Two overlapping series (EULP and EUSS, per legend) show closely matching points per state; an orange callout box states Baseline similar to EULP 2021 Release. Largest values appear near the left of the axis (around 1500-1600 TBtu).
+- source_image: 85853_images/image_000013_9edc0b0edff724530e95ce36e148b10a9fef669180cc4acf437300eac96fb652.png
+  source_image_sha256: ce1cf3d2702185fe9dbb10137dbd5ea75d07d7d5cbcca366e9cddded04b2d284
+  method: vision-description
+  described_utc: '2026-08-19'
+  decorative: true
+  alt: Blue rightward-pointing arrow graphic
+- source_image: 85853_images/image_000014_45b538fa15fb2726622b1a0b71dddf19b313a594ce9f773832f624dcb137da74.png
+  source_image_sha256: 165e9e1e9d09a0b1d98a83e639f756720a91e0b514a1e30d14822bdb61d84f52
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Screenshot of the ComStock Measure Documentation website homepage with a left-nav measure list
+  description: |-
+    Web page screenshot titled Energy Efficiency and Electrification Measure Documentation stating all measures were developed through the End Use Savings Shape project, specifically the 2023 Release 1 effort. A left sidebar and a Contents list highlight measures: Air-Source Heat Pump Boiler, DOAS with Mini Split Heat Pumps, Exterior Wall Insulation, LED Lighting, Roof Insulation, Window Films, Window Replacement.
+- source_image: 85853_images/image_000015_b9471c89fad9fe9aeeb748f2406bccf132252fc27956d99b7abd01f37ce374e9.png
+  source_image_sha256: 91c939446f885f60a685b98f4617142617a6f50b1e434775800bac4320d94747
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Horizontal bar chart of ComStock baseline RTU stock by energy code, % of floor area served
+  description: |-
+    Horizontal bar chart, x-axis % of Stock Floor Area Served by Applicable RTUs (%) from 0 to 60%. Codes listed top to bottom with values: ComStock DOE Ref Pre-1980 0.07%, DOE Ref 1980-2004 46.50%, ComStock 90.1-2004 9.10%, 90.1-2007 19.52%, 90.1-2010 5.85%, 90.1-2013 4.28%, DEER Pre-1975 0.07%, DEER 1985 0.86%, DEER 1996 2.38%, DEER 2003 2.60%, DEER 2007 2.93%, DEER 2011 2.24%, DEER 2014 0.75%, DEER 2015 1.52%, DEER 2017 1.38%. A callout notes most ComStock baseline RTUs follow older energy code requirements.
+- source_image: 85853_images/image_000016_017cc40094502ccd7b1e0d48fae6f1ec1b688320d170bf47c9e7faf5fddbdba6.png
+  source_image_sha256: bb22d9ad72e9a1dd4dbcac7a8589a804f12cb63e0d44e7a07d93eed31411a1c6
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Stacked bar chart of stock site energy by fuel and end use, Baseline vs HP-RTU, in TBtu
+  description: |-
+    Stacked column chart Stock Site Energy by Fuel and End Use, y-axis Annual Energy Consumption (TBtu) 0-2000+. Two bars: Baseline and HP-RTU, segmented by end use and fuel. Legible Baseline segments include Cooling Electricity 591.4, a large mid segment 667.7, a Heating segment 232.9, and a top segment 458.9; HP-RTU shows 447.7, 558.5, 239.0, and 260.1. A callout reads Site savings across HVAC end uses.
+- source_image: 85853_images/image_000017_2e6d3ddaff3f691e23da94707446900f91babeff5f04356d9f8c2c48c86ed078.png
+  source_image_sha256: 5ec90c99f1b66e363fe70f458fda7340e3de64431f0fa483b3586483b9f1e0fe
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Stacked histograms of max daily winter peak intensity, Baseline vs HP-RTU, colored by climate
+    zone
+  description: |-
+    Two stacked histograms comparing Baseline (top) and HP-RTU (bottom), x-axis Max Daily Winter Peak Intensity (W/sf) from 0 to ~10, y-axis % of Models up to ~10%. Bars are stacked by Building America Climate zone (Subarctic, Very Cold, Cold, Mixed-Dry, Mixed-Humid, Marine, Hot-Dry, Hot-Humid). A partly-cut callout notes 22% relating to a median increase.
+- source_image: 85853_images/image_000018_ff9825836dcd4e8fbeb4ed277f7abbbedf503286ecbca9466901eea3879877df.png
+  source_image_sha256: 00e1a03fcd07d61fd03bd1e05d100010002d3dc601f6adcfb726b6b50cb9afa2
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Grouped bar chart of annual GHG emissions by grid scenario and fuel, Baseline vs HP-RTU, MMT
+  description: |-
+    Grouped column chart, y-axis Annual Greenhouse Gas Emissions (MMT) 0-500, comparing Baseline (dark) vs HP-RTU (light). Electricity: LRMER High RE Cost 15 Baseline 371.2 vs 343.5 (-28, 7.5%); eGRID 313.8 vs 290.1 (-24, 7.6%); LRMER Low RE Cost 15 286.0 vs 266.8 (-19, 6.7%); Natural Gas 73.0 vs 60.3 (-13, 17.4%); Fuel Oil 0.9 vs 0.3; Propane 0.8 vs 0.4. A header notes Electricity Grid Scenarios: Choose 1.
+- source_image: 85853_images/image_000019_f146e58e920e97f2a96097626cc69950df38617930cca3d1466263092ae30823.png
+  source_image_sha256: 03a48a90c8961859e4062de964489114e2b051eaf8eb2af8fd2ae1667c84b23e
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Schematic floor plan of a DOAS with a decoupled heat pump serving a building zone
+  description: |-
+    Diagram of a building floor plan showing a Dedicated OA (outdoor air) Unit with airflow paths labeled EA, CA, SA, RA. Callouts state DOAS provides required outdoor ventilation air and Decoupled HP cycles as needed to maintain thermostat setpoints.
+- source_image: 85853_images/image_000020_9c49c2e9438c31a0e2e0b0d922aa7b32000e9c60fdc26a60c902c821aa032be1.png
+  source_image_sha256: 48a7b363c68eff19319dfe783ac5b0364417ad178a6c2036533b5a0c999ead58
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: US choropleth map of annual average model effective heating COP by state
+  description: |-
+    Choropleth map of the contiguous US shaded by Annual Average Model Effective Heating COP by State, with per-state values roughly ranging 3.9 to 5.5 (e.g. northern-tier states near 3.9-4.4, southern states near 5.2-5.5). A partly-cut callout mentions supplemental heat.
+- source_image: 85853_images/image_000021_f85ac79a8a2146db3f11889faef0e2502c7e5ab0c4e0dfc78b537e1f58ea23b3.png
+  source_image_sha256: 86608aec5d1297f4134666b23a9b2eae1584f4b4a1b63f671291175d82b6bccd
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Stacked bar chart of stock site energy by fuel and end use, Baseline vs DOAS HP Minisplits, TBtu
+  description: |-
+    Stacked column chart Stock Site Energy by Fuel and End Use, y-axis Annual Energy Consumption (TBtu) 0-2000+. Baseline vs DOAS HP Minisplits bars segmented by end use/fuel. Legible Baseline segments: Cooling Electricity 591.4, mid segment 667.7, 146.8, 232.9, top 490.5; DOAS HP Minisplits: 539.7, 629.1, 145.8, 227.2, 569.5. A callout reads Savings across HVAC end uses.
+- source_image: 85853_images/image_000022_a58599f0b2fc2d09b222e7f12651da9ed0306437c47a021aae75d0e2cc56a7c1.png
+  source_image_sha256: 775399915d91fecf3d00206004bfa272928b513f03d398e01f8a43f272deef35
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Grouped bar chart of annual GHG emissions by grid scenario and fuel, Baseline vs DOAS HP Minisplits
+  description: |-
+    Grouped column chart, y-axis Annual Greenhouse Gas Emissions (MMT) 0-500, Baseline (dark) vs DOAS HP Minisplits (light). Electricity: LRMER High RE Cost 15 371.2 vs 361.5 (-10, 2.6%); eGRID 313.8 vs 305.8 (-8, 2.5%); LRMER Low RE Cost 15 286.0 vs 279.1 (-7, 2.4%); Natural Gas 73.0 vs 67.6 (-5, 7.4%); Fuel Oil 0.9 vs 0.6; Propane 0.8 vs 0.6. Header notes Electricity Grid Scenarios: Choose 1.
+- source_image: 85853_images/image_000023_55ca4a77105f26ab8c7fc5eb550257e33f6542ecba6bf2a8bd3e835e8b9fdfa2.png
+  source_image_sha256: e11a21bd51c3dd50317934a009caf2d6501f318b059942635fd0e65c6665ff0e
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Small-multiple bar chart of gas boiler floor area and baseline gas heating by boiler presence
+  description: |-
+    Two-row, two-column bar chart comparing Systems with Boilers vs Systems Without Boilers. Left column x-axis % Floor Area, right column x-axis % Baseline Nat. Gas Htg., both scaled 20-80%. Systems without boilers show larger bars in both metrics than systems with boilers.
+- source_image: 85853_images/image_000024_21afe34d50af36c8dc33773594fc1a7a9209a55d03c936e2dd856a906418ee4a.png
+  source_image_sha256: 2542ddc645b4f36dbd13999db2f72a29c6a4395200f2a8f3374d7c5475e52496
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: US choropleth map of natural gas heating savings share by state
+  description: |-
+    Choropleth map of the contiguous US shaded by annual energy consumption / gas heating savings, with per-state percentage labels (e.g. CA ~6.3%, NY ~14.6%, and many states under 2%). A callout reads Driven by prevalence of natural gas boilers in each state and their gas usage.
+- source_image: 85853_images/image_000025_bf694bd0dad87da51fd0eb2776771fd5c8ca05a4ea8c2d664930c5c42c394c95.png
+  source_image_sha256: 996dffa2978fe36e5f65ade7e01bad402b90ede50d8f06a00e28602708bc2727
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Stacked bar chart of stock site energy (TBtu), Baseline vs Heat Pump Boiler, by fuel and end
+    use
+  description: |-
+    Annual Energy Consumption (TBtu) on the y-axis (0-800). Baseline total is roughly 690 TBtu, dropping to about 555 TBtu with the Heat Pump Boiler. Legible segments: Baseline Heating Natural Gas 450.5 and Heating Electricity 232.9; Heat Pump Boiler Heating Natural Gas 227.7 and Heating Electricity 325.4. Legend lists end uses by fuel including heat rejection, refrigeration, water systems, heating, cooling, fans, and interior equipment/lighting.
+- source_image: 85853_images/image_000026_9d4f73e7db98a395d1fa8f3799383a01dcd6b6d29b85e920e6e30d82a55005bf.png
+  source_image_sha256: 98cbcc6b12f722f570c76cc12a5aa1ea78871efa681c10ab72e862497b64931c
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Grouped bar chart of annual GHG emissions (MMT), Baseline vs Heat Pump Boiler, across grid scenarios
+    and fuels
+  description: |-
+    Annual Greenhouse Gas Emissions (MMT), y-axis 0-500, comparing Baseline and Heat Pump Boiler. Electricity grid scenarios (choose 1): LRMER High RE Cost 15 shows 371.2 to 383.3 (+12, 3.3%); eGRID 313.8 to 324.1 (+10, 3.3%); LRMER Low RE Cost 15 286.0 to 296.3 (+10, 2.6%). Natural Gas falls 73.0 to 58.1 (-15, 20.4%). Fuel Oil ~0.9 and Propane ~0.8 unchanged.
+- source_image: 85853_images/image_000027_e6e0d068d71b0b240c5ac7f0baf65a3264f46344f5355dda96efdd1b99ce21b7.png
+  source_image_sha256: 3b0d46b23f6ceaa58752799898827d530d3bbd8af50c686f945bff15da78ee7a
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Bar chart of average site EUI savings by commercial building type for LED lighting
+  description: |-
+    Average Site EUI Savings by building type, with paired bars per type. Building types include FullServiceRestaurant, Hospital, LargeHotel, LargeOffice, MediumOffice, Outpatient, PrimarySchool, QuickServiceRestaurant, RetailStandalone, RetailStripmall, SecondarySchool, SmallHotel, SmallOffice, and Warehouse. Numerous small data labels are printed on the bars. An orange callout reads EUI savings vary by building type.
+- source_image: 85853_images/image_000028_d739420f0564b4bd853bbeab32bdc326bac20ab4f91a9e9c3a75c7fe9b1c9dc3.png
+  source_image_sha256: 29b040d161a3001f9c4f1ceb1c35f74d9c0fece5a7aee4d8f23abfe420fc8eb4
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Stacked bar chart of stock site energy (TBtu), Baseline vs LED Lighting, by fuel and end use
+  description: |-
+    Annual Energy Consumption (TBtu), y-axis 0-4500. Baseline total labeled 4342, LED Lighting total 4188. Legible segments include Baseline heat rejection 458.7, cooling electricity 232.9, water systems 426.7, heating natural gas 667.7, interior lighting 591.4, and interior equipment 775.9; LED Lighting shows heat rejection 473.2, 247.9, 269.0, heating 638.9, interior lighting 585.5, and interior equipment 775.9. A legend lists end uses by fuel; a blue box highlights the interior lighting and cooling rows.
+- source_image: 85853_images/image_000029_19c987e7c5ff2ce7fe2855b8a7a2bf9b81d97f7cca7e43cea9205e67e9f3d2c6.png
+  source_image_sha256: d2b6e48e3282f2c81c36a9ad00d81c08350685963a49ba5196c6b72497f308b3
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Grouped bar chart of annual GHG emissions (MMT), Baseline vs LED Lighting, across grid scenarios
+    and fuels
+  description: |-
+    Annual Greenhouse Gas Emissions (MMT), y-axis 0-500. Electricity grid scenarios (choose 1): LRMER High RE Cost 15 372.0 to 349.7 (-22.3, 6.0%); eGRID 314.5 to 295.2 (-19.3, 6.14%); LRMER Low RE Cost 15 286.6 to 269.6 (-17, 5.93%). Natural Gas rises 75.3 to 76.9 (+1.6, 2.13%). Fuel Oil ~0.9 and Propane ~0.8. An orange callout notes higher heating energy from reduced interior loads increases natural gas emissions.
+- source_image: 85853_images/image_000030_76780c211b1a319e338ce370bba056b2ef81d9fa2242aa69e5ddbdbbe78be43c.png
+  source_image_sha256: 9c71db1cabe13a51c20e3af8c67dcaa847ac886931c6fca15db200d41d8d41e6
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Stacked bar charts of change in R-value distribution by wall construction type for exterior wall
+    insulation
+  description: |-
+    Title Change in Distribution of R-Values. Two stacked-bar panels (Baseline top, Exterior Wall Insulation bottom) with y-axes in floor area (0 to 15B ft2) against R-value bins on the x-axis (2 to 28). Bars are colored by Wall Construction Type: Mass, Metal Building, SteelFramed, WoodFramed. Callouts read Substantial increase in R-values and NA for metal buildings.
+- source_image: 85853_images/image_000031_2c64501389adfa9682691851fe0d8b2447fe3a0977025d2984ef90711ddabaaa.png
+  source_image_sha256: a8e8488a2b28bb67f3672502a603d22081e28775d018e303a48e08ef17dbd328
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Bar chart of stock site energy savings by commercial building type, with numeric labels
+  description: |-
+    Single bars per building type with value labels: FullServiceRestaurant 4.57, Hospital 2.33, LargeHotel 1.87, LargeOffice 7.99, MediumOffice 7.70, Outpatient 2.62, PrimarySchool 13.46, QuickServiceRestaurant 1.15, RetailStandalone 15.14, RetailStripmall 13.60, SecondarySchool 7.26, SmallHotel 0.35, SmallOffice 13.45, and Warehouse 18.16. Y-axis labeled Annual Energy Consumption, gridlines at 0, 5, 10, 15, 20.
+- source_image: 85853_images/image_000032_6a6c83603893bfeb29d7f08c24662de3561f626ab679514cae4db4f65e7a9f80.png
+  source_image_sha256: 018606f7649893a66c93820d0e956bfd5efbc00522746b858b6e550cbb7fa91c
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Stacked bar chart of stock site energy (TBtu), Baseline vs Exterior Wall Insulation, by fuel
+    and end use
+  description: |-
+    Annual Energy Consumption (TBtu), y-axis 0 to over 2000. Baseline and Exterior Wall Insulation totals are similar (~2100). Legible Baseline segments: heat rejection 458.5, cooling 232.9, 146.8, heating electricity 667.7, fans 591.4; Exterior Wall Insulation: 404.9, 205.3, 143.0, 647.5, 585.3. Legend lists end uses by fuel including heat rejection, refrigeration, water systems, heating, cooling, fans, and interior equipment/lighting.
+- source_image: 85853_images/image_000033_fb766d69395f89c3c54b15f81b26bbd60d1d8597567e9688688dc594d7843522.png
+  source_image_sha256: 567ff906ad0bc0ac3616066562c54b8293af6b3052529d28ac78e6c55c57df1e
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Grouped bar chart of annual GHG emissions (MMT), Baseline vs Exterior Wall Insulation, across
+    grid scenarios and fuels
+  description: |-
+    Annual Greenhouse Gas Emissions (MMT), y-axis 0-500. Electricity grid scenarios (choose 1): LRMER High RE Cost 15 371.2 to 364.2 (+7, 1.9%); eGRID 313.8 to 308.2 (+6, 1.8%); LRMER Low RE Cost 15 286.0 to 280.4 (+6, 2.0%). Natural Gas 73.0 to 70.0 (+3, 4.2%). Fuel Oil ~0.9/0.8 and Propane ~0.8. (Signs shown as printed on the slide.)
+- source_image: 85853_images/image_000034_d379992622dc6ad89128a9bd8517f0d31423ab16f370fd568d6926e4de4d4a01.png
+  source_image_sha256: c61b12ffaebd3e81d9cdc81b3185c04ccfe02b050ced3d3dc3c23aad6db63e92
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: 'Three-step flow diagram: IGDB to Optics to Window for creating window-film glazing systems'
+  description: |-
+    A left-to-right flowchart with three yellow boxes connected by arrows: IGDB (Find relevant window films), Optics (Create new glass with window film on baseline glass), and Window (Create new glazing system with window film on baseline glazing system).
+- source_image: 85853_images/image_000035_e190a7eb43f5bed0f8a7866c6625d3c9f2eb7cb9a3220307ca4ab7c16a72cdbe.png
+  source_image_sha256: c2fa5dfea6dd004a62f7609a20a2beef94c9f4274a809384847afd4657809d0e
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Time-series line chart of hourly cooling electricity over the year, baseline vs upgrade with
+    window films
+  description: |-
+    Line chart with x-axis = hour and y-axis = Cooling:Electricity (J), months Jan through Dec across the bottom and values up to about 200M. Two overlapping series (baseline and upgrade) show seasonal peaks in summer months. An orange callout reads Reduced cooling energy with films, with the upgrade line generally below baseline at peaks.
+- source_image: 85853_images/image_000036_3aca0f111718f274f23f244e7a3fb7ee81eb02fbcbb92bdec72d79be2bc4a656.png
+  source_image_sha256: ba37713e6f35b6ed30fb51d20ccf840936342ead7a249fd001c42009629dab01
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Time-series line chart of hourly heating electricity over the year, baseline vs upgrade with
+    window films
+  description: |-
+    Line chart with x-axis = hour and y-axis = Heating:Electricity (J), months Jan through Dec, values up to about 400M+. Two overlapping series (baseline and upgrade) peak in winter months. An orange callout reads Increased heating energy with films, with the upgrade line generally above baseline in cold months.
+- source_image: 85853_images/image_000037_8fed54b04d02ee781e25dd1e93820a63e05b4eaa613810869f659613e97dd02e.png
+  source_image_sha256: e0901cd79ae81c4d62a9570f844c71d4ce50751d8daa9114dd952f9dbf84c782
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Stacked bar chart of annual energy consumption (TBtu), Baseline vs Window Film, by fuel and end
+    use
+  description: |-
+    Paired stacked bars titled Stock Site Energy by Fuel and End Use, y-axis Annual Energy Consumption (TBtu) up to ~2000. Baseline vs Window Film. Legible segment values include Cooling Electricity 591.4 (Baseline) vs 561.5, Heating Electricity 667.7 vs 621.5, Heating District Heating 146.8 vs 137.9, Heating Natural Gas 232.9 vs 249.7, and Heat Rejection Electricity 458.2 vs 478.2. Cooling drops while heating rises slightly.
+- source_image: 85853_images/image_000038_951b2d684cd7d74ee5b6365ab66536d9e63376c7af75281d1b06bb8f6390d571.png
+  source_image_sha256: 550f9527ad59c7c3512f93623bbfa05635fa810b9ed574c0a5f9d13dcfc72b89
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Grouped bar chart of annual GHG emissions (MMT), Baseline vs Window Film, across grid scenarios
+    and fuels
+  description: |-
+    Annual Greenhouse Gas Emissions (MMT) comparing Baseline and Window Film across electricity grid scenarios and other fuels. Values: LRMER High RE Cost 15 371.2 vs 366.5 (-5, 1.3%), eGRID 313.8 vs 309.6 (-4, 1.3%), LRMER Low RE Cost 15 286.0 vs 282.8 (-3, 1.1%), Natural Gas 73.0 vs 74.9 (+1, 2.6%), Fuel Oil 0.9/1.0, Propane 0.8/0.9. A callout notes decreased window SHGC can increase heating loads.
+- source_image: 85853_images/image_000039_c2d84020f31c59bc897d960c676af20f5033b845f04cd6fdcb73494300bbcd21.png
+  source_image_sha256: caeebc155ad1fa33eccb5c5673f8a50b84aced14ca7941c7d0d9fb91c7b7fd18
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Cross-section diagram of a secondary window installed over an existing window frame
+  description: |-
+    Labeled cross-section diagram of the Secondary Windows measure showing secondary window glass (single or double-pane), secondary window frame, thermal break, existing glass, and existing frame. A callout notes the existing frame limits performance.
+- source_image: 85853_images/image_000040_793a1ec858fb1c4d4059589ae02b2242aa2ed834d558511bbdc088178dc19340.png
+  source_image_sha256: 7d50927c3c1624c4c01320612d9a50fa933ab2c4bb4baf22bd1982058f2767a9
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Stacked horizontal bars of floor area by baseline window type, colored by window configuration
+  description: |-
+    Applicability chart with floor area (Hft2) on the vertical axis grouped into Triple-pane (NA, high performance already), Double-pane (add single-pane), and Single-pane (add single-pane) categories. Bars are colored by glazing/frame/coating type with legible percentage labels such as 7%, 4%, 8%, 11%, 14%, 13%, 8%, 18%, and 13%.
+- source_image: 85853_images/image_000041_b546226976cd35bebf1053165b3d163c72a2cf7002d803f61daa0ca403385f53.png
+  source_image_sha256: a234dac62472107315feeaee8316b496245489dc6b76cb068f82973ee3909fc7
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Stacked bar chart of annual energy consumption (TBtu), Baseline vs Secondary Windows, by fuel
+    and end use
+  description: |-
+    Paired stacked bars titled Stock Site Energy by Fuel and End Use, y-axis Annual Energy Consumption (TBtu) up to ~2000. Baseline vs Secondary Windows. Legible values: Cooling Electricity 591.4 vs 586.1, Heating Electricity 667.7 vs 649.1, Heating District Heating 146.8 vs 142.8, Heating Natural Gas 232.9 vs 225.2, Heat Rejection Electricity 458.5 vs 438.8. Both cooling and heating decrease slightly.
+- source_image: 85853_images/image_000042_5c870bf13b3dbc2489b0adf277db9eda009f3bfdf0845debc0b902375faa0c7f.png
+  source_image_sha256: 37424d09da5974edd539c0cf6e0165811df35fca7a897c5667af87256dfe0551
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Grouped bar chart of annual GHG emissions (MMT), Baseline vs Secondary Windows, across grid scenarios
+    and fuels
+  description: |-
+    Annual Greenhouse Gas Emissions (MMT) comparing Baseline and Secondary Windows. Values: LRMER High RE Cost 15 371.2 vs 367.3 (-4, 1.1%), eGRID 313.8 vs 310.5 (-3, 1.1%), LRMER Low RE Cost 15 286.0 vs 283.1 (-3, 1.0%), Natural Gas 73.0 vs 72.2 (-1, 1.4%), Fuel Oil 0.9/0.9, Propane 0.8/0.8.
+- source_image: 85853_images/image_000043_a7a38a3249c6ad06297cd8deaac158ae6eeea73e5b259398083835f561307e46.png
+  source_image_sha256: 49c9612f1c5897c33f3dad38d22b5b750fce5ef5d4b79dee9350f62559b5ef68
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Histograms of stock area vs average window U-value, ComStock Baseline vs New Windows, colored
+    by climate zone
+  description: |-
+    Two stacked histograms with x-axis Average Window U-value (Btu per ft2 F hr) from ~0.3 to 1.0. Top panel ComStock Baseline and bottom panel New Windows show % of Stock Area up to ~40-50%, segmented by Climate Zone (1A through 8). A callout with a leftward arrow notes U-value decreases across stock from new windows.
+- source_image: 85853_images/image_000044_bfc00c12ebc921f40d2b8965629100bde3e925d84ca85d012240a2f97ba1b970.png
+  source_image_sha256: 552413d4939c5be2e9892ebb3729ad473a3b552c48d19affc8d4bf5b9665783c
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Stacked bar chart of annual energy consumption (TBtu), Baseline vs New AEDG Windows, by fuel
+    and end use
+  description: |-
+    Paired stacked bars titled Stock Site Energy by Fuel and End Use, y-axis Annual Energy Consumption (TBtu) up to ~2000. Baseline vs New AEDG Windows. Legible values: Cooling Electricity 591.4 vs 581.7, Heating Electricity 667.7 vs 630.9, Heating District Heating 146.8 vs 138.0, Heating Natural Gas 232.9 vs 221.2, Heat Rejection Electricity 458.5 vs 452.1.
+- source_image: 85853_images/image_000045_85de3dcaecae0e7c137f0d9a1006bb936a45df96186a3c1fe2af64595b4f5dbb.png
+  source_image_sha256: de393108794afeab47c0013d8ed51b584564c980c7bed5baca9e757644bc5d24
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Grouped bar chart of annual GHG emissions (MMT), Baseline vs New AEDG Windows, across grid scenarios
+    and fuels
+  description: |-
+    Annual Greenhouse Gas Emissions (MMT) comparing Baseline and New AEDG Windows. Values: LRMER High RE Cost 15 371.2 vs 364.0 (-9, 1.9%), eGRID 313.8 vs 307.7 (-8, 1.9%), LRMER Low RE Cost 15 286.0 vs 280.6 (-7, 1.9%), Natural Gas 73.0 vs 71.8 (-1, 1.7%), Fuel Oil 0.9/0.8, Propane 0.8/0.8.
+- source_image: 85853_images/image_000046_6a94b38403e0fd0e69a25f9504c27412454555519ff1e15722aca21e722c4fc4.png
+  source_image_sha256: 38344a014c885d75480647b1847c1400d18c9ceea9e46bd357f12430f8fbb6f3
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: |-
+    Histograms of stock floor area vs average roof insulation R-value, ComStock Baseline vs Roof Insulation Measure, by climate zone
+  description: |-
+    Two stacked histograms with x-axis Average Roof Insulation R-value (~8 to 38). Top panel ComStock Baseline and bottom panel Roof Insulation Measure show % of Stock Floor Area up to ~50%, segmented by Climate Zone (1A through 8). A callout with a rightward arrow notes R-value increases across stock from the roof insulation measure.
+- source_image: 85853_images/image_000047_7de609f744038451cc49a33561a9271c4d9495c8a760c765d3e21bdaf016cbbd.png
+  source_image_sha256: 42428233ff7991f5ae26a332acef89b8e78507040893d653beac7898b9327afa
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Bar chart of average EUI savings by building type, in kBtu per sqft per year
+  description: |-
+    Bar chart of Avg. EUI Savings (kBtu/ft2/yr) up to ~2.0 across building types including Full/Quick Service Restaurant, Small/Large Hotel, Small/Medium/Large Office, Outpatient, Hospital, Primary/Secondary School, Retail Standalone, Retail Stripmall, and Warehouse. A callout notes building types with fewer stories show higher savings.
+- source_image: 85853_images/image_000048_8c726e65ec1e2f10bb663ecaf03f80c65ea6f2daa8cfd41c1cdddb0ca9a362b7.png
+  source_image_sha256: 48775ada8b4b2d2adf0fb92172875868b35b390b8a1793e4c6c912064ec6d2fb
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Stacked bar chart of annual energy consumption (TBtu), Baseline vs AEDG Roof, by fuel and end
+    use
+  description: |-
+    Paired stacked bars titled Stock Site Energy by Fuel and End Use, y-axis Annual Energy Consumption (TBtu) up to ~2000. Baseline vs AEDG Roof. Legible values: Cooling Electricity 591.4 vs 586.0, Heating Electricity 667.7 vs 647.1, Heating District Heating 146.8 vs 142.8, Heating Natural Gas 232.9 vs 205.3, Heat Rejection Electricity 458.5 vs 400.8. A callout notes most savings in heating.
+- source_image: 85853_images/image_000049_07d0f6cfed01b58f9f316f4ebb9a1622648c49091ba1cb9f4e635fdc88bd6640.png
+  source_image_sha256: e49bde8572550ebeb346a7a431d1f8879f5b230a4d4f710f5f197527a8808721
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Grouped bar chart of annual GHG emissions (MMT) by fuel and grid scenario, Baseline vs AEDG Roof
+  description: |-
+    Bar chart with y-axis Annual Greenhouse Gas Emissions (MMT) comparing Baseline and AEDG Roof for six categories under Electricity Grid Scenarios: Choose 1. Values: Electricity LRMER High RE Cost 15 (371.2 vs 364.4, -6, 1.7%), Electricity eGRID (313.8 vs 308.2, -6, 1.8%), Electricity LRMER Low RE Cost 15 (286.0 vs 280.8, -5, 1.8%), Natural Gas (73.0 vs 69.7, -3, 4.5%), Fuel Oil (0.9 vs 0.8), Propane (0.8 vs 0.8).
+- source_image: 85853_images/image_000050_aac2614cee162a022fa78f2762060a84b1519823fc52d83cd204a44ebb208906.png
+  source_image_sha256: 251e6963203eacb3dc458aec09c0283e9a8da8278351bf2763e48e1cece86892
+  method: vision-description
+  described_utc: '2026-08-19'
+  decorative: true
+  alt: Code/data snippet icon
+- source_image: 85853_images/image_000051_7aa6325de3f17a4dff3e3c0d1897da26cf3733ca4e503576119768a1fff31932.png
+  source_image_sha256: b461d7c41d3f795d90c23b448843d60efb0f7bbf0bc50d0db84f60734263fe43
+  method: vision-description
+  described_utc: '2026-08-19'
+  decorative: true
+  alt: Laptop/dashboard icon
+- source_image: 85853_images/image_000052_967149ee9a06b85230ed5ab6ae001134100c4de17b35100d3addc8f61c2e9b04.png
+  source_image_sha256: 4c0859046d1196685d03ea8c7e988d8e1540da9df5b8d1acde99bfdc0fd6ef8b
+  method: vision-description
+  described_utc: '2026-08-19'
+  decorative: true
+  alt: Full-database icon
+- source_image: 85853_images/image_000053_3d919f111a094177bb0099264c94e80699a9214d9472181f76f4d6fd04aa4f29.png
+  source_image_sha256: 4fea7faebe798dad5baaab38bcc6bfe247a3337be83fbd57c0f9a3594b3e5173
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Spreadsheet screenshot of a ComStock metadata file with annotated building-attribute columns
+  description: |-
+    Screenshot of a metadata spreadsheet with rows of buildings and orange callout labels pointing to columns: Building ID, County, Building Type, Building Area (unweighted), Annual Electricity Peak kW (unweighted), and Annual Natural Gas Consumption (unweighted). Columns include in.building_id, in.window_type, in.county, in.comstock_building_type, in.rotation, in.number_of_stories, in.sqft, in.hvac_system, in.wall_construction, and out.* consumption fields.
+- source_image: 85853_images/image_000054_e7dde44a38aafaa452646b315f5c3ba208f72b2d979a5b0ae64b6c55ca4c0063.png
+  source_image_sha256: 1b70e27a8acebbcd20fcb147fc301264d255032ee29a39c61132aec8cf0f65ef
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: Spreadsheet screenshot of a ComStock time series file with annotated end-use columns
+  description: |-
+    Screenshot of a time series data file with 15-minute timestamps for one building (bldg_id 5324, 1/1/2018). Orange callout labels point to columns: Building ID, Timestamp, Exterior Lighting Consumption (kWh), Interior Lighting Consumption (kWh), and Gas Heating Consumption (kWh). Additional columns cover cooling, heat recovery, fans, refrigeration, and water systems energy.
+- source_image: 85853_images/image_000055_1b6b4a132be1032c2aeb4bb4eed7bf2bb987a0faa57ba6061a51f56f182e0207.png
+  source_image_sha256: 427c2d7ad7e89005b69713f7e0cc4e157c68cf97dba8a875580b95d5f4243080
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: ComStock website screenshot with home-page tiles and Data Viewer / Documentation links
+  description: |-
+    Screenshot of the ComStock website home page under NREL branding, with heading ComStock and a tagline about highly granular modeling of U.S. commercial building stock. Three feature tiles read Commercial stock characteristics database, Physics-based computer modeling, and High-performance computing. Lower panels link to the Data Viewer and ComStock Documentation.
+- source_image: 85853_images/image_000056_604b8540b94c32bcc1b4eff64afc3aecb2a3aa531caacf1fe5e8b5e32392defd.png
+  source_image_sha256: 0e4bd6bf8a9ed2f43bbe3ca4e9a5460165e21087ba4e056127c0fa32a0bd42e1
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: ComStock Published Datasets documentation page with a dataset-release comparison table
+  description: |-
+    Screenshot of the ComStock documentation site Published Datasets page. Left nav lists Getting Started, Documentation, Data (with Accessing the Data, Published Datasets highlighted), Publications, Citation and Data Attribution, Contact. A table compares two dataset releases by rows including Publication Date, Release #, Building Stock Represented, Upgrades Applied, Weather Year, Data Viewer links, Data Table (metadata), and OEDI Data and Dictionaries.
+- source_image: 85853_images/image_000057_68a4a2daa1914919bbfca891fec41e76bdfb1b8ef46a42f19874214b989b1f83.png
+  source_image_sha256: 5dd4441799059373e4870bbd4f746684e7c61a979d5119611bf3ac3c8bee51c0
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: OEDI AWS S3 Explorer screenshot listing ComStock dataset folders and files
+  description: |-
+    Screenshot of the OEDI AWS S3 Explorer for the Open Energy Data Initiative showing the comstock_amy2018_release_1 folder. Breadcrumb path: oedi-data-lake / nrel-pds-building-stock / end-use-load-profiles-for-us-building-stock / 2021. A table with Object, Timestamp, and Size columns lists folders (building_energy_models, geographic_information, metadata, timeseries_aggregates, timeseries_individual_buildings, weather) and files (citation.txt, data_dictionary.tsv, enumeration_dictionary.tsv, upgrade_dictionary.tsv, upgrade_lookup.json). Showing 1 to 12 of 12 entries.
+- source_image: 85853_images/image_000058_4bc83b094623a533f8d13fc1fd7211bda38f742cb8888988f99913cfdaaff093.png
+  source_image_sha256: 7f288a5b4f3a1836c76935855a72a1a91b2067390dfed75cf4753f08befab22a
+  method: vision-description
+  described_utc: '2026-08-19'
+  alt: ComStock Documentation website Getting Started page screenshot
+  description: |-
+    Screenshot of the ComStock documentation website page Getting Started with ComStock with a city skyline photo. Left nav lists Getting Started, Documentation, Data, Publications, Citation and Data Attribution, Contact. Body text describes ComStock as a highly granular bottom-up commercial building stock energy model and notes it answers how energy is used in the U.S. building stock and the impact of energy-saving technologies.
+- source_image: 85853_images/image_000059_e1628a1c8667bd5b82951dff76490e6756074c4b6bc485144d0bb141c24e0b22.png
+  source_image_sha256: 14eb6d65840381d6ca7f0862e3903e2d9147366baf780ae6e9af5a442fb59f0e
+  method: vision-description
+  described_utc: '2026-08-19'
+  decorative: true
+  alt: NREL logo with the tagline Transforming ENERGY

@@ -1,0 +1,95 @@
+# Hand-authored figure descriptions for measure_pdfs/86100.pdf
+#
+# 86100 is the LED Lighting measure documentation (NREL/TP-5500-86100). docling extracts
+# each results figure as a bare ![Image](...) ref: the caption line survives above it, but
+# the chart itself is invisible to retrieval and unreadable without the picture. Each entry
+# below is image-anchored (see the figures: schema in overlays/README.md): the ref is
+# rewritten with a hand-written alt, and a description paragraph is injected below for
+# retrieval.
+#
+# Scope: figures only (Figures 1-10). The two cover/title images (indices 000000, 000001)
+# are deliberately not described.
+#
+# Authoring notes:
+#   * method is vision-description, not vision-transcription: these interpret a chart
+#     rather than copy legible cells. Numbers were read off the figures and should get a
+#     human QA pass before this is treated as a release record.
+#   * Every entry pins the on-disk PNG sha256; if upstream repoints a bitmap the build drops
+#     that injection and warns rather than shipping a stale description.
+
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: measure_pdfs/86100.pdf
+figures:
+- source_image: 86100_images/image_000002_3bd2084c271928fadf9c324e0ed43667a704843d4bca0e61f76aebe16b0120eb.png
+  source_image_sha256: b8970b0577a5fc9d59476ff96c83f9de61d2dd1dfc58d0c51e375707a2fa7804
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Stacked bar chart of interior lighting generation share by building type for 2018 (count-based)
+  description: |-
+    Stacked bar chart titled Count of in.interior_lighting_generation, y-axis from 0 to 1 (fraction of models) and x-axis of ComStock building types (FullServiceRestaurant, Hospital, LargeHotel, LargeOffice, MediumOffice, Outpatient, PrimarySchool, QuickServiceRestaurant, RetailStandalone, RetailStripmall, SecondarySchool, SmallHotel, SmallOffice, Warehouse). Each bar sums to 1 and is segmented by lighting generation per the legend: gen1_t12_incandescent, gen2_t8_halogen, gen3_t5_cfl, gen4_led, gen5_led. Across building types gen2_t8_halogen is the largest share, with gen1 and gen3 smaller and only thin gen4_led/gen5_led caps.
+- source_image: 86100_images/image_000003_53eb32a2d03dc6812090a45b2672e4dba186ac427a76e09aac19a4ad64f2557b.png
+  source_image_sha256: 1e3291a3dc3d3f81f38c622776327cb0e6c94d240888241d6d627d558cba4dc5
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Bar chart comparing total electricity consumption, Baseline vs Apply LEDs
+  description: |-
+    Bar chart titled Electricity Total Energy Consumption with two bars, Baseline and Apply LEDs, on a y-axis labeled Electricity Total Energy Consumption scaled to about 3000. The Baseline bar is modestly taller than the Apply LEDs bar, showing a reduction in total electricity consumption from the measure.
+- source_image: 86100_images/image_000004_a064f84f1009b726fb27310a3827bc014027ac122560ed2af6fba06e102c03e9.png
+  source_image_sha256: 2ba4958d903bd483f57c92264caed7dd764ba2411fd9c9bf8c3051a8663c9047
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Bar chart comparing total site energy consumption, Baseline vs Apply LEDs
+  description: |-
+    Bar chart titled Site Energy Total Energy Consumption with two bars, Baseline and Apply LEDs, on a y-axis labeled Site Energy Total Energy Consumption (TBtu) scaled to about 4000+. The Baseline bar is modestly taller than the Apply LEDs bar, a small reduction consistent with the reported 3.5% (154 TBtu) site energy savings.
+- source_image: 86100_images/image_000005_82495c2f585dc6d2d4c62f9be27c80212301ddbb4f32f464c9d86e4f3a4f872d.png
+  source_image_sha256: 35c2e21f6399cc136b08d77ea0457b0beff713833f89854ad4a9dea2d78f7d11
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Bar chart of total interior lighting savings by building type, in kBtu
+  description: |-
+    Bar chart titled Total Interior Lighting Savings by Building Type, with a left y-axis in kBtu to about 600M and a right y-axis to about 1400M. Per-building-type bars carry data labels: FullServiceRestaurant 2.31e+07, Hospital 2.40e+07, LargeHotel 4.57e+07, LargeOffice 5.03e+07, MediumOffice 2.45e+07, Outpatient 3.44e+07, PrimarySchool 1.28e+07, QuickServiceRestaurant 4.43e+06, RetailStandalone 2.04e+08, RetailStripmall 5.10e+08, SecondarySchool 2.67e+07, SmallHotel 2.09e+07, SmallOffice 2.34e+07, Warehouse 2.25e+08, and a final total bar of about 1.25e+09. RetailStripmall, Warehouse, and RetailStandalone dominate the savings.
+- source_image: 86100_images/image_000006_67602c860aec074506c9925d58c04eb4d55ea46638f4c8ff383dbd1d870e601b.png
+  source_image_sha256: 2deb4603b4f5195b865a15946f2fc1abc3e4b86c96bc0bd1face4519b6737b00
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Stacked bar of annual energy consumption by end use and fuel, Baseline vs LED Lighting, TBtu
+  description: |-
+    Stacked column chart, y-axis Annual Energy Consumption (TBtu) 0-4500, comparing Baseline (total 4342) and LED Lighting (total 4188). Each bar is segmented by end use and fuel per the legend (Interior Equipment, Fans, Cooling, Interior Lighting, Heating, Water Systems, Refrigeration, Heat Rejection, Heat Recovery, Pumps, and Exterior Lighting across Electricity, Natural Gas, District, and Other Fuel). Labeled values include Interior Equipment Electricity 775.9 (unchanged) and Cooling Electricity 591.4 vs 585.5, with an interior-lighting electricity segment falling from 426.7 to 269.0 (about the reported 157.7 TBtu interior-lighting savings); other paired segment labels read 457.8/467.6, 667.7/638.9, 232.9/247.9, and 458.5/473.2.
+- source_image: 86100_images/image_000007_838f1a521b178fd3b90bae6674c14849eb5aa8bb0715c45e59558dd6b027bda3.png
+  source_image_sha256: c9f34eceaed90a07ed8ef6c352783f20b9c68876a15ef7f451c3b0a1c8fd757b
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Grouped bar chart of average site EUI savings by building type and original lighting generation,
+    kBtu/ft2
+  description: |-
+    Grouped bar chart, y-axis Average Site EUI Savings (kBtu/ft2) 0-12, one group per building type, bars colored by In.Interior Lighting Generation (gen1_t12_incandescent, gen2_t8_halogen, gen3_t5_cfl). Savings are highest for the oldest generation (gen1) and fall for gen2 and gen3. Legible gen1 labels include QuickServiceRestaurant 10.009, SmallHotel 9.528, Hospital 6.210, LargeHotel 5.858, and RetailStripmall 5.098; quick-service restaurants, hospitals, and small hotels show the largest average savings.
+- source_image: 86100_images/image_000008_64a4e3a08b2986800345b43da34664183273f1b2c90c406e695ca0a5a3d2bf10.png
+  source_image_sha256: 0b904eca13636a8dd1850446adf14ae3ce2e4b5cf173b97ed4db66cd5536ea66
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Paired bar charts of model count by lighting generation for applicable vs non-applicable models
+  description: |-
+    Two stacked panels split by Applicability (True on top, False on bottom), x-axis In.Interior Lighting Generation (gen1_t12_incandescent, gen2_t8_halogen, gen3_t5_cfl, gen4_led, gen5_led), y-axis Model Count. Applicable (True): gen1 49,548, gen2 155,768, gen3 14,587, and zero for gen4/gen5. Not applicable (False): gen4_led 98,942 and gen5_led 22,603, zero for gen1-3. This confirms the measure applied only to non-LED generations.
+- source_image: 86100_images/image_000009_a881acac9ba38d190838cf41a9767a57400ab6aafe3145c34229f286e2fa6ad2.png
+  source_image_sha256: ecd180d95cb03997f4fa6e48b8a86d5705430ebf525379c6bd3542db839d159d
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Horizontal distribution plots of EUI savings by end use and fuel, with per-group sample sizes
+  description: |-
+    Horizontal distribution (violin/box) plot titled EUI Savings by End Use, x-axis from about -30 to 30 (kBtu/ft2). Rows are end-use/fuel combinations with sample sizes, including Electricity Interior Lighting (n=219903), Electricity Cooling (n=210448), Electricity Fans (n=168687), Electricity Heating (n=134936), Natural Gas Heating (n=116178), Electricity Pumps (n=23905), Electricity Refrigeration (n=20054), District Heating Heating (n=1913), District Cooling Cooling (n=1898), and several smaller groups. Electricity Interior Lighting shows the largest positive savings spread; heating end uses skew negative (penalties), and most other end uses cluster near zero.
+- source_image: 86100_images/image_000010_cb1f643679f135ace7b8f28cb5e077773fed81679fa396f1a4c0b5bebee743c2.png
+  source_image_sha256: c49b5e309c60373a186241ec520c983820d0f0c0901e7c1fd6e110663a92d756
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Two line charts of average lighting savings versus weekday and weekend operating hours
+  description: |-
+    Two line charts sharing a y-axis Average Lighting Savings (kBtu) from 0 to about 280K. The left panel plots Weekday Operating Hours (about 6 to 19) and the right plots Weekend Operating Hours (about 6 to 18). Average savings rise with operating hours: the weekday line climbs from roughly 160K at 6 hours to a peak near 270K around 16-17 hours, while the weekend line is flatter at roughly 180-220K. Longer operating hours yield larger lighting savings.
+- source_image: 86100_images/image_000011_a8fb054932c9aa8fc1841be59563ec15f0271c8cd526c13fc68fa22dc1c312cc.png
+  source_image_sha256: 3bbbedaaa8569827fa784e0db5569de84b3b8242babcf0c80ca0bf6fb857ddf9
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Bar chart of heating consumption savings by fuel for a PVAV gas-heat electric-reheat model
+  description: |-
+    Bar chart with y-axis Heating Savings for one model with 'PVAV with gas heat and electric reheat' (kBtu) from about -600K to 300K. Three bars: Natural Gas Heating +297,425 (apparent savings), Electricity Heating -582,637 (a penalty), and Natural Gas and Electricity Heating Savings combined -285,212. Gas alone suggests savings, but combining gas and electric shows the heating system consumes more energy after the LED measure, the expected behavior.
