@@ -1,0 +1,144 @@
+# Hand-authored figure descriptions for measure PDF 95015 (Electric Resistance Boilers).
+#
+# Scope: 16 images are extracted from this PDF. Images 000000 and 000001 are decorative
+# (the NREL photo-grid cover banner and the NREL wordmark logo) and are deliberately NOT
+# described here -- describing them would inject noise into retrieval. The remaining 14
+# (000002-000015) are real figures: Figures 1-14.
+#
+# All tables in this document extracted as real markdown text, so no vision-transcription
+# entry is needed. Note that Table 2's caption was absorbed into its header row (repeated
+# across all 8 columns), which is why it does not appear as a standalone caption line.
+#
+# QA flags for human review:
+#   - Figure 2 (000003): the two cubic turndown curves ("Boiler with minimum turndown" and "Boiler
+#     with no minimum turndown") are nearly coincident -- evaluating the Table 3 coefficients gives
+#     values within ~0.01 of each other across most of the PLR range. The description therefore
+#     does NOT assign the orange vs. gray series to a specific named curve.
+#   - Figure 3 (000004): the source equation defining the electric boiler curve was DROPPED in
+#     extraction (the text reads "using the following equation:" followed by nothing). The
+#     description notes EIR = 0.98 + 0.02 x PLR as an inference read off the plot, explicitly
+#     flagged as such, not as a transcription.
+#   - Figure 9 (000010): a single broad left-tailed violin (roughly -140% to 0%) aligns with the
+#     "Electricity Heating (n=14)" row. The row assignment is a visual read on a crowded axis and
+#     should be confirmed; the interpretation (only models with nonzero baseline electric heating
+#     have a defined percent savings, hence n=14) is consistent but inferred.
+#   - Figures 6, 12 (000007, 000013): panel TOTALS are read with high confidence; the individual
+#     stacked-segment values printed inside the bars are small and dense, so segment-level numbers
+#     in those descriptions are provisional.
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: measure_pdfs/95015.pdf
+figures:
+- source_image: 95015_images/image_000002_54779643b7747b3977197bb9cd286f46b1c0e225867f7b72adc06e958044560e.png
+  source_image_sha256: 61f90ace909a2c7264d0fd4ecea87b384a3c50534fdd1458b6b7e96e69f3a7ac
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 1. Schematic diagram of an electric boiler system serving space heating and domestic hot water, showing the boiler, hot water cylinder, radiators, and valves
+  description: |-
+    Figure 1 is a third-party schematic titled "Electric Boiler Diagram - Heating and Hot Water", carrying a GreenMatch logo in the upper right. It shows a residential-style hydronic layout rather than ComStock model output. Labeled components: "Mains water" entering at the upper left, a "Balanced supply" branch, a "Hot water cylinder" on the left, "The boiler" as a wall-mounted unit in the center with a small display panel, and two stacked "Radiator" panels on the right. Piping is color-coded, with blue for cold or return water and red for heated supply. Three valve groups are called out: "Full bore valves" and "Zone valves" beneath the boiler, and a "System drain point" at the bottom right. The figure is illustrative context for what an electric boiler is and how it connects to a hydronic distribution loop; it conveys no ComStock results.
+- source_image: 95015_images/image_000003_18effbc7ce6772b778c0216213ef43a162be9d5ebd183127eb0f292a837e6b86.png
+  source_image_sha256: dda387583fb2b7a7d7a463197027525d08f6d46e77d5ed3ec92c46d626d3d9a5
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 2. Scatter plot of boiler efficiency multiplier as a function of boiler part load ratio for the three performance curves used in ComStock
+  description: |-
+    Figure 2 is a scatter plot with "Boiler Part Load Ratio" (PLR) on the x-axis from 0 to 1.4 and "Boiler Efficiency Multiplier" on the y-axis from 0 to 1.4. It plots the output of the three cubic performance curves listed in Table 3. One series is flat at a multiplier of exactly 1.0 across the whole PLR range -- this is the boiler constant efficiency curve, which applies no part-load correction. The other two series are nearly coincident and rise monotonically: they start at roughly 0.75 and 0.78 at PLR 0, cross a multiplier of about 1.0 near PLR 0.4-0.5, sit near 1.0 through the middle of the range, and continue up to roughly 1.16-1.30 at PLR 1.2-1.3. These two are the "Boiler with minimum turndown" and "Boiler with no minimum turndown" curves; their coefficients differ only slightly (intercepts 0.7791 and 0.7463 per Table 3) so they overlap for most of the range and cannot be reliably told apart by eye in this plot. The practical reading is that boilers assigned a turndown curve lose roughly 20%-25% of their rated efficiency at very low load, whereas boilers on the constant curve are modeled at rated efficiency regardless of load.
+- source_image: 95015_images/image_000004_a03bb66e09376fe471aca0401be62ef1ccf6e654f98b855b56c78bd2292af712.png
+  source_image_sha256: 510c6d93c29fbdceaf2915d07584f8fec27ae9d46b4af3f0a71e92630118b82d
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 3. Line plot of the electric boiler performance curve, showing electric input ratio rising linearly from about 0.98 at zero part load ratio to 1.00 at full load
+  description: |-
+    Figure 3 is a single-line plot of the new electric boiler performance curve derived from the MASControl3 database. The x-axis is PLR (part load ratio) from 0 to 1 and the y-axis is EIR (electric input ratio) on a tight range from 0.9 to 1.1, with gridlines at 0.95, 1.00, and 1.05. The line is essentially straight, starting at an EIR of about 0.98 at PLR 0 and rising steadily to exactly 1.00 at PLR 1, with markers at each 0.1 increment. Because EIR never drops below about 0.98, the curve implies the electric boiler operates at 98% or better efficiency at any load and reaches 100% at maximum capacity -- that is, minimal cycling efficiency losses. The body text says this curve is given by an equation, but the equation itself was dropped in extraction; the plotted line is consistent with approximately EIR = 0.98 + 0.02 x PLR, which is an inference from the figure rather than a transcription of the source equation.
+- source_image: 95015_images/image_000005_e9668c2bb302c9be256111593f390e3fd87ce4735318041d1818d6aa599a6d0d.png
+  source_image_sha256: 3cce74c4d0c2024240fdb0ab821c5f1641e18d0f4c6e22c2e53ffb10111d53c4
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 4. Two-panel horizontal bar chart breaking down ComStock floor area and natural gas heating energy by HVAC heating type
+  description: |-
+    Figure 4 has two side-by-side horizontal bar panels sharing the row labels, under the heading "In.Hvac Heat Type". The left panel axis is "Total Weighted Square Footage (sqft)" as a percentage from 0% to about 40%, and the right panel axis is "Total Weighted Natural Gas Heating Energy (TBtu)" as a percentage from 0% to about 60%. Values are printed at the end of each bar. Rows top to bottom, given as floor area then natural gas heating energy: Furnace 35.2% and 43.8%; Electric Resistance 28.4% and 0.0%; Boiler 25.3% and 55.7%; ASHP (air-source heat pump) 6.2% and 0.0%; District 3.3% and 0.0%; GSHP (ground-source heat pump) 1.3% and 0.0%; WSHP (water-source heat pump) 0.3% and 0.5%. The point of the figure is the mismatch between the two panels: boilers serve only about a quarter of stock floor area but account for well over half of all natural gas heating energy, which is why this measure has outsized fuel impact relative to its applicability. The surrounding text notes that gas boilers cover 25% of baseline floor area, and adding the one WSHP system that also uses a boiler brings total applicability to roughly 26%.
+- source_image: 95015_images/image_000006_e7f594ee90803f998a81643fc2582d95bd51191bbdd6016132d3e152fa36cbc2.png
+  source_image_sha256: 067735c6f42f43b25e4cab2e5df4807ddec3385890833ba88cdd417f9b2a8cc4
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 5. Two stacked bar charts of monthly energy consumption by end use for a single example building, baseline on top and electric boiler measure scenario below
+  description: |-
+    Figure 5 is a pair of stacked bar charts for one example building, titled "Monthly Energy Consumption by End Use - Baseline Building" (top) and "Monthly Energy Consumption by End Use - Electric Boiler Measure Scenario" (bottom). Both plot Energy Consumption in kWh on the y-axis against the twelve months January through December, with a shared legend covering Water Systems, Heat Rejection, Pumps, Fans, Interior Equipment, Exterior Lighting, Interior Lighting, Cooling, and Heating. Hatched bars denote natural gas end uses and solid fill denotes electricity. In the baseline chart the y-axis reaches about 700,000 kWh and the winter months are dominated by a very large hatched Heating segment -- roughly 450,000 kWh in January and December -- that disappears entirely in summer. In the measure chart the y-axis tops out lower, around 600,000 kWh, and the same winter mass reappears as a solid red electricity Heating segment of roughly 360,000 kWh in January. All other end uses are visually unchanged between the two panels. The figure is a clean illustration of pure fuel switching: the gas heating load is replaced by electric heating, and because the electric boiler runs at essentially 100% efficiency versus about 80% for the gas boiler, the winter peaks are somewhat shorter in the measure scenario.
+- source_image: 95015_images/image_000007_41085ceefc5aa3a21019c9891e7077ea702b1a8d977dce9a880afceb2f124fe3.png
+  source_image_sha256: 23cea7d35cc1b333a32efa424fb4beddbb42100348e6052c9321c4d6c9d5fcc7
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 6. Stacked bar comparison of annual site energy consumption between the ComStock baseline and the electric boiler measure scenario, for the full stock and for applicable buildings only
+  description: |-
+    Figure 6 is a two-panel stacked bar chart of annual site energy consumption in trillion British thermal units (TBtu), segmented by end use and fuel with an 18-entry legend. The left panel covers the full stock: ComStock Baseline 4865 TBtu versus Electric Resistance Boiler 4743 TBtu, a reduction of about 2.5%. The right panel covers applicable buildings only, on a y-axis reaching 1400 TBtu: Baseline 1432 TBtu versus Electric Resistance Boilers 1309 TBtu, a reduction of about 8.6%. In both panels the visible change is a swap rather than a shrink: the hatched Heating Natural Gas segment in the baseline is replaced by a solid Heating Electricity segment in the measure scenario, printed as 686.1 TBtu in the full-stock panel and 426.3 TBtu in the applicable-buildings panel. Untouched end uses hold constant -- Interior Equipment Electricity stays at 740.2 TBtu full-stock and 188.5 TBtu for applicable buildings, and cooling, fans, and lighting segments are unchanged. Site energy falls modestly because the electric boiler is modeled at 100% thermal efficiency against roughly 80% for the noncondensing gas boiler it replaces. Panel totals are read with high confidence; individual stacked-segment values are provisional.
+- source_image: 95015_images/image_000008_3bc3cd84e7d54b5b59a3ada9d6915eec62b911b803167b2251d3f0810143a665.png
+  source_image_sha256: 381ac246b0de79fdfe5c0f8a9929439d466fb06accdb4abfd316158c678f5b9d
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 7. Three-panel stacked bar chart of national annual utility bills by fuel for the baseline and the electric boiler measure scenario, under maximum, mean, and minimum electricity rates
+  description: |-
+    Figure 7 has three side-by-side panels titled "With Max Electricity Rate", "With Mean Electricity Rate", and "With Min Electricity Rate", each stacking annual utility bills in billion USD (2022) by fuel -- electricity, natural gas, propane, fuel oil -- for the Baseline and the Electric Resistance Boilers scenario. Totals are printed above each bar with percent change from baseline in parentheses. Max electricity rate: Baseline 144, measure 153 (6%). Mean electricity rate: Baseline 127, measure 134 (5%). Min electricity rate: Baseline 112, measure 116 (4%). The bills go UP in every rate case, which is the central negative result for this measure. The mechanism is visible in the segments: the electricity portion rises (125 to 141, 108 to 121, and 93 to 104 billion USD respectively) by more than the natural gas portion falls (17 down to 11 billion USD in all three panels). The increase is largest under the maximum electricity rate, since that is where the added electric load is most expensive.
+- source_image: 95015_images/image_000009_c83e2289e6d1e2a7dcd08e07fd1d4767128c251a9ac9c51b30756d65d8b0333e.png
+  source_image_sha256: 65cb2a3d86847f866a22df66b5dbc61491f48acc825dca303de3a363bf407da4
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 8. Three-panel stacked bar chart of annual CO2e emissions by fuel for the baseline and the electric boiler measure scenario, under eGRID 2021 and two LRMER grid scenarios
+  description: |-
+    Figure 8 has three side-by-side panels using different electricity emissions assumptions: "eGRID 2021", "LRMER High RE Cost 15", and "LRMER Low RE Cost 15" (LRMER = long-run marginal emissions rate, 15-year levelization; RE = renewable energy). Each stacks annual emissions in million metric tons of CO2 equivalent (MMT CO2e) by fuel for the Baseline versus the Electric Resistance Boilers scenario, with totals printed above each bar and percent change in parentheses. eGRID 2021: Baseline 452, measure 463 (2%) -- emissions increase. LRMER High RE Cost 15: Baseline 346, measure 343 (-1%). LRMER Low RE Cost 15: Baseline 245, measure 233 (-5%). Natural gas emissions fall from 102 to 66 MMT CO2e identically in all three panels, since the gas heating displaced is the same regardless of grid assumption, while electricity emissions rise (345 to 393, 240 to 274, and 139 to 163 MMT CO2e). The sign of the net result therefore depends entirely on the grid: against the 2021 grid, electrifying to resistance heat is slightly worse for carbon, and it only becomes a modest improvement under the cleaner projected grids.
+- source_image: 95015_images/image_000010_f4267209a4f06321eadf51cb742e00c183b2de355ab56a8895e7d1805490a566.png
+  source_image_sha256: a0e60914f0a100cdc7c6d8fbaf95510be0d5fe64751a4eae9f62e84781be084a
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 9. Violin and box plot distribution of percent site energy savings by end use and fuel type for models with the electric boiler measure applied
+  description: |-
+    Figure 9 is a horizontal violin plot with embedded box plots of per-model percent site energy savings by end use and fuel type, annotated "Upgrade 17.0: Electric Resistance Boilers (unweighted)". The x-axis runs from about -140% to +100% with a reference line at 0%. Rows top to bottom, with model counts, grouped by fuel: Other Fuel -- Water Systems (n=19), Heating (n=541); District Heating -- Water Systems (n=7); Natural Gas -- Water Systems (n=1618), Heating (n=30365); Electricity -- Water Systems (n=377), Refrigeration (n=120), Pumps (n=3246), Interior Equipment (n=11), Heating (n=14), Heat Rejection (n=1007), Heat Recovery (n=259), Fans (n=4542), Cooling (n=4733). Most rows collapse to a tick or thin line at or near 0%, because this measure changes only the heating fuel and leaves other end uses alone. Two rows sit hard against +100% savings: Other Fuel Heating and Natural Gas Heating, whose fuel use is eliminated outright. One row carries a broad left-tailed violin from roughly -140% to 0% -- large penalties where consumption increases -- aligning with the Electricity Heating row, whose tiny sample (n=14) reflects that percent savings is only defined for models with some baseline electric heating. Sample sizes here are far smaller than in the by-climate-zone charts because each row counts only models with nonzero baseline consumption for that end use and fuel.
+- source_image: 95015_images/image_000011_e87ae381dc95144913861dcfce3e6c3c45ba93c655276eb66eeea07fe5a27983.png
+  source_image_sha256: 402e47b585ab8c85d4f2d7ddf09c5ad6a8812c30a588608bfeff84fd0c57b1f9
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 10. Violin and box plot distribution of percent utility bill savings by fuel type for models with the electric boiler measure applied
+  description: |-
+    Figure 10 is a horizontal violin plot with embedded box plots of per-model percent utility bill savings by fuel type, annotated "Upgrade 17.0: Electric Resistance Boilers (unweighted)". The x-axis runs from about -160% to +100% with a reference line at 0%. Rows top to bottom with model counts: Fuel Oil Bill State Average (n=544), Natural Gas Bill State Average (n=30349), Electricity Bill w/ Mean Rate (n=28210), Bill Mean (n=30752). The two fossil fuel rows cluster on the positive side -- fuel oil almost entirely at 100% savings and natural gas with a box roughly spanning 70%-100% -- because the measure removes the heating fuel bill outright. The electricity row is squarely negative, with a box centered around -40% to -50% and a long left tail past -160%, reflecting the added electric resistance load. The "Bill Mean" row, which is the total bill across all fuels, is also negative but less so, centered around -20% to -30%. The figure shows that at the individual building level the fuel bill savings do not offset the electricity bill increase for most models.
+- source_image: 95015_images/image_000012_c1a042cd9546c44120f08d1039dfcd104094a80f5062d3189af373424afc1e2c.png
+  source_image_sha256: 979b5e9c3f08abfc6656ab9045d85e2b31124b20a8934066ad3fcf12264f432c
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 11. Violin and box plot distribution of percent utility bill savings by ASHRAE climate zone for models with the electric boiler measure applied
+  description: |-
+    Figure 11 is a horizontal violin plot with embedded box plots of per-model percent utility bill savings by ASHRAE climate zone, annotated "Upgrade 17.0: Electric Resistance Boilers (unweighted)". The x-axis runs from about -100% to +80% with a reference line at 0%. Rows top to bottom with model counts: 1A (n=567), 2A (n=1518), 2B (n=760), 3A (n=3542), 3B (n=4238), 3C (n=1264), 4A (n=5266), 4B (n=1325), 4C (n=516), 5A (n=4612), 5B (n=2277), 6A (n=2430), 6B (n=922), 7 (n=1140), 8 (n=44). Every zone has a median on the negative side of zero, so the typical building's total bill rises. The penalty deepens systematically with heating climate: medians in the hot zones 1A through 2B sit close to 0% to -10%, mid zones 3A through 4A land around -15% to -25%, and the cold zones 6A, 6B, 7, and 8 fall to roughly -40% to -70%. Zone 8 has the widest and most negative distribution on the smallest sample (n=44). The trend follows directly from heating load: the colder the zone, the more gas heating gets converted to expensive electric resistance heat.
+- source_image: 95015_images/image_000013_a48e93167964acd11eabb3425864e19472ba97701e8b5cc8574ee564afe5f6c5.png
+  source_image_sha256: 081f825d0e2c5e946018769cdaae94b4f6d098652b516e91565720521e3f6993
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 12. Stacked bar comparison of annual site energy consumption across the ComStock baseline, heat pump boiler, and electric boiler measure scenarios, for the full stock and for applicable buildings only
+  description: |-
+    Figure 12 extends Figure 6 with a third scenario, adding a heat pump boiler variant labeled "HP_Boiler_E_Backup" (heat pump boiler with electric backup) between the baseline and the electric resistance boiler. It is a two-panel stacked bar chart of annual site energy in trillion British thermal units (TBtu) segmented by end use and fuel. Full stock, left panel: Baseline 4865 TBtu, HP_Boiler_E_Backup 4511 TBtu, Electric Resistance Boilers 4743 TBtu. Applicable buildings only, right panel: Baseline 1432 TBtu, HP_Boiler_E_Backup 1077 TBtu, Electric Resistance Boilers 1309 TBtu. The heat pump boiler is clearly the better performer on site energy -- about a 7% full-stock and 25% applicable-buildings reduction, versus roughly 2.5% and 8.6% for the electric resistance boiler. The mechanism is visible in the heating segments: both scenarios replace the baseline hatched Heating Natural Gas block, but the heat pump boiler needs far less electricity to do it (about 184.3 TBtu of electric heating in the applicable panel versus 426.3 TBtu for the resistance boiler). Panel totals are high confidence; segment values are provisional.
+- source_image: 95015_images/image_000014_d04704ef3e75440de5cc83a51813c5a74b6914eddfd8ab3a8a0d275cc7d8f68a.png
+  source_image_sha256: 850797d7a05780a547acadb1c782d8e2aa12b3be82f1f8a1ddd7f8a79cbad60c
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 13. Three-panel stacked bar chart of national annual utility bills by fuel for the baseline, heat pump boiler, and electric boiler scenarios, under maximum, mean, and minimum electricity rates
+  description: |-
+    Figure 13 has three side-by-side panels titled "With Max Electricity Rate", "With Mean Electricity Rate", and "With Min Electricity Rate", each stacking annual utility bills in billion USD (2022) by fuel for three scenarios: Baseline, HP_Boiler_E_Backup (heat pump boiler with electric backup), and Electric Resistance Boilers. Totals are printed above each bar with percent change from baseline in parentheses. Max electricity rate: 144, then 145 (1%), then 153 (6%). Mean electricity rate: 127, then 126 (-0%), then 134 (5%). Min electricity rate: 112, then 110 (-1%), then 116 (4%). In every rate case the electric resistance boiler raises stock-level bills by 4%-6% while the heat pump boiler is within about 1% of the baseline. Natural gas falls from 17 to 11 billion USD under both measures, but the heat pump boiler's electricity increase is much smaller (for example 108 to 111 billion USD at the mean rate, versus 108 to 121 for the resistance boiler). The conclusion drawn in the text is that fuel switching to electric resistance raises bills under current rate structures, whereas switching to a higher-efficiency heat pump boiler leaves stock-level bills roughly unchanged.
+- source_image: 95015_images/image_000015_642c84fa89154890fb0525996c451c91f9c9a11371ba09b5a1cba1b8bbbdac2c.png
+  source_image_sha256: 479f6596861ccc4920e8f492bc481d8db8274cb97a12be35336be79361094728
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 14. Three-panel stacked bar chart of annual CO2e emissions by fuel for the baseline, heat pump boiler, and electric boiler scenarios, under eGRID 2021 and two LRMER grid scenarios
+  description: |-
+    Figure 14 has three side-by-side panels titled "eGRID 2021", "LRMER High RE Cost 15", and "LRMER Low RE Cost 15" (LRMER = long-run marginal emissions rate, 15-year levelization; RE = renewable energy), each stacking annual emissions in million metric tons of CO2 equivalent (MMT CO2e) by fuel for the Baseline, HP_Boiler_E_Backup (heat pump boiler with electric backup), and Electric Resistance Boilers scenarios. Totals are printed above each bar with percent change from baseline in parentheses. eGRID 2021: 452, then 437 (-3%), then 463 (2%). LRMER High RE Cost 15: 346, then 325 (-6%), then 343 (-1%). LRMER Low RE Cost 15: 245, then 220 (-10%), then 233 (-5%). Natural gas emissions drop from 102 to 66 MMT CO2e under both measures in all three panels, because both fully fuel-switch the same gas heating load. Electricity emissions rise under both, but far less for the heat pump boiler (for example 345 to 367 MMT CO2e under eGRID, versus 345 to 393 for the resistance boiler). The result is that the heat pump boiler reduces emissions under every grid assumption while the electric resistance boiler only does so under the projected future grids and actually increases emissions against the 2021 grid.

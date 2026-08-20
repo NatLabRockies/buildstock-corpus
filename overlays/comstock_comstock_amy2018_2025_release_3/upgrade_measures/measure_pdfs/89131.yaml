@@ -1,0 +1,159 @@
+# Hand-authored figure descriptions for measure PDF 89131
+# (Packaged Water-to-Air Geothermal Heat Pump Retrofit / "Packaged GHP", ComStock Upgrade 02).
+#
+# Scope: the source markdown carries 18 image refs. Images 000000-000004 are the standard NREL
+# front-matter photo grid (staff/wind-turbine/lab photos, credited to Dennis Schroeder) plus the
+# NREL wordmark -- decorative, carrying no retrievable information, and deliberately NOT described.
+# Two of those are confirmed boilerplate by hash reuse across the corpus: 000003 is byte-identical
+# to 89132's 000005, and 000004 (the wordmark) is byte-identical to 89341's 000001.
+# The 13 entries below cover every real figure: Figures 1-12 in the body and Figure B-1 in
+# Appendix B.
+#
+# Tables: Tables 1, 2, 3, 4, 5, 6, A-1, B-1 and B-2 all extracted as real markdown tables, so no
+# vision-transcription entry is needed for this document.
+#
+# QA flags (least-certain reads and source/extraction artifacts, for the human review pass):
+#  * Figure 7 (000011) -- the printed segment labels on the Heating Natural Gas band are the only
+#    values in the chart that are not reliably legible at raster resolution, so the description
+#    gives the change (-455.2 TBtu / 53.2%, from Section 5.2) rather than the two endpoints. Every
+#    other quoted label cross-checks exactly against the body text: Cooling 667.3 -> 534.7 is the
+#    stated 132.6 TBtu, Heating Electricity 175.2 -> 250.8 is the stated -75.6 TBtu, Fans 519.1 ->
+#    541.5 is the stated -22.4 TBtu, and totals 4338 -> 3831 are the stated 507 TBtu / 11.7%. High
+#    confidence overall.
+#  * Figure 11 (000015) -- dense 8-zone x 3-season x 2-scenario value matrix. Only the clearest
+#    anchor pair is quoted (Hot-Humid summer 3.8 -> 3.0, a 21% drop consistent with the stated
+#    19-27% range); the remaining per-zone W/ft2 numbers are legible only approximately and are
+#    NOT asserted. All directional and percentage statements come from Section 5.5.
+#  * Figure 8 (000012) -- all 14 printed values were legible and the set is fully self-consistent
+#    with Section 5.3 (gas 81 -> 50 = 31 MMT / 38.3%; totals -32/-28/-25 MMT = 8%/9%/10%;
+#    electricity +2/+6/+9 MMT = 0.6% to 5.9%). High confidence.
+#  * Figures 5 and 6 (000009, 000010) -- neither example-building chart carries data labels, so the
+#    kWh and USD magnitudes given are axis estimates. The percentages quoted (22% site energy, 94%
+#    gas, 25% electricity, 14.7% peak, 4.5% emissions, +24.5%/$7,697 electricity bill,
+#    -95.0%/$8,051 gas bill) are from Section 5.1, not from the bitmaps.
+#  * Figure 12 (000016) -- the panel title is clipped at the top of the extracted bitmap and its
+#    upgrade number is not legible; Figure 9 (000013) prints the legible "Upgrade 02: Packaged GHP
+#    (unweighted)", which is the number used. Also note the zone axis lists BOTH "7" (n=346) and
+#    "7A" (n=1343) as separate rows -- an upstream labeling artifact also seen in 89341 -- and has
+#    no zone 8 row even though Section 5.6 describes the trend as running to "8 - Subarctic".
+#  * Source artifact, not a figure issue: Section 3.4 (around line 331) says the three grid
+#    scenarios compare "the ComStock baseline and the window replacement scenario". This is a
+#    copy-paste leftover from an envelope measure document; there is no window measure here.
+#  * Extraction artifact: Table 5 (on-site combustion emissions factors) lost its header row, so
+#    its first data row ("Natural gas | 147.3 lb/MMBtu (228.0 kg/MWh)") is rendered as the header.
+#    That table also repeats the corpus-wide propane inconsistency -- 177.8 lb/MMBtu paired with
+#    182.3 kg/MWh, where 177.8 lb/MMBtu is about 275 kg/MWh (89126 prints the self-consistent
+#    275.7). Transcribed as printed elsewhere in the corpus; do not "fix" silently.
+#  * Extraction artifact: the executive-summary savings table (around line 93) has its columns
+#    rotated by one relative to its header row -- the "End Use" label lands in the last column.
+#    The same five numbers appear correctly as a bullet list in Section 5.2, which is what the
+#    Figure 7 description was checked against. Same defect as in 89132.
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: measure_pdfs/89131.pdf
+figures:
+- source_image: 89131_images/image_000005_dfdc6e45320d3292d119206f58d662ff5512e0f2bdfadb83e8f7134872b1ae41.png
+  source_image_sha256: da2a8ef5012a0508c41f737bca113646c70658873b13164a000eb1f5292d3d6e
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 1. Schematic of the modeled packaged water-to-air GHP configuration: a ground loop with ground heat exchanger coupled through a water-water heat exchanger to a condenser loop that serves two zone water-to-air heat pumps, with an optional cooling tower drawn in a dashed box
+  description: |-
+    System schematic for the Packaged GHP measure, drawn as three stacked hydronic loops with supply and demand sides labeled at both ends of each loop and circulation pumps shown as circled symbols. The top loop is the ground loop, terminating in a Ground Heat Exchanger. It couples to the middle Condenser loop through a Water Water Heat Exchanger; the body text notes this heat exchanger is modeled as ideal. A Cooling Tower sits on the condenser loop inside a dashed orange box, marking it as optional auxiliary heat rejection used only when the user sizes the ground heat exchanger below the full cooling load. The condenser loop supplies two orange Water-to-air heat pump blocks, each containing a green Pre-heat coil, the electric coil that tempers outdoor air to the 50-55 degF minimum entering air temperature these coils require and that also serves as auxiliary heating when the borefield is sized below the full heating load. Each heat pump discharges into its own air loop: Air Loop 1 serving Zone 1, Air Loop 2 serving Zone 2. Blue arrows show flow direction. The two heat pumps are illustrative; every zone in the model gets its own water-to-air heat pump, and heating and cooling coils are configured never to run simultaneously.
+- source_image: 89131_images/image_000006_eefef03057508b63a58508ae6d22487b8194870e41b262ae0b5be9764ff7759d.png
+  source_image_sha256: 8d8eef774c868cafa066a1272b72941e9cbf774ffb67c53231832c58b3dbd88d
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 2. Control diagram of single-zone VAV operation, plotting supply air temperature setpoint and supply airflow against zone sensible load from design heating load to design cooling load. Image from Rheem
+  description: |-
+    Control-strategy diagram (reproduced from Rheem) showing how single-zone variable air volume operation sequences supply air temperature and supply airflow as zone load changes. The x-axis runs from design zone heating load on the left, through zero zone sensible load in the middle, to design zone cooling load on the right. The left y-axis is supply air temperature setpoint and the right y-axis is supply airflow. The orange SAT setpoint line slopes downward across the full width, bounded above by a dashed horizontal maximum SAT for heating line and below by a dashed horizontal design SAT for cooling line. The black supply airflow trace forms a flat-bottomed bathtub shape: high at the design heating end, falling to a flat dotted minimum airflow limit through the middle low-load region, then rising again to design airflow at the design cooling end. The logic illustrated is that temperature modulates first and airflow only after the temperature limit is reached: in heating, supply air temperature rises until it hits the maximum, then airflow increases; in cooling, supply air temperature falls to its minimum, then airflow increases. The modeled minimum supply airflow ratio is 40%, raised only where ASHRAE 62.1 outdoor airflow requires it.
+- source_image: 89131_images/image_000007_abcd8e7d9e00daa760a617b2c2da2926e3038f6d0176b4445d5260d2d96baf2d.png
+  source_image_sha256: 0b3e118916e1e8024a3c73576fadf7d183c18d80bc7169f202f703950bed1a64
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 3. Flow diagram of the ComStock GHEDesigner workflow, showing the two-pass simulation in which an initial load calculation feeds borefield sizing and the returned g-function feeds the final simulation
+  description: |-
+    Process flow diagram spanning a large horizontal arrow labeled ComStock simulation, showing that ground heat exchanger sizing is embedded in the ComStock run as a two-pass process. Reading left to right, the first box is Apply measure retrofitting existing system with GHP, feeding Initial load calculations. An arrow labeled hourly ground loads for borefield sizing runs down from the initial load calculation into the GHEDesigner Tool box at bottom center. GHEDesigner returns an arrow labeled g-function for ground heat exchanger, which feeds up into the Final simulation box at the right end. The figure makes clear that the borefield is not sized from a rule of thumb but from simulated hourly heating and cooling loads produced by a preliminary run of the retrofitted model, exported as a JSON file alongside borefield and soil property assumptions; GHEDesigner returns borehole count, borehole length and radius, ground properties, and g-function values, which re-enter the model before the annual simulation is rerun. Only that second run produces the results used for analysis.
+- source_image: 89131_images/image_000008_0fc30846bc042ca94f4316aa1f11308b0ed589c837ff31ab35b11b8a661f733a.png
+  source_image_sha256: dcca22ac68260d752afdd87a38c527d05fb9d4da6b646fe5c07cfe0419e7016d
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 4. Side-by-side OpenStudio plant loop diagrams for the initial load-calculation model and the final model, showing the three plant loops and the substitution of the vertical ground heat exchanger object for the temperature source object
+  description: |-
+    Paired OpenStudio plant-loop diagrams showing the same three-loop topology before and after ground heat exchanger sizing, with the GHEDesigner tool drawn between them. Both panels show three plant loops, labeled down the left margin of the left panel: Plant Loop 1, Heat Pump to Borefield Heat Exchanger; Plant Loop 2, Heat Pump to Heat Exchanger; Plant Loop 3, Heat Exchanger to Heating Coil. Object types are annotated above each component: OS:PlantComponent:TemperatureSource, OS:HeatPump:PlantLoop:EIR:Heating (WSHP), OS:HeatExchanger:FluidToFluid, OS:Coil:Heating:Water (heating coils, in red), and OS:GroundHeatExchanger:Vertical. In the left panel the ground side is a Temp Source object, the temporary dummy heat exchanger used for the initial load-calculation run, which regulates supply water temperature to meet demand every hour and reports the resulting hourly ground loads. An arrow labeled Timeseries ground loads runs from the left panel into the central GHEDesigner box; an arrow labeled G-function runs from GHEDesigner into the right panel, where the Temp Source has been replaced by a Vertical Ground HX object. Supply and demand sides are marked on each loop.
+- source_image: 89131_images/image_000009_7e303a0b509dbf961c908564454609bc2d640d5f4ad87f41aa5a14033f973e4d.png
+  source_image_sha256: ebd298fa8c69c84ae7172535105381a2782a2a839d5121c276197de866e45805
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 5. Two side-by-side stacked column charts of annual energy consumption by end use in kWh for the single example building, Baseline versus Packaged GHP, with all loads on the left and HVAC loads only on the right
+  description: |-
+    Two stacked column charts comparing annual end-use energy consumption in kilowatt-hours for the single example building, a 17,500-square-foot office in Kansas City, Kansas (climate zone 4A), before and after the Packaged GHP upgrade. The left chart, Total Energy Consumption by End Use (kWh), covers all loads; its y-axis runs to 600,000 kWh, the Baseline column reaches roughly 510,000 kWh and the Packaged GHP column roughly 430,000 kWh. The right chart, HVAC Loads Only, uses a y-axis to 350,000 kWh; Baseline reaches roughly 330,000 kWh and Packaged GHP roughly 220,000 kWh, a much larger proportional reduction than the all-loads view. The shared legend covers Electricity Interior Equipment, Electricity Fans, Electricity Cooling, Electricity Interior Lighting, Natural Gas Heating, Electricity Heating, Natural Gas Water Systems, Electricity Exterior Lighting, and Electricity Pumps. The body text reports 22% total site energy savings for this building, a 94% decrease in natural gas and a 25% decrease in electricity; natural gas heating is eliminated and replaced by a smaller electric heat pump load, cooling falls (COP 4.3 to 6.7), and fan and pump energy rise. Gas water heating remains, so the building is not fully electrified. Its borefield holds 56 boreholes at 427 feet each.
+- source_image: 89131_images/image_000010_89026cee4009c706ffac590c9337a42b9f5fa7fc09a68f48fc1e47895c57746b.png
+  source_image_sha256: d33cd54b4514f27ee7d48519b191824d998e3e6c4edec1c5d13ad19f02781fd0
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 6. Stacked column chart of the total estimated annual utility bill in USD by fuel for the example building, Baseline versus Packaged GHP, splitting median electricity bill from natural gas bill
+  description: |-
+    Stacked column chart titled Total Estimated Utility Bill by Fuel (USD) for the single example building, with two columns, Baseline and Packaged GHP, each split into a blue Median Electricity Bill segment and an orange Natural Gas Bill segment. The y-axis runs to about 45,000 USD. The Baseline column totals roughly 40,000 USD, of which about 31,000 USD is electricity and the remaining roughly 9,000 USD is natural gas. The Packaged GHP column totals slightly less, roughly 39,500 USD, and is almost entirely electricity with only a thin orange sliver of gas remaining. The visual point is that the two totals are nearly identical: the large increase in the electricity bill is offset by the near-elimination of the gas bill. The body text gives the components: after the upgrade the median annual electricity bill rose 24.5% (7,697 USD) and the average rose 19.8% (6,254 USD), while the natural gas bill fell 95.0% (8,051 USD), so the all-fuel total is expected to decrease slightly despite the added electric load. The text cautions that this outcome depends on which of several available electricity rate structures the building actually uses.
+- source_image: 89131_images/image_000011_80a0f2301db4eeb9691bb64e12beda65868998ea2f87564de671def145f0bdc7.png
+  source_image_sha256: 47e8c82850e326668950be2998f2e78f2b466ac9f73ccc505bebd6ed6e7cbcac
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 7. Stacked column comparison of annual site energy consumption in TBtu by fuel type and end use, ComStock baseline (4338 TBtu) versus Packaged GHP (3831 TBtu), with segment values labeled
+  description: |-
+    Stock-level stacked column chart of annual site energy consumption in TBtu comparing the ComStock baseline against the Packaged GHP upgrade, with per-segment values printed inside the bands and column totals above: Baseline 4338 TBtu and Packaged GHP 3831 TBtu, a 507 TBtu (11.7%) reduction. The legend spans 17 fuel-and-end-use categories, from Heat Rejection and Heat Recovery Electricity through Pumps, Refrigeration, Exterior Lighting, the Water Systems categories (Other Fuel, District Heating, Natural Gas, Electricity), the Heating categories (Other Fuel, District Heating, Natural Gas, Electricity), Interior Lighting, Cooling (District Cooling, Electricity), Fans, and Interior Equipment (Natural Gas, Electricity). Labeled segments that change: Cooling Electricity falls from 667.3 to 534.7 (132.6 TBtu saved, 19.9%), Heating Electricity rises from 175.2 to 250.8 (a 75.6 TBtu increase, 43.2%), and Fans Electricity rises from 519.1 to 541.5 (22.4 TBtu, 4.3%). The large hatched red Heating Natural Gas band falls by 455.2 TBtu (53.2%), and Pumps Electricity rises by 25.1 TBtu (58.9%). Unaffected segments are identical in both columns: Interior Equipment Electricity 739.7, Interior Equipment Natural Gas 212.1, Interior Lighting Electricity 451.9. Total heating load across all fuels falls 37%.
+- source_image: 89131_images/image_000012_6bec315bbc166797fe5605a2223e2ac63b31004b6b9dce467bd59c0ece24f928.png
+  source_image_sha256: 2dd11ba192bcc25edc8648cc3904d672d250feacd6e9a62463f671f6cbada39e
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 8. Grouped stacked column chart of annual greenhouse gas emissions in MMT CO2e by fuel, baseline versus Packaged GHP, under three electricity grid scenarios: eGRID 2021, LRMER High RE Cost 15, and LRMER Low RE Cost 15
+  description: |-
+    Greenhouse gas emissions comparison in million metric tons of CO2 equivalent (MMT CO2e), shown as three side-by-side panels, one per electricity grid scenario, each holding a Baseline and a Packaged GHP stacked column. Fuels are stacked and color-coded: Electricity (blue), Natural Gas (yellow), Fuel Oil (green), Propane (orange). Column totals are printed above each bar with percent change on the upgrade column. eGRID 2021: 402 baseline versus 370 (-8%), electricity rising 314 to 316 and natural gas falling 81 to 50. LRMER High RE Cost 15: 325 versus 297 (-9%), electricity 237 to 243, natural gas 81 to 50. LRMER Low RE Cost 15: 240 versus 215 (-10%), electricity 152 to 161, natural gas 81 to 50. The pattern is consistent: natural gas emissions fall 31 MMT (38.3%) in every scenario, electricity emissions rise 2 to 9 MMT (0.6% to 5.9%) because space heating is electrified, and net emissions avoided are 25 to 32 MMT (8% to 10%). Natural gas, fuel oil, and propane values are identical across the three panels because the scenarios differ only in the electricity grid. Absolute totals shrink from eGRID to Low RE Cost as the assumed grid gets cleaner, so the percentage reduction grows even as the absolute reduction narrows.
+- source_image: 89131_images/image_000013_186fd97d65fc96afe6fc26123025700cd6810590ad92705eb372a6495078bf57.png
+  source_image_sha256: 3cb2ca331afd723c8d306fa05fa8053e1f9e27b9e4f6277469bcc036d89c94f1
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 9. Violin plot distributions of percent site energy savings across applicable ComStock models for the Packaged GHP upgrade, one row per end use and fuel type with model counts, on an x-axis from -160% to 100%
+  description: |-
+    Violin plot panel titled Upgrade 02: Packaged GHP (unweighted), showing the distribution of percent site energy savings across individual applicable ComStock models, one horizontal violin with an inner box plot per end-use-and-fuel category. The x-axis runs from -160 to 100 percent savings with a vertical reference line at zero; positive is savings, negative is a consumption increase. Rows top to bottom with model counts: Other Fuel Water Systems (n=43), Other Fuel Heating (n=302), Natural Gas Water Systems (n=1570), Natural Gas Heating (n=5011), Electricity Water Systems (n=1378), Electricity Refrigeration (n=776), Electricity Pumps (n=7368), Electricity Heating (n=7336), Electricity Heat Recovery (n=205), Electricity Fans (n=6960), Electricity Cooling (n=7368). Natural Gas Heating and Other Fuel Heating are compressed against the 100% edge (near-complete space heating electrification), with a thin tail of low-savings warehouse models whose unconditioned storage retains gas unit heaters. Electricity Heating centers around 30% to 70% savings with a long negative tail. Electricity Cooling averages 30% to 40% savings. Electricity Pumps is far left, most models worse than -40%. Electricity Fans straddles zero, average change under 1%. Water systems, refrigeration and lighting barely move.
+- source_image: 89131_images/image_000014_b26370134d980c3f132dc9ac08b0ed685827e503a9817c49c8aeee0148d01c4b.png
+  source_image_sha256: d82c0222d227546d75df7f29cc6e5e091f96089dafc37b3f6cbdb86584147372
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 10. Box-and-whisker comparison of the hour of day at which the maximum daily electricity peak occurs, baseline versus Packaged GHP, in three stacked panels for summer, winter, and shoulder seasons
+  description: |-
+    Three stacked box-and-whisker panels, labeled summer, winter, and shoulder, comparing when the maximum daily electricity peak occurs for the ComStock baseline versus the Packaged GHP upgrade. Each panel has two rows under an Upgrade Name axis, Baseline and Packaged GHP, plotted against a shared x-axis of Maximum Daily Peak Timing by Season (Hour of Day) running 0 to 24. In all three seasons the interquartile boxes sit in the late morning to mid-afternoon window, roughly hours 10 through 15, with long whiskers stretching from the early morning into the evening and scattered outlier points near hour 22 and beyond. Baseline and upgrade distributions are similar in shape, so the effect is a shift in central tendency rather than a restructuring of peak timing. The body text reports that the winter peak moves earlier in the day because morning electric heating gains influence over winter peak load once heating is electrified, while the summer and shoulder peaks move slightly later, attributed to the ground-coupled heat pump's efficiency no longer tracking outdoor air temperature the way the baseline direct-expansion cooling equipment did.
+- source_image: 89131_images/image_000015_e24e915e8c26fe2870566bcb628f55a82ede31090409d0045cad5b17e36d88d6.png
+  source_image_sha256: 5cb5d61408c3937ffc3b182ceeca129f9181140f12c0d128cef7d7c250357c11
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 11. Horizontal bar chart of median electricity peak intensity in W/ft2 for the baseline and Packaged GHP scenarios, broken out by climate zone in rows and by season in three column panels (summer, winter, shoulder)
+  description: |-
+    Small-multiple horizontal bar chart of median electricity peak intensity in watts per square foot, with rows grouped by climate zone and, within each zone, a Baseline bar above a Packaged GHP bar. Three column panels give Median Summer Elect. Peak W/ft2, Median Winter Elect. Peak W/ft2, and Median Shoulder Elect. Peak W/ft2, each with values printed at the bar ends. Climate zone rows top to bottom: Hot-Humid, Hot-Dry, Marine, Mixed-Dry, Mixed-Humid, Cold, Very Cold, Subarctic. Summer peaks fall in every zone because the heat pumps cool more efficiently; Hot-Humid is the largest and clearest case, dropping from 3.8 to 3.0 W/ft2, and the body text gives 19% to 27% median reductions in all zones except Subarctic. The Subarctic summer panel is blank because that zone has no days classified as summer. In winter the heating-dominated Cold and Very Cold zones show a 17% to 22% increase in peak intensity from the added electric heating load, while cooling-dominated and moderate zones fall by up to 12% because HVAC efficiency gains outweigh the added heating. Shoulder-season peaks fall 9% to 17% in every zone. Subarctic winter and shoulder medians are unchanged, on a very small sample.
+- source_image: 89131_images/image_000016_9f8603e889ba7e7c7aea8c7eecf1302b401f8f93adb05f5a281dd75971818296.png
+  source_image_sha256: 25dd854c5d7d5450a8272c43ed8af892f39de8641912d878dcc87e1b39a6a2be
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 12. Box-and-whisker and violin distributions of percent site energy savings by IECC climate zone for the Packaged GHP upgrade, 16 zone rows with model counts, on an x-axis from -60% to 80%
+  description: |-
+    Distribution plot of percent site energy savings by climate zone for the Packaged GHP upgrade, one horizontal violin with an inner box plot per zone, with a vertical reference line at zero savings. The x-axis, Percent Site Energy Savings by Climate Zone (%), runs from about -60 to 80. Zone rows top to bottom with model counts: 1A (n=4382), 2A (n=31154), 2B (n=4600), 3A (n=36655), 3B (n=21039), 3C (n=6233), 4A (n=54936), 4B (n=1822), 4C (n=8311), 5A (n=59314), 5B (n=11638), 6A (n=13591), 6B (n=1781), 7 (n=346), 7A (n=1343), 7B (n=165). The medians march steadily rightward from the hottest to the coldest zones. Zones 1A through 3A average 10% savings or less and their lower quartiles sit left of zero, meaning a quarter of those buildings use more site energy after the upgrade, driven by increased fan and pump energy where cooling-dominated loads push heat into the ground year after year and raise ground temperatures. Zones 5 through 7 average roughly 15% to 40% savings and very few models in zones 6 and 7 show any increase, because commercial buildings in cold climates carry year-round cooling loads and so present a more balanced, thermally stable borefield load.
+- source_image: 89131_images/image_000017_e53e2b6cb747db6e39dfafe136a8c7a2cf8b80730fd1e53734e329b474706e72.png
+  source_image_sha256: bea286da42a9ba2ec2212f32e3deadfdc0adeaebf1999bedca4991c58d472ca1
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure B-1. Grid of 17 histograms showing the distribution of soil thermal conductivity in W/m-K among ComStock model samples, one panel per IECC 2012 climate zone from 1A through 8AK
+  description: |-
+    Grid of 17 small histograms, one per IECC 2012 climate zone, showing how soil thermal conductivity is distributed across the ComStock sample within each zone. Panels are titled Climate Zone: 1A, 2A, 2B, 3A, 3B, 3C, 4A, 4B, 4C, 5A, 5B, 6A, 6B, 7A, 7AK, 7B, and 8AK. Each shares an x-axis of Thermal Conductivity (W/m-k) from 0 to 4 but has its own y-axis of Samples, so bar heights are not comparable between panels. Sample counts differ by orders of magnitude: 2A and 5A peak near 5,000-6,000 models, 3A and 3B in the low thousands, while 1A, 3C, 4C, 7A, 7AK, 7B, and 8AK hold only tens. Most zones are strongly unimodal with a sharp mode just below 2.0 W/m-K and mass concentrated between about 1.5 and 2.5 W/m-K. Zone 7B is the clear exception, distinctly bimodal with a large group near 0.5 to 1.0 W/m-K and a second group near 2.0 to 2.5 W/m-K. Zones 2B and 3C show broader, flatter left shoulders. Soil conductivity is drawn from the SMU Geothermal Laboratory dataset and is a GHEDesigner input that drives required borefield length, so these distributions govern how much ground heat exchanger each model receives.

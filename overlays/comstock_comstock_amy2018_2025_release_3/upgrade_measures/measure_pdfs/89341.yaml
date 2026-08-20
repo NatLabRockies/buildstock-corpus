@@ -1,0 +1,175 @@
+# Hand-authored figure descriptions for measure PDF 89341
+# (Thermostat Control for Load Shifting -- pre-cooling before the daily peak window, large offices).
+#
+# Scope: the source markdown carries 17 image refs. Images 000000 and 000001 are the NREL cover
+# photo grid and the NREL wordmark -- decorative, no retrievable content, deliberately NOT
+# described. The 15 entries below cover Figures 1-10, Figures A-1 through A-4, and Table 1.
+#
+# Table 1 (image 000003) is a vision-transcription, not a description: the on-site fossil fuel
+# emissions factor table exists in the source ONLY as an embedded bitmap. The body text at Section
+# 3.3 references "Table 1" but no markdown table was extracted and no caption line survives, so
+# without this entry the emissions factors would be invisible to retrieval. Tables 2 and 3 both
+# extracted as real markdown and need no overlay.
+#
+# QA flags (least-certain reads and source/extraction artifacts, for the human review pass):
+#  * Table 1 (000003) -- the propane factor is printed as 177.8 lb/MMBtu (182.3 kg/MWh). Those two
+#    numbers are mutually inconsistent: 177.8 lb/MMBtu converts to roughly 275 kg/MWh, matching the
+#    self-consistent 275.7 printed in sibling document 89126. This looks like a source typo, and it
+#    recurs in 89133 and 92618. Transcribed exactly as printed -- do not silently "fix" it.
+#  * Figure 3 (000005) -- the chart shows FOUR scenario rows per month (Default load shift, More
+#    aggressive, Shorter peak, Shorter pre-peak) but Table 3 defines only THREE parameter sets
+#    (Default, More Aggressive Pre-Cooling, Shorter Pre-Peak). The extra "Shorter peak" row is
+#    unexplained in the text; the description names all four rows as printed without inventing a
+#    definition for it.
+#  * Figure 1 (000002) -- only the LargeOffice (9.72%), Warehouse (23.41%) and PrimarySchool
+#    (11.29%) floor-area labels are clearly legible; the other building-type percentages are printed
+#    in light gray at small size and are NOT asserted. The 33.30% / 66.70% applicability split is
+#    clear and matches the body text's "33.3% ... both electric heating and cooling ... remaining
+#    66.7% ... only electric cooling".
+#  * Figures A-1 to A-4 (000013-000016) -- these bar charts carry no data labels, so all TBtu values
+#    quoted are axis estimates and are hedged with "roughly"/"near". The load-bearing claim (baseline
+#    and upgrade bars coincide) is unambiguous and does not depend on those readings.
+#  * Figure 4/5 (000006/000007) -- box statistics are read off unlabeled axes; the seasonal pattern
+#    and sign are reliable, the exact percentile values are approximate.
+#  * Source naming artifacts, not figure issues: (a) the captions for Figures 7-10 say "load
+#    shedding" although this document is the load SHIFTING measure -- an apparent copy-paste from
+#    the sibling load shedding report; the descriptions use "load shift" to match the plotted series
+#    labels. (b) Figures A-1 to A-4 label the upgrade series with the internal measure key "shiftfb"
+#    rather than a readable scenario name. (c) Figure 10's zone rows list both "7" and "7A", each
+#    with n=8. (d) the Measure Summary block gives Release as "2024 Release 1" even though this PDF
+#    ships with the 2025 Release 3 corpus. (e) Figure 6's caption says "for mean, and median bill"
+#    while the body text mentions maximum, mean and median; the bitmap plots only mean and median,
+#    so the caption matches the figure.
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: measure_pdfs/89341.pdf
+figures:
+- source_image: 89341_images/image_000002_5973bd6f6f9707b611941a35a031fd970abf78b59145455460b128e61bcccd58.png
+  source_image_sha256: e8ab5cbf99a7a6bb4b79d5abc32330882f39dbc639c71cb3fafc677211db8542
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 1. Two-panel bar chart showing each ComStock building type's share of stock floor area (left) and the applicability of the thermostat load shifting measure within each building type (right), with large office the only applicable type at 9.72% of floor area
+  description: |-
+    Paired horizontal bar chart establishing the measure's applicability. The left panel plots % of Stock Floor Area for each ComStock building type, listed top to bottom: FullServiceRestaurant, Hospital, LargeHotel, LargeOffice, MediumOffice, Outpatient, PrimarySchool, QuickServiceRestaurant, RetailStandalone, RetailStripmall, SecondarySchool, SmallHotel, SmallOffice, Warehouse. The LargeOffice bar is highlighted green and labeled 9.72%; Warehouse is the largest type at 23.41% and PrimarySchool is 11.29%, with the remaining types each under about 10%. The right panel plots Applicability % of Building Type Area on a 0 to 100% axis; only the LargeOffice row is filled, split into 33.30% of large office area with both electric heating and electric cooling and 66.70% with electric cooling only, so 100% of large office floor area is applicable. Two legends are given: Applicability - electric HVAC (Applicable: cool only; Applicable: heat & cool; Not applicable) and Applicability - building type (Applicable: large office; Not applicable). The body text ties this to 3,158 large office model samples, which weight up to 19,212 buildings nationally.
+- source_image: 89341_images/image_000003_6f63600c62e4d8971e6922138f1d8eb054f0df66c5e356c0ed60596528a8cbe3.png
+  source_image_sha256: 30e9b75059eb0c0172af2cc80694e29d8db88cad64e8769b04cb008b66414659
+  method: vision-transcription
+  described_utc: '2026-08-20'
+  alt: |-
+    Table 1. On-Site Fossil Fuel Emissions Factors, giving natural gas 147.3 lb/MMBtu (228.0 kg/MWh), propane 177.8 lb/MMBtu (182.3 kg/MWh), and fuel oil 195.9 lb/MMBtu (303.2 kg/MWh)
+  description: |-
+    Table 1. On-Site Fossil Fuel Emissions Factors. This table exists in the source PDF only as an embedded bitmap, so its values are transcribed here.
+
+    | Fuel | Emissions factor |
+    | --- | --- |
+    | Natural gas | 147.3 lb/MMBtu (228.0 kg/MWh) |
+    | Propane | 177.8 lb/MMBtu (182.3 kg/MWh) |
+    | Fuel oil | 195.9 lb/MMBtu (303.2 kg/MWh) |
+
+    Footnote as printed: lb = pound; MMBtu = million British thermal units; kg = kilogram; MWh = megawatt-hour. These factors apply to emissions from on-site combustion of fossil fuels and are taken from Table 7.1.2(1) of the draft ANSI/RESNET/ICC 301 standard. They are combined with the grid electricity emissions from a single chosen grid scenario (eGRID, Cambium LRMER High RE Cost 15-Year, or Cambium LRMER Low RE Cost 15-Year) to obtain total emissions.
+- source_image: 89341_images/image_000004_2e8bde333eff30d31d7899e57c5ece81e72e0a987e0a380e0b063ba08d9a9df8.png
+  source_image_sha256: 919be0c5632eed99b6f05c6eadde5d697e4607d9a69b1f067a88fadd76d537be
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 2. Two stacked line charts of hourly building load in kWh over three consecutive days (August 7 to 9), comparing the baseline against the default load shift scenario and, respectively, the more aggressive pre-cooling and shorter pre-peak scenarios
+  description: |-
+    Two stacked time-series line charts of hourly building load in kWh across three consecutive summer days labeled 8/7, 8/8 and 8/9, for a single large office test model. Both panels share a y-axis of Hourly load (kWh) from 50.00 to 250.00 and both plot the same dashed blue Baseline and solid red Load Shift, Default series; the top panel adds Load Shift, More Aggressive Pre-cooling and the bottom panel adds Load Shift, Shorter Pre-peak, both in yellow. Each day shows an overnight floor near 110 kWh climbing to a broad daytime peak near 200 kWh. The load shift traces depart from the baseline as a spike followed by a dip, which visually marks the pre-cooling period and the subsequent peak window where the pre-conditioned thermal mass suppresses load. On 8/8 the shifted traces overshoot the baseline peak, reaching roughly 215 kWh, demonstrating that even the default parameter set can create a new higher peak during pre-cooling. The more aggressive pre-cooling and shorter pre-peak variants both overshoot more, because a larger setpoint offset or a pre-cool window that starts closer to the original peak acts when the cooling load is already high.
+- source_image: 89341_images/image_000005_9989c39b69208b7225ce03196ad31d66ef475c406a57b017c051ea6868bc468b.png
+  source_image_sha256: 8029a5abcc5e7fbe0359939d6d0f9d2ceaa7bf1ac854589bddd77ae3cbf811be
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 3. Grid of box plots of median daily peak load savings percentage by month, comparing the default load shift scenario against the more aggressive pre-cooling, shorter peak, and shorter pre-peak scenarios
+  description: |-
+    Small-multiple box plot grid comparing measure parameter sets month by month. Rows are grouped by month, January through December, and within each month there are four scenario rows: Default load shift, More aggressive, Shorter peak, and Shorter pre-peak. The shared x-axis is Median Peak savings [%], running from about -15% through 0% to +5%, with positive values indicating peak reduction and negative values indicating a new, higher peak. Results come from a reduced ComStock test run of 10,000 model samples, of which 90 large offices were applicable. In the winter and shoulder months (January through April, October through December) all four scenarios are tightly clustered within roughly a percent of zero. In the cooling season (May through September) the distributions widen sharply and shift negative, most severely for the More aggressive scenario, whose boxes sit around -5% to -8% with whiskers past -15%. The Default scenario stays closest to zero with the least spread. The stated conclusions are that no single parameter set dominates in every month, that aggressive pre-cooling buys more shift potential at the cost of much larger variance and higher risk of creating a new peak, and that a shorter pre-peak window also raises that risk. On this basis the default settings were judged the most robust.
+- source_image: 89341_images/image_000006_144c1dc14e7ff87555850ce71a1b67a67e29dc135d2c5c4fad1d73a6a2a3e90f.png
+  source_image_sha256: 3e03b4f0094897e530aa50532ab7eba6105a9b656f2bd927ff51056f054f604b
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 4. Box plots by month of the percentage of median daily peak load reduction for the default load shift scenario relative to the baseline, on a y-axis from -3% to 4%
+  description: |-
+    Monthly box plot distribution of median daily peak load savings for the default load shift scenario, across all applicable large office models. The x-axis is the month, January through December, and the y-axis is Median Peak savings [%] from -3.0% to 4.0% with a reference line at zero. The winter and late-autumn months (January, February, March, November, December) are very tight, with boxes only a few tenths of a percent wide and medians slightly above zero. Spread grows through the shoulder months and is widest in the cooling season: May through September have boxes roughly spanning 0% to 1.3% with whiskers reaching about +3% and down to about -2%. July shows the largest interquartile range and August the deepest negative whisker. The overall picture is a small but positive median peak reduction concentrated in the cooling season, with a non-negligible share of models experiencing peak increases. Per the accompanying discussion, those negative cases arise when pre-cooling itself creates a new peak in setpoint-sensitive buildings, which would need smaller setpoint offsets and longer pre-conditioning windows; parameters therefore need per-model tuning. No clear correlation was found with heating fuel type.
+- source_image: 89341_images/image_000007_a583e8f69883a83099bbcf5b98170691751514c18c89442c1e3a4afb1bc503ac.png
+  source_image_sha256: b49d08d6c4d3bf815ad2c373a8a3301127360775c6a55ca82bfcb2a801da66a6
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 5. Box plots by month of the percentage of maximum daily peak load reduction for the default load shift scenario relative to the baseline, on a y-axis from -3% to 4%
+  description: |-
+    Monthly box plot distribution of maximum daily peak load savings for the default load shift scenario, the companion to the median-peak view. The x-axis is the month, January through December, and the y-axis is Max Peak savings [%] from -3.0% to 4.0% with a zero reference line. The seasonal shape matches the median-peak chart but with wider tails: January through March and November through December sit tightly just above zero, while May through October open up substantially. June, July and August carry the widest boxes, roughly 0% to 1.5%, with upper whiskers reaching about +3.3% and lower whiskers down to about -2.2%; August has the most negative tail and October still shows a box reaching about +1.1%. Because this statistic tracks the worst-case day in each month rather than the typical day, the negative tails are the important read: peak reduction is not guaranteed, and the same pre-cooling that lowers most daily peaks can raise the monthly maximum in some models. Both this and the median view support the conclusion that overall monthly reductions are positive but modest and concentrated in cooling season.
+- source_image: 89341_images/image_000008_52b218fb751582519f08fdce66e676f437c38dbd789299c05a214120a4236480.png
+  source_image_sha256: 1a076a1120391b74a66399505837bb9b9ad4d93b5fd2439753f99435e3558632
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 6. Box plots of annual utility bill cost savings percentage for the default load shift scenario, split by electric versus non-electric heating and by whether savings are measured against the mean or median bill across applicable rate structures
+  description: |-
+    Box plot comparison of annual utility bill savings for the default load shift upgrade, on an x-axis of Utility bill cost savings [%] running from -1.0% to +1.0% with a zero reference line. Four rows are shown, grouped into two blocks: Electric heating, with Savings from mean bill and Savings from median bill, and Non-electric heating, with the same two rows. All four distributions are narrow and centered slightly to the left of zero, with interquartile boxes roughly between -0.4% and 0.0%, whiskers reaching about -1.0% on the low side and only about +0.6% on the high side. The reading is that bill savings are essentially zero and marginally negative for every combination, with no meaningful difference between electric and non-electric heating buildings. The accompanying text explains why: load shifting produces zero or slightly negative net energy savings, so the only sources of bill reduction are time-of-use rates whose peak price hours coincide with the identified daily peak window, and monthly or seasonal demand charge reductions. Those gains are offset by the extra energy consumed during pre-cooling. The text also notes this understates the measure's value, since daily-granularity demand response incentives cannot yet be represented in the ComStock bill calculation.
+- source_image: 89341_images/image_000009_f3968aa8a4040e3dc62e34afb7d0db22757ad0f93d10d461503a20465ca1bcde.png
+  source_image_sha256: f90efc86fcfbbdb99efab309d927fa27757f259524e2353910280e58450c34ad
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 7. Two stacked column charts comparing annual site energy consumption in TBtu by fuel and end use, baseline versus load shift, for the whole ComStock stock (4338 to 4339 TBtu) and for applicable large offices only (317 to 318 TBtu)
+  description: |-
+    Paired stacked column charts of annual site energy consumption in TBtu, baseline versus Load shift. The left panel, Stock, covers all of ComStock and totals 4338 TBtu baseline against 4339 TBtu with the upgrade; the right panel, Applicable large offices, totals 317 against 318 TBtu. Both use the same 17-category legend spanning Heat Rejection and Heat Recovery Electricity, Pumps, Exterior Lighting, the Water Systems categories (Other Fuel, District Heating, Natural Gas, Electricity), the Heating categories (Other Fuel, District Heating, Natural Gas, Electricity), Interior Lighting, Cooling (District Cooling, Electricity), Fans, and Interior Equipment Electricity. At stock level the labeled segments barely move: Interior Equipment Electricity 739.7 unchanged, Interior Lighting 451.9 unchanged, Heating Electricity 175.2 unchanged, Cooling Electricity 667.3 rising to 667.5, and Fans 519.1 rising to 519.3. In the applicable-buildings panel the same pattern holds at smaller scale, with Interior Equipment 108.1 unchanged, Cooling 60.5 rising to 60.7 and Fans 37.4 rising to 37.7. The figure's point is that this is a load-shape measure, not an efficiency measure: total site energy is flat to very slightly higher, because pre-cooling adds cooling and fan energy that the peak-window setback does not fully recover.
+- source_image: 89341_images/image_000010_fcf6c5d6e7a419129749c7756eb66b840f322c532de70daa480938d9a3f131d2.png
+  source_image_sha256: 0cdee6cf429044840d2d4ff9a936cc96cda4b85521fc6263cc9a88ea240d9e8e
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 8. Grouped stacked column chart of annual greenhouse gas emissions in MMT CO2e by fuel, baseline versus load shift, under three grid scenarios (eGRID 2021, LRMER High RE Cost 15, LRMER Low RE Cost 15), all showing 0% change
+  description: |-
+    Greenhouse gas emissions comparison in million metric tons of CO2 equivalent, arranged as three panels, one per electricity grid scenario, each holding a Baseline and a Load shift stacked column. Fuels are color-coded: Electricity (blue), Natural Gas (yellow), Fuel Oil (green), Propane (orange). Totals are printed above the bars with percent change on the upgrade column. eGRID 2021: 402 versus 402 (0%), electricity 314 in both, natural gas 81 in both. LRMER High RE Cost 15: 325 versus 325 (0%), electricity 237, natural gas 81. LRMER Low RE Cost 15: 240 versus 240 (0%), electricity 152, natural gas 81. Every labeled value is identical between baseline and upgrade in every scenario, giving approximately 0% stock-level emissions reduction. This is the expected result: the measure shifts when electricity is consumed rather than reducing how much, and the annual emissions accounting used here does not capture the intra-day timing benefit. Absolute totals fall from eGRID through LRMER High RE Cost to LRMER Low RE Cost as the assumed grid becomes cleaner, while non-electric fuels stay fixed across panels.
+- source_image: 89341_images/image_000011_204849aecdc0bd1c4e929f3c2ca99088dbb9ddbc8df64d914e3029257ab4f72e.png
+  source_image_sha256: a526d4f853b69945bed4ac6745e0bda88f6618a2f3517df3a7c263ac8dbe5310
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 9. Two stacked violin plot panels showing per-model site energy savings by end use and fuel for the load shift upgrade, expressed as percent savings (top) and as site EUI savings in kBtu/ft2 (bottom), with model counts per category
+  description: |-
+    Two stacked violin plot panels giving the distribution of savings across individual applicable ComStock models, broken out by end use and fuel. The top panel's x-axis is Percent Site Energy Savings by End Use (%), spanning -80 to 40; the bottom panel's is Site EUI Savings by End Use (kBtu/ft2), spanning -1 to 1.4. Both share the same category rows, with model counts: Other Fuel -- Water Systems (n=2), Heating (n=71); District Heating -- Water Systems (n=16), Heating (n=307); Natural Gas -- Water Systems (n=168), Heating (n=1623); Electricity -- Water Systems (n=277), Pumps (n=2282), Interior Lighting (n=1), Heating (n=1333), Heat Rejection (n=1835), Heat Recovery (n=106), Fans (n=3008), Cooling (n=3136). Nearly every distribution is a narrow spike centered on zero in both panels, consistent with a load-shifting measure that leaves annual energy essentially unchanged. Natural Gas Heating is the conspicuous exception, with a long left tail reaching roughly -40% in the percent panel and the widest EUI spread, reflecting a small number of models where the altered cooling setpoint schedule incidentally changed heating operation. Electricity Heating and Electricity Cooling show modest two-sided spread; scattered points beyond the whiskers are outliers past 1.5 times the interquartile range.
+- source_image: 89341_images/image_000012_4f33f4810da3103deddaa425a601c74b8e308892c02221ddc2b5e04255d46f13.png
+  source_image_sha256: 65ad60f37f34061ca2821332f080060799f7a76356db7d43e399246cc6948051
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 10. Two stacked violin plot panels showing per-model site energy savings for the load shift upgrade by ASHRAE climate zone, as percent savings (top) and site EUI savings in kBtu/ft2 (bottom), with model counts per zone
+  description: |-
+    Two stacked violin plot panels giving the distribution of savings across individual applicable ComStock models grouped by ASHRAE climate zone. The top panel's x-axis is Percent Site Energy Savings by Climate Zone (%), spanning -6 to 8; the bottom panel's is Site EUI Savings by Climate Zone (kBtu/ft2), spanning -1 to 1.6. Both panels share the same zone rows with model counts: 1A (n=49), 2A (n=318), 2B (n=47), 3A (n=372), 3B (n=233), 3C (n=106), 4A (n=893), 4B (n=10), 4C (n=106), 5A (n=750), 5B (n=99), 6A (n=136), 6B (n=5), 7 (n=8), 7A (n=8). Every zone is centered essentially on zero with a slight negative bias, meaning a marginal increase in annual site energy, and the bulk of each violin lies within about a percent of zero. Spread is widest in the zones with the largest samples, notably 3B, 4A and 6A, whose whiskers extend to roughly -4% to -6%; the sparsely sampled zones 4B, 6B, 7 and 7A are correspondingly narrow and should not be over-interpreted. There is no systematic climate gradient in the result, which is consistent with the measure changing load timing rather than annual consumption. Points beyond the whiskers are outliers past 1.5 times the interquartile range.
+- source_image: 89341_images/image_000013_8a3b8724439e8b88f8492703f4a1742bebbc804a73777dbbfc8b6128f85840e8.png
+  source_image_sha256: 7ea0f444d0bdbb746dc08f3f9d7d7fa9b1a39fc3c86ad343e211c6a4068281b9
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure A-1. Grouped bar chart of annual site natural gas consumption in TBtu by census division, baseline versus the load shift upgrade, showing visually identical pairs
+  description: |-
+    Grouped vertical bar chart from the appendix quality-assurance set, plotting Natural Gas Total Energy Consumption (TBtu) against Census Division Name, with a dark blue Baseline bar and a light blue upgrade bar in each pair. Divisions run left to right: New England, Middle Atlantic, East North Central, West North Central, South Atlantic, East South Central, West South Central, Mountain, Pacific. East North Central is the largest gas consumer at roughly 335 TBtu, followed by Middle Atlantic near 215 TBtu and Pacific near 145 TBtu; South Atlantic and West North Central sit near 135 and 115 TBtu, while New England, East South Central, West South Central and Mountain all fall between roughly 50 and 90 TBtu. In every division the baseline and upgrade bars are the same height to visual resolution, confirming that the measure has no effect on natural gas consumption. That is expected, since the load shifting strategy adjusts only cooling setpoints in large offices with electric HVAC. The figure serves as a quality check that the measure did not perturb non-target fuels or non-applicable regions.
+- source_image: 89341_images/image_000014_f5d06f65bf0fc48c0eb6d7d274e4796fa7ba5b147202c26e083ed42d2c1d8deb.png
+  source_image_sha256: cd0c7d8ccaba564d83dc919cf378c2506cdd5faa2b7b03796109fd30c595131f
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure A-2. Grouped bar chart of annual site natural gas consumption in TBtu by ComStock building type, baseline versus the load shift upgrade, showing visually identical pairs
+  description: |-
+    Grouped vertical bar chart plotting Natural Gas Total Energy Consumption (TBtu) against ComStock Building Type, with a dark blue Baseline bar and a light blue upgrade bar in each pair. Building types run left to right: FullServiceRestaurant, QuickServiceRestaurant, RetailStripmall, RetailStandalone, SmallOffice, MediumOffice, LargeOffice, PrimarySchool, SecondarySchool, Outpatient, Hospital, SmallHotel, LargeHotel, Warehouse. RetailStripmall is the largest gas consumer at roughly 190 TBtu, with SecondarySchool near 165 TBtu, FullServiceRestaurant near 155 TBtu, Warehouse near 145 TBtu and PrimarySchool near 120 TBtu; SmallHotel is the smallest at roughly 10 TBtu and Outpatient near 30 TBtu. LargeOffice, the only applicable building type, sits near 45 TBtu and is unchanged between baseline and upgrade, as is every other type. The complete absence of change is the intended reading: the measure adjusts cooling setpoints only, so it cannot affect gas consumption even in the buildings it is applied to, and it must leave all non-applicable building types untouched. This is a quality-assurance check rather than a results figure.
+- source_image: 89341_images/image_000015_5431fa21a9b21e6ba34d7fbc6b506515f04fa0da252c7f44ac52ba117dc0e31e.png
+  source_image_sha256: 983ab9c0f5d8c6ddcbb07522f6a2008b8d29a76556005fbc795f0c29fcc5b599
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure A-3. Grouped bar chart of annual site electricity consumption in TBtu by ComStock building type, baseline versus the load shift upgrade, showing pairs that are indistinguishable at annual resolution
+  description: |-
+    Grouped vertical bar chart plotting Electricity Total Energy Consumption (TBtu) against ComStock Building Type, with a dark blue Baseline bar and a light blue upgrade bar in each pair. Building types run left to right: FullServiceRestaurant, QuickServiceRestaurant, RetailStripmall, RetailStandalone, SmallOffice, MediumOffice, LargeOffice, PrimarySchool, SecondarySchool, Outpatient, Hospital, SmallHotel, LargeHotel, Warehouse. RetailStripmall is the largest electricity consumer at roughly 395 TBtu, followed by Warehouse near 360 TBtu, LargeOffice near 290 TBtu and RetailStandalone near 280 TBtu; SecondarySchool and PrimarySchool sit near 230 TBtu, SmallOffice and MediumOffice and LargeHotel near 190 to 200 TBtu, FullServiceRestaurant near 175 TBtu, Hospital near 165 TBtu, Outpatient near 125 TBtu, QuickServiceRestaurant near 65 TBtu and SmallHotel near 35 TBtu. Even for LargeOffice, the one applicable type, the baseline and upgrade bars are indistinguishable at this scale, which is the expected signature of a measure that relocates electricity use within the day rather than reducing it. Annual totals are the wrong resolution to see the effect.
+- source_image: 89341_images/image_000016_44512d8ad3d2ea117ced1850c905df1a514df36770428a0b74110c26f3383c7f.png
+  source_image_sha256: 250ba2d5c539bbe7e259b9bd0604b69d8e5b1890376c34255fdc75d4b49a0f03
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure A-4. Grouped bar chart of annual site electricity consumption in TBtu by census division, baseline versus the load shift upgrade, showing pairs that are indistinguishable at annual resolution
+  description: |-
+    Grouped vertical bar chart plotting Electricity Total Energy Consumption (TBtu) against Census Division Name, with a dark blue Baseline bar and a light blue upgrade bar in each pair. Divisions run left to right: New England, Middle Atlantic, East North Central, West North Central, South Atlantic, East South Central, West South Central, Mountain, Pacific. South Atlantic dominates at roughly 650 TBtu, followed by West South Central near 420 TBtu, Pacific and East North Central near 395 to 400 TBtu, and Middle Atlantic near 355 TBtu; West North Central and Mountain sit near 200 TBtu, East South Central near 180 TBtu and New England near 120 TBtu, the smallest. The baseline and upgrade bars coincide in every division. Compared with the natural gas companion figure this is the more informative check, since electricity is the fuel the measure actually touches: it confirms that annual electricity totals are preserved region by region, so the measure is relocating consumption within the day rather than adding or removing it. Regional magnitudes here are driven by floor area and cooling climate, not by the upgrade.

@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "comstock_amy2018_2025_release_3",
-  "generated_utc": "2026-08-20T16:32:35.985061+00:00",
+  "generated_utc": "2026-08-20T18:28:25.662862+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -711,7 +711,28 @@
           "title": "Geothermal Heat Pumps + High-Efficiency Envelope + LED Lighting Package",
           "input_sha256": "548deff66240e93c7f371db672e7322a5078aaff46d9867bfe7664393992c918",
           "output_path": "upgrade_measures/measure_pdfs/95009.md",
-          "output_sha256": "f017cea46d249ef0660fd0fb137a7f058c71f4350a4e61fa8258cd18e3bcc07f"
+          "output_sha256": "7498b99473efddd491c637827a20abb82bff0d654a9e56c64b5868c0de04f795",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95009.yaml",
+            "sha256": "b8002d04f063a3437437862cc62d1cccdd7eb6c07022831aefb00feb8616a886",
+            "tables_applied": [],
+            "figures_applied": [
+              "95009_images/image_000002_f62710097e886dc5f91c0e47e81458aa0a51b94a6a62bd90fd8b6def45632c64.png",
+              "95009_images/image_000003_9dd4bbe6fc162be69105cb283ed2ea4fe0380baa0bd2eb046df0e314e572e045.png",
+              "95009_images/image_000004_31a1e354ae0fe1fd211ed00c17d4658327cc02e7bcc7ce58441add16e68dc66e.png",
+              "95009_images/image_000005_acc4b964055ecca14eb220272b926e9f78e9d27373f9c529b71692bafcbcc973.png",
+              "95009_images/image_000006_0e0d6807b178e862a9d84868602cab96ae83015ced718a8c9626e5c6c5af7fd1.png",
+              "95009_images/image_000007_7ebcb8ebb47e44f6350003f3282dccdae4eeeea12cd31dc92a41c1d2c4ef4b7d.png",
+              "95009_images/image_000008_20f445591e8038cd4f24a413ae7eca5a569bb151dfe5fe2e8f36f5704a35c2ae.png",
+              "95009_images/image_000009_595b78c3cfdd3b196f485a3d6d8e7c3dbfc59c8b40cb56a80c09771d7235c302.png",
+              "95009_images/image_000010_d324828317df7accd9682ac2ce4b985e4d085bd276491e33d3d9da3e67d49157.png",
+              "95009_images/image_000011_f03bd41c9416ce6c42d9d142611127f78cd0a34929d6971ce0a7b734ce3608dd.png",
+              "95009_images/image_000012_7cf01912ec88309fc2c1a82efe72e50559517b02ae2ad64537bbf9b0e79c83e1.png",
+              "95009_images/image_000013_5b0dcce5394b78f3059927b4ea397000cdd87c65871de7928f3f401d064d2888.png",
+              "95009_images/image_000014_628544d53e0262ea67932e7c0dfff280396bc509d08b5d536725e820ba266e60.png",
+              "95009_images/image_000015_2f4648e2f2118e9e25105b19c82bb153adcf4859a2b2f8898891c2a08eed7295.png"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/95014.pdf",
@@ -727,7 +748,28 @@
           "title": "Electric Resistance Boilers",
           "input_sha256": "3cf5bd438e5c25856135f92adb02530aaf6ba678bef52c02133e33bad4eba4a4",
           "output_path": "upgrade_measures/measure_pdfs/95015.md",
-          "output_sha256": "261c21f2599567b61535d625d6bdd292f66052b4ed6599f9acc3b3528598704d"
+          "output_sha256": "a1afa0083d0a3d960d9168dcc89eedd915991e96c2f5a1fc575bb806575949ce",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95015.yaml",
+            "sha256": "e73c2ea620d22ed6da09c8a0be22cdd7697c1f6991d59bcd771db1090d920e28",
+            "tables_applied": [],
+            "figures_applied": [
+              "95015_images/image_000002_54779643b7747b3977197bb9cd286f46b1c0e225867f7b72adc06e958044560e.png",
+              "95015_images/image_000003_18effbc7ce6772b778c0216213ef43a162be9d5ebd183127eb0f292a837e6b86.png",
+              "95015_images/image_000004_a03bb66e09376fe471aca0401be62ef1ccf6e654f98b855b56c78bd2292af712.png",
+              "95015_images/image_000005_e9668c2bb302c9be256111593f390e3fd87ce4735318041d1818d6aa599a6d0d.png",
+              "95015_images/image_000006_e7f594ee90803f998a81643fc2582d95bd51191bbdd6016132d3e152fa36cbc2.png",
+              "95015_images/image_000007_41085ceefc5aa3a21019c9891e7077ea702b1a8d977dce9a880afceb2f124fe3.png",
+              "95015_images/image_000008_3bc3cd84e7d54b5b59a3ada9d6915eec62b911b803167b2251d3f0810143a665.png",
+              "95015_images/image_000009_c83e2289e6d1e2a7dcd08e07fd1d4767128c251a9ac9c51b30756d65d8b0333e.png",
+              "95015_images/image_000010_f4267209a4f06321eadf51cb742e00c183b2de355ab56a8895e7d1805490a566.png",
+              "95015_images/image_000011_e87ae381dc95144913861dcfce3e6c3c45ba93c655276eb66eeea07fe5a27983.png",
+              "95015_images/image_000012_c1a042cd9546c44120f08d1039dfcd104094a80f5062d3189af373424afc1e2c.png",
+              "95015_images/image_000013_a48e93167964acd11eabb3425864e19472ba97701e8b5cc8574ee564afe5f6c5.png",
+              "95015_images/image_000014_d04704ef3e75440de5cc83a51813c5a74b6914eddfd8ab3a8a0d275cc7d8f68a.png",
+              "95015_images/image_000015_642c84fa89154890fb0525996c451c91f9c9a11371ba09b5a1cba1b8bbbdac2c.png"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/95119.pdf",
@@ -735,7 +777,28 @@
           "title": "Laboratory-Informed Modeling of Standard Performance Heat Pump Rooftop Units",
           "input_sha256": "0f7ce74e4adb36870055269cc2b4bdb922b439ad0234a55ae009136ffe766d61",
           "output_path": "upgrade_measures/measure_pdfs/95119.md",
-          "output_sha256": "c5bec310cdc3ab7c1baca254b3a4a7f4cd4099c372871bf3230bda6aaff13c46"
+          "output_sha256": "5ed5217846863d95d4918a2837f4c7fd93f26c152362883b1a818fb2471d8cb4",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95119.yaml",
+            "sha256": "ee13d5ae9432e7a2f3e12c434d590e30c49d1a42f4550006f5cc34142027f577",
+            "tables_applied": [],
+            "figures_applied": [
+              "95119_images/image_000002_c961b0a585cb38519da935809fc888fb4ce139637ce7ec425ddaeb3a1c942b5d.png",
+              "95119_images/image_000003_2e2ac92c7d0fe66d2ca0e918ed8ef81c83ad4875780d2646afa15d158758e5c1.png",
+              "95119_images/image_000004_3dfa0b5ee02a466336d4736838cb84aaa6a5979d99449903a719a4160e681df4.png",
+              "95119_images/image_000005_1b7f87298f31a00bb9921da3bb0dfc398134dfa8fe1f1ca7f99f632981342a51.png",
+              "95119_images/image_000006_3efe4e409d0f41267ab837ea1783805321106c5d5f0c92512f72b79a2a6e6aba.png",
+              "95119_images/image_000007_99f3650c5a66eb564fe2f538c62d208871e1db7f943021774de44d1863b7ea23.png",
+              "95119_images/image_000008_e445587f762215014dea9a1a58214f3b341024a3750b56cc5f868bcbd582339a.png",
+              "95119_images/image_000009_5eb6e017fd59c5ac08d396e6b5575f8a81e59bf90e5739108227238df7822612.png",
+              "95119_images/image_000010_6e491239132321355348fde3c709bffab49f3311a0e24dcb4b14e3cddfd836e9.png",
+              "95119_images/image_000011_753379c841760a656ae46d806254fe291144f999e1d13e4db207cd5c07c2a612.png",
+              "95119_images/image_000012_b006f46d4440586c55576864e5614a059f1d8c2e788a26909bb7069b4ebd0c74.png",
+              "95119_images/image_000013_0da26ddd89d58a854ecb63ab97d51a12008459602cc36de09975494bfb93f150.png",
+              "95119_images/image_000014_f528627979d566f4ffba0f24d9bb681f0fb1540a559691b302cd3e5109bafa23.png",
+              "95119_images/image_000015_05bdb189d991bc273a14655c22bba733acc68a9be265b522db881cf9f1e95e5c.png"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/92504.pdf",
@@ -1083,7 +1146,32 @@
           "title": "Exhaust Air Heat/Energy Recovery",
           "input_sha256": "f9b51313bf2435991d52fc5695a7858c8fd87a0422e9310e6d66d8f539f9635e",
           "output_path": "upgrade_measures/measure_pdfs/87542.md",
-          "output_sha256": "1765ae1553d266a61f257fb248bb25888ab5e58c992ef5a716c4b3a9623a79fa"
+          "output_sha256": "6a16b24ad8ff16e079db368f50db69c3d51cefc4687480648a3cda259d6677ba",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/87542.yaml",
+            "sha256": "406c667de2dc02dd03e90deeba9a421ea6825846abe0dfdc738ed1eaa3287f2a",
+            "tables_applied": [],
+            "figures_applied": [
+              "87542_images/image_000002_5372d474e43f9ba1cf8488f8b99db12c9af6ea162aac4d980152103e14ad1148.png",
+              "87542_images/image_000003_47a7af429555f370a4b0da2801c75c320f7fa1aee78c7e26f352a71174fdadef.png",
+              "87542_images/image_000004_fc11f066a86e4c10901150b4c1cdcab39594b2c10f078e2ee3c79310ad920d7f.png",
+              "87542_images/image_000005_93cfc9fc2492aee99cdc8b41f817863fce977a6cecae86c609e1cf2026615a2e.png",
+              "87542_images/image_000006_47d8571a0078c0742d308d2ab32f5dc52a28e61215ee6ff606c68e0e8c7107d1.png",
+              "87542_images/image_000007_8498f6a339f52cc42b9cbca97b0b625ada7fda8cc6f818d86e33e235e71595f2.png",
+              "87542_images/image_000008_595e736284b669b3f5c3a8efe317fd4ce5f1503d65730c00d847dcf16eec5205.png",
+              "87542_images/image_000009_7945fe94eac74f5011667c664ae3a8605ac25210d1e5bc8e0ca5b038857af06e.png",
+              "87542_images/image_000010_157a1ea490fa0bc24aa6fd5b743868f4c304b1ddb3a839e8740cbd4ee3858841.png",
+              "87542_images/image_000011_cc928d16ae9a9fac04045423d213e6bfd7925aa4b7826a4b374baededa983285.png",
+              "87542_images/image_000012_c9d13af15f5f039bfb4c4796f1beae8c3bf2266d5fa39bed0f35c8d9d4074383.png",
+              "87542_images/image_000013_6fa1bca10caaf43e4e93ed9bd17c2d3959f34fdfa209392e057a3a0d485a0e0d.png",
+              "87542_images/image_000014_089039d91c7d3aaa02e323f4d7b3964f0d6cabe354e3a4c74839cf2518e59e6e.png",
+              "87542_images/image_000015_be5a12f470007b23977cb0d5af4b4bb72241256d36a6c0fd5ce17100be36b92f.png",
+              "87542_images/image_000016_ef6a23c99b944a1798da0c368055ec49b92e7ecadf99ccb0832049e882565c60.png",
+              "87542_images/image_000017_4ce8ded6452b1060378f2a46982129dbb29c3dda6d4f6ce8a5966b1b27ddffb0.png",
+              "87542_images/image_000018_2f70f2407ba9784f314805ab127e1d47b1b5d59c9ad895f2c1c00b3715525eca.png",
+              "87542_images/image_000019_971eba657aad4bd41bec945a72230352f609ab3e49a31479f12271015b8eed00.png"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/87570.pdf",
@@ -1196,7 +1284,27 @@
           "title": "Packaged Water-to-Air Geothermal Heat Pump",
           "input_sha256": "85880d4c853a58d9d7fd9b0968d231eb067b7290f557423b95412f4dc75326b1",
           "output_path": "upgrade_measures/measure_pdfs/89131.md",
-          "output_sha256": "28cba8eb35a9e913a19a27f6cec0928f829fbef2eb0c5bc5cdd560c608411f6b"
+          "output_sha256": "167b892b52b5c6083998bfab32922079d7d3ad68e7bf4bc5fdb0e10f1cb4ef4f",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89131.yaml",
+            "sha256": "d4f3ec277e0a38e6d018f82cda19d52b50e7cd5af2f110af69a4bdb9d618d04b",
+            "tables_applied": [],
+            "figures_applied": [
+              "89131_images/image_000005_dfdc6e45320d3292d119206f58d662ff5512e0f2bdfadb83e8f7134872b1ae41.png",
+              "89131_images/image_000006_eefef03057508b63a58508ae6d22487b8194870e41b262ae0b5be9764ff7759d.png",
+              "89131_images/image_000007_abcd8e7d9e00daa760a617b2c2da2926e3038f6d0176b4445d5260d2d96baf2d.png",
+              "89131_images/image_000008_0fc30846bc042ca94f4316aa1f11308b0ed589c837ff31ab35b11b8a661f733a.png",
+              "89131_images/image_000009_7e303a0b509dbf961c908564454609bc2d640d5f4ad87f41aa5a14033f973e4d.png",
+              "89131_images/image_000010_89026cee4009c706ffac590c9337a42b9f5fa7fc09a68f48fc1e47895c57746b.png",
+              "89131_images/image_000011_80a0f2301db4eeb9691bb64e12beda65868998ea2f87564de671def145f0bdc7.png",
+              "89131_images/image_000012_6bec315bbc166797fe5605a2223e2ac63b31004b6b9dce467bd59c0ece24f928.png",
+              "89131_images/image_000013_186fd97d65fc96afe6fc26123025700cd6810590ad92705eb372a6495078bf57.png",
+              "89131_images/image_000014_b26370134d980c3f132dc9ac08b0ed685827e503a9817c49c8aeee0148d01c4b.png",
+              "89131_images/image_000015_e24e915e8c26fe2870566bcb628f55a82ede31090409d0045cad5b17e36d88d6.png",
+              "89131_images/image_000016_9f8603e889ba7e7c7aea8c7eecf1302b401f8f93adb05f5a281dd75971818296.png",
+              "89131_images/image_000017_e53e2b6cb747db6e39dfafe136a8c7a2cf8b80730fd1e53734e329b474706e72.png"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/89132.pdf",
@@ -1204,7 +1312,24 @@
           "title": "Ground-Coupled Console Water-to-Air Heat Pump",
           "input_sha256": "d27965b6024345d0e5cbc9b992a860ade04061b1a852737a9d0147ddd4acea75",
           "output_path": "upgrade_measures/measure_pdfs/89132.md",
-          "output_sha256": "5ffffd2db44ff0a2af82eae8e8392957ca73071ea86924563b2e5ea8d34481a6"
+          "output_sha256": "9fe7ecef22f2734b1d89d421b9dc35a0e5419cea2e9bed66979fe3e521129a3b",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89132.yaml",
+            "sha256": "77898b39977241015b1444943e2a1f858577a14dc4b1ef97a53e8049b23d82b5",
+            "tables_applied": [],
+            "figures_applied": [
+              "89132_images/image_000007_e735e3f9553bb281a72569d26ce4a4ebcb8c6f17baa64624663097c4edda9230.png",
+              "89132_images/image_000008_39c75060fe286e3b18ca4c764239bed18bc265926da34ac7c7524f37f13a5566.png",
+              "89132_images/image_000009_a09514625020975365474573a7cd0f6894a493548aeb770e2b588ef742ae8c2f.png",
+              "89132_images/image_000010_8c1150f1f7821ca0e9b4aa6010176f9458d7c404811de9416f1e5d91ac0f9aeb.png",
+              "89132_images/image_000011_ddebc3b108c3191ebd919ad1e787638e6c0797312a9f5dd8b85868f9f2e8049c.png",
+              "89132_images/image_000012_5090d2ee1f9ac8a4b40d0f2c2e26dd44b3bf7db542aa3c3c4b49e6cff4b2a081.png",
+              "89132_images/image_000013_29d371dd3e8b26f8ed5ea178e93e66c5989c5fca029a92ad79254decfdf63b3d.png",
+              "89132_images/image_000014_80b164edc92d063033e33546ec2a87ff559a10762a78bc40fe262043331328b2.png",
+              "89132_images/image_000015_01fa900219c0737196a4d7eaee0d3bee8f299d7fc2d512b995e5dcb57dd74bbf.png",
+              "89132_images/image_000016_3b34cb0c2f6132057a2d2ec52dd3fca9e479de6de051a46044a6cfb6e52735e9.png"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/89133.pdf",
@@ -1244,7 +1369,32 @@
           "title": "Thermostat Control for Load Shedding",
           "input_sha256": "6f332db13bcc769e23398c1671f8f8accf98103f00a28872e827596d1fa31e20",
           "output_path": "upgrade_measures/measure_pdfs/89340.md",
-          "output_sha256": "1f00734013174b09c414145cd45c88d81da89fb66a4ef6f0ae2be41a099db054"
+          "output_sha256": "e4c21f18ea72330e9843f6379c8ed68dae1793747600200c2f337f241bda148c",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89340.yaml",
+            "sha256": "bac27f40c5a4271429c78f45ee357aca48e8f46e34aef050b75fea9609cf32ba",
+            "tables_applied": [],
+            "figures_applied": [
+              "89340_images/image_000002_bd5f685cca8bdb40d016098c75df7fa7f11d293ce609cff01370580a37a8f027.png",
+              "89340_images/image_000003_cf4332c6cfd36c54abe022695548a85168b50405d1c86d8ce48d78d6e4a74251.png",
+              "89340_images/image_000004_9b64138ceab7412fe9fdc09d57f67fbd6dbe0c5bd7507ceae6f8ba155c5d7de7.png",
+              "89340_images/image_000005_0d341283ef45889cd4efef35c4c22492901956e2ea3276ede778c29c3f466d8c.png",
+              "89340_images/image_000006_dca1b76a4e9daf0588275fd480bc137d1526bc80e1e2fb9f7fec746223f1a620.png",
+              "89340_images/image_000007_2601336e826ecef6cb6b6156dae61022978dcd064b882db54022206e91e5d65a.png",
+              "89340_images/image_000008_d40f5e987448287276893c4b95adefdb2cc87c30a362caa4a994c531287f6e16.png",
+              "89340_images/image_000009_1c084fb215dbcfd2bb6c1d1af3411a7ccfb960112eef2e2d4a0d5d8ccf959c77.png",
+              "89340_images/image_000010_1b7872b9977de9dfb79c12589483bc706b619e9b16c17bdf9e50ec1d68053e98.png",
+              "89340_images/image_000011_a65ea3aa59d300d280ad0e3bcd7e61674161f9f684b5abc4b1ef0b75b10917f2.png",
+              "89340_images/image_000012_2f856b33dcb8529a74808435b0cb24f345288837ed3e9cd5a431adc3ce56162d.png",
+              "89340_images/image_000013_8d3c9e3616538ea964e70ae266980e461d35757b54b297773d118cdc02bd6908.png",
+              "89340_images/image_000014_7c1597789fee8eacfab60ccdfe8ede2ec6fa1a3e3ee3509b744452eb00c65475.png",
+              "89340_images/image_000015_683dffb7c82d63ac1300748945de83b333e43b9b51f2a6694fcab33db5d51cc7.png",
+              "89340_images/image_000016_8aa2593f4dfc2aeaa63649667978079e25d1811917f39ab8d33903f976670230.png",
+              "89340_images/image_000017_c10ed1315a449b877e1ca54b0c9873c3981f94bfb3fbc27f5c4f6d1bfd778a05.png",
+              "89340_images/image_000018_0886618a114d2d8d8d276cf3a71157ce97fb5971ec771da0009c0d8da25e8712.png",
+              "89340_images/image_000019_b9fb8a38fc1c2a7885d8d60fcb5296e6d226b0aa4b63b3fec4ee86123b0d3c21.png"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/89341.pdf",
@@ -1252,7 +1402,29 @@
           "title": "Thermostat Control for Load Shifting",
           "input_sha256": "42458a537dad6d4ed7e8d64fbdc0fde8d13dac6f40ffb61ba225c7f48c4b0e3e",
           "output_path": "upgrade_measures/measure_pdfs/89341.md",
-          "output_sha256": "4c2f23719bdba214506130cc0f767ecd420ec1446336cb81508b8e1e2cac94e1"
+          "output_sha256": "c2fb13eef74ce62758fa23e2927178666794f52669994a3c6612d119dc80fac4",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89341.yaml",
+            "sha256": "17d8a3f73123258b92355b74d66b63b0384be7c92c677d3701170156e5cb47e3",
+            "tables_applied": [],
+            "figures_applied": [
+              "89341_images/image_000002_5973bd6f6f9707b611941a35a031fd970abf78b59145455460b128e61bcccd58.png",
+              "89341_images/image_000003_6f63600c62e4d8971e6922138f1d8eb054f0df66c5e356c0ed60596528a8cbe3.png",
+              "89341_images/image_000004_2e8bde333eff30d31d7899e57c5ece81e72e0a987e0a380e0b063ba08d9a9df8.png",
+              "89341_images/image_000005_9989c39b69208b7225ce03196ad31d66ef475c406a57b017c051ea6868bc468b.png",
+              "89341_images/image_000006_144c1dc14e7ff87555850ce71a1b67a67e29dc135d2c5c4fad1d73a6a2a3e90f.png",
+              "89341_images/image_000007_a583e8f69883a83099bbcf5b98170691751514c18c89442c1e3a4afb1bc503ac.png",
+              "89341_images/image_000008_52b218fb751582519f08fdce66e676f437c38dbd789299c05a214120a4236480.png",
+              "89341_images/image_000009_f3968aa8a4040e3dc62e34afb7d0db22757ad0f93d10d461503a20465ca1bcde.png",
+              "89341_images/image_000010_fcf6c5d6e7a419129749c7756eb66b840f322c532de70daa480938d9a3f131d2.png",
+              "89341_images/image_000011_204849aecdc0bd1c4e929f3c2ca99088dbb9ddbc8df64d914e3029257ab4f72e.png",
+              "89341_images/image_000012_4f33f4810da3103deddaa425a601c74b8e308892c02221ddc2b5e04255d46f13.png",
+              "89341_images/image_000013_8a3b8724439e8b88f8492703f4a1742bebbc804a73777dbbfc8b6128f85840e8.png",
+              "89341_images/image_000014_f5d06f65bf0fc48c0eb6d7d274e4796fa7ba5b147202c26e083ed42d2c1d8deb.png",
+              "89341_images/image_000015_5431fa21a9b21e6ba34d7fbc6b506515f04fa0da252c7f44ac52ba117dc0e31e.png",
+              "89341_images/image_000016_44512d8ad3d2ea117ced1850c905df1a514df36770428a0b74110c26f3383c7f.png"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/89343.pdf",
@@ -1280,7 +1452,32 @@
           "title": "Heat Pump RTU with Exhaust Air Energy Recovery",
           "input_sha256": "e42a2d212760f7fecf76ed67e1e1b9b1fe55258b70d85b5f794bfdf89b13a37b",
           "output_path": "upgrade_measures/measure_pdfs/89481.md",
-          "output_sha256": "825228968e924742515cfbdabcbbed9c880d32c44cde0e65c7bc403a2153aa27"
+          "output_sha256": "f06f2255e4c3bc22d91752d1ac775ea14a578441edf99ed60a7e6f4d1f177d94",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89481.yaml",
+            "sha256": "33c8343c8fb017fdd211c74764a7e50e1cd0a03fba57be3fb32a9a6e65ed0cc1",
+            "tables_applied": [],
+            "figures_applied": [
+              "89481_images/image_000002_87a5a54fa6ee5a4b370fa2af7c12d8db7e4cf6d3e0f9fa1030f8da5454b5cfd8.png",
+              "89481_images/image_000003_d81eb68cacb1e88a3eb4e10eae409d5a7f8f6fdefc56df6a27ceddc81d765ee5.png",
+              "89481_images/image_000004_e4c9d74ea3a06f588c7a64258b1a5eebda0fe4565b60616f4191e9e6b36ae035.png",
+              "89481_images/image_000005_420b8817e66f06921195251d4dcb330fedbfb37d9bb431a2bf88c553cab99d7b.png",
+              "89481_images/image_000006_8b296f7ce980f26dba7f28f8b4e08fbbe2618fde4cae860731fb402a845891c8.png",
+              "89481_images/image_000007_3372d7fe227fac55b0d8a1dc42a0b417da5948ee2284450d948eab883aea806b.png",
+              "89481_images/image_000008_0640683085927bf947f18204b7e14ff3877e73b916acf1590ab15166b01502d9.png",
+              "89481_images/image_000009_802aee68982e0ff7e60b6f1998d071b86fcbdf4366601ef6a60077e16d26d966.png",
+              "89481_images/image_000010_86a03585bf7385ab8e2ae84d1455191a2555da779684180a0b9965999c20bfce.png",
+              "89481_images/image_000011_943aed25364b2bf249a411a9b6c80a04d697d4fe96212db4fe7d3d8ab7830a40.png",
+              "89481_images/image_000012_5a7c08eb1ead1aa139d79939c43fec03849080969f7e0731cc3977cc9c614c10.png",
+              "89481_images/image_000013_839dba17fd3bef73bdd17f9abd4eeb50a352842973e08211b59c498ac7e746e7.png",
+              "89481_images/image_000014_ddd2a0d03e2db7495badcfdd89b5fadd04168d25d5822e8fcc1763086431e075.png",
+              "89481_images/image_000015_2af9fc66225dcdfc0be305f017a00aef1e971aec0f08f26e91f4671221c4763b.png",
+              "89481_images/image_000016_e484e316d1a35911cf5c34b1f576d15d051be30ccb22fde1cd5c06c65bfaba32.png",
+              "89481_images/image_000017_e8fe4d974da1c9a2a7a5c989061882465b4a28193bcec0a60e3fe72cd54f1848.png",
+              "89481_images/image_000018_5be001aa46a371ae8d3eef647c63312c2750892d69ab9c5cdaf7a02f4881300d.png",
+              "89481_images/image_000019_9a2a8fe60476c71be278642d217f5999ef3aa425d12e979a48ae3e0786f75ecc.png"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/89653.pdf",
@@ -1400,7 +1597,30 @@
           "title": "Lighting Control for Load Shedding",
           "input_sha256": "62f9c11c6d3e6d9c35700a7dc9c74f204b3196e476e1fb9e97ee528e74b6085e",
           "output_path": "upgrade_measures/measure_pdfs/92502.md",
-          "output_sha256": "c35f23b55792071135f76855182c35af4c659c708c0429f3cc131d48cc261698"
+          "output_sha256": "baf6cc9aea4f934acb62aa508b355806b1864c2fba150189fba3df245a7e3f42",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/92502.yaml",
+            "sha256": "62a387e659d2c49d941aa8ec3ab609453125a3365e3484417edb46a040786824",
+            "tables_applied": [],
+            "figures_applied": [
+              "92502_images/image_000002_103ac927eb5129d70c7ce62f93522cbcf99be1f4601d2261956d231b4de91fda.png",
+              "92502_images/image_000003_826913aa728d37fda344d75cc64125ea8276231088e4590af1a27989f204ffb4.png",
+              "92502_images/image_000004_6d33d542bbdf735ed58421c7b73b986193f8bf61e208af22e10707057d14617f.png",
+              "92502_images/image_000005_ad9d38cbef190ed7949c933ca567e452a37586a8cdec5ce923489831fd76297b.png",
+              "92502_images/image_000006_ae3dfdb0cdf950c4bd85681e2aaf49aff3709df51903a5dde1d904bf0263add6.png",
+              "92502_images/image_000007_6619a4539d2c4e273802d0c6283e0051e538524d300c579b281bcdec2032891c.png",
+              "92502_images/image_000008_329634a5ea58f0d11fcc00aa0e8de62871f1ffcc5204fc3936ab29f3909f821d.png",
+              "92502_images/image_000009_116cd0486f1320d4d17f948d8533b267032937ea170bdfbeff1ee60c1af262ef.png",
+              "92502_images/image_000010_2ccb8e0f491db7e75ab496e2b6936923eadf57e7563e186f33dfc48e266cb515.png",
+              "92502_images/image_000011_422b777e91bf9db8471784345c182b1e0cfac9d4840a29aeb657b5007605c6bd.png",
+              "92502_images/image_000012_456291008ee7412b221f4af3b9bb20657a6843463b615ed1ed35c0d9bbac140f.png",
+              "92502_images/image_000013_cc8dba415de7d73c529e85607a8d5ebd16fa7974b9643a00eeba40e1cb7ad48c.png",
+              "92502_images/image_000014_3cbe01015fd5dcad47b806a805a9eeca9d96f4368e61914d0c45e2fd758e9841.png",
+              "92502_images/image_000015_0f60b7e9d690f6bdc6ed2671980daa6a6af8928e2dfc79c37e57bd9a669f4d43.png",
+              "92502_images/image_000016_b7278221c4624af4ebd85cf19671e7e37f9466cd8ca27994e60adaefaaca9acd.png",
+              "92502_images/image_000017_25262f61904eff63e32ea26f7c4615229a98097f184962ba6564c3af46ff52e8.png"
+            ]
+          }
         },
         {
           "source_path": "assets/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.pdf",
@@ -1430,16 +1650,16 @@
   ],
   "counts": {
     "documents": 118,
-    "chunks": 7344,
+    "chunks": 7604,
     "by_type": {
       "latex": 19,
       "markdown": 40,
       "measures": 6,
       "pdf": 53
     },
-    "overlay_documents": 31,
+    "overlay_documents": 41,
     "overlay_tables": 57,
-    "overlay_figures": 174,
+    "overlay_figures": 324,
     "overlay_text_repairs": 1
   },
   "crosswalk": {

@@ -4,7 +4,10 @@
 and `86100`) across the rest of the ComStock 2025-3 corpus. This file is written to be opened
 cold in a fresh session — everything you need to start is here.
 
-**Read this first, then start on Batch A.** Do not try to do the whole corpus in one pass.
+**Read this first, then pick up the next unfinished batch.** Do not try to do the whole corpus
+in one pass.
+
+**Progress:** Batch A done (PR #14, merged). Batch B done. **Next up: Batch C.**
 
 ---
 

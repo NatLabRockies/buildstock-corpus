@@ -1,0 +1,145 @@
+# Hand-authored figure descriptions for measure PDF 95119
+# (Laboratory-Informed Modeling of Standard Performance Heat Pump Rooftop Units).
+#
+# Scope: 16 images are extracted from this PDF. Images 000000 and 000001 are decorative
+# (the NREL photo-grid cover banner and the NREL wordmark logo) and are deliberately NOT
+# described here -- describing them would inject noise into retrieval. The remaining 14
+# (000002-000015) are real figures: Figures 1-12 plus appendix Figures A-1 and A-2.
+#
+# All tables in this document extracted as real markdown text, so no vision-transcription
+# entry is needed.
+#
+# QA flags for human review:
+#   - Figure 1 (000002): the "upgrade_applicable" legend's False/True color assignment is not
+#     legible at this raster resolution. The description states that the two PSZ-AC rows are
+#     shaded distinctly and identifies them as the applicable types by cross-checking the body
+#     text (Section 3.1: applicable to 'PSZ-AC with gas coil' and 'PSZ-AC with electric coil',
+#     24% + 12% = the stated 36% of stock floor area) rather than by reading the swatch colors.
+#     The absolute Stock Floor Area and Stock Number of Buildings columns are dense; only the
+#     top row's values (~15.1 billion sqft, 1.89 million buildings) are transcribed.
+#   - Figure 12 (000013): per-state COP values on the two choropleths are small. The value range
+#     (~1.7-2.8) and the north-cold/south-warm geographic trend are solid; specific state-level
+#     assignments are provisional.
+#   - Figures 7, A-1 (000008, 000014): bar TOTALS are high confidence (and 4865 - 4517 = 348 TBtu
+#     matches the 7.2% savings stated in the body text, which corroborates the reads); the
+#     individual stacked-segment values are provisional.
+#   - Figure 6 (000007): the source legend misspells "Measured Data" as "Meaured Data"; quoted as
+#     printed. The horizontal dashed "Minimum Flow" line is reported at its plotted position
+#     (power multiplier ~0.40) without interpreting what flow limit it encodes.
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: measure_pdfs/95119.pdf
+figures:
+- source_image: 95119_images/image_000002_c961b0a585cb38519da935809fc888fb4ce139637ce7ec425ddaeb3a1c942b5d.png
+  source_image_sha256: 06dd584e46c445d7d043a9b2460e57a26168a2b67219a6d4721e8e435f31baed
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 1. Three-panel horizontal bar chart of ComStock HVAC system type prevalence, showing percent of stock floor area, absolute stock floor area, and stock building count, with applicable system types highlighted
+  description: |-
+    Figure 1 is a three-panel horizontal bar chart sharing one set of row labels, one row per ComStock HVAC system type sorted by prevalence. The three panels are "% Stock Floor Area", "Stock Floor Area (ft2)", and "Stock Number of Buildings". A legend titled "upgrade_applicable" with False and True entries colors each bar by whether the HP-RTU measure applies. Rows top to bottom with percent of stock floor area: PSZ-AC with gas coil 24%; PSZ-AC with electric coil 12%; PVAV with gas boiler reheat 10%; PVAV with PFP boxes 9%; VAV chiller with gas boiler reheat 7%; VAV with gas heat with gas boiler reheat 5%; VAV air-cooled chiller with gas boiler reheat 4%; Residential AC with residential forced air furnace 4%; PTHP 3%; PTAC with gas coil 3%; PSZ-HP 3%; VAV chiller with PFP boxes 3%; VAV district chilled water with district hot water reheat 2%; PTAC with gas boiler 2%; then eight types at 1% each including DOAS variants, VAV chiller with district hot water reheat, PTAC with electric coil, and All Other Types (<1% Prevalence). The two PSZ-AC rows are shaded distinctly from the rest: per the surrounding text those are exactly the applicable types, and 24% + 12% = the 36% of stock floor area this measure reaches. The largest row also carries about 15.1 billion square feet and 1.89 million buildings; the remaining absolute values are dense and are not transcribed here.
+- source_image: 95119_images/image_000003_2e2ac92c7d0fe66d2ca0e918ed8ef81c83ad4875780d2646afa15d158758e5c1.png
+  source_image_sha256: e4ff1d842fe41e45ce4d31171d3efa76461ed20c34ae2c0edb546c92a55b0aa7
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 2. Two-panel performance map of heat pump gross heating capacity and capacity ratio versus outdoor drybulb temperature, for three indoor drybulb conditions at Stage 2
+  description: |-
+    Figure 2 is a two-panel performance map from laboratory test data. Both panels plot Outdoor Drybulb (degrees F) on the x-axis from 0 to 60, with markers for measured points and fitted lines through them. Three series are given by a legend titled "Indoor Drybulb (F)": 40 Stage 2 (blue), 55 Stage 2 (orange), and 70 Stage 2 (green). The left panel plots Gross Cap (SL) in kW on a y-axis from about 10 to 35; all three series rise roughly linearly with outdoor temperature, from about 11, 10, and 9 kW at 0 degrees F to about 34.5, 31, and 29 kW at 60 degrees F for the 40, 55, and 70 degree indoor conditions respectively. The right panel plots Gross Capacity Ratio, the same quantity normalized to rated conditions, on a y-axis from about 0.4 to 1.4; the three series run from roughly 0.45, 0.42, and 0.38 at 0 degrees F to roughly 1.35, 1.22, and 1.15 at 60 degrees F. The consistent message is severe capacity derating in cold weather -- heating capacity at 0 degrees F outdoors is under half the value at 60 degrees F -- and that a lower indoor drybulb yields higher gross capacity at any given outdoor temperature.
+- source_image: 95119_images/image_000004_3dfa0b5ee02a466336d4736838cb84aaa6a5979d99449903a719a4160e681df4.png
+  source_image_sha256: a0520344bacebd24732f2f6ec593b1f6d7343315646e2e3a069410233c4ef95f
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 3. Two-panel performance map of heat pump gross heating COP and COP ratio versus outdoor drybulb temperature, for three indoor drybulb conditions at Stage 2
+  description: |-
+    Figure 3 is the coefficient-of-performance companion to Figure 2, again two panels plotting Outdoor Drybulb (degrees F) from 0 to 60 with measured markers and fitted lines, and the same "Indoor Drybulb (F)" legend of 40 Stage 2 (blue), 55 Stage 2 (orange), and 70 Stage 2 (green). The left panel plots Gross COP (SL) on a y-axis from about 1 to 7; the curves rise with outdoor temperature and flatten slightly at the warm end, running from about 2.7, 2.2, and 1.7 at 0 degrees F to about 7.0, 5.7, and 4.6 at 60 degrees F for the 40, 55, and 70 degree indoor conditions. The right panel plots Gross COP Ratio, normalized to rated conditions, on a y-axis from about 0.4 to 1.8, running from roughly 0.68, 0.55, and 0.42 at 0 degrees F to roughly 1.75, 1.42, and 1.15 at 60 degrees F. Efficiency therefore falls even faster than capacity in cold weather: at 0 degrees F the unit delivers roughly a quarter to two-fifths of its rated COP. Lower indoor drybulb again gives better performance, because the lift the compressor must overcome is smaller.
+- source_image: 95119_images/image_000005_1b7f87298f31a00bb9921da3bb0dfc398134dfa8fe1f1ca7f99f632981342a51.png
+  source_image_sha256: 683fea6da1f97f30aa884f357c4271f94208e5b20ee2402fcf3f95b554a49ed2
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 4. Scatter plot of energy input ratio as a function of part load ratio, with measured and estimated points and a two-segment piecewise curve fit
+  description: |-
+    Figure 4 plots EIR Ratio (energy input ratio, dimensionless) on the y-axis from about 0.4 to 1.0 against Part Load Ratio (PLR, dimensionless) on the x-axis from 0 to 1. A legend gives four series: Measured (blue circles), Estimated ON (red diamonds), Estimated OFF (green squares), and Curve fit (black dash-dot line). A vertical dashed line marks a breakpoint at PLR 0.293, and the two printed piecewise quadratic fits are: for PLR < 0.293, y = -4.5732x^2 + 3.1067x + 0.3151; for PLR > 0.293, y = -0.2706x^2 + 0.5865x + 0.6841. The fitted curve rises steeply from an EIR ratio of roughly 0.40-0.45 at very low PLR to about 0.83 at the 0.293 breakpoint, then climbs gently and nearly linearly to 1.0 at full load. Data points cluster densely along the fit, with the Estimated OFF series concentrated below the breakpoint and Estimated ON above it, and a couple of measured points near PLR 0.45 falling noticeably below the curve. The shape encodes the cycling penalty: at low part load the unit consumes proportionally more input energy per unit of output than the linear-scaling assumption would predict.
+- source_image: 95119_images/image_000006_3efe4e409d0f41267ab837ea1783805321106c5d5f0c92512f72b79a2a6e6aba.png
+  source_image_sha256: 418a77067191cc06e3af84242ce2bdd9012713ee26995fd9c2c7b04011dc5fb7
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 5. Heatmap of the defrost power modifier fraction as a function of outdoor drybulb and indoor wetbulb temperature, with measured test points overlaid
+  description: |-
+    Figure 5 is a two-dimensional heatmap of the defrost power modifier curve. The x-axis is Outdoor Dry Bulb Temperature in degrees F, running from about -10 to 35, and the y-axis is Indoor Wet Bulb Temperature in degrees F, running from about 40 to 67. Color encodes a quantity labeled simply "Fraction" on a colorbar spanning roughly 0.35 (dark blue) to above 0.42 (yellow), with intermediate teal and green. The surface varies smoothly and near-diagonally: the highest fraction (yellow, above 0.42) sits in the upper-left corner at low outdoor drybulb and high indoor wetbulb, and the lowest (dark blue, around 0.35) sits in the lower-right at high outdoor drybulb and low indoor wetbulb. Roughly eight red dots overlay the surface marking the actual laboratory test conditions from which the curve was regressed; they are spread across the corners and middle of the domain rather than clustered. The physical reading is that the defrost power penalty is largest in cold, humid conditions, which is when frost accumulation on the outdoor coil is worst.
+- source_image: 95119_images/image_000007_99f3650c5a66eb564fe2f538c62d208871e1db7f943021774de44d1863b7ea23.png
+  source_image_sha256: d4b2737e2f6f85bee381e9dc27dde1533ae8dc41b6a558a6129d0207bdceb3be
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 6. Scatter plot of fan power multiplier as a function of flow fraction with a quadratic curve fit and a minimum flow reference line
+  description: |-
+    Figure 6 plots Power Multiplier (dimensionless) on the y-axis from 0 to about 1.2 against Flow Fraction (dimensionless) on the x-axis from 0 to 1. A legend gives two series: Measured Data (blue circles, spelled "Meaured Data" in the source) and Curve Fit (Poly) as a red line. The printed quadratic fit is y = 1.6238x^2 - 0.8782x + 0.2479. Measured points run from roughly (0.40, 0.15) and (0.44, 0.18) through (0.55, 0.27), (0.67, 0.40), (0.78, 0.55), and (0.89, 0.75) up to (1.00, 1.00), and the red curve passes through them closely. A horizontal dashed line labeled "Minimum Flow" sits at a power multiplier of about 0.40. Per the caption, the output of this curve is multiplied by the design fan power to determine realized fan power at each time step. The strongly convex shape is the practical point: dropping flow to 55% of design cuts fan power to about 27% of design, so part-load fan operation is where much of the measure's fan energy savings comes from.
+- source_image: 95119_images/image_000008_e445587f762215014dea9a1a58214f3b341024a3750b56cc5f868bcbd582339a.png
+  source_image_sha256: 604627324d2dbf798199872598b487ac67427214af364c92df96fdf682cde68b
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 7. Stacked bar comparison of annual site energy consumption by end use and fuel across the ComStock baseline and the HP-RTU standard performance and lab data measure scenarios
+  description: |-
+    Figure 7 is a stacked bar chart of annual site energy consumption in trillion British thermal units (TBtu), segmented by end use and fuel with an 18-entry legend, for three scenarios with totals printed above each bar: Baseline 4865 TBtu, HPRTU_Std_Perf 4516 TBtu, and HPRTU_Lab_Data 4517 TBtu. The plot includes all ComStock buildings, including those not applicable to the measure. The two measure scenarios are within 1 TBtu of each other at stock scale, so substituting laboratory-measured performance data for the standard performance assumptions barely moves the national total; the lab-data case saves 348 TBtu, or 7.2%, against the baseline. Inside the bars the change is a fuel swap plus a fan-energy reduction: Heating Electricity rises from 260.1 TBtu in the baseline to roughly 357-358 TBtu, Heating Natural Gas falls from 727.0 to 701.1 TBtu, and Fans Electricity falls from 568.5 to roughly 490-498 TBtu. Untouched end uses hold flat, with Interior Equipment Electricity at about 740 TBtu and Interior Lighting at 440.4 TBtu in all three bars. Totals are read with high confidence; segment values are provisional.
+- source_image: 95119_images/image_000009_5eb6e017fd59c5ac08d396e6b5575f8a81e59bf90e5739108227238df7822612.png
+  source_image_sha256: 7282e73ba3a27e38fadf1390e0ec643ae8641a94297220490f2bc2024e6066a7
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 8. Three-panel stacked bar chart of national annual utility bills by fuel for the baseline and the two HP-RTU measure scenarios, under maximum, mean, and minimum electricity rates
+  description: |-
+    Figure 8 has three side-by-side panels titled "With Max Electricity Rate", "With Mean Electricity Rate", and "With Min Electricity Rate", each stacking annual utility bills in billion USD (2022) by fuel -- electricity, natural gas, propane, fuel oil -- for the Baseline, HPRTU_Std_Perf, and HPRTU_Lab_Data scenarios. Totals are printed above each bar with percent change from baseline in parentheses. Max electricity rate: 144, then 140 (-3%), then 140 (-3%). Mean electricity rate: 127, then 122 (-4%), then 122 (-4%). Min electricity rate: 112, then 107 (-4%), then 107 (-4%). The two measure scenarios are indistinguishable at this scale. Savings come almost entirely from the natural gas segment, which drops from 17 to 14 billion USD in all three panels, while the electricity segment barely moves (125 to 125, 108 to 107, and 93 to 92 billion USD). Unlike a resistance-heating retrofit, the heat pump's efficiency keeps the added electric load small enough that displacing gas produces a net bill reduction of 3%-4% (roughly 3 to 4 billion USD) across every rate assumption. Note this includes buildings not applicable to the measure.
+- source_image: 95119_images/image_000010_6e491239132321355348fde3c709bffab49f3311a0e24dcb4b14e3cddfd836e9.png
+  source_image_sha256: a6667a73eebd0c43fdd87271fef2cd9c167a6624dc5ea61a5b1862ba15b24d30
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 9. Violin and box plot distribution of percent site energy savings by end use and fuel type for models with the HP-RTU lab data measure scenario applied
+  description: |-
+    Figure 9 is a horizontal violin plot with embedded box plots of per-model percent site energy savings by end use and fuel type, annotated "Upgrade 5.0: HPRTU_Lab_Data (unweighted)". The x-axis runs from about -160% to +100% with a reference line at 0%. Rows top to bottom, with model counts, grouped by fuel: Other Fuel -- Water Systems (n=119), Heating (n=3287); Natural Gas -- Water Systems (n=1541), Heating (n=16594); Electricity -- Water Systems (n=1690), Refrigeration (n=6028), Interior Equipment (n=27), Heating (n=14092), Heat Recovery (n=826), Fans (n=34342), Cooling (n=34289). The two combustion heating rows show the highest savings, with boxes roughly spanning 80%-100%, since those systems are replaced by electric heat pumps and many buildings save 100% of that fuel. Electricity Heating shows a wide positive box around 35%-70%. Electricity Fans centers around 10%-30% and Electricity Cooling around 5%-15%. Electricity Heat Recovery is the one clearly negative row, centered near -25% to -15%. Water systems, refrigeration, and interior equipment collapse to ticks at 0%. Points beyond the whiskers are outliers past 1.5 times the interquartile range; a few gas outliers show increased usage in buildings with small residual non-applicable gas systems.
+- source_image: 95119_images/image_000011_753379c841760a656ae46d806254fe291144f999e1d13e4db207cd5c07c2a612.png
+  source_image_sha256: 46fdf2865446821fea3a06068f48954e46ab021ad54521bbbcadab91d58c4091
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 10. Violin and box plot distribution of percent site energy savings by fuel type for models with the HP-RTU lab data measure scenario applied
+  description: |-
+    Figure 10 is a horizontal violin plot with embedded box plots of per-model percent site energy savings aggregated by fuel type, annotated "Upgrade 5.0: HPRTU_Lab_Data (unweighted)". The x-axis is "Percent Site Energy Savings by Fuel (%)" running from about -160% to +100% with a reference line at 0%. Four rows top to bottom with model counts: Other Fuel (n=3300), Natural Gas (n=16893), Electricity (n=34034), and Site (n=34348), where Site is the all-fuel total. Other Fuel is heavily right-skewed with a box roughly spanning 65%-95% and a dense mass against 100%. Natural Gas is similar but wider, with a box around 55%-95%. Both fall short of a clean 100% because some combustion fuel remains in applicable buildings -- from non-applicable HVAC systems and from non-HVAC end uses such as kitchen equipment. Electricity is centered much lower, with a box around 5%-25% and a long thin left tail past -140% for a small number of models. The Site row is the tightest distribution, centered around 15%-25%, showing that the typical applicable building saves roughly a fifth of its total site energy.
+- source_image: 95119_images/image_000012_b006f46d4440586c55576864e5614a059f1d8c2e788a26909bb7069b4ebd0c74.png
+  source_image_sha256: d00fa965bf50254a82c57f3e3154966edc8521db51661c8a3a4a06d2ba380c29
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 11. Violin and box plot distribution of percent site energy savings by ASHRAE climate zone for models with the HP-RTU lab data measure scenario applied
+  description: |-
+    Figure 11 is a horizontal violin plot with embedded box plots of per-model percent site energy savings by ASHRAE climate zone, annotated "Upgrade 5.0: HPRTU_Lab_Data (unweighted)". The x-axis runs from about -10% to +60% with a reference line at 0%, so nearly the entire distribution is on the savings side. Rows top to bottom with model counts: 1A (n=794), 2A (n=1768), 2B (n=1082), 3A (n=3302), 3B (n=3842), 3C (n=1277), 4A (n=5154), 4B (n=1547), 4C (n=443), 5A (n=5299), 5B (n=2781), 6A (n=3151), 6B (n=1350), 7 (n=2315), 8 (n=243). Savings increase steadily with heating climate: the hot-humid zone 1A has the lowest median at roughly 7%, mid zones 3A through 4A center around 12%-18%, and the cold zones 6A, 6B, 7, and 8 reach medians of roughly 22%-28% with zone 8 the highest and widest on the smallest sample (n=243). The trend follows from where a heat pump displaces the most combustion heating -- colder zones have more heating load to convert -- and it is the opposite of the pattern seen for electric resistance retrofits, where cold zones fare worst.
+- source_image: 95119_images/image_000013_0da26ddd89d58a854ecb63ab97d51a12008459602cc36de09975494bfb93f150.png
+  source_image_sha256: 96478d6362afed005b63b9ed09b0f9cc4c75960054ea2617a19e527171c13bd0
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 12. Two side-by-side choropleth maps of the United States showing annual average total heating COP for the median building under the HP-RTU standard performance and lab data scenarios
+  description: |-
+    Figure 12 is a pair of state-level choropleth maps of the contiguous United States, titled "HPRTU_Std_Perf" (left) and "HPRTU_Lab_Data" (right), showing the annual average total heating coefficient of performance (COP) for the median building in each state. Each state carries a printed numeric value, and a diverging blue-to-orange color scale runs from higher COP (blue) to lower COP (orange or red). Values span roughly 1.7 to 2.8. The geographic pattern is consistent across both panels: the northern tier -- the northern Rockies, northern plains, upper Midwest, and interior Northeast -- is shaded orange with the lowest COPs, while the South, Southwest, and West Coast are blue with the highest. That is the expected consequence of capacity and efficiency derating in cold weather, mapped in Figures 2 and 3. The two panels are very similar to each other, with the lab-data panel showing slightly different values in some northern states, consistent with the roughly 1% stock-level difference reported elsewhere in the document. Individual per-state values are small and dense; the range and the geographic trend are read with confidence but specific state assignments are provisional.
+- source_image: 95119_images/image_000014_f528627979d566f4ffba0f24d9bb681f0fb1540a559691b302cd3e5109bafa23.png
+  source_image_sha256: 9b0acfcd9dd98bd6955c862e27562244020af67c50836bf0823df6f96c0e6135
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure A-1. Appendix stacked bar comparison of annual site energy consumption for applicable buildings only, across the ComStock baseline and the two HP-RTU measure scenarios
+  description: |-
+    Figure A-1 is the applicable-buildings-only counterpart to Figure 7: a stacked bar chart of annual site energy consumption in trillion British thermal units (TBtu), segmented by end use and fuel with the same 18-entry legend, for three scenarios with totals printed above each bar. Baseline 1890 TBtu, HPRTU_Std_Perf 1541 TBtu, HPRTU_Lab_Data 1542 TBtu -- a reduction of about 18%, much larger than the 7.2% full-stock figure, because buildings that cannot receive the measure are excluded from the denominator. As in Figure 7 the two measure scenarios are essentially identical at 1541 versus 1542 TBtu. Inside the bars, Fans Electricity falls from 257.9 to about 187 TBtu, Cooling Electricity falls from 243.2 to 217.3 TBtu, and a Heating Electricity segment of roughly 178-179 TBtu appears in the measure scenarios. Interior Equipment Electricity holds at 279.3 TBtu across all three bars. Totals are read with high confidence; individual segment values are provisional.
+- source_image: 95119_images/image_000015_05bdb189d991bc273a14655c22bba733acc68a9be265b522db881cf9f1e95e5c.png
+  source_image_sha256: 7a415f47d5da473217a7ae9f681ea508cb5e6279de4f1e8b64cfccdb7ac96aa8
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure A-2. Appendix violin and box plot distribution of site energy use intensity savings in kBtu per square foot by end use and fuel type for the HP-RTU lab data measure scenario
+  description: |-
+    Figure A-2 repeats Figure 9 using absolute intensity rather than percentage, which removes the small-denominator distortion that makes a few percent-savings outliers look extreme. It is a horizontal violin plot with embedded box plots annotated "Upgrade 5.0: HPRTU_Lab_Data (unweighted)", with the x-axis "Site EUI Savings by End Use (kBtu/ft2)" running from about -80 to +120 and a reference line at 0. Rows top to bottom, each labeled "Intensity", with model counts, grouped by fuel: Other Fuel -- Water Systems (n=119), Heating (n=3287); Natural Gas -- Water Systems (n=1541), Heating (n=16594); Electricity -- Water Systems (n=1690), Refrigeration (n=6028), Interior Equipment (n=27), Heating (n=33932), Heat Recovery (n=826), Fans (n=34342), Cooling (n=34323). Nearly every distribution is tight against 0 on this absolute scale. The two clear positive rows are Other Fuel Heating and Natural Gas Heating, with boxes spanning roughly 0 to 25 kBtu/ft2 and long right tails past 100. Consistent with the body text, no end use shows a notable EUI increase. Note the Electricity Heating count here (n=33932) is far larger than in the percent-savings version (n=14092), because an intensity difference is defined even for models with no baseline electric heating.
