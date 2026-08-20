@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "comstock_amy2018_2025_release_3",
-  "generated_utc": "2026-08-20T18:28:25.662862+00:00",
+  "generated_utc": "2026-08-20T18:48:17.499822+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -714,7 +714,7 @@
           "output_sha256": "7498b99473efddd491c637827a20abb82bff0d654a9e56c64b5868c0de04f795",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95009.yaml",
-            "sha256": "b8002d04f063a3437437862cc62d1cccdd7eb6c07022831aefb00feb8616a886",
+            "sha256": "7ac4b052b7c81c78b401c4e96736a3038f8763b805fd306d52d9c66611d5bc93",
             "tables_applied": [],
             "figures_applied": [
               "95009_images/image_000002_f62710097e886dc5f91c0e47e81458aa0a51b94a6a62bd90fd8b6def45632c64.png",
@@ -751,7 +751,7 @@
           "output_sha256": "a1afa0083d0a3d960d9168dcc89eedd915991e96c2f5a1fc575bb806575949ce",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95015.yaml",
-            "sha256": "e73c2ea620d22ed6da09c8a0be22cdd7697c1f6991d59bcd771db1090d920e28",
+            "sha256": "18ae493fce97fb30375b248c1d94993feceacf080f92c5cb8efe78d2d23035fa",
             "tables_applied": [],
             "figures_applied": [
               "95015_images/image_000002_54779643b7747b3977197bb9cd286f46b1c0e225867f7b72adc06e958044560e.png",
@@ -780,7 +780,7 @@
           "output_sha256": "5ed5217846863d95d4918a2837f4c7fd93f26c152362883b1a818fb2471d8cb4",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95119.yaml",
-            "sha256": "ee13d5ae9432e7a2f3e12c434d590e30c49d1a42f4550006f5cc34142027f577",
+            "sha256": "a7724bbfa84e6469b25d06023068e933d32c993e5cdee3cb3cdbf7cf50ae49f1",
             "tables_applied": [],
             "figures_applied": [
               "95119_images/image_000002_c961b0a585cb38519da935809fc888fb4ce139637ce7ec425ddaeb3a1c942b5d.png",
@@ -1149,7 +1149,7 @@
           "output_sha256": "6a16b24ad8ff16e079db368f50db69c3d51cefc4687480648a3cda259d6677ba",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/87542.yaml",
-            "sha256": "406c667de2dc02dd03e90deeba9a421ea6825846abe0dfdc738ed1eaa3287f2a",
+            "sha256": "fcccc120716b12002f07170cb37ac7851a7ce924776e59b1fa551152313f6206",
             "tables_applied": [],
             "figures_applied": [
               "87542_images/image_000002_5372d474e43f9ba1cf8488f8b99db12c9af6ea162aac4d980152103e14ad1148.png",
@@ -1287,7 +1287,7 @@
           "output_sha256": "167b892b52b5c6083998bfab32922079d7d3ad68e7bf4bc5fdb0e10f1cb4ef4f",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89131.yaml",
-            "sha256": "d4f3ec277e0a38e6d018f82cda19d52b50e7cd5af2f110af69a4bdb9d618d04b",
+            "sha256": "24a4d3ae06e65761076605be372ca8786d7aece047699371a0aa4c1458bfee86",
             "tables_applied": [],
             "figures_applied": [
               "89131_images/image_000005_dfdc6e45320d3292d119206f58d662ff5512e0f2bdfadb83e8f7134872b1ae41.png",
@@ -1315,7 +1315,7 @@
           "output_sha256": "9fe7ecef22f2734b1d89d421b9dc35a0e5419cea2e9bed66979fe3e521129a3b",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89132.yaml",
-            "sha256": "77898b39977241015b1444943e2a1f858577a14dc4b1ef97a53e8049b23d82b5",
+            "sha256": "3bb059e3d9ffe2f08e09d787e78fac5188a248a775730b053868f0fe0a4007fd",
             "tables_applied": [],
             "figures_applied": [
               "89132_images/image_000007_e735e3f9553bb281a72569d26ce4a4ebcb8c6f17baa64624663097c4edda9230.png",
@@ -1372,7 +1372,7 @@
           "output_sha256": "e4c21f18ea72330e9843f6379c8ed68dae1793747600200c2f337f241bda148c",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89340.yaml",
-            "sha256": "bac27f40c5a4271429c78f45ee357aca48e8f46e34aef050b75fea9609cf32ba",
+            "sha256": "1eb6696eaaf5c6e64935c0d5bd36f51905700b7c95b2ce53dbab6e2f9304ebae",
             "tables_applied": [],
             "figures_applied": [
               "89340_images/image_000002_bd5f685cca8bdb40d016098c75df7fa7f11d293ce609cff01370580a37a8f027.png",
@@ -1405,7 +1405,7 @@
           "output_sha256": "c2fb13eef74ce62758fa23e2927178666794f52669994a3c6612d119dc80fac4",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89341.yaml",
-            "sha256": "17d8a3f73123258b92355b74d66b63b0384be7c92c677d3701170156e5cb47e3",
+            "sha256": "b56fc71edeedb2b042153274c599f31c4fbfffb125af0e6aa790bdeee636c819",
             "tables_applied": [],
             "figures_applied": [
               "89341_images/image_000002_5973bd6f6f9707b611941a35a031fd970abf78b59145455460b128e61bcccd58.png",
@@ -1455,7 +1455,7 @@
           "output_sha256": "f06f2255e4c3bc22d91752d1ac775ea14a578441edf99ed60a7e6f4d1f177d94",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89481.yaml",
-            "sha256": "33c8343c8fb017fdd211c74764a7e50e1cd0a03fba57be3fb32a9a6e65ed0cc1",
+            "sha256": "a262a73e370853175495e2eebcbd62e35a6586cbd635bda335223f1292ecc1c5",
             "tables_applied": [],
             "figures_applied": [
               "89481_images/image_000002_87a5a54fa6ee5a4b370fa2af7c12d8db7e4cf6d3e0f9fa1030f8da5454b5cfd8.png",
@@ -1600,7 +1600,7 @@
           "output_sha256": "baf6cc9aea4f934acb62aa508b355806b1864c2fba150189fba3df245a7e3f42",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/92502.yaml",
-            "sha256": "62a387e659d2c49d941aa8ec3ab609453125a3365e3484417edb46a040786824",
+            "sha256": "c972494e90536e447feb96976ea5e8a17b771b82855f797b6e55f2e8032c9df9",
             "tables_applied": [],
             "figures_applied": [
               "92502_images/image_000002_103ac927eb5129d70c7ce62f93522cbcf99be1f4601d2261956d231b4de91fda.png",
