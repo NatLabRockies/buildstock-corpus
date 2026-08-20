@@ -1,0 +1,117 @@
+# Hand-authored figure descriptions for measure_pdfs/95013.pdf (Thermostat + Lighting Control
+# for Load-Shedding with PV package).
+# Scope: figures only; cover montage (000000) and NREL logo (000001) omitted; Tables 1-5 are
+# real markdown text (no bitmap). Figures 1-9 = images 000002-000010; images 000011-000014 are
+# uncaptioned appendix grouped-bar charts (gas/electricity by census division and building type).
+# method is vision-description (numbers read off charts, need QA). Least-certain reads: Figure 1
+# (000002) and Figure 2 (000003) have dense small labels, and Figure 4 (000005) PV netting is
+# ambiguous. NOTE for QA: the appendix charts (000011-000014) label the package 'Package 6' while
+# the main figures label it 'Package_8' -- a source naming mismatch. Every entry pins the on-disk
+# PNG sha256.
+
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: measure_pdfs/95013.pdf
+figures:
+- source_image: 95013_images/image_000002_64a643c2b505836850c4e8210a7e3e929647aeaac1683f7f01ea61dc9448f40e.png
+  source_image_sha256: 241841077b22cf12d97dac1f55a87b5839b80e2f873b5df680751919ee06295d
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Stacked column chart of the fractional lighting technology (generation) mix over time, comparing actual 'Truth' stock to ComStock 'Sampling'
+  description: |-
+    Figure 1. Stacked column chart of the fractional interior-lighting technology mix (each column sums to 1.0), y-axis 0 to 1. Columns are labeled by year and source: Truth 2015, Truth 2017, Sampling 2017, Truth 2020, Sampling 2020, Truth 2025, Truth 2030, Truth 2035; a highlight box marks the 2017 and 2020 columns where 'Truth' (actual stock) is compared to ComStock 'Sampling'. Segments are lamp generations per the legend (gen1_t12_incandescent, gen2_t8_halogen, gen3_t5_cfl, gen4_led, gen5_led, gen6_led, gen7_led, gen8_led). Legible fractions: Truth 2015 is dominated by gen2_t8_halogen 0.660 with gen1 0.215, gen3 0.065, gen4 0.060. Truth 2017 gen1 0.159 / gen2 0.488 / gen3 0.048 / gen4 0.274 vs Sampling 2017 gen1 0.187 / gen2 0.480 / gen3 0.046 / gen4 0.264. Truth 2020 gen1 0.121 / gen2 0.371 / gen4 0.330 / gen5 0.141 vs Sampling 2020 gen1 0.081 / gen2 0.370 / gen4 0.336 / gen5 0.175. Later Truth years shift toward LED generations (2025 gen4 0.371 / gen5 0.334; 2035 dominated by gen4/gen5/gen6 LEDs). Shows the stock transitioning from T12/T8 fluorescent and halogen toward successive LED generations, and that ComStock sampling reproduces the Truth distribution closely in 2017 and 2020. (Dense small labels -- flag exact fractions for QA.)
+- source_image: 95013_images/image_000003_e64522bd53ae584f7350422ec0942b28f3be55741f65f5df4b3aad4aa940ae9f.png
+  source_image_sha256: 04e344b6eebed405bd586a910655a75b2f46dca99672de8f91b114e7667e2032
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Two-panel horizontal bar chart of percent stock floor area by building type and the applicability
+    of the measure
+  description: |-
+    Figure 2. Two-panel horizontal bar chart. Left panel: % of Stock Floor Area by ComStock building type, x-axis 0 to 30%. Values: FullServiceRestaurant 1.52%, Hospital 3.79%, LargeHotel 5.66%, LargeOffice 8.54%, MediumOffice 6.42%, Outpatient 2.91%, PrimarySchool 8.54%, QuickServiceRestaurant 0.48%, RetailStandalone 8.57%, RetailStripmall 8.10%, SecondarySchool 8.84%, SmallHotel 0.98%, SmallOffice 6.77%, and Warehouse 28.71% (by far the largest share). Right panel: Applicability % of Building Type Area, split into 'Applicability - electric HVAC' (cool only / heat & cool / not applicable) and 'Applicability - building type' (applicable / not applicable) with percentages stacked to 100% per row. Establishes that the measure applies to most floor area, with warehouses dominating the stock. (Dense small labels -- flag exact percentages for QA.)
+- source_image: 95013_images/image_000004_944dafed8609d924b9a88a3a3c20a753a8f4be8a21435a1efea84c0c9a0eebf4.png
+  source_image_sha256: 53471bbdc34311063d16a3754677ecca2eaccdbfb65adbc2baddfb280c7899ae
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Box-and-whisker plot of the percent mean daily peak load reduction by month across the modeled
+    stock
+  description: |-
+    Figure 3. Box-and-whisker plot of Mean Peak Savings [%] by month, y-axis about -10% to 70%, one box per month January through December. Median peak savings are lowest in winter (roughly 13% in Jan-Feb and Nov-Dec) and highest in summer (roughly 30-32% in May-August), tapering through spring and fall. Whiskers reach up to about 70% in peak summer months and dip slightly negative (a small peak increase) in some winter months. Shows the load-shedding controls deliver their largest peak-demand reductions during the summer cooling season.
+- source_image: 95013_images/image_000005_4d36b83070daa5b3afba1740d3315e402ad5a988b84fb7960c157ec0ea259e9d.png
+  source_image_sha256: e189a92712bfbc92ef7b5050878c3ab6e256ba14de2eb84decb5be4b2a261d4e
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Two-panel stacked bar chart of annual site energy consumption by end use and fuel, whole stock and applicable subset, Baseline vs Package_8, including on-site PV generation as negative segments
+  description: |-
+    Figure 4. Two-panel stacked bar chart of Annual Energy Consumption (TBtu) by end use and fuel per the legend, comparing Baseline and Package_8. Left panel (whole stock), y-axis 0 to about 5000: Baseline total 4865 vs Package_8 4814 at the top of the positive stack, and Package_8 adds a negative Photovoltaics Used segment of about -745.0 below zero (on-site generation), so net site energy is substantially lower once PV is netted. Right panel (applicable subset), y-axis about -1500 to 2500: Baseline 2305 vs Package_8 2254 positive, with a negative Photovoltaics segment of about -573.9. Legible positive segments are roughly constant between scenarios (e.g. Cooling Electricity near 740, District Heating near 706-727, Water Systems and Heating segments), indicating the site-energy change comes mainly from on-site PV generation plus modest controls savings rather than large end-use reductions. (The exact PV netting and whether 'excess' PV is included are the least-certain reads -- flag the net-savings percentage for QA.)
+- source_image: 95013_images/image_000006_9c2a85b49e033d4b1310232d6f6f4024fa8707cc1d2e470b990b288f683a1f50.png
+  source_image_sha256: 5b39b22b2081d3328927bcd891751bb3f6ad78558998c24958b3993661ce14b5
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Three-panel stacked bar chart of annual utility bill by fuel under maximum, mean, and minimum electricity rates, Baseline vs Package_8
+  description: |-
+    Figure 5. Three-panel stacked bar chart of Annual Utility Bill (Billion USD, 2022), y-axis 0 to about 150, under three electricity-rate assumptions. Each panel has two bars (Baseline, Package_8) stacked by fuel (Electricity, Natural Gas, Propane, Fuel Oil). With Max Electricity Rate: Baseline 144 (Electricity 125, Natural Gas 17) vs Package_8 121, a 16% reduction (Electricity 102). With Mean Rate: Baseline 127 (Electricity 108, NG 17) vs 107, a 15% reduction (Electricity 88). With Min Rate: Baseline 112 (Electricity 93, NG 17) vs 95, a 15% reduction (Electricity 76). Natural gas cost is unchanged at 17 across scenarios; the roughly 15-16% total bill savings comes entirely from reduced electricity purchases (controls plus PV).
+- source_image: 95013_images/image_000007_5d81155189b5ce8d1cecb4f07458f46a4caae619448cecff78339930511da107.png
+  source_image_sha256: d8721fb4b72f2c2085332b19868d8549d2e31b4dafe08302c426fb1958257f57
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Box-and-whisker plots of percent electricity utility bill cost savings for electric-cooling-only and electric-heating-and-cooling buildings under maximum, mean, and minimum bill assumptions
+  description: |-
+    Figure 6. Box-and-whisker plots of Electricity Utility Bill Cost Savings [%], x-axis 0 to about 80, grouped into two categories, each with three rows (With Max Bill, With Mean Bill, With Min Bill): 'Electric cooling only' and 'Electric heating & cooling'. Median electricity bill savings cluster around 35-40% for both categories, with the electric-heating-and-cooling group's boxes shifted slightly lower and wider; whiskers extend from roughly 20% up to about 70%. Shows most buildings realize substantial electricity bill savings, with modest sensitivity to the bill (rate) assumption.
+- source_image: 95013_images/image_000008_14d8f33e84982d80314002422967843d7464a67e1db72c2e5040027df9037f8a.png
+  source_image_sha256: 58be88ce5582b4862fe52025db0cc961885ef014f3c33c8d7fead918baf462c1
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Violin and box plots of percent utility bill savings by fuel type across the modeled stock
+  description: |-
+    Figure 7. Horizontal violin-plus-box plots of Percent Utility Bill Savings by Fuel (%), x-axis about -160% to 100%. Rows with model counts: Propane Bill State Average (n=491), Fuel Oil Bill State Average (n=1206), Natural Gas Bill State Average (n=32142), Electricity Bill with Mean Rate (n=64752), and Bill Mean (n=64764). The Electricity Bill and overall Bill Mean show clear positive distributions (interquartile box roughly 25-45%), while the fossil-fuel rows sit essentially at 0% with long thin tails. Consistent with the measure's savings being almost entirely electricity-driven.
+- source_image: 95013_images/image_000009_b72ce19773de1916c2efcb157971446b954f0086e98eb65f4dd5c972795b1aa5.png
+  source_image_sha256: f552a3173ce97f4e5617cc6d6433b2df1c89a4eda129bac804d54942ce01c76c
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Violin and box plots of percent site energy savings by end use across the modeled stock
+  description: |-
+    Figure 8. Horizontal violin-plus-box plots of Percent Site Energy Savings by End Use (%), x-axis about -120% to 100%. Rows are end-use/fuel combinations with model counts, including Electricity Cooling (n=61153), Electricity Fans (n=55235), Electricity Heat Recovery (n=2231), Electricity Heat Rejection (n=6769), Electricity Heating (n=30743), Electricity Interior Equipment (n=4), Electricity Interior Lighting (n=64777), Electricity Pumps (n=25073), Electricity Refrigeration (n=15273), Electricity Water Systems (n=2077), Natural Gas Heating (n=33121), Natural Gas Water Systems (n=2133), District Heating Cooling (n=1894), District Heating Heating (n=2672), District Heating Water Systems (n=54), Other Fuel Heating (n=1700), and Other Fuel Water Systems (n=30). Electricity Interior Lighting and Electricity Cooling show the largest positive savings distributions; heating end uses skew slightly negative (take-back); most other end uses cluster near 0%.
+- source_image: 95013_images/image_000010_9b6e80fd8aec9386b8dcac0215aa3ddd5557664771e4b95b5cec1ae2029b5c18.png
+  source_image_sha256: 5bd175f9f5060200c445db74f222038d14d62bfeec4ce556d169fcbc5dd6bf98
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Violin and box plots of percent site energy savings by fuel type across the modeled stock
+  description: |-
+    Figure 9. Horizontal violin-plus-box plots of Percent Site Energy Savings by Fuel (%), x-axis about -120% to 100%. Rows with model counts: District Cooling (n=1894), District Heating (n=2675), Other Fuel (n=1708), Natural Gas (n=33554), Electricity (n=64777), and Site (n=64777). Electricity and overall Site show positive savings distributions (interquartile box roughly 3-10%) with long tails, while the district-energy, other-fuel, and natural-gas rows cluster tightly at 0%. Confirms the site energy savings are driven by reduced electricity use.
+- source_image: 95013_images/image_000011_193a3942d2f0140700e062b5873dc81d738594a195d6d9b2b6208538d17ecffe.png
+  source_image_sha256: b87f273524d17682a4e865a58a596d37dfc49b91dad4d6f0556c3a38fd93b32e
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Grouped bar chart of site annual natural gas total energy consumption by census division, Baseline
+    vs Package 6
+  description: |-
+    Appendix figure (uncaptioned in the extracted text). Grouped bar chart of Natural Gas Total Energy Consumption (Btu) by U.S. census division, y-axis 0 to about 400. Two bars per division (Baseline, dark blue; Package 6, light blue) for New England, Middle Atlantic, East North Central, West North Central, South Atlantic, East South Central, West South Central, Mountain, and Pacific. East North Central is the largest (about 385), followed by Middle Atlantic and Pacific (roughly 215-240). Baseline and Package 6 are nearly identical in every division, showing the thermostat/lighting/PV measure barely affects natural gas. (Legend reads 'Package 6' here while the main figures label the package 'Package_8' -- flag this naming mismatch for QA.)
+- source_image: 95013_images/image_000012_79388904195cff09a6c80e33299b396b1c5cb6a238190d3d186aa6d8e4575cc8.png
+  source_image_sha256: 6bba5d3731a39a0c3040a635582b772622d09af20cc02b0dc1ce9892949b50f7
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Grouped bar chart of site annual natural gas total energy consumption by building type, Baseline
+    vs Package 6
+  description: |-
+    Appendix figure (uncaptioned in the extracted text). Grouped bar chart of Natural Gas Total Energy Consumption (Btu) by ComStock building type, y-axis 0 to about 250. Two bars per type (Baseline, dark blue; Package 6, light blue) across FullServiceRestaurant, QuickServiceRestaurant, RetailStripmall, RetailStandalone, SmallOffice, MediumOffice, LargeOffice, PrimarySchool, SecondarySchool, Outpatient, Hospital, SmallHotel, LargeHotel, and Warehouse. SecondarySchool is the largest (about 265), followed by RetailStripmall (about 225), FullServiceRestaurant (about 195), and PrimarySchool (about 175). Baseline and Package 6 are nearly identical for every type. (Legend reads 'Package 6' vs the main figures' 'Package_8' -- flag for QA.)
+- source_image: 95013_images/image_000013_fd1b3b036d51512bce1dfd545317db4d6ccc58c3fadc2df3c4f0974972546780.png
+  source_image_sha256: b4cdec33e7b4974243ccffe8ed2ff20cb18b28bbd60eb8fe9f4dd026d250f782
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Grouped bar chart of site annual electricity total energy consumption by building type, Baseline
+    vs Package 6
+  description: |-
+    Appendix figure (uncaptioned in the extracted text). Grouped bar chart of Electricity Total Energy Consumption (Btu) by ComStock building type, y-axis 0 to about 400+. Two bars per type (Baseline, dark blue; Package 6, light blue) across FullServiceRestaurant, QuickServiceRestaurant, RetailStripmall, RetailStandalone, SmallOffice, MediumOffice, LargeOffice, PrimarySchool, SecondarySchool, Outpatient, Hospital, SmallHotel, LargeHotel, and Warehouse. RetailStripmall is the largest (about 420), followed by Warehouse (about 375) and SecondarySchool (about 285). Package 6 is slightly below Baseline for most types, reflecting the modest electricity savings from controls and PV. (Legend reads 'Package 6' vs the main figures' 'Package_8' -- flag for QA.)
+- source_image: 95013_images/image_000014_cf49409d44aee412e4564d2469d6fd5f9fe313c41be8090c887aa54d99ffe1b7.png
+  source_image_sha256: b5f91b0e93044989d018bad3eecc94afa5c4a50947fc4cc6db23633dcdb8e114
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Grouped bar chart of site annual electricity total energy consumption by census division, Baseline
+    vs Package 6
+  description: |-
+    Appendix figure (uncaptioned in the extracted text). Grouped bar chart of Electricity Total Energy Consumption (Btu) by U.S. census division, y-axis 0 to about 700. Two bars per division (Baseline, dark blue; Package 6, light blue) for New England, Middle Atlantic, East North Central, West North Central, South Atlantic, East South Central, West South Central, Mountain, and Pacific. South Atlantic is the largest (about 690), followed by West South Central and Pacific (roughly 470). Package 6 is slightly below Baseline in every division, consistent with modest electricity savings. (Legend reads 'Package 6' vs the main figures' 'Package_8' -- flag for QA.)

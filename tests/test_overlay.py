@@ -799,7 +799,7 @@ def test_an_overlay_with_neither_tables_nor_repairs_warns(pdf_env):
     applied, warnings = _apply([_pdf_doc(REPAIR_BODY)], pdf_env)
 
     assert applied == {}
-    assert "no table entries or text repairs" in warnings[0]
+    assert "no table entries, figures, or text repairs" in warnings[0]
 
 
 def test_repairs_and_table_entries_compose_in_one_overlay(pdf_env):
@@ -829,6 +829,130 @@ Table 1. Roof R-Value
         < lines.index("| Roof Type | Energy Code | 1A | 2A |")
         < lines.index("Data from [11], [23]")
     )
+
+
+# --- figures mode: a caption-less slide picture, anchored on the image ref itself -----------
+#
+# Slide decks and report figures are extracted as bare ![](...) refs with no caption to anchor
+# on. A figure entry rewrites that ref with a hand-written alt and, for substantive pictures,
+# injects a description paragraph below it so retrieval has prose to index. The pin is the same
+# on-disk image sha256 the image-anchored table mode uses.
+
+FIG_ALT = "Bar chart of roof R-values by climate zone"
+FIG_DESC = (
+    "A grouped bar chart of roof R-values rising across climate zones 1 through 8, with the "
+    "upgrade series consistently above baseline."
+)
+
+
+def _fig(env, **kw):
+    base = {
+        "source_image": "media/roof.png",
+        "source_image_sha256": env.sha,
+        "method": "vision-description",
+        "described_utc": "2026-08-19",
+        "alt": FIG_ALT,
+        "description": FIG_DESC,
+    }
+    return {**base, **kw}
+
+
+def test_figure_describes_the_image_ref_in_place(env):
+    env.write([], figures=[_fig(env)])
+    doc = _doc()
+    applied, warnings = _apply([doc], env)
+
+    assert warnings == []
+    # the bare ref is gone, replaced by an alt-bearing one that keeps the same target
+    assert "![](media/roof.png)" not in doc.body
+    assert f"![{FIG_ALT}](media/roof.png)" in doc.body
+    # provenance is visible in the artifact, naming the picture and how it was described
+    assert "<!-- figure described by overlay:" in doc.body
+    assert "method: vision-description" in doc.body
+    # the description lands as prose below the picture, for the retriever to index
+    assert FIG_DESC in doc.body
+    rec = applied["upgrade_measures"]["docs/upgrade_measures/env_roof.md"]
+    assert rec["figures_applied"] == ["media/roof.png"]
+    assert rec["tables_applied"] == []
+
+
+def test_decorative_figure_gets_alt_but_no_description(env):
+    """A logo or divider is labelled for accessibility but adds no prose to the corpus."""
+    env.write([], figures=[_fig(env, decorative=True)])
+    doc = _doc()
+    applied, warnings = _apply([doc], env)
+
+    assert warnings == []
+    assert f"![{FIG_ALT}](media/roof.png)" in doc.body
+    assert FIG_DESC not in doc.body  # description suppressed for decorative images
+    assert applied["upgrade_measures"]["docs/upgrade_measures/env_roof.md"]["figures_applied"]
+
+
+def test_figure_stale_source_image_warns_and_changes_nothing(env):
+    """Upstream redrew the picture: the description is no longer known-good."""
+    env.write([], figures=[_fig(env)])
+    env.image.write_bytes(b"\x89PNG a different bitmap")
+    doc = _doc()
+    applied, warnings = _apply([doc], env)
+
+    assert applied == {} and doc.body == BODY
+    assert "source image changed since description" in warnings[0]
+
+
+def test_figure_missing_alt_is_refused(env):
+    """The alt is the whole point in the rendered artifact, so an entry without it is rejected."""
+    entry = _fig(env)
+    del entry["alt"]
+    env.write([], figures=[entry])
+    doc = _doc()
+    applied, warnings = _apply([doc], env)
+
+    assert applied == {} and doc.body == BODY
+    assert "missing required field 'alt'" in warnings[0]
+
+
+def test_figure_alt_with_a_bracket_is_refused(env):
+    """A `]` in the alt would close the markdown image ref early and corrupt the body."""
+    env.write([], figures=[_fig(env, alt="Chart of R-values [see note]")])
+    doc = _doc()
+    applied, warnings = _apply([doc], env)
+
+    assert applied == {} and doc.body == BODY
+    assert "contains ']'" in warnings[0]
+
+
+def test_figure_naming_an_absent_image_reads_as_stale(env):
+    """If the ref the description was written for is gone, say so instead of guessing."""
+    env.write([], figures=[_fig(env, source_image="media/ghost.png")])
+    doc = _doc()
+    applied, warnings = _apply([doc], env)
+
+    assert applied == {} and doc.body == BODY
+    assert "overlay is stale" in warnings[0]
+
+
+def test_figure_matching_two_refs_describes_neither(env):
+    """A basename that appears twice does not identify one picture, so nothing is described."""
+    env.write([], figures=[_fig(env)])
+    doc = _doc(BODY + "\n![](media/roof.png)\n")
+    applied, warnings = _apply([doc], env)
+
+    assert applied == {}
+    assert "does not identify one figure" in warnings[0]
+
+
+def test_figure_injection_is_idempotent(env):
+    """Re-applying over an already-described ref is a no-op, not a second alt or paragraph."""
+    env.write([], figures=[_fig(env)])
+    doc = _doc()
+    _apply([doc], env)
+    once = doc.body
+
+    applied, warnings = _apply([doc], env)
+    assert doc.body == once
+    assert once.count(FIG_DESC) == 1
+    assert once.count(f"![{FIG_ALT}](media/roof.png)") == 1
+    assert applied == {} and warnings == []
 
 
 def test_documents_without_an_overlay_are_untouched(env):

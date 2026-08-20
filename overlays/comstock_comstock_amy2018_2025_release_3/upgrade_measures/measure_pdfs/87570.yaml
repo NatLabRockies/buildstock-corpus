@@ -1,0 +1,121 @@
+# Hand-authored figure descriptions for measure_pdfs/87570.pdf
+#
+# 87570 is the HP-RTU with original fuel supplemental heat measure documentation. docling extracts
+# each picture as a bare ![Image](...) ref; the chart itself is invisible to retrieval. Each entry
+# rewrites the ref with a hand-written alt and injects a description paragraph below it.
+#
+# Scope: figures only (Figures 1-9, images 000002-000010, plus four uncaptioned appendix grouped-
+# bar charts 000011-000014). The cover montage (000000) and NREL logo (000001) are omitted. Table 1
+# (on-site fossil fuel emissions factors) is real markdown text in this doc, not a bitmap, so it is
+# not among the images.
+#
+# method is vision-description: numbers were read off the charts and need a human QA pass.
+# Least-certain reads: the Figure 9 data-bar matrix (000010) and the small stacked segments in
+# Figure 4 (000005). Every entry pins the on-disk PNG sha256.
+
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: measure_pdfs/87570.pdf
+figures:
+- source_image: 87570_images/image_000002_348ee02f61204c74074aa08926a580f781f08dd6043242d131d3d6995045f70c.png
+  source_image_sha256: b9f095324621637bcfa2b298348ccb4ee0dd0fad8f877a2470e34d294a76029c
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Horizontal bar chart of ComStock baseline in-force energy code as a percentage of applicable
+    floor area served by RTUs
+  description: |-
+    Figure 1. Horizontal bar chart of the ComStock baseline in-force energy code followed, as a percentage of applicable floor area served by applicable RTUs (PSZ-AC with gas coil and PSZ-AC with electric coil), x-axis 0% to about 50%. Bars from top: ComStock DOE Ref Pre-1980 0.07%, DOE Ref 1980-2004 46.50% (largest), 90.1-2004 9.10%, 90.1-2007 19.52%, 90.1-2010 5.85%, 90.1-2013 4.28%, DEER Pre-1975 0.07%, DEER 1985 0.86%, DEER 1996 2.38%, DEER 2003 2.66%, DEER 2007 2.93%, DEER 2011 2.14%, DEER 2014 0.75%, DEER 2015 1.52%, and DEER 2017 1.38%. Most applicable floor area follows the older DOE Reference 1980-2004 or 90.1-2007 vintages, indicating substantial efficiency-upgrade headroom.
+- source_image: 87570_images/image_000003_42a1b06c9dff87f535dd65e0dc844f9fcaedb1ed74b4a1d10fd1d5085c19d495.png
+  source_image_sha256: dc271adf97485468e071f6a0f3b201958181853df2deb060dced927794515b5c
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Horizontal bar chart of ComStock HVAC system type prevalence by stock floor area, floor area,
+    and model count
+  description: |-
+    Figure 2. Horizontal bar chart of ComStock HVAC system type prevalence, with three value columns per system type: % of Stock Floor Area, Stock Floor Area (ft2), and Model Count. PSZ-AC with gas coil is the most common (27.65% of stock floor area, 14,744,407,702 ft2, 40.45% of models) followed by PSZ-AC with electric coil (9.82% / 5,134,140,479 / 12.81%). Other types include PVAV with gas boiler reheat (7.10%), PVAV with gas heat with electric reheat (5.07%), VAV air-cooled chiller with gas boiler reheat, PTHP, PTAC, PSZ-HP, and a long tail; 'All others (<1% area)' sums to 8.60%. The two applicable PSZ-AC types together make up roughly 36% of stock floor area.
+- source_image: 87570_images/image_000004_ac0bdb492f706e5c9cab7fc99ec954c26b591a3f4f0f79882d6ce32659550e9c.png
+  source_image_sha256: d042eb19f26205ada21f293aaab387f6e2eb588af3945a0a5e9034a4d28a58f9
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Two-panel time-series comparing heat-pump and supplemental heating rates and site electricity for gas vs electric backup over two winter days
+  description: |-
+    Figure 3. Two-panel time-series comparing the HP-RTU measure with gas vs. electric supplemental heat for an example small office in Gunnison, Colorado, over two winter days (Jan 02-03). Top panel: heating rate (Btu/hr, 0 to about 21000) showing the heat pump heating rate (green) and the supplemental heating rate (pink); the electric-backup and gas-backup cases overlap exactly because only the supplemental fuel differs, not the required heating rate. Bottom panel: site outdoor air temperature (degrees F, left axis) plus whole-building site electricity (Wh, right axis to about 7500) for the electric-backup and gas-backup scenarios; site electricity spikes much higher under electric backup during the cold early-morning hours when supplemental resistance heat runs, while gas backup keeps electricity low. Illustrates that backup fuel choice does not change heating delivered but strongly changes electricity draw and peak demand.
+- source_image: 87570_images/image_000005_21bc3d55cb0dbb1a2c0f05dfc042b6153110e81375272b36d184e41e564c2ee6.png
+  source_image_sha256: 131b2aae970a090882ce0b705644b5dc59377c698d0876d0eb96b9139426bbd2
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Two stacked column charts of annual stock site energy consumption, Baseline vs HP-RTU with electric backup and vs gas backup
+  description: |-
+    Figure 4. Two side-by-side stacked column charts of annual stock site energy consumption (TBtu), y-axis 0 to about 4600. Left compares ComStock Baseline (total 4638) with HP RTU E Backup (4235); right compares the same Baseline (4638) with HP RTU G Backup (4242, an 8.5% / 396 TBtu reduction). Columns are segmented by end use and fuel per the legend. Legible segments (unchanged across scenarios): Interior Equipment Electricity 836.5. Changing segments include Fans Electricity 598.3 falling to about 476.4, Cooling Electricity 724.7 to about 644.0, and the heating segments, which are the only end uses that differ between the electric-backup and gas-backup variants. Shows cooling and fan efficiency drive most savings, while supplemental fuel choice only shuffles heating between gas and electricity.
+- source_image: 87570_images/image_000006_50ba191d42bdef4688ff507886f4b89a13a683394f1226b9fddbd601af3af770.png
+  source_image_sha256: eec9f8a994912a3c8a171e4cbebcc52ad700d64253e6eb018a8d0663715f1077
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Grouped bar chart of annual GHG emissions by fuel and electricity grid scenario, Baseline vs
+    HP-RTU gas backup
+  description: |-
+    Figure 5. Grouped bar chart of annual GHG emissions (MMT CO2e), y-axis 0 to 500, comparing ComStock Baseline (dark blue) and HP RTU G Backup (light blue). Bars are grouped by emissions source: Electricity under three grid scenarios plus on-site fuels. Electricity eGRID 2021: 336.6 to 322.3 (-14.3, 4.2%). Electricity LRMER High RE Cost 15: 253.3 to 244.1 (-9.2, 3.6%). Electricity LRMER Low RE Cost 15: 161.1 to 157.6 (-3.5, 2.2%). Natural Gas: 83.6 to 68.5 (-15.1, 18.1%). Fuel Oil: 4.8 to 4.2. Propane: 2.0 to 0.9. The largest percentage cut is in natural gas emissions; absolute electricity emissions reductions depend on the marginal-grid assumption.
+- source_image: 87570_images/image_000007_1d8116db6009134c39eea5512cf221dbeace16a054a57850de0a618de5cd6488.png
+  source_image_sha256: 87aaceb9b878e82a68a33e4a051da452430f25b42ad86a069ae54057fea1d8be
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Violin and box plots of percent site energy savings by end use across applicable models
+  description: |-
+    Figure 6. Horizontal violin-plus-box plots of Percent Site Energy Savings by End Use (%), x-axis about -160% to 140%, titled 'Upgrade 02: HP RTU G Backup (unweighted)'. Rows with model counts: Other Fuel Water Systems (n=48), Other Fuel Heating (n=7899), Natural Gas Water Systems (n=5919), Natural Gas Heating (n=135378), Electricity Water Systems (n=4105), Electricity Refrigeration (n=16548), Electricity Interior Lighting (n=11), Electricity Interior Equipment (n=8), Electricity Heating (n=177649), Electricity Heat Recovery (n=3879), Electricity Fans (n=178758), and Electricity Cooling (n=178774). Combustion-heating rows cluster near +100% (on-site heating combustion eliminated for applicable systems), Electricity Heating shows large positive savings, and Fans and Cooling show moderate positive savings; long negative tails mark buildings with small absolute loads.
+- source_image: 87570_images/image_000008_2491e5fc136fdfb36d83a7677754b32f2aa3b2ebde55c398613123743f20fe3d.png
+  source_image_sha256: 6cac588e9dbcd15c15cc69d352ff260932b56c0a37ae981b80bb017255d7cccf
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Violin and box plots of percent site energy savings by fuel across applicable models
+  description: |-
+    Figure 7. Horizontal violin-plus-box plots of Percent Site Energy Savings by Fuel (%), x-axis about -160% to 100%, titled 'Upgrade 02: HP RTU G Backup (unweighted)'. Rows with model counts: Other Fuel (n=7909), Natural Gas (n=135743), Electricity (n=178772), and Site (total, n=178774). Natural Gas and Other Fuel distributions sit near +100% savings (combustion heating largely displaced), Electricity centers around 10-30% savings, and the overall Site savings distribution centers around 30-40% with a long negative tail. Confirms the measure's savings come mostly from displacing fossil heating and improving cooling/fan efficiency.
+- source_image: 87570_images/image_000009_661e5b4e9504b80e7cd2b26c93e17094150a95f1a8700dfd3f25aac0693bb3b9.png
+  source_image_sha256: cac582e9606bb66e85658c26a7d882e3145d329f7b6e959dec8369a5049562c0
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Violin and box plots of percent site energy savings by building type across applicable models
+  description: |-
+    Figure 8. Horizontal violin-plus-box plots of Percent Site Energy Savings by Building Type (%), x-axis about -20% to 70%, titled 'Upgrade 02: HP RTU G Backup (unweighted)'. Rows with model counts: FullServiceRestaurant (n=12337), Hospital (n=24), LargeOffice (n=141), MediumOffice (n=1689), Outpatient (n=2549), PrimarySchool (n=1025), QuickServiceRestaurant (n=8413), RetailStandalone (n=28547), RetailStripmall (n=43631), SecondarySchool (n=562), SmallOffice (n=32493), and Warehouse (n=47363). Most building types center between roughly 20% and 40% site energy savings; QuickServiceRestaurant is lowest (median around 5-10%), while warehouses, retail, and offices are among the highest.
+- source_image: 87570_images/image_000010_83e0b370ba9449230350c69b902748403b885bb0f5028aed6733729881952216.png
+  source_image_sha256: bd24fc44bd85996fff7b01dfd9dd50417b0b2f11dd7dddd08d4f69fd008a884d
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Matrix chart of median noncoincident peak demand (W per square foot) by climate zone and season, Baseline vs gas backup vs electric backup
+  description: |-
+    Figure 9. Matrix (data-bar) chart of median noncoincident peak electric demand (W/SF) for models with gas RTUs, by Building America climate zone (rows: Hot-Humid, Hot-Dry, Marine, Mixed-Dry, Mixed-Humid, Cold, Very Cold, Subarctic) and season (columns: Summer, Winter, Shoulder). Each zone has three rows: Baseline, HP RTU G Backup, and HP RTU E Backup. Summer peaks fall under both HP-RTU scenarios (e.g. Hot-Humid Baseline 4.42 to 3.03; Hot-Dry 4.59 to 3.42). Winter peaks are similar or slightly higher under the measure, and electric backup drives the largest winter peaks in cold climates (e.g. Very Cold Winter reaches 5.97 W/SF under E Backup vs 3.53 under G Backup). Illustrates that electric resistance backup can substantially raise winter peak demand in cold zones. (Values read off a dense data-bar table; flag for QA.)
+- source_image: 87570_images/image_000011_e2edd8806a16dbc8dab5ed9d6dde89823fb3f8e7a6f4ed7b7fcb8d00a771d09c.png
+  source_image_sha256: 3ec363c652bd468c775afc2acca09524a89ec7f30c6b91145fc22b7a1251df98
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Grouped bar chart of site annual natural gas consumption by census division, Baseline vs HP-RTU
+    gas backup
+  description: |-
+    Appendix figure (uncaptioned in the extracted text). Grouped bar chart of site annual natural gas total energy consumption (TBtu) by U.S. census division, y-axis 0 to about 300. Two bars per division (Baseline dark blue, HP RTU G Backup light blue) for New England, Middle Atlantic, East North Central, West North Central, South Atlantic, East South Central, West South Central, Mountain, and Pacific. Baseline gas exceeds the measure in every division; East North Central is largest (about 305 baseline to about 245), followed by Pacific (about 225 to 185) and Middle Atlantic (about 200 to 160). Shows the HP-RTU measure reduces natural gas across all divisions.
+- source_image: 87570_images/image_000012_65c1135634189c5b8f73f24f21b17474f8cd05bd8eb051c25ec18645291d14dd.png
+  source_image_sha256: 1d3f7b0084959e7f74d5b0a6a15cdeafd44ae52c0f94ee1bd09080ec75081f90
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Grouped bar chart of site annual natural gas consumption by building type, Baseline vs HP-RTU
+    gas backup
+  description: |-
+    Appendix figure (uncaptioned in the extracted text). Grouped bar chart of site annual natural gas total energy consumption (TBtu) by ComStock building type, y-axis 0 to about 210. Two bars per type (Baseline dark blue, HP RTU G Backup light blue) across FullServiceRestaurant, QuickServiceRestaurant, RetailStripmall, RetailStandalone, SmallOffice, MediumOffice, LargeOffice, PrimarySchool, SecondarySchool, Outpatient, Hospital, SmallHotel, LargeHotel, and Warehouse. RetailStripmall is largest (about 210 baseline to about 160); restaurants, schools, and warehouses are also high. Natural gas falls under the measure for nearly every building type.
+- source_image: 87570_images/image_000013_465e373df7aab553d3f8040a155095ea7243cb27a387884eff864e301271a7e4.png
+  source_image_sha256: d676916c0744c0a162970ba0519ef238e2ebe36d9ce1929ad7155f1a73726f59
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Grouped bar chart of site annual electricity consumption by building type, Baseline vs HP-RTU
+    gas backup
+  description: |-
+    Appendix figure (uncaptioned in the extracted text). Grouped bar chart of site annual electricity total energy consumption (TBtu) by ComStock building type, y-axis 0 to about 460. Two bars per type (Baseline dark blue, HP RTU G Backup light blue) across the standard ComStock building types. RetailStripmall and Warehouse are largest (about 450 baseline, falling modestly to about 410-425). Electricity changes are small in most types because cooling and fan savings roughly offset any heating electrification retained under gas backup.
+- source_image: 87570_images/image_000014_93ae73aeff642fdb9acecb55a299595652d950ef1b0aa74b719e16c4ba9c2581.png
+  source_image_sha256: 164fe4ea55d985a13be960bdffd1e003018e2c7ca914a612825b1d6680615318
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Grouped bar chart of site annual electricity consumption by census division, Baseline vs HP-RTU
+    gas backup
+  description: |-
+    Appendix figure (uncaptioned in the extracted text). Grouped bar chart of site annual electricity total energy consumption (TBtu) by U.S. census division, y-axis 0 to about 700. Two bars per division (Baseline dark blue, HP RTU G Backup light blue) for the nine census divisions. South Atlantic is largest (about 670 baseline to about 640), followed by Pacific (about 520 to 460). Electricity declines modestly across divisions under the measure, consistent with cooling and fan efficiency gains outweighing retained heating electricity in the gas-backup scenario.

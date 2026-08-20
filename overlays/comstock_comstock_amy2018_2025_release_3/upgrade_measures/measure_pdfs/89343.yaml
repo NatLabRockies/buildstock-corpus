@@ -1,0 +1,59 @@
+# Hand-authored figure descriptions for measure_pdfs/89343.pdf
+#
+# 89343 is the Dispatch Schedule Generation for Demand Flexibility Measures documentation
+# (NREL/TP-5500-89343). docling extracts each figure as a bare ![Image](...) ref; the chart
+# itself is invisible to retrieval. Each entry rewrites the ref with a hand-written alt and
+# injects a description paragraph below it.
+#
+# Scope: figures only (Figures 1-6). The cover-photo montage (000000) and NREL logo (000001)
+# are deliberately not described. Note: image 000005 is a single bitmap containing BOTH
+# Figure 4 and Figure 5 (docling merged them), so one entry covers both.
+#
+# method is vision-description: numbers were read off the charts and should get a human QA
+# pass before this is treated as a release record. Every entry pins the on-disk PNG sha256.
+
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: measure_pdfs/89343.pdf
+figures:
+- source_image: 89343_images/image_000002_4a7ab7c47b4170d99251b674f8408bea8bdc8003c0838845c83c10ddfbe46e40.png
+  source_image_sha256: 255860b9c56dc47ebaac5e2184403af879ce14b1b3d2aeae44d15f69d1e4ec82
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Two-panel stacked area chart of building electricity load over three summer days, Baseline vs DF control with fixed schedule
+  description: |-
+    Figure 1. Two-panel stacked area chart of a single building's electricity load (kW) over three summer days (8/19-8/21). Left panel is Baseline, right panel is 'DF control with fixed schedule'. Left y-axis Electricity load (kW) runs 0 to about 17.5 and a secondary right axis runs to about 30. Areas are stacked by end use per the legend (Cooling, Fans, HeatRejection, ExteriorLights, Heating, InteriorEquipment, InteriorLights, Total), with a green dashed Setpoint line overlaid. In the right panel the fixed-schedule setpoint steps up (thermostat setback) during an assumed evening peak window, but the resulting load reduction does not coincide with the actual daily load peak, illustrating that a fixed peak schedule misaligns demand-flexibility control with the building's true peak load.
+- source_image: 89343_images/image_000003_08c15327cb8c2ad9c9282d0c3853081f84b896bd8f14097250684d5badca44d2.png
+  source_image_sha256: 810f5c78dcbb4505f5c8c90cecda04cfac928177c8f4460ce8141bf1ef0d06f7
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Grid of small-multiple daily load-profile plots by temperature bin, showing binned profiles, drawn samples, and representative profiles
+  description: |-
+    Figure 2. Grid of small-multiple line plots (5 rows by 5 columns) of daily load profiles by weather bin. Rows are daily-maximum-OAT categories (very hot, hot, mild, cool, other) and columns are hour-of-OATmax bins (12-2PM, 2-3PM, 3-4PM, 4-5PM, other); each subplot title carries the number of days in that bin (e.g. very hot 12-2PM 13, very hot 2-3PM 28, hot 12-2PM 27, cool 3-4PM 32, other 3-4PM 41), matching Table 2. Each subplot has x-axis hour of day (0-23) and y-axis Power (kW) to about 14. Green lines are the individual daily load profiles in the bin, red-dashed lines are the randomly drawn samples, and the orange line is the representative (averaged) profile used as the predicted load. Hotter bins show higher, sharper afternoon peaks; cool and other bins are low and flat, and the representative orange profiles track the bin's shape and peak timing well.
+- source_image: 89343_images/image_000004_695c75db8de7dace978c3158ac0a632083834a6247482ccc73c50423e3fe14da.png
+  source_image_sha256: 618177c0c55088da64c2e457c49c22d6f5c25dc643003dd793f2efd34f4c658c
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Line chart of hourly load over five days comparing Baseline, Perfect Prediction, and Bin-sampling
+    load-shedding options
+  description: |-
+    Figure 3. Line chart of hourly electricity load (kWh) for one building over five consecutive days (9/24-9/28), y-axis 50 to 250. Three series: Baseline (blue dashed), Perfect Prediction (red), and Bin-sampling (yellow), each daily peak near 175-190 kWh. The perfect-prediction and bin-sampling load-shedding curves agree with each other for the first three days, but on 9/27 and 9/28 the bin-sampling method mispredicts the peak timing and shape while perfect prediction continues to track and shed the true peak.
+- source_image: 89343_images/image_000005_db5a0d2298c901c74744a8cf0fe1f3f96bb107fb6708908db9b6b5c16132073e.png
+  source_image_sha256: 6ddad1591154d4c22b47d6e6638ba91bc51582f09a0b68385b7b7e40b55d2ba7
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: 'Two stacked line charts of hourly load over five days: Figure 4 (fixed schedule) above Figure
+    5 (OAT-based prediction)'
+  description: |-
+    Figures 4 and 5, stacked in one image. Both are line charts of hourly electricity load (kWh) for one building over five consecutive days (9/24-9/28), y-axis 50 to 250, daily peaks near 175-190 kWh. Top (Figure 4) compares Baseline (blue dashed), Perfect Prediction (red), and Fixed Schedule (yellow). Bottom (Figure 5) compares Baseline (blue dashed), Perfect Prediction (red), and OAT-based Prediction (yellow). In both, perfect prediction tracks and reduces the true baseline peak, while the fixed-schedule and OAT-based options largely fail to capture the actual peak timing, leaving load spikes unshed on most days.
+- source_image: 89343_images/image_000006_9420c73265ec4c1660e8c363924ac2331c6655611a660ac9a2d39831abda932d.png
+  source_image_sha256: 32d550e0e658dc83e6a8c7d915e642b56e2e9854bab7a21450645e59d1ca49f7
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Horizontal box plots of median daily peak load savings percent by month for three load-prediction
+    options
+  description: |-
+    Figure 6. Horizontal box-and-whisker plot of median daily peak load reduction (Median Peak savings, percent) across a stock of large-office models, x-axis from about -5% to 15%. Rows are grouped by month (Jan through Dec), and within each month there are three bars: Perfect prediction, Fixed schedule, and OAT-based prediction. Boxes span Q1 to Q3 and whiskers extend to 1.5x IQR. Perfect prediction consistently shows the largest positive median peak savings (medians and boxes shifted right of zero, largest in summer months), OAT-based prediction gives modest positive savings, and the fixed-schedule option is often centered near or below zero, indicating it creates new higher peaks for many buildings much of the time.

@@ -164,6 +164,11 @@ def build_manifest(
             "overlay_tables": sum(
                 len(rec["tables_applied"]) for v in overlays.values() for rec in v.values()
             ),
+            "overlay_figures": sum(
+                len(rec.get("figures_applied") or [])
+                for v in overlays.values()
+                for rec in v.values()
+            ),
             "overlay_text_repairs": sum(
                 rec.get("text_repairs_applied", 0)
                 for v in overlays.values()
@@ -215,6 +220,11 @@ def _validate_overlay(proot: Path, artifact: dict, where: str) -> tuple[list[str
     bitmap, and are checked against this artifact's own `input_sha256`. That value is in the
     manifest, so unlike an image these are always verifiable — including in a fresh clone,
     where raw/ holds no PDFs at all.
+
+    Figure descriptions (`figures_applied`) are image-pinned exactly as an image-anchored table
+    is, and their verification is the same claim — the bitmap on disk still hashes to what the
+    author described — so they are counted with the image-anchored total rather than separately.
+    An absent figure image is unverifiable for the same .gitignore reason, not a violation.
     """
     ov = artifact["overlay"]
     errors: list[str] = []
@@ -261,6 +271,23 @@ def _validate_overlay(proot: Path, artifact: dict, where: str) -> tuple[list[str
             errors.append(
                 f"{where}: {label}: source image changed since transcription "
                 f"({img.name}); the injected table may no longer match it"
+            )
+        else:
+            checked += 1
+
+    applied_figs = set(ov.get("figures_applied") or [])
+    for fig in data.get("figures") or []:
+        src = str(fig.get("source_image", "")).strip()
+        if src not in applied_figs:
+            continue  # recorded as not applied; nothing was injected to back up
+        img = page_dir / src
+        if not img.is_file():
+            unverifiable += 1
+        elif _sha256_file(img) != fig.get("source_image_sha256"):
+            checked += 1
+            errors.append(
+                f"{where}: figure {img.name}: source image changed since description; the "
+                f"injected description may no longer match it"
             )
         else:
             checked += 1
@@ -356,13 +383,15 @@ def validate_release(product: str, release: str) -> bool:
         )
     print(f"  {n_art} artifacts, all traced to hashed inputs and present on disk with matching hashes")
     counts = manifest.get("counts", {})
-    n_ov = counts.get("overlay_tables") or 0
-    if n_ov:
-        # State what was actually re-verified, and against what: the two anchors are not the
-        # same claim. On a fresh clone the source images are absent by design (.gitignore
-        # drops processed/**/*.png), and claiming those transcriptions were checked against
-        # their pictures would be a false record; the PDF-pinned ones check against a hash
-        # the manifest itself carries, so they are verifiable even there.
+    n_tables = counts.get("overlay_tables") or 0
+    n_figs = counts.get("overlay_figures") or 0
+    if n_tables or n_figs:
+        # State what was actually re-verified, and against what: the anchors are not the same
+        # claim. On a fresh clone the source images are absent by design (.gitignore drops
+        # processed/**/*.png), and claiming those transcriptions/descriptions were checked
+        # against their pictures would be a false record; the PDF-pinned ones check against a
+        # hash the manifest itself carries, so they are verifiable even there. Figure
+        # descriptions are image-pinned, so they fall under the source-image count below.
         skipped = stats.get("overlay_unverifiable", 0)
         parts = []
         if stats.get("overlay_checked_pdf"):
@@ -378,8 +407,16 @@ def validate_release(product: str, release: str) -> bool:
                 f"run `bsc fetch && bsc build` to restore it)"
             )
         detail = ", ".join(parts) if parts else "none re-verified"
+        # Tables and figures are counted apart because they are different claims — a table is
+        # text copied out of a picture, a figure description is text written about one — but
+        # they share the image/PDF re-verification detail above.
+        kinds = []
+        if n_tables:
+            kinds.append(f"{n_tables} hand-authored table(s)")
+        if n_figs:
+            kinds.append(f"{n_figs} hand-authored figure description(s)")
         print(
-            f"  {n_ov} hand-authored table(s) across "
+            f"  {' and '.join(kinds)} across "
             f"{counts.get('overlay_documents')} doc(s): {detail}"
         )
     n_fix = counts.get("overlay_text_repairs") or 0

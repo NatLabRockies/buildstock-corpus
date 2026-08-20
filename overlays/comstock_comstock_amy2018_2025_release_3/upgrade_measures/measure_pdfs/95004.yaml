@@ -1,0 +1,90 @@
+# Hand-authored figure descriptions for measure_pdfs/95004.pdf
+#
+# 95004 is the Add Rooftop PV (40% of load) measure documentation. docling extracts each
+# picture as a bare ![Image](...) ref; the chart itself is invisible to retrieval. Each entry
+# rewrites the ref with a hand-written alt and injects a description paragraph below it.
+#
+# Scope: figures only (Figures 1-8, images 000003-000010). The cover montage (000000) and NREL
+# logo (000001) are omitted. NOTE for QA: image 000002 is NOT a chart -- it is a small legible
+# TABLE bitmap (Table 4, on-site fossil fuel emissions factors). It is included with
+# method: vision-transcription (cells transcribed, not interpreted) because there is no separate
+# table overlay for this doc and the factors would otherwise be lost to retrieval.
+#
+# method vision-description entries: numbers were read off the charts and need a human QA pass
+# before treated as a release record. Least-certain reads: the exact per-state values on the two
+# choropleth maps (Figures 7-8) and the small stacked segments in Figures 2/3/6. Every entry
+# pins the on-disk PNG sha256.
+
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: measure_pdfs/95004.pdf
+figures:
+- source_image: 95004_images/image_000002_6932e4e6b973474062ef2e795ff8aad01531912d02c56d81a5eeffe72887de44.png
+  source_image_sha256: 2ff7c5fcf97b3edb0735e5026e9073ce7fc459427ae808c0bed439a0166363b5
+  method: vision-transcription
+  described_utc: '2026-08-20'
+  alt: Table 4. On-site fossil fuel emissions factors for natural gas, propane, and fuel oil
+  description: |-
+    Table 4. On-Site Fossil Fuel Emissions Factors, transcribed from a small legible table bitmap. Three fuels with on-site combustion emissions factors in two unit systems: Natural gas 147.3 lb/MMBtu (228.0 kg/MWh); Propane 177.8 lb/MMBtu (182.3 kg/MWh); Fuel oil 195.9 lb/MMBtu (303.2 kg/MWh). Footnote: lb = pound; MMBtu = million British thermal units; kg = kilogram; MWh = megawatt-hour. These are the direct-combustion factors used to attribute on-site fossil emissions; grid-electricity emissions are handled separately via the eGRID/LRMER factors used elsewhere in the doc.
+- source_image: 95004_images/image_000003_48ae9451175e763a1df96ad3c0a805862c05d8bdde7bcb8a37f783a239f74bc8.png
+  source_image_sha256: ebd65de4ecfa58ba4b1feabfa99c6084ce8832b8a9fd69487a1b422c10bac020
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Two-panel time-series of a building's PV electricity produced and electricity purchased over an example July week, Baseline vs PV 40%
+  description: |-
+    Figure 1. Two-panel time-series over an example summer week (7/9/2018-7/15/2018) for a single building. Top panel: PV Electricity Produced (kW), y-axis 0 to about 55, single series ElectricityProduced:Facility for PV 40%; generation follows a daily bell curve peaking near 50-53 kW at midday and zero overnight (system rated near 68 kW). Bottom panel: electricity purchased from the grid (kW), y-axis 0 to about 45, two series ElectricityPurchased:Facility Baseline (blue) and PV 40% (orange). Baseline purchases track building load with daily peaks near 40 kW; under PV 40% midday purchases drop sharply toward zero as on-site PV serves the load, while early-morning and evening purchases (outside PV hours) are largely unchanged. Illustrates that a 40%-of-load PV system offsets midday grid purchases but not the evening peak.
+- source_image: 95004_images/image_000004_ee182666c006dd5d3ae8a92f9280b9a163de792e6d8064fbdf2039d3ea346cf4.png
+  source_image_sha256: 3fc8e7c9881ae58a4594fd4e1e60723613263ce5233d504b9e06982d428945c5
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Stacked column chart of annual stock site energy consumption by end use and fuel, Baseline vs PV 40%, with PV generation shown below zero
+  description: |-
+    Figure 2. Stacked column chart of annual stock site energy consumption (TBtu), y-axis roughly -2000 to 5000, comparing ComStock Baseline and Add_PV_40pct. Both scenarios share identical positive consumption totaling 4865 TBtu, segmented by end use and fuel per the legend (Heat Rejection, Heat Recovery, Pumps, Refrigeration, Exterior Lighting, Water Systems, Heating, Interior Lighting, Cooling, Fans, Interior Equipment across Electricity, Natural Gas, District Heating/Cooling, and Other Fuel). Legible segments include Refrigeration Electricity 965.7, Heating Electricity 740.2, Interior Lighting Electricity 727.0, Cooling Electricity 568.5, Water Systems Other Fuel 440.4, and Interior Equipment about 310.6. The PV scenario adds two negative (generation) segments below zero: Photovoltaics Used 844.7 (on-site self-consumption) and Photovoltaics Excess 1038.6 (exported), totaling about 1883 TBtu of PV generation, consistent with the roughly 1,884 TBtu on-site generation cited in the summary. Shows a 40%-sizing PV deployment generates energy comparable to a large share of stock electricity, with more than half exported as excess.
+- source_image: 95004_images/image_000005_ecaa3ed6ea8084255f6b06d30e39801b1886aef8a6f89b8522736e6dd00027cb.png
+  source_image_sha256: 7aa4cb2c2b54c6678489115bf690e22b4a6ed9908e6f75be89b9d7fe0e1505ab
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Three-panel stacked bar chart of annual utility bill by fuel under maximum, mean, and minimum electricity rates, Baseline vs PV 40%
+  description: |-
+    Figure 3. Three-panel stacked bar chart of annual utility bill (Billion USD, 2022), y-axis 0 to about 150, under three electricity-rate assumptions (With Max, Mean, and Min Electricity Rate). Each panel has two bars (Baseline, Add_PV_40pct) stacked by fuel per the legend (Electricity, Natural Gas, Propane, Fuel Oil). Max rate: Baseline 144 (Electricity 125, Natural Gas 17) vs PV 107, a 26% reduction (Electricity 88, Natural Gas 17). Mean rate: Baseline 127 (Electricity 108, Natural Gas 17) vs PV 95, a 25% reduction (Electricity 76). Min rate: Baseline 112 (Electricity 93, Natural Gas 17) vs PV 84, a 25% reduction (Electricity 65). Natural gas cost is unchanged at 17 across scenarios; the roughly 25% total bill savings comes entirely from reduced electricity purchases, matching the about 25% ($28-$37 billion, 2022) savings cited in the summary.
+- source_image: 95004_images/image_000006_871cca580f73440d87bf93ca8f39cbdbb7517409aea9cd8172f5504392a9327a.png
+  source_image_sha256: 4add62922bb9f6bdb5701ae53faa117d3924ca388365f4e51a776546f4a96a5c
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Violin and box plots of percent utility bill savings by fuel type across the modeled stock
+  description: |-
+    Figure 4. Horizontal violin-plus-box plots of Percent Utility Bill Savings by Fuel (%), x-axis about -160% to 100%, titled 'Upgrade 41.0: Add_PV_40pct (unweighted)'. Rows (with model counts): Propane Bill State Average (n=102), Fuel Oil Bill State Average (n=65), Natural Gas Bill State Average (n=5420), Electricity Bill with Mean Rate (n=124059), and Bill Mean (n=124077). The fossil-fuel rows cluster tightly at 0% (PV does not change gas/propane/oil bills). The Electricity Bill and overall Bill Mean distributions center around 25-35% savings with the interquartile box on the positive side, but have long left tails reaching below -100%, indicating a minority of building/rate combinations where PV increases the net bill. Median bill savings exceed 20%, consistent with the summary.
+- source_image: 95004_images/image_000007_6a9047489663583aa44b044d1323e3c79de8ad3e048c9fc70dc5593fac2ae4d3.png
+  source_image_sha256: 6f36c424c8c511f27b7246c262b6e085c5f2507a2da66873441a447567c64b38
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Violin and box plots of percent utility bill savings by ASHRAE climate zone across the modeled
+    stock
+  description: |-
+    Figure 5. Horizontal violin-plus-box plots of Percent Utility Bill Savings by Climate (%), x-axis about -100% to 90%. Rows are ASHRAE climate zones with model counts: 1A (n=3053), 2A (n=6593), 2B (n=3706), 3A (n=12963), 3B (n=15905), 3C (n=5290), 4A (n=19672), 4B (n=5228), 4C (n=1870), 5A (n=18539), 5B (n=9311), 6A (n=10385), 6B (n=4247), 7 (n=6651), and 8 (n=650). Most zones center around 20-40% bill savings; sunnier, cooling-dominated dry zones (2B, 3B, 4B, 5B) skew toward the higher end, while every zone shows a long negative tail for a minority of buildings. Confirms PV bill savings are positive across all U.S. climates with regional spread.
+- source_image: 95004_images/image_000008_6906f57050c6991f54fab7182e653d03256849ea6d82881448f0bcd16abf647f.png
+  source_image_sha256: 041c5cdf5e416a73588118078e6e590b45ebe0d6d2acaf497bf5940b82e4e46d
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Three-panel stacked bar chart of annual CO2e emissions by fuel under eGRID and two LRMER grid scenarios, Baseline vs PV 40%
+  description: |-
+    Figure 6. Three-panel stacked bar chart of annual CO2e emissions (MMT CO2e = million metric tons), y-axis 0 to about 500, under three grid-emissions assumptions (eGRID 2021, LRMER High RE Cost 15, LRMER Low RE Cost 15). Each panel has two bars (Baseline, Add_PV_40pct) stacked by fuel (Electricity, Natural Gas, Propane, Fuel Oil). eGRID 2021: Baseline 452 (Electricity 345, Natural Gas 102) vs PV 338, a 25% reduction (Electricity 232). LRMER High RE Cost 15: Baseline 346 (Electricity 240) vs PV 283, an 18% reduction (Electricity 176). LRMER Low RE Cost 15: Baseline 245 (Electricity 139) vs PV 219, an 11% reduction (Electricity 113). Natural gas emissions are unchanged at 102 across scenarios; the electricity-emissions reduction ranges 11-25% depending on the marginal grid assumption (about 26-114 MMT avoided), matching the summary.
+- source_image: 95004_images/image_000009_380e740a88608dc88c95cfcac3525ec8f02dbd8b46a14fd2b910ed0cf3a3b953.png
+  source_image_sha256: 2f80f0b5589b7301b46731e43bba837fa6d356e2db6f64437e824923fe6d4c2f
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: U.S. state choropleth map of total installed PV capacity in megawatts under the PV 40% scenario
+  description: |-
+    Figure 7. Choropleth map of the contiguous United States shading each state by total installed PV capacity (MW) under the Add_PV_40pct scenario, with the value labeled on each state; darker blue = more capacity. The largest deployments are California (about 50,301 MW) and Texas (about 40,957 MW), followed by Florida (about 26,787 MW) and other populous Sun Belt and eastern states (e.g., Georgia about 16,580 MW, with several eastern states in the 10,000-17,000 MW range). Sparsely built or less-sunny Mountain and Northern Plains states show the smallest values (roughly 600-9,000 MW). The national total is on the order of 385 GW, consistent with the summary.
+- source_image: 95004_images/image_000010_a385f24c4043f9d6c9515e900c15810bd50ff69a10fc3ecd09d17e0dffdad00f.png
+  source_image_sha256: b3c86bc584ea63a31df48d710229d26e8f49434b25c05eb99ab9b9e749220d28
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: U.S. state choropleth map of average realized PV capacity factor by state under the PV 40% scenario
+  description: |-
+    Figure 8. Choropleth map of the contiguous United States shading each state by average realized PV capacity factor under the Add_PV_40pct scenario, value labeled on each state; darker orange = higher. Values range from about 0.14 in the cloudier Pacific Northwest, Great Lakes, and Northeast to about 0.20-0.21 in the desert Southwest (Nevada about 0.21; Arizona, New Mexico, and California about 0.20). Most of the country falls in the 0.15-0.18 range, with Florida about 0.18. Reflects that PV in the sunny Southwest produces markedly more energy per installed watt than in the cloudier north.
