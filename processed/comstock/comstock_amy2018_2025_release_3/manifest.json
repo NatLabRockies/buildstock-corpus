@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "comstock_amy2018_2025_release_3",
-  "generated_utc": "2026-08-21T21:43:55.761849+00:00",
+  "generated_utc": "2026-08-21T21:50:57.501512+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -1772,13 +1772,33 @@
           "title": "HP-RTU + ASHP Boiler + Demand Control Ventilation + Heat/Energy Recovery + Economizers",
           "input_sha256": "68cc557325046095d37ac589ab50a713377945180193b43154422f5a981046f8",
           "output_path": "upgrade_measures/measure_pdfs/89128.md",
-          "output_sha256": "498b2ca3f249283330f87a10bf8745d2e49c0197fb187271f763882e7f1c29e9",
+          "output_sha256": "591fcfc66785bc49dc3d49a5ee3ee935f28fbdb6cf1982cdedbdb424aeefb33e",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89128.yaml",
-            "sha256": "68dbc1ad0bb4d2841eb7a3d7d1b1ba3a0cff48889310852f60337e7bd131d366",
+            "sha256": "9c0a291916c035cd739b470a331dba181ee044a43a077af851937e4463a65fc9",
             "tables_applied": [
               "Table 1",
               "Table 5"
+            ],
+            "figures_applied": [
+              "89128_images/image_000007_1245f7ee4ca34ab09ef9ec75a8aa3ccf27c534dc168902fdfb9f647b1a8314f5.png",
+              "89128_images/image_000008_e37227dcba9a955501f57e8a1b56c57865e8b0b12f2f5a710a4128d96c74e310.png",
+              "89128_images/image_000009_255ee20822a7c111e639786023809199c7e30d2ea0fbceb59ed92834578e7ba3.png",
+              "89128_images/image_000010_797431ef7a7b31b481723af0e3271f6d0d33a4b156e2f2bfbd960815ed339b1f.png",
+              "89128_images/image_000011_dd3f442f7fe61a81a7e6f7cab72d25aa761a0dcde7f0c2e43e246f2b97efee16.png",
+              "89128_images/image_000012_2d1bdc8c4a363963a818703d11647e9165933601bfbe54924c36e002876a0568.png",
+              "89128_images/image_000013_522e0d35c43c7148afd3e1e4be7cbfe5a9fe96279e6b0ffce20be41434238067.png",
+              "89128_images/image_000014_4e43435dd124ed8f1f3e88280cb421b8c79a37331254699b63683897c15198de.png",
+              "89128_images/image_000015_49ebd2d795f687b912925d60e6f9ba7d168277fc601b23c8f5f03b7de5650218.png",
+              "89128_images/image_000016_89852b2fc36f921f9b377f4903ebd5d012e22748fb9a88a3530f4a1869316083.png",
+              "89128_images/image_000017_3961700edd355771631f462f7d5ff15803cfa3446e838b05ed93569e5e4d959f.png",
+              "89128_images/image_000018_f869c89db64d25ba1e9666d61ad415ecc27ab83f09bdeb3e24716dd51ab418f8.png",
+              "89128_images/image_000019_9281d85d662875890ff746202281ab92c15f1dfb53881900e86ef5ce420ba0fc.png",
+              "89128_images/image_000020_b8330c1d3c8d02b826251d328fdd09f98eded0422c2c7c6fa41edaadddce1e03.png",
+              "89128_images/image_000021_3b1a28fc6e3751e1cfd36a08b61ae043cf2dceca391b7e3b8bce5579ca5e9273.png",
+              "89128_images/image_000022_81392d9bb304c43c200b7cdcc45f68810089c60cdde16bcf44cce33ce04af246.png",
+              "89128_images/image_000023_c95fc098502dafe0afe78243002a1ee3682f0fed987d503ac862a67608a10d00.png",
+              "89128_images/image_000024_1b09b8dfeb4737690e5587150219937cedc03149a15cfe8b1b11528a15f1d53e.png"
             ]
           }
         },
@@ -2297,7 +2317,7 @@
   ],
   "counts": {
     "documents": 118,
-    "chunks": 8094,
+    "chunks": 8105,
     "by_type": {
       "latex": 19,
       "markdown": 40,
@@ -2306,7 +2326,7 @@
     },
     "overlay_documents": 57,
     "overlay_tables": 57,
-    "overlay_figures": 847,
+    "overlay_figures": 865,
     "overlay_text_repairs": 1
   },
   "crosswalk": {
