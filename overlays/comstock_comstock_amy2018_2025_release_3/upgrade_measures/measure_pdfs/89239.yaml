@@ -1,0 +1,204 @@
+# Hand-authored figure descriptions for measure_pdfs/89239.pdf
+#
+# 89239 is the Central Hydronic Water-to-Water Geothermal Heat Pump measure documentation
+# (NREL/TP-5500-89239). docling extracts each figure as a bare ![Image](...) ref: the caption
+# line survives above it, but the chart itself is invisible to retrieval and unreadable
+# without the bitmap. Each entry below is image-anchored (see the figures: schema in
+# overlays/FIGURE_DESCRIPTIONS_ROLLOUT.md): the ref is rewritten with a hand-written alt, and
+# a description paragraph is injected below it for retrieval.
+#
+# Scope: figures only - Figures 1-19, A-1 through A-4, and C-1 (24 entries). The seven cover
+# and title-page images (indices 000000-000006: NREL branding and stock photography) are
+# deliberately not described.
+#
+# Depth: authored to the FIGURE_DESCRIPTIONS_ROLLOUT.md section 2.1 budget (40-70 words,
+# alt <= 120 chars, no corroboration against body prose). This is the first document authored
+# at the lowered standard.
+#
+# QA notes (vision reads; confirm before treating as a release record):
+#   * Figures 5 and 6 are OpenStudio plant-loop screenshots whose component labels are
+#     illegible at extraction resolution - described structurally only.
+#   * Figure 15's caption says "percent site energy savings" but its x-axis reads "Site EUI
+#     Savings by Climate Zone (kBtu/ft2)". Flagged in the description.
+#   * Figures 17 and 18 are captioned "percent site energy savings" but their y-axis is a
+#     fraction (-0.4 to 0.8 and -1.0 to 0.85). Flagged in the descriptions.
+#   * Bar totals and printed data labels in Figures 10, 11, and 12 were read off the charts;
+#     per-band values live in the document's tables.
+
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: measure_pdfs/89239.pdf
+figures:
+- source_image: 89239_images/image_000007_b1ec2db988d0460026560394a2085f99259f0c9fcff5c845395f336026027e28.png
+  source_image_sha256: fcfabcf0974090e1cf8644a04fc305143188ec4f1915b115c53c545396d5e125
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Bar chart of ComStock weighted floor-area fraction by hydronic HVAC system type
+  description: |-
+    Figure 1: vertical bar chart of the fraction of ComStock weighted floor area (y-axis 0 to 0.035) for each building-level hydronic HVAC system type, sorted descending. PVAV with gas boiler reheat leads at roughly 0.036, followed by PSZ-AC with gas boiler and VAV air-cooled chiller with gas boiler reheat; the DOAS and baseboard variants fall below 0.01. System-type definitions are in Table 1.
+- source_image: 89239_images/image_000008_668c1f9b7b0a6740382a7a08dbd04cd5d0a1d8561bc78ed89856055859622525.png
+  source_image_sha256: faf8a997049944248f3b5530c14d035a0c19bcd28fa02591e463b800e6a99545
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Block diagram of the modeled hydronic loop configuration; optional equipment in dashed boxes
+  description: |-
+    Figure 2: schematic block diagram of the four modeled hydronic loops stacked top to bottom - a ground loop with ground heat exchanger, a condenser loop coupled through a water-to-water heat exchanger, and separate heating and cooling loops each served by a water-source heat pump feeding AHU heating or cooling coils. Optional cooling tower and backup boiler are drawn in dashed boxes; supply and demand sides and pumps are marked.
+- source_image: 89239_images/image_000009_8e3b0eeb1669b4b0ca6da3e26c5fac81b5feda84d326e1b58b63960915dfb524.png
+  source_image_sha256: 1574badc09f231b7f555179ff879839c6740c77ce129c989e54fb73f30e9eaa9
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Flow diagram of the ComStock GHEDesigner workflow from measure application to final simulation
+  description: |-
+    Figure 3: left-to-right flow diagram inside a ComStock simulation banner. Applying the measure to retrofit the existing system with GHP feeds initial load calculations, which pass hourly ground loads for borefield sizing to the external GHEDesigner tool; GHEDesigner returns a g-function for the ground heat exchanger to the final simulation. Section 3.3 describes each step.
+- source_image: 89239_images/image_000010_e572c47fbf894622447d271dccdf1ceddae178a9826377ccb75649a05958c7aa.png
+  source_image_sha256: f784e37cf7a20ee37a739249a1d47f35ed9f7542fa3de9101665be1e57ab1a2e
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Paired plant-loop diagrams contrasting a temperature-source object with a vertical ground heat
+    exchanger
+  description: |-
+    Figure 4: side-by-side EnergyPlus plant-loop diagrams of the same three-loop arrangement, the left version using a PlantComponent:TemperatureSource object and the right a vertical ground heat exchanger. Plant Loop 1 links heat pump to borefield heat exchanger, Loop 2 heat pump to heat exchanger, and Loop 3 heat exchanger to heating coils. Labeled arrows show timeseries ground loads into and the g-function out of GHEDesigner.
+- source_image: 89239_images/image_000011_bd25d78f31449fbe15dbcfbcbabb5781007c5f5f1f3b8a1778b4ac17700b8044.png
+  source_image_sha256: 45ba779c7c5e5ae291cafd8809e0e7dbb38ef1068b390942e9ae542bb8136630
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Paired OpenStudio loop schematics for the ground loop and condenser loop of the example building
+  description: |-
+    Figure 5: two OpenStudio plant-loop screenshots for the single-building example - ground loop at left, condenser loop at right. Each shows a supply-equipment branch above a demand-equipment branch with pumps, splitters and mixers, and the heat exchanger or ground loop component in place. Component names are too small to read at extraction resolution; Section 5.1 describes the configuration.
+- source_image: 89239_images/image_000012_17636e2a0085baddffc670e014fc82b5aae5078bd02813f43e3f92cfa6a2ab1c.png
+  source_image_sha256: 5dff6f36d40056d4f46502c0e562b1fe16a5e8fd722025194f87b40252252daa
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Paired OpenStudio schematics of the intermediate heating loop and the main heating loop
+  description: |-
+    Figure 6: two OpenStudio plant-loop screenshots for the example building - intermediate heating loop at left, main heating loop at right - each drawn as a supply-equipment branch over a demand-equipment branch with pumps and coils. Additional heating coils are omitted from the drawing and component labels are illegible at extraction resolution. Section 5.1 gives the loop description.
+- source_image: 89239_images/image_000013_77ea87b7042f27447b5c63604064c4f6d49e7770a96c84de498be0e2bd3eff0d.png
+  source_image_sha256: 566e4f1cdf9c84870848a4291e29bd64695782d6deb6abde7b4c7f58f63e41a2
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Paired histograms of heating and cooling heat pump COP over 15-minute timesteps
+  description: |-
+    Figure 7: two histograms of water-to-water heat pump COP in the single-building example, counted in 15-minute timesteps. The left (heating) panel spans about 2.1 to 2.6 with nearly all timesteps in the 2.5-2.6 bin; the right (cooling) panel is a single spike at a COP near 5 covering roughly 35,000 timesteps. Table 2 lists rated heat pump performance.
+- source_image: 89239_images/image_000014_155acfd9e4119a241dee160a7e21a1776940642219e7c59c33ce4947a924e514.png
+  source_image_sha256: 62d22f0daec9703bb56f0c26e64dacf2d240309960e4643d7957d15b877a9554
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Paired histograms of baseline air-cooled chiller COP and baseline boiler efficiency
+  description: |-
+    Figure 8: two baseline histograms for the example building. The left panel plots air-cooled chiller COP from about 1.8 to 3.2, with most timesteps in the lowest bin near 1.8 and a thin tail above 2.0; the right panel plots boiler efficiency on a 0-to-1 axis as a single spike near 0.8, reflecting the constant 79% efficiency noted in Section 5.1.
+- source_image: 89239_images/image_000015_d9d853b5ca934f0376840c969a67901fa72e87f3c6117ef1f5ddfc3eab82db18.png
+  source_image_sha256: f489bcd141ed3b257d08d2a72cf9cf2b0faea37b25928c304f8a607f753a90c2
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar chart of site energy use by end use, base case versus Central Hydronic GHP measure
+  description: |-
+    Figure 9: two stacked bars of annual site energy use in GJ (y-axis to about 140,000) for the example building, Base versus Measure, segmented by end use and fuel per the legend - cooling, lighting, equipment, fans, pumps, water systems, refrigeration, electric heating, and heating fuel oil #2. The measure bar is roughly 40% shorter and drops the fuel-oil heating band entirely.
+- source_image: 89239_images/image_000016_953a113767e99bfc52e2d38536245b2354b2ef527cb3c0d8becf355f337e00e2.png
+  source_image_sha256: c8d377d116f0ded3adda9574afcc24db09f024212dfa48d3acc31d3190144fb6
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar chart of stock annual site energy consumption, ComStock baseline versus Hydronic
+    GHP
+  description: |-
+    Figure 10: two stacked bars of annual site energy consumption in TBtu across the full ComStock stock, Baseline (total 4,338) versus Hydronic GHP (4,106), segmented by end use and fuel with values printed on each band. Natural gas heating falls from 667.3 to 615.6 TBtu while interior lighting and interior equipment are unchanged. Section 5.2 discusses stock energy impacts.
+- source_image: 89239_images/image_000017_07cc6ccdce30d8cf0e7d5031044b0b265f9277dc56b338454187c3494fc13b1e.png
+  source_image_sha256: 802140a515bc3cab979a04889441d63b0af3d1f99af6b48e2b80cdc4bad47041
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar chart of annual site energy for applicable buildings, baseline versus Hydronic GHP
+  description: |-
+    Figure 11: two stacked bars of annual site energy consumption in TBtu for applicable buildings only, Baseline (675) versus Hydronic GHP (442), segmented by end use and fuel with values printed on each band. The dominant change is the loss of the natural gas heating band, about 316 TBtu in the baseline; interior equipment electricity is unchanged at 107.9. Section 5.2 reports 51% aggregate HVAC savings.
+- source_image: 89239_images/image_000018_58d145d1b6f3ed2edba89dbc48835198f46f1ab52fad5783e375096625e80e48.png
+  source_image_sha256: 2d91f9944769f45948e753af5ccff691fc327124b5b6cb02792031a45efc88f8
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel stacked bar chart of annual GHG emissions, baseline versus Hydronic GHP, by grid
+    scenario
+  description: |-
+    Figure 12: three side-by-side panels of annual GHG emissions in MMT CO2e, each comparing Baseline with Hydronic GHP under a different electricity carbon-intensity scenario - eGRID 2021, LRMER High RE Cost 15, and LRMER Low RE Cost 15. Bars stack electricity, natural gas, fuel oil, and propane. Totals fall 402 to 386 (-4%), 325 to 309 (-5%), and 240 to 225 (-6%).
+- source_image: 89239_images/image_000019_b2e3dd0babfd4cb380c51261e302ad2122fe0c196dc85dc366ce25d0371d7776.png
+  source_image_sha256: 2004eb2f0d4652d273b9b2dbed8a3546511e93ce935c92f01d50f6f755b91c23
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin plot of percent site energy savings by end use and fuel type, unweighted
+  description: |-
+    Figure 13: horizontal violin-and-box plot titled Upgrade 15: Hydronic GHP (unweighted), x-axis percent site energy savings from -160 to 100, one row per end use and fuel with sample sizes in the row labels. Natural gas heating, other fuel heating, and electricity heat rejection concentrate at 100% savings, while electricity pumps spreads far negative. Section 5.4 explains each distribution.
+- source_image: 89239_images/image_000020_f35d1ad1d8cc0a117e3f085f4df65dc759984606f29428a6eaab731fe074ba4e.png
+  source_image_sha256: a02394fb1ba94e11143f0a2769f66db7f092c6a2b75b9144ae6b76167eb6fd12
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin plot of percent site energy savings by baseline HVAC system type
+  description: |-
+    Figure 14: horizontal violin-and-box plot of percent site energy savings by baseline HVAC system type, x-axis roughly -100 to 80, six rows with sample sizes in the labels (largest VAV chiller with gas boiler reheat, n=5279). Chiller with gas boiler reheat systems show the highest 75th-percentile savings; VAV chiller with PFP boxes is lowest, with a 25th percentile below zero.
+- source_image: 89239_images/image_000021_cc950c22da16b72842227f7fcfc1f0bf0b51e0af3f34d47032e28ff6a6aaf651.png
+  source_image_sha256: 0275f7f6e5b8b073501e78f265f85d088567c043f5a67ae871b61c53ddd6e5e8
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin plot of site EUI savings by ASHRAE climate zone; axis is kBtu/ft2 despite the caption
+  description: |-
+    Figure 15: horizontal violin-and-box plot with one row per ASHRAE climate zone, 1A through 7B, sample sizes in the row labels. The x-axis is labeled Site EUI Savings by Climate Zone in kBtu/ft2 and runs from about -50 to 320, whereas the caption says percent site energy savings. Medians cluster just above zero with long positive outlier tails and no strong climate dependency.
+- source_image: 89239_images/image_000022_479cb1da18c87c3854de19233a1678c625b6750feed15cf09e51b4c4e1a12971.png
+  source_image_sha256: 93e9864ca9994da59deeb856c2042587befa387f1594950467309717bf3273b1
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin plot of percent site energy savings by ComStock building type
+  description: |-
+    Figure 16: horizontal violin-and-box plot of percent site energy savings by ComStock building type, x-axis roughly -100 to 80, fourteen rows with sample sizes in the labels. Primary and secondary schools and stand-alone retail show the highest interquartile ranges, about 40%-60%; small office and small hotel have the widest spread and the smallest samples. See Section 5.4.
+- source_image: 89239_images/image_000023_fe5cfcd54e6d818f728c77a0de02d8a67fab41e3c9b084f3093a0f878cec7809.png
+  source_image_sha256: 8f5010a26cd94de5d63776f4c558ed930d68ad03b97a59a660df6b83fd91a815
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Box plot of site energy savings by HDD 50F bin; y-axis is a fraction, not a percent
+  description: |-
+    Figure 17: three vertical box plots of site energy savings grouped by HDD 50 range - fewer than 1,500, between 1,500 and 3,000, and greater than 3,000. The y-axis is labeled site energy % savings but scaled as a fraction from about -0.4 to 0.8. Medians rise with heating degree days, from roughly 0.2 in the lowest bin to about 0.38 in the two higher bins. Sample sizes are in the caption.
+- source_image: 89239_images/image_000024_18f99806c2c4e9b216bb316151d944b249436bb1cd1ff0af4df5e24ac4459b7b.png
+  source_image_sha256: 4b20ff95e2894e7a37888e2716ab720b00382faccd11e3f5cea50ac28461848e
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Box plot of site energy savings by CDD 65F bin; y-axis is a fraction, not a percent
+  description: |-
+    Figure 18: three vertical box plots of site energy savings grouped by CDD 65 range - fewer than 1,500, between 1,500 and 3,000, and greater than 3,000. The y-axis is labeled site energy % savings but scaled as a fraction from about -1.0 to 0.85. Medians decline slightly as cooling degree days increase, from roughly 0.38 in the lowest bin to about 0.2 in the highest. The caption gives sample sizes.
+- source_image: 89239_images/image_000025_f345bc3fddd17f6b4e0837c4012d2b8f716c55fb430f887eb309abcb82bf3b97.png
+  source_image_sha256: c329b1104936989a4e26e4bc15e0fcf45022f26f5bc4904e5d7981c270e9ecad
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Scatter plot of HDD 50F versus CDD 65F for the applicable buildings in the sample
+  description: |-
+    Figure 19: scatter plot of HDD 50 on the y-axis (0 to about 7,000) against CDD 65 on the x-axis (0 to about 5,200) for each applicable building in the sample. The cloud traces an inverse relationship - buildings above 4,000 HDD sit below 1,500 CDD - and is densest between roughly 1,000-2,500 CDD and 1,500-3,000 HDD. Section 5.5 discusses the pairing.
+- source_image: 89239_images/image_000026_beebccde10aa598d26f19294baebcbf287cdc0194440ccab1d57a73931d3421c.png
+  source_image_sha256: 793f9e64a5ed6781e97de9e53f19d043265595c6ba4a20dec0b497689a5e95d7
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of site annual natural gas consumption by census division, baseline versus
+    GHP
+  description: |-
+    Figure A-1: grouped vertical bar chart of site annual natural gas consumption in TBtu by census division, with paired Baseline and Hydronic GHP bars on a y-axis reaching about 350. East North Central is the largest and shows the biggest absolute reduction, roughly 350 down to 270 TBtu; every division declines, with Middle Atlantic and Pacific next largest.
+- source_image: 89239_images/image_000027_05ea59d8ff9a4ab991697ba69672e366e632dca3265cd38ee99c926e47076bba.png
+  source_image_sha256: aec81f3feb26f69d4fe6930c2a3c159c1625d309fd692e357741b579678ef022
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of site annual natural gas consumption by ComStock building type
+  description: |-
+    Figure A-2: grouped vertical bar chart of site annual natural gas consumption in TBtu by ComStock building type, paired Baseline and Hydronic GHP bars, y-axis to about 190. Retail stripmall and warehouse are the largest and barely change, while primary and secondary schools show the deepest reductions - secondary school roughly halves - reflecting where hydronic systems are applicable.
+- source_image: 89239_images/image_000028_70bda6b4a8c2825566409df759a2aaa00fb7bc15a41e7487660f4d2bfa2a8039.png
+  source_image_sha256: 013877e4259256666f2f799cd644feb3c17f2aec17a5b9fd22679b87c35d2e7d
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of site annual electricity consumption by ComStock building type
+  description: |-
+    Figure A-3: grouped vertical bar chart of site annual electricity consumption in TBtu by ComStock building type, paired Baseline and Hydronic GHP bars, y-axis 0 to 400. Bar pairs are nearly identical across building types, with retail stripmall largest at about 395 TBtu and only small increases visible for secondary school and large office. Stock electricity is close to flat.
+- source_image: 89239_images/image_000029_f762b609999b0ec3bfab8dd9cbc7ebf235cb503e76f2d80abd017e0ede1dfb2e.png
+  source_image_sha256: 8969f2b8b8e924f9ff6b69715c1c4a0875718ad40f6077713fcef1fd9b33e204
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of site annual electricity consumption by census division
+  description: |-
+    Figure A-4: grouped vertical bar chart of site annual electricity consumption in TBtu by census division, paired Baseline and Hydronic GHP bars, y-axis 0 to about 700. South Atlantic is the largest at roughly 700 TBtu, and each division's two bars are visually indistinguishable, consistent with the slight net change in stock electricity described in Section 5.3.
+- source_image: 89239_images/image_000030_e53e2b6cb747db6e39dfafe136a8c7a2cf8b80730fd1e53734e329b474706e72.png
+  source_image_sha256: bea286da42a9ba2ec2212f32e3deadfdc0adeaebf1999bedca4991c58d472ca1
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grid of 17 histograms of soil thermal conductivity by climate zone, W per m-K
+  description: |-
+    Figure C-1: grid of seventeen small histograms, one per climate zone from 1A through 8AK, each plotting soil thermal conductivity in W/m-K on an x-axis of 0 to 4 against sample count. Most zones concentrate between about 1.5 and 2.5 W/m-K in a single dominant bin; 3C and 7B are visibly more dispersed. Table C-1 lists the GHEDesigner input assumptions.
