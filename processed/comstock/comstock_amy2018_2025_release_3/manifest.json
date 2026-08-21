@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "comstock_amy2018_2025_release_3",
-  "generated_utc": "2026-08-21T17:50:30.979716+00:00",
+  "generated_utc": "2026-08-21T18:30:49.472568+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -1184,7 +1184,35 @@
           "title": "Economizers",
           "input_sha256": "ac239093593f300240a55b0a2ff74a876916772a05d1eb85a6a8264375ea105d",
           "output_path": "upgrade_measures/measure_pdfs/86105.md",
-          "output_sha256": "dad73bdb714c3613c88d46221bfb22f0db46a199cdd172e6487669f46f3278ef"
+          "output_sha256": "977e6a6b614bccdb2ea185abc7b319718f6b8e51aef907bdb4bc0e3e5728f8ab",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86105.yaml",
+            "sha256": "1caa0c93720cc4d9ebf3e94808951daab862ca38f104466b3e37f4fdd5b45520",
+            "tables_applied": [],
+            "figures_applied": [
+              "86105_images/image_000007_5ceac8bb6addef9308dcbfb8fe226b17817f5da96531b9173fefae15b12896a7.png",
+              "86105_images/image_000008_be1da3dc6635f353bf7febae838270b114506eba031a77c30c0c462a3e8ab1f6.png",
+              "86105_images/image_000009_995c7f6d12a9c00251dff248c817f1eb9759beb37eb41ce2ac8c56870d2a345d.png",
+              "86105_images/image_000010_d02e1790b6b3322e78a099028494376e8119010e306ea9c8f74d54f2597e217b.png",
+              "86105_images/image_000011_9fa32bfdc9809b9994a7abd19bd42cf43611a327381d60db1a009fc2eb8941fd.png",
+              "86105_images/image_000012_009b074d59016c6830106b0017e5e0d1417886cd148677ecb09764cdb4dc2628.png",
+              "86105_images/image_000013_230f4385461ed643964245134c459ac953f473d18f26ff97d89f036cb50ff818.png",
+              "86105_images/image_000014_76e31c393566984ca818da00d3ddd7ec0817ec16bf679fc0e1f0ceaaab443a9c.png",
+              "86105_images/image_000015_59f2a3056505be8a30114d3a24cbbc6005bdf0b308aa35d7038a3a15a72e108b.png",
+              "86105_images/image_000016_cede455bfe5ea4191f3567dc31237733d146da09ba9298c2ae125d22da843aff.png",
+              "86105_images/image_000017_4ddb48cda047eaa914dee55bf902edba49b84347bf2db0e711a14393c162d9e4.png",
+              "86105_images/image_000018_f3413cf905731e83f467dd982b441dbd87a27cef0bc4b2c14b74e54a814ba26a.png",
+              "86105_images/image_000019_ed5be93ee1f03b5e1c733c5da9c946ecdb304f4d3d270ca175c5f9d665f9d849.png",
+              "86105_images/image_000020_e3478e8b49afcfe6ef3a33c9e28631efb7431134932a952399825f8d4f702f3c.png",
+              "86105_images/image_000021_5933757905ce0fb31cfc94b844bd62d6cdf41b0f4ba0af61355c3251f2a06a4d.png",
+              "86105_images/image_000022_4a490257e57dc363abc78e4a487b9ac39d4d11a05b523e58b0fcadc2c7c5a137.png",
+              "86105_images/image_000023_a4771858bfd6ce6b4775b57b67da14835c0c3b1e05d5d995f372a3de8fd94c8b.png",
+              "86105_images/image_000024_033df9a76c56b0d00ba51c0a23a17445fad928e0a65ee437ba7d712233b933f6.png",
+              "86105_images/image_000025_1ff4a36f321a961264c03f287e3f5d107aca8748ee38a7926d7254e52da0fc0e.png",
+              "86105_images/image_000026_be655da3c3bc2c4ecd414e8a1cf38353458ed6af99956069ec9e087e501d9096.png",
+              "86105_images/image_000027_dfcbfa0a205a9b868f2e9865606f7af1ed2440c39f8be58ae6235e355d3db3f5.png"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/86199.pdf",
@@ -1896,16 +1924,16 @@
   ],
   "counts": {
     "documents": 118,
-    "chunks": 7920,
+    "chunks": 7955,
     "by_type": {
       "latex": 19,
       "markdown": 40,
       "measures": 6,
       "pdf": 53
     },
-    "overlay_documents": 50,
+    "overlay_documents": 51,
     "overlay_tables": 57,
-    "overlay_figures": 507,
+    "overlay_figures": 528,
     "overlay_text_repairs": 1
   },
   "crosswalk": {
