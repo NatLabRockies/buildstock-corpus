@@ -1,0 +1,319 @@
+# Hand-authored figure descriptions for ComStock measure documentation 86105.
+#
+#   "End-Use Savings Shapes Measure Documentation: Economizers"
+#   Janghyun Kim, Chris CaraDonna, and Andrew Parker
+#   NREL/TP-5500-86105, May 2024
+#   https://www.nrel.gov/docs/fy24osti/86105.pdf
+#
+# DECORATIVE IMAGES - deliberately NOT described (no entry below):
+#   000000  cover collage (273x152)
+#   000001  cover photo            000004  cover photo
+#   000002  cover photo            000005  cover photo
+#   000003  cover photo            000006  NREL wordmark (164x85)
+#
+# IMAGE -> FIGURE MAP.  This document's printed caption numbers diverge from its own
+# List of Figures: the body inserts an EXTRA figure (000016, printed "Figure 11", for
+# applicable buildings only) that has no List-of-Figures entry, so every printed caption
+# from that point on runs one HIGHER than the List-of-Figures number - while the body
+# TEXT keeps citing the List-of-Figures numbering.  Both numbers are given below.
+#
+#   000007  printed "Figure 1"  = LoF 1   Economizer components
+#   000008  printed "Figure 2"  = LoF 2   Contribution of ventilation system types
+#   000009  printed "Figure 3"  = LoF 3   Economizer coverage, ComStock vs CBECS 2018
+#   000010  printed "Figure 4"  = LoF 4   Upgrade applicability on floor area / cooling
+#   (none)  printed "Figure 5"  = LoF 5   ASHRAE 90.1-2010 configuration suggestions
+#                                         -- GRAPHIC DROPPED BY EXTRACTION, see (a)
+#   000011  printed "Figure 6"  = LoF 6   EnergyPlus economizer nighttime issue
+#   000012  printed "Figure 7"  = LoF 7   Outpatient zone exhaust fan issue
+#   000013  printed "Figure 8"  = LoF 8   Strip-mall restaurant kitchen exhaust issue
+#   000014  printed "Figure 9"  = LoF 9   Single-building simulation example
+#   000015  printed "Figure 10" = LoF 10  Annual site energy, entire building stock
+#   000016  printed "Figure 11" = (none)  Annual site energy, applicable buildings only
+#   000017  printed "Figure 12" = LoF 11  Greenhouse gas emissions
+#   000018  printed "Figure 13" = LoF 12  Percent site energy savings by end use / fuel
+#   000019  printed "Figure 14" = LoF 13  Site EUI savings by end use / fuel
+#   000020  printed "Figure 15" = LoF 14  Percent site energy savings by climate zone
+#   000021  printed "Figure 16" = LoF 15  Economizer impact on area / cooling / energy
+#   000022  printed "Figure 17" = LoF 16  Stock floor area with economizer faults
+#   000023  printed "Figure 18" = LoF 17  Median cooling electricity savings by state
+#   000024  Figure A-1  natural gas by census division
+#   000025  Figure A-2  natural gas by building type
+#   000026  Figure A-3  electricity by census division
+#   000027  Figure A-4  electricity by building type
+#
+# QA FLAGS - vision-derived numbers need a human pass before publication.
+#
+# High confidence (the value is printed on the figure itself, or is corroborated by
+# body text):
+#   000009  every data label in both panels is printed, and every row sums to exactly
+#           100.00, which self-corroborates the read.
+#   000010  printed "False 33.80% / True 66.20%" matches the body's "66% of the total
+#           building stock floor area"; NoEconomizer 354.2 and FixedDryBulb 71.8 printed.
+#   000013  the figure's two outdoor-airflow levels reproduce Sec 3.4's "airflow rate
+#           changing between 0.115 kg/s and 0.13 kg/s" exactly.
+#   000014  panel (a) prints "2.644% load difference" against Sec 5.1's "2.6%"; panel
+#           (b)'s x-axis data spans 0-35 C against "between 32F/0C and 95F/35C".
+#   000015  all four ES savings bullets reproduce from the printed segment labels:
+#           total 4338 -> 4324 (14 TBtu, 0.3%); cooling electricity 667.3 -> 653.7
+#           (-13.6); fans 519.1 -> 519.8 (+0.7); heating gas 854.9 -> 855.6 (+0.7).
+#   000016  printed segment labels; totals 2639 -> 2624, cooling 430.0 -> 416.4.
+#   000017  every bar label printed; 1 MMT against 402 / 325 / 240 gives 0.25% / 0.31% /
+#           0.42%, bracketing Sec 5.3's "0.2% - 0.4%".
+#   000018  all sixteen n values printed; 000019 prints the identical sixteen.
+#   000020  all seventeen climate-zone n values printed; they sum to 231,415, just above
+#           the largest end-use n in 000018 (Electricity Cooling, n=230,363).
+#   000023  every state value printed; the extremes (FL 1.3%, WA 12.3%) match the
+#           legend endpoints, and Sec 5.5 gives "between 1% and 12 %".
+#
+# Medium confidence (read off the plot against gridlines or a pixel-derived scale;
+# corroboration is partial):
+#   000008  no data labels at all.  Per-row floor-area bars each sum to 100% WITHIN the
+#           row, not across the stock.  Summing my coarse cooling-electricity reads gives
+#           a ~33% "with economizer" share against the body's 28%, so the description
+#           cites the body's 40% / 28% and stays qualitative about the bars.
+#   000010  DifferentialEnthalpy (~16 TBtu) and DifferentialDryBulb (~5 TBtu) are
+#           unlabelled; pixel-derived at 4.238 px/TBtu.  Note also that this panel's
+#           ~452 TBtu total is far below the ~680 TBtu implied by the ES's "2.0% stock
+#           cooling electricity savings (13.6 TBtu)" - the panel evidently covers only
+#           buildings with air systems.  Do not derive a stock percentage from it.
+#   000011-000013  all series values read against gridlines; none are printed.
+#   000018-000020  box/whisker extents read against gridlines; no medians are printed.
+#   000021  no data labels, and the "Site total energy" panel's only tick labels are 0
+#           and 1000 while the bars run past the panel edge, so no total is asserted.
+#   000022  no data labels; the faulted (dark) share is described qualitatively and the
+#           body's 13% / 15% figures are cited instead.
+#   000024-000027  no data labels; bar heights read against gridlines.  The two gas
+#           panels cross-corroborate (A-1 sums to ~1210 TBtu, A-2 to ~1208) and so do
+#           the two electricity panels (A-3 ~2895, A-4 ~2900); the gas total also
+#           reconciles with 000015's gas segments (854.9 + 212.1 + ~145).
+#
+# DEFECTS found while describing (all verified against the body text):
+#   (a) Figure 5's GRAPHIC IS MISSING from the extraction.  The caption "Figure 5.
+#       Economizer configuration suggestions in ASHRAE 90.1-2010" stands alone at line
+#       224 with no image reference after it, and Sec 3.3 begins at line 226.  pypdf
+#       confirms PDF page 16 carries that caption together with one embedded image
+#       (951x867), so the graphic exists in the source and was dropped by docling.  The
+#       body has 22 numbered figures (1-18 plus A-1..A-4) but only 21 extracted crops.
+#   (b) Caption misnumbering from Figure 11 onward, as tabulated above.  The sharpest
+#       symptom: the caption at line 365 labels the economizer-impact figure "Figure 16",
+#       and four lines later the body text at line 369 uses "Figure 16" for the
+#       economizer-FAULTS figure - the same printed label denoting two different figures.
+#   (c) The body text and the captions use different numbering schemes throughout Sec 5.
+#       Body text citations follow the List of Figures: line 93 and line 322 cite
+#       "(Figure 11)" for the GHG chart whose caption reads "Figure 12"; lines 346, 347,
+#       349 and 353 cite "Figure 12"/"Figure 13" for captions 13/14; line 348 cites
+#       "Figure 14" for caption 15; line 358 cites "Figure 15" for caption 16; line 369
+#       cites "Figure 16" for caption 17; line 379 cites "Figure 17" for caption 18.
+#   (d) Line 332's range "Figure 12 through Figure 15" is wrong under either scheme: the
+#       three savings-distribution figures are LoF 12-14 (captions 13-15), so the
+#       endpoint over-reaches by one and pulls in the economizer-impact figure.
+#   (e) Section 3.3 copy-paste error at line 228: it describes comparing "the emissions
+#       of the ComStock baseline and the window replacement scenario" in an economizer
+#       report.  Same defect class as 89117.
+#   (f) Table 1 prints the propane emissions factor as "177.8 lb/MMBtu (182.3 kg/MWh)".
+#       The correct pairing is ~275.7 kg/MWh, as printed in 86585's Table 5.  86105 now
+#       joins 89340 / 89341 / 89481 / 89133 / 92618 / 89117 in carrying this error.
+#   (g) Lines 349 and 353 both cite "the limitations described in Section 4.4".  No such
+#       section exists: Section 4 is "Output Variables" and has no subsections.
+#   (h) Lines 194 and 251 both cite "Section 4.1" for the applicability criteria.
+#       Applicability is Section 3.1.
+#   (i) Line 302 says the fault is "described in section 3.3".  Section 3.3 is
+#       "Greenhouse Gas Emissions"; the faults are described in Section 3.4.
+#   (j) Sign inconsistency in the savings bullets.  Executive Summary line 98 gives
+#       "-0.1% stock fan electricity savings (0.7 TBtu)" - positive TBtu with a negative
+#       percent - while Sec 5.2 line 307 gives "( -0.7 TBtu)".  Both line 99 and line 308
+#       give "-0.1% stock heating gas savings (0.7 TBtu)", percent and TBtu disagreeing
+#       in sign.  Figure 10's printed labels settle it: both quantities INCREASE by
+#       0.7 TBtu under the upgrade.
+#   (k) The List of Figures entry 16 reads "Percentage floor area of buildings with
+#       economizer faults" while the caption at line 371 reads "Total stock floor area
+#       of buildings with economizer faults".  The figure's x-axis is absolute
+#       "Building stock floor area [sqft]" (0B-15B+), so the caption is correct.
+#   (l) Figure 5a has no List-of-Figures entry, and Figure 3's caption sits BELOW its
+#       image (line 208) after the two sub-captions at lines 204 and 206, whereas every
+#       other caption in the document sits above its image.
+#   (m) Label typos on the figures themselves: 000009 panel (b) prints "Economizer
+#       Availabillity" with three l's; 000025 and 000027 print the x-axis title as
+#       "Comstock Building Type" with a lowercase s.  Line 379 prints "12 %" with a
+#       stray space, and line 302's TBtu gloss is fine but Table 2's variable name is
+#       broken by line-wrapping into "economizer_high_limit_enthalpy..j_per_k g".
+#   (n) Figures 13, 14 and 15 are all titled "Upgrade 10: Economizer (unweighted)", and
+#       000018/000019 include a degenerate "Electricity Interior Equipment" row with
+#       n=5 that plots essentially nothing.
+#   (o) Appendix graphics check: A-1 through A-4 are four DISTINCT plots, each matching
+#       its own caption (gas/division, gas/building type, electricity/division,
+#       electricity/building type).  No wrong, swapped or duplicated appendix graphic.
+#       Note the pairing order differs from 89117, where A-3 and A-4 were reversed.
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: measure_pdfs/86105.pdf
+figures:
+- source_image: 86105_images/image_000007_5ceac8bb6addef9308dcbfb8fe226b17817f5da96531b9173fefae15b12896a7.png
+  source_image_sha256: a30633bf03f2276b542862cbdf8a4a2898f5445641b0e9a712d392b62e1d6eba
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Schematic of economizer components: photographs of louvred mechanical dampers, a controller module and a coiled sensor cable sit above three labelled boxes for mechanical dampers, controller and sensors, with arrows tracing the signal path from sensors through the controller to the dampers and a noted dependency between controller and sensors.
+  description: |-
+    Figure 1 (Section 1, Technology Summary) is a labelled schematic of the three physical parts of an air-side economizer. Across the top are three photographs: a louvred mechanical damper assembly, a controller module, and a coiled sensor cable. Beneath each sits a tan box, and left-pointing arrows trace the signal path from the sensors to the controller and from the controller to the dampers. A bracket between the controller and sensor boxes is annotated "dependency exists", with arrows in both directions, because the control type dictates which sensors are required. The controller box is annotated with two sub-lists. "different control type" names fixed dry-bulb, differential dry-bulb, fixed enthalpy and differential enthalpy control among others; "different limits" names the temperature limit used for fixed dry-bulb control and the enthalpy limit used for fixed enthalpy control. The sensors box lists temperature, humidity, enthalpy and pressure. The figure is the reference for the control-type vocabulary used throughout the report, including the "Out.Params.Economizer Control Type" legend in Figures 4 and 16.
+- source_image: 86105_images/image_000008_be1da3dc6635f353bf7febae838270b114506eba031a77c30c0c462a3e8ab1f6.png
+  source_image_sha256: da4e01244f601f4ca17d7eeac768b219697fed86e1b2fe0266d428921c638a51
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Two-panel horizontal stacked bar chart of economizer prevalence in the ComStock baseline, showing percent of total floor area and electricity used for cooling in TBtu, split into with-economizer and without-economizer shares for thirteen combinations of building category and ventilation system type.
+  description: |-
+    Figure 2 (Section 2, ComStock Baseline Approach) shows how economizers are distributed across the ComStock baseline. Two panels share a row axis: the left panel is "% of total floor area" on a 0-100% scale, the right is "Electricity used for cooling [TBtu]" on a 0-100 scale. The legend "Economizer availability" distinguishes a dark "without economizer" segment from a light "with economizer" segment. Rows are building category crossed with ventilation system type: Mercantile, Office, Education, Healthcare, Food Service and Warehouse and Storage each appear twice (Central Multi-zone VAV RTU and Central Single-zone RTU), and Lodging appears once (Central Single-zone RTU), for thirteen rows. Note that each floor-area bar sums to 100% within its own row, so the panel shows the economizer share of each segment, not each segment's share of the stock. Multi-zone VAV rows generally show a larger with-economizer share than their single-zone counterparts, and Lodging shows the smallest. No values are printed on either panel; the body text gives the aggregate as VAV and RTU buildings that already have economizers covering 40% of total floor area and 28% of total electricity used for cooling.
+- source_image: 86105_images/image_000009_995c7f6d12a9c00251dff248c817f1eb9759beb37eb41ce2ac8c56870d2a345d.png
+  source_image_sha256: 34675708ef44e11d6e377056a34cc74be8f2fde81da4be9d059b7e5a34ec29d6
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Two-panel horizontal stacked bar chart comparing economizer floor-area coverage by building type in ComStock against CBECS 2018, with every percentage labelled and each row summing to 100%.
+  description: |-
+    Figure 3 (Section 2) compares economizer coverage by building type between ComStock and CBECS 2018. Both panels plot "% of total floor area" from 0 to 100% and every segment is labelled, with each row summing to exactly 100.00. Panel (a), "Coverage in ComStock for each building type", has a YES/NO legend: FullServiceRestaurant 40.28/59.72, Hospital 56.50/43.50, LargeHotel 24.63/75.37, LargeOffice 50.15/49.85, MediumOffice 47.52/52.48, Outpatient 44.37/55.63, PrimarySchool 48.75/51.25, QuickServiceRestaurant 12.90/87.10, RetailStandalone 42.72/57.28, RetailStripmall 41.64/58.36, SecondarySchool 51.96/48.04, SmallHotel 2.85/97.15, SmallOffice 18.29/81.71, Warehouse 33.58/66.42. Panel (b), "Coverage in CBECS 2018", adds a Null category; its Yes values are FullServiceRestaurant 31.69, Hospital 87.69, LargeHotel 39.20, LargeOffice 70.66, MediumOffice 54.49, Outpatient 47.62, PrimarySchool 53.63, QuickServiceRestaurant 19.89, RetailStandalone 17.80, RetailStripmall 40.73, SecondarySchool 55.73, SmallHotel 2.29, SmallOffice 19.12, Warehouse 14.01. CBECS reports much higher coverage for hospitals and large offices and much lower coverage for standalone retail. Panel (b)'s legend title is misprinted "Economizer Availabillity".
+- source_image: 86105_images/image_000010_d02e1790b6b3322e78a099028494376e8119010e306ea9c8f74d54f2597e217b.png
+  source_image_sha256: c33a53aa13f952ce258cfc258d6457442516c87a24f645a8c5c3cb9fee6dea97
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Two single-bar panels showing upgrade applicability: 66.20% of total stock building floor area is applicable versus 33.80% not applicable, and a second bar breaks total cooling electricity down by baseline economizer control type, dominated by NoEconomizer at 354.2 TBtu.
+  description: |-
+    Figure 4 (Section 3.1, Applicability) states the measure's reach with two single stacked bars. The top panel, "Percentage of total stock building floor area [%]" from 0 to 100%, carries an "Economizer applicability" legend and prints False 33.80% and True 66.20%, corroborating the body's statement that the upgrade applies to 66% of total building stock floor area. The bottom panel, "Total electricity consumption for cooling [TBtu]" on a 0-450 axis, is segmented by "Out.Params.Economizer Control Type". NoEconomizer (354.2, printed) and FixedDryBulb (71.8, printed) dominate; DifferentialEnthalpy (roughly 16) and DifferentialDryBulb (roughly 5) are unlabelled slivers measured from the bar geometry. The panel total is therefore about 452 TBtu, of which roughly four-fifths is consumed by systems with no economizer at all - the headroom the upgrade targets. Note that this total is well below the stock cooling electricity implied by the Executive Summary's "2.0% stock cooling electricity savings (13.6 TBtu)", so the panel evidently covers only buildings with air systems and should not be used to derive stock-wide percentages.
+- source_image: 86105_images/image_000011_9fa32bfdc9809b9994a7abd19bd42cf43611a327381d60db1a009fc2eb8941fd.png
+  source_image_sha256: 7c38cd132928d3b487f34a297347cb4aaaa3e5c8f8bd881feba4085257a5c131
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Two-by-two panel of 48-hour simulation traces contrasting a baseline model with an economizer against an upgrade model with a new economizer, showing that the baseline economizes all night with no cooling call and overcools the zone to its heating setpoint, while the upgrade admits outdoor air only during daytime cooling hours.
+  description: |-
+    Figure 6 (Section 3.4, Limitations and Concerns) documents an EnergyPlus economizer issue. The left column, on a peach background, is "Baseline model with economizer"; the right, on blue, is "Upgrade model with (new) economizer". Both top panels plot two days (Hour 0-48) with temperature on the left axis and cooling load on the right: outdoor air temperature, zone temperature, zone heating setpoint (about 15C), zone cooling setpoint (about 26.7C), supply air temperature and cooling load. In the baseline the zone temperature is dragged down overnight to the heating setpoint near 15.5C before rising to the cooling setpoint each afternoon, supply air sits near 12.5C overnight, and cooling load is near zero apart from two afternoon peaks of roughly 4,000-6,000 W. In the upgrade the zone stays near 26.5-27C throughout with no overnight overcooling, and cooling load peaks near 18,000 W during the two afternoons. The bottom panels plot outdoor air fraction and outdoor air flow rate, which overlay because a fraction of 1.0 corresponds to about 3.1 kg/s. The baseline holds the damper wide open essentially continuously, including all night when there is no cooling call; the upgrade holds it at zero except two daytime blocks. That contrast is the figure's point.
+- source_image: 86105_images/image_000012_009b074d59016c6830106b0017e5e0d1417886cd148677ecb09764cdb4dc2628.png
+  source_image_sha256: be7505cc5a0cda34f5d08aa53b101f93205158bfb4e57cc4d7b4b7332d36de04
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Two-by-two panel comparing an outpatient building's baseline model with zone exhaust fans against an upgrade model with an economizer, showing that adding the economizer eliminates the rapid overnight outdoor-air cycling and leaves rooms two to four degrees warmer in winter.
+  description: |-
+    Figure 7 (Section 3.4) illustrates a zone exhaust fan issue in an outpatient building. The left column, on peach, is "Baseline model with zone exhaust fan"; the right, on blue, is "Upgrade model with economizer". The top panels plot outdoor air flow rate over 48 hours on a 0-6 kg/s axis. The baseline holds about 5.45 kg/s through the two occupied blocks and then cycles rapidly between 0 and roughly 3.0 kg/s all night, driven by the exhaust needs of the anesthesia room, MRI room and soil work area. The upgrade keeps the same 5.45 kg/s occupied blocks but drops to exactly zero overnight: the nighttime cycling disappears entirely. The bottom panels plot temperatures for outdoor air, the anesthesia room, the MRI room, the soil work area and supply air across a winter period with outdoor air roughly -13C to 0C. In the baseline, supply air swings between about 13 and 19C overnight in step with the flow cycling and drops near 3C at the start of each occupied block. In the upgrade, supply air is smooth near 20-22C overnight, and the MRI room and soil work area sit roughly two to four degrees warmer than baseline because no cold outdoor air is drawn in at night - the winter heating saving the text describes. The two bottom panels use different temperature scales.
+- source_image: 86105_images/image_000013_230f4385461ed643964245134c459ac953f473d18f26ff97d89f036cb50ff818.png
+  source_image_sha256: 7b581d47da1069596662f84987c8ae92555fb4974a554a6eefffce7cd9f48fd6
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Two-by-two panel comparing a strip-mall restaurant's baseline and upgrade models, showing that under the upgrade the kitchen make-up airflow steps between two levels, 0.115 and 0.13 kg/s, while the gas heating trace is essentially unchanged.
+  description: |-
+    Figure 8 (Section 3.4) shows a second zone exhaust fan issue, in a strip-mall restaurant. The left column, on peach, is "Baseline model with zone exhaust fan"; the right, on blue, is "Upgrade model with economizer". The top panels plot outdoor air flow on a 0-0.14 kg/s left axis and natural gas for heating on a 0-6,000 W right axis over 48 hours. In the baseline the outdoor air flow holds a single level of 0.115 kg/s across the kitchen exhaust window, which runs from 5 a.m. to midnight, and falls to zero overnight; gas for heating sits near 5,000 W through the first morning, declines to about 4,100 W with a bump near 4,500 W in the evening, and is much lower on the second day. In the upgrade the gas trace is nearly unchanged, but the outdoor air flow now steps between TWO levels - 0.115 kg/s for most of the window and 0.13 kg/s in two blocks - exactly reproducing the body's "airflow rate changing between 0.115 kg/s and 0.13 kg/s", where 0.115 is the rate rebalanced for zone mixing and 0.13 the original rate ignoring it. The bottom panels plot outdoor air rising from about -33C to 0C against dining and kitchen air temperatures and their setpoints, and are nearly identical between baseline and upgrade.
+- source_image: 86105_images/image_000014_76e31c393566984ca818da00d3ddd7ec0817ec16bf679fc0e1f0ceaaab443a9c.png
+  source_image_sha256: be795c2256db0538f9bf251ff1eda62f40bac590a084f11bea0bbf4a7a5dd92f
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Three-panel single-building example: a bar pair annotated 2.644% load difference, a scatter of mechanical cooling load against outdoor air temperature showing the upgrade cloud starting only above about 12 degrees C, and three days of transient traces for outdoor air temperature, outdoor air fraction and cooling load.
+  description: |-
+    Figure 9 (Section 5.1, Single Building Example) demonstrates the measure on one model that previously had no economizer. Panel (a), "mechanical cooling load", is a bar pair on a 0-45 MWh/year axis: baseline about 40.6 and upgrade about 38.5, annotated "2.644% load difference", which corroborates the body's "2.6%". Panel (b), "changepoint temperature", scatters mechanical cooling load in W against outdoor air temperature from 0 to 35C for both scenarios. The baseline points fill the low temperature region, while the upgrade points appear only above roughly 11-12C: below that changepoint the economizer meets the load with free cooling and mechanical cooling drops out entirely. The x-extent corroborates the body's "between 32F/0C and 95F/35C", and the changepoint corresponds to its "below 50F/10C". Panel (c), "transient behavior", stacks three traces over 6-8 June 2023 with baseline and upgrade overlaid: outdoor air temperature (about 10-27C), outdoor air fraction (0 to 1), and cooling load (0 to about 20 kW). The upgrade holds the outdoor air fraction at 1 in sustained daytime blocks where the baseline cycles, and the cooling load traces are almost indistinguishable apart from brief upgrade drops to zero - the narrow savings windows the text points out.
+- source_image: 86105_images/image_000015_59f2a3056505be8a30114d3a24cbbc6005bdf0b308aa35d7038a3a15a72e108b.png
+  source_image_sha256: 9ae422aa1a0f4ab81d4d1e7685802e9fa4cd3f90cd5e5360e010d9a8c9cd918f
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Two stacked bars comparing annual site energy consumption for the entire ComStock building stock, 4338 TBtu in the baseline against 4324 TBtu with the economizer upgrade, segmented by end use and fuel.
+  description: |-
+    Figure 10 (Section 5.2, Stock Energy Impacts) compares annual site energy consumption for the ENTIRE ComStock building stock between the baseline and the economizer upgrade. Two stacked bars are plotted on an "Annual Energy Consumption (TBtu)" axis from 0 to 4500, with printed totals of 4338 for Baseline and 4324 for Economizer - a reduction of 14 TBtu, or 0.3%, matching the body text. Each bar is segmented by end use crossed with fuel, with eighteen legend entries running from Interior Equipment at the bottom through Fans, Cooling, Interior Lighting, Heating, Water Systems and Exterior Lighting to Pumps, Refrigeration, Heat Recovery and Heat Rejection at the top. The two bars are nearly identical in appearance because the savings are small relative to the stock. The changes, all printed on the segments, are concentrated in three end uses: cooling electricity falls from 667.3 to 653.7 TBtu, fan electricity rises from 519.1 to 519.8, and natural gas for heating rises from 854.9 to 855.6. Interior equipment (739.7 electricity, 212.1 gas) and interior lighting (451.9) are unchanged. For the full per-segment breakdown, including the district and other-fuel segments, refer to the savings bullets in Section 5.2.
+- source_image: 86105_images/image_000016_cede455bfe5ea4191f3567dc31237733d146da09ba9298c2ae125d22da843aff.png
+  source_image_sha256: d478301cabb06f7dd6ba95e0021ffbe52e7d0964f9af2273ba42f911c66de7c9
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Two stacked bars comparing annual site energy consumption for only the buildings applicable to the upgrade, 2639 TBtu in the baseline against 2624 TBtu with the economizer upgrade, segmented by end use and fuel.
+  description: |-
+    This figure (Section 5.2) is the companion to Figure 10, restricted to only the buildings that are APPLICABLE to the economizer upgrade rather than the entire stock. It is printed as "Figure 11" in the body but has no List of Figures entry, and it is the extra figure that pushes every later printed caption one above its List of Figures number. Two stacked bars are plotted on an "Annual Energy Consumption (TBtu)" axis from 0 to about 2700, with printed totals of 2639 for Baseline and 2624 for Economizer. The same eighteen end-use and fuel segments appear as in Figure 10, and the two bars again look nearly identical. The changes, all printed on the segments, are the same absolute quantities as in the stock-wide figure but a larger share of a smaller base: cooling electricity falls from 430.0 to 416.4 TBtu, a 3.2% reduction against 2.0% stock-wide; fan electricity rises from 347.4 to 348.2; and natural gas for heating rises from 483.9 to 484.6. Interior equipment (454.6 electricity, 134.3 gas) and interior lighting (281.9) are unchanged. The applicable subset accounts for roughly 61% of stock site energy and about 64% of stock cooling electricity.
+- source_image: 86105_images/image_000017_4ddb48cda047eaa914dee55bf902edba49b84347bf2db0e711a14393c162d9e4.png
+  source_image_sha256: 2acab807e62211d0d85b25eeb454119fe65521f471b8f0928e40a95611051e65
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Three-panel stacked bar chart of annual greenhouse gas emissions in MMT CO2e for the baseline and economizer scenarios under the eGRID 2021, LRMER High RE Cost 15 and LRMER Low RE Cost 15 grid scenarios, each showing a one-million-metric-ton reduction.
+  description: |-
+    Figure 12 (Section 5.3) compares annual greenhouse gas emissions between the ComStock baseline and the economizer upgrade under three electricity grid scenarios. Each of the three panels holds a Baseline and an Economizer bar on a shared "Annual GHG Emissions (MMT CO2e)" axis from 0 to about 410, stacked by fuel with a legend for Electricity, Natural Gas, Fuel Oil and Propane. All totals and the two large segments are printed. Under eGRID 2021 the total falls from 402 to 401, with electricity 314 to 313 and natural gas flat at 81. Under LRMER High RE Cost 15 it falls from 325 to 324, with electricity 237 to 236. Under LRMER Low RE Cost 15 it falls from 240 to 239, with electricity 152 to 151. Fuel oil and propane are thin slivers at the top of every bar. The natural gas contribution is identical across all three panels because only the grid electricity factor changes between scenarios. Each upgrade bar is labelled "(-0%)" because the figure rounds to whole percentages; the one million metric tons avoided corresponds to 0.25%, 0.31% and 0.42% respectively, which is the 0.2% to 0.4% range the body text reports.
+- source_image: 86105_images/image_000018_f3413cf905731e83f467dd982b441dbd87a27cef0bc4b2c14b74e54a814ba26a.png
+  source_image_sha256: d1f9f2108428d9a3a73e8b156ba99876fbee35c4dc9ab8d6d55949af6e1f7bb0
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Box and violin distribution of percent site energy savings by end use and fuel type for applicable ComStock models, with sixteen rows labelled by sample count on an axis running from -140% to 100%.
+  description: |-
+    Figure 13 (Section 5.4) shows the distribution of percent site energy savings across applicable ComStock models, broken out by end use and fuel type. The plot is titled "Upgrade 10: Economizer (unweighted)" and the x-axis, "Percent Site Energy Savings by End Use (%)", runs from -140 to 100 with a reference line at zero. Sixteen rows each carry a printed sample count: Electricity Cooling (n=230363), Electricity Fans (n=145702), Natural Gas Heating (n=141797), Electricity Heating (n=60641), Electricity Pumps (n=16663), Electricity Refrigeration (n=11707), Natural Gas Water Systems (n=9993), Other Fuel Heating (n=8999), Electricity Water Systems (n=7357), Electricity Heat Rejection (n=4734), Electricity Heat Recovery (n=4324), District Heating Heating (n=1467), District Cooling Cooling (n=1033), Other Fuel Water Systems (n=226), District Heating Water Systems (n=47) and a degenerate Electricity Interior Equipment row (n=5). Almost every distribution is tightly centred on zero. The two clearly positive ones are Electricity Cooling, whose box sits just above zero with outliers reaching about +95%, and District Cooling Cooling, whose box sits near +2 to +5% with a whisker to about +33%. Heating and fan rows are symmetric about zero with long tails in both directions.
+- source_image: 86105_images/image_000019_ed5be93ee1f03b5e1c733c5da9c946ecdb304f4d3d270ca175c5f9d665f9d849.png
+  source_image_sha256: 717eb7f9fd2cbe7e02132bdb68e7a1cae9a013df3df2134da47b2cbe7224dd55
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Box and violin distribution of site EUI savings in kBtu per square foot by end use and fuel type for applicable ComStock models, on an axis from -5 to 35, with the same sixteen rows and sample counts as the percent-savings figure.
+  description: |-
+    Figure 14 (Section 5.4) is the absolute-magnitude counterpart to Figure 13: the same sixteen end-use and fuel rows, the same title "Upgrade 10: Economizer (unweighted)" and the same printed sample counts, but the x-axis is now "Site EUI Savings by End Use (kBtu/ft2)" running from -5 to 35. Each row label carries the suffix "Intensity". The identical n values across the two figures cross-corroborate the reads: Electricity Cooling n=230363, Electricity Fans n=145702, Natural Gas Heating n=141797, Electricity Heating n=60641, and so on down to District Heating Water Systems n=47 and Electricity Interior Equipment n=5. On this absolute scale nearly every distribution collapses onto zero, which is the point of showing both views: the percent savings in Figure 13 can be large for a small end use without moving much energy. District Cooling Cooling is the one row with a visible box, sitting between roughly 0.5 and 1.5 kBtu/ft2 with a whisker to about 11.5. The longest tails belong to Electricity Heating (outliers to about 34), Electricity Cooling (to about 25) and Electricity Fans (to about 17); Natural Gas Heating spans roughly -3 to +11.
+- source_image: 86105_images/image_000020_e3478e8b49afcfe6ef3a33c9e28631efb7431134932a952399825f8d4f702f3c.png
+  source_image_sha256: 329a3118a9c2ed4bcfd44f7814456ce8c40c1399cc12b5a5d8a9f6ca4550f490
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Box and violin distribution of percent site energy savings by ASHRAE climate zone for applicable ComStock models, seventeen rows from 1A to 8 with printed sample counts, showing the widest positive distributions in the dry zones 3C and 3B.
+  description: |-
+    Figure 15 (Section 5.4) shows percent site energy savings distributions by climate zone. The plot is titled "Upgrade 10: Economizer (unweighted)" and the x-axis, "Percent Site Energy Savings by Climate Zone (%)", runs from about -5 to +23 with a reference line at zero. Seventeen rows each carry a printed sample count: 1A (n=4821), 2A (n=30612), 2B (n=3383), 3A (n=37551), 3B (n=15789), 3C (n=4788), 4A (n=56149), 4B (n=1500), 4C (n=5926), 5A (n=47505), 5B (n=9448), 6A (n=10961), 6B (n=1398), 7 (n=306), 7A (n=1110), 7B (n=128) and 8 (n=40); these sum to 231,415 models. Zone 3C has by far the widest and most positive distribution, with an interquartile range of roughly 0.7 to 2.0%, followed by 3B, 2B and 4C. The very hot and humid zone 1A and the very cold zones 7, 7A, 7B and 8 are pinned tightly against zero. This ordering is exactly the pattern the body text describes: extremely hot climates offer few economizing hours, extremely cold climates have little cooling to displace, and drier climates such as 3B and 3C save more than the humid 3A. Outlier points extend past +20% in several of the larger zones.
+- source_image: 86105_images/image_000021_5933757905ce0fb31cfc94b844bd62d6cdf41b0f4ba0af61355c3251f2a06a4d.png
+  source_image_sha256: bab60f3d5edc394d7f45e39d1ae91af99ea2d4e3a1b227f95af8e3c0ce1b2f0e
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Small-multiples stacked bar grid showing, for Central Multi-zone VAV RTU and Central Single-zone RTU systems, how the baseline's large NoEconomizer share of floor area, cooling electricity and site total energy is replaced under the upgrade by differential enthalpy and differential dry-bulb control.
+  description: |-
+    Figure 16 (Section 5.5) shows what the upgrade does to the mix of economizer control types. The grid has two row groups, Central Multi-zone VAV RTU and Central Single-zone RTU, each split into a Baseline row and an Economizer upgrade row, crossed with three column panels: "Total floor area [sqft]" with ticks at 0B, 10B and 20B, "Electricity used for cooling [TBtu]" with ticks at 0, 100, 200 and 300, and "Site total energy [TBtu]" whose only tick labels are 0 and 1000. Bars are segmented by "Out.Params.Economizer Control Type": NoEconomizer, DifferentialEnthalpy, DifferentialDryBulb and FixedDryBulb. In every baseline row a large NoEconomizer segment occupies the right-hand end of the bar. In every upgrade row that segment is gone - only a thin sliver survives in the single-zone floor area panel - replaced by DifferentialEnthalpy plus a smaller DifferentialDryBulb block, while the FixedDryBulb segment representing systems that already had economizers is essentially unchanged in size. Bar totals match between the baseline and upgrade rows within each panel, since the population is the same. As the body notes, new economizers are configured mostly with differential enthalpy control following ASHRAE 90.1-2019.
+- source_image: 86105_images/image_000022_4a490257e57dc363abc78e4a487b9ac39d4d11a05b523e58b0fcadc2c7c5a137.png
+  source_image_sha256: e9571c303b62bc8d4adb0dfcad141a1b2ce37107c3f15b58d39850a7a7ee2618
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Horizontal stacked bar chart of building stock floor area in square feet by building type, each type split into a Baseline and an Economizer upgrade bar and each bar split into floor area with economizer faults versus no fault.
+  description: |-
+    Figure 17 (Section 5.5) shows how much stock floor area is served by faulted economizers. The x-axis is "Building stock floor area [sqft]" with ticks at 0B, 5B, 10B and 15B - absolute area, not a percentage, which is worth noting because the List of Figures entry for this figure mislabels it as a percentage. Fourteen building types are stacked vertically in ascending order of total area, each with a Baseline bar and an Economizer upgrade bar, and the "Measure Names" legend splits each bar into a dark "with economizer fault(s)" segment and a light "no fault" segment. Warehouse dominates at roughly 17 billion square feet, more than three times the next largest; then come SecondarySchool, PrimarySchool, RetailStandalone, LargeOffice, RetailStripmall and SmallOffice in the 3.5 to 4.5 billion range, down to QuickServiceRestaurant, FullServiceRestaurant and SmallHotel under half a billion. The faulted segment is a small minority of every bar and is absent altogether from the hotel and restaurant types. Baseline and upgrade bars look almost identical; the body text quantifies the faulted share as 13% in the baseline and 15% in the upgrade, the increase coming from newly installed economizers picking up the damper-fully-closed fault.
+- source_image: 86105_images/image_000023_a4771858bfd6ce6b4775b57b67da14835c0c3b1e05d5d995f372a3de8fd94c8b.png
+  source_image_sha256: d3e8dccf852633e2666fb05573aa122ce4d13d1c0672948630697627e80f991b
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Choropleth map of the contiguous United States shading each state by median percent electricity savings for cooling, from 1.3% in Florida to 12.3% in Washington, highest in the Pacific Northwest and northern Rockies and lowest along the Gulf Coast.
+  description: |-
+    Figure 18 (Section 5.5) maps the median percent electricity savings for cooling by state across the contiguous United States. Every state carries a printed value and the diverging colour legend, "Median electricity savings for cooling [%]", runs from 1.3% to 12.3% - endpoints that match the extreme states exactly, which self-corroborates the read, and that the body text rounds to "between 1% and 12 %". The highest savings form a contiguous northwestern block: Washington 12.3%, Montana 10.8%, Oregon 10.2%, Wyoming 9.4%, Idaho 9.1%, North Dakota 7.5%, Colorado 6.9%, California 6.5%. The lowest are along the Gulf and southeastern coasts: Florida 1.3%, Texas 1.9%, Louisiana 1.9%, Mississippi 2.0%, Arkansas 2.0%, Alabama 2.1%, Oklahoma 2.2%. The interior Midwest and Northeast fall in between, generally 2.3% to 6.0%, with Maine 5.9% and New York 4.2% somewhat higher than their neighbours and Nevada an outlier low at 2.4% for the West. The pattern reflects the report's explanation that dry climates with mild summer nights offer the most free-cooling hours, while hot humid climates offer the fewest.
+- source_image: 86105_images/image_000024_033df9a76c56b0d00ba51c0a23a17445fad928e0a65ee437ba7d712233b933f6.png
+  source_image_sha256: e209c2b0a8f10d2100dbad213d98f81c37057679f5135eba99d3c99803ea4a41
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Grouped bar chart of site annual natural gas consumption in TBtu by census division for the ComStock baseline and the economizer scenario, with East North Central highest at about 336 TBtu and the two scenarios almost identical.
+  description: |-
+    Figure A-1 (Appendix A) compares site annual natural gas consumption between the ComStock baseline and the economizer scenario by census division. The y-axis is "Natural Gas Total Energy Consumption (tbtu)" from 0 to 350 and the "Upgrade Name" legend pairs a dark Baseline bar with a light Economizer bar for each of the nine divisions. Reading against the gridlines, the baseline values are approximately East North Central 336, Middle Atlantic 213, Pacific 147, South Atlantic 137, West North Central 114, West South Central 87, Mountain 72, New England 54 and East South Central 50, summing to roughly 1,210 TBtu. That total reconciles with the gas segments printed in Figure 10 - heating 854.9, interior equipment 212.1, plus the water systems gas segment - and with Figure A-2's building-type breakdown, which sums to about the same figure. The economizer bars are visually indistinguishable from the baseline in every division, with the small increases the report describes just detectable in West North Central and Pacific. No values are printed on the chart, so these readings are approximate; the figure's purpose is to show that gas consumption is essentially unaffected by the measure.
+- source_image: 86105_images/image_000025_1ff4a36f321a961264c03f287e3f5d107aca8748ee38a7926d7254e52da0fc0e.png
+  source_image_sha256: fddf7ab243fbe65d501f6dd6107bd1589f4ef1c52c87039af3204e7b7fb966c0
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Grouped bar chart of site annual natural gas consumption in TBtu by ComStock building type for the baseline and economizer scenarios, with RetailStripmall highest at about 188 TBtu and the two scenarios almost identical.
+  description: |-
+    Figure A-2 (Appendix A) compares site annual natural gas consumption between the ComStock baseline and the economizer scenario by building type. The y-axis is "Natural Gas Total Energy Consumption (tbtu)" with gridlines every 25 up to 175, and the "Upgrade Name" legend pairs a dark Baseline bar with a light Economizer bar for each of the fourteen types. Reading against the gridlines, the baseline values are approximately RetailStripmall 188, SecondarySchool 164, FullServiceRestaurant 154, Warehouse 142, PrimarySchool 122, LargeHotel 82, RetailStandalone 77, Hospital 71, SmallOffice 54, LargeOffice 44, QuickServiceRestaurant 39, MediumOffice 36, Outpatient 26 and SmallHotel 8.5, summing to roughly 1,208 TBtu. That matches Figure A-1's census-division total of about 1,210 TBtu, which cross-corroborates both reads. The economizer bars are visually indistinguishable from the baseline for every type, consistent with the report's finding that stock gas consumption rises only 0.7 TBtu overall. No values are printed on the chart. The x-axis title is misprinted "Comstock Building Type" with a lowercase s.
+- source_image: 86105_images/image_000026_be655da3c3bc2c4ecd414e8a1cf38353458ed6af99956069ec9e087e501d9096.png
+  source_image_sha256: 9f1f58d02174d6c2ff9a2fb21640000fd33d619ff504a40aca836c5a2382d8fc
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Grouped bar chart of site annual electricity consumption in TBtu by census division for the ComStock baseline and the economizer scenario, with South Atlantic highest at about 640 TBtu and small reductions visible in the largest divisions.
+  description: |-
+    Figure A-3 (Appendix A) compares site annual electricity consumption between the ComStock baseline and the economizer scenario by census division. The y-axis is "Electricity Total Energy Consumption (tbtu)" running to about 650 and the "Upgrade Name" legend pairs a dark Baseline bar with a light Economizer bar for each of the nine divisions. Reading against the gridlines, the baseline values are approximately South Atlantic 640, West South Central 414, Pacific 398, East North Central 394, Middle Atlantic 361, West North Central 196, Mountain 194, East South Central 178 and New England 120, summing to roughly 2,895 TBtu - consistent with the electricity segments printed in Figure 10 and with Figure A-4's building-type total. Unlike the gas figures, the economizer bars here are visibly shorter than the baseline in the larger divisions: the reductions are about 4 TBtu in South Atlantic and Pacific and about 3 TBtu in West South Central and Middle Atlantic, while New England, East South Central, West North Central and Mountain show no perceptible change. No values are printed on the chart, so these readings are approximate.
+- source_image: 86105_images/image_000027_dfcbfa0a205a9b868f2e9865606f7af1ed2440c39f8be58ae6235e355d3db3f5.png
+  source_image_sha256: 3dcbf1eec193d49f42cf5ffa2f07682305423e360a62966296f7a2682ab1487f
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Grouped bar chart of site annual electricity consumption in TBtu by ComStock building type for the baseline and economizer scenarios, with RetailStripmall highest at about 397 TBtu and small reductions visible in the retail and large office types.
+  description: |-
+    Figure A-4 (Appendix A) compares site annual electricity consumption between the ComStock baseline and the economizer scenario by building type. The y-axis is "Electricity Total Energy Consumption (tbtu)" from 0 to 400 and the "Upgrade Name" legend pairs a dark Baseline bar with a light Economizer bar for each of the fourteen types. Reading against the gridlines, the baseline values are approximately RetailStripmall 397, Warehouse 363, LargeOffice 294, RetailStandalone 279, SecondarySchool 226, PrimarySchool 221, SmallOffice 193, LargeHotel 192, MediumOffice 182, FullServiceRestaurant 168, Hospital 160, Outpatient 126, QuickServiceRestaurant 64 and SmallHotel 35, summing to roughly 2,900 TBtu. That matches Figure A-3's census-division total of about 2,895 TBtu, which cross-corroborates both reads. Small reductions are visible in the upgrade bars for RetailStripmall, LargeOffice, RetailStandalone and Warehouse, each on the order of 1 to 3 TBtu, while the smaller types show no perceptible change. No values are printed on the chart. The x-axis title is misprinted "Comstock Building Type" with a lowercase s.

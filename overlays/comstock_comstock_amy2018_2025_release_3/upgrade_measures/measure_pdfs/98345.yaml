@@ -1,0 +1,343 @@
+# Hand-authored figure descriptions for measure PDF 98345
+# "ComStock Measure Documentation: Fan Static Pressure Reset for Multizone
+#  Variable Air Volume Systems"
+# Amy Allen, National Laboratory of the Rockies, NLR/TP-5500-98345, March 2026
+#
+# The PDF yields 25 extracted images. Two are decorative and are deliberately
+# left with no overlay entry: image_000000 is the cover photo collage and
+# image_000001 is the laboratory wordmark. The remaining 23 images are real
+# figures and are all described below, in document order:
+#   000002 = Figure 1     000010 = Figure 8      000018 = Figure 16
+#   000003 = Figure 2     000011 = Figure 9      000019 = Figure 17
+#   000004 = Figure 3     000012 = Figure 10     000020 = Figure 18
+#   000005 = Figure 4     000013 = Figure 11     000021 = Figure A-1
+#   000006 = Figure 5     000014 = Figure 12     000022 = Figure A-2
+#   000007 = Figure 6     000015 = Figure 13     000023 = Figure A-3
+#   000008 = Figure 7a    000016 = Figure 14     000024 = Figure A-4
+#   000009 = Figure 7b    000017 = Figure 15
+# Note that in this document the captions sit ABOVE their image refs, except for
+# Figure 7, whose caption sits between the 7a and 7b images.
+# No table survives only as a bitmap in this document: Tables 1-6 all extracted
+# as markdown tables, so every entry here is a vision-description.
+#
+# QA FLAGS - vision-derived numbers need a human pass before publication.
+#
+# High confidence (values are printed on the figure itself, or corroborated by
+# body text or a table):
+#   - Figure 3 (000004): every visible segment label transcribed; the four
+#     labeled orange (applicable) segments read 6% + 5% + 4% + 3% = 18%, and
+#     pixel widths put the four unlabeled orange slivers at about 1.7 + 1.7 +
+#     1.2 + 0.2%, for a total of about 22-23% against Section 3.1's 23% of
+#     weighted floor area. The right-hand panel's printed square-foot labels
+#     also close: 16,943,563,786 at 26% implies about 65 billion sq ft of stock,
+#     23% of which is 15.0 billion, against the stated 14.6 billion.
+#   - Figure 4 (000005): the nine bin counts sum to about 35,500 against the
+#     35,040 15-minute steps in a year, and bins 1+2 = 26,161 = 74.7% against
+#     Section 5.1's "almost 75% of the year" at or below 40% airflow. The bin
+#     range 0.333-0.630 also matches Figure 6's marker span of 0.33-0.66.
+#   - Figure 7a (000008): every band delta reproduces Table 5. Fans 673.6 ->
+#     588.3 = 85.3 against Table 5's 85.4 TBtu; cooling 755.4 -> 736.6 = 18.8
+#     exactly; electric heating 244.6 -> 250.0 = -5.4 exactly; gas heating
+#     944.4 -> 956.6 = -12.2 exactly, and -12.2/944.4 = -1.29% -> Table 5's
+#     -1.3%; totals 4,989 -> 4,896 = 93 against 92.7 TBtu. Back-solving Table 5
+#     the other way also lands on the measured bands (85.4/0.127 = 672 vs 673.6;
+#     18.8/0.025 = 752 vs 755.4; 5.4/0.022 = 245 vs 244.6), and total heating
+#     -17.6 = -12.2 + -5.4 exactly.
+#   - Figure 7b (000009): Fans 131.1 -> 45.7 = 85.4 TBtu and 65.1%, against the
+#     "65%" in Section 5.2; cooling 189.5 -> 170.7 = 18.8 and 9.9%; electric
+#     heating 64.4 -> 69.8 = -5.4 and -8.4%; totals 1,070 -> 977 = 8.7%, against
+#     Section 5.2's 8.7% among applicable buildings.
+#   - Figure 5 (000006): the two dashed reference lines read 31.0 kW and 9.7 kW,
+#     ratio 0.314, consistent with Figure 2's 0.137/0.476 = 0.288 and with the
+#     "about 30%" of Section 5.6.
+#   - Figures 10, 11, 12 and 13 (000012, 000013, 000014, 000015): row labels and
+#     n values read at 7-8x zoom. Figure 10's zone 8 n = 19 matches the prose
+#     exactly; Figure 12's Interior Equipment Electricity n = 4 matches the
+#     elevator-schedule-bug note exactly; and Figures 11 and 13 both have n
+#     values summing to 18,400, a strong mutual cross-check.
+#   - Figure 12 (000014): the fans row's median reads 68%, matching the "median
+#     fan energy savings value is 68%" in the body text, and its IQR is 65-70%.
+#   - Figure 15 (000017): bins sum to about 100% normalised, and the cumulative
+#     share reaches about 92% by airflow ratio 0.43 against Section 5.6's "90%
+#     ... 0.4 or less".
+#   - Appendix defect-class check is CLEAN. Each of Figures A-1 to A-4 was
+#     zoomed on its axis labels and each matches its caption (A-1 gas by census
+#     division, A-2 gas by building type, A-3 electricity by building type, A-4
+#     electricity by census division). No wrong, duplicated or swapped appendix
+#     graphic in this document.
+#
+# Medium confidence (pixel-derived, no printed labels; treat as approximate):
+#   - Figure 2 (000003): the nine or ten plotted points per series were measured
+#     against gridlines found at 21.5-px spacing, so each value is good to about
+#     +/- 0.01 in power fraction.
+#   - Figures 7a and 7b (000008, 000009) are DELIBERATELY DESCRIBED QUALITATIVELY.
+#     Per project convention for stacked end-use/fuel bar charts, the description
+#     gives the bar totals, the direction and rough magnitude of each end use's
+#     change, and then points the reader at Table 5 for per-segment numbers,
+#     rather than enumerating every colored and hatched band. Several segment
+#     labels in these two figures are white text over a hatched fill and are not
+#     legible at any zoom, so an enumerated read would in any case have had to
+#     fall back on Table 5 for the values that matter most.
+#   - The band-by-band measurements behind defect (a) below were still taken, and
+#     are recorded there as evidence, but they are not asserted in the figure
+#     descriptions. The relevant calibrations were 22.17 TBtu per pixel in Figure
+#     7a and 4.82 TBtu per pixel in Figure 7b. In Figure 7b the whole red heating
+#     block spans 62 px = about 299 TBtu; less the labeled 64.4 TBtu of electric
+#     heating that leaves about 234 TBtu of fossil heating across gas, fuel oil
+#     and propane, consistent with the roughly 214 TBtu of gas heating implied by
+#     Table 5's -12.2 TBtu at -5.7% of the applicable total
+#     but is not precise enough to assert a gas-only number.
+#   - Figure 13 (000015): the electricity median measures about 14.7% against
+#     Table 5's 14.0%, and the site energy median about 9% against 8.7%. The
+#     calibration is only about 1.5 px per percent, so those two reads should not
+#     be quoted more precisely than "about".
+#   - Figures 8 (000010): the mean-rate panel total was read as about 130 -> 127
+#     billion USD. Only the printed 2% labels are firm; the absolute bar heights
+#     are approximate and Table 6's 3,015 million USD is the number to cite.
+#   - Figures 14, 16, 17 and 18 (000016, 000018, 000019, 000020): unlabeled
+#     scatter clouds. These are described qualitatively, in the terms the body
+#     text itself uses, with only envelope values (Figure 18's dense mass topping
+#     out near 0.45-0.55 with outliers to about 0.74) given as measurements.
+#   - Figures A-1 to A-4 (000021-000024): the bars carry no value labels, so
+#     every number is pixel-derived, +/- one pixel. The per-division and
+#     per-type deltas are at or below the one-pixel threshold in many groups, so
+#     they are reported as "equal to or about N taller/shorter" rather than as
+#     precise deltas. The column sums (A-1 about 1,422; A-2 about 1,428; A-3
+#     about 3,219; A-4 about 3,285 TBtu) are the load-bearing reads and are
+#     mutually consistent.
+#
+# DEFECTS AND INTERNAL INCONSISTENCIES observed while describing these figures:
+#   (a) Table ES-2 and Table 5 disagree on the all-buildings natural gas result.
+#       Table ES-2 gives -1.0% while Table 5 gives -0.8%, for the identical
+#       -12.2 TBtu absolute penalty and the identical -4.5% applicable-buildings
+#       figure. Three independent measurements of stock baseline natural gas
+#       settle it: about 1,443 TBtu from summing Figure 7a's gas bands, about
+#       1,422 from Figure A-1's nine census divisions, and about 1,428 from
+#       Figure A-2's fifteen building types. -12.2 on about 1,430 is -0.85%, so
+#       TABLE 5's -0.8% IS CORRECT AND TABLE ES-2's -1.0% IS THE ERROR (-1.0%
+#       would require a stock gas total near 1,220 TBtu, about 15% below all
+#       three measurements). The same method checks out on electricity, where
+#       A-3 sums to about 3,219 and A-4 to about 3,285 against the 3,333 implied
+#       by Table 5's 100 TBtu at 3.0%.
+#   (b) Section 5.2 cites "(Figure 3)" for the stock site energy savings result;
+#       Figure 7 is meant. Figure 3 is the applicability chart.
+#   (c) Three references to "Section 4.6" (in the Figure 7 discussion, in the
+#       past-studies comparison, and in the Figure 12 discussion) should be to
+#       Section 5.6. Section 4 has no subsections.
+#   (d) Section 5.3's utility bill penalty arithmetic does not close. It says
+#       "about 1.4%" of the sample sees a bill increase and that "Forty-one
+#       percent of this small set of buildings (223 buildings)" use fuel oil.
+#       Reading 223 as 41% of the set puts the set at 544, and 544 as 1.4%
+#       implies a sample of about 38,900 - but the applicable-model n values in
+#       Figures 11 and 13 sum to 18,400. Reading the parenthetical as the size
+#       of the whole set instead gives 223/18,400 = 1.2%, not 1.4%.
+#   (e) Figures 10 and 11 (climate-zone figures) both carry the fuel-type
+#       boilerplate footnote defining n as "the number of ... models that were
+#       applicable for energy savings for the fuel type category".
+#   (f) Figure 2's baseline (blue) series is truncated at airflow fraction 0.8
+#       while both reset curves extend to 0.9. Separately, Section 5.1's "at an
+#       airflow fraction of 40%, the fraction of design power is reduced from
+#       about 40% under the baseline curve ... to 12%" is rounded away from what
+#       Figure 2 plots (about 0.48 and 0.14), though the ratio of the plotted
+#       values, about 0.29, does match the "about 30%" of Section 5.6.
+#   (g) Section 3.2's point that the curves coincide at 100% flow is not visible
+#       in Figure 2, since no series there reaches airflow fraction 1.0. It is
+#       visible in Figure 6, where both curves meet at (1.0, 1.0).
+#   (h) The List of Figures table is mangled in the markdown extraction (a
+#       docling artifact, not a document defect).
+#   (i) Medium confidence: Figure 6's zero-flow intercepts (baseline about 0.19,
+#       reset about 0.05) differ from Figure 2's values for what should be the
+#       same two curves (0.229 and 0.064).
+#   (j) Not a defect, recorded so the difference is not mistaken for one: Figure
+#       7b's legend has 20 entries against Figure 7a's 21, because Heat Recovery
+#       Electricity does not appear among the applicable-only models.
+
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: measure_pdfs/98345.pdf
+figures:
+- source_image: 98345_images/image_000002_3ecd0f2c99918a3687fcb01b1e852009b70d231eac64d6a55230884f69dd0ac5.png
+  source_image_sha256: 396c1e2d6d38c718c40a9b9b494446b40a3593e99659a9da450049a42679bebf
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Schematic fan-curve diagram showing how a fixed static pressure setpoint pushes the fan operating point left into the stall region as VAV box dampers close and airflow falls.
+  description: |-
+    Figure 1. Vendor schematic, credited to Integra Controls in reference 2, illustrating fan behavior under a fixed static pressure setpoint as load declines. Static pressure is on the vertical axis, 0 to 10 inches of water column, and airflow on the horizontal axis, 0 to 8,000 CFM. Three blue fan curves are drawn for constant fan speeds of 1600, 2600 and 3600 RPM. Each curve is shaded red over its left-hand rising-to-peak portion, marking the stall or surge region, and green to the right of the peak, marking stable operation; a magenta dotted line traces the stall boundary through the three peaks. Orange dotted system curves rise from the origin and steepen as duct resistance increases. A horizontal orange line labeled Operating Line sits at about 5.2 inches WC and joins two white circular operating points, one where a system curve meets a fan curve at 5,000 CFM and one at 2,000 CFM, with grey dashed verticals dropping from both to the airflow axis. The 2,000 CFM point falls inside the red stall band, which is the hazard the figure exists to show. A right-hand panel headed DESIGN SPECS lists Max Airflow 5,000 CFM, Min Airflow 2,000 CFM and SP Setpoint 5.2 in. WC.
+- source_image: 98345_images/image_000003_93be8e8d31c6d8d70a84a3d6c5714d78f641eb692c93929042e9027717c9b693.png
+  source_image_sha256: c9916d145e39460146b6f8c04421c1b76f3a823e538099bcfee30df946c82f2b
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Line chart comparing the ComStock multizone VAV baseline fan curve against two curves emulating static pressure resets, power fraction versus airflow fraction.
+  description: |-
+    Figure 2. Fan power fraction, vertical axis 0 to 1.2, against airflow fraction, horizontal axis 0 to 1.0, comparing the curve used for multizone VAV systems without a static pressure reset against two curves emulating resets. Three series are plotted at 0.1 airflow intervals. The blue series, MZ VAV with Discharge Dampers, is the ComStock baseline and reads about 0.229, 0.275, 0.302, 0.399, 0.476, 0.559, 0.655, 0.760 and 0.880 from airflow 0.0 through 0.8, where it stops. The red series, Good SP Reset, reads about 0.064, 0.073, 0.078, 0.101, 0.137, 0.20, 0.284, 0.403, 0.563 and 0.770 from 0.0 through 0.9. The green series, Perfect SP Reset, is lowest throughout at about 0.032, 0.032, 0.041, 0.060, 0.096, 0.151, 0.238, 0.362, 0.527 and 0.738. A vertical purple line at airflow 0.25 spans the full height, labeled ComStock Baseline Min Flow: the 25% minimum flow fraction applied to the baseline curve, which in EnergyPlus affects only power draw, not airflow. A note below the figure defines MZ as multizone. At 40% airflow the plotted baseline and good-reset values are about 0.48 and 0.14, a ratio near 0.29, consistent with the roughly 30% quoted in Section 5.6.
+- source_image: 98345_images/image_000004_f4c92d10bba4339b3a1340166aece75a108ba0142d1d530c83295636c8b0a2d7.png
+  source_image_sha256: 02a7dbdeae51865f8825b56d5e243215943d18725f1ca51ebf061936daf40e7e
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Two-panel horizontal bar chart of measure applicability by HVAC system type, one panel in percent of stock floor area and one in square feet, each bar split by whether the SP reset applies.
+  description: |-
+    Figure 3. Measure applicability by HVAC system type. Fifteen system-type rows share one axis; two side-by-side panels plot the same data as Percent Stock Floor Area, left, and Stock Floor Area in square feet, right. Each bar is split by the legend SP Reset Applicable, orange True and blue False. Rows top to bottom: PSZ-AC with gas coil 26%, all blue, 16,943,563,786 sq ft; PSZ-AC with electric coil 13%, all blue, 8,379,597,380; PVAV with gas boiler reheat 6% applicable plus 4% not; PVAV with PFP boxes 5% plus 4%; VAV chiller with gas boiler reheat 4% plus 3%; PVAV with gas heat and electric reheat 3% plus about 2%; Residential AC/furnace 4%, blue, 2,316,359,394; PTAC with electric coil 3%, blue, 2,210,471,522; PTHP 3%, blue, 2,113,937,224; VAV air-cooled chiller with hot water reheat, unlabeled, about 1.7% plus 1.4%; PSZ-HP 3%, blue, 1,755,218,322; VAV chiller with PFP boxes about 1.7% plus 0.7%; VAV district CHW with district HHW reheat about 1.2% plus 0.7%; PSZ-AC with gas boiler 2%, blue, 1,067,848,906; Other System Types at 1% or less each 7%, almost all not applicable. The orange segments sum to about 22% to 23%, matching Section 3.1's 23% of weighted floor area, or 14.6 billion square feet.
+- source_image: 98345_images/image_000005_85f5b906e7b92a9f9c831bf942d1e12fe6f9b6cf73ca8c4e7f86ef172cefacf8.png
+  source_image_sha256: e697d5b826d2eae804d981959f61505746fef491ca40c4d4c0c2b797aaa1c979
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Histogram of fan airflow fraction across the 15-minute time steps of a year for supply fan SF-1, strongly concentrated in the lowest bin.
+  description: |-
+    Figure 4. Histogram of fan airflow fraction over the 15-minute time steps of the year for supply fan SF-1 of the single example building, a hospital in Hattiesburg, Mississippi, climate zone 3A. Airflow fraction is on the horizontal axis and a count of time steps on the vertical. Nine bins about 0.033 wide span roughly 0.333 to 0.630. The distribution is strongly right-skewed: the first bin holds about 21,256 time steps, then about 4,905, 3,119, 2,230, 1,470, 1,200, 783, 440 and 96 in the highest bin. The nine bins sum to about 35,500, consistent with the 35,040 15-minute steps in a year, and the first two bins together hold about 26,161 steps, or roughly 75% of the year, matching Section 5.1's statement that SF-1 operates at or below 40% of design airflow for almost 75% of the year. The bin range also matches the 0.33 to 0.66 span of the SF-1 markers in Figure 6. Because SF-1's fan spends most of the year at low airflow ratio, the reset curve's much lower power fraction at low flow applies for most operating hours, which is why the modeled fan energy savings for this building reach 59.2%.
+- source_image: 98345_images/image_000006_8a6ba69e9a980985d648f56932b97efec9508e5247eb969c04e015023a2dbb94.png
+  source_image_sha256: 56c767254c97c534a8b8dbaa929f76ff54c8bc555d2bf8f4b7986d8d9fbf6b38
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Annual time series of building-level fan power draw for the baseline and SP reset cases, with two dashed reference lines giving fan power at 40% airflow under each curve.
+  description: |-
+    Figure 5. Total building-level fan power draw for the SF-1 example building over the 15-minute time steps of a year, baseline versus SP reset. The horizontal axis runs from 0 to about 35,000 time steps and the vertical axis is fan power in kilowatts. Two dense bands of points are plotted. The baseline band sits mostly between about 28 and 31 kW, with a floor near 14 kW and one excursion to roughly 50 kW near time step 23,000 to 24,000. The SP reset band sits far lower, mostly between about 7 and 10 kW. Two dashed reference lines mark calculated power at a fixed 40% airflow fraction, per the note below the figure: a red line at about 31.0 kW for the baseline fan curve and a black line at about 9.7 kW for the reset curve. Their ratio is about 0.31, consistent with Figure 2's 0.137 over 0.476 at 40% airflow and with the roughly 30% quoted in Section 5.6. The separation between the two bands is the graphical form of Table 4's 59.2% reduction in fan electricity for this building, from 246,806 to 100,611 kWh.
+- source_image: 98345_images/image_000007_99889466c4e0cf26d07e33b0dd9da199ae5063356959189f9c3f5afe03858305.png
+  source_image_sha256: c1f4dd05e4e258043f17fe23665145bb743c543bc9610a8dfed2137cb8dd8060
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Scatter of observed airflow fraction against power fraction for fan SF-1 in the baseline and SP reset cases, overlaid on the two modeled fan curves, which converge at full flow.
+  description: |-
+    Figure 6. Power fraction as a function of airflow fraction for supply fan SF-1, baseline and SP reset cases, with the modeled fan curves superimposed. Airflow fraction is on the horizontal axis and power fraction on the vertical, both spanning 0 to 1. Two solid curves rise from their zero-flow intercepts to meet exactly at the point 1.0, 1.0: the upper orange curve is the baseline multizone VAV with discharge dampers curve, intercepting near 0.19, and the lower blue curve is the SP reset curve, intercepting near 0.05. Plotted markers are pairs of observed flow fraction and power for SF-1 in the model and lie along their respective curves. The markers span airflow fraction about 0.33 to 0.66, the same range as the histogram bins of Figure 4, with baseline power fraction from about 0.34 to 0.62 and reset power fraction from about 0.07 to 0.36. The convergence at full flow is the point made in Section 3.2: the reset saves nothing at design airflow and progressively more as airflow falls. Note that these intercepts differ from the corresponding series in Figure 2, about 0.229 and 0.064, for what should be the same two curves.
+- source_image: 98345_images/image_000008_2ee64a14444fd143b3057c64cbb212df8193a91c2a6937ec0dac269885561529.png
+  source_image_sha256: 9bbc342e90bf82620b7d7176e0d9d6e0914572713226d5600e65c0b655b18cb2
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Stacked bar chart comparing annual site energy consumption by end use and fuel between the ComStock baseline and the Fan SP Reset scenario for the entire modeled building stock.
+  description: |-
+    Figure 7a. Two stacked vertical bars comparing annual site energy consumption in TBtu for the entire ComStock building stock, ComStock Baseline on the left and Fan_SP_Reset_MZVAV on the right, with each bar broken into segments by end use and fuel type per the legend. Bar totals are about 4,989 TBtu for the baseline and 4,896 TBtu with the measure, a reduction near 93 TBtu that matches the 92.7 TBtu and 1.9% total site energy savings in Table 5. The segment pattern is what the report's narrative describes: the fan electricity segment shrinks substantially, the cooling electricity segment shrinks modestly, and the heating segments for both natural gas and electricity grow slightly, while lighting, interior equipment and water systems are unchanged. Natural gas heating is the single largest segment in both bars, and fans, cooling and interior equipment electricity are the next largest. The precise per-segment values are given in Table 5 rather than read from this figure; Table 5 reports fan savings of 85.4 TBtu, cooling savings of 18.8 TBtu, an electric heating penalty of 5.4 TBtu and a natural gas heating penalty of 12.2 TBtu.
+- source_image: 98345_images/image_000009_cfdc0c4be06c12c262690239e8b935436b76af5a0eb644727d7f0b0b382ad115.png
+  source_image_sha256: 3811fd7daa1b242a41d4e57bd5ec78f88e35270dadfd529051dbdce5636d88c3
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Stacked bar chart comparing annual site energy consumption by end use and fuel between baseline and Fan SP Reset, restricted to the models the measure applies to.
+  description: |-
+    Figure 7b. The same stacked-bar comparison as Figure 7a but restricted to the models to which the Fan SP Reset measure was applicable. Two vertical bars, ComStock Baseline and Fan_SP_Reset_MZVAV, are broken into segments by end use and fuel type per the legend. Bar totals are about 1,070 TBtu for the baseline and 977 TBtu with the measure, a reduction of about 93 TBtu or 8.7%, matching the 8.7% site energy savings among applicable buildings quoted in Section 5.2. Restricting to applicable buildings makes the fan effect far more visible than in Figure 7a: the fan electricity segment is roughly a third of its baseline size in the measure bar, a 65% reduction, which is the headline figure Section 5.2 cites. Cooling electricity falls modestly, natural gas and electric heating both grow slightly, and lighting and interior equipment are unchanged. Per-segment values should be taken from Table 5 rather than from this figure, since several segment labels are white text printed over a hatched fill and are not legible.
+- source_image: 98345_images/image_000010_352fc99d0f7ba7da8afd46e68efab54ce9d86b6eb3f49eb938b8f1446a80b38a.png
+  source_image_sha256: 1ca99a391ea6b78200431a38294067e24eccab3682404a389e9c388b2e8e243c
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Three-panel stacked bar chart of annual utility bill impacts for the baseline and Fan SP Reset scenarios under the maximum, mean and minimum available electricity rates.
+  description: |-
+    Figure 8. Annual utility bill impacts for the ComStock baseline and the Fan SP Reset scenario, shown in three side-by-side panels for the maximum, mean and minimum available rate structures. Each panel holds a pair of stacked bars, baseline and measure, with total annual utility cost on the vertical axis in billions of 2022 USD, disaggregated by fuel. All three panels are annotated with a 2% savings label, matching Section 5.3's statement that the measure produces about 2% utility bill savings across all three rate scenarios. In the mean-rate panel the total falls from about 130 to about 127 billion USD, a reduction near 3 billion, consistent with Table 6's 3,015 million USD total absolute savings and its 2.3% all-buildings figure. Electricity dominates every bar, which is why Table 6's 3,175 million USD of electricity savings drives the total despite natural gas, fuel oil and propane penalties of -137.2, -21.47 and -13.43 million USD. Panel-to-panel differences in bar height reflect the spread of available electricity rates, not any difference in modeled energy use.
+- source_image: 98345_images/image_000011_4a7cbd3af13885e3dde3f7fae22e893ad7ca507fe59245383c8e7dc27e86d4a0.png
+  source_image_sha256: e51dbceb4e4690f272dc4a55664b5f00f65d761be922f676c510ab05b7d90826
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Box-and-whisker distributions of percentage annual utility bill savings under the Fan SP Reset measure, broken out by fuel type, with per-row model counts.
+  description: |-
+    Figure 9. Distribution of percentage annual utility bill savings across ComStock models under the Fan SP Reset measure, broken out by fuel type. Each fuel is one horizontal box-and-whisker distribution with its unweighted model count n printed on the row; points beyond the whiskers are outliers falling outside 1.5 times the interquartile range, per the note below the figure. Electricity and the total bill both sit on the savings side of zero, while natural gas and fuel oil sit on the penalty side, matching Section 5.3: bill savings are achieved for the overall bill and the electricity bill, with increases for natural gas and fuel oil. The total-bill distribution closely mirrors the electricity distribution but shifted slightly toward lower savings, which Section 5.3 attributes to electricity making up most of the utility bill in commercial buildings while the fuel penalties trim the net. The electricity bill shown is computed at the mean available rate per building. Section 5.3 adds that about 1.4% of the sample sees a slight bill increase, and that 41% of that small set, 223 buildings, heat with fuel oil.
+- source_image: 98345_images/image_000012_cadc7e61876ae44ab7a032d122df1ac8fd2a99576300dac237ce5e09954a779b.png
+  source_image_sha256: b861394846a9859ae3a9ecc36721c279119564030551231109f733dd95d132c0
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Box-and-whisker distributions of percentage annual utility bill savings under the Fan SP Reset measure, broken out by ASHRAE climate zone, with per-row model counts.
+  description: |-
+    Figure 10. Distribution of percentage annual utility bill savings across ComStock models under the Fan SP Reset measure, broken out by ASHRAE climate zone. Each zone is one horizontal box-and-whisker distribution with its unweighted model count n printed on the row; outliers beyond 1.5 times the interquartile range are drawn as individual points. The climate-zone rows include 7 and 8 as such, with no separate 7A row. Climate zone 8 carries n = 19, matching the surrounding text's warning about the very small number of buildings in zone 8 with this measure applicable. Per that text, zones 6A, 6B and 7 show lower 25th percentile, median and 75th percentile bill savings than zones such as 2A, 3B and 3C, which tracks the site energy savings distributions in Figure 11 and also reflects the relative magnitudes of electricity and heating fuel rates, since the measure saves electricity and imposes a heating fuel penalty. Note that this figure's footnote is the fuel-type boilerplate, describing n as the count applicable for energy savings for the fuel type category, on a climate-zone figure.
+- source_image: 98345_images/image_000013_f25af2124bc6ea3e586f44d370581c0ffd3b5fa2414f7c8ab04c0ca327af373c.png
+  source_image_sha256: 9b47c7ef0335390f46642c61f3a702f7ebe8d4271b2ff0409355664ff6b9092a
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Box-and-whisker distributions of percentage annual site energy savings under the Fan SP Reset measure, broken out by ASHRAE climate zone, with per-row model counts.
+  description: |-
+    Figure 11. Distribution of percentage annual site energy savings across ComStock models under the Fan SP Reset measure, broken out by ASHRAE climate zone. Each zone is one horizontal box-and-whisker distribution with its model count n printed on the row and outliers beyond 1.5 times the interquartile range shown as points. The n values across the climate-zone rows sum to 18,400, the same total as the fuel-type rows of Figure 13, which is a strong mutual cross-check on both reads. Medians are positive in every zone, with the colder zones showing lower savings than the mild cooling-dominated zones, the pattern the text cites when explaining Figure 10's ordering of utility bill savings. Because the measure trades a fan electricity saving against a heating fuel penalty, zones with long heating seasons retain less of the fan saving in site energy terms. As with Figure 10, the footnote below the figure is the fuel-type boilerplate describing n as the number of models applicable for energy savings for the fuel type category.
+- source_image: 98345_images/image_000014_dd0827fddde19d3fc4b947122501a19072fe6e8a98f2e72254a7b1a8140baff4.png
+  source_image_sha256: cd5c18b226e790b61844aac07bcd9bf1e0b3c0073e6984cf596bb0af582913fd
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Box-and-whisker distributions of percentage site energy savings among applied models, broken out by end use and fuel type, with fans showing the largest savings.
+  description: |-
+    Figure 12. Distribution of percentage site energy savings across the models to which the Fan SP Reset measure was applied, broken out by end use and fuel type. Each row is one horizontal box-and-whisker distribution with its model count n printed alongside; outliers beyond 1.5 times the interquartile range appear as points. Fans show by far the largest savings, with an interquartile range of roughly 65% to 70% and a median near 68%, matching the 68% median fan energy savings stated in the text. Cooling, both electric and district, comes next, followed by heat rejection, the ordering the text gives. The pump electricity distribution is wide and roughly centered on zero, which Section 5.5 explains as the balance between extra heating-driven pump energy and reduced cooling-driven pump energy in hydronic buildings. Heating rows sit on the penalty side for every heating fuel. The Interior Equipment Electricity row carries n = 4, matching the note that a small interior equipment change in four buildings stems from a known ComStock elevator-schedule bug, ComStock issue 350.
+- source_image: 98345_images/image_000015_d2a2bb9b8f2e3e3a34616c1907f19817624e6bd4466543de8de1327794c685e4.png
+  source_image_sha256: a1b5252723c79252e4408072f03a87214d76a8b5883ae2333c7456265f48e832
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Box-and-whisker distributions of percentage site energy savings among applied models, broken out by fuel type, with electricity saving and heating fuels penalized.
+  description: |-
+    Figure 13. Distribution of percentage site energy savings across the models with the Fan SP Reset measure applied, broken out by fuel type. Each fuel is one horizontal box-and-whisker distribution with its model count n printed on the row and outliers beyond 1.5 times the interquartile range drawn as points. Electricity, district cooling and total site energy sit on the savings side of zero; natural gas, fuel oil, propane and district heating sit on the penalty side, exactly as Section 5.4 describes, because those fuels serve only heating in these models and the measure removes useful fan heat. The electricity median measures about 14.7%, close to Table 5's 14.0% applicable-buildings electricity savings, and the total site energy median measures about 9%, close to Table 5's 8.7%; the axis calibration is roughly 1.5 pixels per percent, so treat both medians as approximate. The n values across the fuel rows sum to 18,400, the same total as Figure 11's climate-zone rows.
+- source_image: 98345_images/image_000016_c10909f81a6a4ee2b7291bc846d9703e2e63a1f96889c82e0293e4ec44315fa7.png
+  source_image_sha256: be102fd2906302de9f7feb5e1194890adbf6f0387f3b66c67d84d4b9aa6d18bd
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Scatter plot of pump electricity savings against natural gas heating savings for applicable buildings with hydronic heating, showing two opposing trends.
+  description: |-
+    Figure 14. Scatter plot of pump electricity savings against natural gas heating energy savings for the applicable buildings that have hydronic heating systems, used to explain why the pump energy distribution in Figure 12 is centered near zero. Natural gas heating savings is on the horizontal axis and pump electricity savings on the vertical, both as percentages, with the plot area's bottom spine at the axis and evenly spaced ticks. The surrounding text identifies two distinct trends within the cloud. Buildings with hydronic heating but no hydronic cooling show a pump energy penalty whose magnitude shrinks as the natural gas heating penalty shrinks, because in those buildings the hydronic heating load is the primary driver of circulation pump energy. Buildings with both hydronic heating and hydronic cooling generally show pump energy savings, because the reduced hydronic cooling load outweighs the increased heating pump operation. The superposition of these two trends is what produces the wide, roughly zero-centered pump distribution in Figure 12.
+- source_image: 98345_images/image_000017_581e482104a4c75e343b786ad142540b8f831fe97fc7170247bd23aeaffa2c1c.png
+  source_image_sha256: ef0b6534d708d5e119c2beccb3c6a2599397fea5cf5edad2e517735e0033ba92
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Histogram of average annual VAV airflow ratio among applicable buildings, concentrated at low ratios with about 90% at or below 0.4.
+  description: |-
+    Figure 15. Distribution of average annual VAV airflow ratio among the buildings to which the Fan SP Reset measure was applicable. Airflow ratio is on the horizontal axis and the vertical axis is a normalized share of the applicable sample; the plotted bins sum to about 100%. The distribution is concentrated at low airflow ratios, and the cumulative share reaches roughly 92% by an airflow ratio of about 0.43, consistent with Section 5.6's statement that the vast majority, 90%, of applicable buildings have an average VAV airflow ratio of 0.4 or less. This is the central mechanism claim of the report: because Figure 6 shows a fan at airflow ratio 0.4 drawing only about 30% of baseline power under the reset curve, and because almost all applicable buildings average at or below that ratio, the aggregate 65% fan energy savings among applicable buildings follows. Section 5.6 also flags that the extent to which these low airflow ratios are representative of real buildings is an area for further investigation.
+- source_image: 98345_images/image_000018_ab7f9c4bee56e28106b5117306715f9f96dcdd0b035d9b024673d6ed145c4d21.png
+  source_image_sha256: 753bf650802946262e7dea25c112d74da1c7a4ca5c6c28cf151b67f41e95f4dc
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Scatter plot of annual fan energy savings against average VAV airflow ratio among applicable buildings, densest and most variable at low airflow ratios.
+  description: |-
+    Figure 16. Scatter plot of annual fan energy savings through the SP reset against average annual VAV airflow ratio among applicable buildings. Average airflow ratio is on the horizontal axis and percentage fan energy savings on the vertical. Point density is highest at low airflow ratios, below about 0.4, where the vertical spread of fan energy savings is also widest; savings decline as airflow ratio rises. Section 5.6 reads the cloud as approximating the inverse of the fan power versus airflow curve, and notes that an annual average airflow ratio cannot perfectly predict fan energy savings because the EnergyPlus fan power curve is a cubic polynomial, so averaging over the year loses information. The figure is presented as confirmation that the relatively high fan energy savings observed across the ComStock sample, 65% among applicable buildings, are expected given the large share of the sample operating at low fan airflow ratios, rather than an artifact of the modeling approach.
+- source_image: 98345_images/image_000019_98583b071c3a36d5fc623604ce87977e42680cfec7e86f3c072a5b1355ab1ae3.png
+  source_image_sha256: 557bf6d60a4ceeebd76beccd23b66be35b7f5763bb8fb3be985c603bb2959dee
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Scatter plot of average fan airflow ratio against heating degree days base 50 for all applicable buildings, the spread narrowing as heating degree days rise.
+  description: |-
+    Figure 17. Scatter plot of average fan airflow ratio against annual heating degree days with a base of 50 degrees Fahrenheit, HDD 50, for all applicable buildings. HDD 50 is on the horizontal axis and average airflow ratio on the vertical. The point cloud is widest at low HDD 50 and narrows as HDD 50 increases: Section 5.6 states that among buildings with more than 1,000 HDD 50, a tighter range and a lower maximum fan airflow ratio were observed. The hypothesis offered is that, because commercial buildings are typically cooling dominated, buildings in cooler climates tend to operate closer to their balance point temperature and therefore have less cooling-load-driven airflow. Design fan airflow in ComStock is set from heating and cooling design days, system operating parameters and ventilation requirements, while operating airflow at any moment depends on internal thermal loads, outdoor conditions and ventilation, so the climate relationship is indirect. This figure motivates the mild-climate subset examined in Figure 18.
+- source_image: 98345_images/image_000020_08d7bcfac5f3af16d823abda84b7588ee175739af9307c009fcae419de20af4d.png
+  source_image_sha256: a333ac2972d550e04f5cfd34e03439901893aa01098a9fba5fb51b97b4ff1f40
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Scatter plot of average fan airflow ratio against heating degree days base 50 restricted to applicable buildings in mild climates, showing a falling upper envelope.
+  description: |-
+    Figure 18. Scatter plot of average fan airflow ratio against HDD 50 restricted to applicable buildings in more mild climates, defined as fewer than 2,000 HDD 50 and fewer than 2,000 cooling degree days base 65 degrees Fahrenheit; Section 5.6 describes this subset as about 24% of the applicable sample. HDD 50 is on the horizontal axis and average fan airflow ratio on the vertical. The dense body of points tops out at an airflow ratio of roughly 0.45 to 0.55 above about 1,800 HDD 50, with only a few isolated outliers reaching about 0.74, so the upper envelope of airflow ratio falls as HDD 50 rises within this subset. Section 5.6 reads this as a limited trend of lower and more tightly clustered fan airflow ratios among buildings above about 1,200 HDD 50, possibly reflecting buildings with higher internal load densities operating closer to their balance point temperature and therefore needing less space-conditioning-driven airflow. The trend is described as limited and the figure should not be read as establishing a strong climate dependence.
+- source_image: 98345_images/image_000021_dfc3b99f0389cc5e82ae24b9b141aecf8c14561572384dcc8445a5f127e9fba9.png
+  source_image_sha256: de9491c7143f26dd4a5c4f8b0013ff9550ccb18578de7a9660e5ebd2f2b1e800
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Grouped bar chart of site annual natural gas consumption by census division for the ComStock baseline and the Fan SP Reset scenario, with no printed value labels.
+  description: |-
+    Figure A-1. Grouped vertical bar chart of site annual natural gas consumption in TBtu for the ComStock baseline and the Fan SP Reset measure scenario, by census division. Nine division groups run along the horizontal axis, each with a dark blue Baseline bar and a light blue Fan_SP_Reset_MZVAV bar per the Upgrade Name legend. The bars carry no printed value labels, so every number below is pixel-derived and approximate. Baseline values, in TBtu: New England about 47, Middle Atlantic 222, East North Central 386, West North Central 156, South Atlantic 169, East South Central 53, West South Central 117, Mountain 94 and Pacific 178. The measure bar is equal to or about 3 TBtu taller than the baseline bar in each division, the expected direction since the measure imposes a natural gas heating penalty. The nine baseline values sum to about 1,422 TBtu and the measured increases sum to about 17 TBtu against Table 5's -12.2 TBtu gas penalty; the difference is within the accumulated one-pixel error of nine separate bar-pair reads.
+- source_image: 98345_images/image_000022_55290cdb0874342a8ed04882a9a80208e54f526ecf5575d4202b6542217047dc.png
+  source_image_sha256: 92a61acebaefd55f2a20d481e88f4ebf36969a5c5e98a125bae814da0ca5d5df
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Grouped bar chart of site annual natural gas consumption by building type for the ComStock baseline and the Fan SP Reset scenario, with no printed value labels.
+  description: |-
+    Figure A-2. Grouped vertical bar chart of site annual natural gas consumption in TBtu for the ComStock baseline and the Fan SP Reset measure scenario, by building type. Fifteen building-type groups run along the horizontal axis, each with a dark blue Baseline bar and a light blue Fan_SP_Reset_MZVAV bar per the Upgrade Name legend. No value labels are printed, so all numbers here are pixel-derived and approximate. Baseline values, in TBtu: FullServiceRestaurant about 170, QuickServiceRestaurant 41, RetailStripmall 225, RetailStandalone 73, SmallOffice 55, MediumOffice 34, LargeOffice 43, PrimarySchool 160, SecondarySchool 215, Outpatient 32, Hospital 126, SmallHotel 7, LargeHotel 128, Warehouse 104 and Grocery 17. Measure bars are equal to or slightly taller than baseline in each type, consistent with the gas heating penalty. These fifteen baseline values sum to about 1,428 TBtu, agreeing with the roughly 1,422 TBtu obtained from Figure A-1's nine census divisions and with the roughly 1,443 TBtu obtained from Figure 7a's gas bands.
+- source_image: 98345_images/image_000023_19080e29b93f847f26e4c46415ca9167d524524005aa80c44797c792e492d2fd.png
+  source_image_sha256: 3c9a560bf0d2510d7f16fcc6181bc1e49e619cdbc95372091bdb9c8d0cf99370
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Grouped bar chart of site annual electricity consumption by building type for the ComStock baseline and the Fan SP Reset scenario, with no printed value labels.
+  description: |-
+    Figure A-3. Grouped vertical bar chart of site annual electricity consumption in TBtu for the ComStock baseline and the Fan SP Reset measure scenario, by building type. Fifteen building-type groups run along the horizontal axis, each with a dark blue Baseline bar and a light blue Fan_SP_Reset_MZVAV bar per the Upgrade Name legend. The bars carry no value labels, so all figures are pixel-derived and approximate. Baseline values, in TBtu: FullServiceRestaurant about 196, QuickServiceRestaurant 67, RetailStripmall 485, RetailStandalone 304, SmallOffice 226, MediumOffice 189, LargeOffice 233, PrimarySchool 274, SecondarySchool 248, Outpatient 130, Hospital 185, SmallHotel 30, LargeHotel 170, Warehouse 382 and Grocery 100. Measure bars are shorter than baseline in every type, the expected direction for an electricity-saving measure. The fifteen baseline values sum to about 3,219 TBtu, in reasonable agreement with the roughly 3,333 TBtu implied by Table 5's 100 TBtu of electricity savings at 3.0%. The axis labels were zoomed to confirm this panel plots electricity grouped by building type, matching its caption.
+- source_image: 98345_images/image_000024_cd80184120a5d6637e5f75d33b96a2e86f7f6cd68d13abbb4e875088093fbb35.png
+  source_image_sha256: 97d19817a62613995ba081180dc27fe0468b069d4f011e5c0e8da27bd649e877
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Grouped bar chart of site annual electricity consumption by census division for the ComStock baseline and the Fan SP Reset scenario, with no printed value labels.
+  description: |-
+    Figure A-4. Grouped vertical bar chart of site annual electricity consumption in TBtu for the ComStock baseline and the Fan SP Reset measure scenario, by census division. Nine division groups run along the horizontal axis, each with a dark blue Baseline bar and a light blue Fan_SP_Reset_MZVAV bar per the Upgrade Name legend. No value labels are printed, so all numbers are pixel-derived and approximate. Baseline values, in TBtu: New England about 92, Middle Atlantic 337, East North Central 434, West North Central 271, South Atlantic 751, East South Central 210, West South Central 501, Mountain 230 and Pacific 460. Each measure bar is shorter than its baseline bar, by roughly 5 to 20 TBtu depending on the division, and the reductions sum to about 81 TBtu against Table 5's 100 TBtu of stock electricity savings; the gap is within the accumulated read error. The nine baseline values sum to about 3,285 TBtu, consistent with Figure A-3's roughly 3,219 TBtu and with the roughly 3,333 TBtu implied by Table 5.

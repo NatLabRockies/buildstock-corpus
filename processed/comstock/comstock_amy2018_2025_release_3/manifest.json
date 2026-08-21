@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "comstock_amy2018_2025_release_3",
-  "generated_utc": "2026-08-20T18:48:17.499822+00:00",
+  "generated_utc": "2026-08-21T18:30:49.472568+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -740,7 +740,32 @@
           "title": "Condensing Gas Boilers",
           "input_sha256": "fa8a71456204914597a0f5e9cb580b0b11f71de24c3450974b192946210aeb85",
           "output_path": "upgrade_measures/measure_pdfs/95014.md",
-          "output_sha256": "6bfc5663db63fea4b11fc3e8fa9fe3f4906a04e6b26a2c3e5338d2af05582361"
+          "output_sha256": "09ca6d45dd2cdef769c546c66acd35add336ae1c7b579b8341cac801a8a6982a",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95014.yaml",
+            "sha256": "1452207183ec73057832bec2e79b0931228181c16f8697a9b266a300a8d88aec",
+            "tables_applied": [],
+            "figures_applied": [
+              "95014_images/image_000002_c447fe5df46f14225ecf63d0e1ac64b52eedc98e49b1671b37a3dc6d32030a62.png",
+              "95014_images/image_000003_ddd03eee014e8c9ea49475ce5db55acea40abff27244d2d8908ec11a724b5736.png",
+              "95014_images/image_000004_306e1366784900d7d9c921f7c82ea2486e18aa0f7ecf6f201c80ace7e54877b5.png",
+              "95014_images/image_000005_e9730a8ba76c7600cc516e6483a3ed0b56850460f8f8acf571164ec9a9f3a319.png",
+              "95014_images/image_000006_1fbde5832896dda033dffcda803c41ef4a6dd30524cf32a7b6fbe83ed8612f43.png",
+              "95014_images/image_000007_5ea0c11c509f0aadcf23b120f6c91982ff83997a3bb27ed6525657f27a34370d.png",
+              "95014_images/image_000008_710e423e61e037e3e9f44577828a0d04079aeb0a0646e628bb5ab5ca6ea68c46.png",
+              "95014_images/image_000009_c6fcb8d38f9392377b5aaaa31d7bb81db977da7d6769433c7b45c734b7abba08.png",
+              "95014_images/image_000010_dfc049a7bc3cda8e868718e21a173fd70d9db028961e17eaa23326e4f88ec5a7.png",
+              "95014_images/image_000011_f5439b5dec50b295588892b0e7b36da4cd8c1cd2cfbfe0e6ddd6539d732c1493.png",
+              "95014_images/image_000012_a493127111b3d8964abe8b0292451122e7a46e348a1ea6be5fd97a6502208d6a.png",
+              "95014_images/image_000013_259c22a34b5579c8c87f3f4e33afdc03e15a7f3cd011c2181f8d99692369333a.png",
+              "95014_images/image_000014_8f566c8c218a46bef5584fa69446c1373985c7a6441911b5170e1255fa3538dd.png",
+              "95014_images/image_000015_d93cfc30d1da8e12bf09dd3c4a7ee6af5b2811c5f4eab8fe8dc7ee7b86cda982.png",
+              "95014_images/image_000016_fa84c0241d8f556c214fc119dad0cbcc11ae191fad0655caa578b8cce4a2082c.png",
+              "95014_images/image_000017_852387d7715c82e6750eebdf60286076b1d4af4a1bb270a2b44098ab1d691b10.png",
+              "95014_images/image_000018_1c77c8d75b22c324affb2c99b86d76d9f84d45d6675dc2a5c2fd60c6b448fa09.png",
+              "95014_images/image_000019_4882155653932bf2b3d15b81fe5217e69b445ff4cdd91d7562235cad0b0c2aaf.png"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/95015.pdf",
@@ -806,7 +831,35 @@
           "title": "Thermostat and Lighting Control for Load Shedding",
           "input_sha256": "d5da891d0fcd4e44ee2038713085551b9c9d6d1b4af401be40ccab9fafa350d2",
           "output_path": "upgrade_measures/measure_pdfs/92504.md",
-          "output_sha256": "73bd7603b7db5b8cb94ac4da96ee5028c7243e1ea7ba34a23cadac10689f289d"
+          "output_sha256": "10fc022813d889b1c21770f7e2d8a517d014d92470329ac8e31eb282584508b7",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/92504.yaml",
+            "sha256": "d29be3e0757cc5d8279e4c9b458310af97e247b849eb5ef13520b40ce5f90e0e",
+            "tables_applied": [],
+            "figures_applied": [
+              "92504_images/image_000002_ffc6129323e2c96949de6c85dd4a39ce88f584367e5e3bd6c240e395914de716.png",
+              "92504_images/image_000003_340cc162dae2f8359d97324d76bf4c5e5eb01d8f6ad9ac269c1c98231742601a.png",
+              "92504_images/image_000004_1b7fc05bbb09aa25fec0fc7247ae6d459d353b7e42f7c0bbe2c8728c8f0a6e15.png",
+              "92504_images/image_000005_1cf94af59068ddd01416aff928a05d164fb43a2c898d78f297186cd11a60e8ae.png",
+              "92504_images/image_000006_35524d7a48ae9aec6de12d47c60543906d59b27d093a98adbc279e045a56cee8.png",
+              "92504_images/image_000007_234c8e3b9c2aa499da89a095a2f892f20eb46485fe9b591dba9b2e9ab6d09532.png",
+              "92504_images/image_000008_280ffeac7cc499e409df3005c8818ec92defc133f080aee3bf89d3974f37a5aa.png",
+              "92504_images/image_000009_ba9b4d120e890d5096ee0d8dd9d9dcab63796c2b8b130dca5dc1c6d4481e62e8.png",
+              "92504_images/image_000010_de40fdec7b722a3040c34ab28372427419fa4da98c51aa7750a0f07d95d64e84.png",
+              "92504_images/image_000011_fa987c56027d1f20fefdd3e5317241cf9b0c276879822cbeb9582830f5459a27.png",
+              "92504_images/image_000012_a2532f3e3d39a8c9881112547e3253c9ab402d2be6ad2d7df1a097023e066257.png",
+              "92504_images/image_000013_47028113c5fe3f56379a6cf46f31f691f9ff9042da947514514cfec5e86dbc76.png",
+              "92504_images/image_000014_a465e2af5eb1bf5530fb9a0a16220898bd0cb66254191aa9e9e699ae20cef9cc.png",
+              "92504_images/image_000015_36c11625c0922749d0d811691d5f188ad9d90443dad1a1aa3d541a5d01c2c7eb.png",
+              "92504_images/image_000016_a0de9567fe27ee05319f0b5ff3962ce2bb8fd1f621f5195cf52f691e317ed45c.png",
+              "92504_images/image_000017_bd8f403bcea49a2faa1273088f0fcdc7f2df3579a827757c3d5bac6541651345.png",
+              "92504_images/image_000018_af32b7899921778a11a8da36209978ea46e837e01c34d5dcdd3076a96f56a7d6.png",
+              "92504_images/image_000019_193a3942d2f0140700e062b5873dc81d738594a195d6d9b2b6208538d17ecffe.png",
+              "92504_images/image_000020_79388904195cff09a6c80e33299b396b1c5cb6a238190d3d186aa6d8e4575cc8.png",
+              "92504_images/image_000021_fd1b3b036d51512bce1dfd545317db4d6ccc58c3fadc2df3c4f0974972546780.png",
+              "92504_images/image_000022_c4e49af0214fbbaac2446379195b8ebf7d7170156ba045b14b241ffe9dbff197.png"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/95013.pdf",
@@ -887,7 +940,34 @@
           "title": "Variable Speed Pumps",
           "input_sha256": "390e50e2cae9fbbac6635e6a529b5ae26b8cc9531e8d4106101e0a87147aa251",
           "output_path": "upgrade_measures/measure_pdfs/98223.md",
-          "output_sha256": "c11bc749919cd28a949dced9f7850c4bdaa268ad4073be238fe21d1e1a2f08d7"
+          "output_sha256": "677dcba540a8f88f1bfb77bdac7d55f7989c96e6e96d7b32d91bef85b4b71868",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/98223.yaml",
+            "sha256": "e3e095d2279575e9931a2cf2f35cb3e2bb5c69718d448676c656257f1a4df92e",
+            "tables_applied": [],
+            "figures_applied": [
+              "98223_images/image_000002_3794e927627c15a78f8e568a360fdf6589ea719befdab9730d5e9d8cdb4072a5.png",
+              "98223_images/image_000003_99570cd7162731051d8b01249b24c6a5b531f55a6faf04f3052d8543fde5a9b2.png",
+              "98223_images/image_000004_0064d17d0dbb6131120a5ddae2eab0af730dbedab0d749577d0a217cf4cf2c65.png",
+              "98223_images/image_000005_cfd42dba95078e6738fe48142d1a0af070c6c96dd28e3bee02e27c6b8b0c0d8d.png",
+              "98223_images/image_000006_0441d304b3011c0496277650d87c4893fbb659bc8ad2f6d34ab363c9e8912367.png",
+              "98223_images/image_000007_65a69374e1239e1a141ac494dce63923f014e3dfa9929db39d75273cfe870a7e.png",
+              "98223_images/image_000008_5cd0ce351f319525b00e6959a4f040fcdae0b2d4b2a8c984c1c78372c10bae0a.png",
+              "98223_images/image_000009_acd2a06e883a3344259dcf536cc414edb7a4b6592159c81aaf750e0c16370ce2.png",
+              "98223_images/image_000010_2f41e2dc3b66ee295a0f1a6ebcd27bbedaa84cbe9903bf8fd726f96e7d7ebdea.png",
+              "98223_images/image_000011_e6563fde79a574def176626b2109493189bad6b1b21afe1f96f5b1372a4de5c9.png",
+              "98223_images/image_000012_9b85b2c366e155916b25c5208ebee3fbfcae1dfd6334c492b3a1b6f50f9df2bd.png",
+              "98223_images/image_000013_85f4f24381dd45c864d589377e8d646e5adb1bf22819a96e3d8c8160f94ef75f.png",
+              "98223_images/image_000014_a84a1e8cbdd3518081773de611217aaa757f13dfc8fcc10ebd76b0c078bdd0e8.png",
+              "98223_images/image_000015_cb066f7ee64ff05df1511f80275c64caa90f665615dba6f76dd5356afd814e36.png",
+              "98223_images/image_000016_0d69d1089a5bb39f21da89dc521323b42d3875cf07833970e492ae1c18c74c79.png",
+              "98223_images/image_000017_0df5c51617ba972c2b870f37f1299149cf79ce3c7f632a1e857b0ee688f5d91b.png",
+              "98223_images/image_000018_37bf15dfd20629463973abfaf0d2ebc5675b757f90121e6c768cf7d32a1e20a4.png",
+              "98223_images/image_000019_c6e3d44ae9364fd305f91dd407c2a49c63c69c68a9a5af9e5b147e74816b988d.png",
+              "98223_images/image_000020_a8c975e48a1e6479151724a6a5fd374e300060096207d9b516d2d9141e8a3c13.png",
+              "98223_images/image_000021_1c7a7dc7b0b8163fe8118b2627e176fcbca2432d0ae85fd8db4151ddb89da56e.png"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/98224.pdf",
@@ -910,7 +990,37 @@
           "title": "Fan Static Pressure Reset for Multizone VAV Systems",
           "input_sha256": "75f23306d2e62efe1a8a0b7ed76ff98bb62801424068b4a1bd5e5f06860bbade",
           "output_path": "upgrade_measures/measure_pdfs/98345.md",
-          "output_sha256": "dcbabfa75e1717f8938b4586d0baa7e6d6e749a69bd6b188ec9a0450bf0b80dd"
+          "output_sha256": "ad62939184bc730b2f86a7750f9c8b20e240193650a373ec8e3a4eaaf5f7f278",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/98345.yaml",
+            "sha256": "082e72da35bfd014a0b93cad550973eda2d292a5d4e180a6e161d7ab8388d1fe",
+            "tables_applied": [],
+            "figures_applied": [
+              "98345_images/image_000002_3ecd0f2c99918a3687fcb01b1e852009b70d231eac64d6a55230884f69dd0ac5.png",
+              "98345_images/image_000003_93be8e8d31c6d8d70a84a3d6c5714d78f641eb692c93929042e9027717c9b693.png",
+              "98345_images/image_000004_f4c92d10bba4339b3a1340166aece75a108ba0142d1d530c83295636c8b0a2d7.png",
+              "98345_images/image_000005_85f5b906e7b92a9f9c831bf942d1e12fe6f9b6cf73ca8c4e7f86ef172cefacf8.png",
+              "98345_images/image_000006_8a6ba69e9a980985d648f56932b97efec9508e5247eb969c04e015023a2dbb94.png",
+              "98345_images/image_000007_99889466c4e0cf26d07e33b0dd9da199ae5063356959189f9c3f5afe03858305.png",
+              "98345_images/image_000008_2ee64a14444fd143b3057c64cbb212df8193a91c2a6937ec0dac269885561529.png",
+              "98345_images/image_000009_cfdc0c4be06c12c262690239e8b935436b76af5a0eb644727d7f0b0b382ad115.png",
+              "98345_images/image_000010_352fc99d0f7ba7da8afd46e68efab54ce9d86b6eb3f49eb938b8f1446a80b38a.png",
+              "98345_images/image_000011_4a7cbd3af13885e3dde3f7fae22e893ad7ca507fe59245383c8e7dc27e86d4a0.png",
+              "98345_images/image_000012_cadc7e61876ae44ab7a032d122df1ac8fd2a99576300dac237ce5e09954a779b.png",
+              "98345_images/image_000013_f25af2124bc6ea3e586f44d370581c0ffd3b5fa2414f7c8ab04c0ca327af373c.png",
+              "98345_images/image_000014_dd0827fddde19d3fc4b947122501a19072fe6e8a98f2e72254a7b1a8140baff4.png",
+              "98345_images/image_000015_d2a2bb9b8f2e3e3a34616c1907f19817624e6bd4466543de8de1327794c685e4.png",
+              "98345_images/image_000016_c10909f81a6a4ee2b7291bc846d9703e2e63a1f96889c82e0293e4ec44315fa7.png",
+              "98345_images/image_000017_581e482104a4c75e343b786ad142540b8f831fe97fc7170247bd23aeaffa2c1c.png",
+              "98345_images/image_000018_ab7f9c4bee56e28106b5117306715f9f96dcdd0b035d9b024673d6ed145c4d21.png",
+              "98345_images/image_000019_98583b071c3a36d5fc623604ce87977e42680cfec7e86f3c072a5b1355ab1ae3.png",
+              "98345_images/image_000020_08d7bcfac5f3af16d823abda84b7588ee175739af9307c009fcae419de20af4d.png",
+              "98345_images/image_000021_dfc3b99f0389cc5e82ae24b9b141aecf8c14561572384dcc8445a5f127e9fba9.png",
+              "98345_images/image_000022_55290cdb0874342a8ed04882a9a80208e54f526ecf5575d4202b6542217047dc.png",
+              "98345_images/image_000023_19080e29b93f847f26e4c46415ca9167d524524005aa80c44797c792e492d2fd.png",
+              "98345_images/image_000024_cd80184120a5d6637e5f75d33b96a2e86f7f6cd68d13abbb4e875088093fbb35.png"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/98346.pdf",
@@ -918,7 +1028,37 @@
           "title": "Thermostat Setbacks During Unoccupied Periods",
           "input_sha256": "49eb99ad293cd46cdbd5e4ae7b037386a495721e163d607878ac846a39d2ecf6",
           "output_path": "upgrade_measures/measure_pdfs/98346.md",
-          "output_sha256": "108ca6aca5bfdfd72d630728b50a2f348443a997b9a016bf3bed9f9c717e93a5"
+          "output_sha256": "db38f0be234333d84e9da581f146499a1bc6a9cf824dfb7c85332992e0e5dd35",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/98346.yaml",
+            "sha256": "373f7aec85087f1beae8b8ecf3026104da69dc9ddbd1358a1db09dc4e0ebd9b9",
+            "tables_applied": [],
+            "figures_applied": [
+              "98346_images/image_000002_1d21c2a9e2de5eeb08ba8569452c6b28d015b1a1643dc43cfbd0680a62a0f4c3.png",
+              "98346_images/image_000003_69cc188fd949ca9ce388f016cc615c433750702a399bff75ed84df7a0d67a4bc.png",
+              "98346_images/image_000004_0e2d1e4bd6ce44bf509861cb084e70798e600b135134a30c9cf0d5f801fb4265.png",
+              "98346_images/image_000005_aff561ec7219c3659627080b01e156215019b280c2666555d76a3a8b1a4878d7.png",
+              "98346_images/image_000006_52e34b035f67ecd1ea9b5eb893fa5c608b4c46a3e82eee162a6c52cc2b1b3d0a.png",
+              "98346_images/image_000007_ed313d99875f5a1d81806a9c2c043ed9a6ecb9d300197f525cbc801b00ca5bf3.png",
+              "98346_images/image_000008_2f8148408b9473cb8daff65172db778d8715497c9dd9d7605b93e8e6913ee0fa.png",
+              "98346_images/image_000009_ed1839c4ad728600aa8b33ad75e583103ceb5737e67a924325ac9d85fd8de63b.png",
+              "98346_images/image_000010_e63d71e1e6c7ce76067a8205a22f784f75be808f782dbe75e897679dbc9dd6da.png",
+              "98346_images/image_000011_c0d15b6d7babf508578b9e128b1920c69f42f93eadb692fbef8b2721d8c3774c.png",
+              "98346_images/image_000012_5975ee2043c5dedd5f0ed038b4e8e0eeb3f298ce69f6947c205d195f6d18f360.png",
+              "98346_images/image_000013_c5d3d051830b63f95f0f7b701a104d8bddbdb2d0332c6bd321269deecc616a23.png",
+              "98346_images/image_000014_2220882166b4b318c1f723c4c2a5efa8231e3305ce9a61e6dfae95f17bd48e3b.png",
+              "98346_images/image_000015_82eeaa475ac28ed71c387eb9f992961f7c9a2024d9c2fc0d9bbd02506078190c.png",
+              "98346_images/image_000016_ddf713a87f9e3e8bb9727e5af3892180f795931e155669b8c8a756d2acc83b2c.png",
+              "98346_images/image_000017_988e72114c899909f18e3df74a22ed96e332a317d35d7d9a1c395aa8b03b6bc3.png",
+              "98346_images/image_000018_b5db3fe1686366d3df269424bc22ff4e6b0743eddb13679b5d089c4d4a9318da.png",
+              "98346_images/image_000019_9909ab49e6ac05cf7aea1cdb00367bc70d0b7c1927b92917d3e074bc7c9d822c.png",
+              "98346_images/image_000020_65ba31c7c194f7361bf61c9e9ca5f3438b5114a1b15e08df3890e58f0d47e852.png",
+              "98346_images/image_000021_4280ecc79bccd4c34c9137ff75a9f0f81c389cd3dc95d5032c2807daf860cf77.png",
+              "98346_images/image_000022_410fc59a69d45b013d20b5421f87ae373031a1131cbd7f201e9b2064d4204e50.png",
+              "98346_images/image_000023_3e1ee2a38bcb2e34d636d438a3cdafe4f50c01ee4f25bbb6f88d4647138d123b.png",
+              "98346_images/image_000024_d4e5584b8ba2ad413fa3484b720544f560713127226fd5d73c8df84f1a014f8c.png"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/85853.pdf",
@@ -1044,7 +1184,35 @@
           "title": "Economizers",
           "input_sha256": "ac239093593f300240a55b0a2ff74a876916772a05d1eb85a6a8264375ea105d",
           "output_path": "upgrade_measures/measure_pdfs/86105.md",
-          "output_sha256": "dad73bdb714c3613c88d46221bfb22f0db46a199cdd172e6487669f46f3278ef"
+          "output_sha256": "977e6a6b614bccdb2ea185abc7b319718f6b8e51aef907bdb4bc0e3e5728f8ab",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86105.yaml",
+            "sha256": "1caa0c93720cc4d9ebf3e94808951daab862ca38f104466b3e37f4fdd5b45520",
+            "tables_applied": [],
+            "figures_applied": [
+              "86105_images/image_000007_5ceac8bb6addef9308dcbfb8fe226b17817f5da96531b9173fefae15b12896a7.png",
+              "86105_images/image_000008_be1da3dc6635f353bf7febae838270b114506eba031a77c30c0c462a3e8ab1f6.png",
+              "86105_images/image_000009_995c7f6d12a9c00251dff248c817f1eb9759beb37eb41ce2ac8c56870d2a345d.png",
+              "86105_images/image_000010_d02e1790b6b3322e78a099028494376e8119010e306ea9c8f74d54f2597e217b.png",
+              "86105_images/image_000011_9fa32bfdc9809b9994a7abd19bd42cf43611a327381d60db1a009fc2eb8941fd.png",
+              "86105_images/image_000012_009b074d59016c6830106b0017e5e0d1417886cd148677ecb09764cdb4dc2628.png",
+              "86105_images/image_000013_230f4385461ed643964245134c459ac953f473d18f26ff97d89f036cb50ff818.png",
+              "86105_images/image_000014_76e31c393566984ca818da00d3ddd7ec0817ec16bf679fc0e1f0ceaaab443a9c.png",
+              "86105_images/image_000015_59f2a3056505be8a30114d3a24cbbc6005bdf0b308aa35d7038a3a15a72e108b.png",
+              "86105_images/image_000016_cede455bfe5ea4191f3567dc31237733d146da09ba9298c2ae125d22da843aff.png",
+              "86105_images/image_000017_4ddb48cda047eaa914dee55bf902edba49b84347bf2db0e711a14393c162d9e4.png",
+              "86105_images/image_000018_f3413cf905731e83f467dd982b441dbd87a27cef0bc4b2c14b74e54a814ba26a.png",
+              "86105_images/image_000019_ed5be93ee1f03b5e1c733c5da9c946ecdb304f4d3d270ca175c5f9d665f9d849.png",
+              "86105_images/image_000020_e3478e8b49afcfe6ef3a33c9e28631efb7431134932a952399825f8d4f702f3c.png",
+              "86105_images/image_000021_5933757905ce0fb31cfc94b844bd62d6cdf41b0f4ba0af61355c3251f2a06a4d.png",
+              "86105_images/image_000022_4a490257e57dc363abc78e4a487b9ac39d4d11a05b523e58b0fcadc2c7c5a137.png",
+              "86105_images/image_000023_a4771858bfd6ce6b4775b57b67da14835c0c3b1e05d5d995f372a3de8fd94c8b.png",
+              "86105_images/image_000024_033df9a76c56b0d00ba51c0a23a17445fad928e0a65ee437ba7d712233b933f6.png",
+              "86105_images/image_000025_1ff4a36f321a961264c03f287e3f5d107aca8748ee38a7926d7254e52da0fc0e.png",
+              "86105_images/image_000026_be655da3c3bc2c4ecd414e8a1cf38353458ed6af99956069ec9e087e501d9096.png",
+              "86105_images/image_000027_dfcbfa0a205a9b868f2e9865606f7af1ed2440c39f8be58ae6235e355d3db3f5.png"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/86199.pdf",
@@ -1068,7 +1236,35 @@
           "title": "Heat Pump RTU",
           "input_sha256": "cde16361012f00876e5fe99c8810dc936d9bab46ad8b5af478403ff533da47d2",
           "output_path": "upgrade_measures/measure_pdfs/86585.md",
-          "output_sha256": "c8fa7c3cf69d763fb9097175f6d38b834db69b471629c7a2d581dd64075e2b08"
+          "output_sha256": "5aca0e2f05de937db6c36665e229f5e4d80a79caa8b0be5634f81f6e9209946a",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86585.yaml",
+            "sha256": "3944598c71776f9d2cd6dbcb0b1da66ddc2acff4698da218dbdbdc2e310cb2ad",
+            "tables_applied": [],
+            "figures_applied": [
+              "86585_images/image_000005_316aa0fda323fd01d3a71d36b1079b91a8e91cb41194ac780efb9c2fa661ffc4.png",
+              "86585_images/image_000006_5397f02a94e461b65e0e00f994793cfc96eca3541280c1bd6730c1f505592f83.png",
+              "86585_images/image_000007_133f7deb49b50611ef0d848883387f4a8c3173c04f256e5874f58509b81c48c9.png",
+              "86585_images/image_000008_cfba557bdcd8313a48635f4ecb1411e7a001eea5521c4306bbba8ab8c97e50ef.png",
+              "86585_images/image_000009_1fe8e49b5d32ef2cadf9000d5fa63c0064ff74d18b8a96221271653f6b43649e.png",
+              "86585_images/image_000010_663a1a3387dc1acfbb8a27cadd5dd4511bc913e48e5e27197a83f4af4d448db4.png",
+              "86585_images/image_000011_b836a769e0357fb5368b56866aa94a23950a506bb2e604705b25ee9ca89e2018.png",
+              "86585_images/image_000012_d10a810ea2bd700e99f1c512263be924eb9294547cda53b185445ed4c0a806c1.png",
+              "86585_images/image_000013_22bd7202d20398623d98cd9d6092f55e454d9fef6faa04c45910d10e223b5cec.png",
+              "86585_images/image_000014_3e4e0fa5c54fb799c57e628badfcf2d0cf457ed0acf5f416623005e5d32cfcc8.png",
+              "86585_images/image_000015_cdf5c169c37c4840a890222b5b4bb83cc374a29c8dcdc4c2c294010b8e6e542b.png",
+              "86585_images/image_000016_27ba459e4cbaa6ff13a0a4b11c458e438673b8cb45d8b3cfa71621604f704f5a.png",
+              "86585_images/image_000017_f46dd2959053260349f60712bd708f858f63484b1a51d89941cd9262aa97e72a.png",
+              "86585_images/image_000018_6a4cc18b1d1a5953d14f22dce4e55faa3c4109e3c25fcf9a34345c2511eb0eb3.png",
+              "86585_images/image_000019_efeb8d4f3425c58ee8a8069f389e215ef06840db05781283e0d420a16d254e5f.png",
+              "86585_images/image_000020_98379242cdcae5207bd67581b0afac33f94c7dd51e1569dec1b4b6149876df49.png",
+              "86585_images/image_000021_3fe0119d7873ce885ae73e870cd9aa60f1977c1c8c123f96fb3d12f1ec16a6d1.png",
+              "86585_images/image_000022_8f6864632f25dfb1081921585cdbde47a4b68d32017d229eea59ac0c4f0d68b2.png",
+              "86585_images/image_000023_9b453d0bb2a5bad107be7c0de368d7aced5064ec31914dbc404e24b9f18a2b70.png",
+              "86585_images/image_000024_7ba99c1001758ff7d1b38b5e25fa0a0b3618da8bbe774713927955ba588f0d69.png",
+              "86585_images/image_000025_ddf669b50bb31ccda08670672af463b96e7685a401e577e792c9d06b1cd5d611.png"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/86599.pdf",
@@ -1122,7 +1318,33 @@
           "title": "Demand Control Ventilation",
           "input_sha256": "adabde599ab070779032d2b992f75cf3cb5273aca6142cae447153b532321d9e",
           "output_path": "upgrade_measures/measure_pdfs/86897.md",
-          "output_sha256": "8936a90ad13259183bca3da81f0b65f439cf0a10eca93f4cae62224003100d9e"
+          "output_sha256": "ea1787cf54fafe1e304f888c28a7cd5c3cd08e3f173687224d6bab9a520e5d33",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86897.yaml",
+            "sha256": "dd24f0868f662edd90d686fcbec86196baadd80cd3446f52bacbae903869b0da",
+            "tables_applied": [],
+            "figures_applied": [
+              "86897_images/image_000002_af95a7d2badb3283fa47e7f10619c9347ac333afa5e1a58260bf6781c0e6dabe.png",
+              "86897_images/image_000003_766c7b8dc6bac3721e9f143dbc0d0dd056100211ee0ba7e2d1d9d078e176b5e8.png",
+              "86897_images/image_000004_2313c9c93e9ee94bbe4fabe6450b02b203ebe98e40d7bf10ffe02f5f6e575209.png",
+              "86897_images/image_000005_7b5a30e3016a7355fc8d190d611f7e39b9e4ee6cc233b781f0530f7e61533590.png",
+              "86897_images/image_000006_6a9041d2920b6bd35f61c904f8e7fbee09e41eb03f1ea346cbe904e85be24e24.png",
+              "86897_images/image_000007_cdbf52cebc31c2e19f6b064ace4e61fed6b2be47fa473082edbc1728e52b4b86.png",
+              "86897_images/image_000008_917262e039cb7869823e268aef3382d7dc1af0600cffb893eb1f3666567b2eab.png",
+              "86897_images/image_000009_7a138b5c48b1fb792318c1e55ecea4c84bb7444a59b1cf2570e43445fdb2a515.png",
+              "86897_images/image_000010_4b2093a9cfc86a35ed080ec2dd4334dfdec229c009304fd18b83f80e4b49504f.png",
+              "86897_images/image_000011_e23cf6ec67ad9c980f059f5989f0340e1fa265f1873544b2645ab0db37fabe82.png",
+              "86897_images/image_000012_2e16966ae8c7a9140faf09598c218307fb35c4ce2bd09a6d7ab5c7b23cba2241.png",
+              "86897_images/image_000013_beb7d110e26e9fba0cf6149597d136f7b454a7d83e1e23e99ceeefc895360898.png",
+              "86897_images/image_000014_b3ea451bdd56feec2959c400f09ac858d42a690a5d7fa9e297226ab97935c01a.png",
+              "86897_images/image_000015_37d27184499ee042537f46e56b2033ade05ce55a9a0149ebb674468c1b005330.png",
+              "86897_images/image_000016_6b92521c92fd6123fc334e4db97d0de8d6fa778cd41eb64500726b226f84d99a.png",
+              "86897_images/image_000017_35839be6d5e018fdfa59f50cb2118b98bb8119297b9e665fcdcec2b5056a5d3c.png",
+              "86897_images/image_000018_559437bb599c3b3f7a0bf93dab575ce53e45a94981bed02c3618efbc32eaaf1e.png",
+              "86897_images/image_000019_a0fca5f37e6a131c9e81244b5003bdd9b22a15b702509b6a62145bae6025bb08.png",
+              "86897_images/image_000020_c8de6fa490ae4d951d7ea9bd91f59d36fe5297a7ada64654ec2d5f37f099b6ab.png"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/87536.pdf",
@@ -1232,7 +1454,35 @@
           "title": "Advanced Rooftop Unit Control",
           "input_sha256": "427acb6d738f013bc3cdef41b8bdbffd61a943b9e8fa4cf76ee961df3386a474",
           "output_path": "upgrade_measures/measure_pdfs/89117.md",
-          "output_sha256": "a947181c87fef7a726a3eab12d45903cdbae8cd1e8021e3acd9c784a361f813a"
+          "output_sha256": "f6cd1c077d05350bb5223fbfdc9d13ab6c3f8d8219fb7fb739dfd0fbe21954fe",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89117.yaml",
+            "sha256": "dd13403cfd5bfceed2aec013c6b9104c6a521e2b42929a8bfdbab99f8b29ccc2",
+            "tables_applied": [],
+            "figures_applied": [
+              "89117_images/image_000005_8e578cbdafac3f6dcf6deca6356f5cd2dbcc5b0474cb4cc58647ccd87aae8f9c.png",
+              "89117_images/image_000006_e1c14fa6b494b530e6d32f24d5aa3ed0b0185c2c3b8a5fd644e5a8bae9aeda16.png",
+              "89117_images/image_000007_2e458153aba1ba843ed3c91e4988e29c27221a59c76da45d0134c41ac386e36c.png",
+              "89117_images/image_000008_1e6455e396be61ff49ba9a5bf20b0c7576f43ac1e3810ec95f6ca7b978f59e57.png",
+              "89117_images/image_000009_5041f67115f583ae65ddd1a6742cf4b752974c2f9ca31e498e262e04e51a426d.png",
+              "89117_images/image_000010_9c17263f0b86e4a9beac22b8d2e7afa930a0eced002e2bc0386ac359de806194.png",
+              "89117_images/image_000011_5d8524b687ae1b40dfba0ef4671e11567db4009c01cb4846ed756b5ad2d1bddc.png",
+              "89117_images/image_000012_8d5e3ecc1f4c574e6a9e22ef54ac519812c870ba6265858182fa83cf4ab629fc.png",
+              "89117_images/image_000013_6ffd14257cbc8c4e53a9f499f17117f42cb7899ea8171117e00dec552abc54bd.png",
+              "89117_images/image_000014_cd8a5352383cd61dc16da8f42900314ef9a1e5024ce4eb4782086ca38319465c.png",
+              "89117_images/image_000015_832e196c03d5d62d9ed3542f0294a0129b10d309843368da0349c26fb3b61ba6.png",
+              "89117_images/image_000016_bb6f0adbff5bb226415c28801f4be0ad83ef8dba26e9512f42cb65f48ee46e52.png",
+              "89117_images/image_000017_7481b4f5267d215fc8ff79b91199ed3e5dade8ef4b5ca1ab27c81f5c79d896a4.png",
+              "89117_images/image_000018_f36c9981c73c2ff7fd1d1137580ddbfce06afb0c7a7efbd2af645eb4c29642b1.png",
+              "89117_images/image_000019_db7cb0067375310becae777bb378ac4858bde8945ca292d83ae5e87a532f7fc3.png",
+              "89117_images/image_000020_1a679d35caf35237cbe266bbaef0a90a8f9e360bea81df15396e1837cd4a6bc3.png",
+              "89117_images/image_000021_bae1d3efd5a04af3de4c8950710aa69c9e0dbaa12e0f9964034292b9517bec1f.png",
+              "89117_images/image_000022_af06128822d82434bb581c40339959a0733aca6affa2af172e7f3907beb35257.png",
+              "89117_images/image_000023_afc33f88a5c4f9b57bca1e9ee0e070a213600498250ab347368040c899c05f3a.png",
+              "89117_images/image_000024_0e329457aba792231003902fada0075fa2c02f09afb3fe65fd7f0e67875cebb3.png",
+              "89117_images/image_000025_a36729d05092a8f2d578d22fc85012b56e1cc176f7320488fc6431b4c7b8b650.png"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/89120.pdf",
@@ -1240,7 +1490,31 @@
           "title": "Improved Fan Scheduling and Control of Outdoor Air During Unoccupied Periods",
           "input_sha256": "a57db276a7037c4f8eaae4d5c52972e5fcda52d9a2de50875099bae3455bf275",
           "output_path": "upgrade_measures/measure_pdfs/89120.md",
-          "output_sha256": "5da75f8ab01324851ee54d4f18802e36d47032b13d2cad826cee3ec0a21910d1"
+          "output_sha256": "609f2d06bc60af7caf14f0a89123edd037c6fc3d69a6e5cd6d24729f4e4adb40",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89120.yaml",
+            "sha256": "5f606a521d6a466a4f372436125605ae25a07c27a5fecbe4dad3490443966327",
+            "tables_applied": [],
+            "figures_applied": [
+              "89120_images/image_000007_f90c42d2022143ec69daeccff9ea19c49f54fffc9bd8fa12c3f2bfef31a871f9.png",
+              "89120_images/image_000008_6eaaf50ac35c71a713790ec7d620b720804b9279834e9415dbeeeb4b2727d465.png",
+              "89120_images/image_000009_4b56f9589ec0f6201c8d30852facc4b174e30e4322005a722a402b40ff578b7c.png",
+              "89120_images/image_000010_98fde4ec9987be436e8df4a73d83378a97cb5529662072a8a81422786caefac4.png",
+              "89120_images/image_000011_dfd2c001200fe30cd0e8057dc9c03dee94e368f8b83e7e097049b7f01f5ce3b4.png",
+              "89120_images/image_000012_98d457e4422ac2470c0a80cc3d2f48137b8b5a7fce8fd13ca3befbe30e3591be.png",
+              "89120_images/image_000013_4713889c043793146110a3c351853dd4ad8914a7950165be3c77511c281f7faf.png",
+              "89120_images/image_000014_87b135d6878e6e2ffa19917fcf06ae33fb3b81ac6bc37af3f259fd26d583ddcb.png",
+              "89120_images/image_000015_29f8fef75d2e7b9c8f6563b644fb71281ce079fad69877ae66404887f1f56a42.png",
+              "89120_images/image_000016_b06c941e320c27c944e5cecb95b481e08a8cdc1386964b0b53a0745da62fe8f2.png",
+              "89120_images/image_000017_3402effed6f3343f914d38c8a0b1afcba04365922ff8e89656610da08317ed31.png",
+              "89120_images/image_000018_3a81bd9163ff7830b7e3f812818cf3752cb82e7feeaa3c4f553417d94079ab66.png",
+              "89120_images/image_000019_4ec3eb20feebf01da568633daa68afbb786d46742884a9d9a41e65d5724ac514.png",
+              "89120_images/image_000020_d0b24dcec8aeb63c3b59af21d53ca33f1dccff0dc1a9af8f2c29c2c72e730af2.png",
+              "89120_images/image_000021_288b342935047504f525f563dec89fc2547506fb7fd1c027cd262b5e5c03a1bc.png",
+              "89120_images/image_000022_3951fe4beb5bd00198004bf2c64e3cdd7d1968ba31fe8f5133e1507cc40e6595.png",
+              "89120_images/image_000023_bc8951578bc3a86bc6fc5c5143a68668acd6543d948167ea094477efc60b3d38.png"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/89128.pdf",
@@ -1650,16 +1924,16 @@
   ],
   "counts": {
     "documents": 118,
-    "chunks": 7604,
+    "chunks": 7955,
     "by_type": {
       "latex": 19,
       "markdown": 40,
       "measures": 6,
       "pdf": 53
     },
-    "overlay_documents": 41,
+    "overlay_documents": 51,
     "overlay_tables": 57,
-    "overlay_figures": 324,
+    "overlay_figures": 528,
     "overlay_text_repairs": 1
   },
   "crosswalk": {

@@ -1,0 +1,339 @@
+# Hand-authored figure descriptions for measure PDF 86585
+# "End-Use Savings Shapes Measure Documentation: Heat Pump Rooftop Units"
+# Chris CaraDonna, Andrew Parker (NREL) and Ryan Meyer (PNNL),
+# NREL/TP-5500-86585, August 2024
+#
+# The PDF yields 26 extracted images. Five are decorative and are deliberately
+# left with no overlay entry: image_000000 is the cover photo collage,
+# image_000001 a wind-turbine cover photo, image_000002 and image_000003 are
+# laboratory photos on the cover, and image_000004 is the NREL wordmark.
+# The remaining 21 images are real figures (plus one table that survives only
+# as a bitmap) and are all described below, in document order:
+#   000005 = Figure 1     000012 = Figure 8      000019 = Figure 14
+#   000006 = Figure 2     000013 = Table 5       000020 = Figure 15
+#   000007 = Figure 3     000014 = Figure 9      000021 = Figure 16
+#   000008 = Figure 4     000015 = Figure 10     000022 = Figure A-1
+#   000009 = Figure 5     000016 = Figure 11     000023 = Figure A-2
+#   000010 = Figure 6     000017 = Figure 12     000024 = Figure A-3
+#   000011 = Figure 7     000018 = Figure 13     000025 = Figure A-4
+# Captions sit ABOVE their image refs throughout this document. The Table 5
+# bitmap (000013) has no caption line at all in the markdown - its title is
+# baked into the image - so it is transcribed rather than described, with
+# method: vision-transcription.
+#
+# QA FLAGS - vision-derived numbers need a human pass before publication.
+#
+# High confidence (the value is printed on the figure itself, or is
+# corroborated by body text or a table):
+#   Fig 1  - all 15 bars carry printed data labels; they sum to 100.01%, and
+#            the three early-2000s templates total 75.1%, supporting section 2's
+#            "most ComStock baseline RTUs follow energy code requirements from
+#            the early 2000s".
+#   Fig 2  - all 18 bars carry printed data labels and sum to exactly 100.00%;
+#            the two applicable rows sum to 44.96%, matching the Executive
+#            Summary and section 3.1 "about 45% of the ComStock floor area".
+#   Fig 4  - endpoints read directly off the axis grid (0.76 at PLR 0, 1.00 at
+#            PLR 1).
+#   Fig 9  - the airflow floor 0.255 kg/s over the 0.64 kg/s plateau is 39.8%,
+#            matching section 3.2.2's stated 40% minimum supply airflow ratio;
+#            the three interior speed boundaries land at 60%, 80% and 100%.
+#   Fig 10 - every segment carries a printed data label; the bar totals
+#            4342 -> 3893 TBtu give 449 TBtu / 10.34%, and all four Executive
+#            Summary bullets reproduce exactly (gas heating -190.4 TBtu /
+#            42.3%; heating electricity +6.1 TBtu / 2.6%; cooling -109.2 TBtu /
+#            16.4%; fans -143.7 TBtu / 24.3%).
+#   Fig 11 - every bar and delta carries a printed label and every percent
+#            checks arithmetically; the spread of grid-scenario savings
+#            (19-28 MMT) and the 13 MMT natural-gas figure match the Executive
+#            Summary exactly.
+#   Fig 12 - all ten row labels and sample counts are printed. Fan and cooling
+#            medians read 41% and 37%, matching section 5.4's "both roughly
+#            40%".
+#   Fig 13 - all four row labels and sample counts are printed. The Site box
+#            reads Q1 15% / Q3 32%, matching section 5.4's "generally between
+#            15% and 35% for the 25th and 75th percentiles".
+#   Fig 14 - every state carries a printed COP label; the 2.1 minimum and 5.6
+#            maximum match section 5.5's "lower values around 2 COP and the
+#            highest values above 5 COP".
+#   Fig 15 - every state carries a printed EUI label; 161 / 12 = 13x, matching
+#            section 5.5's "more than 10 times higher".
+#   Fig 16 - every state carries a printed percent label; the 6% to 56% span
+#            matches section 5.5's "ranges from 6% to 56%" exactly.
+#   Fig 8  - the Stage 4 capacity-modifier 1.0 contour crosses at outdoor
+#            8.56 C on the 21 C indoor line, matching Table 3's 8.3 C rated
+#            point.
+#   Table 5 - transcribed at 8x; all three lb/MMBtu to kg/MWh conversions check
+#            out (x0.4536 x3.412 -> 227.9 / 275.2 / 303.2).
+#   A-1 to A-4 - the aggregate deltas corroborate the body text: A-1 and A-2
+#            both give roughly 186 TBtu of natural gas saved against section
+#            5.2's 190 TBtu, and A-3 and A-4 both give roughly 242 TBtu of
+#            electricity saved against Figure 10's end-use sum of 247 TBtu.
+#            A-3 and A-4 independently agree on a 3000 TBtu baseline
+#            electricity total.
+#
+# Medium confidence (pixel-derived, no in-document corroboration; per-item
+# values in the appendix figures and the contour readings below should be
+# treated as approximate):
+#   Fig 5, 6, 7 - described qualitatively only. Contour label values are read
+#            off the printed inline labels, but no point value is asserted from
+#            the colour field.
+#   Fig 7  - a labels-only read of the Stage 4 map at about 21 C indoor gives
+#            roughly 2.3 / 3.0 / 4.2 at -17.8 / -8.3 / +8.3 C outdoor against
+#            Table 4's 2.11 / 2.66 / 3.80 - consistently about 10% high. No
+#            value is asserted in the description; a human should confirm
+#            whether Table 4's points sit on a different indoor-temperature
+#            line.
+#   Fig 8  - the same offset appears here: the pixel scan at 21 C indoor gives
+#            about 0.70 at -8.3 C and about 0.55 at -17.8 C against Table 3's
+#            0.64 and 0.45, even though the 1.0 crossing matches the rated
+#            point. No value is asserted in the description.
+#   Fig 13 - the Natural Gas Q3 sits on the 100% axis limit, so it is reported
+#            as "at or above 100%" rather than as a number.
+#   A-1 to A-4 - per-division and per-building-type values are pixel reads from
+#            unlabelled bars, converted with a tick-derived scale. Reported to
+#            the nearest whole TBtu but good to only about +/-2 TBtu.
+#
+# DEFECTS found while describing (all verified against the body text):
+#   (a) Reference [10] is cited but absent from the References list, which
+#       jumps from [9] to [11]. It is cited in Figure 3's caption ("Image from
+#       [10]") and in section 3.2.4 for the Rheem Renaissance data, while
+#       section 3.2.2 credits [6] (TRANE) for the same single-zone-VAV
+#       behaviour. [11] is listed once (Cogswell/Mahmoud) but is cited for both
+#       the Daikin Rebel specification sheet and the Carrier lab study.
+#   (b) Figure 4's caption says the EIR modifier "is divided by the EIR for the
+#       time step", while section 3.2.3 item 1 says it "is multiplied against
+#       the full-load EIR ... decreasing the EIR increases the realized
+#       efficiency". Only the divided reading is consistent with "captures
+#       losses due to part-load cycling". The caption also says "for all speed
+#       levels" while section 3.2.3 says the curve "is only used for the lowest
+#       compressor speed".
+#   (c) Figure 5 Stages 1 and 2 are non-monotonic in outdoor temperature: the
+#       capacity modifier dips into a blue lobe near 25-35 C and then rises
+#       above 1.5 at 50 C, contradicting section 3.2.3 item 2's "the available
+#       capacity decreases as outdoor temperature increases". Stages 3 and 4 do
+#       decrease monotonically. Most likely biquadratic extrapolation beyond
+#       the fitted range at low compressor speeds. Stage 1's panel title also
+#       drops a word: "Capacity Function Temperature: Stage 1".
+#   (d) Figure 6's axis tick ranges are transposed relative to Figure 5. The
+#       horizontal axis is labelled "Outdoor Air Drybulb Temperature (C)" but
+#       is ticked 15 to 24.5, and the vertical axis is labelled "Indoor Air
+#       Wetbulb Temperature (C)" but is ticked 10 to 50 - i.e. each axis
+#       carries the other's scale (an indoor wetbulb of 50 C is impossible, and
+#       10-50 C is Figure 5's outdoor range). The contour gradients themselves
+#       run in the physically correct directions for cooling, so only the tick
+#       scales appear swapped. Consequence: Table 1's rated point (4.11 COP at
+#       35 C outdoor / 19.4 C indoor wetbulb) cannot be located on the figure
+#       as ticked. Stage 1's x-axis label is also misspelled "Temperaustre".
+#   (e) Figure 7 Stage 1 is non-monotonic: a closed maximum lobe above 7.4 COP
+#       sits near 12 C outdoor / 15-16 C indoor, with COP declining again above
+#       about 15 C outdoor - non-physical for heating, and the same artifact
+#       class as (c). Figure 6 Stages 1 and 2 show closed lobes of the same
+#       kind.
+#   (f) Figure 7 versus Table 4 offset - see the medium-confidence flags above.
+#   (g) Figure 8 versus Table 3 offset - see the medium-confidence flags above.
+#   (h) Section 5.3 says grid emissions avoided "range between 6.7% and 7.5%",
+#       but Figure 11 prints eGRID at 7.6%, so the stated upper bound is wrong.
+#       Figure 11 also plots eGRID second of the three electricity groups
+#       whereas its own caption lists eGrid last.
+#   (i) Sample counts are inconsistent between Figures 12 and 13. Figure 13's
+#       "Natural Gas (n=113387)" is 50 LOWER than Figure 12's "Natural Gas
+#       Heating (n=113437)", which is impossible for a fuel-level count versus
+#       its own heating-only subset. The same problem appears for electricity:
+#       Figure 13's "Electricity (n=211688)" is below Figure 12's "Electricity
+#       Cooling (n=211973)" and "Electricity Fans (n=211949)". Only the Other
+#       Fuel counts agree (6069 in both).
+#   (j) Section 3.2.4 mis-cross-references its own tables: "Table 3 and Table 4
+#       compare some key points ... for COP and capacity retention ...
+#       respectively" is swapped (Table 3 is capacity, Table 4 is COP), and
+#       "normalized to the rated COP of 3.8 ... (Table 1)" should read Table 2.
+#       The same paragraph's COP-retention range "3% to 14%" also omits Table
+#       4's 0% (Daikin) and 2.9% (Carrier) entries; the true span is 0% to
+#       14.3%.
+#   (k) Table 6 duplicates a description: stat.dx_heating_average_cop..COP is
+#       described as "Average operational COP (compressor only) of DX cooling
+#       models during simulation" - verbatim the dx_cooling row's text.
+#   (l) Figure 12's caption reuses Figure 13's "for the fuel type category"
+#       wording although its rows are end use crossed with fuel. Figure 14's
+#       List of Figures entry omits the in-body caption's "for HP-RTU measure
+#       scenrio" (typo "scenrio" is in the source).
+#   (m) Table 5 survives only as a bitmap (image 000013) and is transcribed
+#       below. Note that this document prints the CORRECT propane pairing
+#       (177.8 lb/MMBtu = 275.7 kg/MWh); the 182.3 kg/MWh printed in measure
+#       PDFs 89340, 89341, 89481, 89133 and 92618 is the erroneous value.
+#   (n) The appendix was checked for the wrong/duplicated/swapped-graphic
+#       defect class: A-1 is natural gas by census division, A-2 natural gas by
+#       building type, A-3 electricity by building type and A-4 electricity by
+#       census division, each matching its own caption. No swap or duplication.
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: measure_pdfs/86585.pdf
+figures:
+- source_image: 86585_images/image_000005_316aa0fda323fd01d3a71d36b1079b91a8e91cb41194ac780efb9c2fa661ffc4.png
+  source_image_sha256: bc65330238063142ab095ae02206a3e0c5dfa17aad719701ebce631e342c9bd8
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Horizontal bar chart of ComStock baseline in-force energy code as a percentage of applicable RTU-served stock floor area, dominated by DOE Ref 1980-2004 at 46.50%.
+  description: |-
+    Horizontal bar chart with 15 categories on the y-axis and an x-axis labelled "% of Stock Floor Area Served by Applicable RTUs (%)" running 0% to 50%. Every bar carries a printed data label. Top to bottom: ComStock DOE Ref Pre-1980 0.07%; ComStock DOE Ref 1980-2004 46.50%; ComStock 90.1-2004 9.10%; ComStock 90.1-2007 19.52%; ComStock 90.1-2010 5.85%; ComStock 90.1-2013 4.28%; ComStock DEER Pre-1975 0.07%; ComStock DEER 1985 0.86%; ComStock DEER 1996 2.38%; ComStock DEER 2003 2.66%; ComStock DEER 2007 2.93%; ComStock DEER 2011 2.14%; ComStock DEER 2014 0.75%; ComStock DEER 2015 1.52%; ComStock DEER 2017 1.38%. The labelled values sum to 100.01%. DOE Ref 1980-2004 alone is nearly half the applicable floor area, and together with 90.1-2004 and 90.1-2007 accounts for 75.1%, which supports the body text statement that most ComStock baseline RTUs follow energy code requirements from the early 2000s. The nine DEER (California) templates together account for 14.7%. Applicable floor area covers only ComStock buildings with "PSZ-AC with gas coil" and "PSZ-AC with electric coil" HVAC system types.
+- source_image: 86585_images/image_000006_5397f02a94e461b65e0e00f994793cfc96eca3541280c1bd6730c1f505592f83.png
+  source_image_sha256: ab087b8cf30f103154cdc6504acda2d1e47e80758f20108a29dc4ab094896929
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Horizontal bar chart of ComStock HVAC system type prevalence by stock floor area; the two HP-RTU-applicable PSZ-AC types total 44.96%.
+  description: |-
+    Horizontal bar chart with 18 categories and an x-axis labelled "Percentage of Stock Floor Area (%)" running 0% to 30%. Every bar carries a printed data label. Top to bottom: PSZ-AC with gas coil 24.43%; PSZ-AC with electric coil 20.53%; PTHP 7.23%; Residential AC with residential forced air furnace 7.01%; PVAV with gas heat with electric reheat 4.09%; PVAV with gas boiler reheat 3.83%; PVAV with PFP boxes 3.59%; VAV chiller with gas boiler reheat 3.50%; PSZ-AC with gas boiler 3.22%; PTAC with electric coil 2.87%; VAV air-cooled chiller with gas boiler reheat 2.82%; VAV district chilled water with district hot water reheat 2.05%; VAV chiller with PFP boxes 2.04%; Residential forced air furnace 1.59%; DOAS with water source heat pumps cooling tower with boiler 1.33%; DOAS with water source heat pumps with ground source heat (label truncated) 1.17%; VAV air-cooled chiller with PFP boxes 1.12%; All Other 7.58%. The labelled values sum to exactly 100.00%. The two system types the HP-RTU measure is applicable to are the top two rows, and they total 44.96%, matching the report's "about 45% of the ComStock floor area". A note below the figure expands PTHP, PVAV, DOAS and PFP.
+- source_image: 86585_images/image_000007_133f7deb49b50611ef0d848883387f4a8c3173c04f256e5874f58509b81c48c9.png
+  source_image_sha256: 0a3b5f9d31a7b2cd24ed96e47e0856a833e1d0369fc7b95b89d73365e667751d
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Schematic of single-zone VAV control showing supply-air temperature setpoint and supply fan airflow against zone sensible load.
+  description: |-
+    Schematic line diagram (not simulation output; the caption credits an external source). The x-axis is "zone sensible load", running from "design zone heating load" at the left edge to "design zone cooling load" at the right edge. Two y-axes are used: the left axis, in orange, is "supply-air temperature setpoint"; the right axis, in black, is "supply fan airflow", with "design airflow" at the top. Two curves are drawn. The black supply-airflow curve starts at design airflow at the design heating load, falls steeply to a horizontal "minimum airflow limit" about one-fifth of the way across, runs flat along that limit through the middle of the load range, then rises steeply back to design airflow at the design cooling load - a broad V. The orange supply-air-temperature curve is flat at "maximum SAT for heating" over the left-hand fifth, then falls steadily across the middle of the load range, then flattens at "design SAT for cooling" on the right. Read from the heating end inward, supply air temperature is raised first until it hits its maximum and only then is airflow increased; read from the cooling end inward, supply air temperature is lowered to its design value first and then airflow is increased.
+- source_image: 86585_images/image_000008_cfba557bdcd8313a48635f4ecb1411e7a001eea5521c4306bbba8ab8c97e50ef.png
+  source_image_sha256: 78aba1bd62347fafebb71d264cece4c843fe54e8a656dad2ce408725836a8348
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Line chart of the energy input ratio modifier versus part load ratio, rising linearly from 0.76 at a part load ratio of 0 to 1.00 at a part load ratio of 1.
+  description: |-
+    Single-panel line chart. The x-axis is "Part Load Ratio" from 0 to 1; the y-axis is "EIR Modifier" from 0.75 to 1. One blue line is plotted and it is straight: it starts at 0.76 at a part load ratio of 0 and rises linearly to 1.00 at a part load ratio of 1, a slope of 0.24 over the full range, passing through roughly 0.82 at 0.25, 0.88 at 0.5 and 0.94 at 0.75. The same curve is used for both heating and cooling coils. Note a documented inconsistency in the surrounding text about how this modifier is applied: the figure caption says the value "is divided by the EIR for the time step, which effectively decreases efficiency at lower part load ratios", whereas section 3.2.3 item 1 says it "is multiplied against the full-load EIR" and that "decreasing the EIR increases the realized efficiency". Only the divided reading produces the cycling penalty the caption describes. The caption also says the curve applies to "all speed levels" while section 3.2.3 says it is used only for the lowest compressor speed, where cycling losses occur.
+- source_image: 86585_images/image_000009_1fe8e49b5d32ef2cadf9000d5fa63c0064ff74d18b8a96221271653f6b43649e.png
+  source_image_sha256: 4a5bfe0c00db7883736bce5b9c19d1069af0d9b0daab7fd5adb1d9ae2246d3fa
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Four-panel contour map of the cooling capacity modifier as a function of outdoor drybulb and indoor wetbulb temperature, one panel per compressor stage.
+  description: |-
+    Two-by-two grid of filled contour maps titled "Capacity Function of Temperature: Stage 1" through "Stage 4" (the Stage 1 title drops the word "of"). In every panel the x-axis is "Outdoor Air Drybulb Temperature (C)" from 10 to 50 and the y-axis is "Indoor Air Wetbulb Temperature (C)" from about 15 to 24.5. Each panel has its own colour bar, "Capacity Modifier", spanning 0.0 to 2.0 on a blue-white-red diverging scale centred near 1.0, with unevenly spaced ticks at 0.0, 0.2, 0.5, 0.8, 1.0, 1.2, 1.5, 1.8 and 2.0. Inline contour labels are printed on each panel. Stages 3 and 4 behave as the body text describes: broad diagonal contours with the highest modifiers (about 1.2 for Stage 3 and about 1.6 for Stage 4) at low outdoor drybulb and high indoor wetbulb in the upper left, falling monotonically to about 0.9 at high outdoor drybulb and low indoor wetbulb in the lower right. Stages 1 and 2 are not monotonic: both show an interior blue depression near 25-35 C outdoor where the modifier drops to roughly 0.8-0.9, then rise again toward the right edge, Stage 1 reaching above 1.5 at 50 C. That reversal contradicts section 3.2.3's statement that available capacity decreases as outdoor temperature increases, and is consistent with biquadratic extrapolation beyond the fitted data range at low compressor speeds.
+- source_image: 86585_images/image_000010_663a1a3387dc1acfbb8a27cadd5dd4511bc913e48e5e27197a83f4af4d448db4.png
+  source_image_sha256: 421bd69ed6c30f551ef43e6315d2187455545512746bcc8068b00c8478ef6438
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Four-panel contour map of cooling COP as a function of temperature, one panel per compressor stage, with the two axis tick scales apparently transposed.
+  description: |-
+    Two-by-two grid of filled contour maps titled "COP Function of Temperature: Stage 1" through "Stage 4". Each panel has its own colour bar labelled "COP" spanning 0.0 to 14.1, blue at the low end through white to red at the high end, with ticks at 0.0, 1.6, 3.1, 4.7, 6.3, 7.8, 9.4, 10.9, 12.5 and 14.1. Inline contour labels are printed on every panel. In all four panels COP is highest in the upper-left corner and falls smoothly toward the lower right, so the gradients run in the physically expected directions for cooling (better efficiency at lower outdoor temperature and higher indoor wetbulb). The axis tick scales, however, appear transposed relative to Figure 5: the horizontal axis is labelled "Outdoor Air Drybulb Temperature (C)" but is ticked only 15 to 24.5, while the vertical axis is labelled "Indoor Air Wetbulb Temperature (C)" but is ticked 10 to 50 - each axis carries the other's range. Because of this, Table 1's rated point of 4.11 COP at 35 C outdoor drybulb and 19.4 C indoor wetbulb cannot be located on the figure as ticked, and no point value is asserted here. Stage 1's x-axis label is misspelled "Temperaustre". Stages 1 and 2 show closed contour lobes of the kind seen in Figure 5's low-speed panels; Stages 3 and 4 have smooth diagonal contours.
+- source_image: 86585_images/image_000011_b836a769e0357fb5368b56866aa94a23950a506bb2e604705b25ee9ca89e2018.png
+  source_image_sha256: dbbe1ad82e853861a6640fb7070ad7c504c304c0e24eef8aecb9ee54c407837a
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Four-panel contour map of heat pump heating COP as a function of outdoor and indoor drybulb temperature, one panel per compressor stage.
+  description: |-
+    Two-by-two grid of filled contour maps titled "COP Function of Indoor and Outdoor Drybulb Temperature: Stage 1" through "Stage 4". In every panel the x-axis is "Outdoor Air Drybulb Temperature (C)" from -17.8 to about 22.2 and the y-axis is "Indoor Air Drybulb Temperature (C)" from 15 to 30. Each panel carries a colour bar labelled "COP" spanning 0.0 to 7.4, blue through white to red, with ticks at 0.0, 1.1, 2.1, 3.2, 4.3, 5.3, 6.4 and 7.4. Inline contour labels are printed on every panel. Stages 2, 3 and 4 show smooth diagonal contours: COP rises with outdoor drybulb temperature and falls as indoor drybulb temperature rises (a larger lift), so the cold-outdoor, warm-indoor upper-left corner is the least efficient. Stage 4 spans roughly 2 to 5 COP across the plotted domain, Stage 3 slightly higher, and Stage 2 higher again, consistent with Table 2's rising COP fractions at lower compressor speeds. Stage 1 is not monotonic: it contains a closed maximum lobe above 7.4 COP centred near 12 C outdoor and 15-16 C indoor, with COP falling again above about 15 C outdoor. That closed peak is non-physical for heating and is consistent with extrapolation of the low-speed performance curves beyond their fitted range. No point value is asserted from this figure; use Table 4 for the modelled COP at reference temperatures.
+- source_image: 86585_images/image_000012_d10a810ea2bd700e99f1c512263be924eb9294547cda53b185445ed4c0a806c1.png
+  source_image_sha256: 4f6dd67c48b9003930f9e55c3ea4a721b7d15eb9e3f5b41f08be6b856586b6aa
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Four-panel contour map of heat pump heating capacity modifier as a function of outdoor and indoor drybulb temperature, one panel per compressor stage.
+  description: |-
+    Two-by-two grid of filled contour maps titled "Capacity Function of Indoor and Outdoor Drybulb Temperature: Stage 1" through "Stage 4". In every panel the x-axis is "Outdoor Air Drybulb Temperature (C)" from -17.8 to about 22.2 and the y-axis is "Indoor Air Drybulb Temperature (C)" from 15 to 30. Each panel carries a colour bar labelled "Capacity Modifier" spanning 0.0 to 2.0 on a blue-white-red diverging scale, with ticks at 0.0, 0.2, 0.5, 0.8, 1.0, 1.2, 1.5, 1.8 and 2.0. The contour bands are close to vertical and only slightly tilted, so the modifier depends almost entirely on outdoor drybulb temperature and only weakly on indoor temperature, and it increases monotonically with outdoor temperature in all four stages - the expected heat pump behaviour. Stage 1 is much more strongly derated than the others: its printed contour labels run from about 0.2 near -15 C through 0.5 near -6 C and 0.9 near 5 C to 1.4 near 15 C. Stages 2, 3 and 4 are similar to one another and far flatter, with Stage 4 labelled about 0.6 near -16 C, 0.8 near -3 C, 1.0 near 8 C and 1.2 near 15 C. A pixel scan of the Stage 4 panel along the 21 C indoor line puts the 1.0 contour crossing at 8.56 C outdoor, matching Table 3's 8.3 C rated point. Use Table 3 for capacity fractions at reference temperatures.
+- source_image: 86585_images/image_000013_22bd7202d20398623d98cd9d6092f55e454d9fef6faa04c45910d10e223b5cec.png
+  source_image_sha256: 7117c7f9db976b5993c4ec681fcbbc2b30d92d6d2b87c7d437d7a753f05db6b6
+  method: vision-transcription
+  described_utc: '2026-08-21'
+  alt: |-
+    Bitmap of Table 5, On-Site Fossil Fuel Emissions Factors, giving emissions factors for natural gas, propane and fuel oil.
+  description: |-
+    This image is a table, not a chart: Table 5 survives in the extracted markdown only as a bitmap, so it is transcribed here. Title: "Table 5. On-Site Fossil Fuel Emissions Factors". Two columns, three data rows, fuel names in a dark blue header column at the left. Natural gas: 147.3 lb/MMBtu (228.0 kg/MWh), carrying footnote marker a. Propane: 177.8 lb/MMBtu (275.7 kg/MWh). Fuel oil: 195.9 lb/MMBtu (303.2 kg/MWh). Footnote a below the table reads "lb = pound; MMBtu = million British thermal units; kg = kilogram; MWh = megawatt-hour". All three unit conversions are internally consistent (multiplying lb/MMBtu by 0.4536 kg/lb and 3.412 MMBtu/MWh gives 227.9, 275.2 and 303.2 kg/MWh). Per section 3.3 these factors come from Table 7.1.2(1) of the draft ANSI/RESNET/ICC 301 standard and are applied to on-site combustion, to be combined with a single chosen electricity grid scenario when totalling emissions.
+- source_image: 86585_images/image_000014_3e4e0fa5c54fb799c57e628badfcf2d0cf457ed0acf5f416623005e5d32cfcc8.png
+  source_image_sha256: 42d94f437c564831eba6fbcfc441563337ceb7aebc9bc5725f8e829c16209346
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Scatterplot of supply air mass flow rate against predicted sensible load for a single Chicago small office, coloured by DX coil speed level, forming a V shape.
+  description: |-
+    Scatterplot of one simulated building (a small office in Chicago) at time-step resolution. The x-axis is "Predicted Sensible Load (W)" running from about -5,800 to +8,500, where negative values are cooling load and positive values are heating load; the y-axis is "Supply Air Mass Flow Rate (kg/s)" running from about 0.25 to 0.65. Points are coloured by "Unitary System DX Coil Speed Level" with a legend listing 4 (blue), 3 (orange), 2 (green), 1 (red) and 0 (purple). The cloud forms a broad V: flow sits on a floor of 0.255 kg/s in a narrow band of near-zero load, occupied by speed 0 (cycling) and speed 1, then rises on both the cooling and heating sides through green speed 2 up to about 0.385 kg/s, orange speed 3 from 0.385 to about 0.51 kg/s, and blue speed 4 from 0.51 kg/s up to a saturated plateau at 0.64 kg/s that extends to the largest loads in both directions. The speed bands therefore sit at roughly 40%, 60%, 80% and 100% of design airflow, and the 0.255 kg/s floor is 39.8% of the 0.64 kg/s maximum, matching the 40% minimum supply airflow ratio stated in section 3.2.2.
+- source_image: 86585_images/image_000015_cdf5c169c37c4840a890222b5b4bb83cc374a29c8dcdc4c2c294010b8e6e542b.png
+  source_image_sha256: 914db363f306b9667183da205eaa1f2804f72e7c0e993c42396a6f91497445cc
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Two stacked bar charts comparing annual site energy consumption of the ComStock baseline and the HP-RTU scenario, by fuel type and by end use.
+  description: |-
+    Two side-by-side stacked bar pairs comparing the ComStock baseline with the HP-RTU measure scenario on annual site energy consumption in TBtu; the left pair is segmented by fuel type and the right pair by end use, with printed data labels on the segments and a legend of fuel and end-use categories. Total site energy falls from 4,342 TBtu in the baseline to 3,893 TBtu with the measure, a saving of 449 TBtu or 10.3%. The direction and rough size of the end-use changes are: natural gas heating drops sharply, from 450.5 to 260.1 TBtu (-190.4 TBtu, 42.3%), the single largest change; fan electricity drops substantially, 591.4 to 447.7 TBtu (-143.7 TBtu, 24.3%); cooling electricity drops substantially, 667.7 to 558.5 TBtu (-109.2 TBtu, 16.4%); and heating electricity rises slightly, 232.9 to 239.0 TBtu (+6.1 TBtu, 2.6%), because gas-heated buildings are electrified even though electric resistance buildings become more efficient. Other fuels used for heating fall to near zero, and the remaining end uses (lighting, interior equipment, water systems, refrigeration) are essentially unchanged. Appendix Figures A-1 through A-4 give the same totals broken out by census division and building type; use Figures 12 and 13 for per-model savings distributions.
+- source_image: 86585_images/image_000016_27ba459e4cbaa6ff13a0a4b11c458e438673b8cb45d8b3cfa71621604f704f5a.png
+  source_image_sha256: 0dc1661ebf03f210b3224096ade08055d3ece56a7942fc977935cfbf819f4312
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Grouped bar chart of annual greenhouse gas emissions for the ComStock baseline versus the HP-RTU scenario across three electricity grid scenarios and three on-site fuels.
+  description: |-
+    Grouped vertical bar chart. The y-axis is "Annual Greenhouse Gas Emissions (MMT)" from 0 to 500. Six groups sit on the x-axis, each a dark blue Baseline bar beside a light blue HP-RTU bar, with values printed inside the bars and the absolute and percent reduction printed above each group. A bracket labelled "Electricity Grid Scenarios: Choose 1" spans the first three groups. Electricity: LRMER High RE Cost 15 falls 371.2 to 343.5, -28 (7.5%). Electricity: eGRID falls 313.8 to 290.1, -24 (7.6%). Electricity: LRMER Low RE Cost 15 falls 286.0 to 266.8, -19 (6.7%). Natural Gas falls 73.0 to 60.3, -13 (17.4%). Fuel Oil falls 0.9 to 0.3 and Propane 0.8 to 0.4; both are too small to render as visible bars and carry only printed labels. The 19 to 28 MMT spread across grid scenarios and the 13 MMT natural gas reduction match the Executive Summary. Note that section 5.3 states the grid emissions avoided "range between 6.7% and 7.5%" although the eGRID group is printed here as 7.6%, and that the plotted order places eGRID second while the caption lists it last. To total emissions across sources, combine one electricity scenario with all three on-site fuel groups.
+- source_image: 86585_images/image_000017_f46dd2959053260349f60712bd708f858f63484b1a51d89941cd9262aa97e72a.png
+  source_image_sha256: e33f4275f8f180d6b2db7d5dca19a272e510255a9c67aef872df2023ad41a96b
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Violin and box plot of percent site energy savings distributions by end use and fuel type for ComStock models with the HP-RTU measure applied.
+  description: |-
+    Horizontal violin plots with embedded box plots, one row per end use and fuel combination, on an x-axis of percent site energy savings running from about -170% to +100% with a vertical reference line at 0%. Outlier points are drawn above the distributions. Rows, top to bottom, with the sample counts printed in the labels: Other Fuel Water Systems (n=2); Other Fuel Heating (n=6069); Natural Gas Water Systems (n=102); Natural Gas Heating (n=113437); Electricity Water Systems (n=212); Electricity Refrigeration (n=12657); Electricity Heating (n=133792); Electricity Heat Recovery (n=3923); Electricity Fans (n=211949); Electricity Cooling (n=211973). The two combustion-fuel heating rows pile up at 100% savings with a thin tail of lower values for models whose baseline fuel heating was partly non-applicable. Electricity Cooling reads about 29% at the first quartile, 37% at the median and 44% at the third quartile; Electricity Fans about 31%, 41% and 54%, matching section 5.4's "median fan and cooling energy savings are both roughly 40%". Electricity Heating is higher again, roughly 54% to 70% across the box, with a long negative whisker reaching about -160%. Electricity Heat Recovery straddles zero, with a median near -1.5%. Water systems and refrigeration barely move from zero.
+- source_image: 86585_images/image_000018_6a4cc18b1d1a5953d14f22dce4e55faa3c4109e3c25fcf9a34345c2511eb0eb3.png
+  source_image_sha256: cca98bf147cae7dcfc2f75a24b9c4a35956d57d06c70f8b92e306d6896c1eb5c
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Violin and box plot of percent site energy savings distributions by fuel type and for total site energy for ComStock models with the HP-RTU measure applied.
+  description: |-
+    Horizontal violin plots with embedded box plots, four rows, on an x-axis of percent site energy savings running from about -150% to +100% with a vertical reference line at 0%. Rows top to bottom, with sample counts printed in the labels: Other Fuel (n=6069); Natural Gas (n=113387); Electricity (n=211688); Site (n=211978). Other Fuel is effectively degenerate - a very narrow box pressed against roughly 100% savings, with a long thin tail extending left toward and below zero. Natural Gas has its first quartile near 40% and its median near 95%, with the third quartile at or above the 100% axis limit, and a small group of negative outliers. Electricity is centred much lower, roughly 5% at the first quartile, 15% at the median and 24% at the third quartile, with a substantial negative tail from models that switched from gas heating to electric heating. Total Site energy savings run about 15% at the first quartile, 23% at the median and 32% at the third quartile, matching section 5.4's statement that site savings fall "generally between 15% and 35% for the 25th and 75th percentiles". Note that the Natural Gas and Electricity counts here are slightly lower than the corresponding end-use counts in Figure 12, which should not be possible for a fuel total versus its own subset.
+- source_image: 86585_images/image_000019_efeb8d4f3425c58ee8a8069f389e215ef06840db05781283e0d420a16d254e5f.png
+  source_image_sha256: 2429387d22905d18a4f74c7224997f6ad534027baa2bccfa78d552e18b9a1986
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Choropleth map of the contiguous United States showing stock annual average effective heating COP by state for the HP-RTU scenario, ranging from 2.1 to 5.6.
+  description: |-
+    Choropleth map of the contiguous United States, one value per state printed on the state, shaded on a light-to-dark teal-blue scale (no colour bar; the printed labels carry the values). The quantity is stock annual average effective heating COP under the HP-RTU measure scenario, defined in the caption as total heating energy output over total heating energy input, including supplemental heat and defrost but excluding supply fan energy. Values span 2.1 to 5.6, matching section 5.5's "lower values around 2 COP and the highest values above 5 COP". The geographic pattern is clear: warm-climate states are highest - California 5.6, Florida 5.3, Arizona 5.1, Oregon 5.0, Nevada 5.0, Washington 4.6, Texas 4.5 - and cold northern-plains and upper-midwest states are lowest, with North Dakota 2.1, Minnesota 2.5, South Dakota 2.6, Montana 2.7, Wyoming 2.8 and Iowa 2.8. The interior and the mid-Atlantic and southeast fall in between, generally in the 3.0 to 4.4 range. This matches the body text explanation that heat pumps perform better in warmer conditions and that, because units are sized to the cooling load, warm-climate heat pumps cover a larger share of the design heating load. Figure 16 maps the inverse pattern of supplemental heating fraction.
+- source_image: 86585_images/image_000020_98379242cdcae5207bd67581b0afac33f94c7dd51e1569dec1b4b6149876df49.png
+  source_image_sha256: 442715544f7e292ce495db9d9594b8e5162164ce92ac580a82d5ecbe527ea61a
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Choropleth map of the contiguous United States showing ComStock baseline stock annual average heating energy use intensity by state, ranging from 12 to 161 kWh per square metre per year.
+  description: |-
+    Choropleth map of the contiguous United States, one value per state printed on the state, shaded on a light-to-dark red scale (no colour bar; the printed labels carry the values). The quantity is ComStock BASELINE stock annual average heating energy use intensity in kilowatt-hours per square metre per year - note this map is of the baseline, not the measure scenario, unlike Figures 14 and 16. Values span 12 to 161. The coldest states are highest: North Dakota 161, Montana 144, South Dakota 137, Minnesota 135, Wisconsin 131, Wyoming 127, Iowa 120 and Michigan 115. The warmest are lowest: Arizona 12, Florida 12, Louisiana 17, Texas 22 and Nevada 23. The ratio of the extremes is 161 to 12, about thirteen-fold, supporting section 5.5's statement that heating energy use intensity in colder states can be "more than 10 times higher" than in warmer climates - the point the report uses to stress the importance of cold-climate heat pump performance. The interior, northeast and mid-atlantic states generally fall between about 40 and 105, and the southeast between about 25 and 50.
+- source_image: 86585_images/image_000021_3fe0119d7873ce885ae73e870cd9aa60f1977c1c8c123f96fb3d12f1ec16a6d1.png
+  source_image_sha256: 0cbd501a816a4fac4063b6de2e3c06c8862c883866f2ab13ef8d65b8ba86c037
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Choropleth map of the contiguous United States showing the stock annual average percent of heating electricity used by supplemental heating by state, ranging from 6% to 56%.
+  description: |-
+    Choropleth map of the contiguous United States, one percentage printed on each state, shaded on a light-to-dark teal-blue scale (no colour bar; the printed labels carry the values). The quantity is the stock annual average percent of total heating electricity input used by the supplemental heating system under the HP-RTU measure scenario. Values span 6% to 56%, matching section 5.5's "ranges from 6% to 56%" exactly. The highest fractions are in the cold north: North Dakota 56%, Minnesota 47%, South Dakota 43%, Montana 39%, Wyoming 37%, Iowa 37%, Maine 37%, Wisconsin 36%. The lowest are in the warm south and west: California 6%, Florida 6%, Oregon 9%, Nevada 9%, Arizona 9%, Texas 9%, Louisiana 9%. The map is close to the inverse of Figure 14 - North Dakota pairs 56% supplemental with the lowest 2.1 COP, while California pairs 6% with the highest 5.6 COP - which is the correspondence the body text notes between higher supplemental heating fractions and lower effective COPs. The report attributes the pattern to reduced heat pump capacity in cold ambient conditions, to sizing the heat pump to the design cooling load, and to defrost operation temporarily disabling heat pump heating.
+- source_image: 86585_images/image_000022_8f6864632f25dfb1081921585cdbde47a4b68d32017d229eea59ac0c4f0d68b2.png
+  source_image_sha256: 62cdd024af2af8573aa1e4be25bc547a3f775ab5b303f48b78a0c91f3582d395
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Grouped bar chart of site annual natural gas consumption by census division for the ComStock baseline versus the HP-RTU measure scenario.
+  description: |-
+    Appendix grouped vertical bar chart. The y-axis is "Natural Gas Total Energy Consumption (TBtu)" from 0 to 250; the x-axis is "Census Division Name" with nine divisions; the legend "Upgrade Name" distinguishes a dark blue Baseline bar from a light blue HP-RTU bar in each group. Bars are not labelled, so the following are pixel reads against the tick scale and are approximate to within a couple of TBtu. New England 54 to 46; Middle Atlantic 166 to 147; East North Central 245 to 175; West North Central 90 to 67; South Atlantic 169 to 154; East South Central 46 to 39; West South Central 100 to 90; Mountain 70 to 61; Pacific 175 to 150. East North Central is both the largest gas consumer and the largest absolute saver, dropping about 70 TBtu; the Pacific and Middle Atlantic divisions each drop roughly 20-25 TBtu. Summed across divisions the chart gives about 1,116 TBtu of baseline gas falling to about 929 TBtu, a reduction of roughly 187 TBtu, which corroborates the 190 TBtu of stock gas heating savings reported in section 5.2. Figure A-2 shows the same totals by building type.
+- source_image: 86585_images/image_000023_9b453d0bb2a5bad107be7c0de368d7aced5064ec31914dbc404e24b9f18a2b70.png
+  source_image_sha256: 77b71118b0b9cd57178f572a461e7fc4c3ce43d24cfb48ae1afd56aef197963c
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Grouped bar chart of site annual natural gas consumption by ComStock building type for the ComStock baseline versus the HP-RTU measure scenario.
+  description: |-
+    Appendix grouped vertical bar chart. The y-axis is "Natural Gas Total Energy Consumption (TBtu)" from 0 to 300; the x-axis is "Comstock Building Type" with fourteen types; the legend "Upgrade Name" distinguishes a dark blue Baseline bar from a light blue HP-RTU bar. Bars are unlabelled, so the following are approximate pixel reads. FullServiceRestaurant 289 to 257; QuickServiceRestaurant 76 to 70; RetailStripmall 240 to 199; RetailStandalone 42 to 10; SmallOffice 27 to 8; MediumOffice 31 to 27; LargeOffice 40 to 38; PrimarySchool 132 to 113; SecondarySchool 53 to 46; Outpatient 18 to 12; Hospital 59 to 59; SmallHotel 9 to 8; LargeHotel 53 to 55; Warehouse 38 to 18. Restaurants and stripmall retail dominate the baseline gas total, but restaurants save proportionally little because much of their gas is kitchen equipment the measure does not touch, whereas RetailStandalone, SmallOffice and Warehouse lose most of their gas use. Hospital, SmallHotel and LargeHotel are essentially unchanged, consistent with their HVAC systems not being applicable RTUs. The chart totals about 1,107 TBtu falling to about 921 TBtu, a reduction near 186 TBtu, which agrees with Figure A-1 and with section 5.2's 190 TBtu.
+- source_image: 86585_images/image_000024_7ba99c1001758ff7d1b38b5e25fa0a0b3618da8bbe774713927955ba588f0d69.png
+  source_image_sha256: 2b3e640e24dec9e4c83ae3827ce8fa167fe2888285c6111babc4beb9bab90518
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Grouped bar chart of site annual electricity consumption by ComStock building type for the ComStock baseline versus the HP-RTU measure scenario.
+  description: |-
+    Appendix grouped vertical bar chart. The y-axis is "Electricity Total Energy Consumption (TBtu)" from 0 to 500; the x-axis is "Comstock Building Type" with fourteen types; the legend "Upgrade Name" distinguishes a dark blue Baseline bar from a light blue HP-RTU bar. Bars are unlabelled, so the following are approximate pixel reads. FullServiceRestaurant 281 to 262; QuickServiceRestaurant 77 to 71; RetailStripmall 478 to 429; RetailStandalone 259 to 225; SmallOffice 188 to 164; MediumOffice 210 to 188; LargeOffice 262 to 259; PrimarySchool 315 to 287; SecondarySchool 142 to 133; Outpatient 120 to 108; Hospital 188 to 182; SmallHotel 34 to 34; LargeHotel 145 to 145; Warehouse 299 to 269. RetailStripmall is the largest electricity consumer and the largest absolute saver at roughly 49 TBtu. Unlike the gas chart, every building type either saves electricity or is unchanged - no type shows a net electricity increase at this aggregation. The chart totals about 3,000 TBtu falling to about 2,756 TBtu, a reduction near 244 TBtu, which corroborates the sum of the electricity end-use changes in Figure 10 (about 247 TBtu net) and agrees with Figure A-4.
+- source_image: 86585_images/image_000025_ddf669b50bb31ccda08670672af463b96e7685a401e577e792c9d06b1cd5d611.png
+  source_image_sha256: 54d9ef068f7939bdea798b42e5d1f38a1428ebdf9c9bc68baeb2bf2771930fe4
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Grouped bar chart of site annual electricity consumption by census division for the ComStock baseline versus the HP-RTU measure scenario.
+  description: |-
+    Appendix grouped vertical bar chart. The y-axis is "Electricity Total Energy Consumption (TBtu)" from 0 to 600; the x-axis is "Census Division Name" with nine divisions; the legend "Upgrade Name" distinguishes a dark blue Baseline bar from a light blue HP-RTU bar. Bars are unlabelled, so the following are approximate pixel reads. New England 127 to 118; Middle Atlantic 380 to 359; East North Central 401 to 393; West North Central 186 to 182; South Atlantic 655 to 600; East South Central 161 to 144; West South Central 427 to 385; Mountain 194 to 178; Pacific 469 to 401. The South Atlantic division is the largest electricity consumer, and the Pacific and South Atlantic divisions show the largest absolute savings, roughly 68 and 55 TBtu. East North Central and West North Central show very small electricity savings, consistent with the body text: those cold divisions have the most gas-to-electric heating conversion, whose added electric heating offsets the cooling and fan savings. The chart totals about 3,000 TBtu falling to about 2,759 TBtu, a reduction near 241 TBtu, matching Figure A-3's independent total.

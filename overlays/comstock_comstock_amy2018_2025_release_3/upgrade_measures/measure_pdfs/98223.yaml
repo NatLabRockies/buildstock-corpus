@@ -1,0 +1,272 @@
+# Hand-authored figure descriptions for measure PDF 98223
+# "Variable Speed Pumps" / "ComStock Measure Documentation: Variable-Speed Pumps"
+# (ComStock 2025 release 3 upgrade measure, NLR/TP-5500-98223, Janghyun Kim and
+# Chris CaraDonna, February 2026).
+#
+# 22 image refs in the extracted markdown. image_000000 (the cover photo grid) and image_000001
+# (the laboratory wordmark) are decorative and deliberately have no entry. The 20 entries below
+# cover Figures 1-16 and Figures A-1 to A-4. Tables ES-2/ES-3 and 1-5 all extracted as real
+# markdown, so the only vision-transcription entry is Figure 4, a five-column text comparison
+# graphic with no markdown equivalent.
+#
+# Note: this document uses the anonymized "National Laboratory of the Rockies" / NLR naming
+# rather than NREL, including in its report number.
+#
+# QA FLAGS - vision-derived numbers need a human pass before publication.
+#
+# * HIGH confidence, every asserted number is a printed data label or printed equation read at
+#   3-9x zoom and cross-checks against the prose: Figure 1 (000002, the three motor-system
+#   percentages reproduce Section 1 exactly), Figure 3 (000004, 23 of 24 bars labeled and the
+#   applicable bars sum to about 31% as Section 3.1 states), Figure 5 (000006, the inset
+#   piecewise equation and R2 = 0.63 are printed; the two branches are continuous at x = 5, both
+#   giving 94.909), Figure 6 (000007, the inset DHO equation is printed and integrating it gives
+#   0.2588 against 0.25 for the affinity law, confirming Section 3.2.2's ordering), Figure 11
+#   (000012, all 12 bars labeled), and Figure 12 (000013, band labels legible except as noted).
+#
+# * Figure 12's Heating Natural Gas band labels are white text on a red hatched fill and are NOT
+#   directly legible. The asserted 944.4 -> 947.5 in panel (a) was settled by Table 4's -3.1 TBtu
+#   natural gas heating penalty (944.4 + 3.1 = 947.5). Panel (b)'s Heating Natural Gas and
+#   Cooling District Cooling labels are illegible by the same mechanism and are not asserted.
+#
+# * Figures 13-16 (000014-000017) - the n counts are legible at 3x and are asserted verbatim.
+#   Interquartile ranges were measured programmatically from the blue box fill. Only ranges
+#   spanning more than about 5 px are asserted: Figure 13's Electricity Pumps (33 to 94%) and
+#   Electricity Heat Rejection (10 to 15%), Figure 14's Electricity Pumps (0.05 to 0.27
+#   kBtu/ft2), and all 15 of Figure 16's climate zones. Medians are NOT separable from the box
+#   edges at this resolution and no median is asserted anywhere. Figure 15's per-row IQRs are at
+#   about 7.8 px per unit and are described only qualitatively.
+#
+# * Figures 7-10 (000008-000011) carry no data labels. Panel geometry was recovered from the
+#   light-grey subplot backgrounds and each row was calibrated against its own y-axis tick-label
+#   text rows, then series were traced by colour. Quoted magnitudes are therefore measured, not
+#   eyeballed, but carry roughly one pixel of error (about 15-25 W on the power rows). Where the
+#   Baseline and Upgrade traces coincide within one pixel - primary chilled water power in
+#   Figure 8, chiller power and boiler gas usage in Figure 9 - no delta is asserted; the prose
+#   independently confirms those differences are sub-percent.
+#
+# * Figures A-1 to A-4 (000018-000021) carry no data labels; bar heights were measured against
+#   tick-label calibration (2.51 TBtu/px for A-1, 4.85 for A-3, 3.17 for A-2/A-4). The
+#   baseline-to-upgrade deltas are at or below one pixel on most bars, so only the totals and the
+#   direction of change are asserted, with Table 4's -3.1 TBtu gas and +14.4 TBtu electricity
+#   quoted for the actual magnitudes. The two independent electricity disaggregations both total
+#   about 3,310 TBtu, which is a useful cross-check on the calibration.
+#
+# DEFECTS FOUND IN THE SOURCE DOCUMENT - reported, not silently corrected:
+#
+# * Figure A-2 and Figure A-4 are the same graphic. Both show electricity total energy
+#   consumption by ComStock building type (the y axis says so), but A-2 is captioned "Site annual
+#   natural gas consumption ... by building type". The document therefore has no
+#   natural-gas-by-building-type figure. Confirmed by pixel diff: the two PNGs differ only by
+#   re-encoding noise (max channel delta 69, 91% of pixels identical).
+# * Figure 16's caption says "Percentage site energy savings distribution ... by climate zone",
+#   but its x-axis label is "Site EUI Savings by Climate Zone (kBtu/ft2)" - absolute intensity,
+#   not percentage.
+# * Figure 15 has no x-axis title at all, only bare tick labels from -4 to 16, so its units
+#   cannot be determined from the graphic. Its caption claims percentage site energy savings.
+# * Section 3.1 says "note the logarithmic scale on the x-axis" for Figure 3, but that axis is
+#   plainly linear (0, 5, 10 ... 35 evenly spaced).
+# * Figure 3's "PTAC with gas boiler" bar is the only one of 24 with no data label. It measures
+#   about 1.3%, which is also exactly the amount needed for the applicable bars to reach the
+#   stated approximately 31%.
+# * Figure 4's bitmap is clipped at the bottom edge: the ECM column's last bullet ends mid-word
+#   and the SynRM-squared Limitations list is cut off after its first item.
+# * Section 5.2 references "Figure 9" four times where three different figures are meant - the
+#   delta-T-driven flow increase is Figure 10, the cooling tower heat rejection reduction is
+#   Figure 8, and the 5.5 / 12.5 / approximately 7 TBtu sensitivity numbers are Figure 11.
+# * Section 5.2 says pump replacement "led to a 35% reduction in pump electricity use", but
+#   Figure 11's own labels give 40.4 -> 24.7 TBtu = 38.9%. (Table 4's full-stock run gives 37.6%,
+#   a legitimately different number from a different sample.)
+# * Section 5.2's "approximately 7 TBtu" pump-energy increase from the reset is 6.3 TBtu by
+#   Figure 11's labels (31.0 - 24.7).
+# * Section 5.4 references "Table 3" three times for the utility bill comparison; the utility
+#   bill table is Table 5. Table 3 is the single-building annual energy comparison.
+# * Section 5.4 states 1.3% electricity savings and "$0.4 million per year" for applicable
+#   buildings and 0.9% / "$0.37 million" in total. Table 5 gives 1.4%, $0.41 billion, 0.96% and
+#   $0.37 billion - a 1000x unit error plus two rounding mismatches.
+# * The Section 5.5 bullet list says "Figure 15 illustrates energy use intensity savings"; energy
+#   use intensity savings are Figure 14.
+# * Table ES-2's caption is followed by no table. The TBtu table appears under the Table ES-3
+#   heading and the USD table appears after it, so the two captions and tables are misaligned by
+#   one in the extracted markdown. The Fuel oil absolute saving in that table is garbled as
+#   "-0.21 1", and the List of Tables block is missing Table ES-1 and truncates Table 4.
+# * Soft flag: Figure 6's caption is "Regression fitting on manufacturer data: pump part-load
+#   efficiency", but the figure shows analytically defined control curves plus a curve derived
+#   from published savings percentages, not a regression on manufacturer data.
+# * Soft flag: Figure 5's lowest plotted point is about 88.5%, marginally below the "89% to 96%"
+#   catalog range stated in Section 3.2.1.
+# * Soft flag: Section 5.1 says the upgraded condenser pump is "sized for approximately 40%
+#   higher flow than the chilled water pumps" with design power "approximately 7,000 W". Figure
+#   8's cooling-season condenser flow is about 30 kg/s for the upgrade against about 26 kg/s
+#   primary chilled water (14%), and its power is about 4,820 W. Design and average-day
+#   quantities differ, so this is not necessarily an error, but a reader may conflate them.
+# * Soft flag: Section 5.1 says "the corresponding rise in pump power is typically modest", but
+#   Figure 10's heating-season secondary chilled water pump power for the reset case is 5 to 13
+#   times the baseline (about 1,040-1,690 W against about 90-230 W).
+# * Soft flag: Section 5.5 concludes hotter climates see greater savings. That holds for zones
+#   1A through 7 in Figure 16, but zone 8 - the coldest - shows the widest interquartile range of
+#   any zone, on only 42 models.
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: measure_pdfs/98223.pdf
+figures:
+- source_image: 98223_images/image_000002_3794e927627c15a78f8e568a360fdf6589ea719befdab9730d5e9d8cdb4072a5.png
+  source_image_sha256: 800b2c2de285da77dda19b36c3f854967d6e0a0f4becbfd9bd420136f02cac95
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 1: ABB infographic on the importance of pumps, with three statistics on motor electricity use and three donut charts giving pump, fan and compressed-air shares of industrial motor system electricity
+  description: |-
+    Figure 1 of the ComStock Variable-Speed Pumps measure documentation, reproduced from ABB reference [2]. The graphic is fully legible. Three panels across the top read: 'Motors consume a lot of energy - Motors consumes about 1/3 of the world's electricity'; 'And it's going to increase - That number is expected to double by 2040'; and 'A lot - equivalent to adding an electricity market the size of China'. A red banner across the bottom asks 'Who are the biggest users?' and answers with three donut charts giving shares of total industrial motor system electricity consumption: PUMP SYSTEMS 40 percent, FAN SYSTEMS 20 percent, and COMPRESSED AIR SYSTEMS 22 percent. These three figures reproduce Section 1 of the report exactly, which states that U.S. industrial motor systems are primarily pump systems (40 percent), fan systems (20 percent) and compressed air systems (22 percent), that motors already account for roughly one-third of global electricity use, and that the demand could double by 2040. The figure is motivational context for the measure rather than a ComStock simulation result.
+- source_image: 98223_images/image_000003_99570cd7162731051d8b01249b24c6a5b531f55a6faf04f3052d8543fde5a9b2.png
+  source_image_sha256: d0a408a2b5db43ac695dd2044e8f2e66a43c364829a61d0739a21e20b9e5ab65
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 2: two 100 percent stacked horizontal bar charts giving ComStock baseline heating type and cooling type as a percentage of stock floor area for 14 building types, with the pump-served system types bracketed in each legend
+  description: |-
+    Figure 2 of the ComStock Variable-Speed Pumps measure documentation. Two side-by-side panels share a common y axis of 14 ComStock building types; the x axis of each is 'Stock floor area percentage [%]' running 0 to 100. The left panel is titled Heating Type and its legend lists Boiler, District, GHP and WSHP - bracketed with the annotation 'pumps are used!' - followed by Furnace, Electric Resistance and ASHP. The right panel is titled Cooling Type and its legend lists water-cooled chillers, air-cooled chillers, District, GHP and WSHP - again bracketed 'pumps are used!' - followed by DX and ASHP. Within each bar the bands stack in the reverse of the legend order. Reading the bands, boiler heating dominates the floor area of Hospital, LargeOffice, LargeHotel, PrimarySchool, SecondarySchool and MediumOffice, while QuickServiceRestaurant, RetailStripmall, RetailStandalone, SmallOffice, Warehouse and SmallHotel are almost entirely furnace or electric resistance heated. Water-cooled chillers likewise take most of the cooling floor area in Hospital, LargeOffice, LargeHotel, PrimarySchool and SecondarySchool, whereas the small retail, office, warehouse and restaurant types are almost all DX. A footnote defines GSHP, WSHP, ASHP and DX. No bar carries a data label.
+- source_image: 98223_images/image_000004_0064d17d0dbb6131120a5ddae2eab0af730dbedab0d749577d0a217cf4cf2c65.png
+  source_image_sha256: 8377646399a232575561ce708af9572ca09d1be5eed891117abcca3c6d62f6b0
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 3: horizontal bar chart of ComStock HVAC system type prevalence as a percent of total stock floor area, with 24 labeled bars coloured by whether the variable-speed pump measure is applicable
+  description: |-
+    Figure 3 of the ComStock Variable-Speed Pumps measure documentation. Twenty-four horizontal bars, one per HVAC system type, are plotted against 'Percent of total stock floor area [%]' and coloured by a legend headed Applicability, False in blue and True in orange. Every bar but one carries a printed data label. The non-applicable types are PSZ-AC with gas coil 29.46, PSZ-AC with electric coil 13.69, PVAV with PFP boxes 8.25, PVAV with gas heat with electric reheat 4.08, Residential AC with forced air furnace 3.67, PTAC with electric coil 3.34, PTHP 3.25, PSZ-HP 2.73 and PTAC with gas coil 0.56. The applicable types are PVAV with gas boiler reheat 8.15, VAV chiller with gas boiler reheat 7.17, VAV air-cooled chiller with gas boiler reheat 3.17, VAV chiller with PFP boxes 2.48, VAV district chilled water with district hot water reheat 1.99, PSZ-AC with gas boiler 1.64, PTAC with gas boiler (label missing, measured about 1.3), DOAS with WSHP with ground source heat pump 1.19, VAV chiller with district hot water reheat 0.86, DOAS with WSHP cooling tower with boiler 0.85, four DOAS-with-fan-coil variants at 0.81, 0.61, 0.36 and 0.11, and a residual bar for HVAC types below 0.1% at 0.23. The applicable bars total about 31 percent, as Section 3.1 states.
+- source_image: 98223_images/image_000005_cfd42dba95078e6738fe48142d1a0af070c6c96dd28e3bee02e27c6b8b0c0d8d.png
+  source_image_sha256: 8535788214dc657e72f863d63aaf4b755296c329155adaef028989438a655556
+  method: vision-transcription
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 4: five-column comparison graphic of motor technologies - Induction, SynRM, ECM, Interior PM and SynRM squared - each with a Benefits and a Limitations list
+  description: |-
+    Figure 4 of the ComStock Variable-Speed Pumps measure documentation, reproduced from ABB reference [2]. The graphic is a five-column text comparison of motor technologies with no equivalent markdown table in the extracted document, so its content is transcribed here. Columns, with their IEC efficiency class: Induction Motor (IE3) - benefits are low cost, robust and line start capable; limitations are rotor losses and lower efficiency at part load. SynRM Motor (IE4) - benefits are no rotor losses, cool running and no magnets; limitations are that it requires a VFD and has a lower power factor. ECM (IE4 to IE5) - benefits are high efficiency in small sizes and integrated electronics; limitations include that the entire unit must be replaced together with the fan, which restricts OEM fan designs. Interior PM (IE5) - benefits are the highest power density and efficiency; limitations are magnet cost and demagnetization risk. SynRM squared (IE5) - benefits are ferrite-assisted rotor efficiency without rare-earth magnets; limitations begin with 'Requires VFD'. Section 3.2.1 uses this figure to justify modeling pumps whose motors meet or exceed the IEC IE5 class, which it describes as an emerging ultra-premium category above NEMA Premium.
+- source_image: 98223_images/image_000006_0441d304b3011c0496277650d87c4893fbb659bc8ad2f6d34ab363c9e8912367.png
+  source_image_sha256: 95ec3475ca865dfb2bf06f2c5c711fea810bbf8d150da1199e6099eff1b050a6
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 5: scatter plot of pump motor nominal efficiency against nominal power with seven candidate regression curves overlaid and the selected piecewise equation printed in an inset box
+  description: |-
+    Figure 5 of the ComStock Variable-Speed Pumps measure documentation. Manufacturer catalog points for pump motor efficiency are plotted with 'Motor Efficiency [%]' on the y axis spanning about 88 to 96 percent and 'Nominal Power [kW]' on the x axis spanning 0 to about 40 kW, and seven candidate fits are overlaid. The legend lists Poly deg 2, Poly deg 3, Logarithmic, Exponential, Logistic, Rational and 'Piecewise break at x=5', plus the Manufacturer data series - the seven regression models Section 3.2.1 says were evaluated. An inset box prints the selected fit: 'Piecewise breakpoint at x=5; if x < 5: y = 1.64645*ln(x) + 92.25876; else: y = 50.22495*(1 - exp(-0.00062*x)) + 94.75316; R2 = 0.63'. The two branches are continuous at the breakpoint, both giving 94.909 percent. The cloud of manufacturer points rises steeply below about 5 kW and then flattens, which is the behavior Section 3.2.1 cites as the reason for choosing the piecewise form over the logarithmic model. The lowest plotted point sits at roughly 88.5 percent efficiency near 0.4 kW and the highest at roughly 96.1 percent near 39 kW; the text describes the catalog range as 0.46 hp to 50 hp with efficiencies from 89 to 96 percent. No point carries a data label.
+- source_image: 98223_images/image_000007_65a69374e1239e1a141ac494dce63923f014e3dfa9929db39d75273cfe870a7e.png
+  source_image_sha256: 2e72ef8d25f27019fe0a528a1191247771a2f80f5b6abbc12f805a493b37ae8b
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 6: pump part-load power curves - Constant Flow, Riding Curve, VSD No Reset, VSD DP Reset and the new VSD DHO curve - plotted against part-load ratio with the affinity law shown dashed for reference
+  description: |-
+    Figure 6 of the ComStock Variable-Speed Pumps measure documentation. The y axis is 'Fraction of Full Load Power [-]' from 0 to 1 and the x axis is 'Part-load Ratio [-]' from 0 to 1. Five OpenStudio Standards style control curves are drawn - Constant Flow (flat near 1 across the whole range), Riding Curve (the highest of the modulating curves, slightly exceeding 1.0 at full load), VSD No Reset, VSD DP Reset, and the new VSD DHO curve in solid black - together with the affinity law y = x cubed as a dashed orange reference. An inset box prints the derived curve: 'VSD DHO: y = 0.10550*x^2 + 0.89450*x^3'. Integrating that expression over 0 to 1 gives 0.2588 against 0.25 for the affinity law, so the DHO curve sits about 3.5 percent above the ideal lossless curve while lying below VSD DP Reset - which is exactly the ordering Section 3.2.2 asserts when it says the resulting curve 'performs slightly below the affinity law but better than conventional reset strategy'. Section 3.2.2 derives the curve by reducing the area under the VSD DP Reset curve by 11 percent, the smaller of the two savings figures reported by Zhao et al. (11 percent) and Zhufang et al. (13 percent). No curve carries a data label.
+- source_image: 98223_images/image_000008_5cd0ce351f319525b00e6959a4f040fcdae0b2d4b2a8c984c1c78372c10bae0a.png
+  source_image_sha256: 03e43ff30f4c285a5a6bac6e21c37028989ed84a22de23ca98e4d0fa8b3b38b2
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 7: eight-panel grid of annual average daily profiles comparing Baseline and Upgrade for the secondary chilled water and hot water loop pump power and flow, split between cooling season and heating season
+  description: |-
+    Figure 7 of the ComStock Variable-Speed Pumps measure documentation, the pump-replacement-only test on a medium office in Montgomery, Alabama (climate zone 3A) in which existing variable-speed pumps are replaced with higher-performing variable-speed models. The grid is four rows by two columns; the left column is the cooling season and the right the heating season, and each panel plots a 24-hour annual average daily profile with Baseline as an orange dotted line and Upgrade as a solid blue line. Rows are secondary chilled water loop pump power in W, secondary chilled water loop flow in kg/s, hot water loop pump power in W, and hot water loop flow in kg/s. In the cooling season the secondary chilled water pump power peaks near 1,510 W for the baseline against about 690 W for the upgrade, a reduction of roughly half, while the two flow traces lie on top of one another, peaking near 12.9 kg/s. Hot water power and flow are essentially zero in the cooling season apart from a brief early-morning blip. In the heating season the hot water pump power spikes near 820 W for the baseline against about 250 W for the upgrade with coincident flow traces. Flow being unchanged while power falls is the point Section 5.1 makes: the baseline pumps could already modulate, so the gain comes from the improved part-load curves in Figure 6.
+- source_image: 98223_images/image_000009_acd2a06e883a3344259dcf536cc414edb7a4b6592159c81aaf750e0c16370ce2.png
+  source_image_sha256: 6b6ed272d2ddce7970642d7c3c9a2e0a73107e8876096bb28d04562f959b8b5d
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 8: eight-panel grid of annual average daily profiles comparing Baseline and Upgrade for the primary chilled water and condenser water loop pump power and flow, split between cooling season and heating season
+  description: |-
+    Figure 8 of the ComStock Variable-Speed Pumps measure documentation, the companion to Figure 7 for the same medium office model but focused on the loops whose baseline pumps are constant speed. The layout is again four rows by two columns with cooling season left and heating season right, Baseline as an orange dotted line and Upgrade as solid blue. Rows are primary chilled water loop pump power in W, primary chilled water loop flow in kg/s, condenser water loop pump power in W, and condenser water loop flow in kg/s. In the cooling season all four traces are flat across the 24 hours because the constant-flow primary pump runs at design flow whenever the chiller runs. Primary chilled water power is about 1,700 W in both scenarios - the roughly 3 percent motor efficiency gain is, as Section 5.1 says, not noticeable in the plot - and primary flow is about 26 kg/s in both. The condenser water loop is where the savings appear: power drops from roughly 7,550 W to roughly 4,820 W and flow from roughly 35 to 30 kg/s. In the heating season the same panels show bell-shaped profiles rather than flat lines, because the chiller only runs for part of the day and the annual average smooths its on-off operation; condenser water power falls from a midafternoon peak near 5,530 W to near 3,510 W.
+- source_image: 98223_images/image_000010_2f41e2dc3b66ee295a0f1a6ebcd27bbedaa84cbe9903bf8fd726f96e7d7ebdea.png
+  source_image_sha256: e41d332401fad4024d001a29cf0537de9fef8a93c8b3e559ae8e5275666b35c1
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 9: ten-panel grid of annual average daily profiles for chiller outlet temperature, chiller power, chiller COP, boiler outlet temperature and boiler gas usage, comparing Baseline and Upgrade under chilled water and hot water supply temperature reset
+  description: |-
+    Figure 9 of the ComStock Variable-Speed Pumps measure documentation, the pump-replacement-plus-reset test on the same medium office model, showing the effect of resetting chilled and hot water supply temperature on outdoor air temperature. The grid is five rows by two columns with cooling season left and heating season right, Baseline as an orange dotted line and Upgrade as solid blue. Rows are chiller outlet temperature in degrees C, chiller power in W, chiller COP, boiler outlet temperature in degrees C, and boiler gas usage in W. The reset is clearly visible in the temperature rows: in the cooling season the baseline chiller outlet is flat at about 6.7 C while the upgrade starts near 8.2 C overnight and converges on the baseline by midmorning, and in the heating season the upgrade runs roughly 2 C warmer throughout. The boiler outlet rows move the other way, with the upgrade running roughly 12 to 13 C cooler than the baseline in the heating season. Chiller power, chiller COP in the cooling season and boiler gas usage are close enough between the two scenarios that the traces overlap at this resolution, consistent with the sub-1-percent single-building differences reported in Table 3; the heating-season chiller COP is visibly higher for the upgrade. No panel carries a data label.
+- source_image: 98223_images/image_000011_e6563fde79a574def176626b2109493189bad6b1b21afe1f96f5b1372a4de5c9.png
+  source_image_sha256: 77551dd0ca1852c93afe280009a97b3641112eff8456ef66544d60cd984ec502
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 10: eight-panel grid of annual average daily profiles for the secondary chilled water and hot water loop pump power and flow under the pump replacement plus chilled water and hot water reset scenario
+  description: |-
+    Figure 10 of the ComStock Variable-Speed Pumps measure documentation. The panels match Figure 7 exactly - four rows by two columns, cooling season left and heating season right, secondary chilled water pump power and flow then hot water pump power and flow, Baseline orange dotted and Upgrade solid blue - but the upgrade now also includes outdoor-air-based chilled and hot water supply temperature reset. The reset changes the shape of the savings rather than only their size. In the cooling season the secondary chilled water pump peak is about the same as in Figure 7, near 1,500 W baseline against 690 W upgrade, but the upgrade's off-peak power is much higher (roughly 360 to 460 W against roughly 180 to 250 W in Figure 7) because the relaxed supply temperature narrows the loop delta-T and drives more flow. In the heating season the effect reverses the sign of the savings on that loop: the upgrade's secondary chilled water pump power runs roughly 1,040 to 1,690 W against a baseline of roughly 90 to 230 W, with flow rising from about 1 kg/s to 8-12 kg/s. The hot water loop meanwhile saves in the heating season, dropping from a baseline peak near 820 W to near 350 W - the split Section 5.1 describes as hot water loop savings during heating and secondary chilled water loop savings during cooling with increased power during heating.
+- source_image: 98223_images/image_000012_9b85b2c366e155916b25c5208ebee3fbfcae1dfd6334c492b3a1b6f50f9df2bd.png
+  source_image_sha256: d247f848849686f938d07d125781c3463aa75fd6e22695c5bfcaae6f91a2ad10
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 11: labeled grouped bar chart of the reduced-stock sensitivity analysis, comparing baseline, pump replacements only, and pump replacements plus chilled and hot water reset across four end-use energy categories
+  description: |-
+    Figure 11 of the ComStock Variable-Speed Pumps measure documentation, the sensitivity analysis run on a reduced stock of roughly 10,000 models rather than the full ComStock sample. Four groups of three horizontal bars are plotted against 'Value', with every bar carrying a printed data label, and the three scenarios in each group are Baseline, Pump replacements only, and Pump replacements plus chilled/hot water reset. Stock electricity for pumps is 40.4, 24.7 and 31.0 TBtu; stock electricity for cooling is 264.6, 265.7 and 260.2 TBtu; stock electricity for heat rejection is 6.2, 5.4 and 5.5 TBtu; and stock natural gas for heating is 542.6, 546.3 and 533.8 TBtu. The labels give a pump-replacement-only pump electricity reduction of 15.7 TBtu or 38.9 percent, and adding the reset costs back 6.3 TBtu of pump electricity while saving 5.5 TBtu of cooling electricity and 12.5 TBtu of heating gas relative to pump replacement alone - the last two matching the figures quoted in Section 5.2. Section 5.2 describes the pump reduction as 35 percent and the reset's pump penalty as approximately 7 TBtu. Because this is the reduced-stock run, its numbers are not directly comparable with the full-stock results in Table 4 and Figure 12.
+- source_image: 98223_images/image_000013_85f4f24381dd45c864d589377e8d646e5adb1bf22819a96e3d8c8160f94ef75f.png
+  source_image_sha256: f1c8d8f6307801e5118aca6e589c8f7d2a55668116a30b2a59319a5651357b32
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 12: two stacked bar panels comparing annual site energy consumption by end use and fuel between the ComStock baseline and the pump replacement scenario, for the entire stock and for applicable models only
+  description: |-
+    Figure 12 of the ComStock Variable-Speed Pumps measure documentation. Two panels titled '(a) Entire building stock' and '(b) Applicable models only' each plot two stacked bars - Baseline and Pump replacement - against 'Annual Energy Consumption (TBtu)'. A 21-entry legend runs from Heat Rejection Electricity at the top through Pumps Electricity, the Water Systems and Heating fuels, Interior Lighting Electricity, Cooling District Cooling and Cooling Electricity, Fans Electricity, and Interior Equipment Natural Gas and Electricity at the bottom. Panel (a) totals about 4,989 TBtu for the baseline against about 4,978 for the upgrade, a reduction of about 11 TBtu or 0.22 percent, matching the 0.2 percent and 11 TBtu quoted in Section 5.3. Panel (b) totals about 1,687 against 1,676, the same 11 TBtu on a smaller base and so about 0.65 percent. Individual band labels in panel (a) include Interior Equipment Electricity 782.8 unchanged, Interior Equipment Natural Gas 314.0 unchanged, Fans 673.6 to 673.8, Cooling Electricity 755.4 to 756.5, Interior Lighting 459.4 unchanged, Heating Electricity 244.6 to 244.7, and Heating Natural Gas 944.4 to 947.5 - the last an increase of 3.1 TBtu, the heating gas penalty Table 4 reports. Pump and heat rejection electricity are too thin to label at this scale.
+- source_image: 98223_images/image_000014_a84a1e8cbdd3518081773de611217aaa757f13dfc8fcc10ebd76b0c078bdd0e8.png
+  source_image_sha256: 303c9d6d765b0220a161d34d6d472f0df9216c386215982926a9446758c42ece
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 13: violin and box plots of percent site energy savings by end use and fuel type for the applicable ComStock models, with 18 rows each annotated with its model count
+  description: |-
+    Figure 13 of the ComStock Variable-Speed Pumps measure documentation, titled 'Upgrade 26.0: Pmp (unweighted)'. Eighteen horizontal violin-and-box distributions are plotted against 'Percent Site Energy Savings by End Use (%)' spanning -50 to 100, one per end use and fuel combination, each labeled with its applicable model count: District Heating Water Systems 270 and Heating 3,286; District Cooling Cooling 2,321; Fuel Oil Water Systems 101 and Heating 2,062; Propane Water Systems 53 and Heating 1,035; Natural Gas Water Systems 2,338 and Heating 18,861; and for Electricity, Water Systems 1,741, Refrigeration 173, Pumps 28,084, Interior Equipment 5, Heating 3,018, Heat Rejection 8,164, Heat Recovery 597, Fans 9,167 and Cooling 15,326. Electricity Pumps is by far the widest distribution, with an interquartile range of roughly 33 to 94 percent and a bimodal violin with lobes near 30 and near 100 percent; Section 5.5 attributes the upper lobe to constant-speed pumps being replaced by variable-speed models and the 100 percent cases to buildings with negligible thermal load. Electricity Heat Rejection's interquartile range is roughly 10 to 15 percent. All heating rows centre near zero with negative tails, and every Water Systems row collapses to a point at zero because the measure does not touch service water heating.
+- source_image: 98223_images/image_000015_cb066f7ee64ff05df1511f80275c64caa90f665615dba6f76dd5356afd814e36.png
+  source_image_sha256: f6a0680625a11ddf547f64af17b829637902a46e108728f813095ebb0f74d92c
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 14: violin and box plots of absolute site energy use intensity savings by end use and fuel type for the applicable ComStock models, in kBtu per square foot
+  description: |-
+    Figure 14 of the ComStock Variable-Speed Pumps measure documentation, titled 'Upgrade 26.0: Pmp (unweighted)'. The rows and model counts are identical to Figure 13, but the x axis is 'Site EUI Savings by End Use (kBtu/ft2)' spanning about -3 to +4, so the distributions show absolute rather than percentage impact and are dominated by the end uses that consume the most energy per square foot. Electricity Pumps is again the largest positive distribution, with an interquartile range of roughly 0.05 to 0.27 kBtu/ft2 and outliers extending to about 4.4 kBtu/ft2. Electricity Cooling has the longest negative tail, reaching about -3.2 kBtu/ft2, and Natural Gas Heating spans about -1.5 to +0.45. District Cooling Cooling reaches about +1.0 and Electricity Heat Rejection about +0.36; Propane Heating, Fuel Oil Heating and District Heating Heating extend to about -1.0, -0.8 and -0.8 respectively, the heating penalty Section 5.5 describes as more efficient pumps adding less heat to the water loop. The Water Systems rows again sit at zero. Because the plotted range is only about 7 kBtu/ft2 across roughly 220 pixels, the narrow interquartile ranges other than Electricity Pumps are at the resolution limit and are described only qualitatively.
+- source_image: 98223_images/image_000016_0d69d1089a5bb39f21da89dc521323b42d3875cf07833970e492ae1c18c74c79.png
+  source_image_sha256: 1a301adb2604e0b5d9e120babeb6d704870d9160ee64d5910db9399bc20b06db
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 15: violin and box plots of site energy savings for the applicable ComStock models grouped by the 20 baseline HVAC system types, each row annotated with its model count
+  description: |-
+    Figure 15 of the ComStock Variable-Speed Pumps measure documentation, titled 'Upgrade 26.0: Pmp (unweighted)'. Twenty horizontal violin-and-box distributions are plotted, one per baseline HVAC system type, with x axis tick labels running -4 to 16 in steps of 2. Rows and model counts, top to bottom: DOAS with fan coil air-cooled chiller with boiler 1,321; DOAS with fan coil chiller with baseboard electric 164, with boiler 944, with district hot water 239; DOAS with fan coil district chilled water with baseboard electric 45, with district hot water 137; DOAS with WSHP cooling tower with boiler 1,256; DOAS with WSHP with ground source heat pump 1,021; PSZ-AC with district hot water 152, with gas boiler 1,851; PTAC with gas boiler 2,590; PVAV with district hot water reheat 84, with gas boiler reheat 7,643; VAV air-cooled chiller with PFP boxes 109, with district hot water reheat 7, with gas boiler reheat 2,660; VAV chiller with PFP boxes 1,489, with district hot water reheat 535, with gas boiler reheat 3,537; and VAV district chilled water with district hot water reheat 2,139. The chiller and cooling-tower systems show the largest savings while the boiler-only systems such as PTAC and PSZ-AC with gas boiler sit at or just below zero, the pattern Section 5.5 describes.
+- source_image: 98223_images/image_000017_0df5c51617ba972c2b870f37f1299149cf79ce3c7f632a1e857b0ee688f5d91b.png
+  source_image_sha256: a3d1ed17e883030f1c859741edbbcf01ba7c575929b700ea0c8504cd8303e25d
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 16: violin and box plots of site energy use intensity savings for the applicable ComStock models grouped by the 15 ASHRAE climate zones, in kBtu per square foot
+  description: |-
+    Figure 16 of the ComStock Variable-Speed Pumps measure documentation, titled 'Upgrade 26.0: Pmp (unweighted)'. Fifteen horizontal violin-and-box distributions are plotted against 'Site EUI Savings by Climate Zone (kBtu/ft2)' spanning -1.5 to +4, one per ASHRAE climate zone, with model counts 1A 373, 2A 1,263, 2B 541, 3A 3,178, 3B 2,957, 3C 977, 4A 5,993, 4B 765, 4C 566, 5A 5,201, 5B 2,002, 6A 2,685, 6B 532, 7 848 and 8 42. Measured interquartile ranges run from about 0.01 to 0.56 kBtu/ft2 in zone 1A and narrow steadily through the cooler zones - about 0.01 to 0.43 in 2A, 0.01 to 0.37 in 3A, 0.02 to 0.27 in 4A, 0.01 to 0.18 in 5A, 0.01 to 0.13 in 6A and 0.01 to 0.14 in zone 7. That ordering is the basis for Section 5.5's conclusion that hotter climates, which require more chiller energy, see greater savings. Zone 8 is the exception, showing the widest interquartile range of any zone at about 0.01 to 0.62 kBtu/ft2, but it has only 42 applicable models. Zone 1A also has the widest violin, with mass extending from about -1.2 to beyond +2 kBtu/ft2.
+- source_image: 98223_images/image_000018_37bf15dfd20629463973abfaf0d2ebc5675b757f90121e6c768cf7d32a1e20a4.png
+  source_image_sha256: 0e4df71cccd07dd64d10cd757ad6ad183e63a489ac0ab47823273f4789093a7c
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure A-1: grouped bar chart of site annual natural gas consumption in TBtu for the ComStock baseline and the pump replacement scenario, broken out by the nine U.S. census divisions
+  description: |-
+    Figure A-1 of the ComStock Variable-Speed Pumps measure documentation. Nine pairs of vertical bars plot 'Natural Gas Total Energy Consumption (tbtu)' against 'Census Division Name', with a legend headed Upgrade Name distinguishing Baseline in dark blue from Pmp in light blue. Bar heights measured against the tick-label calibration give baseline values of roughly 49 TBtu for New England, 222 for Middle Atlantic, 387 for East North Central, 154 for West North Central, 172 for South Atlantic, 56 for East South Central, 117 for West South Central, 96 for Mountain and 179 for Pacific, summing to roughly 1,430 TBtu. East North Central is by far the largest gas consumer. The upgrade bars are the same height as or one pixel taller than the baseline in every division, consistent with the small national natural gas penalty of -3.1 TBtu reported in Table 4 - the pump measure adds less waste heat to the water loop, so boilers work slightly harder. The per-division increase is below the resolution of the plot, so no individual delta is asserted here. No bar carries a data label.
+- source_image: 98223_images/image_000019_c6e3d44ae9364fd305f91dd407c2a49c63c69c68a9a5af9e5b147e74816b988d.png
+  source_image_sha256: 0fe760c0476e797336e5a2ed7730252c4ff1009c00e046f15b2ff94e7306d9ca
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure A-2: grouped bar chart captioned as site annual natural gas consumption by building type, but whose axis and content are site annual electricity consumption in TBtu by ComStock building type - the same graphic as Figure A-4
+  description: |-
+    The image published under the Figure A-2 caption in the ComStock Variable-Speed Pumps measure documentation. The caption reads 'Site annual natural gas consumption of the ComStock baseline and the measure scenario by building type', but the plotted y axis is 'Electricity Total Energy Consumption (tbtu)' and the graphic is pixel-for-pixel the same chart as Figure A-4 apart from image re-encoding noise. There is therefore no natural-gas-by-building-type figure in the document. What the image actually shows is fifteen pairs of vertical bars against 'Comstock Building Type', legend Upgrade Name with Baseline dark blue and Pmp light blue. Measured baseline values are roughly: FullServiceRestaurant 203, QuickServiceRestaurant 73, RetailStripmall 492, RetailStandalone 311, SmallOffice 232, MediumOffice 194, LargeOffice 238, PrimarySchool 279, SecondarySchool 254, Outpatient 137, Hospital 191, SmallHotel 35, LargeHotel 178, Warehouse 391 and Grocery 108 TBtu, summing to about 3,310 TBtu. Visible reductions occur in LargeOffice, Hospital and LargeHotel; the national electricity saving is 14.4 TBtu per Table 4, which is below one pixel for most bars. No bar carries a data label.
+- source_image: 98223_images/image_000020_a8c975e48a1e6479151724a6a5fd374e300060096207d9b516d2d9141e8a3c13.png
+  source_image_sha256: b67d055093e838c93ad652d77e440263202557d67af64130facde8df00f7acd8
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure A-3: grouped bar chart of site annual electricity consumption in TBtu for the ComStock baseline and the pump replacement scenario, broken out by the nine U.S. census divisions
+  description: |-
+    Figure A-3 of the ComStock Variable-Speed Pumps measure documentation. Nine pairs of vertical bars plot 'Electricity Total Energy Consumption (tbtu)' against 'Census Division Name', legend Upgrade Name with Baseline in dark blue and Pmp in light blue. Bar heights measured against the tick-label calibration give baseline values of roughly 97 TBtu for New England, 339 for Middle Atlantic, 436 for East North Central, 271 for West North Central, 756 for South Atlantic, 213 for East South Central, 504 for West South Central, 233 for Mountain and 465 for Pacific, summing to roughly 3,310 TBtu - the same national total as the by-building-type electricity figure, as expected for two disaggregations of one quantity. South Atlantic is the largest consumer by a wide margin, followed by West South Central and Pacific. The upgrade bars are visibly shorter than the baseline only in South Atlantic and Pacific; the national electricity saving of 14.4 TBtu reported in Table 4 is spread thinly enough that most per-division deltas fall below one pixel and none is asserted here. No bar carries a data label.
+- source_image: 98223_images/image_000021_1c7a7dc7b0b8163fe8118b2627e176fcbca2432d0ae85fd8db4151ddb89da56e.png
+  source_image_sha256: b6cc8fb872fd31b84beefab7718d6b3ffc3338ea97b26d1132193280194f7180
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure A-4: grouped bar chart of site annual electricity consumption in TBtu for the ComStock baseline and the pump replacement scenario, broken out by 15 ComStock building types
+  description: |-
+    Figure A-4 of the ComStock Variable-Speed Pumps measure documentation. Fifteen pairs of vertical bars plot 'Electricity Total Energy Consumption (tbtu)' against 'Comstock Building Type', legend Upgrade Name with Baseline in dark blue and Pmp in light blue. Measured baseline values are roughly: FullServiceRestaurant 203, QuickServiceRestaurant 73, RetailStripmall 492, RetailStandalone 311, SmallOffice 232, MediumOffice 194, LargeOffice 238, PrimarySchool 279, SecondarySchool 254, Outpatient 137, Hospital 191, SmallHotel 35, LargeHotel 178, Warehouse 391 and Grocery 108 TBtu, summing to about 3,310 TBtu, which matches the census-division electricity total in Figure A-3. RetailStripmall and Warehouse are the largest electricity consumers in the stock, reflecting their large aggregate floor area rather than high intensity. Reductions are visible in LargeOffice, Hospital and LargeHotel - the building types Figure 2 shows are most heavily served by chillers and boilers. This same graphic also appears under the Figure A-2 caption, where the caption instead promises natural gas by building type. No bar carries a data label.
