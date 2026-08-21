@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "comstock_amy2018_2025_release_3",
-  "generated_utc": "2026-08-21T21:56:51.272591+00:00",
+  "generated_utc": "2026-08-21T22:12:26.690421+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -1546,13 +1546,37 @@
           "title": "Air-Source Heat Pump Boiler and Natural Gas Boiler Backup",
           "input_sha256": "337aee5d46a0849ba0ecec47df7248341bcf7bbecf64048baf7155ba8552ea84",
           "output_path": "upgrade_measures/measure_pdfs/87536.md",
-          "output_sha256": "e92ac9d0a65f49f18304fb08390ea3ccc77759a72be3f10f342253a0c17f63fe",
+          "output_sha256": "06a195a7ced21cce436c9df588f2ed7df205efa3814fd25067cab3871700d91b",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/87536.yaml",
-            "sha256": "e3244c89b3d90090e1516bd96213e6f9d7052fa01794353ab0bae1234c1f4d7f",
+            "sha256": "30717fc9a590b71acd297d301df6b1233882025c3c3b8d9d60af0a0d2dc97b7b",
             "tables_applied": [
               "Table 1",
               "Table 2"
+            ],
+            "figures_applied": [
+              "87536_images/image_000007_013c5622c7ee2f6d8df5e28323925163419fcdc23ed8fcf99db685056c158f78.png",
+              "87536_images/image_000008_761fa8382000bfe82d38d118ecb461549bc748c6a5bdb4ad42ff0f41ec7a796a.png",
+              "87536_images/image_000009_5b7a058bdb4ae7227bc982d5595d79f91db099450ecb3b9f856def78820a3397.png",
+              "87536_images/image_000010_c9a84f78d017a8ec87fc72178afd0162a1fceb01e58f913ffc30f00fc11c451e.png",
+              "87536_images/image_000011_5a97cb86c04ea095b17450da5d62d12511a21a051016eb21561f1836a9827cf7.png",
+              "87536_images/image_000012_89a15313fedebe548224baa10f969c4f0c823305366a2f0c9fe54ac9c93d459b.png",
+              "87536_images/image_000013_01d1e052ed4f877b886e59640fb35c5cf5825f9472c4fc355cdadba5d992c70f.png",
+              "87536_images/image_000014_ea5f991ff1380addac22ef9fa9c86dd11962c9fa07e349002c466e0e71222ae6.png",
+              "87536_images/image_000015_7faa5cff90f8fd991babc982d9e712e2c0fd994743050e00affb4f59ac4371f4.png",
+              "87536_images/image_000016_f50d40e67712cdafc87a9e168be51a97b005ea4d51b1c1d5e4b603c15d54c115.png",
+              "87536_images/image_000017_05ad0353f21670cb1fbd21a7a86c1fe1f13f1acf3c34f9bc75b0ba33e2fcb96a.png",
+              "87536_images/image_000018_31aa928bb3700a11e05576649e3d3bf6ae5ca75bc0bc6b7f42247284a3e3c276.png",
+              "87536_images/image_000019_90a5a0610b60e0cde06b876b1b702e2ac6a5f09abf4b09d1ecdc79709b744ee1.png",
+              "87536_images/image_000020_815aac1c81622fb43b2609e9c9f2d721483f536eb0aadc707c0d02c8bde9433f.png",
+              "87536_images/image_000021_f5549b322475b5e8e18d0ff95688673690d6cc10d5b54efbc74f0a66cdb365d0.png",
+              "87536_images/image_000022_0ffe9e065dd61de3cf0b270e3938f6d80d7ab1ed90ef158511a1a0f697957e76.png",
+              "87536_images/image_000023_36da2b577ab7120176dcb3d5ad9984cfc9555b0855344df8826cfc86bea24dce.png",
+              "87536_images/image_000024_0dba4830d76b541c3e376394d98087105d1906de613bfef6faeaea5a80626697.png",
+              "87536_images/image_000025_591464c0e65990aec2fe1d77e6bb67c2a03304f25e8ae69072fe15dabf269e0f.png",
+              "87536_images/image_000026_aa2ec03e03099912e1b33c03abc8e294d3e198f650e201992dbf3cce3bfadc8f.png",
+              "87536_images/image_000027_0941dc537f08fd906f56e5f62e42ce1bdb802c80911fbe1c2d460f6acd7605da.png",
+              "87536_images/image_000028_c2ab5c9dae1ab8d4d640ecad860a43e6166970000157066abe2ad684a18e4c12.png"
             ]
           }
         },
@@ -2335,7 +2359,7 @@
   ],
   "counts": {
     "documents": 118,
-    "chunks": 8118,
+    "chunks": 8138,
     "by_type": {
       "latex": 19,
       "markdown": 40,
@@ -2344,7 +2368,7 @@
     },
     "overlay_documents": 57,
     "overlay_tables": 57,
-    "overlay_figures": 881,
+    "overlay_figures": 903,
     "overlay_text_repairs": 1
   },
   "crosswalk": {
