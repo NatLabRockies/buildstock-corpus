@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "comstock_amy2018_2025_release_3",
-  "generated_utc": "2026-08-21T21:12:00.327884+00:00",
+  "generated_utc": "2026-08-21T21:17:08.883093+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -1385,12 +1385,29 @@
           "title": "LED Lighting, HP-RTU and ASHP-Boiler",
           "input_sha256": "edee583b88290066a942c92d99f64f6a859058bf63f201cb005cf2b63098ac66",
           "output_path": "upgrade_measures/measure_pdfs/86601.md",
-          "output_sha256": "68e310399e49bdc0c44821ac80ef6823c67019bcd855453a6a891c19cc11dd11",
+          "output_sha256": "c6bcef8ecf74a2cc85e0e848ad3733646d92c962481ea56cb104b51a1ba3592a",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86601.yaml",
-            "sha256": "058d67f97de9fb232427d3f779d75108d9268f6b53fafdd53f95954daf9d4e51",
+            "sha256": "a6ee56b8e7182feecf8f627b16dabeda6c6088f8cbb1c2ca562a7726ce85932f",
             "tables_applied": [
               "Table 3"
+            ],
+            "figures_applied": [
+              "86601_images/image_000002_1245f7ee4ca34ab09ef9ec75a8aa3ccf27c534dc168902fdfb9f647b1a8314f5.png",
+              "86601_images/image_000003_ccbc14cdc9cea71248edc05f6fee80a1ff1e3a4015bca7b44a8567b1ddd6d8db.png",
+              "86601_images/image_000004_7ab8e41d451361fbbe298c7427a79ea892a019a3ce404aca08e6ff477e716718.png",
+              "86601_images/image_000005_5a5a4bf61a592e00dcd9d8ef7241819ffcb9ef94d7e09752851e3d03c8a3cbb4.png",
+              "86601_images/image_000006_ba88774fa3cd4d46062f7372396fffb184e5bb5316b86bd7e13c1bbc80d99ca4.png",
+              "86601_images/image_000007_bf4ceffa4568d406d915d04dc2c4b42ca0cbc1f71684978a02a4e767593a5553.png",
+              "86601_images/image_000008_90353263a2ff02cac43cbc61519abb5ed630fa38ae30cc6f4aa2c126887dd150.png",
+              "86601_images/image_000009_e9b7942ea7fc57229eff0b8d8bf32db55df9b028b52f72de0fffef2770bb9405.png",
+              "86601_images/image_000010_e156278ce9f6f589c89905120f2083b61c925b0ab84dec2f52717f9f9c176e55.png",
+              "86601_images/image_000011_8dc124df929d32da85ba7eba1398d573e697ac3efae1f4e42ee29112cf7a450b.png",
+              "86601_images/image_000012_84d5b6c83f9ffd62d85f01bc3721155919bbf879cab19b58b1ab1ff7992c299a.png",
+              "86601_images/image_000013_f0784cafedfed0089486f10b4d0be181bba2285bd936ce4c4de2fbf81070c751.png",
+              "86601_images/image_000014_9767ffa0ab0ff9a93301c511d1e928285e6b1017494b0b47708e31240b9fd59f.png",
+              "86601_images/image_000015_09dac684b183adde1552af6bfb86c5f604a2473d926ddb69db2c0331a9aefaee.png",
+              "86601_images/image_000016_59843115e8e585b917820a7a6c98d94ae27656b90ec264ba2afa526fcc27a83f.png"
             ]
           }
         },
@@ -2201,7 +2218,7 @@
   ],
   "counts": {
     "documents": 118,
-    "chunks": 8036,
+    "chunks": 8044,
     "by_type": {
       "latex": 19,
       "markdown": 40,
@@ -2210,7 +2227,7 @@
     },
     "overlay_documents": 57,
     "overlay_tables": 57,
-    "overlay_figures": 761,
+    "overlay_figures": 776,
     "overlay_text_repairs": 1
   },
   "crosswalk": {
