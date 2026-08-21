@@ -1,0 +1,327 @@
+# Hand-authored figure descriptions for measure_pdfs/95002.pdf
+#
+# 95002 is the "Reduced Thermostat Setbacks for Heat Pumps" (HP-RTU) measure documentation for
+# ComStock 2025 release 3. docling extracts each figure as a bare ![Image](...) ref: the caption
+# line survives above it, but the chart itself is invisible to retrieval and unreadable without
+# the bitmap. Each entry below is image-anchored (see the figures: schema in overlays/README.md):
+# the ref is rewritten with a hand-written alt, and a description paragraph is injected below it
+# for retrieval.
+#
+# Scope: figures only - Figure 1, Figures 2-29, and appendix Figures A-1 through A-6, plus the
+# Table 2 bitmap. The two cover/title images (indices 000000, 000001) are deliberately not
+# described.
+#
+# Depth: authored to the section 2.1 budget in overlays/FIGURE_DESCRIPTIONS_ROLLOUT.md - roughly
+# 40-70 words per description (chart type, axes and units, series/legend, one quantitative
+# takeaway, and a pointer to the authoritative table). Values are not reconciled against the body
+# text and unlabeled geometry is not resolved by zooming; the tables carry the per-segment numbers.
+#
+# Authoring notes:
+#   * method is vision-description for the charts. Index 000003 is vision-transcription: it is the
+#     "Table 2. On-Site Fossil Fuel Emissions Factors" table, which survives only as a bitmap and
+#     has no table overlay, so its factors would otherwise be lost to retrieval.
+#   * Every entry pins the on-disk PNG sha256; if upstream repoints a bitmap the build drops that
+#     injection and warns rather than shipping a stale description.
+#
+# QA notes (vision reads; flag for a human pass):
+#   * Table 2 (index 000003) pairs propane 177.8 lb/MMBtu with 182.3 kg/MWh, where ~275 kg/MWh is
+#     expected from the lb/MMBtu value. This is the ninth ComStock measure doc carrying the same
+#     upstream defect in the shared emissions-factor boilerplate; transcribed as printed.
+#   * Figure 27(b) (climate zones 4B-8) has no image ref in the extracted markdown - only a bare
+#     "(b)" line survives between Figure 27's single bitmap and its caption. The panel was dropped
+#     by the extractor; the entry for index 000029 describes panel (a) only.
+#   * The body paragraph introducing Figure 17 (line 537) opens "Figure 21 shows a distribution of
+#     the fraction of reduction in maximum daily winter peak demand" - a wrong cross-reference, as
+#     Figure 21 is the standard-setback end-use savings violin plot.
+#   * Section 3.4 (line 381) says the grid scenarios compare the baseline against "the window
+#     replacement scenario" in an HP-RTU document - the same stray-prose defect class already seen
+#     in 89481.
+#   * Bar-height reads in Figures A-1 through A-4 are approximate: those Tableau charts print no
+#     data labels, so magnitudes are read off the axis.
+
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: measure_pdfs/95002.pdf
+figures:
+- source_image: 95002_images/image_000002_8d298005c929e765a9384828a7d5493f94b983fa9eeeb30739443db2429a9f17.png
+  source_image_sha256: 7ca5d558d70c16bed90cf9b6241ab3307a0c8e225295e4e20ac687514f9316d2
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Horizontal bar chart of measure applicability by baseline HVAC system type, percent of stock
+    floor area
+  description: |-
+    Figure 1: Tableau horizontal bar chart of measure applicability by baseline HVAC system type. Rows are ComStock system types with three numeric columns - % Stock Floor Area, Stock Floor Area (ft2), and Stock Number of Buildings - and bars colored by upgrade_applicable (True/False). PSZ-AC with electric coil is the largest row at 24% of stock floor area (about 15.1 billion ft2, 1.89 million buildings); the rest sit between 1% and 12%.
+- source_image: 95002_images/image_000003_72335d4b8be6daaff5be2a7ee0648015f2d0c06e9eea5c3f89d318610604be49.png
+  source_image_sha256: b8c55d63a532d30f6ebfc4ff0da3dbd7d6c72a8d535f49e33113720e1865760d
+  method: vision-transcription
+  described_utc: '2026-08-21'
+  alt: 'Table 2 bitmap: on-site fossil fuel emissions factors for natural gas, propane, and fuel oil'
+  description: |-
+    Table 2. On-Site Fossil Fuel Emissions Factors, which survives in the extraction only as a bitmap. Rows: Natural gas 147.3 lb/MMBtu (228.0 kg/MWh); Propane 177.8 lb/MMBtu (182.3 kg/MWh); Fuel oil 195.9 lb/MMBtu (303.2 kg/MWh). Footnote: lb = pound; MMBtu = million British thermal units; kg = kilogram; MWh = megawatt-hour.
+- source_image: 95002_images/image_000004_3b35d73c648e77b471a3be77859dd49989cc91605b00392ef7e0559a7a363f20.png
+  source_image_sha256: d6927572008b2446f42a9d20531fda619a2a6c6b3ceb9be734bf608d90683eac
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Two-panel time series of heat pump backup heating power with original vs reduced setbacks, Cody
+    WY
+  description: |-
+    Figure 2: two stacked time-series panels for the Cody, Wyoming model. Left y-axis Power (kW) 0-160, right axis outdoor air temperature (deg F). Series: heat pump backup heating power with reduced setbacks (blue), with original setbacks (dashed orange), and outdoor air temperature (dashed green). Panel (a) spans the heating peak week Jan 29-Feb 5; (b) zooms to Feb 1-3. Peaks reach roughly 150 kW under both schemes but at different times.
+- source_image: 95002_images/image_000005_ca8b2c7a4dbd50723762d9c95dfd93aa5930fadebf843946c42eaf7f66bb198a.png
+  source_image_sha256: 5974a61753cf78c88bcde8f521cc89a28e5ab741fd165ddd46d64e9f83b75985
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Two-panel time series of backup heating power with heating setpoint and outdoor air temperature,
+    Cody WY
+  description: |-
+    Figure 3: two time-series panels for the Cody, Wyoming heating peak week (Jan 29-Feb 5). Left y-axis Power (kW) 0-160, right axis Temperature (deg F). Series: heat pump backup heating power (blue), outdoor air temperature (dashed green), and heating setpoint (dashed orange, right axis). Panel (a) is the original setbacks, whose setpoint shows a nightly sawtooth; (b) is the reduced setbacks, flatter. Backup peaks approach 130 kW in both.
+- source_image: 95002_images/image_000006_0c76ebd95de266e009e29567adb82a3b14cbf5d0b0e35cc2a0a1a68aed28bb44.png
+  source_image_sha256: f10ae320fad4cdcb7ed7aa3a7ed352fd3755f167fb8d31a111af373106c5d4d1
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: 'Two panels: whole-building demand time series, and daily total and heating energy for the two
+    setback cases'
+  description: |-
+    Figure 4: two panels for the Cody, Wyoming model. (a) Line chart of whole-building demand, y-axis Power (kW) 0-180, Feb 1-5, comparing reduced setbacks (blue) and original setbacks (dashed orange); peaks reach roughly 180 kW and 170 kW respectively. (b) Grouped bar chart, y-axis Energy consumption (kWh) 0-1750+, for Feb 1-4, with total and heating-only series under reduced and standard setbacks. Reduced setbacks raise both.
+- source_image: 95002_images/image_000007_c3aa8cb85ca7ad795e0e23be9f493644cda76ddeb2f5722b386f1ce3e782583e.png
+  source_image_sha256: 973fa3154d712f1a9a4dc9e74e71c2bb8641cec9c33eb8ea86e6058115fa0148
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Two-panel time series of heat pump compressor heating power, reduced vs original setbacks, Cody
+    WY
+  description: |-
+    Figure 5: two time-series panels of heat pump compressor heating power for Cody, Wyoming, with reduced setbacks (dashed orange) and original setbacks (blue). Panel (a) covers the heating peak week Jan 29-Feb 5 on a y-axis of 0-40 kW, with output at zero Feb 1-3 while outdoor air sits below the 0 deg F lockout. Panel (b) covers a milder week (Jan 8-15) on 0-17 kW and adds outdoor air temperature.
+- source_image: 95002_images/image_000008_f7a6a06bf2009c6646963e7dbd0bbaa0d93bfb9fd153aded247cf638c05f31dc.png
+  source_image_sha256: 0d5ff95282f431fee8ce45b13b81a278ca65c078724ba9d275442b42c8241ad5
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Histogram of compressor heating power draw hours per year, original vs reduced setbacks, Cody
+    WY
+  description: |-
+    Figure 6: overlaid histogram, x-axis Compressor heating power draw (kW) 0-40, y-axis Hours per year 0-1400, with Reduced Setbacks (blue) and Original Setbacks (orange) bars. Both distributions are dominated by the lowest bin at roughly 1350 hours and then decay; the reduced-setback case holds more hours across the 2-15 kW range, reflecting more hours of compressor heating operation.
+- source_image: 95002_images/image_000009_e42779a3db54df3caa09320cd5392d1f1a6f7da5a280bfe4364aad30787ad307.png
+  source_image_sha256: c923600d2f1bc4b71e832fb5d293d78f2f61de83285fd86ca33a45ceca4c0f75
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Histogram of supplemental heating power draw hours per year, original vs reduced setbacks, Cody
+    WY
+  description: |-
+    Figure 7: overlaid histogram, x-axis Supplemental heating power draw (kW) 0-100, y-axis Hours per year 0-250, with Reduced Setbacks (blue) and Original Setbacks (orange) bars. The lowest bin dominates at about 245 hours reduced versus 215 original, both tails thin out above 40 kW, and the original-setback case holds more hours in the 5-40 kW band.
+- source_image: 95002_images/image_000010_4042358f5997764499bd3a15e0332435a37c42722f9e7a8bfb9e82f56c656f1d.png
+  source_image_sha256: 34c8d0eabbe81ab07be66c0756fcda3f71d54c7f03953e0155ef65ba53bab26f
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of monthly building-level peak demand, standard vs reduced setbacks, Cody WY
+  description: |-
+    Figure 8: grouped bar chart, x-axis calendar months January through December, y-axis Demand (kW) 0-175, with Std. Setback (blue) and Red. Setback (orange) bars for the Cody, Wyoming model. Winter is highest, with January and February near 170-175 kW. Reduced setbacks lower peak demand in most months, most visibly October, November, and March. See Table 4 for monthly values and percent reductions.
+- source_image: 95002_images/image_000011_b4bd8a50f9072e1ebbd2dca323cbc4e1f44c18dcaeacd0c4933dd390c99e0a92.png
+  source_image_sha256: 4c3df80143e77b225c63f151be7965e882fbf4a2a32f93a68db6551b59d085e5
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Time series of baseline vs measure heating setpoint for Phoenix during the coldest week
+  description: |-
+    Figure 9: time-series line chart, y-axis Temperature (deg F) 58-68, x-axis Jan 8-15, the Phoenix week with the coldest outdoor air temperature. Two series: Htg Setpoint-Baseline (solid orange), dropping nightly to about 59 deg F, and Htg Setpoint-Measure (dashed blue), dropping only to about 65 deg F. The measure narrows the unoccupied setback from 8 deg F to 2 deg F.
+- source_image: 95002_images/image_000012_49245cd1695e16af579107187eb2db2525e7611d7162550c471630b2c321df57.png
+  source_image_sha256: b233af322a1602a91e558132bc2e48f5e0781dbe6e6c01ec467d4e77aee9993a
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Time series of heat pump compressor and backup heating power with outdoor air temperature, Phoenix
+  description: |-
+    Figure 10: time-series chart for the Phoenix model under the original setbacks approach, Jan 8-15. Left y-axis Power (kW) 0-35, right axis Temperature (deg F) 35-65. Series: heat pump compressor heating power (blue), backup heating power (orange, flat at zero), and outdoor air temperature (green). Compressor power spikes to 25-35 kW during each morning warm-up; supplemental heat is never called.
+- source_image: 95002_images/image_000013_aed2e7ec8c02262b3e30399dc98401649b1184d4b7d0fa1608463ae1a8ff27c5.png
+  source_image_sha256: 7a9824a733b78bfd829bf3cfb75c1014e2e7e425f45085ced1d6d9a55b4d51c4
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of monthly building-level peak demand with and without setback reduction, Phoenix
+  description: |-
+    Figure 11: grouped bar chart, x-axis months January through December, y-axis Demand (kW) 0-250, with Std. Setback (blue) and Red. Setback (orange) bars for the Phoenix model. Peaks are cooling-driven, rising from about 80-95 kW in winter to roughly 220-235 kW in June through August. The two setback cases are nearly identical in every month.
+- source_image: 95002_images/image_000014_2bca858e45d0016d43a7b2906013458ebbcccbdbcb7cd542d1073723d6b0b0c5.png
+  source_image_sha256: c3fd32702ac2836c7901ecfbf73b1c16fd286e6bd3cf160cdb7d7703a1eb54e6
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar chart of annual site energy consumption by end use and fuel, baseline vs HP-RTU scenarios
+  description: |-
+    Figure 12: stacked column chart, y-axis Annual Energy Consumption (TBtu) 0-4865, for the total building stock including buildings not applicable to the measure. Three bars: Baseline 4865, HPRTU_Std_Perf 4516, and HPRTU_Reduced_Setback 4537, each segmented by end use crossed with fuel per the legend. The reduced setbacks give back about 21 TBtu of the standard-setback savings. See Table ES-2 for per-end-use values.
+- source_image: 95002_images/image_000015_521168a382f3594dfd44275439e1b91df6e5afdcd9069966ef12cfde4e935497.png
+  source_image_sha256: 25b03e9caaff275a7f4851c5acf6d98e81d72e74a4be69dec017a0a87866b2f8
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar chart of annual site energy for applicable buildings only, baseline vs HP-RTU scenarios
+  description: |-
+    Figure 13: stacked column chart, y-axis Annual Energy Consumption (TBtu) 0-1890, restricted to buildings applicable to the measure. Bars are Baseline 1890, HPRTU_Std_Perf 1541, and HPRTU_Reduced_Setback 1562, segmented by end use and fuel per the legend. Savings against baseline are roughly 18% with standard setbacks and 17% with reduced setbacks. See Table ES-2.
+- source_image: 95002_images/image_000016_176a4bf85d9535ba435381918f445296220ae969bfff8691d537d4d32d1bb776.png
+  source_image_sha256: 9f545f01f74437778e5f737ad9ebd4c87405fec8f121f8d26b278cc22d09a0e8
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel stacked bar chart of annual utility bill under max, mean, and min electricity rates
+  description: |-
+    Figure 14: three-panel stacked bar chart, y-axis Annual Utility Bill (Billion USD, 2022), one panel each for the max, mean, and min electricity rate. Every panel holds Baseline, HPRTU_Std_Perf, and HPRTU_Reduced_Setback bars segmented by electricity, natural gas, propane, and fuel oil. Both measure scenarios cut the bill 3%-4% versus baseline - 127 to 122 under the mean rate.
+- source_image: 95002_images/image_000017_589002358bd63315c7f171bd1f1e129186272001119db5a43859bed95a9091cb.png
+  source_image_sha256: 4d37607368726ec43fcb0acce816e40e0b5b8176add627175e2863fac1019746
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Histogram of utility bill savings with reduced setbacks relative to standard setbacks, mean rate
+  description: |-
+    Figure 15: histogram, x-axis Utility bill savings with reduced setbacks relative to standard setbacks (-15% to 15%), y-axis Percent of samples 0-55%, under the mean electricity bill. The mode sits immediately below 0% at about 55% of samples, with roughly 28% in the adjacent bin and a thin negative tail past -10%. Almost no models gain bill savings from the setback reduction.
+- source_image: 95002_images/image_000018_041137d39dd8c304d424287611a5d7f511d8b33dae77473e2d0f6429aad8dfda.png
+  source_image_sha256: 5d53098574ba4e83ad55b792573b456cb9117e41299414e3243fd8b979559ef4
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Scatter of utility bill savings fraction vs electricity savings fraction with fitted trend line
+  description: |-
+    Figure 16: scatter plot, x-axis Electricity savings fraction (about -0.30 to 0.07), y-axis Utility bill savings fraction (about -0.2 to 0.5), for buildings with at least a 1% winter demand reduction under reduced setbacks. A red least-squares line is annotated y = 0.60x + 0.01 with R-squared = 0.53. Bill savings track electricity savings positively but with wide scatter.
+- source_image: 95002_images/image_000019_41c815cd8ef5129f1b758626f54d69870ab3f3158652d1c3248e98fb050e98b0.png
+  source_image_sha256: 9301eed64b07e16a76b4b39a6ce38bd6fe881fe0efe49fd72a6a00cc889ef30e
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Histogram of reduction in maximum daily winter demand through reduced setbacks vs standard setbacks
+  description: |-
+    Figure 17: histogram, x-axis Reduction in maximum daily winter demand compared with standard setbacks (-20% to 20%), y-axis Percent of samples 0-30%. The distribution centers just above 0%, peaking near 29% of samples, with a longer positive (savings) tail out to 20% and a short negative tail. Most applicable models see a small reduction; a minority see a small penalty.
+- source_image: 95002_images/image_000020_139354458a760284f035493a1bb950b5b668a70d351a3dc8dcb91d3cf586acb8.png
+  source_image_sha256: bdcddc58b54f74aef6f5b10868fab5e2298d2038e1241f41a3e7b95c051a07c3
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Histogram of reduction in demand charges through reduced setbacks compared with standard setbacks
+  description: |-
+    Figure 18: histogram, x-axis Reduction in demand charges compared with standard setbacks (-20% to 20%), y-axis Percent of samples 0-60%. A single bin just above 0% holds about 59% of samples, roughly 17% falls in the next bin up, and about 10% sits in the -5% to 0% range. The pattern follows Figure 17 at smaller magnitudes.
+- source_image: 95002_images/image_000021_2edce2cc7bfe4643a1def7b2d70a88f9e4cac49a10466e8c443632c54b588f30.png
+  source_image_sha256: 0350180c2d3c73bdaefa452482ed31999caf2c677800b9a75c219627fe1793f2
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel stacked bar chart of annual CO2e emissions under three electricity grid scenarios
+  description: |-
+    Figure 19: three-panel stacked bar chart, y-axis Annual Emissions (MMT CO2e), one panel per grid scenario (eGRID 2021, LRMER High RE Cost 15, LRMER Low RE Cost 15). Each holds Baseline, HPRTU_Std_Perf, and HPRTU_Reduced_Setback bars split by electricity, natural gas, propane, and fuel oil. Reduced-setback reductions run 4%-7%: 452 to 432, 346 to 326, and 245 to 227.
+- source_image: 95002_images/image_000022_cd736b36cd705534a39cdae1f8927cb100c9ca1c4f110a35ed035955e1511844.png
+  source_image_sha256: 941760d224464fce596776de7d483a2ff2fc70039d07fc8f0ed21cb6179961bd
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin and box plots of percent site energy savings by end use and fuel, reduced-setback scenario
+  description: |-
+    Figure 20: horizontal violin-and-box plots titled Upgrade 9.0: HPRTU_Reduced_Setback (unweighted), x-axis Percent Site Energy Savings by End Use (-160% to 100%). Rows are end-use/fuel pairs with sample sizes, from Other Fuel Water Systems (n=151) to Electricity Cooling (n=34279). Fossil heating rows cluster near 100% savings, while Electricity Heating (n=14060) and Electricity Fans (n=34336) straddle zero with long negative tails.
+- source_image: 95002_images/image_000023_598db99918849e382f6406385bab8769f7f5c4d4cfdd777adec5342c7e26a750.png
+  source_image_sha256: 2eeb958c70c7335718cbcd0085b86bf1af845523186d9ad22c768134acc67c76
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin and box plots of percent site energy savings by end use and fuel, standard-setback scenario
+  description: |-
+    Figure 21: the Figure 20 companion for Upgrade 4.0: HPRTU_Std_Perf (unweighted), on the same axes - x-axis Percent Site Energy Savings by End Use (-160% to 100%) - with the same end-use/fuel rows and sample sizes. Distributions are very close to the reduced-setback case; Electricity Heating (n=14091) and Electricity Fans (n=34349) again center near or below zero.
+- source_image: 95002_images/image_000024_85bd62e887e73e7d4f99a1bd96549498bc58a8b329cb6be9a5c698de758ffb58.png
+  source_image_sha256: e937f486cfe356bcbeb0fbb4abe8027070833c15190ee8feade7a87e6b5e4340
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin and box plots of percent site energy savings by ASHRAE climate zone, reduced-setback scenario
+  description: |-
+    Figure 22: horizontal violin-and-box plots titled Upgrade 9.0: HPRTU_Reduced_Setback (unweighted), x-axis Percent Site Energy Savings by Climate Zone (-20% to 60%). One row per ASHRAE climate zone with sample sizes, 1A (n=794) through 8 (n=242). Medians sit roughly between 10% and 25% in every zone, and the colder zones carry the longer negative tails.
+- source_image: 95002_images/image_000025_004b03e035a626060552ef38d949811ede3224f6a5b484346992f699d61771ea.png
+  source_image_sha256: 21faa54cf1825a94fc97c0997c1a25bc18078fc0cdcdbb8ae927305d7db28e98
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin and box plots of percent site energy savings by ASHRAE climate zone, standard-setback
+    scenario
+  description: |-
+    Figure 23: the Figure 22 companion for Upgrade 4.0: HPRTU_Std_Perf (unweighted), x-axis Percent Site Energy Savings by Climate Zone (-10% to 60%), with the same climate-zone rows and sample sizes. Medians again land near 10%-25% per zone, but the negative tails are shorter than under reduced setbacks - the setback reduction costs a small amount of energy savings.
+- source_image: 95002_images/image_000026_9668730c6bba1ab686ddc7ce02195bb8f7f86d6be2e1b5969350bc63c41e61fb.png
+  source_image_sha256: dd5239819ad7e9e47b5d22481d83027545160472df21bad724c7d5e0ff773fe6
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Two-panel box plots of maximum daily January peak demand by building type, reduced vs standard
+    setbacks
+  description: |-
+    Figure 24: two panels of paired box-and-whisker plots, y-axis Maximum Daily Peak Demand Jan (kW) 0-1800, with a Red. Setback and Std. Setback pair per building type - (a) full-service restaurant, hospital, large office, medium office, outpatient, primary school; (b) quick-service restaurant, retail standalone, retail stripmall, secondary school, small office, warehouse. Labeled medians fall slightly under reduced setbacks (primary school 212 vs 234, secondary school 391 vs 419).
+- source_image: 95002_images/image_000027_342878395d284c1ef4141bf6dfa8138c157bdaa8bbf5b1ce2dba47dbf6929946.png
+  source_image_sha256: 4ee370e156fbdee982499053b23eee153905d92b09dcb395d883423d6abfffc7
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Two-panel box plots of maximum daily January peak demand by climate zone, reduced vs standard
+    setbacks
+  description: |-
+    Figure 25: two panels of paired box plots, y-axis Maximum Daily Peak Demand Jan (kW) 0-900, one Red. Setback / Std. Setback pair per climate zone - (a) zones 1A-4B, (b) zones 4C-8. Labeled quartiles and medians shift slightly lower under reduced setbacks in most zones (4C 107 vs 111 at the 75th percentile), while zones 7 and 8 show small increases.
+- source_image: 95002_images/image_000028_33eba42a447aec29a776be160419b8ac0bd1f21ca6e702704b1e87d9ccf1b48d.png
+  source_image_sha256: 9242ce3f3250892846b265cb55e9e7e1c872c45cca294c8d6c96b40145837e0f
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Two-panel box plots of average maximum daily winter demand by climate zone, reduced vs standard
+    setbacks
+  description: |-
+    Figure 26: two panels of paired box plots, y-axis Average Maximum Daily Demand Winter (kW) 0-400, one Red. Setback / Std. Setback pair per climate zone - (a) zones 1A-4B, (b) zones 4C-8. Labeled 75th percentiles, medians, and 25th percentiles are slightly lower under reduced setbacks in nearly every zone (zone 7 129 vs 138 at the 75th percentile), including the coldest ones.
+- source_image: 95002_images/image_000029_8f0e65cf02658b174d854b0a7f6cec41fedf4f82d8db74cf9cf8f4039242c4ad.png
+  source_image_sha256: 15000f3293befb2760d0ea1eade69db2b3a5a7ecc98b17cd2efde52c70a873ea
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Box plots of average timing of maximum daily winter peak by climate zone 1A-4A, reduced vs standard
+    setbacks
+  description: |-
+    Figure 27(a): paired box plots, y-axis Average Time of Maximum Daily Peak as hour of day (4-22), one Red. Setback / Std. Setback pair per climate zone for zones 1A through 4A, with quartiles and medians labeled. Timing shifts slightly later under reduced setbacks in most zones (3B median 10.49 vs 10.28), by half an hour or less. Panel (b), climate zones 4B-8, is absent from this extraction.
+- source_image: 95002_images/image_000030_bf7e94a722c9e7c0113f9a6d7e1a459f8d34902b2741f62313ddcbeb93a4751d.png
+  source_image_sha256: 463317ea3a2e4b713be54a703455c1e959985200937fbd8412a72276bb52e892
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Histogram of January peak demand reduction for buildings with early winter peaks
+  description: |-
+    Figure 28(a): histogram in blue, x-axis January peak demand reduction (percent, -20% to 30%), y-axis Percent of samples 0-25%, for buildings whose average winter peak falls before 10 a.m. (legend: Early peak). The mode just above 0% holds about 24.5% of samples, with a pronounced positive tail running past 20%.
+- source_image: 95002_images/image_000031_0be45c9e1737c2ec3d64fadfdea1a3757bcbf510052c7561219d32d1b4ac69f0.png
+  source_image_sha256: 8b2570b2fdda1e1eac40e911a2f39f1b0f8c2bc3b1005b6db2795b80cc10ebf3
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Histogram of January peak demand reduction for the full applicable sample
+  description: |-
+    Figure 28(b): histogram in orange, on the same axes as panel (a) - x-axis January peak demand reduction (percent, -20% to 30%) - but y-axis Percent of samples 0-35%, for the full applicable sample (legend: All). The near-zero mode is taller at about 35% and the positive tail is thinner, so the full sample sees smaller January peak reductions than the early-peak subset.
+- source_image: 95002_images/image_000032_dfbf019bc545314ecef57e215ac5c6553159d8a31d69977e8e2f3be5fda42634.png
+  source_image_sha256: 84ec9ab7433ab748bb8e21591d03338589baa05f8f982ff70d5de1515eb8cebf
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Histogram of winter peak demand reduction for buildings with early winter peaks
+  description: |-
+    Figure 29(a): histogram in blue, x-axis Winter peak demand reduction (percent, -15% to 20%), y-axis Percent of samples 0-20%+, for buildings with average winter peaks before 10 a.m. (legend: Early peak). The mode just above 0% reaches about 21%, with a long positive tail out to 20%. Seasonal reductions are more muted than the January-only reductions in Figure 28.
+- source_image: 95002_images/image_000033_8d6b63e3397ae24f23231ed6443ea2621b67e10cc0b67a9fdf110ef091e13260.png
+  source_image_sha256: 09042760178fefdb3f86e4392afdf26671deb9eaa2ff521a5823323d3113b2e6
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Histogram of winter peak demand reduction for the full applicable sample
+  description: |-
+    Figure 29(b): histogram in orange, x-axis Winter peak demand reduction (percent, -15% to 20%), y-axis Percent of samples 0-30%, for the full applicable sample (legend: All). The near-zero mode reaches about 29% and the positive tail is thinner than in panel (a), indicating smaller average winter peak reductions across the whole sample.
+- source_image: 95002_images/image_000034_80b842bcc02543903d7bfd97653b484a0110e22a2fc8e7ab4af4fc1a55b2c896.png
+  source_image_sha256: d79fc98a366527a292814fad347bf93587a56a5746cfe12e510db27fe6fb910e
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of annual site natural gas consumption by census division, baseline vs measure
+  description: |-
+    Figure A-1: grouped bar chart, x-axis Census Division Name (New England through Pacific), y-axis Natural Gas Total Energy Consumption (TBtu) 0-400, with Baseline (dark) and HPRTU_Reduced_Setback (light) bars. East North Central is the largest, falling from roughly 385 TBtu to about 270 TBtu, and every division shows a reduction. See Table ES-2 for stock totals.
+- source_image: 95002_images/image_000035_e37654213efb737a05c30baa40927b7877aafbc1b3ccf563e81a6d3f35d254b5.png
+  source_image_sha256: c54f7780c8c38b57bfeb64755313740d30b7bfd2961916ddf1f018f2e512aab5
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of annual site natural gas consumption by ComStock building type, baseline
+    vs measure
+  description: |-
+    Figure A-2: grouped bar chart, x-axis ComStock Building Type, y-axis Natural Gas Total Energy Consumption (TBtu) 0-230, with Baseline (dark) and HPRTU_Reduced_Setback (light) bars. Retail stripmall and secondary school are the largest baseline consumers at roughly 225 TBtu each; warehouse shows one of the largest proportional drops, while hospital and large office are essentially unchanged.
+- source_image: 95002_images/image_000036_a1dccd41145fa4c70a6b30b1e112ab91e9ed7c37f07ea9a94666f64cd3e276a2.png
+  source_image_sha256: f600f1e43c472a115f98c193de7febf047f6df8aa485da2cbdce1b412ce24a6f
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of annual site electricity consumption by ComStock building type, baseline
+    vs measure
+  description: |-
+    Figure A-3: grouped bar chart, x-axis ComStock Building Type, y-axis Electricity Total Energy Consumption (TBtu) 0-450, with Baseline (dark) and HPRTU_Reduced_Setback (light) bars. Retail stripmall (about 450 TBtu) and warehouse (about 400 TBtu) are the largest. Changes go both directions and are small - the measure raises electricity use slightly for some building types and trims it for others.
+- source_image: 95002_images/image_000037_f102443fcfdb28c1c04eb8f2de4be5d44d640900b68810d7fe94ad22f473ef8a.png
+  source_image_sha256: c34e1e5492b6fdacda46dc2fd5ae9b88ad58659f5edfc6636b101100ec0ca95a
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of annual site electricity consumption by census division, baseline vs measure
+  description: |-
+    Figure A-4: grouped bar chart, x-axis Census Division Name, y-axis Electricity Total Energy Consumption (TBtu) 0-700, with Baseline (dark) and HPRTU_Reduced_Setback (light) bars. South Atlantic is the largest at roughly 685 TBtu, followed by Pacific and West South Central near 500 and 470. Baseline and measure differ by only a few percent in every division.
+- source_image: 95002_images/image_000038_8f990ec48c1275512dee87c307b4e0adaa12caf5af1bce8eda0235fcf4fa4be0.png
+  source_image_sha256: fec50ab27cbfc11d2912616be1d8a059800e5e97570ade09dfa6c7c364d9abf5
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel box plots of mean electricity bill by climate zone, reduced vs standard setbacks
+  description: |-
+    Figure A-5: three stacked panels of paired box plots, y-axis Electricity Bill Mean (Billion USD) 0-0.0045, one Red. Setback / Std. Setback pair per climate zone. The top panel covers zones 1A-4A with 25th percentiles labeled, the middle repeats zones 4B-8 with 25th percentiles, and the bottom shows zones 4B-8 with 75th percentiles. Paired values are near-identical (4C 0.00113 vs 0.00112).
+- source_image: 95002_images/image_000039_41ac3c158b9187969b25e1fc01301eb5a2b5bb46a5940b2a8be8fbd532ff34e6.png
+  source_image_sha256: f32ceca2375f35ce24f7aad3e3a4aaf42fc44d50e8e0b10b47ba3a751fbb4858
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Box plots of maximum daily January peak demand for selected building types, reduced vs standard
+    setbacks
+  description: |-
+    Figure A-6: paired box-and-whisker plots, y-axis Maximum Daily Peak Demand Jan (kW) 0-1800, one Red. Setback / Std. Setback pair for six building types (full-service restaurant, hospital, large office, medium office, outpatient, primary school), with 25th and 75th percentiles labeled. Reduced setbacks lower the labeled 75th percentiles in every type (large office 609 vs 677, primary school 356 vs 376).

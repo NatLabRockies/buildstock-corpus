@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "comstock_amy2018_2025_release_3",
-  "generated_utc": "2026-08-21T20:04:09.910161+00:00",
+  "generated_utc": "2026-08-21T20:17:07.395145+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -629,7 +629,52 @@
           "title": "Reduced Thermostat Setbacks for Heat Pumps",
           "input_sha256": "1b84b12cbe3c61950f6f9047c630d639e4878bde459a240c05a9f3f2f58330cd",
           "output_path": "upgrade_measures/measure_pdfs/95002.md",
-          "output_sha256": "d3c5af1909cb923d804d7d7a48a64ce2680911098b4f88363dc711eab1b45ab0"
+          "output_sha256": "aff646a933b0dcb0a5f4dbabc5afb32c6b3b93d1e673eb003d1c2253dec6d8be",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95002.yaml",
+            "sha256": "d13133329b9ffe3d583be3a97a5bfd6e97c92d4e36f357ed12fa0163dd502dfd",
+            "tables_applied": [],
+            "figures_applied": [
+              "95002_images/image_000002_8d298005c929e765a9384828a7d5493f94b983fa9eeeb30739443db2429a9f17.png",
+              "95002_images/image_000003_72335d4b8be6daaff5be2a7ee0648015f2d0c06e9eea5c3f89d318610604be49.png",
+              "95002_images/image_000004_3b35d73c648e77b471a3be77859dd49989cc91605b00392ef7e0559a7a363f20.png",
+              "95002_images/image_000005_ca8b2c7a4dbd50723762d9c95dfd93aa5930fadebf843946c42eaf7f66bb198a.png",
+              "95002_images/image_000006_0c76ebd95de266e009e29567adb82a3b14cbf5d0b0e35cc2a0a1a68aed28bb44.png",
+              "95002_images/image_000007_c3aa8cb85ca7ad795e0e23be9f493644cda76ddeb2f5722b386f1ce3e782583e.png",
+              "95002_images/image_000008_f7a6a06bf2009c6646963e7dbd0bbaa0d93bfb9fd153aded247cf638c05f31dc.png",
+              "95002_images/image_000009_e42779a3db54df3caa09320cd5392d1f1a6f7da5a280bfe4364aad30787ad307.png",
+              "95002_images/image_000010_4042358f5997764499bd3a15e0332435a37c42722f9e7a8bfb9e82f56c656f1d.png",
+              "95002_images/image_000011_b4bd8a50f9072e1ebbd2dca323cbc4e1f44c18dcaeacd0c4933dd390c99e0a92.png",
+              "95002_images/image_000012_49245cd1695e16af579107187eb2db2525e7611d7162550c471630b2c321df57.png",
+              "95002_images/image_000013_aed2e7ec8c02262b3e30399dc98401649b1184d4b7d0fa1608463ae1a8ff27c5.png",
+              "95002_images/image_000014_2bca858e45d0016d43a7b2906013458ebbcccbdbcb7cd542d1073723d6b0b0c5.png",
+              "95002_images/image_000015_521168a382f3594dfd44275439e1b91df6e5afdcd9069966ef12cfde4e935497.png",
+              "95002_images/image_000016_176a4bf85d9535ba435381918f445296220ae969bfff8691d537d4d32d1bb776.png",
+              "95002_images/image_000017_589002358bd63315c7f171bd1f1e129186272001119db5a43859bed95a9091cb.png",
+              "95002_images/image_000018_041137d39dd8c304d424287611a5d7f511d8b33dae77473e2d0f6429aad8dfda.png",
+              "95002_images/image_000019_41c815cd8ef5129f1b758626f54d69870ab3f3158652d1c3248e98fb050e98b0.png",
+              "95002_images/image_000020_139354458a760284f035493a1bb950b5b668a70d351a3dc8dcb91d3cf586acb8.png",
+              "95002_images/image_000021_2edce2cc7bfe4643a1def7b2d70a88f9e4cac49a10466e8c443632c54b588f30.png",
+              "95002_images/image_000022_cd736b36cd705534a39cdae1f8927cb100c9ca1c4f110a35ed035955e1511844.png",
+              "95002_images/image_000023_598db99918849e382f6406385bab8769f7f5c4d4cfdd777adec5342c7e26a750.png",
+              "95002_images/image_000024_85bd62e887e73e7d4f99a1bd96549498bc58a8b329cb6be9a5c698de758ffb58.png",
+              "95002_images/image_000025_004b03e035a626060552ef38d949811ede3224f6a5b484346992f699d61771ea.png",
+              "95002_images/image_000026_9668730c6bba1ab686ddc7ce02195bb8f7f86d6be2e1b5969350bc63c41e61fb.png",
+              "95002_images/image_000027_342878395d284c1ef4141bf6dfa8138c157bdaa8bbf5b1ce2dba47dbf6929946.png",
+              "95002_images/image_000028_33eba42a447aec29a776be160419b8ac0bd1f21ca6e702704b1e87d9ccf1b48d.png",
+              "95002_images/image_000029_8f0e65cf02658b174d854b0a7f6cec41fedf4f82d8db74cf9cf8f4039242c4ad.png",
+              "95002_images/image_000030_bf7e94a722c9e7c0113f9a6d7e1a459f8d34902b2741f62313ddcbeb93a4751d.png",
+              "95002_images/image_000031_0be45c9e1737c2ec3d64fadfdea1a3757bcbf510052c7561219d32d1b4ac69f0.png",
+              "95002_images/image_000032_dfbf019bc545314ecef57e215ac5c6553159d8a31d69977e8e2f3be5fda42634.png",
+              "95002_images/image_000033_8d6b63e3397ae24f23231ed6443ea2621b67e10cc0b67a9fdf110ef091e13260.png",
+              "95002_images/image_000034_80b842bcc02543903d7bfd97653b484a0110e22a2fc8e7ab4af4fc1a55b2c896.png",
+              "95002_images/image_000035_e37654213efb737a05c30baa40927b7877aafbc1b3ccf563e81a6d3f35d254b5.png",
+              "95002_images/image_000036_a1dccd41145fa4c70a6b30b1e112ab91e9ed7c37f07ea9a94666f64cd3e276a2.png",
+              "95002_images/image_000037_f102443fcfdb28c1c04eb8f2de4be5d44d640900b68810d7fe94ad22f473ef8a.png",
+              "95002_images/image_000038_8f990ec48c1275512dee87c307b4e0adaa12caf5af1bce8eda0235fcf4fa4be0.png",
+              "95002_images/image_000039_41ac3c158b9187969b25e1fc01301eb5a2b5bb46a5940b2a8be8fbd532ff34e6.png"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/95003.pdf",
@@ -1993,16 +2038,16 @@
   ],
   "counts": {
     "documents": 118,
-    "chunks": 7995,
+    "chunks": 8021,
     "by_type": {
       "latex": 19,
       "markdown": 40,
       "measures": 6,
       "pdf": 53
     },
-    "overlay_documents": 53,
+    "overlay_documents": 54,
     "overlay_tables": 57,
-    "overlay_figures": 583,
+    "overlay_figures": 621,
     "overlay_text_repairs": 1
   },
   "crosswalk": {
