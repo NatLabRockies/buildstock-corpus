@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "comstock_amy2018_2025_release_3",
-  "generated_utc": "2026-08-21T20:55:50.425102+00:00",
+  "generated_utc": "2026-08-21T21:12:00.327884+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -1355,12 +1355,27 @@
           "title": "Wall and Roof Insulation and New Windows",
           "input_sha256": "c8c286e4939049366b50b203a8f6cac0f4201ca4d3aed2219a2089fefa45f2f3",
           "output_path": "upgrade_measures/measure_pdfs/86599.md",
-          "output_sha256": "a225225f12ce0e2b00242196001b93bf1cce393291a2d8f564c608798925c996",
+          "output_sha256": "c8d657bd3016de529b27990dea499e780b3fc2e56b813bcda6833915fcbe8e05",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86599.yaml",
-            "sha256": "b81dcf2c5f50d5eb72dc1b29e51ab09eb09009f3eae7d294ee811da69f5d27ad",
+            "sha256": "6637915335c4c58367a578afdde7e6ecc8dfef3d78414ec20a428a74a4018844",
             "tables_applied": [
               "Table 2"
+            ],
+            "figures_applied": [
+              "86599_images/image_000002_b479069287e3934bef711537d0e12cfa397a77e9190a6eb6024387dee4a7c64a.png",
+              "86599_images/image_000003_6853482632576de54cbf7af146b9fb16811e8ee7fe7adc9c7003bd1bafd08ab3.png",
+              "86599_images/image_000004_55123a785ab3a4b849b09a753dc86c9a0a131ae7a14b349bdc5b56ddefc79d69.png",
+              "86599_images/image_000005_a59e753ec28c2c2184da52e82edb775244dbc094bdd85abd3d3d85eef3466e60.png",
+              "86599_images/image_000006_d30bc27f0853a98daa437173073ccf1e8fb34746968992c42b5d4c6dadacfd04.png",
+              "86599_images/image_000007_ef113aecfaea2636221ff21c33a0c5821eb76a6025864fcacbf8ab8b40d76505.png",
+              "86599_images/image_000008_8db3246416380a5125bb535bfc0e6303196c6c7c4dddbdc1190866e229b5fc37.png",
+              "86599_images/image_000009_8744dfcbd1957939f5ff3db69e13c49fef3cb622c2842196bc14780f7c907043.png",
+              "86599_images/image_000010_ab15bb29bff3c4578d0187407efba0e499913f9438bf56c398b4eb257317bbf1.png",
+              "86599_images/image_000011_85e105b586d6e0e31943d29ba96451071ae0d81e68b1829c5989ffd2ff79f10e.png",
+              "86599_images/image_000012_31b321de53419cddbfca82c30a8dbcede6826643db724430d8938180fdc2de36.png",
+              "86599_images/image_000013_0630db0d33c13ed76842257001e69e4994b1534801dbeb80388c6766d11a716f.png",
+              "86599_images/image_000014_b9eb656fa0bae0d11cf7c7f9de9312c488cfc7178abd6847a051adbedde3a406.png"
             ]
           }
         },
@@ -2186,7 +2201,7 @@
   ],
   "counts": {
     "documents": 118,
-    "chunks": 8029,
+    "chunks": 8036,
     "by_type": {
       "latex": 19,
       "markdown": 40,
@@ -2195,7 +2210,7 @@
     },
     "overlay_documents": 57,
     "overlay_tables": 57,
-    "overlay_figures": 748,
+    "overlay_figures": 761,
     "overlay_text_repairs": 1
   },
   "crosswalk": {
