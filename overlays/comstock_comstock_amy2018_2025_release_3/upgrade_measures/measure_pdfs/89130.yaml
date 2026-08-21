@@ -148,3 +148,145 @@ tables:
       | Rated Input (Btu/h) | 81,900 | 109,000 |
 
       All four product names are cut off mid-phrase in the source and are transcribed as printed. Each header cell also carries a product photograph and a fuel or voltage badge ("NATURAL GAS", "240 VOLTS"); neither is transcribed.
+
+# Hand-authored figure descriptions for measure_pdfs/89130.pdf (Batch E).
+#
+# 89130 documents the Electric Cooking Equipment measure. docling extracts every picture as a
+# bare ![Image](...) ref: the caption line usually survives above it, but the image itself is
+# invisible to retrieval. Each entry below rewrites the ref with a hand-written alt and injects
+# a description paragraph beneath it. Schema and depth budget:
+# overlays/FIGURE_DESCRIPTIONS_ROLLOUT.md (section 2.1 -- 40-70 words, alt <=120 chars, no
+# corroboration against body prose).
+#
+# Scope: the 16 images that are figures (Figures 1-16). Deliberately excluded:
+#   * indices 000000-000004 -- cover photos and the NREL logo;
+#   * indices 000006, 000008, 000010, 000012, 000014 and 000016 -- the rasterized equipment
+#     specification tables (Tables 2, 4, 6, 8, 10, 12), which the `tables:` block above already
+#     owns and anchors on by source_image. Nothing here overlaps them.
+#
+# QA notes (vision reads; confirm before treating as a release record):
+#   * Figure 12's caption reads "Percent site energy savings distribution for ComStock models
+#     with the Max Tech HVAC package applied by end use and fuel type" -- a copy-paste from
+#     another measure document. The chart's own title is "Upgrade 22: Electric Kitchen
+#     Equipment (unweighted)".
+#   * The charts label the scenario "Electric Kitchen Equipment" while the title and prose call
+#     the measure Electric Cooking Equipment. Entries that name a series use the chart's label.
+#   * Figures 1-6 are vendor product photographs and one annotated photo rather than data
+#     graphics, so their descriptions are short and point at the rated-power tables instead.
+#   * Figure 7's rotated x tick labels sit offset from their bars. The mapping used here puts
+#     full_service_restaurant and quick_service_restaurant at 0%, which is what the caption's
+#     CBECS caveat predicts, and hospital at the ~146% maximum.
+
+figures:
+- source_image: 89130_images/image_000005_0adceeca6ba97c45eda8dfa778a327c8af0782ab3a10f97ec67551887c8bb33a.png
+  source_image_sha256: 7aa71be499fc0129fca9e277212e0722b1e8699240ce5f7ed0cf1e409c5e45b7
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Photograph of a typical commercial underfired broiler on an open stainless base cabinet
+  description: |-
+    Figure 1: product photograph of a typical commercial underfired broiler - a stainless steel unit with a grated cooking surface above six burner controls, mounted on an open stainless base cabinet with a lower shelf. Reproduced from the 2015 DOE study cited as reference 8. Tables 1 and 2 give broiler rated input power and commercially available specifications.
+- source_image: 89130_images/image_000007_333e3c07f04d620aa5050bf87de3dba736c6d59ace2f219b8feadb29ed44689a.png
+  source_image_sha256: a602de06813370374a32dd11634c1437125b1972ff0e4493764032dff11bfa0d
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Cutaway diagram and interior photograph of a typical commercial open deep-fat fryer
+  description: |-
+    Figure 2: two-part illustration of a typical commercial open deep-fat fryer - a labeled cutaway showing the frypot, its tube-fired burners and the shortening level on the left, and a photograph looking down into the fryer's tube interior on the right. Reproduced from reference 8. Tables 3 and 4 give fryer rated input power and commercially available specifications.
+- source_image: 89130_images/image_000009_e7c7e5c91310ee625312971c87acf6030452cb8e3a910927a20bbb3cd41fda1d.png
+  source_image_sha256: 0424a88ed8db654faae30f1810bf3929611e83e546becb07548f3d698b324e1d
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Photograph of a typical commercial one-sided standard flat griddle with three burner knobs
+  description: |-
+    Figure 3: product photograph of a typical commercial one-sided standard griddle - a flat stainless steel cooking plate with a rear splash guard, a front grease trough and three burner control knobs. Reproduced from reference 8. Tables 5 and 6 give griddle rated input power and commercially available specifications.
+- source_image: 89130_images/image_000011_31914119785e831b3802fc656fd5e9740d5a795a705201f8f8138145382d665a.png
+  source_image_sha256: be77a6e91d8c2c4f80fb5c9db2701304c9e34739820eaaef4092936f860c2642
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Photograph of a typical commercial full-size convection oven with two glass doors
+  description: |-
+    Figure 4: product photograph of a typical commercial full-size convection oven - a stainless steel cabinet with two glass-windowed doors, a right-hand control panel and four legs. Reproduced from reference 8. Tables 7 and 8 give oven rated input power and commercially available specifications.
+- source_image: 89130_images/image_000013_2710d2a2b86893d1adf4a96145a2de4ec317cbf9b50825ac6f97fa386f7ceee9.png
+  source_image_sha256: ab49c2672d4906e56e22e95d1e44da1753f1bacf5f72517188c2c334fb1fa23a
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Photograph of a typical commercial range with six open burners above a standard oven
+  description: |-
+    Figure 5: product photograph of a typical commercial range - six open burners on top, a full-width oven with a hinged door below, and a side control knob. Reproduced from reference 8. Table 9 gives range rated input power and Table 10 the specifications for commercially available gas and induction ranges.
+- source_image: 89130_images/image_000015_8ab194fb619557cbdb82535a2e448de47a21d681f9d4ab13fa49d0e40d0ae874.png
+  source_image_sha256: 3115afaf9652fab7bfd961e5867cd8a0e0c6bdcae0e368d2fa12e4cd71c12f64
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Annotated photograph of a commercial atmospheric steamer labeling its compartments and boiler
+  description: |-
+    Figure 6: annotated photograph of a typical commercial atmospheric steamer - two stacked steam compartments above a cabinet, with arrows labeling "Steam Compartments" and "Boiler". Reproduced from reference 8. Tables 11 and 12 give steamer rated input power and commercially available specifications; Section 1.1.1.6 notes ASHRAE's values run well below the other three sources.
+- source_image: 89130_images/image_000017_20e74705323d9edf861029cfd41e31870472a213a8da158d00ff560ec7f715ab.png
+  source_image_sha256: 3c289a68a5a6460d3e80e1935a9bfefc31af224447d6916d03d5e09f037f09e8
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar chart of weighted stock percentage with food service by ComStock building type
+  description: |-
+    Figure 7: stacked bar chart of weighted stock percent by building type, each bar split into buildings with a snack bar, fast food, a cafeteria and a commercial kitchen, so totals can exceed 100%. Hospital is highest at about 146%, then strip mall near 90% (mostly fast food) and secondary school at 74%; the restaurant types read 0% by CBECS convention. Data from CBECS 2012.
+- source_image: 89130_images/image_000018_3ea9e2674e380a7d04a491ce9ca2f9f427749c1552b6dd5cd0c85ea19322d5a9.png
+  source_image_sha256: a1b8ddd8560eefdaec2a9fdcfb6ddc9b0288ab54df05a758f6859753a349a1c2
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Horizontal 100% stacked bar chart of cooking equipment mix by restaurant type
+  description: |-
+    Figure 8: horizontal 100% stacked bar chart titled Breakdown of Cooking Equipment by Restaurant Type, one row per restaurant type with segments for broilers, fryers, griddles, ovens, ranges and steamers. Fryers dominate the fish, chicken and donut rows, and several types carry no broilers or steamers at all. Section 2 notes these are equipment counts, not energy shares.
+- source_image: 89130_images/image_000019_25d21eb6e66dba2e40388aef90a20f9b09680773039a537fd0c7da7abe032464.png
+  source_image_sha256: d1ca1c56ae040a244e1bafeee65a66e119aa33a150a5f028fbd9ee503ae1f717
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Screenshot of an OpenStudio GasEquipment Definition object for a gas fryer
+  description: |-
+    Figure 9: screenshot of the OpenStudio OS:GasEquipment:Definition editor for the object gas_fryer_equipment_definition_bldg_quantity=1.0. The design level calculation method is EquipmentLevel with a design level of 48,100 W, watts per floor area and per person left blank, and fraction latent 0.1, radiant 0.2 and lost 0.7 - the values Table 14 assigns.
+- source_image: 89130_images/image_000020_e4bc0ebca437fd68caf71900da6793dfcf5f70c0ad79d353a26bca9b39feb14f.png
+  source_image_sha256: 3ee704cc80d15bf792036e8ca3040e4573e64f280c4fc6cc1cd998228e5d2055
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar chart of annual site energy consumption by end use and fuel, baseline vs upgrade
+  description: |-
+    Figure 10: stacked bar chart of annual site energy consumption in TBtu for the baseline and the Electric Kitchen Equipment scenario, each bar segmented by end use and fuel with the larger segments labeled. Totals fall 4,338 to 4,252 TBtu as interior equipment electricity rises 739.7 to 843.8 and the hatched natural gas equipment band nearly disappears. Section 5.2 lists the end-use savings.
+- source_image: 89130_images/image_000021_e9aceea7526afa54c6d103dd21fc4940a853c968d93dc526fc6e391227544e3c.png
+  source_image_sha256: 8f19e807d33988982d86b44a3ff8f98294134bb95257ec50fa606c7688ce2895
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel stacked bar chart of annual GHG emissions by grid scenario, baseline vs upgrade
+  description: |-
+    Figure 11: three stacked bar panels of annual GHG emissions in MMT CO2e - eGRID 2021, LRMER High RE Cost 15 and LRMER Low RE Cost 15 - each comparing baseline against Electric Kitchen Equipment. Totals fall 402 to 400 (-0%), 325 to 320 (-2%) and 240 to 232 (-3%): electricity rises in every scenario while natural gas drops 81 to 69. Section 5.3 gives the percentages.
+- source_image: 89130_images/image_000022_fb84a3d603cc52b6071c554add39856e3e91abc786856e6e8eb9623d60c1f050.png
+  source_image_sha256: f029170a76ebf5c602a58e654819281035a6bc7fa1233ff0ba8dc8a15dfadbe1
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin and box plots of percent site energy savings by end use and fuel type
+  description: |-
+    Figure 12: horizontal violin-and-box plots titled Upgrade 22: Electric Kitchen Equipment (unweighted), percent site energy savings on an x-axis from -160% to 100%, with seventeen end-use and fuel rows labeled by model count (natural gas interior equipment n=84,491; electricity interior equipment n=84,491). The gas equipment row sits near 100% savings while electricity equipment carries a wide penalty tail. Section 5.4 explains the residual gas.
+- source_image: 89130_images/image_000023_680a55de9fd25044bfbb9f882d3e3aae99ef46a1ce0bf009c3543374953642b9.png
+  source_image_sha256: a1e58fb00df7aab845478e071916b9e50a548ec0d7766bb5bd01c44cc2e5e7e5
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin plots of maximum daily peak timing by season, baseline vs Electric Kitchen Equipment
+  description: |-
+    Figure 13: horizontal violin plots of maximum daily peak timing by season - winter, summer, shoulder - with one distribution per scenario on an x-axis of hour of day 0 to 24. Each pair is nearly identical, centered near hour 13 to 14 in summer and shoulder and spread across hours 7 to 16 in winter. Section 5.5 attributes the flatness to unchanged schedules.
+- source_image: 89130_images/image_000024_4a71d7abd322156c9388dc98f35fd4010c3f84a99b30698691814d1793ed1547.png
+  source_image_sha256: c8caf6df1adfcd07a646d92380ce22bb64c2a5e74ef975b66d87166e21d70d1c
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel bar chart of median seasonal peak electricity intensity by building type
+  description: |-
+    Figure 14: three bar panels of median summer, winter and shoulder electricity peak in W/ft2, one baseline and Electric Kitchen Equipment pair per ComStock building type, every bar labeled. Every kitchen-bearing type rises in all three seasons - FullServiceRestaurant 12.97 to 16.21 in summer and 9.51 to 13.00 in winter - while kitchen-free types are unchanged. Section 5.5 notes winter changes most.
+- source_image: 89130_images/image_000025_a2e218d037f31dffc122a6d66b3c45dfb72c4280496a20406fbbc18df6008acc.png
+  source_image_sha256: 4c3351af0a25fa577a9edcc488d911baaa8d95615b7f2b34521ea298e0aa4e5b
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of annual stock natural gas consumption by building type, baseline vs upgrade
+  description: |-
+    Figure 15: grouped bar chart of natural gas total energy consumption in TBtu by ComStock building type, one baseline and one Electric Kitchen Equipment bar per type. FullServiceRestaurant roughly halves from about 152 TBtu, and LargeHotel and RetailStripmall fall visibly, while the offices, warehouse and retail standalone pairs are level. Section 5.6 ties the pattern to kitchen equipment density.
+- source_image: 89130_images/image_000026_f7e0861810d59302db5341ba5af918dbbf38cd6699e105724a01c6db566dcb09.png
+  source_image_sha256: 9e18f2b89d6a6e5c7f2eefcc5d8444fd5975e3bb518e52329d85e2ba87eaea80
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of annual stock electricity consumption by building type, baseline vs upgrade
+  description: |-
+    Figure 16: grouped bar chart of electricity total energy consumption in TBtu by ComStock building type, one baseline and one Electric Kitchen Equipment bar per type. FullServiceRestaurant rises from roughly 155 to 207 TBtu, with QuickServiceRestaurant and RetailStripmall also rising, while the kitchen-free types are level. Section 5.6 reads this figure together with Figure 15.

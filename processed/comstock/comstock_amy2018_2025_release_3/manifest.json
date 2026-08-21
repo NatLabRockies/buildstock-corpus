@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "comstock_amy2018_2025_release_3",
-  "generated_utc": "2026-08-21T21:50:57.501512+00:00",
+  "generated_utc": "2026-08-21T21:56:51.272591+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -1808,10 +1808,10 @@
           "title": "Electric Cooking Equipment",
           "input_sha256": "917d4d390ae5079df21c37db82e6bf09c55af54f642c1b574b903d592fcd134e",
           "output_path": "upgrade_measures/measure_pdfs/89130.md",
-          "output_sha256": "736e5057e7f0317c5900cd313e3526fca41dd2cc346786cdf6b5f3f8ffa0294c",
+          "output_sha256": "4e525232c15dfbbe048352ce96ef9a0efc6c64a0118e8896b4257c96f3319019",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89130.yaml",
-            "sha256": "b2b89abd76b063a08a09bd1392929e78099c8d7d2ae523c44aea1ed5e27e9eba",
+            "sha256": "f9a88e9683eb5970f20fff71fd7ec20b5a74543dd670e8db1ce1be6cea2d2514",
             "tables_applied": [
               "Table 2",
               "Table 4",
@@ -1819,6 +1819,24 @@
               "Table 8",
               "Table 10",
               "Table 12"
+            ],
+            "figures_applied": [
+              "89130_images/image_000005_0adceeca6ba97c45eda8dfa778a327c8af0782ab3a10f97ec67551887c8bb33a.png",
+              "89130_images/image_000007_333e3c07f04d620aa5050bf87de3dba736c6d59ace2f219b8feadb29ed44689a.png",
+              "89130_images/image_000009_e7c7e5c91310ee625312971c87acf6030452cb8e3a910927a20bbb3cd41fda1d.png",
+              "89130_images/image_000011_31914119785e831b3802fc656fd5e9740d5a795a705201f8f8138145382d665a.png",
+              "89130_images/image_000013_2710d2a2b86893d1adf4a96145a2de4ec317cbf9b50825ac6f97fa386f7ceee9.png",
+              "89130_images/image_000015_8ab194fb619557cbdb82535a2e448de47a21d681f9d4ab13fa49d0e40d0ae874.png",
+              "89130_images/image_000017_20e74705323d9edf861029cfd41e31870472a213a8da158d00ff560ec7f715ab.png",
+              "89130_images/image_000018_3ea9e2674e380a7d04a491ce9ca2f9f427749c1552b6dd5cd0c85ea19322d5a9.png",
+              "89130_images/image_000019_25d21eb6e66dba2e40388aef90a20f9b09680773039a537fd0c7da7abe032464.png",
+              "89130_images/image_000020_e4bc0ebca437fd68caf71900da6793dfcf5f70c0ad79d353a26bca9b39feb14f.png",
+              "89130_images/image_000021_e9aceea7526afa54c6d103dd21fc4940a853c968d93dc526fc6e391227544e3c.png",
+              "89130_images/image_000022_fb84a3d603cc52b6071c554add39856e3e91abc786856e6e8eb9623d60c1f050.png",
+              "89130_images/image_000023_680a55de9fd25044bfbb9f882d3e3aae99ef46a1ce0bf009c3543374953642b9.png",
+              "89130_images/image_000024_4a71d7abd322156c9388dc98f35fd4010c3f84a99b30698691814d1793ed1547.png",
+              "89130_images/image_000025_a2e218d037f31dffc122a6d66b3c45dfb72c4280496a20406fbbc18df6008acc.png",
+              "89130_images/image_000026_f7e0861810d59302db5341ba5af918dbbf38cd6699e105724a01c6db566dcb09.png"
             ]
           }
         },
@@ -2317,7 +2335,7 @@
   ],
   "counts": {
     "documents": 118,
-    "chunks": 8105,
+    "chunks": 8118,
     "by_type": {
       "latex": 19,
       "markdown": 40,
@@ -2326,7 +2344,7 @@
     },
     "overlay_documents": 57,
     "overlay_tables": 57,
-    "overlay_figures": 865,
+    "overlay_figures": 881,
     "overlay_text_repairs": 1
   },
   "crosswalk": {
