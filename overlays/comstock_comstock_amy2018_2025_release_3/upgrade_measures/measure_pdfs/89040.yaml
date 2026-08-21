@@ -132,3 +132,193 @@ tables:
       | Annual electricity consumption [GJ]: cooling | 10.09 | 11.25 | 11.50% | Negative |
       | Annual electricity consumption [GJ]: fan | 24.40 | 22.66 | -7.13% | Positive |
       | Annual electricity consumption [GJ]: total impacted end-use | 215.71 | 215.33 | -0.18% | Positive |
+
+# Hand-authored figure descriptions for measure_pdfs/89040.pdf (Batch E).
+#
+# 89040 documents the Variable Refrigerant Flow With 25% Upsizing Allowance for Heating measure.
+# docling extracts every picture as a bare ![Image](...) ref: the caption line usually survives
+# next to it, but the image itself is invisible to retrieval. Each entry below rewrites the ref
+# with a hand-written alt and injects a description paragraph beneath it. Schema and depth
+# budget: overlays/FIGURE_DESCRIPTIONS_ROLLOUT.md (section 2.1 -- 40-70 words, alt <=120 chars,
+# no corroboration against body prose).
+#
+# Scope: the 21 images that carry content -- 20 figures (Figures 1-4, 6-17 and A-1 to A-4) plus
+# one rasterized table. Deliberately excluded: indices 000000-000005 (cover photographs),
+# 000006 (NREL logo) and 000007 (ComStock logo). The `tables:` block above is caption-anchored
+# (source_pdf_sha256, no source_image), so it consumes no image index and nothing here overlaps
+# it.
+#
+# QA notes (vision reads; confirm before treating as a release record):
+#   * Figure 5 is DROPPED by the extractor. Its caption survives ("Figure 5. Narrative
+#     description of upsizing algorithm in measure implementation") but docling emitted neither
+#     an image nor text for it, and no image index falls between Figure 4's and the Table 2
+#     bitmap. Same defect class as the dropped Figure 5 in measure_pdfs/86105.pdf; no overlay
+#     entry can recover it. The 21 images account for 20 figures plus one table, so nothing
+#     else is missing.
+#   * image_000012 is the Table 2 bitmap, not a figure. Table 2 ("On-Site Fossil Fuel Emissions
+#     Factors") has no text layer and survives only in the List of Tables, and the `tables:`
+#     block above covers only Tables 1, 4 and 5. It is therefore transcribed here as
+#     vision-transcription rather than described.
+#   * Table 2 prints propane as 177.8 lb/MMBtu (182.3 kg/MWh). The metric figure is the
+#     recurring corpus-wide error in this table -- measure_pdfs/95005.pdf prints the correct
+#     275.7 kg/MWh. Transcribed as printed.
+#   * Figure 9's bars are ordered Baseline, VRF 25pct upsizing, VRF original sizing -- the
+#     reverse of Figures 7 and 8. Entries name the scenario rather than the bar position.
+#   * Section 3.3 calls this measure "the window replacement scenario", a copy-paste from
+#     another measure document.
+#   * Figure 2 carries an overlaid callout claiming some percentage more pipe is required for
+#     the equivalent 2-pipe system, but it is rendered too faintly to read at 8x and does not
+#     reconcile with the printed totals (2,260 ft for 3-pipe against 5,320 ft for 2-pipe). The
+#     entry gives the totals and omits the percentage.
+#   * Chart titles read "Upgrade 06: VRF with 25pct Upsizing Allowance"; legends label the two
+#     upgrade scenarios "VRF original sizing"/"VRF with regular sizing" and "VRF 25pct
+#     upsizing"/"VRF with 25pct upsizing allowance". Entries use the chart's own label.
+
+figures:
+- source_image: 89040_images/image_000008_823b9276160ea2abe226a95a1c1662553b60c593fa2570fe888045aee25cdba0.png
+  source_image_sha256: dbb1bb9d1571a108d2cfe4dfed7df553e31978aee1b0818fe6f0ff91ef8502f7
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Cutaway illustration of a VRF heat pump system serving an office floor with heat recovery
+  description: |-
+    Figure 1: cutaway illustration of a VRF heat pump system with heat recovery, labeling the outdoor unit, the two- or three-pipe refrigerant piping, a refrigerant management component and the ceiling-mounted indoor units serving private offices and open areas. Zones in heating are tinted differently from zones in cooling. Reproduced from reference 2; Section 1 summarizes the technology.
+- source_image: 89040_images/image_000009_dcff12afeb7b613d3674cbcc3629a6e6c73a0ed153d7c7ac6b31220c46ea54fc.png
+  source_image_sha256: d0c56b0b45c47ab6f707018943745c5d9dd1435bf44e5c0601133a4eefdf691a
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Two floor-plan schematics comparing three-pipe and two-pipe VRF layouts with pipe-length totals
+  description: |-
+    Figure 2: paired floor-plan schematics of three-pipe and two-pipe VRF layouts on the same building design, each annotated with per-system pipe-run arithmetic. The three-pipe layout totals 2,260 feet of pipe against 5,320 feet for the two-pipe layout, and the three-pipe case additionally requires four mode change units. Reproduced from reference 3; Section 1 discusses heat recovery.
+- source_image: 89040_images/image_000010_f5b0cf20d74d5d4fe08060ee2b938446664434ce7e9d23286eb9858227650689.png
+  source_image_sha256: bf2d7faebf2831059f7cf0624605f4e849b866fccf1fb0364a13c2b63034b6ee
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bars of HVAC system type by floor area and site energy, with a VRF plus DOAS spec panel
+  description: |-
+    Figure 3: two horizontal stacked bar panels of baseline HVAC system type - percentage of total floor area and total site energy consumption in TBtu - by building sector, segmented into DOAS with VRF, PTHP, PVAV, VAV, PSZ-AC, PTAC and residential AC. A side panel lists the existing VRF plus DOAS specification: minimum heating operating temperature minus 13 degrees F, gross rated cooling COP 4.287, rated heating COP 4.147.
+- source_image: 89040_images/image_000011_055123821654008ea5a573741ecb260c306e3fff332a6b0297281bdee6757f52.png
+  source_image_sha256: 32e8b6a5de41888f6eba1c94bd0f4eb3c316534668bc6dc4dc0b678ae077da87
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: 100% stacked bars of upgrade applicability by ComStock building type with exclusion reasons
+  description: |-
+    Figure 4: 100% stacked bar chart of upgrade applicability by ComStock building type, each bar split into applicable floor area and the reasons for exclusion - large exhaust or ventilation, floor area above 200,000 square feet, central multi-zone VAV RTU, central single-zone RTU, DOAS with zone terminal equipment, residential forced air, zone terminal equipment. QuickServiceRestaurant, Hospital and FullServiceRestaurant are fully applicable; the lowest types fall near a third. Section 3.1 lists the criteria.
+- source_image: 89040_images/image_000012_d8ed529a0b925cdc9622bc7b2e446cc33b2a5a69fe3f5914e303263775195680.png
+  source_image_sha256: b519ba8dee7d12f391b6bb6c9695729041efdc64d4d2dfcfa2b4af85e9160bb8
+  method: vision-transcription
+  described_utc: '2026-08-21'
+  alt: Bitmap of Table 2, On-Site Fossil Fuel Emissions Factors, for natural gas, propane and fuel oil
+  description: |-
+    Table bitmap, transcribed. Title: "Table 2. On-Site Fossil Fuel Emissions Factors". Rows: Natural gas, 147.3 lb/MMBtu (228.0 kg/MWh); Propane, 177.8 lb/MMBtu (182.3 kg/MWh); Fuel oil, 195.9 lb/MMBtu (303.2 kg/MWh). Footnote: "a MMBtu = million British thermal units". Section 3.3 cites these factors from Table 7.1.2(1) of the draft ANSI/RESNET/ICC 301 standard. The table has no text layer, so this bitmap is the only place the values appear.
+- source_image: 89040_images/image_000013_0ac4d2bb05fa92696a1fe167977f77e0d89a2b131114b46379372ea23a72bcda.png
+  source_image_sha256: a39033a5c33bb5af32960a1e27a1c15813f12d3d4699c24487ffb76e388369d8
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three stacked time-series panels of zone temperature and VRF heat pump and backup heating rates
+  description: |-
+    Figure 6: three stacked time-series panels over one week (hour 0 to 168) for a single building model - average zone temperature in degrees F plotted with outdoor air temperature, VRF heat pump heating rate to 120,000 Btu/hr, and VRF backup heating rate to 100,000 Btu/hr - each comparing before and after upsizing. After upsizing the heat pump peaks higher and the backup spikes shrink sharply. Section 5.1 discusses the test.
+- source_image: 89040_images/image_000014_d10ebb791f89b1d09fde52bb8b29b11ef9881d4cb1c89fee2352d4fddf98928c.png
+  source_image_sha256: 800186198b6db2dc4700c80846d80beff9330e888685023436f472efc154d8f5
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar chart of annual site energy by end use and fuel for the baseline and two VRF cases
+  description: |-
+    Figure 7: stacked bar chart of annual site energy consumption in TBtu for the entire ComStock stock, comparing the baseline against VRF original sizing and VRF 25pct upsizing, each bar segmented by end use and fuel with the larger segments labeled. Totals fall 4,338 to 3,763 and 3,762 as cooling drops 667.3 to 557.9 and fans 519.1 to about 381. Section 5.2 gives the end-use breakdown.
+- source_image: 89040_images/image_000015_1c045ebcecb6bb715bcf9bbdad8f0048d3f59f304e640082b1e28e8c9abb6a4d.png
+  source_image_sha256: 7c83f33e2491cbc0db442e5c8bf0fee9df4141065a490289fca0ccdcd592d850
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar chart of annual site energy for applicable buildings only, baseline and two VRF cases
+  description: |-
+    Figure 8: the same stacked bar chart of annual site energy consumption in TBtu restricted to buildings applicable to the upgrade, baseline against VRF original sizing and VRF 25pct upsizing. Totals fall 1,933 to 1,358 and 1,357 - a much larger proportional saving than Figure 7's whole-stock view - with fans dropping 258.5 to about 120 and cooling 309.0 to 199.6. Section 5.2 comments on the difference.
+- source_image: 89040_images/image_000016_9e9ce401599712a4e2333906e91c3c66ad4056aac36ff8056a6109075b326231.png
+  source_image_sha256: 552bdcc134a2469b369797204b9e843fb5c5ff7fc7d23cc7d5228cd07cb94b6f
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel stacked bar chart of annual GHG emissions by grid scenario for both VRF cases
+  description: |-
+    Figure 9: three stacked bar panels of annual GHG emissions in MMT CO2e - eGRID 2021, LRMER High RE Cost 15 and LRMER Low RE Cost 15 - each comparing the baseline against both VRF scenarios, with electricity, natural gas, fuel oil and propane as segments. Totals fall 402 to 358 (-11%), 325 to 285 (-12%) and 240 to 207 (-14%), identically for both scenarios. Section 5.3 gives the percentages.
+- source_image: 89040_images/image_000017_4a302b3496be3783db70d37616b16be8c665d1bbbeb4449d4d75f40b9c8ab7a9.png
+  source_image_sha256: a340f92bc23446f8ab16d1ede0eeaf3400354f04860735d72d0d1d780512ab11
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin and box plots of percent site energy savings by end use and fuel type
+  description: |-
+    Figure 10: horizontal violin-and-box plots titled Upgrade 06: VRF with 25pct Upsizing Allowance (unweighted), percent site energy savings from -160% to 100% with fifteen end-use and fuel rows labeled by model count. Natural gas heating (n=162,422) clusters near 100% savings while electricity heating (n=220,233) and heat recovery (n=221,115) carry long negative tails. Section 5.4 explains the penalties.
+- source_image: 89040_images/image_000018_42356f9251017babe4734299fbc9ddb1a6380619076a0b01e0240ab08675ccf6.png
+  source_image_sha256: 353d2c2dfe280adc17dff4361646c4d22348168f1482b2863615489e3300b946
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin and box plots of site EUI savings by end use and fuel type in kBtu per square foot
+  description: |-
+    Figure 11: the same fifteen end-use and fuel rows as Figure 10 plotted as site EUI savings in kBtu/ft2 on an x-axis from -150 to 300. Every distribution collapses toward zero except electricity heating (n=220,233), which spreads across the full range - the large percentage swings are small in absolute intensity. Section 5.4 reads the two figures together.
+- source_image: 89040_images/image_000019_8e63e1791d7801484753b297fe2677b0a96118a53ec96f8eec7f5a6a8a5ed448.png
+  source_image_sha256: dd208ddc808b150d93bca972fdc5e4398ee88cb6c4a3ba9d936f10327f821720
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grid of box plots of summer and winter peak timing and demand by climate zone for three cases
+  description: |-
+    Figure 12: a grid of box plots by ASHRAE climate zone in four columns - summer peak timing (hour of day), summer peak demand (W/sqft), winter peak timing and winter peak demand - with three rows per zone for the baseline, VRF with regular sizing and VRF with 25pct upsizing allowance. Peak timing barely moves while demand medians shift down slightly. Section 5.4 discusses peak impacts.
+- source_image: 89040_images/image_000020_4847cc1c5f6d34726600f9a17a3a255293bd5a3031809e7a58bb508ad01387a3.png
+  source_image_sha256: 79355939e4b52bd256b9aa0388648d44b9d4eeb54980aadc8e6f71d7cf20a498
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Box plots of annual average VRF compressor-and-fan COP for cooling and heating by climate zone
+  description: |-
+    Figure 13: box plots of annual average VRF COP_comp&fan,operating by ASHRAE climate zone, two columns for cooling and heating on x-axes of 2 to 10, each zone comparing VRF with regular sizing against VRF with 25pct upsizing allowance. Cooling medians sit near 5 and heating near 3 to 4, and upsizing shifts both distributions only slightly. Section 5.5 defines the metric.
+- source_image: 89040_images/image_000021_3bf0caf4ce67d0fd94edd0314964354f03123b8d6fa55a97d74997e6a2936b73.png
+  source_image_sha256: 24de2da41e0089b44972b7c0f67563ef154c39de4268dc2b257247e46b6fec85
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Box plots of the fraction of supplemental electric resistance heating by climate zone
+  description: |-
+    Figure 14: box plots of the fraction of supplemental electric resistance heating against heat pump heating, x-axis 0.00 to 0.16, by ASHRAE climate zone with VRF regular sizing above VRF 25pct upsizing allowance in each. Very Cold and Cold carry the largest fractions and shrink most under upsizing, while Hot-Dry sits near zero in both. Section 5.5 explains the mechanism.
+- source_image: 89040_images/image_000022_4b10a7b41ca00ab98df9c2f94ff8e3675c73067887223238d6597488158c4f16.png
+  source_image_sha256: a66bb575892ff49b8c9233198b3d152ada2f7ec22140833c3456e47f39b738f1
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Box plots of annual average heating system COP and the COP reduction from supplemental heating
+  description: |-
+    Figure 15: box plots by ASHRAE climate zone in two columns - annual average heating COPsystem,operating from 0 to 5, and the percentage of COP reduction when supplemental heating is included, 0% to 60% - with VRF regular sizing above VRF 25pct upsizing allowance. Heating COP medians run about 2 in the coldest zones to 3 in Hot-Dry. Section 5.5 gives the definitions.
+- source_image: 89040_images/image_000023_ef90095353cef7cf04c9fed0246263b7f79996d1e568070e5b20845773dd113d.png
+  source_image_sha256: ccfe43839bc1a0af0ad0cdaea11fca73de9b486ef00fac390cc8bc22fd72cf02
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Choropleth map of median annual operating cooling COP by state with a 4.318 to 5.768 color bar
+  description: |-
+    Figure 16: choropleth state map of median annual operating cooling COPsystem,operating, with a color bar from 4.318 to 5.768 and every state labeled. The Pacific Northwest and northern tier are highest near 5.74 to 5.77 while the hot-dry Southwest is lowest at 4.32 to 4.38, so cooling efficiency falls as the climate gets hotter. Section 5.5 reports the medians.
+- source_image: 89040_images/image_000024_932208c1e04efa97a8cbdb082cdcb238d2849c83cb14a84592515ba0e3c0a9e0.png
+  source_image_sha256: d999049f712ace621985a401e51fecd952604d378631261ebd4945a92fa69c25
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Choropleth map of median annual operating heating COP by state including backup heating
+  description: |-
+    Figure 17: choropleth state map of median annual operating heating COPsystem,operating including backup heating, with a color bar from 1.9460 to 2.9124 and every state labeled. The upper Midwest is lowest at about 1.95 to 2.10 and Florida highest at 2.91 - the inverse of Figure 16's cooling pattern. Section 5.5 reports the medians.
+- source_image: 89040_images/image_000025_b2a578f6abaf31a72d567b246dc83227c7b768e66a6208da7fb7c5d9ebc7eba7.png
+  source_image_sha256: 69a679669d169533dbfcb02c1e0f8ae103a980780d255ec5e6cc5c2f0833089e
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of annual site natural gas consumption by census division for three scenarios
+  description: |-
+    Figure A-1: grouped bar chart of site annual natural gas total energy consumption in TBtu by census division, three bars per division for the baseline, VRF original sizing and VRF 25pct upsizing. East North Central is largest, falling from about 335 to 230 TBtu, and Middle Atlantic from 215 to 150; the two upgrade scenarios are indistinguishable. Appendix A collects these figures.
+- source_image: 89040_images/image_000026_9cc6792b8e70c25769037f893e02dec691e1a4a292147f7951e03a487411f50f.png
+  source_image_sha256: c2d51ba84f0a29fd2c3c8dfae6057d8667e239741e264ed7f80f95b850dd064d
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of annual site natural gas consumption by ComStock building type
+  description: |-
+    Figure A-2: grouped bar chart of site annual natural gas total energy consumption in TBtu by ComStock building type, three bars per type for the baseline and the two VRF scenarios. RetailStripmall drops most, from roughly 190 to 122 TBtu, with SecondarySchool and Warehouse also falling, while several types barely move. Appendix A collects these figures.
+- source_image: 89040_images/image_000027_a705777477efca154fbe4e2c5e501cca822200efd1437ab2dbf22143f7f130fd.png
+  source_image_sha256: 449519588efd07a8db653994384a31d693052ab8a1a874aedae2a89715a9347d
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of annual site electricity consumption by ComStock building type
+  description: |-
+    Figure A-3: grouped bar chart of site annual electricity total energy consumption in TBtu by ComStock building type, three bars per type for the baseline and the two VRF scenarios. RetailStripmall falls from about 395 to 355 TBtu and RetailStandalone from 275 to 230, while LargeOffice and Warehouse are nearly unchanged. Appendix A collects these figures.
+- source_image: 89040_images/image_000028_3775d5ada3a452ae0674bbefa2330950ae8025435007cc9270826c04e5dccebb.png
+  source_image_sha256: c5c8c9651b6a24d7b4c4864b375694994962744befa593633798d25c51a9de61
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of annual site electricity consumption by census division for three scenarios
+  description: |-
+    Figure A-4: grouped bar chart of site annual electricity total energy consumption in TBtu by census division, three bars per division for the baseline and the two VRF scenarios. South Atlantic is largest, falling from about 640 to 590 TBtu, and West South Central from 410 to 375, while New England and East North Central barely move. Appendix A collects these figures.
