@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "comstock_amy2018_2025_release_3",
-  "generated_utc": "2026-08-21T14:35:12.002195+00:00",
+  "generated_utc": "2026-08-21T15:51:58.414354+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -743,7 +743,7 @@
           "output_sha256": "09ca6d45dd2cdef769c546c66acd35add336ae1c7b579b8341cac801a8a6982a",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95014.yaml",
-            "sha256": "0bb9330dac86ad52cea0321b0c01f4238960252b0bd2382851c31c49c2f6f682",
+            "sha256": "1452207183ec73057832bec2e79b0931228181c16f8697a9b266a300a8d88aec",
             "tables_applied": [],
             "figures_applied": [
               "95014_images/image_000002_c447fe5df46f14225ecf63d0e1ac64b52eedc98e49b1671b37a3dc6d32030a62.png",
@@ -834,7 +834,7 @@
           "output_sha256": "10fc022813d889b1c21770f7e2d8a517d014d92470329ac8e31eb282584508b7",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/92504.yaml",
-            "sha256": "d09a7f0f83ac37f724cfc6ec8ac20f9663f41af8a57704fe1a87dc1e23b0e41c",
+            "sha256": "d29be3e0757cc5d8279e4c9b458310af97e247b849eb5ef13520b40ce5f90e0e",
             "tables_applied": [],
             "figures_applied": [
               "92504_images/image_000002_ffc6129323e2c96949de6c85dd4a39ce88f584367e5e3bd6c240e395914de716.png",
@@ -943,7 +943,7 @@
           "output_sha256": "677dcba540a8f88f1bfb77bdac7d55f7989c96e6e96d7b32d91bef85b4b71868",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/98223.yaml",
-            "sha256": "266c546c0d19236d836b7e4ec16f53b283bc158c91c36b3ff22cf633688bbf19",
+            "sha256": "e3e095d2279575e9931a2cf2f35cb3e2bb5c69718d448676c656257f1a4df92e",
             "tables_applied": [],
             "figures_applied": [
               "98223_images/image_000002_3794e927627c15a78f8e568a360fdf6589ea719befdab9730d5e9d8cdb4072a5.png",
@@ -990,7 +990,37 @@
           "title": "Fan Static Pressure Reset for Multizone VAV Systems",
           "input_sha256": "75f23306d2e62efe1a8a0b7ed76ff98bb62801424068b4a1bd5e5f06860bbade",
           "output_path": "upgrade_measures/measure_pdfs/98345.md",
-          "output_sha256": "dcbabfa75e1717f8938b4586d0baa7e6d6e749a69bd6b188ec9a0450bf0b80dd"
+          "output_sha256": "ad62939184bc730b2f86a7750f9c8b20e240193650a373ec8e3a4eaaf5f7f278",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/98345.yaml",
+            "sha256": "082e72da35bfd014a0b93cad550973eda2d292a5d4e180a6e161d7ab8388d1fe",
+            "tables_applied": [],
+            "figures_applied": [
+              "98345_images/image_000002_3ecd0f2c99918a3687fcb01b1e852009b70d231eac64d6a55230884f69dd0ac5.png",
+              "98345_images/image_000003_93be8e8d31c6d8d70a84a3d6c5714d78f641eb692c93929042e9027717c9b693.png",
+              "98345_images/image_000004_f4c92d10bba4339b3a1340166aece75a108ba0142d1d530c83295636c8b0a2d7.png",
+              "98345_images/image_000005_85f5b906e7b92a9f9c831bf942d1e12fe6f9b6cf73ca8c4e7f86ef172cefacf8.png",
+              "98345_images/image_000006_8a6ba69e9a980985d648f56932b97efec9508e5247eb969c04e015023a2dbb94.png",
+              "98345_images/image_000007_99889466c4e0cf26d07e33b0dd9da199ae5063356959189f9c3f5afe03858305.png",
+              "98345_images/image_000008_2ee64a14444fd143b3057c64cbb212df8193a91c2a6937ec0dac269885561529.png",
+              "98345_images/image_000009_cfdc0c4be06c12c262690239e8b935436b76af5a0eb644727d7f0b0b382ad115.png",
+              "98345_images/image_000010_352fc99d0f7ba7da8afd46e68efab54ce9d86b6eb3f49eb938b8f1446a80b38a.png",
+              "98345_images/image_000011_4a7cbd3af13885e3dde3f7fae22e893ad7ca507fe59245383c8e7dc27e86d4a0.png",
+              "98345_images/image_000012_cadc7e61876ae44ab7a032d122df1ac8fd2a99576300dac237ce5e09954a779b.png",
+              "98345_images/image_000013_f25af2124bc6ea3e586f44d370581c0ffd3b5fa2414f7c8ab04c0ca327af373c.png",
+              "98345_images/image_000014_dd0827fddde19d3fc4b947122501a19072fe6e8a98f2e72254a7b1a8140baff4.png",
+              "98345_images/image_000015_d2a2bb9b8f2e3e3a34616c1907f19817624e6bd4466543de8de1327794c685e4.png",
+              "98345_images/image_000016_c10909f81a6a4ee2b7291bc846d9703e2e63a1f96889c82e0293e4ec44315fa7.png",
+              "98345_images/image_000017_581e482104a4c75e343b786ad142540b8f831fe97fc7170247bd23aeaffa2c1c.png",
+              "98345_images/image_000018_ab7f9c4bee56e28106b5117306715f9f96dcdd0b035d9b024673d6ed145c4d21.png",
+              "98345_images/image_000019_98583b071c3a36d5fc623604ce87977e42680cfec7e86f3c072a5b1355ab1ae3.png",
+              "98345_images/image_000020_08d7bcfac5f3af16d823abda84b7588ee175739af9307c009fcae419de20af4d.png",
+              "98345_images/image_000021_dfc3b99f0389cc5e82ae24b9b141aecf8c14561572384dcc8445a5f127e9fba9.png",
+              "98345_images/image_000022_55290cdb0874342a8ed04882a9a80208e54f526ecf5575d4202b6542217047dc.png",
+              "98345_images/image_000023_19080e29b93f847f26e4c46415ca9167d524524005aa80c44797c792e492d2fd.png",
+              "98345_images/image_000024_cd80184120a5d6637e5f75d33b96a2e86f7f6cd68d13abbb4e875088093fbb35.png"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/98346.pdf",
@@ -1205,7 +1235,7 @@
           "output_sha256": "ea1787cf54fafe1e304f888c28a7cd5c3cd08e3f173687224d6bab9a520e5d33",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86897.yaml",
-            "sha256": "4107ced99e62f54b36eaf495549d19f9f55e4b25d00e881ef7e953b2be37c968",
+            "sha256": "dd24f0868f662edd90d686fcbec86196baadd80cd3446f52bacbae903869b0da",
             "tables_applied": [],
             "figures_applied": [
               "86897_images/image_000002_af95a7d2badb3283fa47e7f10619c9347ac333afa5e1a58260bf6781c0e6dabe.png",
@@ -1349,7 +1379,7 @@
           "output_sha256": "609f2d06bc60af7caf14f0a89123edd037c6fc3d69a6e5cd6d24729f4e4adb40",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89120.yaml",
-            "sha256": "065ac6ac3cc2792f7cfc86fec8751c583e92a3ce1f87d837977a9929b6e9c645",
+            "sha256": "5f606a521d6a466a4f372436125605ae25a07c27a5fecbe4dad3490443966327",
             "tables_applied": [],
             "figures_applied": [
               "89120_images/image_000007_f90c42d2022143ec69daeccff9ea19c49f54fffc9bd8fa12c3f2bfef31a871f9.png",
@@ -1780,16 +1810,16 @@
   ],
   "counts": {
     "documents": 118,
-    "chunks": 7770,
+    "chunks": 7811,
     "by_type": {
       "latex": 19,
       "markdown": 40,
       "measures": 6,
       "pdf": 53
     },
-    "overlay_documents": 46,
+    "overlay_documents": 47,
     "overlay_tables": 57,
-    "overlay_figures": 419,
+    "overlay_figures": 442,
     "overlay_text_repairs": 1
   },
   "crosswalk": {
