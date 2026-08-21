@@ -1,0 +1,384 @@
+# Hand-authored figure descriptions for measure_pdfs/89653.pdf
+#
+# 89653 is the End-Use Savings Shapes: Commercial 2024 Release 1 webinar deck - the third and largest
+# slide deck in this sweep after 92766 and 87746. Like those, it has no numbered figure captions, so
+# each entry anchors on the slide's own heading text instead of a "Figure N" label. docling extracts
+# every picture as a bare ![Image](...) ref, so the charts are invisible to retrieval and unreadable
+# without the bitmap. Each entry below rewrites the ref with a hand-written alt and injects a
+# description paragraph beneath it.
+#
+# Scope: figures only. 18 of the 64 extracted images are decorative and deliberately have no entry:
+# the NREL logos (000000, 000063), the gas-meter stock photo appearing twice at byte-identical hashes
+# (000001, 000003 - the same photo as in 87746), two arrows (000002, 000025), the ComStock logo
+# (000004), the five workflow pictograms (000005 building, 000006 atom, 000007 and 000008 plus signs,
+# 000009 cloud), an NREL photo collage (000014), and the five data-access tile icons on the
+# "Accessing the Data" slide (000054, 000055, 000056, 000057, 000058).
+#
+# Depth: authored to the section 2.1 budget in overlays/FIGURE_DESCRIPTIONS_ROLLOUT.md - roughly
+# 40-70 words per description (chart type, axes and units, series/legend, one headline number, and a
+# pointer to where the values live). Printed data labels are not transcribed wholesale.
+#
+# Chart families repeated across the measures, so the entries are deliberately parallel:
+#   * stock site energy by fuel and end use (stacked columns in TBtu, baseline 4338 for this release)
+#   * annual GHG emissions (THREE side-by-side panels, one per electricity grid scenario, each
+#     stacked by fuel - a different layout from 87746's single grouped-bar chart)
+#   * peak-week load profiles (stacked area in MW, Rochester NY at 15-minute steps)
+#   * applicability as percent of floor area per measure combination
+#   * demand-flexibility load profiles and monthly peak-savings box plots
+# This release also adds an energy-bills chart (000019) with no counterpart in the earlier decks.
+#
+# Authoring notes:
+#   * method is vision-description: these interpret a chart rather than copy legible cells. Numbers
+#     were read off the bitmaps and should get a human QA pass before this is a release record.
+#   * Every entry pins the on-disk PNG sha256; if upstream repoints a bitmap the build drops that
+#     injection and warns rather than shipping a stale description.
+#   * Temperatures are written plainly (1C, 2C) to keep the sidecar ASCII.
+#
+# QA notes (vision reads; flag for a human pass):
+#   * 000029 is the ONLY site-energy chart in the deck scoped to applicable models rather than the
+#     whole stock: its baseline is 2639 TBtu, not the 4338 TBtu used by every other such chart. Do not
+#     compare it against the others without noting the scope change.
+#   * 000034 and 000035: the VRF original-sizing and 25%-upsizing cases land within 1 TBtu of each
+#     other on site energy and on identical rounded emissions totals in all three grid scenarios.
+#     Worth confirming the upsizing run is actually distinct rather than a duplicated series.
+#   * 000031: all three economizer emissions panels round to a 0% change; only the unrounded totals
+#     (402 to 401, 325 to 324, 240 to 239) show the direction.
+#   * 000051 spans -10% to 15% while 000053 spans -3% to 3%. The two monthly peak-savings box plots
+#     are NOT on a common y-axis, so load shed and load shift cannot be compared by eye.
+#   * 000013's top hatched band (827.4 to 854.9) is read from a small label over a hatched fill and is
+#     the least confident number in this file.
+#   * 000001 and 000003 are byte-identical to each other and to 87746's gas-meter photo.
+
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: measure_pdfs/89653.pdf
+figures:
+- source_image: 89653_images/image_000010_40d3011802341624c2aba97d007394bafe2411776617a414ed938745dd1dfd9b.png
+  source_image_sha256: 9fd7288b0412071fb52b82425819615e4f5402403bda9b4b05d91d5d777fa5f8
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Building Type legend for the in-ComStock energy stacked bar on the CBECS slide
+  description: |-
+    Legend panel on the 'All Buildings in CBECS' slide, keyed to the adjacent in-ComStock stacked bar. Colors map to the building types ComStock models - large and small office, retail strip mall and standalone, hospital, full-service and quick-service restaurant, primary and secondary school, warehouse, large and small hotel, outpatient - plus an 'other, not modeled in ComStock' category.
+- source_image: 89653_images/image_000011_79a5b7761efe2f83339310dee3e1c6c745642d648bd526adcecac3c4ae4b2aa2.png
+  source_image_sha256: 1a775a534302880ca9c0051b7b0a09ac0ca3918f02b68952059b5188a1c2d7a6
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of annual site energy for the building types ComStock models, with percent labels
+  description: |-
+    Single stacked bar on the 'All Buildings in CBECS' slide, y-axis annual site energy consumption in TBtu from 0 to 7000, segmented by ComStock building type per the adjacent legend with percent-of-total labels. The largest segment is 36%, followed by two at 8%, one at 6%, three at 5% and two at 4%. See the companion 'Not in ComStock' bar.
+- source_image: 89653_images/image_000012_f6c83c4a3dfa4b0eb0fb9ee9d8f245f9e5db06e8926498478da03bc56dfec5fc.png
+  source_image_sha256: e53b07223e68b7d6672544769e289bc7f6ca75512332644e8ad1a712b98a880d
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of annual site energy for building types not modeled in ComStock, with its own legend
+  description: |-
+    Companion stacked bar titled 'Not in ComStock', y-axis annual site energy consumption in TBtu from 0 to 2600, with its own building-type legend (college or university, religious worship, mixed-use office, grocery, nursing home, recreation, laboratory, entertainment, vehicle service, library and others). Top segments are labeled 9%, 7%, 7%, then several at 6%.
+- source_image: 89653_images/image_000013_884d8b8edf0d10f790373ba6fe49f94225c68d01b5a6cec5879542c9ebba18ab.png
+  source_image_sha256: a9b4b1ce9141eacf5086eb4780d86bf16443cda385a357e9a5ce4656d11896ea
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bars comparing the 2023 Release 2 and 2024 Release 1 stock baselines, TBtu
+  description: |-
+    Two stacked columns on the 'ComStock Baseline Updates Since Last Release' slide, y-axis annual energy consumption in TBtu, comparing the 2023 Release 2 baseline at 4638 TBtu with the 2024 Release 1 baseline at 4338 TBtu, segmented by end use and fuel. Interior equipment electricity falls from 836.5 to 739.7 and cooling from 724.9 to 667.3, while the top band rises from 827.4 to 854.9.
+- source_image: 89653_images/image_000015_3543f7518aadffb04326afa62b1c143d6277d05ba51b16c94bdc2d305697af6b.png
+  source_image_sha256: 6b1c47b6fed093ed7f6301724ff908f543533b2986bc763bd8e56cea532dacc6
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Screenshot of the ComStock measure documentation website for 2024 Release 1
+  description: |-
+    Screenshot on the 'ComStock Measure Documentation Website' slide showing the site's Upgrade Measures page for 2024 Release 1 (March 2024), with a link to register for the April 25 webinar. The measure list names economizers, VRF with 25% upsizing, fan scheduling and unoccupied outdoor-air control, HP-RTU with exhaust air energy recovery, advanced RTU control, three geothermal configurations, electric kitchen equipment, thermostat load shedding and shifting, and Package 5.
+- source_image: 89653_images/image_000016_6cf338574dbaf3235799179065fd394e7eb4435daa9371309d06808f53c8a772.png
+  source_image_sha256: e2702c76cf1a9469f21b610dd6187c5e02ab9f24d3a8b8298f196cb5b0ed871b
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Diagram of heat versus energy recovery type by climate for the HP-RTU with H/ER measure
+  description: |-
+    Two-column diagram titled Heat/Energy Recovery Type on the variable-speed HP-RTU with H/ER slide. Humid climates get membrane fixed-plate energy recovery with sensible and latent recovery; all other climates get aluminum fixed-plate heat recovery with sensible-only recovery. Both include a bypass.
+- source_image: 89653_images/image_000017_154be50f373ff2ff2c3090e567a62c7ce1a8450e618b8b47210b421ba7a14486.png
+  source_image_sha256: 76e65705200f480600f05fc884ec7be88a88d9f8306c4ff87d5f4f6cec9ce583
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of stock site energy by fuel and end use, Baseline vs HP-RTU electric backup vs HP-RTU+ER
+  description: |-
+    Stacked column chart on the HP-RTU with H/ER 'Stock Site Energy by Fuel and End Use' slide, y-axis annual energy consumption in TBtu to 2500, with bars for Baseline, HP RTU E Backup and HP RTU + ER segmented by end use and fuel. Fans fall from 519.1 to 424.9 and cooling from 667.3 to 581.9; a callout notes adding H/ER reduces electric heating and cooling.
+- source_image: 89653_images/image_000018_c2109435aca96d566caa567ba730da10a2a8bdb8458ca0f8de0d0eebcaa2dde8.png
+  source_image_sha256: 31e1e22ce4b1a2864994fffabb147ca9890920f57fe1ade92e43a4508d61b200
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel stacked bars of annual GHG emissions by grid scenario, Baseline vs HP-RTU cases
+  description: |-
+    Grouped stacked-bar chart on the HP-RTU with H/ER greenhouse gas slide: three panels, one per electricity grid scenario (eGRID 2021, LRMER High RE Cost 15, LRMER Low RE Cost 15), each with Baseline, HP RTU E Backup and HP RTU + ER bars stacked by fuel. y-axis annual GHG emissions in MMT CO2e to 400. Under eGRID, 402 falls to 375 (-7%) and 372 (-8%).
+- source_image: 89653_images/image_000019_7569dab9d1f63dba426013b903e9702f0ca72bc5f54d948bd5ac052f3b682fd6.png
+  source_image_sha256: 3b6ef52d1ff5129d99cd37b38a6c0a7b018293e096c45b14d39c7a809b3e5257
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel stacked bars of annual utility bills by electricity rate scenario, Baseline vs HP-RTU
+    cases
+  description: |-
+    Grouped stacked-bar chart on the HP-RTU with H/ER energy bills slide: three panels for the maximum, mean and minimum electricity rate scenarios, each with Baseline, HP RTU E Backup and HP RTU + ER bars stacked by fuel. y-axis annual utility bill in billion 2022 USD. At the mean rate, 111 falls to 105 (-6%) and 104 (-7%).
+- source_image: 89653_images/image_000020_6973a75e4ecd2b12a97538e130f39de5a819fcda3bac205db62d02904c09c771.png
+  source_image_sha256: 6542c58e7a2f7f942bf80ba114cc449df884b6f2e79ff5b1ef762ea3d215c97a
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked area load profile of the peak winter week, HP-RTU with no heat or energy recovery
+  description: |-
+    Stacked area load profile on the 'HP-RTU Scenario, No Heat/Energy Recovery' side of the peak winter week slide, y-axis electricity demand in MW to about 40, x-axis 15-minute steps from Jan 2 to Jan 7 2018 for Rochester, NY. Bands are end uses per the legend with heating dominating; the black baseline-total line runs below the stack peaks.
+- source_image: 89653_images/image_000021_8d21ba2b650c62e44d367d1110c229e65f4f97dac1a8d04a9d748ba96f0050fe.png
+  source_image_sha256: c5eb9a39100f4e7f9425e7af87ac247e574e47bb5ae01a1f92ed14a6fbff2737
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked area load profile of the peak winter week, HP-RTU with heat or energy recovery
+  description: |-
+    Companion profile for the 'HP-RTU Scenario, Heat/Energy Recovery' case over the same Jan 2 to Jan 7 window and MW axis. A callout notes heat/energy recovery reduces electric demand: the red heating band and the daily peaks are lower than in the no-recovery panel, though still above the black baseline-total line.
+- source_image: 89653_images/image_000022_cc8cdd62999b39aca629d5904afde9d03c3fc5d7b84adbf9ce552e0947e8aef0.png
+  source_image_sha256: e749dca0c377308101af8fdad936183a93152858e370664038c4733bbc2d15cb
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Dual-axis line chart of cooling load and fan airflow for baseline vs single-zone VAV operation
+  description: |-
+    Dual-axis line chart titled Example Single Zone VAV Operation on the advanced RTU controls slides, x-axis hour of year from about 5090 to 5110. The left axis is load in watts (-2000 to -14000) for the cooling-load series; the right axis is fan airflow in kg/s for the baseline and measure airflow series. Baseline airflow holds a constant high value while measure airflow modulates with load.
+- source_image: 89653_images/image_000023_2b8acf8dd3e7af9d5e1e3e3c19239a27d6ebf765a246a015f9a2a91d80d42183.png
+  source_image_sha256: 220c2a64e6459a0d46f464e966aa9319d6d2a6c4e78b6c74b14da4a9dc5de14b
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of stock site energy by fuel and end use, Baseline vs advanced RTU controls
+  description: |-
+    Stacked column chart on the advanced RTU controls 'Stock Site Energy by Fuel and End Use' slide, y-axis annual energy consumption in TBtu to 2500, comparing Baseline with Advanced RTU Controls segmented by end use and fuel. Fans fall from 519.1 to 382.0 and cooling from 667.3 to 643.3; the slide cites 26% stock fan electricity savings, 137 TBtu.
+- source_image: 89653_images/image_000024_2d65aff0b23ea598c068db15217e7dea0d37309c203cbcf7c24a53724aa6d7d9.png
+  source_image_sha256: 620a894429e80bf32f705a59dbd6b9ddec482f8c1caff63f55f3e7632ced30ad
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel stacked bars of annual GHG emissions by grid scenario, Baseline vs advanced RTU controls
+  description: |-
+    Grouped stacked-bar chart on the advanced RTU controls greenhouse gas slide: three panels, one per electricity grid scenario, each pairing Baseline with Advanced RTU Controls and stacked by fuel. y-axis annual GHG emissions in MMT CO2e to 400. Totals fall from 402 to 384 (-4%) under eGRID 2021, 325 to 312 (-4%), and 240 to 231 (-4%).
+- source_image: 89653_images/image_000026_a05bd393c730cc604be6b37a5009ddac05c53858691d875d4d9d9b0eec6eacb1.png
+  source_image_sha256: 095749c50e448fbe128645ad6520a30e310de9eaf3a4ec7ea962d94ab35891e8
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of stock site energy by fuel and end use, Baseline vs unoccupied AHU control
+  description: |-
+    Stacked column chart on the unoccupied AHU control 'Stock Site Energy by Fuel and End Use' slide, y-axis annual energy consumption in TBtu to 2500, comparing Baseline with Unoccupied AHU Control segmented by end use and fuel. Fans fall from 519.1 to 460.8 and heating electricity from 175.2 to 162.5; the slide cites 11% stock fan savings, 58 TBtu.
+- source_image: 89653_images/image_000027_7290a36903ad77563dfbf3d59262c55a0e245dc6d4a8c01ac18416bb237ef05a.png
+  source_image_sha256: f318014f5fc527c8384c351399a97f4844772a23e3ea04b6343a19c464276e18
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel stacked bars of annual GHG emissions by grid scenario, Baseline vs unoccupied AHU
+    control
+  description: |-
+    Grouped stacked-bar chart on the unoccupied AHU control greenhouse gas slide: three panels, one per electricity grid scenario, each pairing Baseline with Unoccupied AHU Control and stacked by fuel. y-axis annual GHG emissions in MMT CO2e to 400. Totals fall from 402 to 389 (-3%) under eGRID 2021, 325 to 313 (-4%), and 240 to 230 (-4%).
+- source_image: 89653_images/image_000028_42ee5a63fe990b83e2df66c17892aa19e6e88029078ce756c68bc50e11a23f8b.png
+  source_image_sha256: b1de471718cc78ccaffe1916c56a7d53b2843bfac4c22e1ba6fee5f65674fa73
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Annotated horizontal bars of economizer applicability by floor area and by cooling electricity
+  description: |-
+    Two annotated horizontal stacked bars on the air-side economizer applicability slide, colored by economizer control type (none, fixed dry-bulb, differential enthalpy, differential dry-bulb). The top bar splits stock building floor area 33.8% with economizers against 66.2% where at least some AHUs lack them; the bottom splits total cooling electricity, 71.8 against 354.2 TBtu.
+- source_image: 89653_images/image_000029_46bb375e3331656232276ea8b4f4d60047ddc0f6f616e1da51524c0b2f975802.png
+  source_image_sha256: 185fdd9260b0a6841b6a01e659fce3dc0e3e3d5c542accf2a573e87493ec5a88
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of site energy by fuel and end use for applicable models, Baseline vs economizer
+  description: |-
+    Stacked column chart on the air-side economizer 'Site Energy by Fuel and End Use' slide - applicable models only, not the full stock - y-axis annual energy consumption in TBtu to 2800, comparing Baseline at 2639 with Economizer at 2624, segmented by end use and fuel. Fan energy falls from 430.0 to 416.4 and every other band is essentially unchanged.
+- source_image: 89653_images/image_000030_9780f0a8bf75c4cd7ec605a1dfe7e57d0b59dbb461b760267f866e2076155ac4.png
+  source_image_sha256: 4a60fe35acfd67020761ab80dbe8d91d7aa6ec811e9a67c4134e1faf615338cc
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Choropleth map of median percent electricity savings for cooling by state, air-side economizers
+  description: |-
+    Choropleth map on the 'Median Cooling % Electricity Savings by State' slide for air-side economizers, states shaded by median electricity savings for cooling from about 1.3% to 12.3% and labeled with their value. Savings are highest in the Pacific Northwest and Mountain West (Washington 12.3%, Montana 10.9%, Oregon 10.2%) and lowest across the Southeast, near 2%.
+- source_image: 89653_images/image_000031_47af2bc89c74f729a497caf5f7bd8fdf06d2e624f2377cdc367de8ddaa91e5e2.png
+  source_image_sha256: d402cc0bc2448975f298332a72b2273930e8dfa42119ce52947537760fb11c92
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel stacked bars of annual GHG emissions by grid scenario, Baseline vs economizer
+  description: |-
+    Grouped stacked-bar chart on the air-side economizer greenhouse gas slide: three panels, one per electricity grid scenario, each pairing Baseline with Economizer and stacked by fuel. y-axis annual GHG emissions in MMT CO2e to 400. Every scenario rounds to a 0% change - 402 to 401, 325 to 324, 240 to 239 - because the measure shifts little fuel.
+- source_image: 89653_images/image_000032_36f44bbea091c6503f8ab87b5196014898edf57a0fc0652784324f8f969c27bc.png
+  source_image_sha256: c1dea5dbb941f3f269df66a6808ef2cc9b29d8b52bbe467687c72dc4bb495574
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of VRF upsizing applicability as percent of floor area by building type
+  description: |-
+    Stacked bar chart on the VRF with 25% upsizing applicability slide, y-axis percentage of floor area 0-100%, one bar per ComStock building type. Segments come from the upgrade-applicability legend: applicable, or not applicable because of floor area over 200,000 sqft, large exhaust or ventilation, central multi-zone VAV, central single-zone RTU, DOAS plus zone terminal equipment, residential forced air, or zone terminal equipment. Restaurants and hospitals are near-fully applicable.
+- source_image: 89653_images/image_000033_a95d3d885509b829ffc8ccaf16c4c31b164078914ef91921e85b5468052e3aa3.png
+  source_image_sha256: 18350d4856c488d02d0b1c84a457984085b53eee349b0dd498cd03cb546713b4
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Paired box plots of supplemental heating fraction, VRF regular sizing vs 25% upsizing, by climate
+    zone
+  description: |-
+    Paired box plots on the 'Fraction Heating Electricity Supplemental' slide, x-axis fraction of supplemental electric-resistance heating against heat pump heating, 0 to about 0.2. Three climate zones (very cold, cold, hot-humid) each show VRF with regular sizing above VRF with a 25% upsizing allowance. A callout notes upsizing uses less backup heating; the upsized boxes sit left of their pairs.
+- source_image: 89653_images/image_000034_0fac9a58c336513e5032b75cc499eadff2a1236a31f91279ee8cd9597158baa0.png
+  source_image_sha256: 5bffd4e9c6c1a99e3dbef1825f27955772420f713a6e6960b27c8adfe211aa2c
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of stock site energy by fuel and end use, Baseline vs VRF original sizing vs 25%
+    upsizing
+  description: |-
+    Stacked column chart on the VRF upsizing 'Stock Site Energy by Fuel and End Use' slide, y-axis annual energy consumption in TBtu to 4500, comparing Baseline at 4338 with VRF original sizing at 3763 and VRF 25pct upsizing at 3762, segmented by end use and fuel. Fans fall from 519.1 to about 381, and the two VRF cases differ by only 1 TBtu overall.
+- source_image: 89653_images/image_000035_c90eb993ee94b0d16067cc44d5d6a13c39237297cce52a1fc3a5f0f8c2c1d1d8.png
+  source_image_sha256: 7fba2d27aa98462f25f551893d51ba0cfc83703727bca618a94cf61760333dd3
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel stacked bars of annual GHG emissions by grid scenario, Baseline vs the two VRF sizings
+  description: |-
+    Grouped stacked-bar chart on the VRF upsizing greenhouse gas slide: three panels, one per electricity grid scenario, each with Baseline, VRF 25pct upsizing and VRF original sizing bars stacked by fuel. y-axis annual GHG emissions in MMT CO2e to 400. Both sizing cases land on the same total - 358 (-11%) under eGRID 2021, 285 (-12%), and 207 (-14%).
+- source_image: 89653_images/image_000036_8720479f5996c37954e075c4a92d1bda93f5a5c09b392fcf52c73eaeac07d9c2.png
+  source_image_sha256: 778f659ae1bb514a4012bf02e75467a29324402002195a8623aa5ced469bc659
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of stock site energy by fuel and end use, Baseline vs electric kitchen equipment
+  description: |-
+    Stacked column chart on the electric cooking equipment 'Stock Site Energy by Fuel and End Use' slide, y-axis annual energy consumption in TBtu to 4500, comparing Baseline at 4338 with Electric Kitchen Equipment at 4252, segmented by end use and fuel. A highlight box marks the interior equipment bands: electricity rises from 739.7 to 843.8 as the natural gas band shrinks.
+- source_image: 89653_images/image_000037_d8d7e3f729a3c5b71f76c75b91502594b0dbb61b2e9c67980e10f54b1a122f87.png
+  source_image_sha256: 8504226bbf75e6955fbba5a9e95ade34e70b340e41c8db4e1e4f579770626e75
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel stacked bars of annual GHG emissions by grid scenario, Baseline vs electric kitchen
+    equipment
+  description: |-
+    Grouped stacked-bar chart on the electric cooking equipment greenhouse gas slide: three panels, one per electricity grid scenario, each pairing Baseline with Electric Kitchen Equipment and stacked by fuel. y-axis annual GHG emissions in MMT CO2e to 400. Electricity emissions rise while gas falls, so the net ranges from 0% under eGRID 2021 to -3% under the low-RE-cost LRMER.
+- source_image: 89653_images/image_000038_8935de853090592046f06d72ec9e6ed1e13d437339039a98616c7f57aa50e75c.png
+  source_image_sha256: d5b5408da08d84235726e9380b9e39eb627f793e8b8363cdaf79f6a285cb9a89
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Single stacked bar of Package 5 applicability as percent of floor area per measure combination
+  description: |-
+    Single stacked bar on the Package 5 'Applicability: % Floor Area per Measure Combination' slide, y-axis percent floor area applicable 0-100%, segmented by combination: HP-RTU + DCV + HR + economizer 31%, not applicable 15%, DCV + HR + economizer 13%, HP-Boiler + DCV + HR + economizer 10%, HP-Boiler + DCV + HR 9%, DCV + HR 6%, and all remaining combinations 16%.
+- source_image: 89653_images/image_000039_27843078dd396fc173cfce21f8fb3787873e27866f3a951c6e8ebed16152802e.png
+  source_image_sha256: b4403020a6aee32aff4ffe90696564edb7069fcffec381528866ea74bcec9e57
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Box plots of site percent energy savings by Package 5 measure combination, with medians
+  description: |-
+    Three box plots on the Package 5 'Site % Savings by Measure Combination' slide, x-axis percent site energy savings from -15% to 70%. Rows are HP-RTU + DCV + HR + economizer (median 29%), HP-Boiler + DCV + HR + economizer (median 25%), and DCV + HR + economizer (median 5%). A footnote warns site savings do not translate proportionally to source energy, cost or emissions.
+- source_image: 89653_images/image_000040_8b7e8053418fdb66fccefab101244a0e83c69b21292e3ec5417fa61bea562f3c.png
+  source_image_sha256: a057485fb891d365cf852ea873e4e7c149b91d6074d530bbcb4a4607bf3724ab
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of stock site energy by fuel and end use, Baseline vs Package 5
+  description: |-
+    Stacked column chart on the Package 5 'Stock Site Energy by Fuel and End Use' slide, y-axis annual energy consumption in TBtu to 4500, comparing Baseline at 4338 with Package 5 at 3481, segmented by end use and fuel. Fans fall from 519.1 to 422.6 and cooling from 667.3 to 521.8 - the deepest site energy reduction shown anywhere in the deck.
+- source_image: 89653_images/image_000041_291ec60a2a0f7411481ffa5b253685019dfc29f75ff88a12f44f832769cddf49.png
+  source_image_sha256: a6001ffcffa49f9303e44f2e91e27a79063e61e7a4c0c960397a204322e2f5b1
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel stacked bars of annual GHG emissions by grid scenario, Baseline vs Package 5
+  description: |-
+    Grouped stacked-bar chart on the Package 5 greenhouse gas slide: three panels, one per electricity grid scenario, each pairing Baseline with Package 5 and stacked by fuel. y-axis annual GHG emissions in MMT CO2e to 400. Natural gas emissions fall from 81 to 31 in every panel, taking totals from 402 to 346 (-14%), 325 to 272 (-16%), and 240 to 191 (-20%).
+- source_image: 89653_images/image_000042_2d4bdf5a7a7b8c18ecbcaebe0d36984442a4f20cb9104265535d9a6ee8f5d1aa.png
+  source_image_sha256: b25738f53fe220994005f2b8381ba7046e07d2e7c703c97b062510bf0c0bbb11
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Single stacked bar of geothermal heat pump applicability as percent of floor area per measure
+  description: |-
+    Single stacked bar on the geothermal heat pump 'Applicability: % Floor Area per Measure' slide, y-axis percent floor area applicable 0-100%. Packaged water-to-air GHP covers 56% of floor area, hydronic water-to-water GHP 13% and console water-to-air GHP 11%, with 20% not applicable - the split that defines the comprehensive GHP package.
+- source_image: 89653_images/image_000043_8ad3a92931b0edd1119865b0333cd4e0383c1322f6324fed4443ce6c04ad9f54.png
+  source_image_sha256: 8078c70c6074c9ed313f02ecfe8cdb2d1c340b5437c56160c4f1b8f6b03eb6e4
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of stock site energy by fuel and end use, Baseline vs comprehensive GHP
+  description: |-
+    Stacked column chart on the geothermal heat pump 'Stock Site Energy by Fuel and End Use' slide, y-axis annual energy consumption in TBtu to 4500, comparing Baseline at 4338 with Comprehensive GHP at 3555, segmented by end use and fuel. Cooling falls from 667.3 to 471.0 and the top band from 854.9 to 344.6 as heating electrifies.
+- source_image: 89653_images/image_000044_46fc72334d3901d94c22acdf77bfa8a42f161ef929f0a0d37196a5338babb44d.png
+  source_image_sha256: 1886e8c846d3cdb2653273c5c77d2e672956eaff9e506ceefbe07a434cefdc0a
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel stacked bars of annual GHG emissions by grid scenario, Baseline vs comprehensive
+    GHP
+  description: |-
+    Grouped stacked-bar chart on the geothermal heat pump greenhouse gas slide: three panels, one per electricity grid scenario, each pairing Baseline with Comprehensive GHP and stacked by fuel. y-axis annual GHG emissions in MMT CO2e to 400. Electricity emissions rise slightly while gas falls from 81 to 33, netting 402 to 351 (-13%), 325 to 279 (-14%), and 240 to 199 (-17%).
+- source_image: 89653_images/image_000045_4c961f6f503e00940b84fe64e3a0d67229665d54587bf12d053220dfb239f2a2.png
+  source_image_sha256: b84f8fc15ddee8da02179a1bc1eb54f0c9d81de2a1c0311a5b06c26fabd519e3
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked area load profile of the summer peak week for the geothermal heat pump package
+  description: |-
+    Stacked area load profile on the 'Summer Peak' side of the geothermal heat pump peak-week slide, y-axis electricity demand in MW to 40, x-axis 15-minute steps from Jun 18 to Jun 24 2018 for Rochester, NY. Cooling and interior equipment dominate, and the black baseline-total line runs well above the GHP stack - a clear summer peak reduction.
+- source_image: 89653_images/image_000046_f30233756fdae89a6de75c1a37b37a2df6079b10cd6000b56cc0b54915118076.png
+  source_image_sha256: b30280b7556017879ad6e2e79c965e1c3508f0573a261a7c4f4e1f384a535297
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked area load profile of the winter peak week for the geothermal heat pump package
+  description: |-
+    Companion 'Winter Peak' profile over Jan 2 to Jan 7 2018 on the same MW axis, dominated by the red heating band. The GHP stack peaks near 40 MW, far above the black baseline-total line near 20 - winter electricity demand roughly doubles at the peak once heating is electrified.
+- source_image: 89653_images/image_000047_9d73bb3e288206f85b27a1597760f99eeb043f4eff38d75606c9c43dc67bcc53.png
+  source_image_sha256: d7518d8911062dc4cb18c6f49fcfa47cb5d26f4277cc2fc187404d125dc2a65e
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Schematic of load shedding within the daily peak window
+  description: |-
+    Small schematic on the demand flexibility measure-concept slide, axes labeled POWER DEMAND against HOUR OF THE DAY. A baseline curve and a modified curve are drawn with a bracket marking the peak window, where the modified curve dips below baseline. It illustrates load shedding during the daily peak.
+- source_image: 89653_images/image_000048_6ac17d90e97a873e3cc869d9cc29473e1852e43ee6ac8bcda99f922b791f6bb4.png
+  source_image_sha256: 196ae3fd0995747d9c1889488eb947eb59ef0c39cd1f8aae347515e7e118287c
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Schematic of load shifting into the pre-peak window
+  description: |-
+    Companion schematic on the same slide, same POWER DEMAND versus HOUR OF THE DAY axes, with the bracket marking a pre-peak window instead. The modified curve rises above baseline before the peak and falls below it during the peak, illustrating load shifting rather than shedding.
+- source_image: 89653_images/image_000049_76e96c836fac0bcf5ee66c15fdc8f8a83b4115241f6638f8fa998065ebcfabf9.png
+  source_image_sha256: c5f72d03cd1c737e87e9033144bc1bc6749aa48ae2f479a36c1a6784d57f3b26
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Flow diagram of the demand flexibility dispatch logic for load shed and load shift
+  description: |-
+    Flow diagram on the demand flexibility 'Technology Specifications' slide. The measure assumes perfect prediction of the load profile, then creates a daily dispatch schedule for the peak window. Two columns follow: load shed adjusts the thermostat setpoint by 2C in the 4-hour daily peak with 2-hour rebound control afterward; load shift adjusts it by 1C over a 2-hour pre-peak window.
+- source_image: 89653_images/image_000050_ff7e76369872da1842b61ca05dbc4d845fdee47ddb4076981ab090dfe9012e5b.png
+  source_image_sha256: a9ed570cb3162607f710b6e585f478823c6f0f0d930516466a00c3de06a0a308
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Line chart of hourly load for baseline versus default load shedding over five summer days
+  description: |-
+    Line chart on the thermostat load shedding 'Single Load Profile' slide, y-axis hourly load in kWh from 0 to 250, x-axis five summer days from 7/16 to 7/20. A dashed baseline series and a solid 'Load shed, Default' series track together overnight; the shed case is clipped below baseline through each afternoon peak, then rebounds.
+- source_image: 89653_images/image_000051_de9c689de135c9186b10a3c0905da5a6dd547887c4e02830c75eccd1b17acda7.png
+  source_image_sha256: 87596ac6a87186731e0ee8706936686d8dbbcab0f7c08c466a134b4ce4f9936d
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Monthly box plots of median peak savings for thermostat load shedding
+  description: |-
+    Box plots on the load shedding 'Median daily peak reduction for each month' slide, y-axis median peak savings from -10% to 15%, one box per calendar month. Medians sit near 1-2% year-round and the distributions are widest in summer. A callout notes savings go negative when the rebound effect is not successfully diminished.
+- source_image: 89653_images/image_000052_d050e89618f25e50a4714317146c945d9a40c8a0267233f754bc5baef9b12fe9.png
+  source_image_sha256: 98dcd4710b861213336582afa6c39b05e1b5cd6c6d520290686638221533f0bd
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Line chart of hourly load for baseline versus default load shifting over three summer days
+  description: |-
+    Line chart on the thermostat load shifting 'Single Load Profile' slide, y-axis hourly load in kWh from 0 to 250, x-axis three summer days from 8/7 to 8/9. The solid 'Load Shift, Default' series overshoots the dashed baseline in the pre-peak morning hours, then runs below it through the afternoon peak.
+- source_image: 89653_images/image_000053_e76a5a170779eb3ed8879aeae0059098327bece42b5ae8d083ca68e123e1799e.png
+  source_image_sha256: 070757f556b375eaf2e4050e69546ab60ae3ac5e6aae0fe4a31a883acefb9d09
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Monthly box plots of median peak savings for thermostat load shifting
+  description: |-
+    Box plots on the load shifting median monthly peak savings slide, y-axis median peak savings from -3% to 3% - a tenth of the load-shedding chart's range. Medians hover near zero all year and are widest in July and August. A callout notes negative savings when the shifted pre-peak period generates higher peaks.
+- source_image: 89653_images/image_000059_d1303be36bf2144b20b776665d9bec30bc9cdb2687bdea3691cf9fb0e16f740c.png
+  source_image_sha256: 46b7865de0ddc5154551f4028eb1b6c38ecc7e1062150701145c32bb85666591
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Annotated screenshot of the OEDI AWS S3 explorer for the 2024 ComStock release 1 folder
+  description: |-
+    Annotated screenshot on the 'Open Energy Data Initiative (OEDI) Folder Structure' slide showing the AWS S3 explorer for the 2024/comstock_amy2018_release_1 prefix. Orange callouts label the metadata files with annual usage and building characteristics, the timeseries folders as data by fuel and end use with various pre-aggregations, the CSV weather files, data_dictionary.tsv, and upgrades_lookup.json.
+- source_image: 89653_images/image_000060_ce2120689833d93ff7f1e880dd6dc156acd1d331fe8043f647c85c1d4aa9ca0f.png
+  source_image_sha256: a5809199a63057cc9e1ba4a165e0fd6708af0d6948c29f7efa979e671eca4922
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Annotated screenshot of an example ComStock metadata file opened in a spreadsheet
+  description: |-
+    Annotated screenshot on the 'Example Metadata File' slide showing a metadata table in a spreadsheet, one row per building model. Orange callouts point at the building ID, county, building type, building area, annual unweighted electricity peak in kW, and annual unweighted natural gas consumption columns. Other visible columns include window type, HVAC system, wall construction, and operating hours.
+- source_image: 89653_images/image_000061_a34815b562d06293259f17526ab78ce0dcea8618ec40a6afee562c1198f3af93.png
+  source_image_sha256: fffae3dd7e3663832028c5f69bf45c2cb4431795ec4b89f95884ff608635b354
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Annotated screenshot of the ComStock Data Viewer with state and scenario selectors
+  description: |-
+    Annotated screenshot on the 'ComStock Data Viewer' slide showing the tool with a US state map, selector menus, and result panels along the bottom. Orange callouts mark where to select a state, select a scenario, explore annual metadata including building characteristics, and explore time-series data. The example is Massachusetts with an HP-RTU electric-backup upgrade.
+- source_image: 89653_images/image_000062_6d9c7725a6aef8bdff5e0fe423268253c2ec1d7e542c789c1a60f240f6db2d2f.png
+  source_image_sha256: 050f9ddb913b4bb291ce9b65fbe20c18ef85dd5ee627f995a19b68bcf43614ee
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Annotated screenshot of the ComStock Data Viewer time-series view with filters and CSV export
+  description: |-
+    Second ComStock Data Viewer screenshot on the same slide, showing the time-series view: baseline and upgrade stacked-area load profiles side by side with a net-difference curve. Orange callouts mark the filter panel for building type, county and HVAC system, and the export-data-to-CSV control at top right.
