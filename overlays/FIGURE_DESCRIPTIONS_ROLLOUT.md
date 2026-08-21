@@ -7,7 +7,15 @@ cold in a fresh session — everything you need to start is here.
 **Read this first, then pick up the next unfinished batch.** Do not try to do the whole corpus
 in one pass.
 
-**Progress:** Batch A done (PR #14, merged). Batch B done. **Next up: Batch C.**
+**Progress:** Batch A done (PR #14). Batch B done (PR #15, + manifest fix #16). Batch C done
+(PR #17). 528 figures described across 32 docs. **Next up: Batch D.**
+
+> ⚠️ **The description standard was deliberately lowered on 2026-08-21 — read §2.1 before
+> authoring anything.** Batches B and C ran ~180 words per description, roughly 3x the
+> prototype standard the user actually accepted. That drift is the reason the rollout was
+> taking too long. Do not use B/C entries as your model for length; use `86100`. Existing
+> entries are **not** being rewritten, so the corpus is intentionally uneven — recent files
+> being longer is not a precedent.
 
 ---
 
@@ -34,7 +42,12 @@ merge it first).
   decorative + 49 described**. Shows the `decorative: true` shape.
 - `overlays/…/measure_pdfs/86100.yaml` — LED Lighting measure doc, **10 figures described,
   cover images skipped entirely** (the pattern the user endorsed: "figures only, disregard
-  decorative"). This is the cleaner template — **copy its structure.**
+  decorative"). This is the cleaner template — **copy its structure *and its length*.** At ~69
+  words per description it is the closest thing in the corpus to the §2.1 budget.
+
+⚠️ **Do not use Batch B or C files as length models** (`86105`, `98223`, `86585`, `86897`,
+`87542`, `89117`, `89131`, `95014`, … ~180 words each). Their *structure* is fine; their depth
+is 3x what the user wants. `85853` (45 words) and `86100` (69 words) are the reference points.
 
 Engine: `src/buildstock_corpus/overlay.py` (`_apply_figure`, `_find_image_refs`,
 `_figure_injection`, `_figure_applied_above`); counted in `manifest.py` + `build.py`; tests in
@@ -54,6 +67,43 @@ add a figures section there mirroring §3. Not required to do the work.)
 | `described_utc` | The date you author it (YYYY-MM-DD). |
 | Pinning | Every entry pins `source_image_sha256`, computed from the PNG **on disk**. |
 | Decorative-in-85853 | 85853 used `decorative: true` + short alt. **New docs: just omit decorative images** (86100 style). |
+| Depth | **Prototype level (~55 words).** See §2.1 — this is a hard budget, not a floor. |
+| Corroboration | **Dropped.** Do not reconcile figure values against body text or tables. |
+
+### 2.1 Depth budget (set 2026-08-21 — this replaces the earlier "read numbers off the figure")
+
+**Target: `description` ≈ 40–70 words. `alt` ≤ 120 characters, one line.** Treat 70 words as a
+ceiling you have to justify, not an average to hit. If a figure genuinely needs more (a rare
+multi-panel diagram that is the whole point of the document), it may go to ~100 — but that
+should be one or two figures per doc, not the default.
+
+A description has exactly four jobs, in this order:
+
+1. **Figure number + chart type** — "Figure 12: three-panel stacked bar chart of…"
+2. **Axes with units, and the series/legend** — enough for a retrieval hit on the right chart.
+3. **One quantitative takeaway** — the headline number or the direction and rough magnitude.
+4. **A pointer to the authoritative table** where per-segment values live ("See Table 8").
+
+**Stop doing these** (all three are what inflated Batches B and C):
+
+- **Enumerating data labels.** If a chart prints values on every bar, do not transcribe them —
+  they are in the table. Name the two or three largest and move on. (86100's per-building-type
+  list is the *one* legacy exception; don't imitate it.)
+- **Exhaustive panel walkthroughs.** For an N-panel grid, say what the rows/columns are and
+  give the one or two panels where the scenarios visibly diverge. Do not narrate every panel.
+  Compare `98223` figure 9 (214 words) against what §2.1 asks for — that figure should be ~60.
+- **Reconciling the figure against the prose.** No recomputing percentages to explain a
+  rounded `(-0%)` label, no "consistent with the sub-1-percent value in Table 3", no
+  cross-checks against the exec summary. If you happen to spot a *blatant* contradiction
+  (figure says up, text says down), note it in the sidecar's QA header — one line — and keep
+  going. Don't go looking.
+
+**Don't zoom to resolve unlabeled geometry.** If a value isn't legible at normal resolution,
+it doesn't go in the description. The table has it. (This supersedes the zoom/corroboration
+techniques used in Batches B and C.)
+
+The stacked-bar guidance that already existed for Figure-7-type charts is now just a special
+case of this rule: pattern + totals + direction, cite the table, never enumerate bands.
 
 ---
 
@@ -71,10 +121,10 @@ figures:
   source_image_sha256: <sha256 of that PNG on disk>
   method: vision-description
   described_utc: '2026-08-20'
-  alt: One-line description, no ']' character (it breaks the markdown alt)
+  alt: One line, <=120 chars, no ']' character (it breaks the markdown alt)
   description: |-
-    Full retrieval paragraph. What kind of chart, axes + units, series/legend, and the
-    quantitative takeaway. Read numbers off the figure; they get a human QA pass later.
+    40-70 words: chart type, axes + units, series/legend, one quantitative takeaway, and a
+    pointer to the table holding the per-segment values. See §2.1 — do not exceed the budget.
 ```
 
 Rules the engine enforces (each failure **warns and skips**, never raises):
@@ -103,9 +153,10 @@ Rules the engine enforces (each failure **warns and skips**, never raises):
    For each: decide **figure vs decorative**. Decorative = logos, cover/title art, dividers,
    footer icons, NREL branding → skip. Figure = any chart/plot/diagram/photo carrying
    information → describe.
-4. For each figure, write `alt` (one line) + `description` (axes, units, series, the
-   quantitative takeaway). Ground numbers in the figure and, where possible, cross-check
-   against numbers stated in the doc's exec summary. Flag the least-certain reads for QA.
+4. For each figure, write `alt` (one line, ≤120 chars) + `description` (**40–70 words** per
+   §2.1: chart type, axes + units, series, one takeaway, table pointer). One pass per figure —
+   read it, write it, move on. No zooming to resolve unlabeled geometry, no cross-checking
+   against the prose. Flag only the least-certain *headline* reads for QA.
 5. **Generate the YAML with a throwaway script** (see §5) so the sha256 pins come from disk,
    never hand-typed.
    - Net-new doc → new file `…/measure_pdfs/<ID>.yaml`.
@@ -238,7 +289,11 @@ The user said "all the categories." After surveying the three top-level dirs:
   overlay's top-level `release`/`source_path` and the per-entry sha256.
 - **Chunks of ≤10 docs** at a time.
 - **Vision-generated numbers need a human QA pass** before treated as a release record. Call
-  out the least-certain reads (dense stacked bars, unlabeled segments) per batch.
+  out the least-certain reads (dense stacked bars, unlabeled segments) per batch. Under §2.1
+  there are far fewer numbers to QA by design — the tables carry the values, and the
+  `description` carries the headline only.
+- **Depth is capped (§2.1).** ~40–70 words, `alt` ≤120 chars, no corroboration against prose.
+  If you find yourself investigating a figure, you have left the intended scope.
 - **The user handles PRs** — do not install `gh` or create PRs.
 - Do not swap the embedder (`bge-small-en-v1.5` stands); keep the transform retrieval-agnostic.
 
@@ -249,3 +304,15 @@ The user said "all the categories." After surveying the three top-level dirs:
 `uv run bsc build && uv run bsc validate && uv run pytest` all green; injected regions
 eyeballed in a couple of the processed `.md` files; before/after shown to the user for the QA
 pass; throwaway generator scripts deleted; branch left for the user to PR.
+
+Plus the length check — the batch's mean `description` word count should land in the 40–70
+band. If it's drifting past ~90, the standard has slipped again; trim before opening the PR:
+
+```bash
+uv run python scripts/check_figure_desc_budget.py
+```
+
+It exits non-zero if a file you authored drifted past the 90-word mean ceiling, and lists
+individual over-long descriptions and over-cap `alt`s so you know what to trim. Pre-rollback
+files (85853/86100 + Batches A–C) are waived by name in `GRANDFATHERED` — **add your batch's
+IDs there only if the user decides not to trim them**, never to silence a fresh drift.
