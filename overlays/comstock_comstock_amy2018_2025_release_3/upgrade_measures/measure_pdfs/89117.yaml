@@ -1,0 +1,346 @@
+# Hand-authored figure descriptions for measure PDF 89117
+# "End-Use Savings Shapes Measure Documentation: Advanced Rooftop Unit Control"
+# Amy Allen and Chris CaraDonna, National Renewable Energy Laboratory,
+# NREL/TP-5500-89117, April 2024
+#
+# The PDF yields 26 extracted images. Five are decorative and are deliberately
+# left with no overlay entry: image_000000 is the cover photo collage,
+# image_000001 to image_000003 are cover photos and image_000004 is the NREL
+# wordmark. The remaining 21 images are real figures (plus one table that
+# survives only as a bitmap) and are all described below, in document order.
+#
+# IMAGE -> FIGURE MAP. Captions sit ABOVE their image refs throughout. The
+# in-body caption NUMBER is wrong for ten consecutive images; the authoritative
+# number is the one used by the List of Figures and by the body
+# cross-references. The printed caption number is given in parentheses where it
+# differs:
+#   000005 = Figure 1          000015 = Figure 9  (printed "Figure 10")
+#   000006 = Figure 2          000016 = Figure 10 (printed "Figure 11")
+#   000007 = Table 1 bitmap    000017 = Figure 11 (printed "Figure 12")
+#   000008 = Figure 3          000018 = Figure 12 (printed "Figure 13")
+#   000009 = Figure 4          000019 = Figure 13 (printed "Figure 14")
+#   000010 = Figure 5a         000020 = Figure 14 (printed "Figure 15")
+#   000011 = Figure 5b (printed "Figure 6b")
+#   000012 = Figure 6  (printed "Figure 7")
+#   000013 = Figure 7  (printed "Figure 8")
+#   000014 = Figure 8  (printed "Figure 9")
+#   000021 = Figure 15         000022 - 000025 = Figures A-1 to A-4
+# The numbering resyncs at 000021, so TWO different images carry the printed
+# caption "Figure 15": 000020 (savings by climate zone) and 000021 (the gas
+# penalty scatter). Every description below names its authoritative figure
+# number and, where they differ, the printed one, so a retrieval hit on either
+# number lands on the right image.
+#
+# The Table 1 bitmap (000007) has no caption line at all in the markdown - its
+# title and footnote are baked into the image, and only the three data rows
+# survived docling's table extraction - so it is transcribed rather than
+# described, with method: vision-transcription.
+#
+# QA FLAGS - vision-derived numbers need a human pass before publication.
+#
+# High confidence (the value is printed on the figure itself, or is
+# corroborated by body text):
+#   Fig 1  - the labelled bars are printed data labels. The derived total stock
+#            floor area 60.56 billion ft2 (16,744,407,702 / 0.2765) is confirmed
+#            by "All others" 5,209,708,660 / 60.56B = 8.602%, matching its own
+#            printed 8.60%. The three PSZ-AC rows total 38.62%, matching the
+#            Executive Summary and Measure Summary "about 39% of the floor area
+#            modeled in ComStock".
+#   Fig 3  - the measure plateau 0.58 kg/s over the baseline plateau 1.45 kg/s
+#            is 40.0%, matching the stated 40% minimum supply airflow ratio; all
+#            zone loads are negative, matching the note "a negative load
+#            corresponds to cooling"; the x range 5040-5232 is the stated
+#            "roughly one-week period in July".
+#   Fig 5a - outdoor air enthalpy stays below return air enthalpy for the whole
+#            window, matching section 5.1 exactly.
+#   Fig 5b - the occupied plateau 0.58 kg/s is shared by both series, matching
+#            "generally operating at 100% outdoor air".
+#   Fig 6  - the occupied plateau 0.58 kg/s is 40% of Figure 3's 1.45 kg/s
+#            baseline maximum, matching section 5.1's "never drops below 0.6
+#            kg/s (40% of the maximum airflow) during occupied periods" (the
+#            text rounds 0.58 to 0.6).
+#   Fig 8  - segment labels are printed. The totals 4338 -> 4156 TBtu give
+#            exactly the stated 182 TBtu / 4.2%; fans 519.1 -> 382.0 gives the
+#            stated 137.1 TBtu / 26%; cooling 667.3 -> 643.3 gives the stated
+#            24.0 TBtu / 3.6%.
+#   Fig 10 - every bar carries a printed label. Electricity deltas 17, 12 and 7
+#            MMT and the 1 MMT gas delta reproduce the Executive Summary's
+#            7-17 MMT range plus 1 MMT on-site gas, and all three panels print
+#            -4%.
+#   Fig 11 - "District Cooling Cooling (n=12)" matches section 5.4's "PSZ-AC
+#            with district chilled water and an electric heating coil had only
+#            12 incidences"; the cooling box 4-13% matches the stated 5%-15%
+#            interquartile range; the fan distribution stops at 67%, matching
+#            "no datapoints with fan energy savings exceeding 67%".
+#   Figs 12, 13, 14 - the per-category n values sum to exactly 195,510 in all
+#            three figures independently, and PSZ-AC with gas coil (133,472) and
+#            PSZ-AC with electric coil (39,881) are the two largest system
+#            types, as section 5.4 states.
+#   Fig 15 - the red "Max potential penalty" line runs from (0, 0) to
+#            (40,000 kWh, -50,000 kWh), a slope of exactly -1/0.8, reproducing
+#            the stated 80% natural gas heating efficiency assumption; every
+#            point lies above it, as section 5.5 states.
+#
+# Medium confidence (read off the plot against gridlines or a pixel-derived
+# scale; corroboration is partial):
+#   Fig 1  - the seven unlabelled percentages were derived from the adjacent
+#            absolute-floor-area panel, not pixel-read. PTAC with gas coil is
+#            unlabelled in all three panels and is only bounded by the residual
+#            (about 1.1%); it is not asserted in the description.
+#   Fig 4  - the plateau 2,330 W and floor about 820 W come from a gridline
+#            pixel calibration (43.33 px per 500 W). Their ratio is about 35%,
+#            not the 30% fan power minimum the text asserts - see defect (i).
+#   Figs 3, 5b - the peak zone loads are read against 5,000 W gridlines and are
+#            good to about +/-300 W.
+#   Fig 9  - fans 268.8 -> 131.6 and cooling 243.9 -> 220.0 are printed labels
+#            and their deltas match the stock values, but the implied percentage
+#            reductions (about 51% and 10%) are below the 53.3% and 11.2% the
+#            body text gives for applicable buildings - see defect (j).
+#   Figs 8, 9 - the natural gas heating and interior equipment gas segment
+#            labels are illegible at the source bitmap resolution and are NOT
+#            asserted; the body text values (18.1 TBtu / 2.1% stock, 6.1% among
+#            applicable buildings) are quoted instead.
+#   Figs 11, 12, 13, 14 - box edges and medians are pixel reads off unlabelled
+#            box plots, good to about +/-1 percentage point.
+#   Figs A-1 to A-4 - the bars carry no data labels. Summing the pixel-read bar
+#            heights gives a total about 3% above Figure 8's printed all-fuel
+#            totals, so the bar heights are systematically slightly overread.
+#            The descriptions therefore give ordering, direction and rough
+#            magnitude only, and no per-category value is asserted as exact.
+#
+# DEFECTS found while describing (all verified against the body text):
+#   (a) Systematic caption misnumbering. Images 000011 to 000020 each print a
+#       caption number one higher than the List of Figures and the body
+#       cross-references use. The numbering resyncs at 000021, so two images
+#       both print "Figure 15". Image 000011 additionally prints "Figure 6b"
+#       where the body calls it "Figure 5b".
+#   (b) Figure 5a is missing from the List of Figures entirely - the list jumps
+#       from "Figure 4. Fan power ..." straight to "Figure 5b. System total
+#       airflow ...".
+#   (c) Applicability contradiction. The Executive Summary and the Measure
+#       Summary table both say "about 39% of the floor area modeled in
+#       ComStock", which matches Figure 1's three PSZ-AC rows (38.62%), but
+#       section 3.1 says "about 45% of the weighted floor area". 45% is not
+#       supported by Figure 1 even if PSZ-HP is included (42.02%); it is the
+#       figure quoted for a different baseline in measure PDF 86585.
+#   (d) Table 1 prints the wrong propane conversion: 177.8 lb/MMBtu paired with
+#       182.3 kg/MWh, where 177.8 x 0.4536 x 3.412 gives 275.2. Measure PDF
+#       86585's Table 5 prints the correct pairing (275.7 kg/MWh), so 89117
+#       joins 89340, 89341, 89481, 89133 and 92618 in carrying the error.
+#       Table 1's title and footnote also survive only as the 000007 bitmap.
+#   (e) Section 3.3 copy-paste error: "compare the emissions of the ComStock
+#       baseline and the window replacement scenario" - the wrong measure name.
+#   (f) Section 5.2 units garbled: "4.2% total site energy savings (182 trillion
+#       TBtu)" should read "182 trillion British thermal units (TBtu)".
+#   (g) Section 5.3 says "a reduction in carbon emissions lower than the
+#       reduction in overall site energy use (11.3%)", but the Executive Summary
+#       and section 5.2 both give total site energy savings as 4.2%. 11.3%
+#       appears to be a stray value (section 5.2's applicable-buildings cooling
+#       savings is 11.2%).
+#   (h) Wang et al. (2013) is quoted as "an average of 57% RTU-level energy
+#       savings" in section 1 and "an average of 55% RTU energy savings" in
+#       section 5.2. Studer et al. is cited as (2012) in section 1 and in the
+#       References but as "Studer et al. (2013)" in section 5.2.
+#   (i) Figure 4's plotted low-load fan power floor is about 35% of the baseline
+#       occupied draw (about 820 W against 2,330 W), not the 30% minimum the
+#       text asserts twice. The figure is internally consistent with section
+#       5.4's ceiling, though: 1 - 0.353 = 64.7%, and section 5.4 reports "no
+#       datapoints with fan energy savings exceeding 67%".
+#   (j) Figure 9's plotted applicable-buildings pairs imply about 51% fan and
+#       about 10% cooling reductions, whereas section 5.2 states 53.3% and
+#       11.2%. The absolute deltas match the stock-level values exactly
+#       (137 TBtu fans, 24 TBtu cooling), so the disagreement is in the
+#       denominator used for the stated percentages, not in the savings.
+#   (k) Section 5.4 describes the fan interquartile range as "roughly 30% to
+#       67%", but 67% is where the distribution ends, not its 75th percentile;
+#       the plotted box runs from about 32% to about 62%.
+#   (l) Section 5.5 says buildings "with fan energy savings greater than 300,000
+#       kWh were omitted here for clarity", but Figure 15's x-axis tops out at
+#       40,000 kWh, so the stated cutoff is off by roughly an order of
+#       magnitude relative to what is plotted.
+#   (m) Minor label defects: Figure 5a's y-axis reads "Enthalpy (j/kg)" with a
+#       lowercase j; Figures A-1 to A-4 label their y-axis units "(tbtu)"
+#       lowercase; Figure 12's plot title is clipped at the top edge of the
+#       bitmap; Figure 14 lists a bare climate zone "7" (n=268) alongside "7A"
+#       and "7B"; and Figure 10 plots eGRID first while the note beneath it
+#       lists eGrid last.
+#   (n) The appendix was checked for the wrong/duplicated/swapped-graphic defect
+#       class: A-1 is natural gas by census division, A-2 natural gas by
+#       building type, A-3 electricity by building type and A-4 electricity by
+#       census division, each matching its own caption. No swap or duplication.
+#       A-2 to A-4 carry 14 building types including LargeHotel, which is absent
+#       from Figure 13 because no LargeHotel model was applicable; the appendix
+#       charts cover the whole stock, so this is consistent, not a defect.
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: measure_pdfs/89117.pdf
+figures:
+- source_image: 89117_images/image_000005_8e578cbdafac3f6dcf6deca6356f5cd2dbcc5b0474cb4cc58647ccd87aae8f9c.png
+  source_image_sha256: f42f8330fee859058823d468f66c8b4477601446eaefaa36551ee5513614994f
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Three-panel horizontal bar chart of ComStock HVAC system type prevalence by percent of stock floor area, absolute stock floor area and model count, led by PSZ-AC with gas coil at 27.65%.
+  description: |-
+    Three side-by-side panels share the same 18 HVAC system type rows under the header "in.hvac_system_type (group)". The panels are "% of Stock Floor Area" (0% to 40%), "Stock Floor Area" (0B to 30B) and "Model Count" (0% to 40%). Data labels alternate between rows, so no single panel labels every row. Printed percentages of stock floor area: PSZ-AC with gas coil 27.65; PVAV with gas boiler reheat 9.82; VAV chiller with gas boiler reheat 7.10; VAV air-cooled chiller with gas boiler reheat 5.07; PVAV with PFP boxes 4.08; PTAC with electric coil 3.16; PTHP 2.28; DOAS with water source heat pumps cooling tower 1.96; DOAS with fan coil chiller with boiler 1.23; All others (<1% Area) 8.60. Printed stock floor areas include PSZ-AC with gas coil 16,744,407,702 ft2, PSZ-AC with electric coil 5,134,140,479 and PVAV with gas heat with electric reheat 3,369,888,394, implying a total stock of about 60.6 billion ft2. Dividing the unlabelled floor areas by that total gives PSZ-AC with electric coil about 8.5% and PSZ-AC with gas boiler about 2.5%; the three PSZ-AC rows therefore total 38.6%, the share the measure is applicable to.
+- source_image: 89117_images/image_000006_e1c14fa6b494b530e6d32f24d5aa3ed0b0185c2c3b8a5fd644e5a8bae9aeda16.png
+  source_image_sha256: 5a331d5ee45cdbc46d78a5aed9c5607d94e96b35009549ce84ee20af318bcc4e
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Schematic from Trane (2013) of the single-zone VAV airflow control scheme, showing two discrete supply fan speeds stepped against stages of heating and cooling capacity.
+  description: |-
+    Borrowed schematic (credited to Trane, 2013) illustrating the single-zone VAV airflow control scheme this measure emulates. Two staircase traces run left to right over an unlabelled horizontal axis representing increasing cooling demand. The right-hand black axis is "supply fan airflow", marked "design airflow" at the top with a dotted "minimum airflow" line partway down; the left-hand orange axis is "stages of cooling or heating capacity". At the left the black trace sits at design airflow while the orange trace is high and annotated "heater ON". The black trace then drops to a low plateau annotated "low fan speed" that coincides with the dotted minimum airflow line, holding that level while the orange trace steps from "both compressors OFF" up to "one compressor ON". At the right the orange trace steps to "both compressors ON" and the black trace jumps back to design airflow, annotated "high fan speed". The figure therefore shows only two discrete fan speeds, with first-stage cooling served at the low speed - the behaviour section 3.2 calls "effectively a fan control approach with two discrete speeds", although that section describes 40%, 75% and 90% airflow levels.
+- source_image: 89117_images/image_000007_2e458153aba1ba843ed3c91e4988e29c27221a59c76da45d0134c41ac386e36c.png
+  source_image_sha256: 3eed39f206663641b8c5649c1bd05f4504f68ed70deec592fef369c838933128
+  method: vision-transcription
+  described_utc: '2026-08-21'
+  alt: |-
+    Bitmap of Table 1, On-Site Fossil Fuel Emissions Factors, giving emissions factors for natural gas, propane and fuel oil in lb per MMBtu and kg per MWh.
+  description: |-
+    Table bitmap, transcribed. Title: "Table 1. On-Site Fossil Fuel Emissions Factors". Columns: Fossil Fuel Type; Emissions Factor. Rows: Natural gas, 147.3 lb/MMBtu (228.0 kg/MWh); Propane, 177.8 lb/MMBtu (182.3 kg/MWh); Fuel oil, 195.9 lb/MMBtu (303.2 kg/MWh). Footnote: "lb = pound; MMBtu = million British thermal units; kg = kilogram; MWh = megawatt-hour". Only the three data rows survived the automated table extraction in this document; the title and the footnote exist solely inside this bitmap. Note that the propane pairing printed here is wrong: 177.8 lb/MMBtu converts to 275.2 kg/MWh, and measure PDF 86585's Table 5 prints 275.7 kg/MWh for the same fuel. The 182.3 kg/MWh value shown here is the same error that appears in measure PDFs 89340, 89341, 89481, 89133 and 92618.
+- source_image: 89117_images/image_000008_1e6455e396be61ff49ba9a5bf20b0c7576f43ac1e3810ec95f6ca7b978f59e57.png
+  source_image_sha256: f6e4ee2e3085d40e6137bdc2bd1ce93cef9eb9a6471d7b4a8d09249983f233f4
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Two stacked time series over a week in July for one retail zone: supply airflow for the base and measure cases (top) and the measure-case zone load (bottom).
+  description: |-
+    Figure 3. Two stacked panels sharing an x-axis "Hour of year" running about 5040 to 5232, i.e. roughly eight days in late July, for the zone "Retail, Retail B-Story Ground" of the retail PSZ-AC test model. Top panel, y-axis "Fan airflow (kg/s)" 0.0 to 1.5, two series: the baseline (blue) is a square wave holding an occupied plateau of 1.45 kg/s and decaying to about 0.17-0.20 kg/s when unoccupied; the measure (orange) holds a much lower occupied plateau of 0.58 kg/s, which is 40% of the baseline plateau and matches the stated 40% minimum supply airflow ratio, spiking up to the full 1.45 kg/s only on the hottest days. Unoccupied hours track the baseline. Bottom panel, y-axis "Zone load (W)" from 0 down to -25000 with the legend showing "Measure" only. Every value is negative, so the zone is cooling throughout, consistent with the note that a negative load corresponds to cooling. Overnight load sits near -3,000 W and the daily peaks deepen through the week to about -23,300 W and -24,000 W on the last two days - the same two days on which the top panel's measure airflow spikes to the maximum.
+- source_image: 89117_images/image_000009_5041f67115f583ae65ddd1a6742cf4b752974c2f9ca31e498e262e04e51a426d.png
+  source_image_sha256: 2cc1c185c931e156a41a45574622b836de5d2ea2f8e0290bdd54d388ea2150c4
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Time series of packaged unit fan power over the same July week, comparing the constant volume baseline against the measure case, which holds a continuous low-load floor.
+  description: |-
+    Figure 4. Single panel, y-axis "Fan power (W)" 0 to 2500, x-axis "Hour of year" over the same late-July window as Figure 3, for the same zone. The baseline (blue) is a square wave with an occupied plateau of about 2,330 W and an unoccupied floor of about 290-350 W. The measure (orange) never drops to the baseline's overnight floor; instead it holds a continuous low-load level of about 820 W, rising to the full 2,330 W only in the short high-airflow bursts that correspond to the airflow spikes in Figure 3. The plotted ratio of the measure floor to the baseline occupied plateau is about 35%, somewhat above the 30% fan power minimum the body text says was imposed, but 1 - 0.353 = 64.7% is consistent with section 5.4's observation that no datapoint shows fan energy savings above 67%. The baseline dipping below the measure's floor overnight is expected and explained in the text: the constant volume baseline is modelled with a Fan:OnOff object that can drop below the Fan:VariableSpeed minimum.
+- source_image: 89117_images/image_000010_9c17263f0b86e4a9beac22b8d2e7afa930a0eced002e2bc0386ac359de806194.png
+  source_image_sha256: 17268724cfd7cfacba1c63c9acc6573905836f2985a99732e795917978f3f1ae
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Time series of outdoor air and return air enthalpy over several days in October, with outdoor enthalpy below return enthalpy throughout the period.
+  description: |-
+    Figure 5a. Single panel, y-axis "Enthalpy (j/kg)" (the source label uses a lowercase j) from 10000 to 45000, x-axis "Hour of year" about 6910 to 7008 - a several-day window in mid-October. Two series: "Outdoor air enthalpy" (red) swings between roughly 9,800 and 36,500 J/kg on a daily cycle, and "Return air enthalpy" (green) stays in a much narrower band of roughly 31,500 to 44,200 J/kg. The green trace lies above the red trace for the entire period, with the narrowest gap of about 7,500 J/kg near hour 6923. Since the economizer in this measure is controlled on differential enthalpy, outdoor enthalpy being below return enthalpy throughout means the economizer is eligible for the whole window - exactly what section 5.1 asserts, and the premise for the 100% outdoor air operation shown in Figure 5b.
+- source_image: 89117_images/image_000011_5d8524b687ae1b40dfba0ef4671e11567db4009c01cb4846ed756b5ad2d1bddc.png
+  source_image_sha256: d9e227ab018d5a2914e95ac280f36bd9cedb5a7912e94925b53d5dd72334a499
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Two stacked time series for the October economizer window: system total and outdoor airflow (top), and zone cooling load (bottom).
+  description: |-
+    Figure 5b, printed in the document with the caption "Figure 6b". Two stacked panels over the same mid-October window as Figure 5a (hour of year about 6910 to 7008). Top panel, y-axis "Airflow (kg/s)" 0.0 to 1.0, with "System total airflow" (blue) and "System outdoor airflow" (orange). During occupied hours the two series lie on top of one another at a plateau of 0.58 kg/s, i.e. the system is drawing essentially 100% outdoor air, which is what section 5.1 states for this period. Unoccupied hours decay to roughly 0.10-0.20 kg/s and one occupied peak reaches about 0.71 kg/s near hour 7002; two brief dropouts near hours 6929 and 6977 pull the traces down sharply. Bottom panel, y-axis "Zone load (W)" from 0 down to -8000, legend "Zone load". All values are negative, so the zone is cooling throughout, but the loads are shallow compared with the July week in Figure 3: overnight values sit around -2,000 to -3,600 W and daily peaks reach only about -6,900 to -7,300 W. That limited cooling load is why the system stays at its low-load flow rate for most of the window.
+- source_image: 89117_images/image_000012_8d5e3ecc1f4c574e6a9e22ef54ac519812c870ba6265858182fa83cf4ab629fc.png
+  source_image_sha256: a2102095a64ddec81504d7ff3b336b4bf54a9049d3b16ef44d16cd2194f3f4dc
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Time series of system total and outdoor airflow over about eight days in October, with the occupied airflow pinned at the 0.58 kg/s low-load minimum.
+  description: |-
+    Figure 6, printed in the document with the caption "Figure 7". Single panel, y-axis "Airflow (kg/s)" 0.0 to 1.0, x-axis "Hour of year" about 6840 to 7030 - a wider October window than Figure 5b, covering eight occupancy cycles. "System total airflow" (solid blue) and "System outdoor airflow" (dashed orange) again coincide during occupied hours at a flat plateau of 0.58 kg/s, with short peaks to 0.91, 0.85, 0.73 and 0.71 kg/s on the days with the largest cooling demand. Unoccupied hours fall to roughly 0.10-0.33 kg/s, and the outdoor airflow trace drops to zero twice, when the outdoor air damper closes completely. The point of the figure is that the occupied plateau never falls below the low-load minimum, which is 40% of the 1.45 kg/s maximum airflow seen in Figure 3; section 5.1 rounds that plateau to 0.6 kg/s. Because the ventilation requirement in this zone is below 40% of maximum airflow, demand-controlled ventilation cannot pull the flow any lower, so no DCV modulation is visible even though occupancy varies substantially over the same period (Figure 7).
+- source_image: 89117_images/image_000013_6ffd14257cbc8c4e53a9f499f17117f42cb7899ea8171117e00dec552abc54bd.png
+  source_image_sha256: 329c1b519e7ae7cc6242c17f907ca332cb84b51978b5d2a44ba49e734e52e270
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Time series of zone occupant count over the same October window, showing eight daily occupancy pulses that peak near 73-74 people with one much lower day near 37.
+  description: |-
+    Figure 7, printed in the document with the caption "Figure 8". Single panel, y-axis "Occupant count" 0 to 80, x-axis "Hour of year" about 6840 to 7030 - the same window as Figure 6 - with one red series labelled "Occupancy". Eight daily pulses rise from zero overnight to a peak of about 73 people, one of which holds a broader plateau near 74 around hours 6875-6880. Each pulse passes through an intermediate shoulder near 46 people on the way up and down. One day, near hours 6900-6905, peaks at only about 37 people, and a shorter shoulder near 19 appears around hour 6885. The figure is provided as reference for Figure 6: occupancy varies by roughly a factor of two from day to day, yet the occupied supply airflow in Figure 6 stays pinned at 0.58 kg/s, demonstrating that the 40%-of-maximum airflow floor governs over the demand-controlled ventilation setpoint in this zone.
+- source_image: 89117_images/image_000014_cd8a5352383cd61dc16da8f42900314ef9a1e5024ce4eb4782086ca38319465c.png
+  source_image_sha256: 5272c708f463188a7647dbd3e1b2b9cd35cb5283482fd8e2feed8300769d48b2
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Stacked bar comparison of annual site energy consumption for the whole ComStock stock, baseline versus Advanced RTU Controls, by end use and fuel type.
+  description: |-
+    Figure 8, printed in the document with the caption "Figure 9". Two stacked bars, "Baseline" and "Advanced RTU Controls", on a y-axis "Annual Energy Consumption (TBtu)" running 0 to 4500, with a legend of 18 end-use-by-fuel segments (interior equipment, fans, cooling, interior lighting, heating, water systems, exterior lighting, refrigeration, pumps, heat rejection and heat recovery, each split by electricity, natural gas, district heating or cooling, and other fuel). This is the whole modelled stock, including buildings the measure was not applicable to. The bar totals are 4338 TBtu baseline and 4156 TBtu with the measure, a reduction of 182 TBtu or 4.2%. Fan electricity falls from 519.1 to 382.0 TBtu (-137.1, the largest single contribution) and cooling electricity from 667.3 to 643.3 TBtu (-24.0); natural gas heating falls by 18.1 TBtu (2.1%) per the body text, though that segment's printed label is illegible in this bitmap. Heating electricity edges down from 175.2 to 173.6 TBtu. Interior equipment electricity (739.7) and interior lighting (451.9) are unchanged. For per-segment numbers, see the section 5.2 bullets.
+- source_image: 89117_images/image_000015_832e196c03d5d62d9ed3542f0294a0129b10d309843368da0349c26fb3b61ba6.png
+  source_image_sha256: e3a42b1d9a1b0c457eafcafcf431a41b9dbff4720a4e2fd7fe8b54a7268d551a
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Stacked bar comparison of annual site energy consumption for applicable buildings only, baseline versus Advanced RTU Controls, by end use and fuel type.
+  description: |-
+    Figure 9, printed in the document with the caption "Figure 10". The same stacked-bar format as Figure 8 - "Baseline" and "Advanced RTU Controls" bars, y-axis "Annual Energy Consumption (TBtu)" 0 to 1800, segments by end use crossed with fuel type - but restricted to the buildings the measure was applicable to, which the text offers as a more direct basis for comparison with field studies. The bar totals are 1774 TBtu baseline and 1591 TBtu with the measure, a reduction of about 183 TBtu or roughly 10% of this subset's energy use. Fan electricity falls from 268.8 to 131.6 TBtu and cooling electricity from 243.9 to 220.0 TBtu; both deltas match the stock-level savings in Figure 8, confirming that essentially all of the savings arise in these buildings. Natural gas heating also falls, by 6.1% per section 5.2, although that segment's printed label is illegible in this bitmap. Interior equipment electricity (289.1), interior lighting (199.6), exterior lighting (65.1) and gas water systems (76.9) are unchanged. Section 5.2 gives the end-use percentages: 53.3% fan savings, 11.2% cooling, 6.1% gas heating.
+- source_image: 89117_images/image_000016_bb6f0adbff5bb226415c28801f4be0ad83ef8dba26e9512f42cb65f48ee46e52.png
+  source_image_sha256: b64a5b3affaa2939748b5727088052779ab72c78ffa8ddf0f760f50653e879ee
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Three-panel stacked bar comparison of annual greenhouse gas emissions, baseline versus Advanced RTU Controls, under the eGRID, LRMER High RE Cost and LRMER Low RE Cost electricity scenarios; every panel shows a 4% reduction.
+  description: |-
+    Figure 10, printed in the document with the caption "Figure 11". Three panels titled "eGRID 2021", "LRMER High RE Cost 15" and "LRMER Low RE Cost 15", each holding a "Baseline" and an "Advanced RTU Controls" stacked bar on a shared y-axis "Annual GHG Emissions (MMT CO2e)" from 0 to just over 400. Segments are Electricity (blue), Natural Gas (orange), Fuel Oil (green) and Propane (red-orange), with printed labels. eGRID 2021: 402 baseline to 384 with the measure, marked -4%, with electricity 314 to 297 and gas 81 to 80. LRMER High RE Cost 15: 325 to 312, marked -4%, electricity 237 to 225, gas 81 to 80. LRMER Low RE Cost 15: 240 to 231, marked -4%, electricity 152 to 145, gas 81 to 80. The electricity reductions of 17, 12 and 7 MMT bracket the Executive Summary's stated 7 to 17 MMT range, and the 1 MMT gas reduction is the on-site component. The scenario totals differ because the electricity carbon intensity differs, but the percentage reduction is 4% in all three. The panel order puts eGRID first, whereas the note beneath the figure lists eGrid last.
+- source_image: 89117_images/image_000017_7481b4f5267d215fc8ff79b91199ed3e5dade8ef4b5ca1ab27c81f5c79d896a4.png
+  source_image_sha256: bc3ad8562b57deb28070f8c25f2fdd7bcefcf113dfead684a6c877b4889076a3
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Violin and box plot distribution of percent site energy savings across ComStock models by end use and fuel type, with fans by far the largest saver and heating medians near zero.
+  description: |-
+    Figure 11, printed in the document with the caption "Figure 12". Horizontal violin plots with embedded box plots, titled "Upgrade 13: Advanced RTU Controls (unweighted)", on an x-axis "Percent Site Energy Savings by End Use (%)" from -160 to 100. Sixteen end-use-by-fuel rows, each labelled with its sample count: Electricity Cooling (n=195473), Electricity Fans (n=195484), Electricity Heat Recovery (n=5012), Electricity Heating (n=60010), Electricity Interior Equipment (n=1), Electricity Interior Lighting (n=17), Electricity Pumps (n=7872), Electricity Refrigeration (n=22170), Electricity Water Systems (n=10919), Natural Gas Heating (n=131563), Natural Gas Water Systems (n=14763), District Cooling Cooling (n=12), District Heating Heating (n=524), District Heating Water Systems (n=33), Other Fuel Heating (n=8999) and Other Fuel Water Systems (n=344). Electricity Fans dominates, with an interquartile range of about 32% to 62%, a median near 47% and a hard upper limit at about 67%. Electricity Cooling runs about 4% to 13% with a median near 8%. The heating rows sit near zero. Heat recovery shows a penalty, about -23% to -8%.
+- source_image: 89117_images/image_000018_f36c9981c73c2ff7fd1d1137580ddbfce06afb0c7a7efbd2af645eb4c29642b1.png
+  source_image_sha256: ae00dbf5099782a7f77436ea2ad3d78c4e758ea4edba603b9472166df0a21aa9
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Violin and box plot distribution of percent site energy savings by HVAC system type, with PSZ-HP and the electrically or district heated PSZ-AC variants saving most.
+  description: |-
+    Figure 12, printed in the document with the caption "Figure 13". Horizontal violin plots with embedded box plots on an x-axis "Percent Site Energy Savings by HVAC System (%)" from -5 to 55; the plot title "Upgrade 13: Advanced RTU Controls (unweighted)" is clipped at the top edge of the bitmap. Six system-type rows with sample counts: PSZ-AC district chilled water with electric coil (n=12), PSZ-AC with district hot water (n=524), PSZ-AC with electric coil (n=39881), PSZ-AC with gas boiler (n=7511), PSZ-AC with gas coil (n=133472) and PSZ-HP (n=14110). The counts sum to 195,510, the full applicable sample. Approximate interquartile ranges and medians: district chilled water with electric coil 3% to 7.5% (median 5%); district hot water 6% to 13% (9.5%); electric coil 5% to 13% (9%); gas boiler 3.5% to 11% (7%); gas coil 3.5% to 11.5% (7.5%); PSZ-HP 5.5% to 15% (10%). The two largest system types, gas coil and electric coil, do have similar spreads as the text says. The higher upper range for the heat pump, electric coil and district hot water rows is consistent with the text's argument that a fan heat penalty costs less site energy where heating is more efficient.
+- source_image: 89117_images/image_000019_db7cb0067375310becae777bb378ac4858bde8945ca292d83ae5e87a532f7fc3.png
+  source_image_sha256: 292e7fe708eddf3df13f5d2baee538432d2151448991de61cac14b344f46836d
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Violin and box plot distribution of percent site energy savings by building type, with schools and offices saving most and warehouses least.
+  description: |-
+    Figure 13, printed in the document with the caption "Figure 14". Horizontal violin plots with embedded box plots, titled "Upgrade 13: Advanced RTU Controls (unweighted)", on an x-axis "Percent Site Energy Savings by Building Type (%)" from -5 to 55. Thirteen building types in alphabetical order with sample counts: FullServiceRestaurant (n=14443), Hospital (n=27), LargeOffice (n=243), MediumOffice (n=2410), Outpatient (n=5047), PrimarySchool (n=1690), QuickServiceRestaurant (n=8669), RetailStandalone (n=33115), RetailStripmall (n=45792), SecondarySchool (n=1229), SmallHotel (n=389), SmallOffice (n=38838) and Warehouse (n=43618), summing to 195,510. Approximate interquartile ranges: PrimarySchool 9% to 17.5%, MediumOffice 7% to 17.5%, SecondarySchool 8.5% to 16%, LargeOffice 6.5% to 15.5%, SmallOffice 4.5% to 15%, Outpatient 6% to 15%, FullServiceRestaurant and RetailStandalone about 6% to 13%, RetailStripmall 6.5% to 12.5%, SmallHotel 5.5% to 10%, Hospital 10.5% to 13%, and Warehouse only 0% to 2.5%. The school 75th percentiles near 17-18% are the ones the text attributes to high and highly variable peak loads in gyms and cafeterias.
+- source_image: 89117_images/image_000020_1a679d35caf35237cbe266bbaef0a90a8f9e360bea81df15396e1837cd4a6bc3.png
+  source_image_sha256: ae0995c3a2ba42ef39feb4042a42ef5b3779571666f2847e059c8c8c1a9a8136
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Violin and box plot distribution of percent site energy savings by ASHRAE climate zone, with the hot-dry and California zones 3B and 3C saving most.
+  description: |-
+    Figure 14, printed in the document with the caption "Figure 15" - the same printed number as the following scatter plot. Horizontal violin plots with embedded box plots, titled "Upgrade 13: Advanced RTU Controls (unweighted)", on an x-axis "Percent Site Energy Savings by Climate Zone (%)" from -5 to 55. Eighteen climate zone rows with sample counts: 1A (n=3290), 2A (n=22148), 2B (n=3321), 3A (n=27797), 3B (n=15954), 3C (n=4938), 4A (n=42705), 4B (n=1522), 4C (n=5802), 5A (n=45307), 5B (n=9475), 6A (n=10400), 6B (n=1376), 7 (n=268), 7A (n=1052), 7B (n=120) and 8 (n=35), summing to 195,510. Note the bare zone "7" listed alongside 7A and 7B. Zones 3B (about 11% to 18.5%, median near 14%) and 3C (about 10.5% to 17%, median near 14%) stand well above the rest; 2B reaches about 4.5% to 17%. Most other zones cluster at a 25th percentile of roughly 2% to 5% and a 75th percentile of roughly 10% to 14%, matching the text's "25th percentile around 2.5% ... 75th percentile around 12.5%". The colder zones 5A, 5B, 6A, 6B, 7A and 7B are the lowest, with medians near 6%.
+- source_image: 89117_images/image_000021_bae1d3efd5a04af3de4c8950710aa69c9e0dbaa12e0f9964034292b9517bec1f.png
+  source_image_sha256: b66c8bc233bdc6371ca8672eeeda4d56994180d880f65215ae040d0491f1db7a
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Scatter plot of natural gas heating penalty against fan energy savings for buildings showing a gas penalty, coloured by climate zone, with every point above the maximum expected penalty line.
+  description: |-
+    Figure 15. Scatter plot with x-axis "Fan energy savings (kWh)" 0 to 40,000 and y-axis "Natural gas heating energy savings (kWh)" 0 down to -50,000; all plotted gas values are negative, i.e. penalties. Points are coloured by climate zone, legend order CZ 5 (blue, the most numerous), CZ 4 (orange), CZ 3 (green), CZ 6 (red) and CZ 2 (purple). A thick red line labelled "Max potential penalty" runs straight from the origin to (40,000, -50,000) - a slope of -1.25, which is exactly one over the 80% natural gas heating efficiency the text assumes, so the line represents all fan heat being replaced by gas at that efficiency. Every plotted point lies above the line, and most lie far above it, confirming that the modelled gas heating penalty is well below its theoretical maximum; this is the sanity check section 5.5 describes. Penalties are mostly between 0 and -20,000 kWh, deepening loosely as fan savings grow, with the deepest points near -22,000 kWh. Section 5.5 says buildings with fan energy savings above 300,000 kWh were omitted for clarity, but this axis stops at 40,000 kWh.
+- source_image: 89117_images/image_000022_af06128822d82434bb581c40339959a0733aca6affa2af172e7f3907beb35257.png
+  source_image_sha256: 855975a10155023114310dfea2c47691853633f2ee017722ed773a91299bcaf5
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Grouped bar chart of site annual natural gas consumption by census division, baseline versus Advanced RTU Controls, dominated by East North Central.
+  description: |-
+    Figure A-1. Grouped vertical bar chart, y-axis "Natural Gas Total Energy Consumption (tbtu)" (the source uses lowercase "tbtu") from 0 to about 350, x-axis "Census Division Name", legend "Upgrade Name" with dark blue "Baseline" and light blue "Advanced RTU Controls". Nine divisions in geographic order: New England, Middle Atlantic, East North Central, West North Central, South Atlantic, East South Central, West South Central, Mountain, Pacific. East North Central is by far the largest gas consumer at roughly 360 TBtu, followed by Pacific near 230 and Middle Atlantic near 180; East South Central and New England are the smallest at roughly 60-67. The measure bar is at or slightly below the baseline bar in every division - the reduction is small on this scale, a few percent at most - and it is visually indistinguishable from the baseline in West South Central, Mountain and Pacific. The bars carry no data labels and the pixel-read heights do not reconcile with Figure 8's printed totals to better than about 3%, so only ordering and approximate magnitudes are given here. The stock-level gas heating saving is 18.1 TBtu (2.1%).
+- source_image: 89117_images/image_000023_afc33f88a5c4f9b57bca1e9ee0e070a213600498250ab347368040c899c05f3a.png
+  source_image_sha256: 1e41b16c7e3ad8c40f1d426a38b8485747b23fab8e40b2346ac62986bd3369e4
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Grouped bar chart of site annual natural gas consumption by ComStock building type, baseline versus Advanced RTU Controls, with small gas increases in several types.
+  description: |-
+    Figure A-2. Grouped vertical bar chart, y-axis "Natural Gas Total Energy Consumption (tbtu)" from 0 to about 220, x-axis "Comstock Building Type", legend "Upgrade Name" with dark blue "Baseline" and light blue "Advanced RTU Controls". Fourteen building types: FullServiceRestaurant, QuickServiceRestaurant, RetailStripmall, RetailStandalone, SmallOffice, MediumOffice, LargeOffice, PrimarySchool, SecondarySchool, Outpatient, Hospital, SmallHotel, LargeHotel, Warehouse. RetailStripmall is the largest gas consumer at roughly 215 TBtu, then SecondarySchool near 177, FullServiceRestaurant near 170 and PrimarySchool near 126; SmallHotel is the smallest at under 10. The measure reduces gas most in FullServiceRestaurant, RetailStripmall, SecondarySchool and PrimarySchool. Notably, four types show a small gas INCREASE - RetailStandalone, SmallOffice, MediumOffice and Warehouse - which is the fan heat penalty section 5.5 discusses, observed in about 11.5% of applicable buildings. LargeOffice, Outpatient, Hospital, SmallHotel and LargeHotel are essentially unchanged. The bars carry no data labels, so only ordering and approximate magnitudes are given.
+- source_image: 89117_images/image_000024_0e329457aba792231003902fada0075fa2c02f09afb3fe65fd7f0e67875cebb3.png
+  source_image_sha256: fb44440b2fc022b737871bffdd545e7c565c186416e7abf6fa84b082c1c7efdf
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Grouped bar chart of site annual electricity consumption by ComStock building type, baseline versus Advanced RTU Controls, with reductions in nearly every type.
+  description: |-
+    Figure A-3. Grouped vertical bar chart, y-axis "Electricity Total Energy Consumption (tbtu)" from 0 to about 450, x-axis "Comstock Building Type", legend "Upgrade Name" with dark blue "Baseline" and light blue "Advanced RTU Controls". The same fourteen building types in the same order as Figure A-2. RetailStripmall (roughly 450 TBtu baseline) and Warehouse (roughly 440) are the largest electricity consumers, followed by LargeOffice near 315, RetailStandalone near 290 and SecondarySchool and PrimarySchool near 240. Unlike the gas chart, the measure reduces electricity in nearly every building type, and the reductions are visible at this scale: the largest absolute drops are in RetailStripmall, Warehouse and RetailStandalone, and the largest proportional drops are in FullServiceRestaurant, QuickServiceRestaurant, RetailStripmall and SmallOffice, all around 10%. LargeHotel, Hospital, Outpatient, SmallHotel and LargeOffice are essentially unchanged - LargeOffice and LargeHotel being predominantly served by system types the measure does not apply to. The bars carry no data labels, so only ordering and approximate magnitudes are given.
+- source_image: 89117_images/image_000025_a36729d05092a8f2d578d22fc85012b56e1cc176f7320488fc6431b4c7b8b650.png
+  source_image_sha256: f072d645c5cc9a324b46ba95ea66637fbcbf32b30ab625948c63983f25f371f8
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Grouped bar chart of site annual electricity consumption by census division, baseline versus Advanced RTU Controls, with the Pacific division showing the largest proportional reduction.
+  description: |-
+    Figure A-4. Grouped vertical bar chart, y-axis "Electricity Total Energy Consumption (tbtu)" from 0 to about 640, x-axis "Census Division Name", legend "Upgrade Name" with dark blue "Baseline" and light blue "Advanced RTU Controls". The same nine census divisions in the same order as Figure A-1. South Atlantic is the largest electricity consumer at roughly 640 TBtu baseline, then Pacific near 525, East North Central near 450, West South Central near 400 and Middle Atlantic near 335; New England, West North Central, East South Central and Mountain all sit near 195-210. Electricity falls in every division. The Pacific division shows by far the largest proportional reduction, on the order of 14%, against roughly 3% to 7% elsewhere - consistent with Figure 14, where the California-only climate zone 3C and the hot-dry zone 3B carry the highest median savings, and with the DEER-based modelling methods used in California. The bars carry no data labels, so only ordering and approximate magnitudes are given.

@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "comstock_amy2018_2025_release_3",
-  "generated_utc": "2026-08-21T17:19:42.386373+00:00",
+  "generated_utc": "2026-08-21T17:50:30.979716+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -1426,7 +1426,35 @@
           "title": "Advanced Rooftop Unit Control",
           "input_sha256": "427acb6d738f013bc3cdef41b8bdbffd61a943b9e8fa4cf76ee961df3386a474",
           "output_path": "upgrade_measures/measure_pdfs/89117.md",
-          "output_sha256": "a947181c87fef7a726a3eab12d45903cdbae8cd1e8021e3acd9c784a361f813a"
+          "output_sha256": "f6cd1c077d05350bb5223fbfdc9d13ab6c3f8d8219fb7fb739dfd0fbe21954fe",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89117.yaml",
+            "sha256": "dd13403cfd5bfceed2aec013c6b9104c6a521e2b42929a8bfdbab99f8b29ccc2",
+            "tables_applied": [],
+            "figures_applied": [
+              "89117_images/image_000005_8e578cbdafac3f6dcf6deca6356f5cd2dbcc5b0474cb4cc58647ccd87aae8f9c.png",
+              "89117_images/image_000006_e1c14fa6b494b530e6d32f24d5aa3ed0b0185c2c3b8a5fd644e5a8bae9aeda16.png",
+              "89117_images/image_000007_2e458153aba1ba843ed3c91e4988e29c27221a59c76da45d0134c41ac386e36c.png",
+              "89117_images/image_000008_1e6455e396be61ff49ba9a5bf20b0c7576f43ac1e3810ec95f6ca7b978f59e57.png",
+              "89117_images/image_000009_5041f67115f583ae65ddd1a6742cf4b752974c2f9ca31e498e262e04e51a426d.png",
+              "89117_images/image_000010_9c17263f0b86e4a9beac22b8d2e7afa930a0eced002e2bc0386ac359de806194.png",
+              "89117_images/image_000011_5d8524b687ae1b40dfba0ef4671e11567db4009c01cb4846ed756b5ad2d1bddc.png",
+              "89117_images/image_000012_8d5e3ecc1f4c574e6a9e22ef54ac519812c870ba6265858182fa83cf4ab629fc.png",
+              "89117_images/image_000013_6ffd14257cbc8c4e53a9f499f17117f42cb7899ea8171117e00dec552abc54bd.png",
+              "89117_images/image_000014_cd8a5352383cd61dc16da8f42900314ef9a1e5024ce4eb4782086ca38319465c.png",
+              "89117_images/image_000015_832e196c03d5d62d9ed3542f0294a0129b10d309843368da0349c26fb3b61ba6.png",
+              "89117_images/image_000016_bb6f0adbff5bb226415c28801f4be0ad83ef8dba26e9512f42cb65f48ee46e52.png",
+              "89117_images/image_000017_7481b4f5267d215fc8ff79b91199ed3e5dade8ef4b5ca1ab27c81f5c79d896a4.png",
+              "89117_images/image_000018_f36c9981c73c2ff7fd1d1137580ddbfce06afb0c7a7efbd2af645eb4c29642b1.png",
+              "89117_images/image_000019_db7cb0067375310becae777bb378ac4858bde8945ca292d83ae5e87a532f7fc3.png",
+              "89117_images/image_000020_1a679d35caf35237cbe266bbaef0a90a8f9e360bea81df15396e1837cd4a6bc3.png",
+              "89117_images/image_000021_bae1d3efd5a04af3de4c8950710aa69c9e0dbaa12e0f9964034292b9517bec1f.png",
+              "89117_images/image_000022_af06128822d82434bb581c40339959a0733aca6affa2af172e7f3907beb35257.png",
+              "89117_images/image_000023_afc33f88a5c4f9b57bca1e9ee0e070a213600498250ab347368040c899c05f3a.png",
+              "89117_images/image_000024_0e329457aba792231003902fada0075fa2c02f09afb3fe65fd7f0e67875cebb3.png",
+              "89117_images/image_000025_a36729d05092a8f2d578d22fc85012b56e1cc176f7320488fc6431b4c7b8b650.png"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/89120.pdf",
@@ -1868,16 +1896,16 @@
   ],
   "counts": {
     "documents": 118,
-    "chunks": 7884,
+    "chunks": 7920,
     "by_type": {
       "latex": 19,
       "markdown": 40,
       "measures": 6,
       "pdf": 53
     },
-    "overlay_documents": 49,
+    "overlay_documents": 50,
     "overlay_tables": 57,
-    "overlay_figures": 486,
+    "overlay_figures": 507,
     "overlay_text_repairs": 1
   },
   "crosswalk": {
