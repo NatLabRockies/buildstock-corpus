@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "comstock_amy2018_2025_release_3",
-  "generated_utc": "2026-08-21T21:29:43.087979+00:00",
+  "generated_utc": "2026-08-21T21:35:47.051726+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -752,12 +752,31 @@
           "title": "Geothermal Heat Pumps + High-Efficiency Envelope Package",
           "input_sha256": "594820f09b44e2d762e7092bfe1a951e9fcbae67fd94c0596f3b25e0b2b4e847",
           "output_path": "upgrade_measures/measure_pdfs/95005.md",
-          "output_sha256": "4ff4d26124d605426dd275aad67f15f64d559221d5f56a80d3ac27a54cc37091",
+          "output_sha256": "e49352ab9ab0cfd460a31f1a53394933f05dbbea090d4d25273550874ce46dad",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95005.yaml",
-            "sha256": "cc136e17a3c5245a86dbaed90a23ffb267f744c9633c8afe1b9f0fff9c32b5a5",
+            "sha256": "5107734e0e1f6ada28903aa55a0b3fe523511b618c35bd3e6cb36250c99eab50",
             "tables_applied": [
               "Table 4"
+            ],
+            "figures_applied": [
+              "95005_images/image_000003_2c9003a06fc9bc3e59f8fb23f1b340ead75bc03402bc8f8d864a2891c8b6b753.png",
+              "95005_images/image_000004_ae54adc04ee9dd19149b9e25877f84978407b7eeb5cb47efc268eac589b3353d.png",
+              "95005_images/image_000005_3904f34e875b253d73c199b27b3613399caa816d008e3d27f7f6091bc6768340.png",
+              "95005_images/image_000006_ca3c6ec1fefe1cd8c2bd035ed9b280f0e56c9777da254a1ebddaa6bc911e43af.png",
+              "95005_images/image_000007_b645ab94efd168b73322fb5bf8d489dbe2211839ddcb7320aed924804983b588.png",
+              "95005_images/image_000008_cab701c3db2926ffad88468de9c3053a45733f56893ef66ffc57a69395b686fc.png",
+              "95005_images/image_000009_5f8f863cfeefd6f56ae1f86c6676017ecb3ac54d5c08f6f73ab816843d2cf2c3.png",
+              "95005_images/image_000010_61b27d1c93000b00a392c23e24625ba535c4a8a8d2287f26189e6ee4db8cdecf.png",
+              "95005_images/image_000011_e686acb1d7ab64c5754dfd5f92700e22b693fdb1ca1a7e9687047ad6fbd56248.png",
+              "95005_images/image_000012_77a380cca5dbabb45da0cc1fad79e42ab4b9397622f4fcb7d6ccf552adaf108b.png",
+              "95005_images/image_000013_11d83a31f3346f643a27507941a63f9c17115378cbd8719e259c3588edf0c7d7.png",
+              "95005_images/image_000014_b922e2fad8a340a536a5e9c2f9059129c7f3d17f4c956ccd159de9190963a2f4.png",
+              "95005_images/image_000015_a9de057c2c1d24a65e94f11e54ed2d5efc14184b492612b78f85b93b2056c9dd.png",
+              "95005_images/image_000016_e6405aaebe3df6935d91474f385c257cc8552282de40aba49af1c829d811ceeb.png",
+              "95005_images/image_000017_1377297918793e04cd201734706d45a16aefb6eaff291b11dc96714514417072.png",
+              "95005_images/image_000018_560080a4a83f3f6877b81d886f6e6ab712d92c2607c49220324c3d2cb7567b2e.png",
+              "95005_images/image_000019_2f4648e2f2118e9e25105b19c82bb153adcf4859a2b2f8898891c2a08eed7295.png"
             ]
           }
         },
@@ -2253,7 +2272,7 @@
   ],
   "counts": {
     "documents": 118,
-    "chunks": 8065,
+    "chunks": 8079,
     "by_type": {
       "latex": 19,
       "markdown": 40,
@@ -2262,7 +2281,7 @@
     },
     "overlay_documents": 57,
     "overlay_tables": 57,
-    "overlay_figures": 807,
+    "overlay_figures": 824,
     "overlay_text_repairs": 1
   },
   "crosswalk": {

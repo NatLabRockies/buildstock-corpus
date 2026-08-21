@@ -91,3 +91,155 @@ tables:
       | DEER 2014 | 12.5 | 16.9 | 11.3 | 16.9 | 11.3 | 11.3 | 11.3 | 11.3 | 16.9 | 16.9 | 16.9 | 16.9 | 16.9 | 16.9 | 23.8 | 16.9 |
       | DEER 2015 | 12.5 | 16.9 | 11.3 | 16.9 | 11.3 | 11.3 | 11.3 | 11.3 | 16.9 | 16.9 | 16.9 | 16.9 | 16.9 | 16.9 | 23.8 | 16.9 |
       | DEER 2017 | 12.5 | 16.9 | 11.3 | 16.9 | 11.3 | 11.3 | 11.3 | 11.3 | 16.9 | 16.9 | 16.9 | 16.9 | 16.9 | 16.9 | 23.8 | 16.9 |
+
+# Hand-authored figure descriptions for measure_pdfs/95005.pdf (Batch E).
+#
+# 95005 documents the Geothermal Heat Pumps + High Efficiency Envelope package. docling extracts
+# every picture as a bare ![Image](...) ref: the caption line survives above it, but the chart
+# itself is invisible to retrieval. Each entry below rewrites the ref with a hand-written alt
+# and injects a description paragraph beneath it. Schema and depth budget:
+# overlays/FIGURE_DESCRIPTIONS_ROLLOUT.md (section 2.1 -- 40-70 words, alt <=120 chars, no
+# corroboration against body prose).
+#
+# Scope: Figures 1-15 and A-1 (16 charts and diagrams) plus the Table 10 bitmap (index 000003),
+# 17 entries. Deliberately not described: indices 000000-000001, the cover photo collage and
+# the National Laboratory of the Rockies logo; and index 000002, the Table 4 bitmap already
+# handled by the `tables:` block above.
+#
+# QA notes (vision reads; confirm before treating as a release record):
+#   * Section 5.1 says Packaged GHP + Walls + Roof + Windows covers "61.7% of floor area";
+#     Figure 2's printed data label reads 60.7% (confirmed on a 10x crop of the label). One of
+#     the two is wrong. The entry uses the chart's own value.
+#   * Table 10 has no text layer and no caption line -- its image ref sits bare at the end of
+#     Section 3.8 -- so it is transcribed (method: vision-transcription) rather than described.
+#     Unusually for this corpus, this copy prints the CORRECT propane value, 275.7 kg/MWh,
+#     where most other measure docs print 182.3.
+#   * Figures 7 and 8 use the same 15 climate-zone rows but their per-zone model counts differ
+#     slightly (3A 11,556 vs 11,557; 5A 16,253 vs 16,241; zone 8 509 vs 503).
+#   * Figure 12's pooled borehole-count axis stops at 13 boreholes per thousand ft2 while
+#     Figure 14's zone-8 row runs to nearly 290. Consistent once whisker clipping is accounted
+#     for (Section 5.8.1 gives a zone 8 median of 44), but the two axes cannot be compared by eye.
+#   * Climate-zone rows here are clean: zone 7 appears once, with no 7A/7B split of the kind
+#     recorded for 86599, 89340 and 89481.
+
+figures:
+- source_image: 95005_images/image_000003_2c9003a06fc9bc3e59f8fb23f1b340ead75bc03402bc8f8d864a2891c8b6b753.png
+  source_image_sha256: 6028738d8cee2695bfba05a338a59b3390603969e40908d36cfd7b54439f534e
+  method: vision-transcription
+  described_utc: '2026-08-21'
+  alt: Bitmap of Table 10, On-Site Fossil Fuel Emissions Factors, in lb/MMBtu and kg/MWh
+  description: |-
+    Table bitmap, transcribed. Title: "Table 10. On-Site Fossil Fuel Emissions Factors". Rows: Natural Gas, 147.3 lb/MMBtu (228.0 kg/MWh); Propane, 177.8 lb/MMBtu (275.7 kg/MWh); Fuel Oil, 195.9 lb/MMBtu (303.2 kg/MWh). Footnote: "lb = pound; MMBtu = million British thermal units; kg = kilogram; MWh = megawatt-hour". No text layer exists for this table, so its factors survive only in this bitmap, which is referenced without a caption at the end of Section 3.8.
+- source_image: 95005_images/image_000004_ae54adc04ee9dd19149b9e25877f84978407b7eeb5cb47efc268eac589b3353d.png
+  source_image_sha256: 71eee25ba3b9ce3de7c992a1fde562b465893051378db51ee9a48a610a8e5e06
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Flow diagram of the ComStock GHEDesigner workflow for sizing ground heat exchangers
+  description: |-
+    Figure 1: left-to-right flow diagram of the ComStock GHP simulation workflow. Boxes run from applying the measure that retrofits the existing system with a GHP, through initial load calculations, out to the GHEDesigner tool and back to a final simulation; the arrows are labeled hourly ground loads for borefield sizing and g-function for ground heat exchanger. Section 3.9 walks through the same steps.
+- source_image: 95005_images/image_000005_3904f34e875b253d73c199b27b3613399caa816d008e3d27f7f6091bc6768340.png
+  source_image_sha256: d6272ff6cd8e4c0535d3d8eb7891d3dfebb8b159c43f39dec9f958324b198632
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Bar chart of percent of floor area applicable per GHP plus envelope upgrade combination
+  description: |-
+    Figure 2: horizontal bar chart of the percent of floor area applicable per upgrade combination, x-axis 0 to 70% with printed labels on seven rows. Packaged GHP + Walls + Roof + Windows dominates at 60.7%, followed by the Hydronic (11.7%) and Console (10.8%) GHP rows with the same envelope set; every remaining row is 0.9% or less. Section 5.1 puts total package applicability at 84% of stock floor area.
+- source_image: 95005_images/image_000006_ca3c6ec1fefe1cd8c2bd035ed9b280f0e56c9777da254a1ebddaa6bc911e43af.png
+  source_image_sha256: bbea059b7628854d475ed052d9250f7ae610852c428179c646e36297f682c148
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar chart of annual site energy by end use and fuel for baseline, GHP and GHP plus envelope
+  description: |-
+    Figure 3: three stacked bar columns comparing annual site energy consumption (TBtu, y-axis 0 to 5,000) for the ComStock baseline, Comprehensive GHP, and Comprehensive GHP + High Efficiency Envelope, stacked by end use and fuel with a 19-entry legend. Totals fall from 4,865 to 3,689 to 3,468 TBtu; cooling electricity drops 727.0 to 406.5 to 332.3. Tables 12 and 13 hold the savings.
+- source_image: 95005_images/image_000007_b645ab94efd168b73322fb5bf8d489dbe2211839ddcb7320aed924804983b588.png
+  source_image_sha256: 7e69a645673e181ae773aec823e0a321429be497e902b38b66d1228c8ce1d1df
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel stacked bar chart of national annual utility bills at max, mean and min electricity
+    rates
+  description: |-
+    Figure 4: three-panel stacked bar chart of national annual utility bills (billion USD 2022, y-axis 0 to about 150) for the baseline, Comprehensive GHP and GHP + High Efficiency Envelope, one panel per electricity rate, stacked by fuel with printed totals and percent deltas. At the mean rate bills fall 127 to 103 (-19%) to 96 (-24%). Table 14 gives the savings by fuel.
+- source_image: 95005_images/image_000008_cab701c3db2926ffad88468de9c3053a45733f56893ef66ffc57a69395b686fc.png
+  source_image_sha256: 860ec99e9f288f9eb730059b154c7b63bff23f8c393144770ee26f885acb347a
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel stacked bar chart of annual CO2e emissions by grid scenario for three upgrade cases
+  description: |-
+    Figure 5: three-panel stacked bar chart of annual CO2e emissions (MMT, y-axis 0 to about 460) for the baseline, Comprehensive GHP and GHP + High Efficiency Envelope, one panel per electricity grid scenario, stacked by fuel with printed totals and deltas. eGRID 2021 falls 452 to 365 (-19%) to 340 (-25%); LRMER Low RE Cost 15 falls 245 to 181 to 170 (-31%). Table 15 lists the savings.
+- source_image: 95005_images/image_000009_5f8f863cfeefd6f56ae1f86c6676017ecb3ac54d5c08f6f73ab816843d2cf2c3.png
+  source_image_sha256: ba39318b56cc9ff81736448893b4e4e3c19ef18cd69f70682cdcf2e282f96793
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin and box plots of percent site energy savings by end use and fuel type for the package
+  description: |-
+    Figure 6: horizontal violin-and-box plot of percent site energy savings by end use and fuel type, x-axis -160% to 100%, titled Upgrade 56.0: Package_10 (unweighted), with model counts per row (electricity cooling n=108,799; natural gas heating n=56,499). The gas and other-fuel heating rows sit near 100% savings while electricity pumps and heat recovery carry long negative tails. Section 5.5 explains the distributions.
+- source_image: 95005_images/image_000010_61b27d1c93000b00a392c23e24625ba535c4a8a8d2287f26189e6ee4db8cdecf.png
+  source_image_sha256: b76f3c4259a2b3baa1446006b415cc352f46710a8fcb3f5b278f7555ffa6c656
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin and box plots of percent site energy savings by ASHRAE climate zone
+  description: |-
+    Figure 7: horizontal violin-and-box plot of percent site energy savings by ASHRAE climate zone, x-axis -100% to 80%, 15 rows from 1A (n=2,429) through 8 (n=509), same Upgrade 56.0: Package_10 (unweighted) title. Medians climb from the hottest zones to the coldest. Section 5.5 reports 25%-30% medians in zones 1 through 3 and 35%-40% in zones 5 through 7.
+- source_image: 95005_images/image_000011_e686acb1d7ab64c5754dfd5f92700e22b693fdb1ca1a7e9687047ad6fbd56248.png
+  source_image_sha256: 45cce2978ba9ce89ca89539c1a122c2417f21ba07d3ccd36684c27612f1bb6b1
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin and box plots of percent utility bill savings by ASHRAE climate zone
+  description: |-
+    Figure 8: horizontal violin-and-box plot of percent utility bill savings by climate zone, x-axis -100% to 80%, the same 15 zone rows as Figure 7 with slightly different model counts (1A n=2,429 through 8 n=503). Medians sit roughly 20% to 35% in every zone with long negative tails from low-bill models. Section 5.6 discusses them; Table 14 holds the stock totals.
+- source_image: 95005_images/image_000012_77a380cca5dbabb45da0cc1fad79e42ab4b9397622f4fcb7d6ccf552adaf108b.png
+  source_image_sha256: d16fa70b70692e15bb6d3a9cbe556ad3ad8d14951c913153cb33497ebbcc8a04
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin and box plots of percent utility bill savings by fuel, including the bill mean
+  description: |-
+    Figure 9: horizontal violin-and-box plot of percent utility bill savings by fuel, x-axis -160% to 100%, five rows - propane (n=3,349), fuel oil (n=1,400) and natural gas (n=56,948) state averages, electricity at the mean rate (n=108,684), and the bill mean (n=108,900). The three fossil-fuel rows cluster near 100%; the electricity and bill-mean rows sit near 20%. Table 14 gives the totals.
+- source_image: 95005_images/image_000013_11d83a31f3346f643a27507941a63f9c17115378cbd8719e259c3588edf0c7d7.png
+  source_image_sha256: 7c4935e52ede330b18a102a19a3f60c3cd5367a7f7512ca50bb99684c43ddc58
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Box plots of maximum daily peak timing by season for baseline, GHP and GHP plus envelope
+  description: |-
+    Figure 10: three stacked panels - summer, winter and shoulder - each holding box-and-whisker plots of maximum daily peak timing (hour of day, x-axis 0 to 24) for the baseline, Comprehensive GHP and GHP + High Efficiency Envelope. The summer boxes move earlier with each scenario while winter and shoulder spread toward morning hours. Section 5.7 credits the earlier summer peak to the envelope improvements.
+- source_image: 95005_images/image_000014_b922e2fad8a340a536a5e9c2f9059129c7f3d17f4c956ccd159de9190963a2f4.png
+  source_image_sha256: 0a23a3f06c382145a9988d65e2d35677323fd306435ddea55b2ce95f5709a17e
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Bar-and-label matrix of median seasonal electricity peak intensity by climate zone and scenario
+  description: |-
+    Figure 11: matrix of labeled bars giving median electricity peak intensity in W/ft2, one column per season (summer, winter, shoulder) and three rows per climate zone 1 through 8 for the baseline, Comprehensive GHP and GHP + High Efficiency Envelope. The envelope row is lowest in every cell; zone 1 summer falls 3.8 to 2.9 to 2.6 W/ft2. Section 5.7 summarizes the reductions.
+- source_image: 95005_images/image_000015_a9de057c2c1d24a65e94f11e54ed2d5efc14184b492612b78f85b93b2056c9dd.png
+  source_image_sha256: 846650ccb59887fcb6378e4670b56a26d7d00a1e91aaa012906e9b275b266dd3
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel box plot of borehole count, borehole depth and total ground heat exchanger length
+  description: |-
+    Figure 12: three stacked box-plot panels comparing the Comprehensive GHP and GHP + High Efficiency Envelope packages on normalized borehole count (0 to 13 per thousand ft2), average borehole depth (360 to 440 ft) and total ground heat exchanger length (0 to 400K ft). Every distribution shifts down with the envelope. Section 5.8.1 gives median reductions of 0.3 boreholes, 2 ft, and nearly 11,000 ft of drilling.
+- source_image: 95005_images/image_000016_e6405aaebe3df6935d91474f385c257cc8552282de40aba49af1c829d811ceeb.png
+  source_image_sha256: 159aa12c05470d8d0066e0d510d07b00a4ff52f1de2f1aab5f57efad3b30e925
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Box plots of normalized borehole count by building type for the two GHP packages
+  description: |-
+    Figure 13: box-and-whisker plot of normalized borehole count (boreholes per thousand ft2, x-axis 0 to 30) grouped by building type - Food Service, Healthcare, Lodging, Education, Office, Mercantile, and Warehouse and Storage - with one row per package. Food Service needs the most and Warehouse and Storage the fewest; the envelope package is lower in every group, per Section 5.8.1.
+- source_image: 95005_images/image_000017_1377297918793e04cd201734706d45a16aefb6eaff291b11dc96714514417072.png
+  source_image_sha256: b13e9b629f98f57f990f3eb0e1111e2514065227cfab7bd01380b4f7c8ddeead
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Box plots of normalized borehole count by climate zone for the two GHP packages
+  description: |-
+    Figure 14: box-and-whisker plot of normalized borehole count (boreholes per thousand ft2, x-axis 0 to 300) grouped by climate zone 1 through 8, with one row per package. The moderate zones 3 through 5 need the fewest boreholes and subarctic zone 8 by far the most - Section 5.8.1 gives a zone 8 median of 44 against 0.7-1.3 in zones 3 through 5.
+- source_image: 95005_images/image_000018_560080a4a83f3f6877b81d886f6e6ab712d92c2607c49220324c3d2cb7567b2e.png
+  source_image_sha256: 07f241305d2df2d2dcaf681f3acbfa906cb0d26d9645f053c5ec3c927318bda9
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Two-panel box plot of water-to-air GHP heating and cooling capacities for the two packages
+  description: |-
+    Figure 15: two stacked box-plot panels comparing water-to-air GHP heating and cooling capacity for the Comprehensive GHP and GHP + High Efficiency Envelope packages, both axes in watts and running to 1,600 kW and 5,500 kW respectively. Both distributions shift down with the envelope. Section 5.8.2 gives median reductions of 55 kW heating (17.9%) and 208 kW cooling (18.8%).
+- source_image: 95005_images/image_000019_2f4648e2f2118e9e25105b19c82bb153adcf4859a2b2f8898891c2a08eed7295.png
+  source_image_sha256: bf3d97777421fa02884e2dd7f2854062b6edd60a7da7533c101a3f0f586e26ff
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Map of ASHRAE climate zones across the United States with moist, dry and marine divisions
+  description: |-
+    Figure A-1: map of the United States shading counties by ASHRAE climate zone 1 through 8, divided by vertical lines into Marine (C), Dry (B) and Moist (A) columns with a Warm-Humid line across the Southeast. Insets note that Alaska is zone 7 except for eight listed zone 8 boroughs, and that zone 1 includes Hawaii, Guam, Puerto Rico and the Virgin Islands.
