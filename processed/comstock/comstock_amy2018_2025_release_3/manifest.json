@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "comstock_amy2018_2025_release_3",
-  "generated_utc": "2026-08-21T16:32:35.739170+00:00",
+  "generated_utc": "2026-08-21T17:19:42.386373+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -1208,7 +1208,35 @@
           "title": "Heat Pump RTU",
           "input_sha256": "cde16361012f00876e5fe99c8810dc936d9bab46ad8b5af478403ff533da47d2",
           "output_path": "upgrade_measures/measure_pdfs/86585.md",
-          "output_sha256": "c8fa7c3cf69d763fb9097175f6d38b834db69b471629c7a2d581dd64075e2b08"
+          "output_sha256": "5aca0e2f05de937db6c36665e229f5e4d80a79caa8b0be5634f81f6e9209946a",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86585.yaml",
+            "sha256": "3944598c71776f9d2cd6dbcb0b1da66ddc2acff4698da218dbdbdc2e310cb2ad",
+            "tables_applied": [],
+            "figures_applied": [
+              "86585_images/image_000005_316aa0fda323fd01d3a71d36b1079b91a8e91cb41194ac780efb9c2fa661ffc4.png",
+              "86585_images/image_000006_5397f02a94e461b65e0e00f994793cfc96eca3541280c1bd6730c1f505592f83.png",
+              "86585_images/image_000007_133f7deb49b50611ef0d848883387f4a8c3173c04f256e5874f58509b81c48c9.png",
+              "86585_images/image_000008_cfba557bdcd8313a48635f4ecb1411e7a001eea5521c4306bbba8ab8c97e50ef.png",
+              "86585_images/image_000009_1fe8e49b5d32ef2cadf9000d5fa63c0064ff74d18b8a96221271653f6b43649e.png",
+              "86585_images/image_000010_663a1a3387dc1acfbb8a27cadd5dd4511bc913e48e5e27197a83f4af4d448db4.png",
+              "86585_images/image_000011_b836a769e0357fb5368b56866aa94a23950a506bb2e604705b25ee9ca89e2018.png",
+              "86585_images/image_000012_d10a810ea2bd700e99f1c512263be924eb9294547cda53b185445ed4c0a806c1.png",
+              "86585_images/image_000013_22bd7202d20398623d98cd9d6092f55e454d9fef6faa04c45910d10e223b5cec.png",
+              "86585_images/image_000014_3e4e0fa5c54fb799c57e628badfcf2d0cf457ed0acf5f416623005e5d32cfcc8.png",
+              "86585_images/image_000015_cdf5c169c37c4840a890222b5b4bb83cc374a29c8dcdc4c2c294010b8e6e542b.png",
+              "86585_images/image_000016_27ba459e4cbaa6ff13a0a4b11c458e438673b8cb45d8b3cfa71621604f704f5a.png",
+              "86585_images/image_000017_f46dd2959053260349f60712bd708f858f63484b1a51d89941cd9262aa97e72a.png",
+              "86585_images/image_000018_6a4cc18b1d1a5953d14f22dce4e55faa3c4109e3c25fcf9a34345c2511eb0eb3.png",
+              "86585_images/image_000019_efeb8d4f3425c58ee8a8069f389e215ef06840db05781283e0d420a16d254e5f.png",
+              "86585_images/image_000020_98379242cdcae5207bd67581b0afac33f94c7dd51e1569dec1b4b6149876df49.png",
+              "86585_images/image_000021_3fe0119d7873ce885ae73e870cd9aa60f1977c1c8c123f96fb3d12f1ec16a6d1.png",
+              "86585_images/image_000022_8f6864632f25dfb1081921585cdbde47a4b68d32017d229eea59ac0c4f0d68b2.png",
+              "86585_images/image_000023_9b453d0bb2a5bad107be7c0de368d7aced5064ec31914dbc404e24b9f18a2b70.png",
+              "86585_images/image_000024_7ba99c1001758ff7d1b38b5e25fa0a0b3618da8bbe774713927955ba588f0d69.png",
+              "86585_images/image_000025_ddf669b50bb31ccda08670672af463b96e7685a401e577e792c9d06b1cd5d611.png"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/86599.pdf",
@@ -1840,16 +1868,16 @@
   ],
   "counts": {
     "documents": 118,
-    "chunks": 7850,
+    "chunks": 7884,
     "by_type": {
       "latex": 19,
       "markdown": 40,
       "measures": 6,
       "pdf": 53
     },
-    "overlay_documents": 48,
+    "overlay_documents": 49,
     "overlay_tables": 57,
-    "overlay_figures": 465,
+    "overlay_figures": 486,
     "overlay_text_repairs": 1
   },
   "crosswalk": {
