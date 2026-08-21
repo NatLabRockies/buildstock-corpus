@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "comstock_amy2018_2025_release_3",
-  "generated_utc": "2026-08-21T20:17:07.395145+00:00",
+  "generated_utc": "2026-08-21T20:30:04.736214+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -1977,7 +1977,46 @@
           "title": "ComStock Standard Dataset Release",
           "input_sha256": "5cab79ed38185985f08dc28c145baef5b1975480c9ac739b6b2debc9b5f19ab4",
           "output_path": "upgrade_measures/measure_pdfs/92766.md",
-          "output_sha256": "cc69342de07ab4e80677bd4d63bf40e44be48548d601f3d6af1e36e3170c7483"
+          "output_sha256": "4ef4fddedaec37e9993eb56ab7758fa0ecc5fbadaf75e896ae9bb3c269910894",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/92766.yaml",
+            "sha256": "f384f79b72627dc6c9f4bab6e3bd4de56d043e043942a63caed9055366e54bd1",
+            "tables_applied": [],
+            "figures_applied": [
+              "92766_images/image_000008_c517cd66bd69806ad4b2a2b3dc14b78ed0387538b5927dfc4ec8927df1d3c5cd.png",
+              "92766_images/image_000009_7d2e8f879681de0795cc45451534e0edbcb5bacfaeb723de589e533e59e3b5d8.png",
+              "92766_images/image_000010_9ed88bdf8137c9bc8475ba554e65815dc35690bf29a033d877a1344a33be0bea.png",
+              "92766_images/image_000011_d3a7c1ca4c61cd76cd1b3ca46d1ae98501ca5dbf32de90b28b41ed182ed8e43a.png",
+              "92766_images/image_000012_f8a5715f904ca2daecaac1722b0e8d3a2fa2832c51afc78ee38b66856551af0c.png",
+              "92766_images/image_000013_56e504de15080faf4835ddf89baf648ec584fdbdd32cf672523c40dcd5cc551d.png",
+              "92766_images/image_000016_9d2c25532f936aae10f2a28a7f6caebf4622230aa3f238113a43fc0ef31f9967.png",
+              "92766_images/image_000017_4cadb81952cbd2342e645c2a71e56b003507f11a3c37336085923fdac5a6a63d.png",
+              "92766_images/image_000019_c2d60fa96feae5ca18bb7a107d41aed652b33f6954076d7fa640fa8bc67dd5e3.png",
+              "92766_images/image_000020_a4904ed3372c967db2bc98f54c27426760f4f38bfca641f3a745e7e5e763874b.png",
+              "92766_images/image_000021_49a721005bbb7f98e21c2003a9ffe236797d3587ce59e3330224238b9ede1674.png",
+              "92766_images/image_000022_72d97628c75642094aa9d829d5e3801cdd41ea7dfc954b8a8f85613f2ea89a36.png",
+              "92766_images/image_000023_cce93c915d0e1c389043bf3df1f54991718e6b9dac2b7ee9d157b4d45fc1cafe.png",
+              "92766_images/image_000024_bf2b82c632fe0fe333679155fa8cfe896a40222c1bf55a6d96a0cd4f4a25cd2c.png",
+              "92766_images/image_000025_cf6fd2f6b2efa8c08607a3e6adae3bb467fde0c5c674a03df4a3c1bdbeff147c.png",
+              "92766_images/image_000026_7c17da635eb39e65bfb5fcafba9d5f7e56b5abd6f7c4f85f04e3e5585406c3a4.png",
+              "92766_images/image_000027_0bc75fdde54fb0ef7c3864add5f07a0837788a450dd59a95b3e7cf8e912f8d65.png",
+              "92766_images/image_000028_fa8941ddbc8e654f5cac7a3650c8d4e7901f23994cdf42c90efa12939d48012e.png",
+              "92766_images/image_000029_1a8e60719e8ee617797455e557fad764962e64576cb6434f186f595af5997fb8.png",
+              "92766_images/image_000030_7cf250f5271e4e145c006112c45d632d0248f583c752cf40d8152a6dab2b1376.png",
+              "92766_images/image_000031_b58bff8b4d1c3f4309e48d232a17a8832799dbb22a50592722563bfb227e3333.png",
+              "92766_images/image_000032_9baad0c1852b737e9240d9f6c0a5ce3b53640fad088cd637d8fc69e4e05956f6.png",
+              "92766_images/image_000033_9b60aa638622646265de6b622172e3086bda5d1facae3d15b079391ff5c3ed46.png",
+              "92766_images/image_000034_fa272bae34bdbbbf35f139b4760dfebdb6bc0d85953606946aa47246cae8fe90.png",
+              "92766_images/image_000036_fe8e43be43210eb3f24e7012fbff8078746373207fa23461512e94bfcc69c32b.png",
+              "92766_images/image_000037_f3d8e0aff407dae750ed7f7aa4a2d98eedf407244f406022d87893408bc5f2e1.png",
+              "92766_images/image_000038_c9f2fffed0ffb74ac23fbddbd13d599ec467f1d1847644c146980a0fb6287df3.png",
+              "92766_images/image_000039_02abde3bf2748f29592df9f39709efe9b9f076964809d813535924eb7852d22c.png",
+              "92766_images/image_000045_08c77d6a0553425cd9c28c4bdf1d4dd4266b411fd46b630c6b33698d8abcf934.png",
+              "92766_images/image_000046_8b700e2e238adafdfe881b9155e87ab2644a46eeea0bf19175d4a8ad233b51a0.png",
+              "92766_images/image_000047_2d00d57defa02bae01edb41360acb286206a8a30d55dc1a974134da1afd4cf6a.png",
+              "92766_images/image_000048_a74e5b33c9d7acc2c8fa6533e1471f51bdfc5ae5c13424ec44d19d9c8e38c98b.png"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/92502.pdf",
@@ -2038,16 +2077,16 @@
   ],
   "counts": {
     "documents": 118,
-    "chunks": 8021,
+    "chunks": 8024,
     "by_type": {
       "latex": 19,
       "markdown": 40,
       "measures": 6,
       "pdf": 53
     },
-    "overlay_documents": 54,
+    "overlay_documents": 55,
     "overlay_tables": 57,
-    "overlay_figures": 621,
+    "overlay_figures": 653,
     "overlay_text_repairs": 1
   },
   "crosswalk": {

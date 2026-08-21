@@ -1,0 +1,282 @@
+# Hand-authored figure descriptions for measure_pdfs/92766.pdf
+#
+# 92766 is the ComStock Standard Dataset Release webinar deck (Commercial 2024 Release 2). It is a
+# SLIDE DECK, not a report: there are no numbered figure captions, so each entry anchors on the
+# slide's own heading text instead of a "Figure N" label. docling extracts every picture as a bare
+# ![Image](...) ref, so the charts are invisible to retrieval and unreadable without the bitmap.
+# Each entry below rewrites the ref with a hand-written alt and injects a description paragraph
+# below it for retrieval.
+#
+# Scope: figures only. 18 of the 50 extracted images are decorative and deliberately have no entry:
+# the NREL and ComStock logos (000000, 000004, 000049), a gas-meter stock photo (000001 and 000003 -
+# byte-identical), section pictograms and icons (000002, 000005, 000006, 000007, 000040, 000041,
+# 000042, 000043, 000044), an NREL photo collage (000014), two publication cover thumbnails (000015,
+# 000018), and one blank/near-empty bitmap on the Single Load Profile slide (000035).
+#
+# Depth: authored to the section 2.1 budget in overlays/FIGURE_DESCRIPTIONS_ROLLOUT.md - roughly
+# 40-70 words per description (chart type, axes and units, series/legend, one headline number, and a
+# pointer to where the values live). Printed data labels are not transcribed wholesale.
+#
+# Authoring notes:
+#   * method is vision-description: these interpret a chart rather than copy legible cells. Numbers
+#     were read off the bitmaps and should get a human QA pass before this is a release record.
+#   * Every entry pins the on-disk PNG sha256; if upstream repoints a bitmap the build drops that
+#     injection and warns rather than shipping a stale description.
+#   * Degree signs are written "degF" and CO2e is written plainly to keep the sidecar ASCII.
+#
+# QA notes (vision reads; flag for a human pass):
+#   * 000016 and 000017 are BPS TA Network dashboard screenshots whose axis and legend labels are
+#     illegible at the extracted resolution - described structurally, with no values asserted.
+#   * The three-panel utility-bill charts (000022, 000026, 000028, 000030) carry their percentages in
+#     small orange callouts; only the headline figure is quoted per panel set.
+#   * 000021's y-axis maximum (~3000 TBtu) is below the stock total quoted elsewhere in the deck
+#     (4761 TBtu) - worth confirming whether that slide is applicable-stock only.
+#   * 000035 is an empty/near-empty bitmap between the Single Load Profile chart and the Stock Peak
+#     Load Savings slide - likely an extractor artifact rather than a real graphic.
+#   * Line 156 of the processed markdown carries a stray bare "0" between the CBECS stacked bars,
+#     left over from an axis label the extractor split off.
+
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: measure_pdfs/92766.pdf
+figures:
+- source_image: 92766_images/image_000008_c517cd66bd69806ad4b2a2b3dc14b78ed0387538b5927dfc4ec8927df1d3c5cd.png
+  source_image_sha256: 3551cc2ef733d89b7df2b7fc6ae93f3196e3bec2610eaa3ec6f8fd465cd5a26b
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Building Type color legend for the CBECS floor-area stacked bars on the What Does ComStock Model
+    slide
+  description: |-
+    Legend panel on the 'All Buildings in CBECS' slide, keyed to the two adjacent stacked bars. Each color denotes a CBECS principal building activity - office, retail and service, education, health care, lodging, food service and sales, warehouse and storage, public assembly, and other - so the in-ComStock and not-in-ComStock bars can be read segment by segment.
+- source_image: 92766_images/image_000009_7d2e8f879681de0795cc45451534e0edbcb5bacfaeb723de589e533e59e3b5d8.png
+  source_image_sha256: ad1dfdff52f71408a7ba0d2d9341415c0c4da984d2139ee11e5bc241581faf8b
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of the CBECS building stock that ComStock models, segmented by building type, in
+    TBtu
+  description: |-
+    Stacked bar chart on the 'All Buildings in CBECS' slide showing the portion of the commercial stock that ComStock models, y-axis annual energy to about 7000 TBtu, one bar segmented by building type per the adjacent legend. The largest single segment is about 36% of the total. Paired with the companion 'not in ComStock' bar on the same slide.
+- source_image: 92766_images/image_000010_9ed88bdf8137c9bc8475ba554e65815dc35690bf29a033d877a1344a33be0bea.png
+  source_image_sha256: d718af829fe9a4b33350e69dd627eed41d2f8f3f254dfdfd0a54fafcd217b28e
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Companion stacked bar of the CBECS building stock not modeled in ComStock, in TBtu
+  description: |-
+    Companion stacked bar on the same slide for the CBECS stock ComStock does not model, y-axis to about 2600 TBtu, segmented by building type per the same legend. It is roughly a third the height of the in-ComStock bar, showing that most commercial energy use falls inside ComStock's modeled building types.
+- source_image: 92766_images/image_000011_d3a7c1ca4c61cd76cd1b3ca46d1ae98501ca5dbf32de90b28b41ed182ed8e43a.png
+  source_image_sha256: 2f6bcf9577e6465863c6e4bc0297266782b046c40df9b8a1e6fbdc5911f09669
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Bar chart comparing stock annual site energy for 2024 release 1 and release 2, in TBtu
+  description: |-
+    Bar chart on the 'ComStock Baseline Updates Since Last Release' slide comparing total stock annual site energy between the two 2024 releases, y-axis in TBtu. Release 1 is labeled 4338 TBtu and Release 2 is 4761 TBtu, about a 10% increase from the baseline model updates listed in the slide's continuous-improvements bullets.
+- source_image: 92766_images/image_000012_f8a5715f904ca2daecaac1722b0e8d3a2fa2832c51afc78ee38b66856551af0c.png
+  source_image_sha256: 5ca060cb32bef176ba10189f52ad08b652b03fc83674cfd0d9084557c6feef6e
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: 'Diagram of the previous ComStock sampling approach: a sample table beside a coarse US region
+    map'
+  description: |-
+    Diagram on the 'Previously' sampling slide, pairing a small sample table with a US map shaded at coarse geographic resolution. It illustrates the earlier approach, in which models were sampled and reported at aggregated regions rather than census tracts. Contrast with the 'Now' map on the following slide.
+- source_image: 92766_images/image_000013_56e504de15080faf4835ddf89baf648ec584fdbdd32cf672523c40dcd5cc551d.png
+  source_image_sha256: bc0c606c6133fa9009703cf0bc4163c203a1cb872c5e9b8202010be47a9e5c4b
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: US map of the new census-tract sampling approach, with essentially every tract modeled
+  description: |-
+    Map on the 'Now' sampling slide showing the new census-tract resolution, with essentially the whole country shaded as modeled. It illustrates the higher-geospatial-resolution sampling described in the slide bullets, where building models are reused across tracts that share key sampled traits. See the linked User Resource Guide for New Sampling.
+- source_image: 92766_images/image_000016_9d2c25532f936aae10f2a28a7f6caebf4622230aa3f238113a43fc0ef31f9967.png
+  source_image_sha256: 0aa53447b2841a7b2082625fedffab6b4457ff361eff55a1cfb8149870d338f7
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Screenshot of the BPS Technical Assistance Network dashboard, three side-by-side chart panels
+  description: |-
+    Screenshot on the 'Resources - BPS Technical Assistance Network' slide showing the network's web dashboard with three side-by-side chart panels and filter controls above them. Axis and legend labels are not legible at this resolution; the slide's links point to the live tool. Included to show what the BPS TA Network provides.
+- source_image: 92766_images/image_000017_4cadb81952cbd2342e645c2a71e56b003507f11a3c37336085923fdac5a6a63d.png
+  source_image_sha256: 31b431293cb226c49c3bb287c3f0f5e5c64d2ec036505fa59a8bcb645df66a9c
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Screenshot of a BPS TA Network dashboard view titled Average Site EUI by Upgrade
+  description: |-
+    Second screenshot on the BPS Technical Assistance Network slide, showing a dashboard view headed 'Average Site EUI by Upgrade' with bar panels comparing upgrade scenarios. Individual bar values and category labels are not legible at this resolution. The slide's links point to the interactive tool rather than reproducing the values.
+- source_image: 92766_images/image_000019_c2d60fa96feae5ca18bb7a107d41aed652b33f6954076d7fa640fa8bc67dd5e3.png
+  source_image_sha256: 7e7c5a767f7c0595cba10da769443847c5da27ee46b9eed98c55c5d3e9221fd7
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Screenshot of the ComStock measure documentation website landing page
+  description: |-
+    Screenshot on the 'ComStock Measure Documentation Website' slide showing the site's landing page, with a navigation sidebar and a list of documented upgrade measures. It illustrates where per-measure write-ups, applicability, and modeling assumptions are published, rather than presenting any results of its own.
+- source_image: 92766_images/image_000020_a4904ed3372c967db2bc98f54c27426760f4f38bfca641f3a745e7e5e763874b.png
+  source_image_sha256: d4d856441b36b8df6b66e86ddf3184eb4551aaf74c92add1f5530169038d494c
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of stock site energy by fuel and end use, Baseline vs Ideal Thermal Air Loads, TBtu
+  description: |-
+    Stacked column chart on the Ideal Thermal Air Loads results slide, y-axis annual site energy in TBtu, with two bars: Baseline at 4761 and Ideal Thermal Air Loads at 5051. Segments are end use by fuel per the legend (interior equipment, lighting, cooling, heating, fans, water systems and others). The ideal-loads case is higher because it removes HVAC equipment efficiency.
+- source_image: 92766_images/image_000021_49a721005bbb7f98e21c2003a9ffe236797d3587ce59e3330224238b9ede1674.png
+  source_image_sha256: 91dc2f509a4fadc8d22a32591a871384dc0ec7e86be1751835305933ca7f0945
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of stock site energy by fuel and end use, Baseline vs standard- and advanced-performance
+    HP-RTU
+  description: |-
+    Stacked column chart on the Standard Performance Heat Pump Rooftop Units results slide, y-axis annual site energy in TBtu scaled to about 3000, with bars for the Baseline, advanced-performance, and standard-performance HP-RTU cases. Segments are end use by fuel per the legend. Both HP-RTU cases shift heating from natural gas to electricity and cut total site energy.
+- source_image: 92766_images/image_000022_72d97628c75642094aa9d829d5e3801cdd41ea7dfc954b8a8f85613f2ea89a36.png
+  source_image_sha256: dd4d321166299ec03337b0efc3606999ccdaf7380cd0b3aa990934a29cb6bdb8
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel bar chart of stock annual utility bills at maximum, mean, and minimum electricity
+    rates
+  description: |-
+    Three-panel bar chart on the Standard Performance HP-RTU utility-bill slide; the panels are the maximum, mean, and minimum applicable electricity rate, y-axis annual commercial stock utility bills in billion dollars. Each panel compares the baseline against the HP-RTU cases, with bills falling a few percent - at the mean rate from 124 to 118 billion dollars, about -5%.
+- source_image: 92766_images/image_000023_cce93c915d0e1c389043bf3df1f54991718e6b9dac2b7ee9d157b4d45fc1cafe.png
+  source_image_sha256: 76d8eaf1a572cb17b429d03ee9f173d196b4933f43c6bbd3da1481aceb274df3
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Five-panel hexbin plots of heating load versus outdoor dry-bulb temperature at lockout setpoints
+    0 to 32 F
+  description: |-
+    Five-panel hexbin density plot on the higher-lockout-temperature measure slide. Each panel is one compressor lockout setpoint - 0degF, 5degF, 10degF, 17degF and 32degF - plotting heating load in kBtu/h on the y-axis against outdoor dry-bulb temperature in degF on the x-axis. Raising the lockout leaves more of the cold-temperature load on the heat pump instead of supplemental heat.
+- source_image: 92766_images/image_000024_bf2b82c632fe0fe333679155fa8cfe896a40222c1bf55a6d96a0cd4f4a25cd2c.png
+  source_image_sha256: 7eb823cf0410c7b3f3557c8416b78700ca8e7705ea549d8c82a34b5221d6d547
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: US state choropleth of median annual average total heating COP, 0 degrees F lockout
+  description: |-
+    State-level choropleth map on the lockout-temperature slide, shading the median of annual average total heating COP by state for the 0degF compressor lockout case. Labeled state values run from about 1.6 to 2.6, highest in the mild South and West and lowest in the cold northern states. Paired with the 32degF map beside it.
+- source_image: 92766_images/image_000025_cf6fd2f6b2efa8c08607a3e6adae3bb467fde0c5c674a03df4a3c1bdbeff147c.png
+  source_image_sha256: dd00494500d0dec45337ae7ff7723de42bb94100a8b7172d8f4af8ce8aab52ff
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: US state choropleth of median annual average total heating COP, 32 degrees F lockout
+  description: |-
+    Companion choropleth on the same slide for the 32degF lockout case, again the median of annual average total heating COP by state. Labeled values run from about 1.1 to 2.4, lower than the 0degF map: the heat pump keeps operating at colder outdoor temperatures where its efficiency is poor, pulling the annual average down.
+- source_image: 92766_images/image_000026_7c17da635eb39e65bfb5fcafba9d5f7e56b5abd6f7c4f85f04e3e5585406c3a4.png
+  source_image_sha256: 93aa318d4d8928dfabceaa7287baf7dbdbbeb714c0d9702bb5ad9f561385ede8
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel bar chart of stock annual utility bills, baseline versus 0 and 32 degrees F HP-RTU
+    lockout
+  description: |-
+    Three-panel bar chart on the higher-lockout utility-bill slide; per the slide note the panels are the maximum, mean, and minimum applicable electricity rate, y-axis annual stock utility bills in billion dollars. Each panel compares the baseline against the 0degF and 32degF lockout HP-RTU cases; both lockout cases lower bills by a few percent.
+- source_image: 92766_images/image_000027_0bc75fdde54fb0ef7c3864add5f07a0837788a450dd59a95b3e7cf8e912f8d65.png
+  source_image_sha256: 5044bf93e4e1ee2181a4c5173e7c593a1769cdff06af1075068dcb736a1e2d33
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of applicable-stock site energy, baseline versus HP-RTU and HP-RTU with improved
+    roof insulation
+  description: |-
+    Stacked column chart on the improved-roof-insulation slide, restricted to buildings applicable to the measure. Y-axis annual site energy in TBtu scaled to about 850, with bars for the baseline, standard-performance HP-RTU, and HP-RTU with improved roof insulation, segmented by end use and fuel. Roof insulation adds the small extra savings in the slide bullets: 3.7 TBtu heating gas, 4 TBtu heating electricity, 9 TBtu cooling.
+- source_image: 92766_images/image_000028_fa8941ddbc8e654f5cac7a3650c8d4e7901f23994cdf42c90efa12939d48012e.png
+  source_image_sha256: ad8394eeea1f0fa174049d2ee9cdea3dcab31f5beb5db9a87fa2d435cafab200
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel bar chart of stock annual utility bills, baseline versus HP-RTU with and without
+    roof insulation
+  description: |-
+    Three-panel bar chart on the roof-insulation utility-bill slide; the panels are the maximum, mean, and minimum applicable electricity rate, y-axis annual stock utility bills in billion dollars. Each panel compares the baseline against standard-performance HP-RTU and standard-performance HP-RTU with improved roof insulation. Bills fall a few percent in both cases, slightly more with insulation.
+- source_image: 92766_images/image_000029_1a8e60719e8ee617797455e557fad764962e64576cb6434f186f595af5997fb8.png
+  source_image_sha256: e6eb16d1234e21a187625af3ef0249f35d0a9468edbd984626969c9eb1045ad1
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of applicable-stock site energy, baseline versus standard-performance and HP Challenge
+    HP-RTU
+  description: |-
+    Stacked column chart on the HP Challenge specification slide, restricted to applicable buildings. Y-axis annual site energy in TBtu, with bars for the baseline, standard-performance HP-RTU, and HP Challenge HP-RTU, segmented by end use and fuel. The Challenge unit cuts electric heating a further 14% (21 TBtu) against the standard-performance HP-RTU, per the slide bullets.
+- source_image: 92766_images/image_000030_7cf250f5271e4e145c006112c45d632d0248f583c752cf40d8152a6dab2b1376.png
+  source_image_sha256: f27ff586aa680a1f5624955f70df98411d8aaba921b1de2da029c3de53e520db
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel bar chart of stock annual utility bills, baseline versus standard-performance and
+    HP Challenge HP-RTU
+  description: |-
+    Three-panel bar chart on the HP Challenge utility-bill slide; the panels are the maximum, mean, and minimum applicable electric rate, y-axis annual stock utility bills in billion dollars. Each compares the baseline against standard-performance and HP Challenge HP-RTUs; the Challenge bars are lowest, reaching 103 billion dollars (-6%) at the minimum rate. The slide cites 5-6 billion dollars saved annually.
+- source_image: 92766_images/image_000031_b58bff8b4d1c3f4309e48d232a17a8832799dbb22a50592722563bfb227e3333.png
+  source_image_sha256: 88599b209c5f599c599110b25d1513c49842e4d2b5891e8983a370c59aafe95b
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Two US state choropleths of median annual average total heating COP, standard-performance vs
+    HP Challenge
+  description: |-
+    Paired state choropleth maps on the 'What performance gains does the Challenge HP-RTU offer' slide, shading the median of annual average total heating COP by state. The left map is the standard-performance HP-RTU, with labeled values from about 1.7 to 2.6; the right map is the HP Challenge unit, from about 2.3 to 3.1. Slide note: these COPs include supplemental, crankcase, and defrost heat but not the supply fan.
+- source_image: 92766_images/image_000032_9baad0c1852b737e9240d9f6c0a5ce3b53640fad088cd637d8fc69e4e05956f6.png
+  source_image_sha256: 69a2f7794141f258c332284f3a36b079af50c0cf7be8cadfc02b11cf945652e6
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Single stacked bar of percent of floor area by applicable measure combination for Package 3
+  description: |-
+    Single stacked bar on the Package 3 applicability slide, y-axis percent of floor area applicable from 0 to 100%. Segments are measure combinations: LED only 27.7%, LED + HP-RTU 25.8%, LED + HP-Boiler 21.8%, not applicable 9.7%, HP-RTU only 7.8%, and HP-Boiler only 7.3%. A callout notes that not all measures in the package apply to every building.
+- source_image: 92766_images/image_000033_9b60aa638622646265de6b622172e3086bda5d1facae3d15b079391ff5c3ed46.png
+  source_image_sha256: 085cef5f7a8a0e3df131f9af1f3c78b4c1427025bee6ab524e9a21b59921ff43
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of stock annual energy consumption, Baseline versus Package 2 and Package 3, TBtu
+  description: |-
+    Stacked column chart comparing Package 2 and Package 3, y-axis annual energy consumption in TBtu from 0 to 5000. Bar totals are labeled Baseline 4768, Package 2 3854, and Package 3 3946. Segments are end use by fuel per the legend, with heating shifting from natural gas to electricity. Package 2 saves slightly more site energy than Package 3.
+- source_image: 92766_images/image_000034_fa272bae34bdbbbf35f139b4760dfebdb6bc0d85953606946aa47246cae8fe90.png
+  source_image_sha256: 32e3dbc1def35bb3d6930e80ad39a17da31958352172177e4f452bc191ea8837
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Time-series line chart of building load in kW, baseline versus lighting load shed, over five
+    July days
+  description: |-
+    Line chart on the 'Single Load Profile' slide for lighting load shedding, y-axis building load in kW from about 10 to 35, x-axis five days from 7/16 to 7/20. A dashed baseline trace is overlaid with the lighting load-shed trace, and shaded bands mark the daily four-hour demand events. A callout highlights the peak demand reductions during each event.
+- source_image: 92766_images/image_000036_fe8e43be43210eb3f24e7012fbff8078746373207fa23461512e94bfcc69c32b.png
+  source_image_sha256: c160a8f0ca7e973b076a4ba687258b0fee347be17e73c2923151ed51f9585db5
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Monthly box plots of maximum daily peak savings percent for lighting load shedding
+  description: |-
+    Box-and-whisker plot on the 'Stock Peak Load Savings' slide, y-axis max peak savings in percent from about -10% to 15%, one box per month January through December. Callouts give a 2%-7% stock daily peak reduction across months and note that negative savings indicate new peaks generated by increased heating load.
+- source_image: 92766_images/image_000037_f3d8e0aff407dae750ed7f7aa4a2d98eedf407244f406022d87893408bc5f2e1.png
+  source_image_sha256: 75325a9fd3b7366c2111e3b79a90a12b9e4b783131f44cf36ba148deb5280d88
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Two-panel time series of building load and emissions with marginal emissions factor, baseline
+    vs lighting
+  description: |-
+    Two-panel time-series chart on the lighting-controls-for-emissions-reduction slide. The top panel plots building load in kW and the bottom plots emissions in kg CO2e with a right axis for the marginal emissions factor in kg/MWh, both across 7/16 to 7/19. Baseline and lighting-reduction traces are compared; callouts note the load reductions coincide with the peak emissions factor.
+- source_image: 92766_images/image_000038_c9f2fffed0ffb74ac23fbddbd13d599ec467f1d1847644c146980a0fb6287df3.png
+  source_image_sha256: 36c3ae35e7b99828ebac7257c577ba8e94715b89584f26dc57df379e5ba04fd9
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Horizontal box plots of daily average emissions savings percent by season, Cambium LRMER mid
+    case
+  description: |-
+    Horizontal box-and-whisker plot on the 'Emissions Savings' slide, x-axis emissions savings with the Cambium LRMER mid case in percent from about -2% to 6%, with rows for winter, shoulder, and summer daily averages. A callout gives a 1%-3% stock daily emissions reduction. The slide notes the mid-case LRMER is levelized over 15 years starting in 2023.
+- source_image: 92766_images/image_000039_02abde3bf2748f29592df9f39709efe9b9f076964809d813535924eb7852d22c.png
+  source_image_sha256: 3a2f35ba93407f6f574d038a98343ac5c63579bed15ba0deb67a94bee40d6042
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Monthly box plots of maximum daily peak savings percent for the Package 6 load-shedding package
+  description: |-
+    Box-and-whisker plot on the Package 6 slide, titled Stock Peak Load Savings and showing maximum daily peak reduction for each month; y-axis max peak savings in percent from about -10% to above 25%, one box per month. A callout gives a 3%-12% stock daily peak reduction, with negative savings attributed to rebound effects and added heating load from dimmed lights.
+- source_image: 92766_images/image_000045_08c77d6a0553425cd9c28c4bdf1d4dd4266b411fd46b630c6b33698d8abcf934.png
+  source_image_sha256: 917e2c64078657a778738a051c4d2c3efdc6a29e0df913c237936f337f59a12e
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Annotated screenshot of the OEDI AWS S3 explorer listing the ComStock 2018 release 2 folder
+  description: |-
+    Annotated screenshot on the OEDI folder-structure slide, showing the AWS S3 explorer for the comstock_amy2018_release_2 prefix with nine objects. Orange callouts label metadata_and_annual_results as full-resolution census-tract metadata, the aggregates folder as higher-geography rollups, the timeseries folders as data by fuel and end use, and upgrades_lookup.json as the dictionary of upgrade IDs and names.
+- source_image: 92766_images/image_000046_8b700e2e238adafdfe881b9155e87ab2644a46eeea0bf19175d4a8ad233b51a0.png
+  source_image_sha256: fb11be3678eef05ca9ad5a1f324138c40abadea9b5001dff8e953dc39b83f076
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Annotated screenshot of an example ComStock metadata file opened in a spreadsheet
+  description: |-
+    Annotated screenshot on the 'Example Metadata File' slide showing a metadata table in a spreadsheet, one row per building model. Orange callouts point at the building ID, county, building type, building area, annual unweighted electricity peak in kW, and annual natural gas consumption columns. Other visible columns include HVAC system, wall construction, and weekday and weekend operating hours.
+- source_image: 92766_images/image_000047_2d00d57defa02bae01edb41360acb286206a8a30d55dc1a974134da1afd4cf6a.png
+  source_image_sha256: e9a8a9c98279511c648dd113e3f3db147fc2619fbcbf65131d45ca12be50fa31
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Annotated screenshot of the ComStock Data Viewer with state and scenario selectors
+  description: |-
+    Annotated screenshot on the 'ComStock Data Viewer' slide showing the tool with a US state map, state and scenario selector menus, and four result panels along the bottom. Orange callouts mark where to select a state, select a scenario, explore annual metadata including building characteristics, and explore time-series data. The example shown is Massachusetts with an HP-RTU electric-backup upgrade.
+- source_image: 92766_images/image_000048_a74e5b33c9d7acc2c8fa6533e1471f51bdfc5ae5c13424ec44d19d9c8e38c98b.png
+  source_image_sha256: 97193d8fefbf4e27942d87a3028fda98089d3df144785afc938e9c11cc7ae61b
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Annotated screenshot of the ComStock Data Viewer scenarios tab with filters and CSV export
+  description: |-
+    Second screenshot on the ComStock Data Viewer slide, showing the scenarios tab with fuel type, upgrade, output, aggregation, and timeseries-range controls above three time-series panels. Callouts mark the filters for building type, county, and HVAC system, and the export-data-to-CSV button. The example compares the baseline against a variable-speed HP-RTU electric-backup upgrade.
