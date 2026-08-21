@@ -1,0 +1,396 @@
+# Hand-authored figure descriptions for measure_pdfs/87746.pdf
+#
+# 87746 is the End-Use Savings Shapes: Commercial 2023 Release 2 webinar deck. It is a SLIDE DECK,
+# not a report: there are no numbered figure captions, so each entry anchors on the slide's own
+# heading text instead of a "Figure N" label. docling extracts every picture as a bare ![Image](...)
+# ref, so the charts are invisible to retrieval and unreadable without the bitmap. Each entry below
+# rewrites the ref with a hand-written alt and injects a description paragraph below it.
+#
+# Scope: figures only. 12 of the 61 extracted images are decorative and deliberately have no entry:
+# the NREL logos (000000, 000060), a gas-meter stock photo appearing twice at byte-identical hashes
+# (000001, 000004), a blue arrow (000002), the ComStock plus-icons pictogram (000005), an NREL photo
+# collage (000011), and the five data-access tile icons on the "Accessing the Data" slide (000050,
+# 000051, 000052, 000053, 000054).
+#
+# Depth: authored to the section 2.1 budget in overlays/FIGURE_DESCRIPTIONS_ROLLOUT.md - roughly
+# 40-70 words per description (chart type, axes and units, series/legend, one headline number, and a
+# pointer to where the values live). Printed data labels are not transcribed wholesale.
+#
+# The deck repeats five chart families across the measures, so the entries are deliberately
+# parallel: stock site energy by fuel and end use (stacked columns in TBtu), annual GHG emissions by
+# grid scenario and fuel (grouped bars in MMT CO2e), summer/winter peak load profiles (stacked area
+# in MW, Boston/Suffolk County at 15-minute steps), applicability by measure combination, and
+# average site percent savings by measure combination.
+#
+# Authoring notes:
+#   * method is vision-description: these interpret a chart rather than copy legible cells. Numbers
+#     were read off the bitmaps and should get a human QA pass before this is a release record.
+#   * Every entry pins the on-disk PNG sha256; if upstream repoints a bitmap the build drops that
+#     injection and warns rather than shipping a stale description.
+#   * Temperatures are written plainly (16C, -15C, Celsius/Fahrenheit) to keep the sidecar ASCII.
+#
+# QA notes (vision reads; flag for a human pass):
+#   * 000035, the exhaust-air heat-recovery emissions chart, prints a DIFFERENT baseline set
+#     (344.4 / 257.5 / 162.4 / 89.3 MMT CO2e) than every other measure's emissions chart in the deck
+#     (336.6 / 253.3 / 161.1 / 83.6). Worth confirming whether that slide came from another run.
+#   * 000009 and 000010: only the bar totals (4366 and 4638 TBtu) are high-confidence; the individual
+#     band labels are small and are quoted without attributing them to specific end uses.
+#   * 000019's segment labels are too small to attribute reliably, so it is described by direction
+#     only rather than by value.
+#   * 000044 and 000046 abbreviate long measure-combination names in the source legend; the entries
+#     paraphrase "window + wall + roof" as "envelope" where the label ran off.
+#   * 000001 and 000004 are byte-identical (same sha256) - the same photo reused two slides apart.
+
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: measure_pdfs/87746.pdf
+figures:
+- source_image: 87746_images/image_000003_383f3c983d7dd0a86760e35082d72edb05ad894166c5b78cdabdc2b7aa87079b.png
+  source_image_sha256: 0b4db8be0926b8cb7ca56a61c08af91f8efea171dacf02155a7942de2847ec6b
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Tree diagram of how the ResStock and ComStock national datasets reach downstream users
+  description: |-
+    Tree diagram on the 'Public Data Sets Are Intended To Serve a Broad Set of Use Cases and Audiences' slide. ResStock and ComStock national datasets branch into four downstream channels - a consultant, a software vendor, a manufacturer group, and a nonprofit - each fanning out to named utilities, cities, startups and other entities. It illustrates how one public dataset reaches many end users.
+- source_image: 87746_images/image_000006_63532fc58f8f977b262f5d3764cfb714f5f90b686fc22a2b554d707c8e5fca2f.png
+  source_image_sha256: c558161ba100932699cfc0a96692e52b5e66ace72c90c739b0b3638dccbc7ac5
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Building Type legend for the in-ComStock energy stacked bar on the CBECS slide
+  description: |-
+    Legend panel on the 'All Buildings in CBECS' slide, keyed to the adjacent in-ComStock stacked bar. Colors map to the building types ComStock models - large and small office, retail standalone and strip mall, hospital, full-service and quick-service restaurant, primary and secondary school, warehouse, large and small hotel, outpatient - plus an 'other, not modeled in ComStock' category.
+- source_image: 87746_images/image_000007_af83f5295551bf8a024d3169952625a24cc119392e7680a9401fece472a913d0.png
+  source_image_sha256: f0d91289f4ab4a0f5e0695d89aba0ea22222e61ec4fd4cd99717fa6a0ee5dbd8
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of annual site energy for the building types ComStock models, with percent labels
+  description: |-
+    Single stacked bar on the 'All Buildings in CBECS' slide, y-axis annual site energy consumption in TBtu from 0 to 7000, segmented by ComStock building type per the adjacent legend with percent-of-total data labels. The largest segment is 36%, followed by two at 8%, one at 6% and several at 4-5%. See the companion 'Not in ComStock' bar.
+- source_image: 87746_images/image_000008_9ce7616599d199983a23fefb3ea8fef128e626737aa754d293710f7a51eb0d78.png
+  source_image_sha256: 238c84abdef806469339b5613e414671db49818915d328c903df9e6377125275
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of annual site energy for building types not modeled in ComStock, with its own legend
+  description: |-
+    Companion stacked bar titled 'Not in ComStock', y-axis annual site energy consumption in TBtu from 0 to 2600, with its own building-type legend (college or university, religious worship, mixed-use, grocery, nursing home, recreation, laboratory, entertainment, vehicle service, library and others). Top segments are labeled 9%, 7%, 7% and several at 6%.
+- source_image: 87746_images/image_000009_3e3d14deff851d9cfe72d3d51603705f7bc67b3f6ce8dc3703d1cc0770769698.png
+  source_image_sha256: 8a8992b046583604dca0056f5d3c8b6c80ad1c0cd328a1e3c33b1fc7c1121fc6
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of the EUSS Release 1 baseline stock site energy by fuel and end use, TBtu
+  description: |-
+    Stacked column on the 'Release 1 Baseline' slide, y-axis annual site energy consumption in TBtu to about 4500, one bar labeled EUSS Release 1 totaling 4366 TBtu. Segments are end use crossed with fuel, with labeled bands including 777.3 at the base and 671.4, 592.4, 427.3 and 229.3 above it. The shared legend appears on the companion Release 2 chart.
+- source_image: 87746_images/image_000010_15c717658ff4011655a1266b65c89e824adadb81655c4b8684cf612264d903da.png
+  source_image_sha256: 0069b965852cf5d585f94b3c9c583fd07e430057914d793a2ddb4a368a37e0d7
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of the EUSS Release 2 baseline stock site energy by fuel and end use, TBtu
+  description: |-
+    Stacked column on the 'Release 2 Baseline' slide, the direct comparison to the Release 1 bar; y-axis annual site energy consumption in TBtu, one bar labeled EUSS Release 2 totaling 4638 TBtu. It carries the shared legend of end use crossed with fuel (electricity, natural gas, district heating and cooling, other fuel). Release 2 is about 270 TBtu higher than Release 1.
+- source_image: 87746_images/image_000012_3aca59e30f55e624b2699e0386bd31296b22ae2bc35090c01a84cc06626ee452.png
+  source_image_sha256: e610a1c8369190a03d49eec5c562a58a0c1330a74307f7f038252ed14dbd1226
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Screenshot of the ComStock measure documentation website upgrade-measures page
+  description: |-
+    Screenshot on the 'ComStock Measure Documentation Website' slide showing the site's upgrade-measures page: a navigation sidebar, links to the 2023 Release 1 webinar recording and slides, and a contents list of the documented measures - air-source heat pump boiler, DOAS with mini-split heat pumps, wall and roof insulation, LED lighting, window replacement, DCV, heat and energy recovery, VRF with DOAS, and Packages 1-3.
+- source_image: 87746_images/image_000013_d163d9974f0ca88475e48288d38dbce6a1b40e09e750ad01100ea513abdd9467.png
+  source_image_sha256: a195106b9ae49f3c9d5378430c3b7cb0485855d6aebe4f39f41d8c9f6d4c708b
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: 'Diagram of the HP-RTU backup heat scheme: gas RTU to gas backup, electric RTU to electric backup'
+  description: |-
+    Diagram titled Backup Heat Scheme on the HP-RTU with original fuel backup slide. Two rows map an existing system to its replacement: a gas RTU becomes an HP-RTU with gas backup, and an electric RTU becomes an HP-RTU with electric backup. It defines the original-fuel (OF) backup convention used in the rest of the measure's charts.
+- source_image: 87746_images/image_000014_8d583e739cae8a1f8db92af8d570e3d07e4b9edeb6f767603ceec11fff0fb7fb.png
+  source_image_sha256: d7941e966b01905eaabd566b9f06dc07d6c0ea60834601fec2fc81655851b3ab
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of stock site energy by fuel and end use, Baseline vs HP-RTU with OF and electric
+    backup
+  description: |-
+    Stacked column chart on the HP-RTU 'Stock Site Energy by Fuel and End Use' slide, y-axis annual energy consumption in TBtu to about 2500, with bars for Baseline, HP RTU OF Backup and HP RTU E Backup segmented by end use and fuel. Fans fall from 588.3 to 476.4 and cooling from 724.7 to 644.0. A callout notes less gas heat and more electric heat in the electric-backup case.
+- source_image: 87746_images/image_000015_c662fc37b4dc8de800748f1c47fff356763a316f2788cc4524cd0e7ee2b615c8.png
+  source_image_sha256: abfcaea5b236155053c8fed33b8585c9c6f0a9b6a4a076d76ae98e7488050115
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of annual GHG emissions by grid scenario and fuel, Baseline vs HP-RTU gas backup
+  description: |-
+    Grouped bar chart on the HP-RTU original-fuel-backup slide, y-axis annual GHG emissions in MMT CO2e from 0 to 500. Baseline and HP RTU G Backup pairs are shown for three choose-one electricity grid scenarios (eGRID 2021, LRMER High RE Cost 15, LRMER Low RE Cost 15) plus natural gas, fuel oil and propane. Labeled deltas include -14.3 (4.2%) under eGRID and -15.1 (18.1%) for natural gas.
+- source_image: 87746_images/image_000016_545488aacb5e6facc8ba9a7a7396ac3c58e571665c736959cf2ed72ddc6fe19a.png
+  source_image_sha256: 00100b6c65f822936c6a586f27032a08c854e9fd6ed543cd555050ea17bcb999
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked area load profile of winter-peak electricity demand, HP-RTU with electric backup
+  description: |-
+    Stacked area load profile on the 'HP-RTU, Electric Backup' side of the winter-peak slide, y-axis electricity demand in MW to about 60, x-axis 15-minute steps from Jan 2 to Jan 7 2018 for the total commercial stock in Boston (Suffolk County). Bands are end uses per the legend, with heating dominating the peaks; a black line traces the baseline total for comparison.
+- source_image: 87746_images/image_000017_d7225e58f1d5109b25f35e1dca02d8b1da0117495ba7d082e39b27818b8efd68.png
+  source_image_sha256: 599fa292538950b6e725dcfd88208447c40a168817403de353a05feeacaddacd
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked area load profile of winter-peak electricity demand, HP-RTU with original fuel backup
+  description: |-
+    Companion stacked area profile for 'HP-RTU, Original Fuel Backup' over the same Jan 2 to Jan 7 window and the same MW axis. A callout notes that gas backup reduces electric demand: the heating band and the daily peaks are visibly lower than in the electric-backup panel beside it.
+- source_image: 87746_images/image_000018_18b0814ef6ecff001e84edd0eebb9b408f18978e0359298489f3f439c1a51d9a.png
+  source_image_sha256: 2c6515cc2106ee0df4b498aca98ca5a7fa88e8e26d70f88240989419b4440358
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped horizontal bars of stock boiler prevalence by percent stock area and percent stock gas
+    heat
+  description: |-
+    Grouped horizontal bar chart on the 'Stock Boiler Prevalence' slide, with rows for models with and without boilers and paired panels for percent of stock area and percent of stock gas heat. Bars are colored by applicability, true or false. Models with boilers are the smaller share of floor area but account for the larger share of stock gas heat.
+- source_image: 87746_images/image_000019_34222dfe20b1bd214c915bf6c427b63db72b9abfbd00e01d298c951f01cf8bc7.png
+  source_image_sha256: e02ccfe6f1c4a4e359fb3e192abc1a1121bbfe1d5d34af07a908484a60cea6ea
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of stock site energy by fuel and end use, Baseline vs HP boiler with gas and electric
+    backup
+  description: |-
+    Stacked column chart on the heat pump boiler 'Stock Site Energy by Fuel and End Use' slide, y-axis annual energy consumption in TBtu to about 1200, with bars for Baseline, HP Boiler G Backup and HP Boiler E Backup, segmented by end use and fuel. Both heat pump boiler cases are shorter than the Baseline; a callout notes less gas heat and more electric heat in the electric-backup scenario.
+- source_image: 87746_images/image_000020_d34ae4b88b282e5825edbc9d71284139e81cbc4393ec6834a74b5fdeb85e7806.png
+  source_image_sha256: b3ed0c3df1afb26947d4a6105c317f8de81f53d0df80175c28b66ae38b0b7419
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of annual GHG emissions by grid scenario and fuel, Baseline vs HP boiler OF
+    backup
+  description: |-
+    Grouped bar chart on the heat pump boiler slide, y-axis annual GHG emissions in MMT CO2e to 500, pairing Baseline with HP Boiler OF Backup across three electricity grid scenarios plus natural gas, fuel oil and propane. Electricity emissions rise - plus 18.9 MMT (5.6%) under eGRID 2021 - while natural gas emissions fall 34.2 MMT (41%).
+- source_image: 87746_images/image_000021_7ebd565c9b2e04fc7318e14ce7b6c9ddd1da9fd1ea87826ecae5eb54052aa27d.png
+  source_image_sha256: c4bccd558696baf2e95483345c5f0c06c75b86b2447c98b059906ddb554e5d54
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of VRF with DOAS applicability as percent of floor area by building type
+  description: |-
+    Stacked bar chart on the 'VRF DOAS Applicability (%)' slide, y-axis percentage of floor area 0-100%, one bar per ComStock building type. Segments come from the upgrade-applicability legend: applicable, or not applicable because of floor area over 200,000 sqft, large exhaust or ventilation, central multi-zone VAV, central single-zone RTU, DOAS plus zone terminal equipment, residential forced air, or zone terminal equipment. Restaurants are nearly fully applicable.
+- source_image: 87746_images/image_000022_d4458b5d428693ae48e7691c59f4d1e67ae42541ce45a1e61946b4fe6076eed2.png
+  source_image_sha256: 56d41889d736528d356402ed560d16940d89bda9de447343e0707125064a3ed4
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Line chart of VRF heating capacity modifier versus outdoor air temperature at three indoor conditions
+  description: |-
+    Line chart on the VRF performance slide, y-axis capacity modifier for heating (dimensionless, 0.6 to 1.3) against outdoor air temperature on twin axes in Celsius and Fahrenheit wet-bulb. Three series are indoor dry-bulb conditions Tind-db of 16C, 20C and 24C. A callout highlights sustained capacity at decreasing outdoor air temperatures, with the curves flattening above about -15C.
+- source_image: 87746_images/image_000023_5e0a167497eac1ff5bab5c1dd63b95946de00bcd4a0f29192177b0e54711443f.png
+  source_image_sha256: c0dc41b2f5206928545f9debd9e5a0d567d3ec6a82b820ad0ca86b0232da9ce6
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Line chart of VRF heating COP relative to design versus outdoor air temperature
+  description: |-
+    Companion line chart on the same slide, y-axis COP for compressor and fan divided by its design value (about 1 to 6) against outdoor air temperature in Celsius and Fahrenheit wet-bulb, again for Tind-db of 16C, 20C and 24C. Efficiency rises steeply with outdoor temperature. The slide notes this reflects design rather than operating conditions and counts only compressor and outdoor-fan power.
+- source_image: 87746_images/image_000024_4246c6393cb4423fd49960defe9ee0e8754ea992067a63bf6a683fc959d1622b.png
+  source_image_sha256: d6c5a1c4a42fb5402c4c4396e2944eaf085aa62bf7ac08ff0c57c5fadf651a88
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of stock site energy by fuel and end use, Baseline vs VRF with DOAS
+  description: |-
+    Stacked column chart on the VRF with DOAS 'Stock Site Energy by Fuel and End Use' slide, y-axis annual energy consumption in TBtu to about 2500, comparing Baseline with VRF with DOAS. Fans fall from 588.3 to 409.9 and cooling from 724.7 to 597.2, while heating natural gas drops sharply - the slide cites 53% stock heating gas savings, 438 TBtu.
+- source_image: 87746_images/image_000025_20e85407382deb3d169e5eb083a1a7cc9f0867aee340c6ca7dd6fb5717a1514e.png
+  source_image_sha256: 40a2638150fbab7a7be0d86d78f091fcdba2a70d57fcc11f46c710dd94b4e745
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of annual GHG emissions by grid scenario and fuel, Baseline vs VRF with DOAS
+  description: |-
+    Grouped bar chart on the VRF with DOAS slide, y-axis annual GHG emissions in MMT CO2e to 500, pairing Baseline with VRF with DOAS across three electricity grid scenarios plus natural gas, fuel oil and propane. Electricity emissions fall 23 MMT (7%) under eGRID 2021 and natural gas emissions fall 29 MMT (35%).
+- source_image: 87746_images/image_000026_aae210f87f839aedbbd096d2375dca205b935592cf6de82247f93dab8bfd645a.png
+  source_image_sha256: 177f29294878639d50563dde0207f924923fb454eeda2bcc1671f1c1fba28be9
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel box plots of rated COP, operating COP, and backup heating fraction by climate zone
+  description: |-
+    Three-panel horizontal box-and-whisker plot on the 'Building Annual Average Heating COPs' slide, one row per climate zone from subarctic to hot-dry. Panels are rated heating COP (compressor and fan, design), operating heating COP, and fraction of backup heating. Rated COP clusters near 4 to 5, operating COP near 2 to 3, and backup fractions stay below about 0.1 outside the coldest zones.
+- source_image: 87746_images/image_000027_0ec105bb95de89a4b592b1daf53dc99bf757567bb9876b046613944439100145.png
+  source_image_sha256: 1e87dae3e6d134ad05c744de42bb3e5777c9c15e66f3ef774448b394a2360706
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked area load profile of summer-peak electricity demand, VRF with DOAS versus baseline
+  description: |-
+    Stacked area load profile on the summer-peak side of the 'VRF With DOAS: Summer vs. Winter Peak' slide, y-axis electricity demand in MW to about 60, x-axis 15-minute steps from Aug 27 to Sep 2 2018 for the total commercial stock in Boston. Cooling and fans dominate the daily peaks, and the black baseline-total line runs above the VRF stack - a demand reduction.
+- source_image: 87746_images/image_000028_f7fc46cceb0779a7498b1ffb46218095e2c1cc98974f5ab64b1218dbdeb2d7d0.png
+  source_image_sha256: cdf047f8a87b3e5ed2ee87f462faf8703021e21ef31c5c6b018d7ad3843b3bdb
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked area load profile of winter-peak electricity demand, VRF with DOAS versus baseline
+  description: |-
+    Companion winter-peak profile over Jan 2 to Jan 7 2018 on the same MW axis. Heating dominates and the stack is far spikier than in summer, with the baseline-total line sitting below the VRF peaks - winter demand increases with electrified heating. The slide cautions that profiles depend on heat pump sizing, lockout temperature and performance curves.
+- source_image: 87746_images/image_000029_eb921c1419c93068ee201581181bd753fbeb7ba205f3ec959bd2d41ed730bff1.png
+  source_image_sha256: d15cd545fb6415959ccdadf40532d5552c788667852542d97ed3f8890dd0d46e
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Bar chart of demand control ventilation applicability as weighted floor area by building type
+  description: |-
+    Bar chart on the demand control ventilation applicability slide, y-axis weighted floor area in ft2, one bar per ComStock building type split by applicability (true or false), plus a stock total on a secondary axis to 60B showing 44.02B ft2 applicable against 16.54B ft2 not applicable. Callouts note the measure does not apply to restaurants or hotels.
+- source_image: 87746_images/image_000030_018ce39de311c95e73d32c7c454051f3c4ea9c061c0fab605a6a6c304da1600c.png
+  source_image_sha256: d5554ef446eb56ed8ffaa9dc985a37d0ccf27a7b2cb445171ca4a48c1f604394
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Bar chart of mean site energy percent savings by climate zone for demand control ventilation
+  description: |-
+    Bar chart on the 'Mean Site Energy Percent Savings by Climate Zone' slide for demand control ventilation, y-axis mean site energy percent savings 0-6%, one bar per climate zone with printed labels: hot-humid 2.9%, hot-dry 4.1%, mixed-dry 3.4%, mixed-humid 3.1%, marine 4.0%, cold 4.2%, very cold 5.0%, subarctic 5.2%. A callout notes the highest savings occur in colder climates.
+- source_image: 87746_images/image_000031_565ad8c938d6079467e71178274eacac580a030d1f87aa8d3bf04064a2972157.png
+  source_image_sha256: 2a56d40b45623e5b88c48dc62d9aa5d52598f6b02fbaadfd31c253268cda096f
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of stock site energy by fuel and end use, Baseline vs demand control ventilation
+  description: |-
+    Stacked column chart on the DCV 'Stock Site Energy by Fuel and End Use' slide, y-axis annual energy consumption in TBtu to 3000, comparing Baseline with DCV and segmented by end use and fuel. Heating natural gas falls from 197.6 to 179.3 and cooling electricity from 724.7 to 709.5, while fans stay near 588 - a few percent off total site energy.
+- source_image: 87746_images/image_000032_77337891dd597620badb15eef0b8749bbb3905b99eda784975ccc70f7e8b51a0.png
+  source_image_sha256: ed37806cdd89c91afc5d45f6e7c072ea6ac5bfc184178ab5f3e0073e3ea4df82
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of annual GHG emissions by grid scenario and fuel, Baseline vs DCV
+  description: |-
+    Grouped bar chart on the DCV slide, y-axis annual GHG emissions in MMT CO2e to 500, pairing Baseline with DCV across three electricity grid scenarios plus natural gas, fuel oil and propane. Reductions are small: -3.8 (1.1%) under eGRID 2021 and -4.9 (5.9%) for natural gas. Callouts attribute savings to cooling, electric heat and on-site combustion fuel heat.
+- source_image: 87746_images/image_000033_d013249c99727f744b67497596e8d770055e13817185ed6d89522ab164cdfaf7.png
+  source_image_sha256: 4252c509f5e893c612df84090793b98ed609ba7b2e17ff7ad586449fa616cded
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Diagram of heat versus energy recovery technology specifications by climate
+  description: |-
+    Two-column diagram on the exhaust air heat and energy recovery 'Technology Specifications' slide. Humid climates get membrane fixed-plate energy recovery with sensible and latent recovery; all other climates get aluminum fixed-plate heat recovery with sensible-only recovery. Both include a bypass.
+- source_image: 87746_images/image_000034_0a189795259075b37f93b139df22529f41c408651fa01a50bfbfd8e9e4960818.png
+  source_image_sha256: 04fdeb5fac3aba2cebbb9450c339afce45dd215b8ce81a6bb535f30b5359c6ae
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of stock site energy by fuel and end use, Baseline vs exhaust air energy recovery
+  description: |-
+    Stacked column chart on the exhaust air heat and energy recovery 'Stock Site Energy by Fuel and End Use' slide, y-axis annual energy consumption in TBtu to 3000, comparing Baseline with Energy Recovery and segmented by end use and fuel. Heating natural gas falls from 197.6 to 158.8 and cooling electricity from 724.7 to 658.7, with fans roughly unchanged.
+- source_image: 87746_images/image_000035_924d00b3678bb3fef20d1ab1bb5695cf79f73a25f39f862fd0767e6fe793b68a.png
+  source_image_sha256: 707daf7b25d3c642c6b8f9bd0089a63efba4b070f9efe688c874c4f0c08713ec
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of annual GHG emissions by grid scenario and fuel, Baseline vs exhaust heat
+    recovery
+  description: |-
+    Grouped bar chart on the exhaust air heat and energy recovery slide, y-axis annual GHG emissions in MMT CO2e to 500, pairing Baseline with Add Exhaust Heat Recovery across three electricity grid scenarios plus natural gas, fuel oil and propane. Electricity emissions fall 8.4 MMT (2.4%) under eGRID 2021 and natural gas emissions fall 15.7 MMT (17.6%).
+- source_image: 87746_images/image_000036_4d770298b1a440883e474068a89dc2b55bfb1e42b507a0c628e6a8e914a49219.png
+  source_image_sha256: 1b202b029d57a415f19c1a6390578148648ef6be57a697da5ba4ebd26cf30456
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Single stacked bar of Package 1 applicability as percent of floor area per measure combination
+  description: |-
+    Single stacked bar on the Package 1 'Applicability: % Floor Area per Measure Combination' slide, y-axis percent of floor area applicable 0-100%. The full envelope package covers 98.3%, with thin window-plus-roof and not-applicable slivers above it. Callouts state the partial combination reaches about 2% of stock area and the full package about 98%.
+- source_image: 87746_images/image_000037_b54c20eb8a00e2a81e0a838875b3f14299b112682758b9e6f9913c7d65fea5f0.png
+  source_image_sha256: 8fa305c381f3823c0339d402844b31c59c5c0b25450d5c80cc1ee7e2c296b22f
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of stock site energy by fuel and end use, Baseline vs Package 1 envelope upgrades
+  description: |-
+    Stacked column chart on the Package 1 'Stock Site Energy by Fuel and End Use' slide, y-axis annual energy consumption in TBtu to about 4700, comparing Baseline at 4638 with Package 1 at 4306 and segmented by end use and fuel. Interior equipment electricity holds at 836.5 while cooling electricity falls from 724.7 to 639.9 - a 332 TBtu total reduction.
+- source_image: 87746_images/image_000038_d25502f0c26fd72a296c96708c3387f316421e64537ebe1527e6746ef2b90cc8.png
+  source_image_sha256: 96acf89b9e3b85c01d29e90b69afdc82fa03e136ca4cdf185ff3e94279e188f2
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Horizontal bars of average percent site energy savings by observed Package 1 measure combination
+  description: |-
+    Horizontal bar chart on the Package 1 'Average Site % Savings by Measure Applicability' slide, x-axis average percent site energy savings 0-14%, rows by observed measure combination. Window plus roof plus walls averages 10.7% and window plus roof 5.6%; the not-applicable row is empty. A callout notes few samples in the partial combination, under 2% of stock.
+- source_image: 87746_images/image_000039_62d2011394dc1164780a7bc9bd5104cbe66a67c803a13ec1a816fa7701646a5f.png
+  source_image_sha256: d6a61a05a72f711bad393cc7cea72a922900e86f827d1c5a29c266d2d52869ab
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of annual GHG emissions by grid scenario and fuel, Baseline vs Package 1
+  description: |-
+    Grouped bar chart on the Package 1 slide, y-axis annual GHG emissions in MMT CO2e to 500, pairing Baseline with Package 1 across three electricity grid scenarios plus natural gas, fuel oil and propane. Electricity emissions fall 16.9 MMT (5.0%) under eGRID 2021 and natural gas emissions fall 9.8 MMT (11.7%).
+- source_image: 87746_images/image_000040_de4a014531ade71c8fa2b972ba1669efa1bf3f7da3834eb241abb6190546795e.png
+  source_image_sha256: 3e16c5371b2a54661e6364cb68bf7c8b41121cf122a492681c319ff709c27a71
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Single stacked bar of Package 2 applicability as percent of floor area per measure combination
+  description: |-
+    Single stacked bar on the Package 2 'Applicability: % Floor Area per Measure Combination' slide, y-axis percent of floor area applicable 0-100%, segmented by combination: HP-RTU plus LED 23.0%, HP-Boiler plus LED 21.5%, LED only 20.3%, HP-RTU only 13.1%, HP-Boiler only 11.3%, and not applicable 10.7%. A callout notes the HP-RTU and HP-Boiler measures are mutually exclusive.
+- source_image: 87746_images/image_000041_d1583d4991b5a39b21eac5c9689a8a8ac762341cbd04c14c019179659bcccd91.png
+  source_image_sha256: c99dcdfcc5409e578c0ec52a2d792b8698257acb6dc3c31fd0a2274c95442d07
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Horizontal bars of average percent site energy savings by observed Package 2 measure combination
+  description: |-
+    Horizontal bar chart on the Package 2 'Average Site % Savings by Measure Applicability' slide, x-axis average percent site energy savings 0-35%, rows by observed measure combination: HP-RTU plus LED 32.4%, HP-RTU only 28.6%, HP-Boiler plus LED 21.1%, HP-Boiler only 18.0%, LED only 7.0%, and not applicable 0.0%.
+- source_image: 87746_images/image_000042_123bbd3bfea8e36dcf9cb3510c38aa4cf8499c7bb19e2372992c748b0383cc57.png
+  source_image_sha256: 702cd436a0847d0b77a019f6ec61c48dbc5948d5544971377c3e5a0a130c75da
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of stock site energy by fuel and end use, Baseline vs Package 2
+  description: |-
+    Stacked column chart on the Package 2 'Stock Site Energy by Fuel and End Use' slide, y-axis annual energy consumption in TBtu to about 4700, comparing Baseline at 4638 with Package 2 at 3716 and segmented by end use and fuel. Cooling electricity falls from 724.7 to 620.7 and fans from 588.3 to 469.5, with heating shifting from natural gas to electricity.
+- source_image: 87746_images/image_000043_6bb8da61144bb0a42ce2a00b221341e30176ff96e50fe9f849586c8670d12297.png
+  source_image_sha256: b866e60fc26dc0f12ea19b42b640d7c469a4a0b7c1f9fb6bc8c4f3a6ad23b92b
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of annual GHG emissions by grid scenario and fuel, Baseline vs Package 2
+  description: |-
+    Grouped bar chart on the Package 2 slide, y-axis annual GHG emissions in MMT CO2e to 500, pairing Baseline with Package 2 across three electricity grid scenarios plus natural gas, fuel oil and propane. Natural gas emissions fall 52.1 MMT (62.3%) while electricity moves little - down 10.7 (3.2%) under eGRID 2021 but up 1.9 under the low-RE-cost LRMER, which a callout flags as the net increase from electrifying heating.
+- source_image: 87746_images/image_000044_7dc0a17d6e76984096a34bef864124a4be483413717fef872d602aa01e6d9f4f.png
+  source_image_sha256: 4b9b2ec030bbb7c70791c569416ad9dd6181a9a633b5b8653789c992cb589042
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Single stacked bar of Package 3 applicability as percent of floor area per measure combination
+  description: |-
+    Single stacked bar on the Package 3 'Applicability: % Floor Area per Measure Combination' slide, y-axis percent of floor area applicable 0-100%, segmented by combination: HP-RTU plus LED plus window, wall and roof 22.6%, the HP-Boiler equivalent 21.2%, LED plus envelope 20.0%, HP-RTU plus envelope 12.9%, HP-Boiler plus envelope 11.1%, and other applicable 10.5%.
+- source_image: 87746_images/image_000045_deeb427bfe130a6b432291b41e508899786351e240b8d40d39f15f4a41790c42.png
+  source_image_sha256: 82cd8ed6b87275d0c5bd5cce49bc6b8cd73d5befc7080f13fe4f854bb757a123
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar of stock site energy by fuel and end use, Baseline vs Package 3
+  description: |-
+    Stacked column chart on the Package 3 'Stock Site Energy by Fuel and End Use' slide, y-axis annual energy consumption in TBtu to about 4700, comparing Baseline at 4638 with Package 3 at 3479 - the deepest savings of the three packages. Cooling electricity falls from 724.7 to 544.3 and fans from 588.3 to 429.8, with heating largely electrified.
+- source_image: 87746_images/image_000046_f39fefa73792fc16920440819667aceb4f183de76610671e91e1787f0b6eb88e.png
+  source_image_sha256: 10ccba5fd0ea65e8a2af36aade9adca508b599512d4a1cc7312db104f36c6cf0
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Horizontal bars of average percent site energy savings by observed Package 3 measure combination
+  description: |-
+    Horizontal bar chart on the Package 3 'Average Site % Savings by Measure Applicability' slide, x-axis average percent site energy savings 0-40%, rows by observed measure combination: HP-RTU plus LED plus envelope 37.9%, HP-RTU plus envelope 34.3%, HP-Boiler plus LED plus envelope 27.0%, HP-Boiler plus envelope 23.5%, LED plus envelope 19.0%, and envelope only 12.8%.
+- source_image: 87746_images/image_000047_97e64c3e0e7519e3e1ed9add11f95184909153baf90f4a7dc46ae2abc7aeb3e0.png
+  source_image_sha256: 2a537ea31689737db6372e9284bccb68eb7a3166f1b2cca5c97feb4c44752b08
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of annual GHG emissions by grid scenario and fuel, Baseline vs Package 3
+  description: |-
+    Grouped bar chart on the Package 3 slide, y-axis annual GHG emissions in MMT CO2e to 500, pairing Baseline with Package 3 across three electricity grid scenarios plus natural gas, fuel oil and propane. Electricity emissions fall 32.5 MMT (9.7%) under eGRID 2021 and natural gas emissions fall 53.2 MMT (63.6%), which a callout attributes to electrifying RTUs and boilers.
+- source_image: 87746_images/image_000048_dcceb7f85be01f185808848dd4efb61ea6637fb436c5dd9c5d91c495224751f0.png
+  source_image_sha256: 79c386b0ce82b8bc3ed043144be0ff13e23ac6f1464f211d5beae9f810778b7d
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked area load profile of summer-peak electricity demand, Package 3 versus baseline
+  description: |-
+    Stacked area load profile on the summer-peak side of the 'Package 3: Summer vs. Winter Peak' slide, y-axis electricity demand in MW to about 60, x-axis 15-minute steps from Jul 16 to Jul 22 2018 for the total commercial stock in Boston. The black baseline-total line runs well above the Package 3 stack, a large summer peak reduction.
+- source_image: 87746_images/image_000049_4b01cfe7fe04ad133f72a0e608586399acfaa5c47a7d2d8483e503402da12061.png
+  source_image_sha256: 23ea622a2911f5484f7653f40243435ef242ea32cbe8b69954e2ac2829afb26f
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked area load profile of winter-peak electricity demand, Package 3 versus baseline
+  description: |-
+    Companion winter-peak profile over Jan 2 to Jan 7 2018 on the same MW axis, dominated by the red heating band. The Package 3 stack rises above the black baseline-total line, so winter electricity demand increases with electrified heating even though the summer panel shows a reduction.
+- source_image: 87746_images/image_000055_4ae0862c0f81c2ad08b1d31c53bdcf4fd2a2f53cc6fc4f2c3775b4defb58f5cf.png
+  source_image_sha256: 5d38c5d41d8ffcff3982df45d17ca3d58d6f4cf3fcfc7935bb62bd0dd18edd27
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Annotated screenshot of the OEDI AWS S3 explorer for the 2023 ComStock release 2 folder
+  description: |-
+    Annotated screenshot on the 'Open Energy Data Initiative (OEDI) Folder Structure' slide, showing the AWS S3 explorer for the 2023/comstock_amy2018_release_2 prefix. Orange callouts label the metadata files with annual usage and building characteristics, the timeseries folders as data by fuel and end use with various pre-aggregations, the weather CSVs, data_dictionary.tsv, and upgrades_lookup.json.
+- source_image: 87746_images/image_000056_3d919f111a094177bb0099264c94e80699a9214d9472181f76f4d6fd04aa4f29.png
+  source_image_sha256: 4fea7faebe798dad5baaab38bcc6bfe247a3337be83fbd57c0f9a3594b3e5173
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Annotated screenshot of an example ComStock metadata file opened in a spreadsheet
+  description: |-
+    Annotated screenshot on the 'Example Metadata File' slide showing a metadata table in a spreadsheet, one row per building model. Orange callouts point at the building ID, county, building type, building area, annual unweighted electricity peak in kW, and annual natural gas consumption columns. Other visible columns include HVAC system, wall construction, and weekday and weekend operating hours.
+- source_image: 87746_images/image_000057_b06935d6d84b216c8321310187b0172dfb93f887971081be9a807a2603734645.png
+  source_image_sha256: 4ff560e52fa4c0812a45b143f9a95f8c54447b9f7c6e093162c119fe3c19fa00
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Annotated screenshot of the ComStock Data Viewer with state and scenario selectors
+  description: |-
+    Annotated screenshot on the 'ComStock Data Viewer' slide showing the tool with a US state map, state and scenario selector menus, and four result panels along the bottom. Orange callouts mark where to select a state, select a scenario, explore annual metadata including building characteristics, and explore time-series data. The example is Massachusetts with an HP-RTU electric-backup upgrade.
+- source_image: 87746_images/image_000058_5e9e1963ce159d86539afce5bc52f7d3e99d4ee81a110b8dbb0d1226196ab115.png
+  source_image_sha256: 42e8056bbe4bf1265961fca094b4d237ad1eb90cc3147071cb07a367b0b9ffa6
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Screenshot of the comstock.nrel.gov home page
+  description: |-
+    Screenshot on the 'Summary of Data Set Links' slide showing the comstock.nrel.gov home page, with the tagline about highly granular modeling of the US commercial building stock and three pictograms - commercial stock characteristics database, physics-based computer modeling, and high-performance computing. Panels below link to the data sets and to the ComStock documentation.
+- source_image: 87746_images/image_000059_3592daeed5a55cb8c6dd98563b639614859f4c42eff3709a4049e6946f421018.png
+  source_image_sha256: 1346a380eadf5d444b75a8febb9fc6f292cd105f75218cb4904b15dad25bcc53
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Screenshot of the Published Datasets page comparing EUSS Commercial 2023 releases 1 and 2
+  description: |-
+    Screenshot on the same slide showing the site's Published Datasets page as a comparison table: rows for OEDI name, data-viewer links, annual and timeseries energy by state, the metadata characteristics table, the OpenEI data lake dictionary, publication date and release number, with columns for EUSS Commercial 2023 Release 2 (Sept-23) and Release 1 (March-23).
