@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "comstock_amy2018_2025_release_3",
-  "generated_utc": "2026-08-21T18:30:49.472568+00:00",
+  "generated_utc": "2026-08-21T19:45:43.736643+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -1635,7 +1635,38 @@
           "title": "Central Ground-Source Water-to-Water Heat Pump",
           "input_sha256": "14a5392a8c27b99ffb63774e045b5c0184fade4bf2f841845e7fedc012865d34",
           "output_path": "upgrade_measures/measure_pdfs/89239.md",
-          "output_sha256": "15223c4b445e9f42498bccd0244a4dfa8540ac70cc54696ddf03bd8260ed1615"
+          "output_sha256": "062daf7858fa37938ff5e62329c75ae55aabd5141f29951c32e2c19a8e0d03bc",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89239.yaml",
+            "sha256": "9a2174818d2d3f416a8cd7eb3d3aa27132033d79c262c48dc58ca2cd09620219",
+            "tables_applied": [],
+            "figures_applied": [
+              "89239_images/image_000007_b1ec2db988d0460026560394a2085f99259f0c9fcff5c845395f336026027e28.png",
+              "89239_images/image_000008_668c1f9b7b0a6740382a7a08dbd04cd5d0a1d8561bc78ed89856055859622525.png",
+              "89239_images/image_000009_8e3b0eeb1669b4b0ca6da3e26c5fac81b5feda84d326e1b58b63960915dfb524.png",
+              "89239_images/image_000010_e572c47fbf894622447d271dccdf1ceddae178a9826377ccb75649a05958c7aa.png",
+              "89239_images/image_000011_bd25d78f31449fbe15dbcfbcbabb5781007c5f5f1f3b8a1778b4ac17700b8044.png",
+              "89239_images/image_000012_17636e2a0085baddffc670e014fc82b5aae5078bd02813f43e3f92cfa6a2ab1c.png",
+              "89239_images/image_000013_77ea87b7042f27447b5c63604064c4f6d49e7770a96c84de498be0e2bd3eff0d.png",
+              "89239_images/image_000014_155acfd9e4119a241dee160a7e21a1776940642219e7c59c33ce4947a924e514.png",
+              "89239_images/image_000015_d9d853b5ca934f0376840c969a67901fa72e87f3c6117ef1f5ddfc3eab82db18.png",
+              "89239_images/image_000016_953a113767e99bfc52e2d38536245b2354b2ef527cb3c0d8becf355f337e00e2.png",
+              "89239_images/image_000017_07cc6ccdce30d8cf0e7d5031044b0b265f9277dc56b338454187c3494fc13b1e.png",
+              "89239_images/image_000018_58d145d1b6f3ed2edba89dbc48835198f46f1ab52fad5783e375096625e80e48.png",
+              "89239_images/image_000019_b2e3dd0babfd4cb380c51261e302ad2122fe0c196dc85dc366ce25d0371d7776.png",
+              "89239_images/image_000020_f35d1ad1d8cc0a117e3f085f4df65dc759984606f29428a6eaab731fe074ba4e.png",
+              "89239_images/image_000021_cc950c22da16b72842227f7fcfc1f0bf0b51e0af3f34d47032e28ff6a6aaf651.png",
+              "89239_images/image_000022_479cb1da18c87c3854de19233a1678c625b6750feed15cf09e51b4c4e1a12971.png",
+              "89239_images/image_000023_fe5cfcd54e6d818f728c77a0de02d8a67fab41e3c9b084f3093a0f878cec7809.png",
+              "89239_images/image_000024_18f99806c2c4e9b216bb316151d944b249436bb1cd1ff0af4df5e24ac4459b7b.png",
+              "89239_images/image_000025_f345bc3fddd17f6b4e0837c4012d2b8f716c55fb430f887eb309abcb82bf3b97.png",
+              "89239_images/image_000026_beebccde10aa598d26f19294baebcbf287cdc0194440ccab1d57a73931d3421c.png",
+              "89239_images/image_000027_05ea59d8ff9a4ab991697ba69672e366e632dca3265cd38ee99c926e47076bba.png",
+              "89239_images/image_000028_70bda6b4a8c2825566409df759a2aaa00fb7bc15a41e7487660f4d2bfa2a8039.png",
+              "89239_images/image_000029_f762b609999b0ec3bfab8dd9cbc7ebf235cb503e76f2d80abd017e0ede1dfb2e.png",
+              "89239_images/image_000030_e53e2b6cb747db6e39dfafe136a8c7a2cf8b80730fd1e53734e329b474706e72.png"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/89340.pdf",
@@ -1924,16 +1955,16 @@
   ],
   "counts": {
     "documents": 118,
-    "chunks": 7955,
+    "chunks": 7969,
     "by_type": {
       "latex": 19,
       "markdown": 40,
       "measures": 6,
       "pdf": 53
     },
-    "overlay_documents": 51,
+    "overlay_documents": 52,
     "overlay_tables": 57,
-    "overlay_figures": 528,
+    "overlay_figures": 552,
     "overlay_text_repairs": 1
   },
   "crosswalk": {
