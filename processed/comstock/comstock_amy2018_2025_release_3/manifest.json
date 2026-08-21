@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "comstock_amy2018_2025_release_3",
-  "generated_utc": "2026-08-21T21:17:08.883093+00:00",
+  "generated_utc": "2026-08-21T21:21:42.071613+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -1002,10 +1002,10 @@
           "title": "Upgrade Envelope to Latest Code",
           "input_sha256": "612945456f16d2907f426ae300cf0df50373c5ebe29e217b84c7160ae0f10ce4",
           "output_path": "upgrade_measures/measure_pdfs/96598.md",
-          "output_sha256": "9d0d8f5d97ef09b5afd85acdd37402643259cc5632435991c59b21fd3f3df851",
+          "output_sha256": "40185f9696019bb67bb6d0f9ea0a4809df47017cbd611106d813a8b64c08bd80",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/96598.yaml",
-            "sha256": "2cca86ffe28ece79fad87910db8b1d22e0b2e7a0a923f2fd27f94a2d6a0de0ef",
+            "sha256": "f829353e3080b6cfb138ef071afb2d712539a6a0bfa0cc8d660b94c4fb8eb194",
             "tables_applied": [
               "Table 5.",
               "Table 6.",
@@ -1014,7 +1014,25 @@
               "Table 12.",
               "Table 13."
             ],
-            "text_repairs_applied": 1
+            "text_repairs_applied": 1,
+            "figures_applied": [
+              "96598_images/image_000002_7c0cd53f094e7b4639bc5803954c89ea9c0e8855c086fc174ed02cc1ce6b0d55.png",
+              "96598_images/image_000003_eaa52d4bee3ab599de8b5a175a9f27320c823a87f5575b79225410659b7605a6.png",
+              "96598_images/image_000004_e9fca371fb9cb26cf40c812bc8d64a88c12d29d901c72aacac3fff9d0bb6d82d.png",
+              "96598_images/image_000005_a630d7052aeb66a1b49206eb2f1f599bb3f20fcc0cef61133c12c8ed2036084a.png",
+              "96598_images/image_000006_9d8000350f71d05ee78ba29803c5ea925a7015068bc2a9011a67c8254bab973d.png",
+              "96598_images/image_000007_a40a80e0b47796f9b2adcc7a989e7cfb8669cd58373b845e8ab4ffd70270b9eb.png",
+              "96598_images/image_000008_ab4a956bb9c7b0955d7dff2b4a94c9b6e8352dfb95a647f8cf80721bfbea46c5.png",
+              "96598_images/image_000009_1e5fb48d9ee76199317e43447a70c43329a1f9a2a57c419095094225c4fcbc98.png",
+              "96598_images/image_000010_e60b2240dfa306944d6a932125f5b587de080eba3a334c880942b77214803726.png",
+              "96598_images/image_000011_d55a47938e2bd126acc4967eea1915a3726771a9216522cca74cf6417d9c185e.png",
+              "96598_images/image_000012_639b477cae48d844a6c650d31398c4dd9b4f9f7f51275b7daf25b46a15db52fc.png",
+              "96598_images/image_000013_c557a4efa0fa8074641b6ae52af53581619dc392f97c8b07cc59c8fe2434e7ed.png",
+              "96598_images/image_000014_33c96e2408954ce9732b5402c3cbb0c1ae8feb7055eecbce41a9153081eea1c2.png",
+              "96598_images/image_000015_ee0c1044010f60bac8be1c54aecf74253949717aa03277c3aec7c20ca306aa30.png",
+              "96598_images/image_000016_f855cf6f8a328ccf996dcd48df1460d33731d41a78182eae8bed0993b0b274f5.png",
+              "96598_images/image_000017_aa4ef557542ff7d1070e941c72746f73bf4cf5e3a08c2b0c507d94033800091d.png"
+            ]
           }
         },
         {
@@ -2218,7 +2236,7 @@
   ],
   "counts": {
     "documents": 118,
-    "chunks": 8044,
+    "chunks": 8057,
     "by_type": {
       "latex": 19,
       "markdown": 40,
@@ -2227,7 +2245,7 @@
     },
     "overlay_documents": 57,
     "overlay_tables": 57,
-    "overlay_figures": 776,
+    "overlay_figures": 792,
     "overlay_text_repairs": 1
   },
   "crosswalk": {
