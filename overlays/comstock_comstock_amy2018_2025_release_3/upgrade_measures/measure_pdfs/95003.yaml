@@ -1,0 +1,250 @@
+# Hand-authored figure descriptions for measure_pdfs/95003.pdf
+#
+# 95003 is the Chiller Replacement measure scenario documentation (NREL/TP-5500-95003). docling
+# extracts each figure as a bare ![Image](...) ref: the caption line survives above it, but the
+# chart itself is invisible to retrieval and unreadable without the bitmap. Each entry below is
+# image-anchored (see the figures: schema in overlays/FIGURE_DESCRIPTIONS_ROLLOUT.md): the ref
+# is rewritten with a hand-written alt, and a description paragraph is injected below it.
+#
+# Scope: figures only - Figures 1-24 and C-1 through C-6, plus the Table 4 bitmap (31 entries).
+# The two cover/title images (indices 000000-000001) are deliberately not described.
+#
+# Depth: authored to the FIGURE_DESCRIPTIONS_ROLLOUT.md section 2.1 budget (40-70 words, alt
+# <= 120 chars, no corroboration against body prose).
+#
+# QA notes (vision reads; confirm before treating as a release record):
+#   * Index 000011 is "Table 4. On-Site Fossil Fuel Emissions Factors" surviving only as a
+#     bitmap, so it uses method vision-transcription rather than vision-description. Its
+#     propane row pairs 177.8 lb/MMBtu with 182.3 kg/MWh where ~275 kg/MWh is expected - the
+#     same upstream defect already logged in seven other ComStock measure docs.
+#   * Figures C-4 and C-6 are captioned as water-cooled chillers, but their legends key the
+#     temperature families to outdoor dry-bulb (Toadb) rather than condenser water temperature
+#     (Tcws) as C-3 and C-5 do. Noted in both descriptions; likely a source-figure defect.
+#   * Figures 1 and 2 are Tableau table-with-bars visuals. They are captioned as Figures and
+#     described (not transcribed); their per-row values live in the visual itself.
+#   * Stacked-bar totals and printed data labels in Figures 14-21 were read off the charts.
+
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: measure_pdfs/95003.pdf
+figures:
+- source_image: 95003_images/image_000002_fb0d19afdce3609f9a0f723bb137726bc1877e77b4a8d3ce8879ec2e870b006f.png
+  source_image_sha256: 7c1163e2919bc1ba9f3f44b39e4c23eaa7041eb9b46edb049c7415a540d49929
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Table-and-bar chart of chiller stock floor area by in-force energy code and cooling type
+  description: |-
+    Figure 1: Tableau table-with-bars listing ComStock baseline in-force energy code groups (DOE Ref pre-1980 through 90.1-2013 and California DEER standards) split by air-cooled versus water-cooled chillers, with paired bars for stock floor area in sqft and as a percentage. DOE Ref 1980-2004 dominates at 29.91% water-cooled and 15.98% air-cooled; every other group falls below 7%.
+- source_image: 95003_images/image_000003_87b135900530ce0c56c8963abc7ee08e8b479d0b89bfa4a638ffa16ccbbfa7bd.png
+  source_image_sha256: 986ed35183b07aa1c3cc0de40c3a08a924e546c547f8f72994858d44762a695a
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Table-and-bar chart of ComStock HVAC system type prevalence by stock floor area and energy use
+  description: |-
+    Figure 2: Tableau table-with-bars of ComStock HVAC system type prevalence, rows grouped by HVAC category (multizone CAV/VAV, zone-by-zone, residential-style central systems, small packaged unit) and cooling type, with bars for stock floor-area percentage, floor area in sqft, and site energy consumption in TBtu/year. Zone-by-zone DX is by far the largest single row at 40.58% of floor area.
+- source_image: 95003_images/image_000004_e2cf4edbc5238219892d94e8565734432495da68c9c231ce1000a4a21a52cf6e.png
+  source_image_sha256: 8b4302701da66282cea1fbf3f4b5a6121a13e8f705fee46c1781039ab0bf414f
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Paired scatter plots of full-load EER and IPLV EER versus rated cooling capacity by compressor
+    type
+  description: |-
+    Figure 3: two scatter panels comparing chiller performance by compressor type - full-load EER at left, EER of IPLV at right - both against rated cooling capacity in tons on a log x-axis. Series are air-cooled scroll, air-cooled screw, and water-cooled centrifugal. Water-cooled centrifugal units cluster highest, roughly 21-26 full-load EER above 300 tons, while air-cooled units sit near 8-11. Table A-1 lists the underlying data.
+- source_image: 95003_images/image_000005_09c3d3de95563d24b48befdfe948a2361d85a52cb903665ff3106c29015899ca.png
+  source_image_sha256: c842059b350ad9f0aa2e06fe3fc2aad99c93b885767416b3a7804671c7226380
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Paired scatter plots of full-load and IPLV EER, air-cooled versus water-cooled scroll chillers
+  description: |-
+    Figure 4: two scatter panels comparing air-cooled and water-cooled scroll chillers using R-410A, plotting full-load EER (left) and EER of IPLV (right) against rated cooling capacity from 0 to 250 tons. Water-cooled units run consistently higher in both metrics, about 16 versus 11 at full load, and their IPLV advantage widens with capacity. Table A-1 holds the gathered specifications.
+- source_image: 95003_images/image_000006_bc280251e57a3d1367df0eff29343c760aa6a85a0a619681dd21451c554d63b9.png
+  source_image_sha256: 6eae6df3e8ccbcd17e1eac74d517510a38d97469f46d82bb5abf5570af008e76
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: 'Paired scatter plots of air-cooled chiller EER: standard and high-efficiency specs versus baseline'
+  description: |-
+    Figure 5: two scatter panels for air-cooled chillers plotting full-load EER (left) and EER of IPLV (right) against rated cooling capacity up to about 560 tons, with three series - manufacturer standard efficiency, manufacturer high efficiency, and the ComStock baseline. The few ComStock baseline points sit at or below the standard-efficiency cloud, most visibly in IPLV near 9-13 against high-efficiency values around 18-21.
+- source_image: 95003_images/image_000007_8c9f85455bd0f1407503f355f666d4da9aa560ad1a92b3367cb57ea51d341f71.png
+  source_image_sha256: e5b1e9f4835b66ee21893039ede8b3239399e2e44ba864baef11aee622abe51f
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Paired scatter plots of water-cooled chiller EER, manufacturer specs versus ComStock baseline
+  description: |-
+    Figure 6: two scatter panels for water-cooled chillers plotting full-load EER (left) and EER of IPLV (right) against rated cooling capacity out to about 3,000 tons, comparing manufacturer specifications with the ComStock baseline. Baseline points concentrate below 600 tons and overlap the lower manufacturer range at full load, while manufacturer units above 1,000 tons reach EERs near 21-23.
+- source_image: 95003_images/image_000008_5e89f1a5c5f22aba357a61b12e481a28395c24a00a0946d427ed4322f94bd682.png
+  source_image_sha256: cb5d4aa54fc717a8eb125b5daa31073c4e6d048f1fcf5c6ffe937a631b23dec8
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel comparison of air-cooled chiller performance curves, existing versus new, post 90.1-2010
+  description: |-
+    Figure 7: three panels comparing existing and new air-cooled chiller performance curves against post-90.1-2010 baselines, with ACC 19-66 ton manufacturer points overlaid. Left and centre plot the capacity and EIR modifier functions of temperature against chilled water supply temperature from 5 to 10 degrees C at outdoor dry-bulb 24, 28, and 33 degrees C; right plots the EIR modifier versus part-load ratio. Table 2 gives the coefficients.
+- source_image: 95003_images/image_000009_d228ed312d763ad1cd27a064c49b9a80af4bfac1b820f72c0fbbafcde050b966.png
+  source_image_sha256: f5b057cec6b25d6a2979ccb8689a53186620cb3084b969e38a7104a3c1ed83bd
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel comparison of water-cooled chiller curves under 150 tons, existing versus new
+  description: |-
+    Figure 8: three panels comparing existing and new performance curves for water-cooled chillers under 150 tons against post-90.1-2010 baselines, with WCC 64-157 ton manufacturer points overlaid. Capacity and EIR modifier functions of temperature run against chilled water supply temperature from 5 to 10 degrees C at condenser water temperatures of 20, 25, and 29 degrees C; the right panel gives the EIR part-load curve. See Table 2.
+- source_image: 95003_images/image_000010_70ed2db1969a713e14d871c10208e2e6c033654c012c548dfc9d26488d431872.png
+  source_image_sha256: d68760e3d2b69fa164dc781e53a16085ea030911014ee90ad691d60b31d4f2bc
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel comparison of water-cooled chiller curves over 150 tons, existing versus new
+  description: |-
+    Figure 9: three panels of existing versus new performance curves for water-cooled chillers larger than 150 tons, in the same layout as Figure 8 but with no manufacturer points overlaid, since none were publicly available for this size class. Capacity and EIR modifiers run against chilled water supply temperature at condenser water temperatures of 20, 25, and 29 degrees C. Table 2 lists the curve details.
+- source_image: 95003_images/image_000011_203115b1902795d2b43bf012b8571eda13769c58c56d3a3ead436fee5eb6dee5.png
+  source_image_sha256: a63da3d8794bc4e6ca869b147db32de3cf598644ebedd549d4a3c56bfdbce21c
+  method: vision-transcription
+  described_utc: '2026-08-21'
+  alt: 'Table 4 as a bitmap: on-site fossil fuel emissions factors for natural gas, propane, and fuel
+    oil'
+  description: |-
+    Table 4. On-Site Fossil Fuel Emissions Factors, which survives only as a bitmap. Natural gas 147.3 lb/MMBtu (228.0 kg/MWh); propane 177.8 lb/MMBtu (182.3 kg/MWh); fuel oil 195.9 lb/MMBtu (303.2 kg/MWh). The footnote defines lb as pound, MMBtu as million British thermal units, kg as kilogram, and MWh as megawatt-hour.
+- source_image: 95003_images/image_000012_fd9ce88cd1a07555f22a7cba1c7c0a2931f043eb9bfc4a3c08a7ecb15ba6ffd8.png
+  source_image_sha256: 2c3494c692c77a675f5727350e9ad041b0c46b2f66108a2112abf6f4835e94d9
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Eight-panel daily profile comparison, baseline versus chiller upgrade only
+  description: |-
+    Figure 10: eight small panels of daily profiles averaged over 365 days for the single-building test, x-axis hour of day, comparing Baseline no upgrade with the chiller-only upgrade. Panels are chiller power, chiller COP, cooling tower fan power, chilled water supply temperature, pump power, cooling tower heat transfer, boiler gas usage, and chilled water system COP. The upgrade lowers peak chiller power and lifts chiller COP by roughly one unit.
+- source_image: 95003_images/image_000013_244dd3e5522f176a640edd38e3820e0b193b8df63158900558faa4284f4fcb1c.png
+  source_image_sha256: f3f6ab2e8e5265d2ba2178bdeb2f9bad8f61d5b9ebf8b2940c86f18e9fc16a6d
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Eight-panel daily profile comparison, chiller upgrade versus chiller plus pump upgrade
+  description: |-
+    Figure 11: the same eight daily-profile panels as Figure 10 - chiller power, chiller COP, cooling tower fan power, chilled water supply temperature, pump power, cooling tower heat transfer, boiler gas usage, and chilled water system COP against hour of day - now comparing the chiller-only upgrade with chiller plus pump upgrade. Only the pump power panel diverges visibly, cutting the midday peak by roughly 2 kW.
+- source_image: 95003_images/image_000014_ea0cfdb8d9bc96f885886dc1a1820f963b4dcd44ca68de826d2033878ce0e588.png
+  source_image_sha256: 0bfa96219badb3fe51fbec1c36c339a0670bfba73822816208374766c83fc1c3
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Eight-panel daily profile comparison, chiller upgrade versus chiller plus chilled water reset
+  description: |-
+    Figure 12: the same eight daily-profile panels against hour of day, comparing the chiller-only upgrade with chiller plus chilled water supply temperature reset. The reset raises chilled water supply temperature outside peak hours, lifting chiller COP toward 5.5 and increasing pump power, while the cooling tower and boiler panels are largely unchanged. Section 5.1 discusses the trade-off.
+- source_image: 95003_images/image_000015_04d60f2805dc3a512f32d063beda73243a3232e091f8d503ddcb6ea70b3583bb.png
+  source_image_sha256: b0bd70454e19c8030837ae5f86ff58287f4a68458b1ae7d47433ad674913cd1f
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Eight-panel daily profile comparison, chiller upgrade versus chiller plus condenser water control
+  description: |-
+    Figure 13: the same eight daily-profile panels against hour of day, comparing the chiller-only upgrade with chiller plus condenser water supply temperature control. Cooling tower fan power is the only clear divergence, with the condenser water control raising the midday peak above 8 kW; chiller power, chiller COP, and boiler gas usage overlay almost exactly.
+- source_image: 95003_images/image_000016_8ae0c5b67f3e4b316caa4dc4c184699f9640db6ce4139a8db0d09c7078bdea5b.png
+  source_image_sha256: aefdf904f2a97296560520269190e079395e66e65882374a6ed0271db728fedf
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar chart of aggregated site energy across five chilled water upgrade scenarios
+  description: |-
+    Figure 14: five stacked bars of annual site energy consumption in TBtu for applicable models only, from Baseline (993) through cumulative upgrade scenarios - chiller (951), chiller plus pumps (951), plus chilled water reset (933), and plus condenser water control (932). Bars are segmented by end use and fuel with values printed on the bands; cooling electricity carries the reduction.
+- source_image: 95003_images/image_000017_ae60b56202e1fe20737595c06c172a209d6b3d2f72a8f370d77ec7a46f76881a.png
+  source_image_sha256: f4ac8998aac998618e5d8b506537ab63ef1320b30aef33ebaff61ec4f7df56a4
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Horizontal stacked bars of chilled water system electricity by scenario, air- versus water-cooled
+  description: |-
+    Figure 15: horizontal stacked bars of stock electricity consumption in TBtu attributable to chilled water systems, grouped into air-cooled and water-cooled panels with four cumulative upgrade scenarios each, segmented into cooling, pumps, and cooling tower electricity. Air-cooled cooling falls from 52.6 to 51.3 TBtu; water-cooled cooling falls from 69.4 to 65.4 while its pump electricity rises from 24.3 to 27.2.
+- source_image: 95003_images/image_000018_f352346ab5d2bf2a4687f82ab9e8a2a227c650e353ceae4b150b5d082183a457.png
+  source_image_sha256: 2650be8e3f48e7a0b08e6d18b84180ddba0bab42a3a09efe79af454849812fc5
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Box plot grid of chiller capacities and performance metrics by scenario and condenser type
+  description: |-
+    Figure 16: grid of box plots for air-cooled and water-cooled groups, with rows for baseline plus four cumulative upgrade scenarios and columns for rated COP, standard-rating IPLV EER in Btu/W-hr, chiller annual average operating COP, and chiller capacity in tons. The upgrade scenarios shift rated COP and IPLV EER distinctly above baseline while capacity distributions stay nearly unchanged.
+- source_image: 95003_images/image_000019_4ffb3e84703fb6c042ba862eb1b5a86109d6738675673cd0764eaa22f01a658f.png
+  source_image_sha256: d03064fcbe642e6e2727de9fb90e6ab6da8a33648c3e3c6f1c6dd52dde2eac2f
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar chart of stock annual site energy, ComStock baseline versus chiller replacement
+  description: |-
+    Figure 17: two stacked bars of annual site energy consumption in TBtu for the entire building stock, Baseline (4,865) versus Chiller_Replacement (4,804), segmented by end use and fuel with values printed on each band. Cooling electricity falls from 727.0 to 679.9 TBtu while lighting, interior equipment, and heating bands are unchanged. Section 5.2 covers stock impacts.
+- source_image: 95003_images/image_000020_05b3b999d7bf956fd85c61e53d2b9066b0a530753cfe90991aaef6c21cc0806f.png
+  source_image_sha256: 4d907e930cb4e78deab1f071a2e2a52053058c312731699f59c4820d58e99b75
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar chart of annual site energy for applicable buildings, baseline versus chiller replacement
+  description: |-
+    Figure 18: two stacked bars of annual site energy consumption in TBtu for applicable buildings only, Baseline (995) versus Chiller_Replacement (934), segmented by end use and fuel with values printed on each band. Cooling electricity drops from 165.5 to 118.3 TBtu, accounting for most of the 61 TBtu total reduction; heating and lighting bands are unchanged.
+- source_image: 95003_images/image_000021_93d8f8a52a14129dc4b70c29b6ea018819402f7aa9259fa229d112eef3e143be.png
+  source_image_sha256: cfba098ae838687fa177d6db1335bf0bc93557c9d202df2d1fe1333d8a23de3f
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel stacked bar chart of annual utility bills, baseline versus chiller replacement
+  description: |-
+    Figure 19: three panels of annual utility bills in billion 2022 USD, each comparing Baseline with Chiller_Replacement under maximum, mean, and minimum electricity rate assumptions, with bars stacked by electricity, natural gas, propane, and fuel oil. Totals fall from 144 to 142 (-1%), 127 to 125 (-1%), and 112 to 110 (-2%). Table 3 summarizes the bill implementation.
+- source_image: 95003_images/image_000022_95f3c02008398432e629d5aec75b651b09290c48ea8ebbe4e1b21957d98362f2.png
+  source_image_sha256: 3b216e61476f4d23acbe82e7331ea8b571bf4b7516c7781b84d29bdd09436fed
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin plot of percent utility bill savings by climate zone
+  description: |-
+    Figure 20: horizontal violin-and-box plot of percent utility bill savings against baseline by ASHRAE climate zone, sixteen rows from 1A to 8 with sample sizes in the labels and an x-axis of about -80 to 60. Medians sit just above zero in every zone, with the widest positive spread in the hotter zones 1A-3A and long outlier tails in 4A and 6A.
+- source_image: 95003_images/image_000023_ad59611ad5c547054b7637c369698515172b328fe13907d896818aa740709f69.png
+  source_image_sha256: f6e0b31b676aadbf6215e5abc0fa96855046ebd7017f0bb8b51582c045b08c72
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel stacked bar chart of annual GHG emissions by grid scenario, baseline versus upgrade
+  description: |-
+    Figure 21: three panels of annual emissions in MMT CO2e, each comparing Baseline with Chiller_Replacement under a different grid scenario - eGRID 2021, LRMER High RE Cost 15, and LRMER Low RE Cost 15 - with bars stacked by electricity, natural gas, propane, and fuel oil. Totals fall 452 to 446, 346 to 342, and 245 to 243, about 1% in each case.
+- source_image: 95003_images/image_000024_05fabbdf3cff3751ce4f6a7b54063b490ce45eaa5f22cd92d6495c46439302dd.png
+  source_image_sha256: 6a7fcc7fdb98f0c47d65c91cd2b531f50eb8b54ad149bd33c85f27ebed74dfb4
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin plot of percent site energy savings by end use and fuel type, unweighted
+  description: |-
+    Figure 22: horizontal violin-and-box plot titled Upgrade 27.0: Chiller_Replacement (unweighted), x-axis percent site energy savings from -120 to 80, one row per end use and fuel with sample sizes in the labels. Electricity cooling shows the clear positive shift with a median near 25%, while electricity pumps and heat rejection straddle zero with wide negative tails.
+- source_image: 95003_images/image_000025_fe646ff619ab82da2b20e72be3ea7d83b0265f808d1adf50a6f8d9f53e815c0c.png
+  source_image_sha256: 1f419f12e45317cfc39e614bce942c316e7f0e62f903f901e36f6d1ac575d6a9
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin plot of percent site energy savings by baseline HVAC system type
+  description: |-
+    Figure 23: horizontal violin-and-box plot of percent site energy savings by baseline HVAC system type, eleven rows with sample sizes in the labels and an x-axis of roughly -40 to 35. VAV air-cooled chiller with gas boiler reheat (n=4874) and VAV chiller with gas boiler reheat (n=4704) carry the largest medians; the DOAS variants cluster nearer zero.
+- source_image: 95003_images/image_000026_d042a82aaff88febb38458f9446bd262305b60f20b407bbc2cab74f9050a9677.png
+  source_image_sha256: 4ec9b82284839bde0fa1c500fcd336707e688539fcbcd390f996806bb5479660
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin plot of site EUI savings in kBtu per square foot by building type
+  description: |-
+    Figure 24: horizontal violin-and-box plot of site EUI savings against baseline in kBtu/ft2 by building type, seven rows - hospital, large hotel, large office, medium office, outpatient, primary school, secondary school - with sample sizes in the labels. Hospital has the widest distribution and highest upper quartile; all medians fall between roughly 0.5 and 2 kBtu/ft2.
+- source_image: 95003_images/image_000027_93c1d064447147fba48de2cae948457e0612728590c8a1d728d615c25fd58e04.png
+  source_image_sha256: 1541242a3041d01f873ffad29a4f6d97c0c5b995a56ac95bc9b943a6e1d6f7a0
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel air-cooled chiller curve comparison against pre-90.1-2004 baselines
+  description: |-
+    Figure C-1: three panels comparing existing and new air-cooled chiller performance curves for pre-90.1-2004 vintages. Capacity and EIR modifier functions of temperature run against chilled water supply temperature from 5 to 10 degrees C at outdoor dry-bulb 24, 28, and 33 degrees C; the right panel is the EIR modifier versus part-load ratio. New EIR curves sit well below existing. Table B-1 maps the curve replacements.
+- source_image: 95003_images/image_000028_d62ffd44e75454cf2a92ba2615e3044c6cfb35a3cb0e92eeb11a30fd3f3754e4.png
+  source_image_sha256: 80c9455c32dc6d96e11edf586b162752ba1c8ca36b32e623bf5353efd4905f7f
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel air-cooled chiller curve comparison against 90.1 2004-2010 baselines
+  description: |-
+    Figure C-2: three panels comparing existing and new air-cooled chiller performance curves for 90.1 2004-2010 vintages, with capacity and EIR modifier functions of temperature against chilled water supply temperature at outdoor dry-bulb 20, 26, and 33 degrees C plus the EIR part-load curve. Existing and new curves nearly coincide here, a much smaller gap than in Figure C-1. See Table B-1.
+- source_image: 95003_images/image_000029_ed5da688434c91b3f7335882cfa89e08d5b9ab70dea685dbaa700839ab290712.png
+  source_image_sha256: 340a435ca0d7e2020449d79437a934437da868798c3c45cb7cee46b7f56a6078
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel water-cooled chiller curve comparison under 150 tons, pre-90.1-2007 baselines
+  description: |-
+    Figure C-3: three panels comparing existing and new performance curves for water-cooled chillers under 150 tons of pre-90.1-2007 vintage. Capacity and EIR modifier functions of temperature run against chilled water supply temperature from 5 to 10 degrees C at condenser water temperatures of 20, 25, and 29 degrees C, with the EIR part-load curve at right. New curves lie below existing across the range.
+- source_image: 95003_images/image_000030_3c270ad5cb6b1bfb33c13abd173d41839b021ee4b1d3aa6c9d4f6676f1a6b047.png
+  source_image_sha256: 3fc68ac015a6999c1579f2605d8db7f9338428ee29fb6d6c5de1ec77b497a0c2
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel chiller curve comparison captioned water-cooled 2007-2010 but keyed to outdoor dry-bulb
+  description: |-
+    Figure C-4: three panels of existing versus new chiller performance curves, captioned as water-cooled units under 150 tons for 90.1 2007-2010. The legend keys its temperature families to outdoor dry-bulb (20, 26, and 33 degrees C) rather than condenser water temperature, unlike the other water-cooled figures. Existing and new capacity curves nearly overlap while the new EIR curves run higher. See Table B-1.
+- source_image: 95003_images/image_000031_d63a55ce5ea8ee14a773af1bc818c52f95e46d40d5ba13ab0f2ac199a85d08e2.png
+  source_image_sha256: eda87a4ac9e230574ff3bb870a6e02bc7a43b68351c577a23a5ef648690751e4
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel water-cooled chiller curve comparison over 150 tons, pre-90.1-2007 baselines
+  description: |-
+    Figure C-5: three panels comparing existing and new performance curves for water-cooled chillers larger than 150 tons of pre-90.1-2007 vintage, with capacity and EIR modifier functions of temperature against chilled water supply temperature at condenser water temperatures of 20, 25, and 29 degrees C, plus the EIR part-load curve. Existing capacity curves rise more steeply than the new ones. Table B-1 gives the replacements.
+- source_image: 95003_images/image_000032_e673d27fa954b638d8436e666c5c8e41cf9422ecbf3c9a1ffc71203a68ac150d.png
+  source_image_sha256: c44e35807da827fcfdd90e8b2fb215aa2159d137bb78afc9c85219056229ed1b
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel chiller curve comparison captioned water-cooled over 150 tons but keyed to dry-bulb
+  description: |-
+    Figure C-6: three panels of existing versus new chiller performance curves, captioned as water-cooled units over 150 tons for 90.1 2007-2010. As in Figure C-4 the legend keys temperature families to outdoor dry-bulb (20, 26, and 33 degrees C) rather than condenser water temperature. New capacity curves fan more widely than existing, and new EIR curves sit above existing at low chilled water temperatures.

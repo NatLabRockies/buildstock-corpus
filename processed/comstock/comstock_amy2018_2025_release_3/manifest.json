@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "comstock_amy2018_2025_release_3",
-  "generated_utc": "2026-08-21T19:45:43.736643+00:00",
+  "generated_utc": "2026-08-21T20:04:09.910161+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -637,7 +637,45 @@
           "title": "Chiller Replacement",
           "input_sha256": "1e577fd68f96349c9cd5ad8b2092b8a4c1b343a15c7a33ba7d2095cc6c6917e2",
           "output_path": "upgrade_measures/measure_pdfs/95003.md",
-          "output_sha256": "4338a485ccbba33ac1d86d575d8dee4800ac5d3ab3b51fcf39215886af4cfe72"
+          "output_sha256": "2cbf1b736f3d8ac4c3ff4b1acf864a3b1df08c52fd0cb74d17c81ef426afd623",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95003.yaml",
+            "sha256": "a6167cf3fe8b2526c05d279221df72709380d67623c1294d3e0a81c840f28748",
+            "tables_applied": [],
+            "figures_applied": [
+              "95003_images/image_000002_fb0d19afdce3609f9a0f723bb137726bc1877e77b4a8d3ce8879ec2e870b006f.png",
+              "95003_images/image_000003_87b135900530ce0c56c8963abc7ee08e8b479d0b89bfa4a638ffa16ccbbfa7bd.png",
+              "95003_images/image_000004_e2cf4edbc5238219892d94e8565734432495da68c9c231ce1000a4a21a52cf6e.png",
+              "95003_images/image_000005_09c3d3de95563d24b48befdfe948a2361d85a52cb903665ff3106c29015899ca.png",
+              "95003_images/image_000006_bc280251e57a3d1367df0eff29343c760aa6a85a0a619681dd21451c554d63b9.png",
+              "95003_images/image_000007_8c9f85455bd0f1407503f355f666d4da9aa560ad1a92b3367cb57ea51d341f71.png",
+              "95003_images/image_000008_5e89f1a5c5f22aba357a61b12e481a28395c24a00a0946d427ed4322f94bd682.png",
+              "95003_images/image_000009_d228ed312d763ad1cd27a064c49b9a80af4bfac1b820f72c0fbbafcde050b966.png",
+              "95003_images/image_000010_70ed2db1969a713e14d871c10208e2e6c033654c012c548dfc9d26488d431872.png",
+              "95003_images/image_000011_203115b1902795d2b43bf012b8571eda13769c58c56d3a3ead436fee5eb6dee5.png",
+              "95003_images/image_000012_fd9ce88cd1a07555f22a7cba1c7c0a2931f043eb9bfc4a3c08a7ecb15ba6ffd8.png",
+              "95003_images/image_000013_244dd3e5522f176a640edd38e3820e0b193b8df63158900558faa4284f4fcb1c.png",
+              "95003_images/image_000014_ea0cfdb8d9bc96f885886dc1a1820f963b4dcd44ca68de826d2033878ce0e588.png",
+              "95003_images/image_000015_04d60f2805dc3a512f32d063beda73243a3232e091f8d503ddcb6ea70b3583bb.png",
+              "95003_images/image_000016_8ae0c5b67f3e4b316caa4dc4c184699f9640db6ce4139a8db0d09c7078bdea5b.png",
+              "95003_images/image_000017_ae60b56202e1fe20737595c06c172a209d6b3d2f72a8f370d77ec7a46f76881a.png",
+              "95003_images/image_000018_f352346ab5d2bf2a4687f82ab9e8a2a227c650e353ceae4b150b5d082183a457.png",
+              "95003_images/image_000019_4ffb3e84703fb6c042ba862eb1b5a86109d6738675673cd0764eaa22f01a658f.png",
+              "95003_images/image_000020_05b3b999d7bf956fd85c61e53d2b9066b0a530753cfe90991aaef6c21cc0806f.png",
+              "95003_images/image_000021_93d8f8a52a14129dc4b70c29b6ea018819402f7aa9259fa229d112eef3e143be.png",
+              "95003_images/image_000022_95f3c02008398432e629d5aec75b651b09290c48ea8ebbe4e1b21957d98362f2.png",
+              "95003_images/image_000023_ad59611ad5c547054b7637c369698515172b328fe13907d896818aa740709f69.png",
+              "95003_images/image_000024_05fabbdf3cff3751ce4f6a7b54063b490ce45eaa5f22cd92d6495c46439302dd.png",
+              "95003_images/image_000025_fe646ff619ab82da2b20e72be3ea7d83b0265f808d1adf50a6f8d9f53e815c0c.png",
+              "95003_images/image_000026_d042a82aaff88febb38458f9446bd262305b60f20b407bbc2cab74f9050a9677.png",
+              "95003_images/image_000027_93c1d064447147fba48de2cae948457e0612728590c8a1d728d615c25fd58e04.png",
+              "95003_images/image_000028_d62ffd44e75454cf2a92ba2615e3044c6cfb35a3cb0e92eeb11a30fd3f3754e4.png",
+              "95003_images/image_000029_ed5da688434c91b3f7335882cfa89e08d5b9ab70dea685dbaa700839ab290712.png",
+              "95003_images/image_000030_3c270ad5cb6b1bfb33c13abd173d41839b021ee4b1d3aa6c9d4f6676f1a6b047.png",
+              "95003_images/image_000031_d63a55ce5ea8ee14a773af1bc818c52f95e46d40d5ba13ab0f2ac199a85d08e2.png",
+              "95003_images/image_000032_e673d27fa954b638d8436e666c5c8e41cf9422ecbf3c9a1ffc71203a68ac150d.png"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/95004.pdf",
@@ -1955,16 +1993,16 @@
   ],
   "counts": {
     "documents": 118,
-    "chunks": 7969,
+    "chunks": 7995,
     "by_type": {
       "latex": 19,
       "markdown": 40,
       "measures": 6,
       "pdf": 53
     },
-    "overlay_documents": 52,
+    "overlay_documents": 53,
     "overlay_tables": 57,
-    "overlay_figures": 552,
+    "overlay_figures": 583,
     "overlay_text_repairs": 1
   },
   "crosswalk": {
