@@ -17,6 +17,12 @@ in one pass.
 > entries are **not** being rewritten, so the corpus is intentionally uneven — recent files
 > being longer is not a precedent.
 
+**Start here (Batch D):** author **`89239` (31 images) first and stop** — the user wants to QA one
+full doc at the new §2.1 depth before the other five heavies (95003, 95002, 92766, 87746, 89653)
+are authored. Base the branch on a `main` that already contains §2.1 (this file's §2.1 heading is
+your check — if it's missing, you've branched off a stale `main`; see the depth-standard PR).
+Commit per-doc, not per-batch.
+
 ---
 
 ## 0. TL;DR of the task
@@ -294,7 +300,9 @@ The user said "all the categories." After surveying the three top-level dirs:
   `description` carries the headline only.
 - **Depth is capped (§2.1).** ~40–70 words, `alt` ≤120 chars, no corroboration against prose.
   If you find yourself investigating a figure, you have left the intended scope.
-- **The user handles PRs** — do not install `gh` or create PRs.
+- **Open the PR for the user** when a batch is done. (This reverses the original "user handles
+  PRs" rule — on 2026-08-20 the user said "okay, you make the PR for me". `gh` 2.97 is already
+  installed; don't install anything.)
 - Do not swap the embedder (`bge-small-en-v1.5` stands); keep the transform retrieval-agnostic.
 
 ---
