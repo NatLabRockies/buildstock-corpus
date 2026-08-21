@@ -1,0 +1,246 @@
+# Hand-authored figure descriptions for measure PDF 86897
+# "Demand Control Ventilation" (ComStock 2025 release 3 upgrade measure, NREL/TP-5500-86897,
+# Amy Van Sant and Chris CaraDonna, January 2024).
+#
+# 21 image refs in the extracted markdown. image_000000 (the NREL cover photo grid) and
+# image_000001 (the NREL wordmark) are decorative and deliberately have no entry. The 19 entries
+# below cover Figures 1-15 and Figures A-1 to A-4. Tables 1-4 all extracted as real markdown, so
+# no vision-transcription entry is needed in this document.
+#
+# QA FLAGS - vision-derived numbers need a human pass before publication.
+#
+# * Figures 3, 4, 10, 11, 12 and 14 (000004, 000005, 000011, 000012, 000013, 000015) - HIGH
+#   confidence, every asserted number is a printed data label read at 2-9x zoom, and each set
+#   cross-checks against the prose: Figure 3's four labeled HVAC deltas reproduce the Section 5.3
+#   bullets to the tenth (0.7, 15.2, 18.3, 72.5 TBtu) and its totals give 119 TBtu / 2.57%;
+#   Figure 4's six pairs and six percentages reproduce Section 5.4 exactly; Figure 10's 17 bin
+#   counts sum to 11,096 with the top bin at 4,126 = 37.2%, matching "only 37%"; Figure 11's
+#   eight counts sum to 4,129 with Marine + Cold + Very Cold = 88%; Figure 12's top three are
+#   3C 5.5% / 7A 5.3% / 8 5.2% and Figure 14's are RetailStandalone 7.1% / PrimarySchool 6.8% /
+#   SecondarySchool 5.8%, both matching Section 5.6.
+#
+# * Figure 3's Heating Natural Gas band labels are white text on a hatched fill and are NOT
+#   directly legible. 827.5 -> 755.0 was settled by three converging methods: a partial glyph read
+#   at 22x, a geometric band measurement (53 px at 15.564 TBtu/px = 827.6), and the requirement
+#   that the delta equal the 72.5 TBtu in Section 5.3 (72.5/827.5 = 8.76%, the stated 8.8%). The
+#   Interior Equipment Natural Gas label is illegible by the same mechanism and is given only as
+#   "about 280, unchanged" - it is a non-HVAC end use that DCV cannot affect.
+#
+# * Figure 5 (000006) - the 17 n values are legible at 2.2x and are asserted verbatim;
+#   Electricity Interior Lighting (n=29) matches Section 5.5.4's "Twenty-nine models" exactly.
+#   Per-row medians and interquartile ranges could NOT be extracted reliably (blue-box detection
+#   found only 8 of 17 rows and no consistent row pitch), so the distributions are described
+#   qualitatively and no median or IQR number is asserted.
+#
+# * Figures 6, 8, 9, 13, 15 (000007, 000009, 000010, 000014, 000016) - no data labels. All
+#   quoted magnitudes are axis estimates and every quantitative conclusion is taken from the
+#   Section 5.5/5.6 prose.
+#
+# * Figures A-1 and A-2 (000017, 000018) - no data labels; bar heights were measured
+#   programmatically against tick-label calibration (2.03 TBtu/px and 1.37 TBtu/px). Two
+#   independent corroborations: the A-1 baseline bars sum to about 1,265 TBtu and the A-2 baseline
+#   bars to about 1,260 TBtu for the same quantity, and A-1's total reduction of about 77 TBtu
+#   brackets the 72.5 TBtu of gas heating savings in Section 5.3. A-2's four flat bars
+#   (both restaurant types, both hotel types) are exactly the four not-applicable types in
+#   Figure 2.
+#
+# * Figures A-3 and A-4 (000019, 000020) - baseline bars measured the same way (2.87 and 4.27
+#   TBtu/px, summing to 3,140 and 3,134 for the same quantity), but the DCV reductions are at or
+#   below one pixel and are deliberately NOT asserted per category.
+#
+# * SOURCE DEFECT, high confidence: the sentence printed under Figure 10 (line 535 of the
+#   extracted markdown), "82 of 289 (28%) models have economizers on all air loops", contradicts
+#   both Figure 10 itself (4,126 of 11,096 = 37%) and Section 5.5.2's own "only 37% of models".
+#
+# * SOURCE DEFECT, high confidence: Section 5.5.2 says "Figure 4 shows that several models with
+#   the DCV measure applied have electricity cooling penalties". Figure 4 is the greenhouse gas
+#   chart; the cooling penalties are in Figure 5.
+#
+# * SOURCE DEFECT, high confidence: Section 4 says "Table 6 includes a list of output variables".
+#   That is Table 4, and the document contains only four tables.
+#
+# * SOURCE DEFECT, moderate confidence: Figure 11's counts sum to 4,129 models while Figure 10's
+#   all-loops bin, which should be the same population, is 4,126 - a three-model discrepancy.
+#
+# * Caption vs axis mismatch: Figures 6, 8 and 9 are titled "Percent Savings ... [-]" but are
+#   plotted as 0-1 fractions (ranges 1.0 to -1.8, 1.0 to -0.5, and -3.0 to 0.0). Figures 12, 13,
+#   14 and 15 are in true percent. The descriptions say so explicitly so a retrieved chunk cannot
+#   be misread by a factor of 100.
+#
+# * Climate-zone list: Figures 6, 8, 12 and 13 all print 17 ASHRAE 2006 zones including 7, 7A
+#   AND 7B - a superset of the standard set. This extends the 7/7A issue already noted in 89340
+#   and 89481; 95014 prints a single "7" row.
+#
+# * Table 3's propane row prints "177.8 lb/MMBtu (182.3 kg/MWh)" where about 275.7 is expected,
+#   the same bad pairing already recorded for 89340, 89341, 89481, 89133 and 92618. Not a figure,
+#   noted here because this document was read end to end.
+#
+# * Section 5.1 / Figure 1 (000002): the figure does not visibly demonstrate what the text says
+#   it confirms. Outdoor air is flat at 0.11 lb/s through every occupied window on all three
+#   days, including day 3 when occupancy peaks at 1.77 versus 3.53 on day 2, so the trace shows
+#   scheduled on/off behavior plus a morning start-up transient rather than occupancy tracking.
+#   Verified by resolution argument: the source bitmap is 468x345, one pixel is about 0.00035
+#   lb/s, and a 0.11 to 0.09 step would span roughly 57 px. The description states the discrepancy
+#   rather than repeating the prose claim.
+#
+# * Executive summary (line 118) says "As office buildings ... DCV is not applied to these
+#   building types", which reads as contradicting Figure 2, where offices are almost entirely
+#   applicable=True. In context it is a statement about the ComStock BASELINE already having DCV,
+#   not about measure applicability. Not carried into any description.
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: measure_pdfs/86897.pdf
+figures:
+- source_image: 86897_images/image_000002_af95a7d2badb3283fa47e7f10619c9347ac333afa5e1a58260bf6781c0e6dabe.png
+  source_image_sha256: 9f5a03eaf9882d38d564ad9fac63e194343fb3b85d68ad09d694a64c420ff38c
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 1. Dual-axis time series over three July days for one strip mall zone, with zone occupancy on the left axis in blue and air system outdoor air mass flow rate on the right axis in orange, the outdoor air trace holding a flat 0.11 lb/s through each occupied period
+  description: |-
+    Dual-axis line chart for the single strip mall model in Georgia used as the Section 5.1 example. X-axis: three days, Jul 02 to Jul 04, ticked every three hours from 00 to 21. Left axis, blue: ZONE STRIPMALL STRIP MALL - TYPE 1 A - STORY GROUND, Run Period Zone Timestep 15 minutes, an occupant count scaled 0 to 3.5. Right axis, orange: ZONE STRIPMALL STRIP MALL - TYPE 1 A - STORY GROUND PSZ-AC, Run Period Zone Timestep 15 minutes, in lb/s, scaled 0 to 0.12; this is the air system outdoor air mass flow rate. Blue occupancy: day 1 rises from 0 at about 05:00 to roughly 3.1 from 09:00 to 11:00, peaks at 3.53 near noon, steps down to about 2.2 until 15:00 and reaches 0 by 18:00; day 2 holds 3.53 from 09:00 to 13:00 before falling to 0 by 18:00; day 3 is much lighter, plateauing at only 1.77 from about 10:00 to 13:00 and reaching 0 by 15:30. Orange outdoor air: zero overnight, then a brief morning start-up spike (about 0.066, 0.098 and 0.072 lb/s on the three days) with an immediate dip, then a flat 0.11 lb/s held for the entire occupied period on all three days before dropping to zero. Retrieval caveat: Section 5.1 cites this figure as confirming that outdoor air flow decreases with occupant count, but the plotted trace is flat at 0.11 lb/s across every occupied window, including day 3 when occupancy peaks near half the day 2 level.
+- source_image: 86897_images/image_000003_766c7b8dc6bac3721e9f143dbc0d0dd056100211ee0ba7e2d1d9d078e176b5e8.png
+  source_image_sha256: 24982019708848fef08108a77b52f2fc50965f97959ad776c2c4a393979c963a
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 2. Two-panel stacked bar chart of DCV applicability, with building model count by ComStock building type on the left and total stock weighted floor area on the right, where 44.02 billion square feet is applicable and 16.54 billion is not
+  description: |-
+    Two panels sharing an Applicability legend: red is False, teal is True. Left panel, Y-axis Building Model Count, 0 to 80K, X-axis 14 ComStock building types in alphabetical order. Fully red (no models applicable): FullServiceRestaurant about 16.7K, LargeHotel about 2.2K, QuickServiceRestaurant about 9.7K, SmallHotel about 2.9K. Mostly teal with a thin red cap: Hospital about 0.6K, LargeOffice about 3.8K, MediumOffice about 7.0K (teal to roughly 6.3K), Outpatient about 11.0K (teal to roughly 10.4K). Mixed: PrimarySchool about 5.2K (teal to roughly 3.0K), SecondarySchool about 4.8K (teal to roughly 2.0K), RetailStandalone 53K (teal to 46K), RetailStripmall 73K (teal to 55K), SmallOffice 64K (teal to 44.3K), Warehouse 85.5K (teal to 71.5K). Right panel, Y-axis Weighted Floor Area in square feet, 0B to 60B, a single stacked bar labeled 44.02B applicable (teal) and 16.54B not applicable (red), a 60.56B total; 44.02 of 60.56 is 72.7%, the applicability figure quoted in Section 5.2 and the executive summary. As Section 5.2 notes, the measure is not applied to restaurants or hotels, which is what the four all-red bars show.
+- source_image: 86897_images/image_000004_2313c9c93e9ee94bbe4fabe6450b02b203ebe98e40d7bf10ffe02f5f6e575209.png
+  source_image_sha256: 08a370535e2f6ecf69aeff2de579ab56a2cd526f882b261dc8572a2c343688b7
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 3. Stacked bar comparison of annual site energy consumption by fuel and end use for the ComStock baseline at 4,638 TBtu and the DCV scenario at 4,519 TBtu, a 119 TBtu (2.6%) reduction concentrated in heating and cooling
+  description: |-
+    Two stacked bars, Baseline and DCV, Y-axis Annual Energy Consumption in TBtu from 0 to about 4,700, with the total printed above each bar: 4638 for Baseline and 4519 for DCV, a 119 TBtu difference or 2.57%, matching the 2.6% and 119 TBtu in Section 5.3. The 19-item legend, top to bottom, is Heat Rejection Electricity, Heat Recovery Electricity, Pumps Electricity, Refrigeration Electricity, Exterior Lighting Electricity, Water Systems Other Fuel, Water Systems District Heating, Water Systems Natural Gas, Water Systems Electricity, Heating Other Fuel, Heating District Heating, Heating Natural Gas, Heating Electricity, Interior Lighting Electricity, Cooling District Cooling, Cooling Electricity, Fans Electricity, Interior Equipment Natural Gas, Interior Equipment Electricity. Printed band values, baseline to DCV: Interior Equipment Electricity 836.5 to 836.5 (unchanged), Interior Equipment Natural Gas unchanged at about 280 in both bars, Fans Electricity 588.3 to 587.6 (0.7 saved, 0.1%), Cooling Electricity 724.7 to 709.5 (15.2 saved, 2.1%), Interior Lighting Electricity 451.0 to 451.0, Heating Electricity 197.6 to 179.3 (18.3 saved, 9.3%), Heating Natural Gas 827.5 to 755.0 (72.5 saved, 8.8%). Those four HVAC deltas reproduce the Section 5.3 bullet list exactly. All remaining bands are thin and unlabeled.
+- source_image: 86897_images/image_000005_7b5a30e3016a7355fc8d190d611f7e39b9e4ee6cc233b781f0530f7e61533590.png
+  source_image_sha256: 93c8c851ac0f935c4e28637bbbb5704c01f68b2a863083c495de8854027fdd2b
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 4. Grouped bar chart of annual greenhouse gas emissions in MMT CO2e for the baseline versus DCV across three electricity grid scenarios and three on-site combustion fuels, with reductions of 1.1% to 1.2% for electricity and 5.9%, 8.3% and 10% for natural gas, fuel oil and propane
+  description: |-
+    Grouped bar chart, dark blue Baseline against light blue DCV, Y-axis Annual GHG Emissions in MMT CO2e from 0 to 500. A bracket labeled Electricity Grid Scenarios: Choose 1 spans the first three groups. Values are printed inside the bars and the delta above each pair. Electricity: eGRID 2021, 336.6 to 332.8, minus 3.8 (1.1%). Electricity: LRMER High RE Cost 15, 253.3 to 250.3, minus 3.0 (1.2%). Electricity: LRMER Low RE Cost 15, 161.1 to 159.1, minus 2.0 (1.2%). Natural Gas, 83.6 to 78.7, minus 4.9 (5.9%). Fuel Oil, 4.8 to 4.4, minus 0.4 (8.3%). Propane, 2.0 to 1.8, minus 0.2 (10%). Every value reproduces Section 5.4. LRMER is the Cambium long-run marginal emissions rate and RE is renewable energy; MMT is million metric tons. For a combined figure the text directs the reader to pick one electricity scenario and add all three on-site combustion fuels. Emissions avoided on the grid side come from lower fan and cooling electricity; the larger percentage reductions on the combustion side come from the reduced heating load created by conditioning less outdoor air.
+- source_image: 86897_images/image_000006_6a9041d2920b6bd35f61c904f8e7fbee09e41eb03f1ea346cbe904e85be24e24.png
+  source_image_sha256: 1953ede48754c51147e61cfb436e3bb4bb0f8a0a0bf3793158f04ed9a6c7d07d
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 5. Panel of 17 horizontal violin and box distributions titled Upgrade 08: DCV (unweighted), showing percent site energy savings by end use and fuel type on an axis running from minus 140% to 100%, with model counts from n=8 to n=234,645
+  description: |-
+    Horizontal violin plots with embedded boxes, one row per end use and fuel combination, panel title Upgrade 08: DCV (unweighted). X-axis: Percent Site Energy Savings by End Use (%), minus 140 to 100. Rows top to bottom with their n: Other Fuel Water Systems (n=59), Other Fuel Heating (n=9549), District Heating Water Systems (n=82), District Heating Heating (n=2532), District Cooling Cooling (n=1420), Natural Gas Water Systems (n=1552), Natural Gas Heating (n=161865), Electricity Water Systems (n=2812), Electricity Refrigeration (n=4392), Electricity Pumps (n=55594), Electricity Interior Lighting (n=29), Electricity Interior Equipment (n=8), Electricity Heating (n=109850), Electricity Heat Rejection (n=7035), Electricity Heat Recovery (n=2803), Electricity Fans (n=148702), Electricity Cooling (n=234645). The heating rows (other fuel, district heating, natural gas, electricity) carry the widest positive interquartile ranges, roughly 0 to 20% with long right tails reaching 100%; district cooling, heat rejection, cooling and fans cluster tightly on zero. Long negative tails (penalties) appear on natural gas heating (to about minus 100%), electricity pumps (to about minus 135%), electricity cooling (to about minus 145%) and district cooling (to about minus 80%). The n=29 lighting row is the known baseline anomaly of Section 5.5.4.
+- source_image: 86897_images/image_000007_cdbf52cebc31c2e19f6b064ace4e61fed6b2be47fa473082edbc1728e52b4b86.png
+  source_image_sha256: 1b0b74ae11ab0f9adae89c200634f5b02d09f4437d4eecf61f1a6f87ffec336b
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 6. Box plots of natural gas heating savings by ASHRAE 2006 climate zone across 17 zones from 1A to 8, plotted as a fraction from minus 1.8 to 1.0, with positive medians everywhere and the deepest penalties in the hot zones 1A, 2A and 3A
+  description: |-
+    Box-and-whisker plots, one per ASHRAE 2006 climate zone, X-axis 1A, 2A, 2B, 3A, 3B, 3C, 4A, 4B, 4C, 5A, 5B, 6A, 6B, 7, 7A, 7B, 8. Y-axis: Percent Savings for Natural Gas Heating Energy Consumption, dimensionless, gridded from minus 1.8 to 1.0. Despite the axis title the scale is a fraction, so 1.0 is 100% savings and minus 1.0 is the minus 100% case discussed in Section 5.5.1. Medians sit just above zero in every zone, roughly 0.05 to 0.16, with 1A the widest box (about 0 to 0.81) and the boxes narrowing steadily toward the colder zones, where zone 8 spans only about 0.03 to 0.16. Upper whiskers reach 1.0 in most zones. Negative outliers, the natural gas heating penalties this figure is cited to explain, are concentrated in the hot and mixed zones: 2A extends to about minus 1.65 and minus 1.21, 1A and 5A each have a point near minus 1.0, and 3A reaches about minus 0.49. Zones 6A through 8 show almost no negative tail. Section 5.5.1 uses this to argue that the penalized models are mostly VAV systems in warm climates with very low heating loads, citing a model whose baseline gas heating of 2 kWh rose to 5 kWh and so registered minus 100% savings.
+- source_image: 86897_images/image_000008_917262e039cb7869823e268aef3382d7dc1af0600cffb893eb1f3666567b2eab.png
+  source_image_sha256: 0b80bd649ece11ae58ecfc7705bd55406c57c7bd26a243429414ff20fc17bc56
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 7. Panel of 17 horizontal violin and box distributions of site EUI savings by end use and fuel type in kBtu per square foot, titled Upgrade 08: DCV (unweighted), where natural gas heating is almost entirely positive and reaches about 32 kBtu per square foot
+  description: |-
+    Companion to Figure 5 with the same 17 rows and the same n values, but on an absolute intensity axis instead of a percentage one; each row label is suffixed Intensity(n=...). X-axis: Site EUI Savings by End Use in kBtu/ft2, from minus 5 to just past 30. Panel title Upgrade 08: DCV (unweighted). The mass of every distribution sits at or just above zero. Rows with visible positive spread and their approximate maxima: Natural Gas Heating about 32, District Heating Heating about 23, Other Fuel Heating about 18.5, Electricity Heating about 14, Electricity Cooling about 9.3, Other Fuel Water Systems about 8, District Cooling Cooling about 5. Negative excursions are small in absolute terms, reaching only about minus 5 for natural gas heating and district cooling and about minus 4 for electricity cooling and electricity heating. Section 5.5.1 draws the key inference from this contrast: on an EUI basis natural gas heating shows practically all savings, so the large negative percentages in Figure 5 come from models whose baseline heating consumption is so small that a trivial absolute increase produces a huge percentage penalty.
+- source_image: 86897_images/image_000009_7a138b5c48b1fb792318c1e55ecea4c84bb7444a59b1cf2570e43445fdb2a515.png
+  source_image_sha256: 9f9205745f314a6c6e75af69cf111298678e32aba6293ac77115491c4905c891
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 8. Box plots of electricity heating savings by ASHRAE 2006 climate zone across 17 zones from 1A to 8, plotted as a fraction from minus 0.5 to 1.0, with the electric heating penalties concentrated in the hot zones
+  description: |-
+    Box-and-whisker plots, one per ASHRAE 2006 climate zone, X-axis 1A, 2A, 2B, 3A, 3B, 3C, 4A, 4B, 4C, 5A, 5B, 6A, 6B, 7, 7A, 7B, 8. Y-axis: Percent Savings for Electricity Heating Energy Consumption, dimensionless, gridded from minus 0.5 to 1.0. As in Figure 6 the scale is a fraction rather than a percentage. Medians are slightly positive everywhere, roughly 0.02 to 0.09, and the boxes are narrow, typically 0 to 0.25 in the hot and mixed zones and tighter still, about 0 to 0.10, in zones 6B through 8. Dense columns of positive outliers run all the way to 1.0 in zones 1A through 5A. The negative tails that Section 5.5.1 discusses are largest in the hottest zones: 1A reaches about minus 0.50, 2A about minus 0.50 and minus 0.33, 2B and 3A about minus 0.22, and 5A about minus 0.50, while zones 6A through 8 show essentially no penalty. The example in the text is a retail model in climate zone 2B with a mixed-fuel VAV system that took a 20% electric heating penalty, that is minus 0.2 on this axis, because removing nearly all air-handling-unit gas heating pushed load onto electric zone reheat; its gas heating savings still exceeded the electric penalty.
+- source_image: 86897_images/image_000010_4b2093a9cfc86a35ed080ec2dd4334dfdec229c009304fd18b83f80e4b49504f.png
+  source_image_sha256: bd9bb60d2360521fab5499c3252aad283feb7c1b776fca9e8855b68d0c0dd5f9
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 9. Horizontal strip and box plot of cooling electricity percent savings for models with cooling penalties, split into four economizer categories, where the No Economizer row carries by far the densest and longest negative tail
+  description: |-
+    Horizontal distribution plot restricted to models that show electricity cooling penalties, so every point lies at or below zero. X-axis: Cooling Electricity Energy Consumption Percent Savings, dimensionless, from minus 3.0 to 0.0, so minus 1.0 is a 100% increase in cooling electricity. Four rows, bottom to top: No Economizer, Fixed Dry Bulb, Differential Enthalpy, Differential Dry Bulb. Each row is a narrow grey box pinned against zero with a scatter of individual points trailing to the left. No Economizer is the densest row and has the longest tail, a continuous band of points from about minus 0.8 back through minus 1.6 and isolated points near minus 2.0 and minus 2.9. Fixed Dry Bulb trails to about minus 0.85, Differential Enthalpy only to about minus 0.45, and Differential Dry Bulb sits almost entirely within minus 0.1 apart from single points near minus 0.5 and minus 2.8. This supports the Section 5.5.2 argument that most penalized models have no economizer: DCV cuts outdoor air during low occupancy even when the air loop is cooling and would benefit from cool outdoor air, so the system cools return air instead.
+- source_image: 86897_images/image_000011_e23cf6ec67ad9c980f059f5989f0340e1fa265f1873544b2645ab0db37fabe82.png
+  source_image_sha256: 18b36e5f17b4ec509843fa2d449179114fb866f14ba206a137ebc45e0a19a497
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 10. Histogram of the fraction of a model's air loops that have an economizer, for the 11,096 models with cooling penalties and an economizer, showing a spike of 4,126 models (37%) at a fraction of 1.00 and most of the rest below 0.25
+  description: |-
+    Bar histogram with a printed count above every bar. X-axis: Fraction Air Loops with Economizer (bin), labeled 0.05 through 1.00 in steps of 0.05. Y-axis: Count of Fraction Air Loops with Economizer, 0 to 4,500. Counts left to right: 655, 2,485, 1,662, 719, 376, 266, 104, 130, 299, 16, 18, 80, 53, 40, 40, 27 and then 4,126 in the 1.00 bin; three bins in the upper middle of the range are empty. The 17 printed counts sum to 11,096, and 4,126 of 11,096 is 37.2%, which is exactly the Section 5.5.2 statement that only 37% of models with economizers and cooling penalties have economizers on all their air loops and that the remaining 63% have economizers on only a fraction of loops. The distribution is strongly bimodal: a tall cluster from 0.05 to 0.25 (5,897 models, 53% of the total) plus the all-loops spike. Retrieval caveat: the sentence printed under this figure in the source, 82 of 289 (28%) models have economizers on all air loops, is inconsistent with both the plotted counts and the 37% in the surrounding prose.
+- source_image: 86897_images/image_000012_2e16966ae8c7a9140faf09598c218307fb35c4ce2bd09a6d7ab5c7b23cba2241.png
+  source_image_sha256: bbeca06f67773b57c6cd5b146792d3b055f0f14db4795843cc9b01ab1b4d3998
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 11. Bar chart of model counts by Building America climate zone for the 4,129 models that have economizers on all air loops and an electricity cooling penalty, dominated by Marine at 2,360 and Cold at 1,130
+  description: |-
+    Vertical bar chart with a printed count above every bar. X-axis, eight Building America climate zones in alphabetical order. Y-axis: Model Count, dimensionless, 0 to 2,600. Values: Cold 1,130, Hot-Dry 359, Hot-Humid 16, Marine 2,360, Mixed-Dry 58, Mixed-Humid 40, Subarctic 13, Very Cold 153. The counts sum to 4,129 models. Marine, Cold and Very Cold together are 3,643, or 88% of the population, which corroborates the Section 5.5.2 claim that most of these models are in Very Cold, Cold or Marine zones and therefore have low cooling loads; the example given is a 17,500 square foot small office in Fairbanks, Alaska (the Subarctic bar) with a PVAV with parallel fan powered boxes system and a fixed dry bulb economizer on both air loops, whose annual cooling electricity rose from 4,700 to 5,800 kWh, a 22.6% increase but only 1,100 kWh. The Hot-Dry models are noted as having penalties between 0.001% and 2%, all on VAV systems. Retrieval caveat: this population should be the same as Figure 10's all-loops bin, but that bar is 4,126, three fewer.
+- source_image: 86897_images/image_000013_beb7d110e26e9fba0cf6149597d136f7b454a7d83e1e23e99ceeefc895360898.png
+  source_image_sha256: d556aee6b9205d68d7777cca958b8d1363397671c7729a242c8c96338389dd29
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 12. Bar chart of mean site energy percent savings by ASHRAE 2006 climate zone, with a data label on every bar, highest in 3C at 5.5%, 7A at 5.3% and zone 8 at 5.2% and lowest in 2B at 1.1%
+  description: |-
+    Vertical bar chart with a percentage printed above each bar. Y-axis: Mean Site Energy Percent Savings, 0% to 6%. X-axis, 17 ASHRAE 2006 climate zones. Values: 1A 1.6%, 2A 1.9%, 2B 1.1%, 3A 2.6%, 3B 4.6%, 3C 5.5%, 4A 3.3%, 4B 3.4%, 4C 2.9%, 5A 4.2%, 5B 3.3%, 6A 4.9%, 6B 4.3%, 7 4.1%, 7A 5.3%, 7B 4.6%, 8 5.2%. The three highest are 3C, 7A and zone 8, exactly the zones named in Section 5.6, with 6A at 4.9% close behind; the three lowest are 2B, 1A and 2A, the hot zones where cooling dominates and reduced outdoor air buys the least. The pattern is broadly increasing with heating-dominated climate, consistent with savings being driven mainly by reduced heating load, with the marine zones 3C and 4C breaking the trend in opposite directions. Note that this axis is in true percent, unlike the fractional axes of Figures 6, 8 and 9. Note also that the zone list includes 7, 7A and 7B as three separate rows, a superset of the standard ASHRAE zone set.
+- source_image: 86897_images/image_000014_b3ea451bdd56feec2959c400f09ac858d42a690a5d7fa9e297226ab97935c01a.png
+  source_image_sha256: b2147c7a58aeefa37e71240b2e39c1c36c385d11d248417a8df121118e3f435e
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 13. Box plots of site energy consumption percent savings by ASHRAE 2006 climate zone across 17 zones, with medians of roughly 1% to 4% everywhere and the widest spread in 3C, which reaches about 44% savings and about minus 9%
+  description: |-
+    Box-and-whisker plots with dense outlier scatter, one per ASHRAE 2006 climate zone. Y-axis: Site Energy Consumption Percent Savings, minus 10% to 45%, in true percent. X-axis: 1A, 2A, 2B, 3A, 3B, 3C, 4A, 4B, 4C, 5A, 5B, 6A, 6B, 7, 7A, 7B, 8. Medians are similar across zones at roughly 1% to 4%, the point Section 5.6 makes, with the lowest in 2B and 1A and the highest in 3C, 6A, 7A and 7B. Interquartile ranges are narrow, typically 0% to 5% in the hot zones and about 1% to 8% in the cold ones. Upper outlier columns are long: 3C reaches about 44%, 6A about 41%, 4C about 40%, 5A about 38%, 5B about 37%, 4B about 36% and 3B about 35%. Negative tails are deepest in 4C (about minus 10%) and 3C (about minus 9%), with 5A and 5B near minus 8%. Section 5.6 says 3C and 4C contain the models with the highest savings; 3C is clearly the single widest distribution, though at this resolution 6A's upper outliers look comparable to 4C's.
+- source_image: 86897_images/image_000015_37d27184499ee042537f46e56b2033ade05ce55a9a0149ebb674468c1b005330.png
+  source_image_sha256: b998b5c445c8dfb0da5a16184fe25376be247f4b2d23d43e2c58d36ecbd95092
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 14. Bar chart of mean site energy percent savings by ComStock building type with a data label on every bar, highest for RetailStandalone at 7.1%, PrimarySchool at 6.8% and SecondarySchool at 5.8%, and lowest for Warehouse at 0.6%
+  description: |-
+    Vertical bar chart with a percentage printed above each bar. Y-axis: Mean Site Energy Percent Savings. X-axis, the 10 building types to which DCV is applicable, alphabetically. Values: Hospital 1.8%, LargeOffice 2.3%, MediumOffice 3.8%, Outpatient 3.5%, PrimarySchool 6.8%, RetailStandalone 7.1%, RetailStripmall 3.7%, SecondarySchool 5.8%, SmallOffice 3.6%, Warehouse 0.6%. The top three are retail standalone, primary schools and secondary schools, exactly as stated in Section 5.6, which attributes the retail result to those buildings having the highest design outdoor air flow rates among the applicable types. Warehouses are the clear low outlier at 0.6%, and hospitals are second lowest at 1.8%, consistent with their high year-round process and ventilation loads leaving little occupancy-driven outdoor air to trim. The four building types shown as not applicable in Figure 2, the two restaurant types and the two hotel types, are absent from this chart.
+- source_image: 86897_images/image_000016_6b92521c92fd6123fc334e4db97d0de8d6fa778cd41eb64500726b226f84d99a.png
+  source_image_sha256: 58a5226842e314ce2d9bd8e518c0f1e4b032ef3d575e8b76b1689bf3b6b01975
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure 15. Box plots of site energy consumption percent savings for the 10 applicable ComStock building types, with the highest medians for PrimarySchool and RetailStandalone and the widest tails for the two retail types, reaching about 44% and 41%
+  description: |-
+    Box-and-whisker plots with outlier scatter, one per building type. Y-axis: Site Energy Consumption Percent Savings, minus 10% to 45%, in true percent. X-axis, 10 types alphabetically: Hospital, LargeOffice, MediumOffice, Outpatient, PrimarySchool, RetailStandalone, RetailStripmall, SecondarySchool, SmallOffice, Warehouse. Approximate medians: Hospital 1.5%, LargeOffice 2.5%, MediumOffice 3%, Outpatient 2%, PrimarySchool 6%, RetailStandalone 5.5%, RetailStripmall 2.5%, SecondarySchool 4%, SmallOffice 2.5%, Warehouse 0.5%. PrimarySchool and RetailStandalone have both the highest medians and the widest interquartile ranges, roughly 3% to 10.5% and 4% to 8.5%. The longest upper outlier columns belong to the retail types, RetailStandalone reaching about 44% and RetailStripmall about 41%, which is the Section 5.6 statement that both retail categories contain the models with the highest savings. Warehouse is a very tight distribution against zero with a single tail to about 17%. Negative tails reach about minus 10% for RetailStripmall, MediumOffice, Outpatient and SmallOffice.
+- source_image: 86897_images/image_000017_35839be6d5e018fdfa59f50cb2118b98bb8119297b9e665fcdcec2b5056a5d3c.png
+  source_image_sha256: 84cc4389bfd1cfcdcb2299354928a7b773be3a954833d77706ff7fb265558cb9
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure A-1. Grouped bar chart of site annual natural gas consumption in TBtu for the baseline versus the DCV scenario across the nine U.S. census divisions, largest in East North Central at about 317 falling to about 301
+  description: |-
+    Appendix A grouped bar chart, dark blue Baseline against light blue DCV, no data labels. Y-axis: Natural Gas Total Energy Consumption in TBtu, 0 to about 320 on 50-unit gridlines. X-axis: Census Division Name, nine divisions. Bar heights measured off the axis, baseline then DCV, in TBtu: New England 53 to 49, Middle Atlantic 203 to 189, East North Central 317 to 301, West North Central 108 to 100, South Atlantic 140 to 134, East South Central 49 to 47, West South Central 92 to 88, Mountain 75 to 71, Pacific 228 to 210. Reads are plus or minus about 2 TBtu because one pixel is about 2 TBtu at this resolution. The baseline bars total roughly 1,265 TBtu, consistent with the natural gas bands of Figure 3, and the total reduction of roughly 77 TBtu is consistent with the 72.5 TBtu of gas heating savings quoted in Section 5.3. Every division shows a reduction, proportionally largest in Pacific, New England, Middle Atlantic and West North Central at roughly 7% to 8% and smallest in East South Central, South Atlantic and West South Central at roughly 4%.
+- source_image: 86897_images/image_000018_559437bb599c3b3f7a0bf93dab575ce53e45a94981bed02c3618efbc32eaaf1e.png
+  source_image_sha256: 45aa5f2e2d77c55873c805620747e103e02865f93328ecaf400785f51f96c73d
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure A-2. Grouped bar chart of site annual natural gas consumption in TBtu for the baseline versus the DCV scenario across 14 ComStock building types, with restaurants and hotels showing no change at all
+  description: |-
+    Appendix A grouped bar chart, dark blue Baseline against light blue DCV, no data labels. Y-axis: Natural Gas Total Energy Consumption in TBtu, 0 to about 215 on 25-unit gridlines. X-axis: Comstock Building Type, 14 types. Bar heights measured off the axis, baseline then DCV, in TBtu: FullServiceRestaurant 175 unchanged, QuickServiceRestaurant 51 unchanged, RetailStripmall 214 to 199, RetailStandalone 91 to 73, SmallOffice 56 to 51, MediumOffice 39 to 33, LargeOffice 50 to 44, PrimarySchool 129 to 120, SecondarySchool 175 to 165, Outpatient 26 to 23, Hospital 71 to 69, SmallHotel 8 unchanged, LargeHotel 82 unchanged, Warehouse 93 to 91. Reads are plus or minus about 1.4 TBtu, one pixel at this resolution. The four flat bars are exactly the four building types marked not applicable in Figure 2, which is a direct visual confirmation of the Section 5.2 statement that DCV is not applied to restaurants or hotels. RetailStandalone shows the largest relative gas reduction at about 20%, consistent with its top rank in Figure 14.
+- source_image: 86897_images/image_000019_a0fca5f37e6a131c9e81244b5003bdd9b22a15b702509b6a62145bae6025bb08.png
+  source_image_sha256: 93c6e020d19dbbee2d223962a5098221e96dd7353541b3c6a65ba3c5ac3ca5af
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure A-3. Grouped bar chart of site annual electricity consumption in TBtu for the baseline versus the DCV scenario across 14 ComStock building types, with changes too small to resolve at the plotted scale
+  description: |-
+    Appendix A grouped bar chart, dark blue Baseline against light blue DCV, no data labels. Y-axis: Electricity Total Energy Consumption in TBtu, 0 to about 450 on 100-unit gridlines. X-axis: Comstock Building Type, the same 14 types as Figure A-2. Baseline bar heights measured off the axis, in TBtu: FullServiceRestaurant 196, QuickServiceRestaurant 90, RetailStripmall 449, RetailStandalone 288, SmallOffice 194, MediumOffice 185, LargeOffice 288, PrimarySchool 239, SecondarySchool 245, Outpatient 125, Hospital 171, SmallHotel 36, LargeHotel 191, Warehouse 443. They total about 3,140 TBtu, consistent with the electricity bands of Figure 3. One pixel is about 2.9 TBtu here, so the electricity reductions, which Section 5.3 puts at only 34 TBtu across fans, cooling and electric heating for the whole stock, are at or below the resolution of the plot: the visible drops are about 3 to 9 TBtu for the retail, school and office types and unresolvable for the rest. No per-type electricity delta should be read off this figure.
+- source_image: 86897_images/image_000020_c8de6fa490ae4d951d7ea9bd91f59d36fe5297a7ada64654ec2d5f37f099b6ab.png
+  source_image_sha256: e0467778db4f0800dc06a7b871a0369861a1fa7905d6e1e4e224bf3326db3bb6
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Figure A-4. Grouped bar chart of site annual electricity consumption in TBtu for the baseline versus the DCV scenario across the nine U.S. census divisions, largest in South Atlantic at about 668
+  description: |-
+    Appendix A grouped bar chart, dark blue Baseline against light blue DCV, no data labels. Y-axis: Electricity Total Energy Consumption in TBtu, 0 to 700 on 100-unit gridlines. X-axis: Census Division Name, nine divisions. Baseline bar heights measured off the axis, in TBtu: New England 120, Middle Atlantic 381, East North Central 420, West North Central 201, South Atlantic 668, East South Central 188, West South Central 437, Mountain 197, Pacific 522. They total about 3,134 TBtu, matching the total of Figure A-3 and the electricity bands of Figure 3. One pixel is about 4.3 TBtu at this resolution, so the per-division reductions cannot be resolved: every DCV bar is between one and three pixels shorter than its baseline, which brackets the stock-level electricity savings of about 34 TBtu from Section 5.3 but does not pin down any division. The largest visible drops are in South Atlantic and West South Central, the two cooling-dominated divisions with the highest consumption. No per-division electricity delta should be read off this figure.

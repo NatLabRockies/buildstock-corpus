@@ -1,0 +1,277 @@
+# Hand-authored figure descriptions for measure PDF 89120
+# "End-Use Savings Shapes Measure Documentation: Improved Fan Scheduling and
+#  Control of Outdoor Air During Unoccupied Periods"
+# Amy Allen and Chris CaraDonna, NREL/TP-5500-89120, April 2024
+#
+# The PDF yields 24 extracted images. Seven are decorative and are deliberately
+# left with no overlay entry: image_000000-image_000005 are the six cover photo
+# tiles, and image_000006 is the NREL wordmark. The remaining 17 images are real
+# figures and are all described below (image_000007 = Figure 1 ... image_000023 =
+# Figure A-4). image_000008 is a bitmap of Table 1, which the markdown extraction
+# lost entirely, so it is transcribed rather than described.
+#
+# QA FLAGS - vision-derived numbers need a human pass before publication.
+#
+# High confidence (values are printed on the figure itself, or corroborated by
+# body text):
+#   - Figure 1 (000007): every bar is value-labeled; all 13 rows transcribed.
+#   - Table 1 (000008): all six numbers legible at 8x zoom.
+#   - Figure 3 (000010), Figure 4 (000011), Figure 5 (000012), Figure 6 (000013):
+#     segment/bar labels are printed; Figure 4's four deltas reproduce section
+#     5.2's TBtu figures exactly, and Figure 6's deltas reproduce the Executive
+#     Summary's "7 to 9 MMT" electricity and "3 MMT" natural gas claims exactly.
+#   - Figure 7-10 row labels and n values (000014-000017): read at 7-8x zoom.
+#     Figure 9's and Figure 10's n values both sum to exactly 192,092, which is a
+#     strong mutual cross-check.
+#   - Figure 11 (000018): box, median and whisker positions measured against
+#     gridlines at 3.33 px per percent; corroborated across the two panels.
+#
+# Medium confidence (pixel-derived, no printed labels; treat as approximate):
+#   - Figure 7-10 quartile positions: the interquartile boxes are 1-4 px wide at
+#     the source resolution. Reported to the nearest whole percent; do not rely on
+#     a stated difference of less than about 1 percentage point.
+#   - Figure 4's hatched natural gas segment labels (854.9 / 804.4 / 212.1 TBtu)
+#     were settled by band geometry plus section 5.2's deltas, because the
+#     diagonal hatch strokes cross the digits.
+#   - Figure 12 (000019): the red "max potential penalty" line's slope measures
+#     1.25 kWh gas per kWh fan, i.e. exactly the 80% coil efficiency the text
+#     claims. Individual scatter points are not enumerated.
+#   - Figures A-1 to A-4 (000020-000023): the bars carry no value labels, so every
+#     number is pixel-derived (+/- one pixel, worth 2.5 TBtu in A-1, 4.3 in A-2,
+#     1.5 in A-3 and 2.7 in A-4). Bar pairs whose tops differ by one pixel or less
+#     are reported as "no measurable change" rather than as a small delta.
+#
+# DEFECTS AND INTERNAL INCONSISTENCIES observed while describing these figures:
+#   (a) The Executive Summary's savings bullets disagree with section 5.2 and with
+#       Figure 4. The ES claims "3.3% stock cooling electricity savings (24 TBtu)"
+#       and "14.5% stock fan electricity savings (87 TBtu)"; section 5.2 and
+#       Figure 4's own segment labels give 2.7% / 18.3 TBtu cooling and 11% /
+#       58.3 TBtu fans. The ES also omits section 5.2's heating-electricity bullet
+#       (7.2% / 12.7 TBtu). The ES bullets sum to 161 TBtu, more than the 150 TBtu
+#       total both sections claim; section 5.2's bullets sum to 139.8 TBtu, which
+#       is what Figure 4's labels actually show.
+#   (b) The Measure Summary table says the measure is "applicable to about 58% of
+#       the floor area modeled in ComStock"; section 3.1 says "about 45% of the
+#       sample in weighted floor area".
+#   (c) Section 3.3 says the three grid scenarios "compare the emissions of the
+#       ComStock baseline and the window replacement scenario" - a copy-paste
+#       error from an unrelated window-replacement measure document.
+#   (d) Table 1's propane factor reads 177.8 lb/MMBtu and 182.3 kg/MWh, but
+#       177.8 lb/MMBtu converts to about 275.7 kg/MWh. The natural gas (228.0)
+#       and fuel oil (303.2) SI values are both correct. This is the same bad
+#       propane conversion that appears in measure PDF 86897.
+#   (e) Table 1 survives only as a bitmap (image_000008); the markdown extraction
+#       produced no table and no caption line for it, so its numbers are
+#       unreachable without this figure overlay.
+#   (f) Section 5.4 says "Figure 8 shows the distribution of savings percentage by
+#       end use and fuel type" - that is Figure 7's content, and Figure 8 is the
+#       by-HVAC-system-type version.
+#   (g) Section 5.6 refers to "Figure 11" three times where it means Figure 12
+#       (the natural gas penalty scatterplots).
+#   (h) Section 5.2 cites "Fernandez et al. (2017)" and then "Fernandez et al.
+#       (2013)"; only the 2017 entry exists in the reference list, and section 1
+#       attributes the same 7.3%-small-office and 0.3%-stock-penalty results to
+#       the 2017 paper.
+#   (i) Figure 1's caption reads "Prevalence of HVAC system types to which this
+#       measure is applicable", but its "% Stock Floor Area" column sums to 82.5%
+#       and its "% Model Count" column to 84.2% - neither the 45% of section 3.1
+#       nor the 58% of the Measure Summary. The panel shows system-type
+#       prevalence, not applicability.
+#   (j) Figure 1 includes a "PTAC with electric coil" row (2.8% of stock floor
+#       area) and a "PSZ-HP" row, although section 3.1 explicitly excludes
+#       zone-level PTAC and PTHP systems from applicability.
+#   (k) Section 5.2 states 9.5% aggregate site energy savings for applicable
+#       buildings; Figure 5's own printed totals give 151/1991 = 7.6%.
+#   (l) Section 5.2's "fraction of fan energy savings (26%)" cannot be reproduced
+#       from Figure 5: fan savings are 38.6% of the applicable-only total saving
+#       and 22.2% of applicable-only baseline fan energy.
+#   (m) Section 5.2's "5.6% stock heating gas savings" against Figure 4's own
+#       labels, which give 50.5/854.9 = 5.9%.
+#   (n) Section 5.1 says "a reduction in fan operating hours is not expected
+#       through application of the measure" for the vent-cycle baseline, yet
+#       Figure 3 shows Fans_Elec falling 19.1 to 11.1 GJ (-42%). The text then
+#       attributes that drop to the heating and cooling load reduction.
+#   (o) Sections 2 and 3.1 both state the measure was not applied to hospitals,
+#       outpatient health care facilities or schools, but Figure 9 lists
+#       Hospital (n=43), Outpatient (n=1777) and SecondarySchool (n=152), and
+#       Figures A-3 and A-4 show a measurable Outpatient and SecondarySchool
+#       change. Hospital, PrimarySchool, SmallHotel and LargeHotel do come out
+#       exactly unchanged in A-3 and A-4.
+#   (p) Figure 8's per-HVAC-system n values sum to 5,823, while Figure 9's and
+#       Figure 10's both sum to 192,092. The three figures cannot all be counting
+#       applicable ComStock models.
+#   (q) Figures A-1 and A-3 disaggregate the same stock natural gas total two
+#       ways and agree with each other (about 1,290-1,308 TBtu baseline, about
+#       69-72 TBtu saved), but the saving they show is roughly 40% larger than
+#       the 50.5 TBtu of section 5.2 and Figure 4. Figure A-4's electricity saving
+#       (about 90 TBtu) does match Figure 4's electricity deltas (89.3 TBtu),
+#       while Figure A-2's (about 130 TBtu) does not, and A-2's baseline total
+#       (about 3,176 TBtu) exceeds A-4's (about 2,876 TBtu) by roughly 10%.
+#   (r) Figure A-4's legend labels the measure "Unoccupied AHU Control" while
+#       A-1, A-2 and A-3 label it "Unoccupied OA Control"; Figures 4 and 5 use
+#       "Unoccupied AHU Control".
+#   (s) Figure A-1's extracted bitmap has the stray word "Figure" baked into its
+#       top-left corner, a bleed from the PDF text layer into the image crop.
+#   (t) All four appendix figures label the y axis in lowercase "tbtu", and A-3
+#       and A-4 label the x axis "Comstock Building Type" with a lowercase s.
+#   (u) The List of Figures entry for Figure 2 describes a two-panel figure
+#       ("...with ventilation (top, base case), cycling without ventilation
+#       (bottom, after measure applied)"), but image_000009 is a single panel
+#       with the two cases overlaid as two series; the in-text caption drops the
+#       "top"/"bottom" wording.
+#   (v) Figure 5's caption is split around its image reference: the head is at
+#       markdown line 270, the image ref at 272, and the tail "Energy consumption
+#       is categorized both by fuel type and end use." at 276.
+#   (w) Figure 12's two panels plot the identical point cloud with different y
+#       limits (0 to -20,000 kWh at left, 0 to -40,000 kWh at right). Since the
+#       deepest plotted gas penalty is about -18,300 kWh, nothing is clipped in
+#       either panel and the right-hand panel adds no information.
+#   (x) The References block is badly scrambled by table extraction: the CaraDonna
+#       and Dombrovski entry and the Present/Gagnon carbon-emissions-factors entry
+#       have both lost their lead author lines, the Murphy (2006) URL is
+#       truncated, and the CDC entry reads "COVID-10".
+#   (y) "T he remaining samples retained their original nighttime ventilation
+#       control." - a broken word from extraction. Section 1 and the Executive
+#       Summary also carry "enduse", "longterm", "singlezone", "PSZHP" and
+#       "eliminating of ventilation".
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: measure_pdfs/89120.pdf
+figures:
+- source_image: 89120_images/image_000007_f90c42d2022143ec69daeccff9ea19c49f54fffc9bd8fa12c3f2bfef31a871f9.png
+  source_image_sha256: 4744943126d0a39f81362685365bc0d014a6bbabd8bcd6f8454983741b7b4b41
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Three-panel horizontal bar chart of the 13 most common ComStock HVAC system types, showing each type's stock floor area, share of stock floor area and share of model count
+  description: |-
+    Figure 1. Three side-by-side horizontal bar panels sharing one row axis labelled 'In.Hvac System Type (group)'. The panels are 'Stock Floor Area (sq ft)' (ticks 0B to 25B), '% Stock Floor Area' (0% to 30%) and '% Model Count' (0% to 40%). Every bar carries a printed value. Rows top to bottom, given as floor area | % floor area | % model count: PSZ-AC with gas coil 16,617,390,519 | 27.4% | 39.3%; PVAV with gas boiler reheat 5,791,235,661 | 9.6% | 8.4%; PSZ-AC with electric coil 5,017,882,862 | 8.3% | 12.4%; VAV chiller with gas boiler reheat 4,384,967,393 | 7.2% | 1.6%; PVAV with gas heat with electric reheat 3,345,177,973 | 5.5% | 6.5%; VAV air-cooled chiller with gas boiler reheat 3,065,064,704 | 5.1% | 1.2%; PVAV with PFP boxes 2,390,917,556 | 3.9% | 4.0%; PSZ-HP 2,043,770,085 | 3.4% | 4.4%; PTAC with electric coil 1,668,007,115 | 2.8% | 2.1%; Other (<1% individually) 1,621,898,525 | 2.7% | 1.0%; PSZ-AC with gas boiler 1,595,594,201 | 2.6% | 2.1%; VAV chiller with PFP boxes 1,395,074,802 | 2.3% | 0.8%; VAV district CHW with district HHW reheat 1,002,381,271 | 1.7% | 0.4%. Floor area sums to about 49.94 billion sq ft, the percentage columns to 82.5% and 84.2%.
+- source_image: 89120_images/image_000008_6eaaf50ac35c71a713790ec7d620b720804b9279834e9415dbeeeb4b2727d465.png
+  source_image_sha256: e8be6f545ab6114c9e2181e94a290be66ee967fd79fef066fd83436469a1c282
+  method: vision-transcription
+  described_utc: '2026-08-20'
+  alt: |-
+    Bitmap of Table 1, listing on-site fossil fuel emissions factors for natural gas, propane and fuel oil in pounds per million Btu and kilograms per megawatt-hour
+  description: |-
+    Table 1. On-Site Fossil Fuel Emissions Factors. A three-row, three-column table transcribed from the page bitmap; the markdown extraction dropped it entirely. Columns: 'On-Site Fuel', 'Emissions Factor (lb/MMBtu)', 'Emissions Factor (kg/MWh)'. Rows - Natural gas: 147.3 lb/MMBtu, 228.0 kg/MWh; Propane: 177.8 lb/MMBtu, 182.3 kg/MWh; Fuel oil: 195.9 lb/MMBtu, 303.2 kg/MWh. Footnote a reads 'lb = pound; MMBtu = million British thermal units; kg = kilogram; MWh = megawatt-hour'. Section 3.3 says these factors come from Table 7.1.2(1) of draft ANSI/RESNET/ICC 301 (Vijayakumar et al., 2022). Note that the propane SI value is wrong: 177.8 lb/MMBtu converts to about 275.7 kg/MWh, not 182.3. The natural gas and fuel oil conversions both check out, so only the propane row is affected.
+- source_image: 89120_images/image_000009_4b56f9589ec0f6201c8d30852facc4b174e30e4322005a722a402b40ff578b7c.png
+  source_image_sha256: 3d5d3fa069c974a303515065b0db82149fdd7e8a302f1b28c3009f6776e0cb1f
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    One-week time series of outdoor airflow for a single air handling unit, comparing a constant baseline against the measure's occupancy-following square wave
+  description: |-
+    Figure 2. Single-panel time-series plot for the example building's air handling unit. The y axis is 'Outdoor airflow (kg/s)', ticked 0.00 to 0.40; the x axis runs from 2016-01-01 to 2016-01-08, one week. Two series are overlaid: an orange 'Baseline' line that is flat at about 0.38 kg/s for the whole week, and a blue 'Measure' line that is a square wave alternating between the same 0.38 kg/s and zero. The blue series is high from roughly 05:00 to 18:00 on Friday 1 January and again on Monday 4 January through Thursday 7 January, and sits at zero overnight and across the whole 2-3 January weekend. Where the measure series is at its high value it is drawn on top of the baseline line, so only the vertical risers and falls are visible in blue. The plot is the single-building illustration of what the measure does: the baseline ventilates continuously, the measure ventilates only during occupied hours.
+- source_image: 89120_images/image_000010_98fde4ec9987be436e8df4a73d83378a97cb5529662072a8a81422786caefac4.png
+  source_image_sha256: 59c18619e3dd0f894e06a19cd7bdba4c7c9bfcaadeaa2b1a69905504f5447169
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Grouped bar chart comparing baseline and measure energy use in gigajoules for three end uses in the example warehouse building
+  description: |-
+    Figure 3. Grouped vertical bar chart for the example warehouse. The y axis is 'Energy_Use_GJ', ticked 0 to 70; the x axis is 'End_Use' with three groups; the legend 'Case' distinguishes blue Baseline from orange Measure bars. Values: Heating_NG falls from 34.0 to 21.1 GJ; Cooling_Elec falls from 68.8 to 37.3 GJ; Fans_Elec falls from 19.1 to 11.1 GJ. Cooling is the largest end use and shows the largest absolute drop (-31.5 GJ, -46%); fans show the largest proportional drop after cooling (-42%) and heating gas falls 38%. Section 5.1 notes that because this building's baseline already uses a 'vent cycle' approach, no reduction in fan operating hours was expected, and attributes the observed fan reduction to the lower heating and cooling load from tempering less outdoor air.
+- source_image: 89120_images/image_000011_dfd2c001200fe30cd0e8057dc9c03dee94e368f8b83e7e097049b7f01f5ce3b4.png
+  source_image_sha256: 1b2b2ba4c24da3e2e9fbf05a758254443e388860478c08dcc8eab4101a0b54e8
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Two stacked bars comparing whole-stock annual site energy consumption in TBtu by end use and fuel between the ComStock baseline and the measure scenario
+  description: |-
+    Figure 4. Two stacked vertical bars for the whole modeled U.S. commercial building stock. The y axis is 'Annual Energy Consumption (TBtu)', ticked 0 to 4500. The left bar 'Baseline' totals 4,338 TBtu and the right bar 'Unoccupied AHU Control' totals 4,188 TBtu, a 150 TBtu (3.5%) reduction. Labeled segments, baseline then measure: Interior Equipment Electricity 739.7 unchanged; Interior Equipment Natural Gas 212.1 unchanged; Fans Electricity 519.1 to 460.8 (-58.3); Cooling Electricity 667.3 to 649.0 (-18.3); Interior Lighting Electricity 451.9 unchanged; Heating Electricity 175.2 to 162.5 (-12.7); Heating Natural Gas 854.9 to 804.4 (-50.5). Those four deltas reproduce section 5.2's numbers exactly. The legend lists 19 end-use and fuel combinations, from Heat Rejection Electricity down to Interior Equipment Electricity; the smaller ones (heat rejection, heat recovery, pumps, refrigeration, exterior lighting, water systems, district energy) are unlabeled, and the hatched Cooling District Cooling band is about 86 TBtu. Natural gas segments are drawn with a diagonal hatch.
+- source_image: 89120_images/image_000012_98d457e4422ac2470c0a80cc3d2f48137b8b5a7fce8fd13ca3befbe30e3591be.png
+  source_image_sha256: 875feac4582f372ce3586f3d60ad53b82631b565c042ce3ba2ce90adcf027271
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Two stacked bars comparing annual site energy consumption in TBtu by end use and fuel for applicable buildings only, baseline against measure
+  description: |-
+    Figure 5. The applicable-buildings-only counterpart to Figure 4, same axes and legend. The y axis is 'Annual Energy Consumption (TBtu)'. The Baseline bar totals 1,991 TBtu and the Unoccupied AHU Control bar 1,840 TBtu, a 151 TBtu reduction. Labeled segments, baseline then measure: Interior Equipment Electricity 402.9 unchanged; Interior Equipment Natural Gas 112.9 unchanged; Fans Electricity 262.5 to 204.2 (-58.3); Cooling Electricity 277.1 to 258.9 (-18.2); Interior Lighting Electricity 217.6 unchanged; Heating Electricity 82.7 to 70.0 (-12.7); Heating Natural Gas 348.5 to 298.0 (-50.5); Water Systems Natural Gas 69.9 unchanged. Because the absolute savings are the same as in Figure 4 but the baseline is smaller, the proportional saving is larger. Note that 151/1991 works out to 7.6%, whereas section 5.2 states 9.5% aggregate site energy savings for applicable buildings; and fan savings are 38.6% of the total saving shown here, not the 26% quoted in the text.
+- source_image: 89120_images/image_000013_4713889c043793146110a3c351853dd4ad8914a7950165be3c77511c281f7faf.png
+  source_image_sha256: aab98791f28737e8d785c0de170f6294b9ac0339a0dff87c0ca1133cf05cfef0
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Three-panel stacked bar chart of annual greenhouse gas emissions in million metric tons CO2e, baseline against measure, under three electricity grid scenarios
+  description: |-
+    Figure 6. Three side-by-side panels, one per electricity grid scenario, each holding a baseline and a measure stacked bar. The y axis is 'Annual GHG Emissions (MMT CO2e)' and the legend splits each bar into Electricity (blue), Natural Gas (orange), Fuel Oil (green) and Propane (brown). Panel 'eGRID 2021': 402 MMT total (electricity 314, natural gas 81) falling to 389, a 3% reduction (electricity 305, natural gas 78). Panel 'LRMER High RE Cost 15': 325 (237, 81) falling to 313, a 4% reduction (228, 78). Panel 'LRMER Low RE Cost 15': 240 (152, 81) falling to 230, a 4% reduction (145, 78). The fuel oil and propane segments are unlabeled and together account for roughly 6 to 7 MMT. All the quoted numbers are printed on the figure. The electricity reduction is 9, 9 and 7 MMT across the three scenarios and the natural gas reduction a constant 3 MMT, matching the Executive Summary's '7 to 9 MMT' and '3 MMT' claims; the proportional cut rises as assumed grid carbon intensity falls, because the gas share of the saving is fixed.
+- source_image: 89120_images/image_000014_87b135d6878e6e2ffa19917fcf06ae33fb3b81ac6bc37af3f259fd26d583ddcb.png
+  source_image_sha256: 85c47be5b6cac9c840ae8ecaf3d5ed5ddfbb83fe2509810745b1df309db3e98a
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Violin plots of unweighted percent site energy savings for 17 end-use and fuel combinations, with sample sizes in the row labels
+  description: |-
+    Figure 7. Violin plots titled 'Upgrade 14: Unoccupied AHU Control (unweighted)'. The x axis is 'Percent Site Energy Savings by End Use (%)', ticked -160 to 100, with a reference line at zero. Rows top to bottom, with sample sizes: Other Fuel Water Systems (n=32), Other Fuel Heating (n=7592), District Heating Water Systems (n=254), District Heating Heating (n=2028), District Cooling Cooling (n=1263), Natural Gas Water Systems (n=3432), Natural Gas Heating (n=127957), Electricity Water Systems (n=3515), Electricity Refrigeration (n=9983), Electricity Pumps (n=25338), Electricity Interior Lighting (n=15), Electricity Interior Equipment (n=2), Electricity Heating (n=62694), Electricity Heat Rejection (n=3942), Electricity Heat Recovery (n=3910), Electricity Fans (n=186435), Electricity Cooling (n=190317). The water systems, refrigeration and interior equipment rows collapse onto zero. Interquartile ranges are only a few pixels wide but all sit above zero, roughly +1% to +20% for most rows, with Electricity Heat Recovery highest (about +26% to +46%) and Electricity Fans widest (about 0% to +37%). Long left tails reach about -150% on the small end uses.
+- source_image: 89120_images/image_000015_29f8fef75d2e7b9c8f6563b644fb71281ce079fad69877ae66404887f1f56a42.png
+  source_image_sha256: a780e10fd9f91750c6532ac4de7cee8b20d81c571649771427339b753c30518d
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Violin plots of percent site energy savings for 18 HVAC system types, with sample sizes in the
+    row labels
+  description: |-
+    Figure 8. Violin plots of percent site energy savings by HVAC system type. The x axis is percent site energy savings, ticked -5 to 60, with a reference line at zero; the panel spans roughly -7% to +62%. Rows top to bottom, with sample sizes: PSZ-AC with district hot water (n=14), PSZ-AC with electric coil (n=993), PSZ-AC with gas boiler (n=129), PSZ-AC with gas coil (n=3163), PSZ-HP (n=328), PVAV with PFP boxes (n=226), PVAV with district hot water reheat (n=5), PVAV with gas boiler reheat (n=472), PVAV with gas heat with electric reheat (n=323), VAV air-cooled chiller with PFP boxes (n=8), VAV air-cooled chiller with district hot water reheat (n=6), VAV air-cooled chiller with gas boiler reheat (n=33), VAV chiller with PFP boxes (n=37), VAV chiller with district hot water reheat (n=9), VAV chiller with gas boiler reheat (n=55), VAV district chilled water with PFP boxes (n=4), VAV district chilled water with district hot water reheat (n=16), VAV district chilled water with gas boiler reheat (n=2). Every interquartile range lies above zero, mostly between about +1% and +20%; the three commonest types the text singles out (PSZ-AC with gas coil, PSZ-AC with electric coil, PVAV with gas boiler reheat) have very similar spreads. The n values sum to 5,823.
+- source_image: 89120_images/image_000016_b06c941e320c27c944e5cecb95b481e08a8cdc1386964b0b53a0745da62fe8f2.png
+  source_image_sha256: ce2952e5b3a5f0d4fe7347e2335ec2a868d90771d67a5a78ddf5c1bbbf166934
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Violin plots of percent site energy use intensity savings for 12 ComStock building types, with sample sizes in the row labels
+  description: |-
+    Figure 9. Violin plots of percent site energy use intensity savings by building type. The x axis is ticked -10 to 55, with a reference line at zero. Rows top to bottom, with sample sizes and approximate interquartile ranges: FullServiceRestaurant (n=13431, about +1% to +10%), Hospital (n=43, collapsed on zero), LargeOffice (n=4513, +2% to +11%), MediumOffice (n=6171, +3% to +16%), Outpatient (n=1777, +13% to +20%), QuickServiceRestaurant (n=7896, 0% to +6%), RetailStandalone (n=31404, +2% to +13%), RetailStripmall (n=40340, +1% to +13%), SecondarySchool (n=152, +16% to +22%), SmallHotel (n=7, +2% to +5%), SmallOffice (n=39952, +2% to +17%), Warehouse (n=46406, +1% to +8%). Outpatient and SecondarySchool have by far the highest medians even though sections 2 and 3.1 state the measure was not applied to health care facilities or schools. Longest right tails reach about +50% for RetailStandalone and RetailStripmall. The n values sum to 192,092, the same total as Figure 10.
+- source_image: 89120_images/image_000017_3402effed6f3343f914d38c8a0b1afcba04365922ff8e89656610da08317ed31.png
+  source_image_sha256: 62ac90a6dc3f687f032f60eacba3560f37bd867b7a6913d87e96273222c3a763
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: Violin plots of percent site energy savings for 17 ASHRAE climate zones, with sample sizes in
+    the row labels
+  description: |-
+    Figure 10. Violin plots of percent site energy savings by climate zone. The x axis is ticked -10 to 55, with a reference line at zero. Rows top to bottom, with sample sizes and approximate interquartile ranges: 1A (n=3490, +2% to +11%), 2A (n=22207, +1% to +12%), 2B (n=3179, +1% to +13%), 3A (n=26403, +1% to +12%), 3B (n=17623, +7% to +22%), 3C (n=5828, +10% to +24%), 4A (n=40575, +1% to +11%), 4B (n=1358, +1% to +15%), 4C (n=6030, 0% to +12%), 5A (n=44316, +1% to +11%), 5B (n=8511, +1% to +12%), 6A (n=9975, +1% to +11%), 6B (n=1221, +1% to +11%), 7 (n=286, +1% to +8%), 7A (n=947, +2% to +11%), 7B (n=111, +1% to +9%), 8 (n=32, +1% to +7%). Only 3B and 3C have a 75th percentile above 15%, which is exactly the exception section 5.4 flags: both are heavily California, where the DEER-based modeling methods and Title 24 ventilation assumptions apply. Note the row list mixes plain 7 and 8 with non-standard 7A and 7B. The n values sum to 192,092, matching Figure 9.
+- source_image: 89120_images/image_000018_3a81bd9163ff7830b7e3f812818cf3752cb82e7feeaa3c4f553417d94079ab66.png
+  source_image_sha256: 4429877e73e594539034575024d10a7342a42bf5b03c45f2fd55ffba45eecc59
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Two boxplot panels of site energy savings by baseline nighttime ventilation control mode, without outliers at left and with outliers at right
+  description: |-
+    Figure 11. Two panels of three boxplots each, sharing the x axis 'in.hvac_night_variability' with categories night_fancycle_novent, night_fancycle_vent and night_fanon_vent, and the y axis 'Site energy savings (%)'. The panels differ only in y range: the left panel spans 0% to 30% and omits outliers, the right spans 0% to 60% and shows them. Left panel readings - night_fancycle_novent: the box collapses onto a green median line at 0.0% with no visible whiskers; night_fancycle_vent: Q1 +0.6%, median +1.2%, Q3 +3.0%, whiskers -1.5% to +6.6%; night_fanon_vent: Q1 +10.2%, median +14.7%, Q3 +19.5%, whiskers 0.0% to +33.3%. In the right panel the outlier clouds reach about +45% for night_fancycle_novent, about +62% for night_fancycle_vent and about +46% for night_fanon_vent. Sample sizes from the caption: night fan cycle no vent 1,678, night fan cycle vent 3,876, night fan on vent 2,230. The ordering confirms the text's expectation that fan-on-with-ventilation baselines have the most to gain.
+- source_image: 89120_images/image_000019_4ec3eb20feebf01da568633daa68afbb786d46742884a9d9a41e65d5724ac514.png
+  source_image_sha256: bf76c2c0af1ef8f750e21dea3739785701de43d47c7f5f7678daafe9601fe5f1
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Two scatterplot panels of natural gas heating penalty against fan energy savings, colored by climate zone, with a red maximum-expected-penalty line
+  description: |-
+    Figure 12. Two scatterplot panels, identical point clouds drawn at two y scales. Both have x 'Fan energy savings (kWh)' from 0 to 60,000 and y 'Natural gas heating energy savings (kWh)' running down from 0; the left panel stops at -20,000 and the right at -40,000. Every point is a building with a gas heating penalty, so all y values are negative. The legend lists CZ 3 (blue), CZ 6 (orange), CZ 5 (green), CZ 4 (red), CZ 2 (purple) and a red 'Max potential penalty' line. That line falls from the origin with a measured slope of about 1.25 kWh of gas penalty per kWh of fan saving, i.e. the reciprocal of the 80% coil efficiency the text assumes, reaching -20,000 kWh at about 16,000 kWh of fan savings. Every plotted point lies above the line, confirming the text's 'gut check' that observed penalties stay below the theoretical maximum. Most points cluster between 0 and -4,000 kWh; the deepest is about -18,300 kWh at roughly 58,500 kWh of fan savings. Because nothing reaches -20,000, the wider right-hand panel adds no information. Buildings with fan savings above 60,000 kWh are excluded.
+- source_image: 89120_images/image_000020_d0b24dcec8aeb63c3b59af21d53ca33f1dccff0dc1a9af8f2c29c2c72e730af2.png
+  source_image_sha256: cd5ea2eeb731a1a2c333d3310151e831b9e438da40ad512d3767aecfffe0f313
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Grouped bar chart of annual site natural gas consumption in TBtu for the nine U.S. census divisions, baseline against measure
+  description: |-
+    Figure A-1. Grouped vertical bar chart with x 'Census Division Name' and y 'Natural Gas Total Energy Consumption (tbtu)', ticked 0 to 350. The legend 'Upgrade Name' pairs a dark blue Baseline bar with a light blue Unoccupied OA Control bar in each of nine groups. The bars carry no printed values, so these readings are measured off the axis and are good to about 2.5 TBtu. Baseline then measure: New England 68 with no measurable change; Middle Atlantic 184 to 176; East North Central 364 to 349; West North Central 120 to 115; South Atlantic 127 to 122; East South Central 63 to 60; West South Central 85 with no measurable change; Mountain 70 to 68; Pacific 228 to 196. East North Central is the largest gas consumer and Pacific shows by far the largest proportional drop, about 14%, consistent with Figure 10's much higher savings in climate zones 3B and 3C. The bars sum to about 1,308 TBtu baseline and 1,239 TBtu with the measure, a 69 TBtu saving - noticeably more than the 50.5 TBtu of section 5.2. Note the stray word 'Figure' baked into the bitmap's top-left corner.
+- source_image: 89120_images/image_000021_288b342935047504f525f563dec89fc2547506fb7fd1c027cd262b5e5c03a1bc.png
+  source_image_sha256: e192fa0859bd2f032d0b61793a6436f644b91baeabcff3c57483a59449968865
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Grouped bar chart of annual site electricity consumption in TBtu for the nine U.S. census divisions, baseline against measure
+  description: |-
+    Figure A-2. Grouped vertical bar chart with x 'Census Division Name' and y 'Electricity Total Energy Consumption (tbtu)', ticked 0 to 600. The legend 'Upgrade Name' pairs a dark blue Baseline bar with a light blue Unoccupied OA Control bar in each of nine groups. No values are printed, so these readings are measured off the axis and are good to about 4 TBtu. Baseline then measure: New England 202 to 198; Middle Atlantic 333 to 324; East North Central 450 to 441; West North Central 215 to 207; South Atlantic 637 to 620; East South Central 220 to 211; West South Central 393 to 385; Mountain 198 to 193; Pacific 528 to 467. South Atlantic is the largest electricity consumer; Pacific again shows the largest proportional reduction, about 12%. The bars sum to about 3,176 TBtu baseline and 3,046 TBtu with the measure. That 130 TBtu saving is well above the 89.3 TBtu of electricity savings Figure 4's own labels imply, and the baseline total is about 10% higher than the same quantity disaggregated by building type in Figure A-4.
+- source_image: 89120_images/image_000022_3951fe4beb5bd00198004bf2c64e3cdd7d1968ba31fe8f5133e1507cc40e6595.png
+  source_image_sha256: 2f5cc539db05d92b2ca74a3a82b08b3afa6d8ebd69e45119520212fe3a527d49
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Grouped bar chart of annual site natural gas consumption in TBtu for the 14 ComStock building types, baseline against measure
+  description: |-
+    Figure A-3. Grouped vertical bar chart with x 'Comstock Building Type' and y 'Natural Gas Total Energy Consumption (tbtu)', ticked 0 to 200. The legend 'Upgrade Name' pairs a dark blue Baseline bar with a light blue Unoccupied OA Control bar in each of 14 groups. No values are printed, so these readings are measured off the axis and are good to about 1.5 TBtu. Baseline then measure: FullServiceRestaurant 170 to 161; QuickServiceRestaurant 54 with no measurable change; RetailStripmall 215 to 201; RetailStandalone 83 to 73; SmallOffice 57 to 52; MediumOffice 36 to 29; LargeOffice 57 to 45; PrimarySchool 126 unchanged; SecondarySchool 176 to 173; Outpatient 27 to 26; Hospital 88 unchanged; SmallHotel 8 unchanged; LargeHotel 99 unchanged; Warehouse 95 to 83. PrimarySchool, Hospital, SmallHotel and LargeHotel come out exactly unchanged, consistent with the stated exclusions, but SecondarySchool and Outpatient do move. The bars sum to about 1,290 TBtu baseline and 1,218 with the measure, a 72 TBtu saving that agrees with Figure A-1 and exceeds section 5.2's 50.5 TBtu.
+- source_image: 89120_images/image_000023_bc8951578bc3a86bc6fc5c5143a68668acd6543d948167ea094477efc60b3d38.png
+  source_image_sha256: 610f38fbf9326f4e4b3a4dac24dc1c7cbf9024f72a7ecf77fe036bc45f6028cc
+  method: vision-description
+  described_utc: '2026-08-20'
+  alt: |-
+    Grouped bar chart of annual site electricity consumption in TBtu for the 14 ComStock building types, baseline against measure
+  description: |-
+    Figure A-4. Grouped vertical bar chart with x 'Comstock Building Type' and y 'Electricity Total Energy Consumption (tbtu)', ticked 0 to 400. The legend 'Upgrade Name' pairs a dark blue Baseline bar with a light blue bar labeled 'Unoccupied AHU Control' - the only appendix figure to use the AHU wording - in each of 14 groups. No values are printed, so these readings are measured off the axis and are good to about 3 TBtu. Baseline then measure: FullServiceRestaurant 167 to 159; QuickServiceRestaurant 61 with no measurable change; RetailStripmall 396 to 382; RetailStandalone 276 to 265; SmallOffice 192 to 176; MediumOffice 181 to 167; LargeOffice 292 to 279; PrimarySchool 219 unchanged; SecondarySchool 224 to 222; Outpatient 124 unchanged; Hospital 159 unchanged; SmallHotel 34 unchanged; LargeHotel 189 unchanged; Warehouse 361 to 350. The bars sum to about 2,876 TBtu baseline and 2,786 with the measure. That 90 TBtu saving matches the 89.3 TBtu of electricity savings implied by Figure 4's labels closely, unlike Figure A-2's 130 TBtu.
