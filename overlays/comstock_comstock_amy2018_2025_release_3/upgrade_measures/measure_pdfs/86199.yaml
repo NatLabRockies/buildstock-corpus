@@ -114,3 +114,202 @@ tables:
       | Boiler Constant Efficiency Curve | Cubic | Efficiency Multiplier | Part Load Ratio | 1 | 0 | 0 | 0 | From DOE Reference Building |
       | Boiler with Minimum Turndown | Cubic | Efficiency Multiplier | Part Load Ratio | 0.7791 | 1.4745 | -2.5795 | 1.3467 | From Regression of Prototype Building EMS |
       | Boiler with No Minimum Turndown | Cubic | Efficiency Multiplier | Part Load Ratio | 0.7463 | 1.3196 | -2.2154 | 1.1674 | From Regression of Prototype Building EMS |
+
+# Hand-authored figure descriptions for measure_pdfs/86199.pdf (Batch E).
+#
+# 86199 documents the Boiler Replacement with Air-Source Heat Pump Boiler and Electric Boiler
+# Backup measure. docling extracts every picture as a bare ![Image](...) ref: the caption line
+# usually survives above it, but the chart itself is invisible to retrieval. Each entry below
+# rewrites the ref with a hand-written alt and injects a description paragraph beneath it.
+# Schema and depth budget: overlays/FIGURE_DESCRIPTIONS_ROLLOUT.md (section 2.1 -- 40-70 words,
+# alt <=120 chars, no corroboration against body prose).
+#
+# Scope: all 23 non-decorative images (indices 000002-000024), covering Figures 1-22 and
+# A-1 through A-3. The two cover images (000000 photo collage, 000001 logo) are deliberately
+# not described. This document is diagram-heavy: seven of the entries are schematics, operating
+# maps or performance-curve plots rather than results charts.
+#
+# The `tables:` entries above transcribe Tables 1 and 2 from the rasterized page 11. This
+# figures: block is independent of them -- no figure entry anchors on a table bitmap.
+#
+# QA notes (vision reads; confirm before treating as a release record):
+#   * Figures 10 and 11 arrive as ONE bitmap (index 000011), with Figure 10's caption printed
+#     INSIDE the image between the two contour panels; only Figure 11's caption survives as
+#     markdown text above it. The appendix does the same thing at index 000023 for Figures A-1
+#     and A-2. Neither figure was dropped, but a reader of the extracted markdown sees one
+#     image where the prose cites two figures, so both entries name both numbers.
+#   * Index 000023 reprints index 000011's two panels. The bitmaps are byte-different, so each
+#     is pinned separately.
+#   * Figure 3's caption is printed inside its bitmap too, which is why no "Figure 3." line
+#     appears in the extracted markdown.
+#   * Figure 14's x-axis is labeled W/ft2 but runs to about 320 -- orders of magnitude above a
+#     plausible peak demand intensity. Its caption also says "average daily maximum peak demand
+#     comparison" while the chart plots full distributions, not averages.
+#   * Section 6.7 opens "Figure 18 and Figure 19 show a state-by-state percentage natural gas
+#     and electricity savings distributions"; the two state maps are Figures 19 and 20 (Figure
+#     18 is the building-type bar chart). Prose error.
+#   * This document has no On-Site Fossil Fuel Emissions Factors table, so the recurring propane
+#     kg/MWh error does not arise here.
+
+figures:
+- source_image: 86199_images/image_000002_401f196bec009750e44e024518d86b0372febce793197f858e06b387bdd44bb8.png
+  source_image_sha256: 3548951fabc2e739473b749e4bb946399e24e3d962555cf5dc545d2a638a6299
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Schematic of air-source heat pump boiler refrigerant cycle with a ref-to-water heating coil
+  description: |-
+    Figure 1: schematic of ASHP boiler operation. Refrigerant leaves a ref-to-air cooling coil, passes through a compressor to a ref-to-water heating coil that produces heating water, and returns through an electronic expansion valve (EXV) to the cooling coil. Green arrows mark the low-pressure side of the loop and orange the high-pressure side. Section 2 describes the cycle.
+- source_image: 86199_images/image_000003_761fa8382000bfe82d38d118ecb461549bc748c6a5bdb4ad42ff0f41ec7a796a.png
+  source_image_sha256: a44a8240c2777012b9bbc15d15d0828cba81f9fda97816a8c330c0004229c14b
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Scatter plot of boiler efficiency multiplier against boiler part load ratio for three curves
+  description: |-
+    Figure 2: scatter plot of boiler efficiency multiplier (y-axis 0 to 1.4) against boiler part load ratio (x-axis 0 to 1.4) for three curve families. One series is flat at 1.0 across the range; the other two fall to roughly 0.78 and 0.86 near zero part load and rise above 1.2 beyond a ratio of 1.2. Table 2 lists the coefficients.
+- source_image: 86199_images/image_000004_d739b7b7fd422aa11e1a5a567ad20a7a9d3b7d588d6e7661feacf1c4b8b668b9.png
+  source_image_sha256: b63f1bfcf218ab0b0c99d8025a8b006dce368574022ae6607d4b7a8fb67e83c0
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Two-panel bar chart of stock area and stock gas heat for models with and without boilers
+  description: |-
+    Figure 3: two small bar panels - percent of stock area and percent of stock gas heat - each with a Models with Boilers and a Models without Boilers row, the orange segment marking the applicable portion. The caption "Figure 3. Measure applicability" is printed inside the bitmap. Section 4.1 gives 33% of stock floor area as applicable and 94% of boiler buildings.
+- source_image: 86199_images/image_000005_53281d120896065dfdbb3c40587a470c46be02ac143f0c4250f987d8eb7404df.png
+  source_image_sha256: 7285c6a8d6165817d2958f9f588ea4a82b34d19bc8ecf897f2f97760fb15a21e
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Line chart of target capacity values for different ASHP sizing options against outdoor temperature
+  description: |-
+    Figure 4: line chart titled Target Capacity Values for Different ASHP Sizing Options, heating load in Btu/hr on the left axis, cooling load on the right, outdoor temperature -10 to 90F across the bottom. A descending heating load line carries callouts for Option 4D at the design heating load, Option 4C at 17F, and an Options 4A/4B range from 80% to 125% of design cooling load. Reproduced from reference 6.
+- source_image: 86199_images/image_000006_0f0e72c917b035de7fb98bc90881a14b3e35114dc52ea53a5c67dbccf41ab1ed.png
+  source_image_sha256: f734b449fe9ffa8aa92da0e983b0868bd5eb1613271d03a2097e09604ae2b193
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Diagram of the heat pump sizing approach relating capacity and heating load to outdoor temperature
+  description: |-
+    Figure 5: schematic plotting heat pump capacity and a descending heating load line against outdoor air temperature (MBh on the y-axis) from the heating design temperature to 60F. Their intersection is labeled Target Capacity at a percentage of the design heating load, with the cutoff, target and design outdoor temperatures marked below. Section 4.2.2.1 explains this peak-load-percentage sizing.
+- source_image: 86199_images/image_000007_9d976226315d7817a3a3d181fd7cdfb3529a60bc84acbc07601303f1121e743e.png
+  source_image_sha256: 505234cc4dcd2c1db6303d653b464ce2fe74e4f202ffb093e00df582e0e7625f
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Operating envelope of the Trane ACX heat pump, hot water leaving temperature vs ambient temperature
+  description: |-
+    Figure 6: operating map for the Trane ACX heat pump, hot water leaving temperature 60 to 160F against ambient temperature -10 to 100F. A red envelope marks ACX full load on R410A, topping out near 140F leaving water between about 50F and 90F ambient; a green band below 80F leaving water marks where 25% glycol is required. Reproduced from reference 2.
+- source_image: 86199_images/image_000008_879d10bd373f0577436b98ee6660d4ae4875f0f2ad518df6c6628257c1116d29.png
+  source_image_sha256: b36b4136cdd78efc8026bc79fb73eaf27bf6d8450248b0d441a8ab6ae0370c46
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Operating envelope of the Mitsubishi Ecodan ASHP, outlet water temperature vs outdoor temperature
+  description: |-
+    Figure 7: operation map for the Mitsubishi Ecodan ASHP, outlet water temperature 0 to 80C against outdoor temperature -30 to 45C. The envelope allows roughly 25C to 70C leaving water above -20C outdoor, narrows into a hatched band below -20C, and steps its minimum down to about 25C between 0C and 45C. Reproduced from reference 10.
+- source_image: 86199_images/image_000009_1d5a487534488a78f815176dec3e52d707188b69c75948dbfcad9ba86e33898a.png
+  source_image_sha256: a988003001805e7a1b4a3f7696db6bab1f460d28faf3eba693816886221802fe
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Line chart of ASHRAE 90.1-2021 minimum heating COP requirements at 47F and 17F outdoor air
+  description: |-
+    Figure 8: line chart titled Minimum COP Requirement, COP on the y-axis 0 to 3.5 against leaving water temperature 105 to 140F, with one line per rating condition. At 47F outdoor air the minimum falls from 3.28 to 2.31; at 17F it falls from 2.05 to 1.50. Section 4.2.6 applies these ANSI/ASHRAE/IES 90.1-2021 minima.
+- source_image: 86199_images/image_000010_5a97cb86c04ea095b17450da5d62d12511a21a051016eb21561f1836a9827cf7.png
+  source_image_sha256: b6bed97a6b14b9bbda6a3eac3b8962d0fc0096351669afba92f8b6633c7be311
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Diagram of a heat pump loop and hot water loop joined by a heat exchanger with a backup boiler
+  description: |-
+    Figure 9: block diagram of the modeled hydronic configuration. A heat pump boiler and its pump circulate a heat pump loop through a heat exchanger; on the other side the hot water loop carries its own pump, the heating coil, and a backup boiler downstream of the heat exchanger. Section 4.3 describes the OpenStudio implementation.
+- source_image: 86199_images/image_000011_37b5a8029131e34d324a805ee1a59ecc8c65ffdedc9b1cdeda53e8d327f66aa0.png
+  source_image_sha256: a5bb54e912829d5695776f65ac6036cdb486c90a8c934d81b32ba479ceff0e95
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Two contour plots, CAPFT and EIRFT curve output vs outdoor and condenser water temperature
+  description: |-
+    Figures 10 and 11 in a single bitmap: two filled contour plots of performance curve output against outdoor temperature (-15 to 30C) and condenser leaving water temperature (60 to 82C). CAPFT rises from 0.45 to 1.50 as outdoor air warms; EIRFT falls from 1.80 to 0.60 as outdoor air warms and leaving water cools. Figure 10's caption is printed inside the bitmap between the panels.
+- source_image: 86199_images/image_000012_01d1e052ed4f877b886e59640fb35c5cf5825f9472c4fc355cdadba5d992c70f.png
+  source_image_sha256: db27172ffff17a185e3db544cab2db14cdd6540567d29844749e2b8da312974c
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Scatter plot of boiler and heat pump heating rate against outdoor air temperature
+  description: |-
+    Figure 12: scatter plot of hourly heating rate in watts (y-axis to about 450,000) against outdoor air temperature (-25 to 15C) for the single example model, with separate series for boiler and heat pump heating rate. The boiler carries the load below roughly -5C, reaching 300,000 to 400,000 W, while the heat pump runs above that near 200,000 W. Section 6.1 discusses the sequencing.
+- source_image: 86199_images/image_000013_b2e1c43498276fff7f3edf9869d719f9646748ea2ab41c4c0b3f070d1f509feb.png
+  source_image_sha256: ae9f55a0d3881120b33ba0a9ffde0b1f3f4e3d372f8508ae87b7ee571378409e
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Two-panel stacked bar chart of end-use energy consumption, all models and applicable buildings
+  description: |-
+    Figure 13: two stacked bar panels comparing annual site energy consumption by end use and fuel for the baseline against HP Boiler E Backup - panel (a) all ComStock models, y-axis to about 4,750 TBtu, and panel (b) applicable buildings only, y-axis to about 1,750. Totals fall 4,638 to 4,290 and 1,640 to 1,292, the same 348 TBtu saving quoted in Section 6.2.
+- source_image: 86199_images/image_000014_6d48e51ba6f0c705a6499ce5bec5ad2df3aa511028a3a3a450e1257204622878.png
+  source_image_sha256: 3601a845bd87e8ce76c5ccdb44a936e7e29c534ba2f2a037b966b98a89635985
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin plots of maximum daily peak magnitude by season, baseline vs HP Boiler E Backup
+  description: |-
+    Figure 14: horizontal violin plots of maximum daily peak magnitude by season - winter, summer, shoulder - with one distribution per scenario, x-axis labeled W/ft2 and running to about 320. Mass concentrates near zero with long right tails in every pair. Section 6.3 reports no summer increase and 0.6% and 5.8% increases in the shoulder and winter seasons.
+- source_image: 86199_images/image_000015_e9579f9db49ec8e160be6d43b625f41b0b73132f412beef78cbd865913aa8e2b.png
+  source_image_sha256: ac2f935288c473dcc128a65e8dc17ef790abc99eebb831360b103a284fa86da4
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin and box plots of percent site energy savings by HVAC system type
+  description: |-
+    Figure 15: horizontal violin-and-box plot of percent site energy savings by HVAC system type, x-axis -20% to 60%, titled Upgrade 05: HP Boiler E Backup (unweighted), eleven rows with model counts (PVAV with gas boiler reheat n=27,122; PVAV with gas heat with electric reheat n=21,685). The DOAS water-source heat pump and electric-reheat PVAV rows are lowest, per Section 6.4.
+- source_image: 86199_images/image_000016_425f4fce5b76eaabfe2704816d5e5a37c1a8e58d2e86546d749878fb3d171fc6.png
+  source_image_sha256: ee3027a28b03c50365317df9cd045fecd234d40471da35732812f5efdd56fca6
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Annotated time series of hot water loop flow across spring showing a period of very small flow
+  description: |-
+    Figure 16: dense time-series line chart of flow in the hot water loop across April through June for one model, y-axis 0 to about 2,200. A red ellipse and the note "Very small flow in the hot water loop" mark a stretch at the right end where flow nearly vanishes - the condition Section 6.4 links to limited heat pump operation.
+- source_image: 86199_images/image_000017_cc7070bdf0c2ca6cc8e4d417bd131ee6ce964af7b0f0ed26de2ea780048d4226.png
+  source_image_sha256: f9cf4285a5fd0cdc8cc8bdb289884d2641f882e461317ec6f433df3c20ae02b3
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin and box plots of percent site energy savings by end use and fuel type
+  description: |-
+    Figure 17: horizontal violin-and-box plot of percent site energy savings by end use and fuel type, x-axis -160% to 100%, titled Upgrade 05: HP Boiler E Backup (unweighted), fifteen rows with model counts (electricity pumps n=66,189; natural gas heating n=66,304). Natural gas heating sits near 100% savings while electricity pumps and heating show large penalties. Section 6.5 discusses them.
+- source_image: 86199_images/image_000018_d7fd722d19441bad845a14ef274b80074f2463407815e433d8e1ac1fc1745429.png
+  source_image_sha256: 4afc4055743a146f0d2ad8a2e9fb9b261ba791091b6f7f8bd83941f6c3911323
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Bar chart of average percent savings in total energy consumption by ComStock building type
+  description: |-
+    Figure 18: vertical bar chart of average percent savings in total energy consumption by ComStock building type, y-axis 0 to 22% with printed labels. SecondarySchool is highest at 21.6%, followed by PrimarySchool at 16.2% and Hospital at 12.7%; QuickServiceRestaurant is lowest at 0.1% and FullServiceRestaurant at 0.6%. Section 6.6 attributes the spread to boiler prevalence by type.
+- source_image: 86199_images/image_000019_4c034d992f456d392589f08993f18515039db0fd97563aa77a4f226629535a1c.png
+  source_image_sha256: 39548ec9e1a28d8f32c4c98e897680255c865a14851606a3d01cfe2ceb59150f
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Choropleth map of percentage natural gas savings by state
+  description: |-
+    Figure 19: choropleth map of the United States shading each state by percentage natural gas savings, with the value printed on each state and darker blue meaning larger savings. Cold northern states reach 20% to 23.56% while Florida is lowest at 5.52%. Section 6.7 links the pattern to climate and to the building-type distribution.
+- source_image: 86199_images/image_000020_bd0253e54ec91f8aabd09a4d4681aaa2ddb5546034d15906dd51cd98fc63d8fd.png
+  source_image_sha256: 3286f9a9f001452505cc49c936571e1fe3f234c47a01431253264f4dde64c5fe
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Choropleth map of percentage electricity savings by state, nearly all negative
+  description: |-
+    Figure 20: choropleth map shading each state by percentage electricity savings, values printed, nearly all negative because electricity use rises with the heat pump. The coldest states run -11% to -12.35% and the Southeast near -1%; Florida is the lone positive at 0.01%, which Section 6.7 attributes to the autosizing limitation in Section 4.4.
+- source_image: 86199_images/image_000021_968228b3a408e2b1fe588540eaf723829d8de2e6fda2baca647f0d22216ccdd2.png
+  source_image_sha256: 9524b33a516ec236971177e4d132f8e7c02dd33f8c82074389ef3ae782fd4651
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Choropleth map of heat pump average COP by state
+  description: |-
+    Figure 21: choropleth map shading each state by heat pump average COP, with the value printed on each state. Values run from about 2.09 in the northern Plains to 3.09 in Florida, with Arizona at 2.93 and most of the Midwest and Northeast between 2.2 and 2.4. Section 6.7 notes that heat pump boilers run more efficiently in hot climates.
+- source_image: 86199_images/image_000022_0a132b71cdcc6a95418490f244efe7de67108bbfa17b16fec7cad654d54b7b60.png
+  source_image_sha256: ff507f11d7f56fa256d27c1283480603d721604ecde17af285334b1bad96b6aa
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Paired bar chart of annual GHG emissions by grid scenario and on-site fuel, baseline vs upgrade
+  description: |-
+    Figure 22: paired bar chart of annual GHG emissions (MMT CO2e, y-axis 0 to 500) for the baseline and HP Boiler E Backup across three electricity grid scenarios plus natural gas, fuel oil and propane, each pair labeled with its delta. Electricity emissions rise - eGRID 336.6 to 356.5 (+19.9, 5.9%) - while natural gas falls 83.6 to 48.7 (-34.9, 42%). Section 6.8 nets these to savings.
+- source_image: 86199_images/image_000023_4ad212fd0237336c41b1be834c003d3aac4d7f989d6c462216bda5fea793110e.png
+  source_image_sha256: 786403d848eb66f9a9ce06eea28ad7efd3a7bbe3910b4e6e6ba1a4c4d9f3344f
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Two contour plots reprinting the CAPFT and EIRFT performance curve output in Appendix A
+  description: |-
+    Figures A-1 and A-2 in a single bitmap: the same pair of filled contour plots printed earlier as Figures 10 and 11, with CAPFT rising from 0.45 to 1.50 and EIRFT falling from 1.80 to 0.60 across outdoor temperature -15 to 30C and condenser leaving water temperature 60 to 82C. Figure A-1's caption is printed inside the bitmap. Table A-3 lists the curve coefficients.
+- source_image: 86199_images/image_000024_c3ee03e60a2f20a02a8eded9fe3f57553454c75eef31aad4c830c65c2a32433d.png
+  source_image_sha256: e4dc643c5599c6624df114f9232fffcbd8dcc4099ed5c7b4492dfa4ee01b905c
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Two 3-D scatter plots comparing actual and predicted heating capacity and EIR
+  description: |-
+    Figure A-3: two three-dimensional scatter panels comparing actual against predicted values over outdoor air temperature (-20 to 30C) and condenser water leaving temperature (60 to 80C) - heating capacity in kW with RMSE 0.026, and EIR with RMSE 0.006. Predicted points track the actuals closely across the grid, which Section A.1 cites as validation of the curves.

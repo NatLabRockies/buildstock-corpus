@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "comstock_amy2018_2025_release_3",
-  "generated_utc": "2026-08-21T21:35:47.051726+00:00",
+  "generated_utc": "2026-08-21T21:43:55.761849+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -1340,13 +1340,38 @@
           "title": "Air-Source Heat Pump Boiler",
           "input_sha256": "be173f2dbe730146ceb402874c867c9be75438d2ecb00b4e1d93dde4f3b87270",
           "output_path": "upgrade_measures/measure_pdfs/86199.md",
-          "output_sha256": "61300f6e374c42b2ce8e4deefbc2d4d190f62173c17c08e70f7bdbb8ccce60e8",
+          "output_sha256": "9044fba155eb1db6da46f83c95f7db60ad9554ccf506905f87322e9bcc2190cb",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86199.yaml",
-            "sha256": "a526bebb596e0bab4b8b59786a557f546f8f8b9c52be06dafb1c3cca8e0351df",
+            "sha256": "ed5d4cc08406e656ac6b66d02f33aec4fdba11d7031b5e1c3a23cd6037b9dd93",
             "tables_applied": [
               "Table 1",
               "Table 2"
+            ],
+            "figures_applied": [
+              "86199_images/image_000002_401f196bec009750e44e024518d86b0372febce793197f858e06b387bdd44bb8.png",
+              "86199_images/image_000003_761fa8382000bfe82d38d118ecb461549bc748c6a5bdb4ad42ff0f41ec7a796a.png",
+              "86199_images/image_000004_d739b7b7fd422aa11e1a5a567ad20a7a9d3b7d588d6e7661feacf1c4b8b668b9.png",
+              "86199_images/image_000005_53281d120896065dfdbb3c40587a470c46be02ac143f0c4250f987d8eb7404df.png",
+              "86199_images/image_000006_0f0e72c917b035de7fb98bc90881a14b3e35114dc52ea53a5c67dbccf41ab1ed.png",
+              "86199_images/image_000007_9d976226315d7817a3a3d181fd7cdfb3529a60bc84acbc07601303f1121e743e.png",
+              "86199_images/image_000008_879d10bd373f0577436b98ee6660d4ae4875f0f2ad518df6c6628257c1116d29.png",
+              "86199_images/image_000009_1d5a487534488a78f815176dec3e52d707188b69c75948dbfcad9ba86e33898a.png",
+              "86199_images/image_000010_5a97cb86c04ea095b17450da5d62d12511a21a051016eb21561f1836a9827cf7.png",
+              "86199_images/image_000011_37b5a8029131e34d324a805ee1a59ecc8c65ffdedc9b1cdeda53e8d327f66aa0.png",
+              "86199_images/image_000012_01d1e052ed4f877b886e59640fb35c5cf5825f9472c4fc355cdadba5d992c70f.png",
+              "86199_images/image_000013_b2e1c43498276fff7f3edf9869d719f9646748ea2ab41c4c0b3f070d1f509feb.png",
+              "86199_images/image_000014_6d48e51ba6f0c705a6499ce5bec5ad2df3aa511028a3a3a450e1257204622878.png",
+              "86199_images/image_000015_e9579f9db49ec8e160be6d43b625f41b0b73132f412beef78cbd865913aa8e2b.png",
+              "86199_images/image_000016_425f4fce5b76eaabfe2704816d5e5a37c1a8e58d2e86546d749878fb3d171fc6.png",
+              "86199_images/image_000017_cc7070bdf0c2ca6cc8e4d417bd131ee6ce964af7b0f0ed26de2ea780048d4226.png",
+              "86199_images/image_000018_d7fd722d19441bad845a14ef274b80074f2463407815e433d8e1ac1fc1745429.png",
+              "86199_images/image_000019_4c034d992f456d392589f08993f18515039db0fd97563aa77a4f226629535a1c.png",
+              "86199_images/image_000020_bd0253e54ec91f8aabd09a4d4681aaa2ddb5546034d15906dd51cd98fc63d8fd.png",
+              "86199_images/image_000021_968228b3a408e2b1fe588540eaf723829d8de2e6fda2baca647f0d22216ccdd2.png",
+              "86199_images/image_000022_0a132b71cdcc6a95418490f244efe7de67108bbfa17b16fec7cad654d54b7b60.png",
+              "86199_images/image_000023_4ad212fd0237336c41b1be834c003d3aac4d7f989d6c462216bda5fea793110e.png",
+              "86199_images/image_000024_c3ee03e60a2f20a02a8eded9fe3f57553454c75eef31aad4c830c65c2a32433d.png"
             ]
           }
         },
@@ -2272,7 +2297,7 @@
   ],
   "counts": {
     "documents": 118,
-    "chunks": 8079,
+    "chunks": 8094,
     "by_type": {
       "latex": 19,
       "markdown": 40,
@@ -2281,7 +2306,7 @@
     },
     "overlay_documents": 57,
     "overlay_tables": 57,
-    "overlay_figures": 824,
+    "overlay_figures": 847,
     "overlay_text_repairs": 1
   },
   "crosswalk": {
