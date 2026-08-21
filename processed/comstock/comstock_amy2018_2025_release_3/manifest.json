@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "comstock_amy2018_2025_release_3",
-  "generated_utc": "2026-08-21T15:51:58.414354+00:00",
+  "generated_utc": "2026-08-21T16:32:35.739170+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -1028,7 +1028,37 @@
           "title": "Thermostat Setbacks During Unoccupied Periods",
           "input_sha256": "49eb99ad293cd46cdbd5e4ae7b037386a495721e163d607878ac846a39d2ecf6",
           "output_path": "upgrade_measures/measure_pdfs/98346.md",
-          "output_sha256": "108ca6aca5bfdfd72d630728b50a2f348443a997b9a016bf3bed9f9c717e93a5"
+          "output_sha256": "db38f0be234333d84e9da581f146499a1bc6a9cf824dfb7c85332992e0e5dd35",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/98346.yaml",
+            "sha256": "373f7aec85087f1beae8b8ecf3026104da69dc9ddbd1358a1db09dc4e0ebd9b9",
+            "tables_applied": [],
+            "figures_applied": [
+              "98346_images/image_000002_1d21c2a9e2de5eeb08ba8569452c6b28d015b1a1643dc43cfbd0680a62a0f4c3.png",
+              "98346_images/image_000003_69cc188fd949ca9ce388f016cc615c433750702a399bff75ed84df7a0d67a4bc.png",
+              "98346_images/image_000004_0e2d1e4bd6ce44bf509861cb084e70798e600b135134a30c9cf0d5f801fb4265.png",
+              "98346_images/image_000005_aff561ec7219c3659627080b01e156215019b280c2666555d76a3a8b1a4878d7.png",
+              "98346_images/image_000006_52e34b035f67ecd1ea9b5eb893fa5c608b4c46a3e82eee162a6c52cc2b1b3d0a.png",
+              "98346_images/image_000007_ed313d99875f5a1d81806a9c2c043ed9a6ecb9d300197f525cbc801b00ca5bf3.png",
+              "98346_images/image_000008_2f8148408b9473cb8daff65172db778d8715497c9dd9d7605b93e8e6913ee0fa.png",
+              "98346_images/image_000009_ed1839c4ad728600aa8b33ad75e583103ceb5737e67a924325ac9d85fd8de63b.png",
+              "98346_images/image_000010_e63d71e1e6c7ce76067a8205a22f784f75be808f782dbe75e897679dbc9dd6da.png",
+              "98346_images/image_000011_c0d15b6d7babf508578b9e128b1920c69f42f93eadb692fbef8b2721d8c3774c.png",
+              "98346_images/image_000012_5975ee2043c5dedd5f0ed038b4e8e0eeb3f298ce69f6947c205d195f6d18f360.png",
+              "98346_images/image_000013_c5d3d051830b63f95f0f7b701a104d8bddbdb2d0332c6bd321269deecc616a23.png",
+              "98346_images/image_000014_2220882166b4b318c1f723c4c2a5efa8231e3305ce9a61e6dfae95f17bd48e3b.png",
+              "98346_images/image_000015_82eeaa475ac28ed71c387eb9f992961f7c9a2024d9c2fc0d9bbd02506078190c.png",
+              "98346_images/image_000016_ddf713a87f9e3e8bb9727e5af3892180f795931e155669b8c8a756d2acc83b2c.png",
+              "98346_images/image_000017_988e72114c899909f18e3df74a22ed96e332a317d35d7d9a1c395aa8b03b6bc3.png",
+              "98346_images/image_000018_b5db3fe1686366d3df269424bc22ff4e6b0743eddb13679b5d089c4d4a9318da.png",
+              "98346_images/image_000019_9909ab49e6ac05cf7aea1cdb00367bc70d0b7c1927b92917d3e074bc7c9d822c.png",
+              "98346_images/image_000020_65ba31c7c194f7361bf61c9e9ca5f3438b5114a1b15e08df3890e58f0d47e852.png",
+              "98346_images/image_000021_4280ecc79bccd4c34c9137ff75a9f0f81c389cd3dc95d5032c2807daf860cf77.png",
+              "98346_images/image_000022_410fc59a69d45b013d20b5421f87ae373031a1131cbd7f201e9b2064d4204e50.png",
+              "98346_images/image_000023_3e1ee2a38bcb2e34d636d438a3cdafe4f50c01ee4f25bbb6f88d4647138d123b.png",
+              "98346_images/image_000024_d4e5584b8ba2ad413fa3484b720544f560713127226fd5d73c8df84f1a014f8c.png"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/85853.pdf",
@@ -1810,16 +1840,16 @@
   ],
   "counts": {
     "documents": 118,
-    "chunks": 7811,
+    "chunks": 7850,
     "by_type": {
       "latex": 19,
       "markdown": 40,
       "measures": 6,
       "pdf": 53
     },
-    "overlay_documents": 47,
+    "overlay_documents": 48,
     "overlay_tables": 57,
-    "overlay_figures": 442,
+    "overlay_figures": 465,
     "overlay_text_repairs": 1
   },
   "crosswalk": {

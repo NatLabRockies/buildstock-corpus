@@ -1,0 +1,350 @@
+# Hand-authored figure descriptions for measure PDF 98346
+# "ComStock Measure Documentation: Thermostat Setbacks During Unoccupied
+#  Periods"
+# Amy Allen, National Laboratory of the Rockies, NLR/TP-5500-98346, March 2026
+#
+# The PDF yields 25 extracted images. Two are decorative and are deliberately
+# left with no overlay entry: image_000000 is the cover photo collage and
+# image_000001 is the laboratory wordmark. The remaining 23 images are real
+# figures and are all described below, in document order:
+#   000002 = Figure 1     000010 = Figure 8      000018 = Figure 16
+#   000003 = Figure 2     000011 = Figure 9      000019 = Figure 17
+#   000004 = Figure 3     000012 = Figure 10     000020 = Figure 18
+#   000005 = Figure 4     000013 = Figure 11     000021 = Figure A-1
+#   000006 = Figure 5     000014 = Figure 12     000022 = Figure A-2
+#   000007 = Figure 6     000015 = Figure 13     000023 = Figure A-3
+#   000008 = Figure 7a    000016 = Figure 14     000024 = Figure A-4
+#   000009 = Figure 7b    000017 = Figure 15
+# Captions sit ABOVE their image refs in this document, except for Figure 7,
+# whose single caption sits between the 7a and 7b images.
+# No table survives only as a bitmap here: Tables ES-1 to ES-3 and Tables 1-6
+# all extracted as markdown, so every entry below is a vision-description.
+#
+# QA FLAGS - vision-derived numbers need a human pass before publication.
+#
+# High confidence (values are printed on the figure itself, or corroborated by
+# body text or a table):
+#   - Figure 1 (000002): the applicable (orange) segments sum to 39.7% of a
+#     measured 97.4% total, i.e. 40.7% of plotted floor area, against Section
+#     3.1's 41%. The scale was calibrated on the two printed absolute labels in
+#     the right-hand panel (Warehouse applicable 10,467,682,783 sq ft over 73 px
+#     and LargeHotel total 3,629,681,881 over 25 px, giving 143.85 million sq ft
+#     per pixel, or 4.536 px per percent), after which every printed percent
+#     label reproduced within rounding. That scale implies about 65.3 billion
+#     sq ft of total stock, 41% of which is 26.8 billion, against the "about 26
+#     billion square feet" in Section 3.1.
+#   - Figure 7a (000008): bar totals 4,989 -> 4,873 TBtu, a delta of 116 and
+#     2.32%, against Table ES-2's 116 TBtu and 2.3%. Every legible segment
+#     label also reproduces Table 5: fans 673.6 -> 667.9 = 5.7 against 5.8;
+#     cooling 755.4 -> 740.6 = 14.8 exactly; electric heating 244.6 -> 226.7 =
+#     17.9 exactly; gas heating 944.4 -> 875.9 = 68.5 against 68.6.
+#   - Figure 7b (000009): bar totals 2,079 -> 1,963 TBtu, the same 116 TBtu
+#     absolute delta but 5.58% of the applicable base, against Table ES-2's
+#     5.6%. Segment checks: fans 314.0 -> 308.2 = 1.85% against 1.8%; cooling
+#     305.1 -> 290.4 = 4.85% against 4.8%; electric heating 99.4 -> 81.5 =
+#     18.0% against 18%. Independently, back-solving Table ES-2's applicable
+#     column gives an applicable baseline of 1,459 + 572 + 18.5 + 25.5 = 2,075
+#     TBtu against the 2,079 measured off the bar.
+#   - Figure 9 (000011): all nine panel readings reproduce Table 6. Totals
+#     150 -> 148, 130 -> 128 and 112 -> 110 billion USD give a 2 billion USD
+#     reduction against Table 6's 2,022 million USD and 1.56% against 1.6%;
+#     the electricity block falls 111 -> 110 in the mean-rate panel, 0.86%
+#     against 0.9%, and natural gas 16 -> 15, 5.7% against 5.6%.
+#   - Figures 10, 11, 12, 16 and 17 (000012, 000013, 000014, 000018, 000019):
+#     all row labels and n values read at 9x zoom. Figure 12's Electricity
+#     Interior Equipment row reads n=33, matching the "(33)" in the Section 5.5
+#     elevator-schedule bug note exactly. Figure 16's fuel-level counts are
+#     consistent with Figure 12's end-use counts allowing for buildings that
+#     use one fuel for both heating and water heating (gas 19,427 + 2,661 vs a
+#     fuel-level 20,223; propane 4,820 + 380 vs 4,867; fuel oil 3,305 + 108 vs
+#     3,308). Figure 17's fourteen building-type counts sum to 48,400 against
+#     Figure 16's Site count of 48,404, a strong mutual cross-check.
+#   - Figure 17 (000019) has no LargeHotel row, which is consistent rather than
+#     a defect: Figure 1 shows LargeHotel with zero applicable floor area.
+#   - Figure 18 (000020): the four bars read about 63%, 21%, 9% and 8% and sum
+#     to about 100%, and the 63% night_fanon_vent share corroborates Section
+#     5.6's "over 60% of that subset has fans operating continuously at night."
+#   - Figures A-1 to A-4 (000021-000024): the column sums are the load-bearing
+#     reads and they close against Table ES-2 and against each other. Natural
+#     gas totals about 1,421 (A-1, by division) and about 1,440 (A-2, by type)
+#     baseline, with measure-case reductions of about 62 and about 68 TBtu
+#     against the stated 68.6. Electricity totals about 3,322 (A-4) and about
+#     3,315 (A-3) baseline, with reductions of about 44 and about 37 TBtu
+#     against the stated 39.4.
+#   - Appendix defect-class check is CLEAN. Each of Figures A-1 to A-4 was
+#     zoomed on its axis labels and each matches its caption (A-1 gas by census
+#     division, A-2 gas by building type, A-3 electricity by building type, A-4
+#     electricity by census division). No wrong, duplicated or swapped
+#     appendix graphic in this document.
+#
+# Medium confidence (pixel-derived, no printed labels; treat as approximate):
+#   - Figures 7a and 7b (000008, 000009) are DELIBERATELY DESCRIBED
+#     QUALITATIVELY. Per project convention for stacked end-use/fuel bar
+#     charts, the description gives the bar totals, the direction and rough
+#     magnitude of each end use's change, and then points the reader at Table 5
+#     for per-segment numbers, rather than enumerating every colored and
+#     hatched band. In Figure 7b the gas-heating label is white text on a
+#     hatched fill and is not legible at any zoom; the segment checks recorded
+#     above were taken as evidence but are not asserted in the descriptions.
+#   - Figures 2, 3, 4, 5 and 6 (000003-000007) are schedule plots with no
+#     printed data labels. The setpoint values (65/70°F, 60/70°F, 76/81°F) and
+#     the optimum start tread heights are firm because they are integers or
+#     even fractions on a 5- to 10-degree axis and are pinned by Sections 3.2
+#     and 5.1; the clock times of the ramps are read off the axis and are good
+#     to about half an hour.
+#   - Figure 8 (000010): the log axis is calibrated at 38.6 px per decade with
+#     x=1 at pixel 95, so the quartile reads (baseline Q3 about 35 h, whisker
+#     about 85 h; measure Q3 about 110 h, whisker about 280 h) carry roughly
+#     10% uncertainty. The medians are quoted from Section 5.3 rather than
+#     measured, because the baseline median coincides with Q1 near zero.
+#   - Figure 13 (000015): calibrated on grey gridlines detected at y = 3.5,
+#     26, 91, 135 and 179 px for 16,000 / 14,000 / 8,000 / 4,000 / 0, i.e.
+#     91.17 buildings per pixel. The ten bin counts read about 15,225, 6,291,
+#     5,288, 3,829, 2,826, 2,462, 1,915, 1,094, 638 and 2,462, summing to about
+#     42,030. That sum is not independently stated anywhere in the document;
+#     it is consistent with 48,404 applicable models less the roughly 2.2% with
+#     negative heating savings and the models with no heating savings at all.
+#   - Figures 14 and 15 (000016, 000017): unlabeled boxplots. Figure 14 is
+#     calibrated on gridlines at y = 1, 47, 87, 127 and 166 px for 350 down to
+#     -50 MBtu, giving 2.5 MBtu per pixel with zero at y=147; Figure 15 is read
+#     off its 1,000 kWh gridlines. Quartiles are quoted to two significant
+#     figures at most.
+#   - Figures A-1 to A-4 (000021-000024): the bars carry no value labels, so
+#     every per-division and per-type number is pixel-derived at roughly 2.9
+#     TBtu per pixel (gas) and 5.5 TBtu per pixel (electricity), i.e. +/- one
+#     pixel. In most groups the baseline-to-measure delta is at or near the
+#     one-pixel threshold, so the pairs are reported as approximate.
+#
+# DEFECTS AND INTERNAL INCONSISTENCIES observed while describing these figures:
+#   (a) Figure 5 (000006) caption vs axis. The caption reads "for one week in
+#       June" and Sections 3.3 and 5.1 also describe a week, but the plotted
+#       horizontal axis spans only 06-Jun 01:00 to about 07-Jun 03:00 - one
+#       day and one setback cycle. Figure 4, the heating counterpart, does show
+#       a full week, so this looks like the wrong crop rather than a wrong
+#       caption.
+#   (b) Figure 8 (000010) is missing its cooling panel. The caption promises
+#       "heating or cooling setpoints unmet" and Section 5.3 closes with "The
+#       results in cooling are similar," but the extracted image contains only
+#       a panel titled Heating Unmet Hours. The extracted image indices are
+#       contiguous, so it cannot be determined from the corpus alone whether
+#       the cooling panel is absent from the source PDF or was lost in
+#       extraction.
+#   (c) Section 5.4 says "Figure 10 shows distributions of utility bill savings
+#       by end use." Figure 10's axis is Percent Utility Bill Savings by Fuel
+#       and its five rows are fuels, not end uses.
+#   (d) Section 3.2 says a 15°F heating setback "would be capped by the lower
+#       limit of 60°F." The lower limit stated in Table ES-1 and in Section 3.2
+#       itself is 55°F; 60°F is the setpoint that the selected 10°F setback
+#       happens to produce, as Figure 6 confirms.
+#   (e) Table 3 lists the same output variable name twice:
+#       com_report_has_at_least_one_htg_setback appears as both the heating and
+#       the cooling setback flag. The second row should presumably be a clg
+#       variant.
+#   (f) Fernandez et al.'s site energy savings are given as 7.5% in Section 1
+#       and 7.7% in Section 5.2.
+#   (g) Figure 14 (000016) caption vs axis: the caption says "the full sample
+#       with non-negative savings" where the x-axis tick reads "Positive
+#       heating savings."
+#   (h) Sample-count drift across figures. The energy-savings figures use
+#       48,404 models (Figure 16 Site) and 48,400 (Figure 17, summed), while
+#       the bill figures use 48,360 (Figure 10 Bill Mean) and 48,350 (Figure 11
+#       climate zones, summed). The energy-versus-bill difference is expected
+#       because not every model has rate data, but the 10-model gap between
+#       Figures 10 and 11, which are both bill figures, is not explained.
+#   (i) Table 1's ASHRAE 90.1 heating cell is truncated to "At least 10°F in",
+#       an extraction or authoring truncation.
+#   (j) Not a defect but worth a look: in Figure A-1 the Pacific division shows
+#       roughly a 20% natural gas reduction (about 179 -> 144 TBtu), which is
+#       larger than the 12% applicable-only gas saving in Table ES-2 and far
+#       larger than the 1% to 3% shown for every other division; Pacific also
+#       leads the electricity reductions in Figure A-4. It accounts for over
+#       half of the measured whole-stock gas saving on its own.
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: measure_pdfs/98346.pdf
+figures:
+- source_image: 98346_images/image_000002_1d21c2a9e2de5eeb08ba8569452c6b28d015b1a1643dc43cfbd0680a62a0f4c3.png
+  source_image_sha256: b551650d1fc45f29c2e5a297dfb1b14ff0e1333bc59569c852dc9c46981fcb1e
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Two-panel horizontal bar chart of Thermostat Setbacks applicability by building type, in percent of stock floor area and in square feet, each bar split into applicable and not-applicable area.
+  description: |-
+    Figure 1. Applicability of the Thermostat Setbacks measure by building type. Fifteen building-type rows share one axis; two side-by-side panels plot the same data as % Stock Floor Area, left, and Stock Floor Area in square feet, right. Each bar is split by the legend Setback Applicability, orange True and blue False; applicable means the building currently has constant setpoints. Rows, alphabetical: FullServiceRestaurant, Grocery, Hospital, LargeHotel, LargeOffice, MediumOffice, Outpatient, PrimarySchool, QuickServiceRestaurant, RetailStandalone, RetailStripmall, SecondarySchool, SmallHotel, SmallOffice, Warehouse. Warehouse is much the largest type, about 28% of stock floor area with printed labels of 16% applicable and 12% not. Other printed pairs are LargeOffice 4% and 4%, MediumOffice 3% and 3%, and RetailStandalone 6% and 3%; blue-only labels read 3% for Hospital, 6% for LargeHotel, 7% for PrimarySchool, 5% for RetailStripmall, 8% for SecondarySchool and 4% for SmallOffice, so both school types already have setbacks over most of their area and the two hotel types have essentially none applicable. Right-panel printed values include LargeHotel total 3,629,681,881 sq ft and Warehouse applicable 10,467,682,783. The orange segments sum to about 41% of stock floor area, matching Section 3.1's 41%, or about 26 billion square feet.
+- source_image: 98346_images/image_000003_69cc188fd949ca9ce388f016cc615c433750702a399bff75ed84df7a0d67a4bc.png
+  source_image_sha256: 1050560048a2b3e62013ca964ade594209d84259828bbf9f071ffcaf0c0396da
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Dual-axis time series over the first week of January showing the 5°F-setback heating setpoint schedule against the building occupancy fraction and the 0.05 occupancy threshold.
+  description: |-
+    Figure 2. Thermostat heating setpoint schedule with setbacks plotted against the building occupancy schedule for the first week of January in the 5°F setback case. The left vertical axis is Temperature in degrees Fahrenheit, 65 to 70; the right vertical axis is occupancy as a fraction, 0.0 to 1.0; the horizontal axis runs from 01-Jan 20:00 to 09-Jan 08:00. The blue Setpoint schedule sits at the 65°F unoccupied setback value overnight and rises to the 70°F occupied value each weekday morning, not as a step but as a three-hour optimum start ramp with treads at about 66.25, 67.5 and 68.75°F, that is 1.25°F per hour. The green Occupancy schedule is zero overnight and reaches 1.0 on the five weekdays of January 2 to 6, dipping to about 0.4 around midday each day before recovering. Saturday January 7 peaks at only about 0.3, and January 1 and January 8 are flat near zero, so no setup occurs on those days. A red dashed horizontal line marks the Threshold for occupancy at 0.05; hours above it are treated as occupied when the setback schedule is constructed.
+- source_image: 98346_images/image_000004_0e2d1e4bd6ce44bf509861cb084e70798e600b135134a30c9cf0d5f801fb4265.png
+  source_image_sha256: 0767217642e43a82b8f33354c3e1dfb91fad08de03e5902798b95972968717ae
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Dual-axis time series for a single January day showing the 5°F heating setback releasing through a three-hour optimum start ramp as occupancy rises.
+  description: |-
+    Figure 3. The same two series as Figure 2 but zoomed to one day, with the horizontal axis running from 02-Jan 01:00 to 03-Jan 01:00. The left axis is Temperature in degrees Fahrenheit, 65 to 70, and the right axis is occupancy fraction, 0.0 to 1.0. The blue heating setpoint holds the 65°F setback value through the night, then climbs the three-hour optimum start staircase with treads near 66.25, 67.5 and 68.75°F before reaching the 70°F occupied setpoint. Section 5.1 gives this model's occupied period as 10:45 a.m. to 11:30 p.m. on weekdays, and the plotted setpoint holds 70°F to the end of that period before returning to 65°F. The green occupancy series is zero overnight, rises to 1.0 in the middle of the day, dips to about 0.4 in mid-afternoon, returns to 1.0 in the late afternoon and decays to about 0.1 by 8 p.m. The red dashed line is the 0.05 occupancy threshold. The point of the figure is the phase relationship: the ramp begins three hours before the occupied period so that the space reaches the occupied setpoint as occupancy arrives rather than after it.
+- source_image: 98346_images/image_000005_aff561ec7219c3659627080b01e156215019b280c2666555d76a3a8b1a4878d7.png
+  source_image_sha256: 9d5fa5bb7b2e3697fccf8de17f7a963cdab13c0d6f8db9e230b1dd59756b0127
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Line chart comparing the flat 70°F baseline heating setpoint against the modified schedule that sets back to 65°F each night, over one week in January.
+  description: |-
+    Figure 4. Baseline and modified heating thermostat setpoint schedules for one week in January in the 5°F setback case. The vertical axis is Temperature in degrees Fahrenheit, 64 to 70; the horizontal axis runs from 01-Jan 23:00 to 08-Jan 23:00. The green Baseline setpoint schedule is a flat constant 70°F for the entire week, which is the point of the comparison: the baseline model has no setback at all, and this measure is applied only to models of that kind. The blue Modified setpoint schedule drops to 65°F during each unoccupied period and climbs back to 70°F through the three-hour optimum start staircase each morning, producing six ramp cycles across January 2 to 7. After the evening of January 7 the blue line stays at 65°F because January 8 is unoccupied. The 5°F vertical separation between the two lines during unoccupied hours is the setback depth being modeled.
+- source_image: 98346_images/image_000006_52e34b035f67ecd1ea9b5eb893fa5c608b4c46a3e82eee162a6c52cc2b1b3d0a.png
+  source_image_sha256: 90505191aa98c1e8f66da60d7d4914a20ad817c035745e10172f168c5e328cc7
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Line chart comparing the flat 76°F baseline cooling setpoint against the modified schedule that sets up to 81°F when unoccupied; the plotted span is a single June day, not a week.
+  description: |-
+    Figure 5. Baseline and modified cooling thermostat setpoint schedules. The vertical axis is Temperature in degrees Fahrenheit, 76 to 81. The green Baseline setpoint schedule is a flat constant 76°F, matching the occupied cooling setpoint quoted in Section 3.2. The blue Modified setpoint schedule sits at 81°F when the space is unoccupied, that is the 76°F occupied setpoint plus the 5°F cooling setback, which stays below the 82°F maximum unoccupied cooling setpoint the measure enforces. It steps down through a three-hour optimum start staircase with treads near 79.75, 78.5 and 77.25°F, reaching 76°F at about 9 a.m., holds there through the occupied period, and returns to 81°F at about 11 p.m. Note a caption discrepancy: the caption and the body text both describe one week in June, but the plotted horizontal axis spans only 06-Jun 01:00 to about 07-Jun 03:00, a single day and a single setback cycle. Figure 4, the heating counterpart, does show a full week.
+- source_image: 98346_images/image_000007_ed313d99875f5a1d81806a9c2c043ed9a6ecb9d300197f525cbc801b00ca5bf3.png
+  source_image_sha256: a0fcb8b72f750d5877dc4a48002cfdeb1cc9b64f7dc7229e4b6f35e18e654079
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Dual-axis time series over the first week of January for the 10°F setback case, showing the heating setpoint dropping to 60°F when unoccupied.
+  description: |-
+    Figure 6. Thermostat heating setpoint schedule with setbacks and the building occupancy schedule for one week in January in the 10°F setback case, which is the case ComStock actually applies. The layout is identical to Figure 2, but the left Temperature axis now spans 60 to 70 degrees Fahrenheit because the deeper setback puts the unoccupied heating setpoint at 60°F rather than 65°F. The blue setpoint series holds 60°F overnight and recovers to the 70°F occupied setpoint through the same three-hour optimum start, now with treads near 62.5, 65 and 67.5°F, that is 2.5°F per hour. The green occupancy series and the red dashed 0.05 occupancy threshold are unchanged from Figure 2: full occupancy on the five weekdays with a midday dip, a low Saturday peak, and near zero on January 1 and January 8. The resulting 60°F unoccupied setpoint sits above the 55°F minimum unoccupied heating setpoint the measure enforces, so no clipping occurs in this schedule.
+- source_image: 98346_images/image_000008_2f8148408b9473cb8daff65172db778d8715497c9dd9d7605b93e8e6913ee0fa.png
+  source_image_sha256: fd8570c2b9863a3a0bfb65ab82edb4048ea167bc30439f30e9d8df6b30f0c6da
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Two stacked bars comparing annual site energy consumption by end use and fuel for the whole ComStock stock, baseline versus the Thermostat Setbacks scenario.
+  description: |-
+    Figure 7(a). Stacked bar comparison of annual site energy consumption for the entire building stock modeled in ComStock, with the baseline bar on the left and the Thermostat_Setbacks bar on the right. The vertical axis is Annual Energy Consumption in TBtu, 0 to 5,000, and each bar is divided into about twenty end-use-by-fuel segments identified by a legend of colored and hatched fills. The bar totals read about 4,989 TBtu for the baseline and about 4,873 for the measure, a reduction of about 116 TBtu or 2.3%, which is the whole-stock saving reported in Table ES-2. The largest single segment in both bars is natural gas heating, followed by electric cooling, electric fans and interior equipment electricity. Comparing the two bars, natural gas heating and electric heating shrink markedly, electric cooling and electric fans shrink slightly, and the non-HVAC segments including interior lighting and interior equipment are visually unchanged. Table 5 reports the per-end-use and per-fuel savings numerically and is the source to cite for segment-level values.
+- source_image: 98346_images/image_000009_ed1839c4ad728600aa8b33ad75e583103ceb5737e67a924325ac9d85fd8de63b.png
+  source_image_sha256: f329d2557378f29e206e6d9b7a1d94ee533fb2b08e099cb05a8cf17def369c73
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Two stacked bars comparing annual site energy consumption by end use and fuel for applicable models only, baseline versus the Thermostat Setbacks scenario.
+  description: |-
+    Figure 7(b). The same stacked bar comparison as Figure 7(a), but restricted to the ComStock models to which the Thermostat Setbacks measure applies. The vertical axis is Annual Energy Consumption in TBtu, and the two bars total about 2,079 TBtu for the baseline and about 1,963 for the measure. The absolute reduction is the same roughly 116 TBtu as in panel (a), because only applicable models change, but measured against the smaller applicable base it is about 5.6%, the applicable-only total reported in Table ES-2. The segment structure and legend match panel (a): natural gas heating is still the largest segment, the heating segments shrink most in relative terms, cooling and fan segments shrink slightly, and the non-HVAC segments are unchanged. Table 5's applicable-only column is the source for segment-level percentages, including 19% for gas heating, 18% for electric heating, 4.8% for cooling and 1.8% for fans.
+- source_image: 98346_images/image_000010_e63d71e1e6c7ce76067a8205a22f784f75be808f782dbe75e897679dbc9dd6da.png
+  source_image_sha256: 5a3d6debb7164313c14c77122816541e9af666c9317f4b7d2afaeb682152e97d
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Horizontal boxplots on a logarithmic axis comparing unmet heating hours for the baseline and the Thermostat Setbacks scenario; only a heating panel is present.
+  description: |-
+    Figure 8. Boxplots of the number of hours with the heating setpoint unmet, for the baseline and the Thermostat Setbacks scenarios. The panel is titled Heating Unmet Hours and the horizontal axis is Unmet Hours Count on a logarithmic scale running from 1 to about 10,000. Both boxes begin at the left edge of the plotted range, because the first quartile of each distribution is at or below one hour. The baseline box extends to a third quartile of roughly 35 hours with a whisker to roughly 85 hours; the measure box extends further, to a third quartile of roughly 110 hours with a whisker to roughly 280 hours, and both distributions have dense outlier strings running out toward 10,000 hours. Section 5.3 gives the median as about 1 hour in the baseline and 8 hours with the measure, notes that the baseline median is not visible because it coincides with the first quartile near zero, and characterizes the rise in the 75th percentile as not extreme. Note that the caption promises heating or cooling and Section 5.3 states that the cooling results are similar, but only a heating panel appears in the extracted figure.
+- source_image: 98346_images/image_000011_c0d15b6d7babf508578b9e128b1920c69f42f93eadb692fbef8b2721d8c3774c.png
+  source_image_sha256: ca13f70c8ad7bb524a90cb4337816a3dc277bebc9638b34dfe4bc5f82b09070e
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Three stacked bar panels comparing annual utility bills by fuel for the baseline and Thermostat Setbacks scenarios under maximum, mean and minimum electricity rates.
+  description: |-
+    Figure 9. Annual utility bill impacts, drawn as three side-by-side panels headed With Max Electricity Rate, With Mean Electricity Rate and With Min Electricity Rate. The vertical axis is Annual Utility Bill in billions of 2022 USD, 0 to 160, and each bar is stacked by fuel, with the legend giving Electricity, Natural Gas, Fuel Oil and Propane; electricity dominates and natural gas is second. The maximum-rate panel goes from about 150 to about 148 billion USD, the mean-rate panel from about 130 to about 128, and the minimum-rate panel from about 112 to about 110, and the measure bar in each panel carries a printed savings label of 1% or 2%. Within each panel the electricity block falls by about 1 billion USD and the natural gas block from about 16 to about 15 billion, so the total reduction is about 2 billion USD under all three rate assumptions. That matches Table 6, which reports 2,022 million USD or 1.6% overall, of which 957 million is electricity at 0.9% and 911 million natural gas at 5.6%.
+- source_image: 98346_images/image_000012_5975ee2043c5dedd5f0ed038b4e8e0eeb3f298ce69f6947c205d195f6d18f360.png
+  source_image_sha256: 68afb80b7b16bb8df827df1f62d0624bcb3e2495718004e3c0c4d6228b94fb9d
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Violin and box distributions of percent utility bill savings by fuel for unweighted ComStock models, with long negative tails on the fossil fuels.
+  description: |-
+    Figure 10. Distributions of percentage annual utility bill savings for the ComStock models under the Thermostat Setbacks scenario, drawn as violins with boxplots inside. The title reads Upgrade 25.0: Thermostat_Setbacks (unweighted), and the horizontal axis is Percent Utility Bill Savings by Fuel, running from about -160 to 100. Five rows are plotted, each labeled with its sample count: Propane Bill State Average n=4,700; Fuel Oil Bill State Average n=3,190; Natural Gas Bill State Average n=18,789; Electricity Bill with Mean Rate n=48,306; and Bill Mean n=48,360. The three fossil fuel rows are much the widest, with interquartile ranges running from roughly 3% up into the middle 20s and long negative tails reaching past -100%. The electricity row is very narrow, roughly -1% to 2%, and the aggregate Bill Mean row sits just above zero at roughly 0% to 5%. Section 5.4 notes that about 7.5% of the applicable sample sees a bill penalty and that 73% of that subset is within 2%, driven by electricity demand charges during morning warmup. Note that Section 5.4 describes this figure as showing savings by end use; the axis is by fuel type.
+- source_image: 98346_images/image_000013_c5d3d051830b63f95f0f7b701a104d8bddbdb2d0332c6bd321269deecc616a23.png
+  source_image_sha256: fb9ce26e9df94a7747a0a625fcbc2839d54bdcbdd867456a166e4ae533f59299
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Violin and box distributions of percent utility bill savings by ASHRAE climate zone, clustered just above zero with long negative tails and no clear climate trend.
+  description: |-
+    Figure 11. Distributions of percentage annual utility bill savings by climate zone, in the same violin-with-boxplot style as Figure 10. The horizontal axis is Percent Utility Bill Savings by Climate, running from about -100 to 60. Fifteen ASHRAE climate zone rows are plotted with their sample counts: 1A n=782, 2A n=2,092, 2B n=1,373, 3A n=4,398, 3B n=8,501, 3C n=3,404, 4A n=7,061, 4B n=2,094, 4C n=676, 5A n=6,859, 5B n=3,380, 6A n=3,940, 6B n=1,414, 7 n=2,187 and 8 n=189. Every zone's distribution is tightly clustered just above zero with a long negative tail, and no monotonic trend with climate severity is visible, consistent with the body text's finding that bill savings run between 1% and 2% regardless of rate assumption. The zone counts sum to about 48,350, close to but not identical with the 48,360 reported for the Bill Mean row of Figure 10.
+- source_image: 98346_images/image_000014_2220882166b4b318c1f723c4c2a5efa8231e3305ce9a61e6dfae95f17bd48e3b.png
+  source_image_sha256: 9d80002c4a2c42ddedc2153833334ee3e6c9852bc5610b78b88cc9fe9ceff2ec
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Violin and box distributions of percent site energy savings by end use and fuel, with the heating end uses showing the widest positive distributions.
+  description: |-
+    Figure 12. Distributions of percentage site energy savings by end use and fuel, drawn as violins with boxplots inside; the horizontal axis is Percent Site Energy Savings by End Use, running from about -160 to 100. Eighteen rows are plotted with their sample counts, from the top: District Heating Water Systems 201, District Heating Heating 1,359, District Cooling Cooling 1,062, Fuel Oil Water Systems 108, Fuel Oil Heating 3,305, Propane Water Systems 380, Propane Heating 4,820, Natural Gas Water Systems 2,661, Natural Gas Heating 19,427, Electricity Water Systems 3,770, Electricity Refrigeration 16,108, Electricity Pumps 7,501, Electricity Interior Equipment 33, Electricity Heating 19,280, Electricity Heat Rejection 2,422, Electricity Heat Recovery 964, Electricity Fans 35,769 and Electricity Cooling 47,060. The heating rows are the widest: gas heating and electric heating both run from about 5% to the high 30s with medians near 18% to 20%, matching the 19% and 18% applicable-only heating savings in Table 5. Fans sit near 0% to 3% and cooling near 0% to 7%, matching Table 5's 1.8% and 4.8%. The tiny Interior Equipment row, n=33, is the elevator-schedule bug noted in Section 5.5.
+- source_image: 98346_images/image_000015_82eeaa475ac28ed71c387eb9f992961f7c9a2024d9c2fc0d9bbd02506078190c.png
+  source_image_sha256: 169257cc61d901387e2c93089a20af1d02e0b6c07d3b6574ac6ff35d57422bac
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Histogram of percentage heating energy savings across buildings with non-negative savings, declining from a tall first bin with an uptick in the top bin.
+  description: |-
+    Figure 13. Histogram of heating energy savings among the buildings in the sample with non-negative heating savings from the Thermostat Setbacks measure. The horizontal axis is heating energy savings from 0% to 100% in ten ten-point bins; the vertical axis is Number of buildings in sample, 0 to 16,000. The first bin, 0% to 10%, is much the tallest at roughly 15,200 buildings, and the counts then fall away steadily through roughly 6,300, 5,300, 3,800, 2,800, 2,500, 1,900, 1,100 and 640, before turning up again in the final 90% to 100% bin at roughly 2,500. The bins sum to roughly 42,000 buildings. Section 5.5 makes two points from this shape: the largest share of buildings have heating savings below 10%, and the group above 70% savings, which the final uptick belongs to, consists of buildings with very low baseline heating use, so a large percentage saving corresponds to a small absolute one. The bins above 70% together account for roughly 10% of the plotted sample. Buildings with negative heating savings, about 2.2% of the applicable sample per Section 5.5, are excluded from this figure by construction.
+- source_image: 98346_images/image_000016_ddf713a87f9e3e8bb9727e5af3892180f795931e155669b8c8a756d2acc83b2c.png
+  source_image_sha256: 5a11dbe16337f9944fed2a4b560bc3ed297d0c94c0aaa91ae5858ba2b539b3f0
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Three boxplots of absolute heating energy savings in MBtu for the full non-negative sample, the high-percentage-savings subset and the negative-savings subset.
+  description: |-
+    Figure 14. Boxplots of absolute heating energy savings for three groups of buildings. The vertical axis is Absolute heating energy savings in MBtu, running from about -50 to 350, and the three groups along the horizontal axis are labeled Positive heating savings, High heating savings and Negative heating savings. The positive-savings group is much the widest: its first quartile sits at about 0, its median near 30 MBtu, its third quartile near 135 MBtu and its upper whisker near 350 MBtu. The high-savings group, the buildings with more than 70% percentage savings, is compressed close to zero, with a median of about 0 to 1 MBtu and a third quartile near 20 MBtu; that contrast is the point of the figure, since it shows that the high percentage savings of that group correspond to very small absolute savings because their baseline heating use is low. The negative-savings group sits just below zero, with a third quartile at about 0, a median near -5 MBtu, a first quartile near -22 MBtu and a lower whisker near -60 MBtu. Note that the caption says non-negative savings where the axis tick reads Positive heating savings.
+- source_image: 98346_images/image_000017_988e72114c899909f18e3df74a22ed96e332a317d35d7d9a1c395aa8b03b6bc3.png
+  source_image_sha256: 7de772008ec802490a75262216ed249d64e9f2b5ce9e36cb5bfa9d3273e66db6
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Two boxplots of pump energy savings in kWh for buildings with positive and with negative pump savings; the negative group is clustered close to zero.
+  description: |-
+    Figure 15. Boxplots of pump energy savings for the buildings with positive and with negative pump savings respectively. The vertical axis is Pump energy savings in kWh, running from about -1,000 to 4,000, and the two groups along the horizontal axis are labeled Positive pump savings and Negative pump savings. The positive group has a first quartile near 100 kWh, a median near 400 kWh, a third quartile near 1,600 kWh and an upper whisker reaching about 3,900 kWh. The negative group is far more compressed and sits just below zero, with a third quartile at about 0, a median near -120 kWh, a first quartile near -500 kWh and a lower whisker near -1,200 kWh. Section 5.5 draws exactly this conclusion from the figure: the median magnitude of negative pump savings is very low, so the negative pump-energy tail visible in Figure 12 reflects small fluctuations rather than a systematic energy penalty.
+- source_image: 98346_images/image_000018_b5db3fe1686366d3df269424bc22ff4e6b0743eddb13679b5d089c4d4a9318da.png
+  source_image_sha256: 5afdf8f9945f127d33383c455aa1b80af33bbcaa8e5497aecd7a6bf803cb8f20
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Violin and box distributions of percent site energy savings by fuel, with the heating fuels showing wide positive distributions and electricity a narrow one.
+  description: |-
+    Figure 16. Distributions of percentage site energy savings by fuel for the ComStock models under the applied measure scenario, in the same violin-with-boxplot style as Figure 12. The title reads Upgrade 25.0: Thermostat_Setbacks (unweighted) and the horizontal axis is Percent Site Energy Savings by Fuel, running from about -160 to 100. Seven rows are plotted with their sample counts, from the top: District Cooling n=1,062, District Heating n=1,363, Propane n=4,867, Fuel Oil n=3,308, Natural Gas n=20,223, Electricity n=48,371 and Site n=48,404. The heating-dominated fuels are the widest: district heating, propane, fuel oil and natural gas all have interquartile ranges running from roughly 4% or 5% into the middle or high 20s with medians in the middle teens, and all carry long negative tails past -100% together with dense outlier strings above 60%. District cooling and electricity are narrow bands close to zero, and the aggregate Site row runs from roughly 1% to 6%. Section 5.5 notes that this figure generally mirrors the trends shown in Figure 12.
+- source_image: 98346_images/image_000019_9909ab49e6ac05cf7aea1cdb00367bc70d0b7c1927b92917d3e074bc7c9d822c.png
+  source_image_sha256: 0a70e0a9771c44499ae5b4a3629f6ab088ba9621e7477f085dd766dca709010b
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Violin and box distributions of percent site energy savings by building type; the two school types have the highest savings and hospitals and hotels the lowest.
+  description: |-
+    Figure 17. Distributions of percentage site energy savings by ComStock building type under the applied measure scenario, in violin-with-boxplot style, with the horizontal axis running from about -100 to 50. Fourteen building-type rows are plotted with their sample counts: FullServiceRestaurant n=5,891, Grocery n=4,037, Hospital n=305, LargeOffice n=3,126, MediumOffice n=5,540, Outpatient n=1,285, PrimarySchool n=1,742, QuickServiceRestaurant n=3,667, RetailStandalone n=5,559, RetailStripmall n=3,163, SecondarySchool n=1,138, SmallHotel n=728, SmallOffice n=6,509 and Warehouse n=5,710. The two school types stand out with much the widest and highest distributions, medians near 12% for primary and 14% for secondary schools against roughly 1% to 7% for every other type, which Section 5.5 attributes to their large number of unoccupied hours. Hospital, SmallHotel, Grocery, QuickServiceRestaurant and Warehouse sit lowest at roughly 1% to 2%, consistent with the exclusion of patient-serving, laboratory and guest-room space types. LargeHotel has no row at all, matching the zero applicable floor area shown for it in Figure 1. The fourteen counts sum to about 48,400, against the 48,404 Site count in Figure 16.
+- source_image: 98346_images/image_000020_65ba31c7c194f7361bf61c9e9ca5f3438b5114a1b15e08df3890e58f0d47e852.png
+  source_image_sha256: 685697ec080a43006b0460d360c9d31e3d4af8fe4da36193616c33b71e46d93f
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Bar chart of the weighted share of low-fan-savings buildings by nighttime fan control strategy, dominated by fans left on with ventilation.
+  description: |-
+    Figure 18. Distribution of the buildings with low fan energy savings by nighttime fan control strategy. The vertical axis is Proportion of weighted sample as a percentage, 0% to just above 60%, and four categories are plotted along the horizontal axis: night_fanon_vent at about 63%, night_fancycle_vent at about 21%, night_fancycle_novent at about 9% and default_nochange at about 8%. The four bars sum to about 100%. Section 5.6 uses this figure to explain why fan savings from this measure are small: about 34% of the applicable sample has fan energy savings below 1%, and more than 60% of that subset operates its fans continuously at night, which is the night_fanon_vent category, so a thermostat setback cannot reduce fan runtime in those models. The remaining categories cycle fans at night with or without ventilation, or apply no nighttime fan change at all. The body text also notes that the separate nighttime fan control measure is not applied to hotels, hospitals, outpatient medical facilities or schools.
+- source_image: 98346_images/image_000021_4280ecc79bccd4c34c9137ff75a9f0f81c389cd3dc95d5032c2807daf860cf77.png
+  source_image_sha256: 48871e7f8fb419996557569013da4224651e91f9b367374f8555b1386f81dd16
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Grouped bar chart of annual site natural gas consumption by census division for the baseline and the Thermostat Setbacks scenario.
+  description: |-
+    Figure A-1. Site annual natural gas consumption of the ComStock baseline and the Thermostat Setbacks measure scenario by census division. The vertical axis is Natural Gas Total Energy Consumption in TBtu, 0 to 400, the horizontal axis is Census Division Name, and each division carries a dark Baseline bar beside a light Thermostat_Setbacks bar. Approximate pixel-derived pairs, baseline then measure: New England 47 and 47, Middle Atlantic 220 and 217, East North Central 387 and 375, West North Central 155 and 152, South Atlantic 170 and 167, East South Central 53 and 53, West South Central 117 and 114, Mountain 94 and 91, Pacific 179 and 144. East North Central is the largest gas consumer and Middle Atlantic the second. The columns sum to about 1,421 TBtu in the baseline against about 1,360 with the measure, a reduction consistent with the 68.6 TBtu and 4.8% whole-stock natural gas saving reported in Table ES-2. The Pacific division is a visible outlier, showing roughly a 20% gas reduction where every other division shows 1% to 3%.
+- source_image: 98346_images/image_000022_410fc59a69d45b013d20b5421f87ae373031a1131cbd7f201e9b2064d4204e50.png
+  source_image_sha256: 204d2ca4e85a0607eef994d11f86a65d7ac76b8a26c5cd376d821d3288794885
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Grouped bar chart of annual site natural gas consumption by ComStock building type for the baseline and the Thermostat Setbacks scenario.
+  description: |-
+    Figure A-2. Site annual natural gas consumption of the ComStock baseline and the Thermostat Setbacks measure scenario by building type. The vertical axis is Natural Gas Total Energy Consumption in TBtu, 0 to about 220, the horizontal axis is Comstock Building Type, and each type carries a dark Baseline bar beside a light Thermostat_Setbacks bar. The types are not in alphabetical order; they run FullServiceRestaurant, QuickServiceRestaurant, RetailStripmall, RetailStandalone, SmallOffice, MediumOffice, LargeOffice, PrimarySchool, SecondarySchool, Outpatient, Hospital, SmallHotel, LargeHotel, Warehouse, Grocery. Approximate pixel-derived pairs, baseline then measure: RetailStripmall 224 and 217, SecondarySchool 214 and 202, FullServiceRestaurant 169 and 166, PrimarySchool 160 and 144, LargeHotel 129 and 129, Hospital 126 and 126, Warehouse 104 and 101, RetailStandalone 73 and 63, SmallOffice 56 and 51, LargeOffice 44 and 39, QuickServiceRestaurant 43 and 42, MediumOffice 37 and 32, Outpatient 35 and 35, Grocery 19 and 17, SmallHotel 9 and 9. The columns sum to about 1,440 against about 1,372 TBtu, a difference of about 68 TBtu that reproduces Table ES-2's 68.6. Hospital, SmallHotel and LargeHotel show no change, consistent with their excluded space types.
+- source_image: 98346_images/image_000023_3e1ee2a38bcb2e34d636d438a3cdafe4f50c01ee4f25bbb6f88d4647138d123b.png
+  source_image_sha256: e7139e4417ce4177f643b5c3aa24816ee1cfda8c14a71c7e5922e5efc2893767
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Grouped bar chart of annual site electricity consumption by ComStock building type for the baseline and the Thermostat Setbacks scenario.
+  description: |-
+    Figure A-3. Site annual electricity consumption of the ComStock baseline and the Thermostat Setbacks measure scenario by building type. The vertical axis is Electricity Total Energy Consumption in TBtu, 0 to 500, the horizontal axis is Comstock Building Type, and each type carries a dark Baseline bar beside a light Thermostat_Setbacks bar, in the same non-alphabetical order as Figure A-2. Approximate pixel-derived pairs, baseline then measure: RetailStripmall 493 and 490, Warehouse 391 and 388, RetailStandalone 311 and 304, PrimarySchool 280 and 275, SecondarySchool 254 and 252, LargeOffice 240 and 237, SmallOffice 230 and 226, FullServiceRestaurant 203 and 200, MediumOffice 196 and 191, Hospital 191 and 191, LargeHotel 178 and 178, Outpatient 134 and 134, Grocery 107 and 106, QuickServiceRestaurant 73 and 72, SmallHotel 34 and 34. The columns sum to about 3,315 against about 3,278 TBtu, a reduction consistent with Table ES-2's 39.4 TBtu and 1.2%. The relative changes are much smaller than in the natural gas panels, and the same building types that are largely excluded from the measure show no change at all.
+- source_image: 98346_images/image_000024_d4e5584b8ba2ad413fa3484b720544f560713127226fd5d73c8df84f1a014f8c.png
+  source_image_sha256: c6af2b0bd02277b13e936e185c36409ce23e0ddf82b18242f2f1f6827b24b7be
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: |-
+    Grouped bar chart of annual site electricity consumption by census division for the baseline and the Thermostat Setbacks scenario.
+  description: |-
+    Figure A-4. Site annual electricity consumption of the ComStock baseline and the Thermostat Setbacks measure scenario by census division. The vertical axis is Electricity Total Energy Consumption in TBtu, 0 to about 750, the horizontal axis is Census Division Name, and each division carries a dark Baseline bar beside a light Thermostat_Setbacks bar. Approximate pixel-derived pairs, baseline then measure: New England 95 and 92, Middle Atlantic 341 and 338, East North Central 439 and 434, West North Central 275 and 271, South Atlantic 754 and 746, East South Central 213 and 211, West South Central 506 and 500, Mountain 234 and 231, Pacific 465 and 455. South Atlantic is much the largest electricity consumer, followed by West South Central and Pacific, which reverses the natural gas ordering of Figure A-1, where the cold northern divisions lead. The columns sum to about 3,322 against about 3,278 TBtu, consistent both with the building-type totals of Figure A-3 and with Table ES-2's 39.4 TBtu and 1.2% electricity saving. Pacific shows the largest relative electricity reduction, about 2%.
