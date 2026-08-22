@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "comstock_amy2018_2025_release_3",
-  "generated_utc": "2026-08-21T22:21:01.530126+00:00",
+  "generated_utc": "2026-08-22T14:37:22.505002+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -2186,14 +2186,42 @@
           "title": "Heat Pump Rooftop Units With Standard Performance",
           "input_sha256": "73340f4db3973580c0244e6d44c4b730832c495437270fd26baa9dbfba8543c0",
           "output_path": "upgrade_measures/measure_pdfs/89042.md",
-          "output_sha256": "024b39193fc757f0fc69803f253e4b368c31bada4057c37dafeb38faa5a71a5d",
+          "output_sha256": "581c326797c8d4a55ce2ff7d745477e5c4687254d152246d6c8c29dc1f8cf5c6",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89042.yaml",
-            "sha256": "4aaea53f4fe6e228633661dae0be5afad30b0dd6fb8695b9ab4c35210c2a3ebb",
+            "sha256": "87afe13e6e7dc947546afd2fa65038403e07a5bafa8afe6e248c9d8901263e13",
             "tables_applied": [
               "Table 1",
               "Table 3",
               "Table 7"
+            ],
+            "figures_applied": [
+              "89042_images/image_000002_411673573e02b632281ba7e6317f0a36d8a1b173d4da1e5efcc6eaf703414291.png",
+              "89042_images/image_000003_de032f09e977094c4f0bdbd849969663481d905bfc5b259966a475f85c5200b4.png",
+              "89042_images/image_000005_0f72e827af6af6dbcc3ee8697ba4d3ccd927f3bbe9aaccb7807e13015765e0ef.png",
+              "89042_images/image_000006_c0314c05258b1a902139123879981353ba11eeb7c673782800740fe98f9f8406.png",
+              "89042_images/image_000007_fed5c5c757f8a0f2c2be3c63006a4aefaf52058bd6f7f919a2e4f72e3c135eb6.png",
+              "89042_images/image_000008_486605afefa62cc52e4b0b8ea923513f4222370518156c28bea9c11b2246b9d6.png",
+              "89042_images/image_000009_cf54f95937c7abd6e5485cc56f48a4ea38d73d29e48b5a5d1dbcf77124596334.png",
+              "89042_images/image_000010_bfd80c0545046236f28f9fb1c073ef5dbf4fbd1cc0290c8775e780faf8ba6622.png",
+              "89042_images/image_000011_7d1f8d46088e4f5e97202461c24d4124c9bd9e3b727015e106f9327bef4f8d89.png",
+              "89042_images/image_000012_843ed9d2324976e6b751395866847309750cf1d4c0b7858a13e1e38387f60813.png",
+              "89042_images/image_000013_5a42130768d23f38676528084c230c8e6e3fbe5da4fd02d1a20909b0ac055bf2.png",
+              "89042_images/image_000014_52d4f3dbdcf6353c533dd371713f41b73a2f33d54b452d70667345ca66fbd72a.png",
+              "89042_images/image_000015_9bf15aaa5443690e10115f3cdd91df9dfa3e156cbf3332d5df5b69f80c3b2ef9.png",
+              "89042_images/image_000016_78cb71c55bf0099c4924da0f6e11cda3c99f2697b5568a5c00f5297cc3ce5d7c.png",
+              "89042_images/image_000017_1a7425c5ecff06e06a69ef854f3fa049a164acd648a1a1022308bdfeea9e0539.png",
+              "89042_images/image_000018_2bfa8d9aae52703a5b5db4fb1997ce37b83a9bf5101e6dbb5ff4c7a2b14410c6.png",
+              "89042_images/image_000019_fa7a47daa361113c17f615d26ccfb1eaa04a3b6320058171628d63cd120160e4.png",
+              "89042_images/image_000020_5bde6f633af10b8267bf3c4d92baf8388b9acdcec981890437aa45838396089d.png",
+              "89042_images/image_000021_35c76844ceb3d8ebd0dfd84632f24bbc81cbea698cb0d9f230c3964abe1c4a2d.png",
+              "89042_images/image_000022_d2e7fc03c3779ff8fe6687d8975ed465be8f7087eb1592807085ac4ff877b389.png",
+              "89042_images/image_000023_8ac4138d520c4333b156755460fc29ad7e7c7d1f397910dee268da09729479b5.png",
+              "89042_images/image_000024_48207e8cef2ae98aed5ccac4d34e0e8e99e23e5ca8e377252f4be38c67d3c6ab.png",
+              "89042_images/image_000025_3fdb498011d27005e0af753f4469bc5b94d6541b4166cb6227565504bfbf6048.png",
+              "89042_images/image_000026_1a688ee9b4b5c72b5a03db6a5f888cf3874897367058028ccfc7e3e30d65409f.png",
+              "89042_images/image_000027_1a652744ca19fdc30263d1f0f19940f9ae91538ed5137dbf3111fc0b439621cf.png",
+              "89042_images/image_000028_6dcdc89558c48873a7d3c621f3aeb178f8772c9c93d96dd80646fab8ba7fcc0f.png"
             ]
           }
         },
@@ -2382,7 +2410,7 @@
   ],
   "counts": {
     "documents": 118,
-    "chunks": 8152,
+    "chunks": 8172,
     "by_type": {
       "latex": 19,
       "markdown": 40,
@@ -2391,7 +2419,7 @@
     },
     "overlay_documents": 57,
     "overlay_tables": 57,
-    "overlay_figures": 924,
+    "overlay_figures": 950,
     "overlay_text_repairs": 1
   },
   "crosswalk": {

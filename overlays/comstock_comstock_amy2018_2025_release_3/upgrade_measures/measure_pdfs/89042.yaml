@@ -22,6 +22,25 @@
 #     transcribed as a note about the columns. Note the claim is column-level: on the "Heating
 #     backup fraction" row the lower number is the better one, so the colors mark which unit
 #     the report considers better overall, not which cell of each row is preferable.
+#
+# Figure notes (figures: block, added 2026-08-22):
+#   * 26 of the 29 extracted images are figures. Skipped: image_000000 (NREL photo collage) and
+#     image_000001 (NREL wordmark), both decorative. image_000004 is Table 1's bitmap and is
+#     already claimed by the tables: block above, so no figures: entry anchors on it.
+#   * Figure 18's caption repeats Figure 17's verbatim ("Distributions between advanced and
+#     standard performance HP-RTU scenarios: COP"), but its two columns plot annual average
+#     cooling cycling ratio and total hours above 65 F, not COP. The entry names what is
+#     actually plotted and says so.
+#   * The appendix charts label the scenarios "HP RTU E Backup" and "HP RTU Std Perf" in their
+#     legends where Sections 5.2-5.6 call them "Advanced performance" and "Standard
+#     performance". Appendix entries use the chart's own labels.
+#   * The doc has no stock-level results tables -- Sections 5.2 through 5.4 carry figures only
+#     -- so Figures 10-13 point at Tables ES-2, ES-3 and ES-4 in the executive summary.
+#   * Two numbering artifacts, noted but not acted on: the caption above Table 1's bitmap reads
+#     "Table 1" while the body text cites the same table as Table 2 and no "Table 2" caption is
+#     printed anywhere; and Figure 7's caption prints as "Figure 7 ." with a space before the
+#     period. The List of Figures also wraps Figure 17's entry so that "Figure" lands on its own
+#     line -- an extraction artifact, not a source defect.
 
 product: comstock
 release: "comstock_amy2018_2025_release_3"
@@ -117,3 +136,187 @@ tables:
       | Cooling Operating COP | 5.313 | 4.097 |
 
       Legend, which a pipe table cannot carry: the source fills the whole "Advanced unit" column blue for "Better" and the whole "Standard unit" column orange for "Worse".
+
+figures:
+- source_image: 89042_images/image_000002_411673573e02b632281ba7e6317f0a36d8a1b173d4da1e5efcc6eaf703414291.png
+  source_image_sha256: 8f050c3ecc5f4a292766f04c98f9e4cb0ed801f276f41f3abb8c0fbff951a576
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Bar chart of ComStock baseline in-force energy code by percent of applicable stock floor area
+  description: |-
+    Figure 1: horizontal bar chart of the ComStock baseline in-force energy code, x-axis percent of stock floor area from 0 to 50 percent, one bar per DOE Reference and DEER vintage. DOE Ref 1980-2004 dominates at 47.57 percent, followed by 90.1-2007 at 19.67 percent and 90.1-2004 at 9.18 percent; every DEER vintage sits below 2.3 percent. Section 2 explains the code mapping.
+- source_image: 89042_images/image_000003_de032f09e977094c4f0bdbd849969663481d905bfc5b259966a475f85c5200b4.png
+  source_image_sha256: b89e0f21bb3a08f16f199835e56797580ef075ea68c7dfea6aeaaee6cf1c43aa
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Paired bar chart of HVAC system type by stock floor area and site energy, colored by applicability
+  description: |-
+    Figure 2: paired horizontal bar panels of ComStock HVAC system type prevalence - percent of stock floor area and annual site energy consumption - with bars colored by whether the HP-RTU measure applies. The two applicable types, PSZ-AC with gas coil at 25.9 percent and PSZ-AC with electric coil at 7.8 percent, together cover about a third of floor area. Section 3.1 gives the criteria.
+- source_image: 89042_images/image_000005_0f72e827af6af6dbcc3ee8697ba4d3ccd927f3bbe9aaccb7807e13015765e0ef.png
+  source_image_sha256: ddf859761e470c75b748e918f35409d7e535cef1a7f140a87c46a2facd9f0960
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Four-panel cooling capacity performance maps: temperature heatmaps and airflow-fraction fits'
+  description: |-
+    Figure 3: four-panel plot of the new cooling capacity performance maps, high stage above low stage. The left panels are heatmaps of capacity modifier over outdoor dry-bulb (30 to 50 degrees C) and indoor wet-bulb temperature; the right panels scatter manufacturer data against airflow fraction with a linear fit. Modifiers span roughly 0.74 to 1.30. Table 3 lists the fitted curves.
+- source_image: 89042_images/image_000006_c0314c05258b1a902139123879981353ba11eeb7c673782800740fe98f9f8406.png
+  source_image_sha256: bcc135a849a71556188ffff7e1662bcaade6bb0a5de5b0f028a131cc0c47d007
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Cooling energy input ratio performance maps plus the rated cooling COP capacity regression
+  description: |-
+    Figure 4: five-panel plot of the new cooling efficiency maps. Heatmaps give the energy input ratio (1/COP) modifier over outdoor dry-bulb and indoor wet-bulb temperature for high and low stage, and scatter panels fit the modifier against airflow fraction. A bottom panel regresses rated cooling COP on rated capacity as 3.772 minus 0.01005 times kW, bounded 2.94 to 3.86. See Table 3.
+- source_image: 89042_images/image_000007_fed5c5c757f8a0f2c2be3c63006a4aefaf52058bd6f7f919a2e4f72e3c135eb6.png
+  source_image_sha256: 81765949ba8510a7914ea5ceec2c7bf70a69c78bd12b3cbda5eb2fb3f4b4684f
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Two-panel heating capacity performance map: temperature heatmap and airflow-fraction fit'
+  description: |-
+    Figure 5: two-panel plot of the new heating capacity performance map for all/single stage operation. The left heatmap gives the capacity modifier over outdoor dry-bulb temperature (-20 to 10 degrees C) and indoor dry-bulb temperature, falling to about 0.26 at the coldest condition; the right panel fits the modifier against airflow fraction. Table 3 lists the coefficients.
+- source_image: 89042_images/image_000008_486605afefa62cc52e4b0b8ea923513f4222370518156c28bea9c11b2246b9d6.png
+  source_image_sha256: 11d27a80bf4381589699ef40cd3872201e610fabd80c64e7d0689ebddc1d89ff
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Heating energy input ratio performance maps plus the rated heating COP capacity regression
+  description: |-
+    Figure 6: three-panel plot of the new heating efficiency maps. A heatmap gives the energy input ratio (1/COP) modifier over outdoor and indoor dry-bulb temperature, rising to 7.47 at the coldest condition, and a scatter panel fits the modifier against airflow fraction. Rated heating COP is regressed on rated capacity as 3.958 minus 0.008502 times kW, bounded 3.46 to 3.99. See Table 3.
+- source_image: 89042_images/image_000009_cf54f95937c7abd6e5485cc56f48a4ea38d73d29e48b5a5d1dbcf77124596334.png
+  source_image_sha256: 0f65026d203f603132cfcddb7cf0597b3ec51e428892d77de245e67b9141eea3
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Two scatter panels of normalized airflow versus load, colored by operating stage, advanced vs standard
+  description: |-
+    Figure 7: two scatter panels comparing single-building operating stages, advanced performance against standard performance. Normalized air flow rate from 0 to 1 is plotted against load in Btu/hr, negative for heating and positive for cooling, with points colored by operating stage 0 to 4. The advanced unit modulates continuously where the standard unit collapses onto discrete stages. See Table 7.
+- source_image: 89042_images/image_000010_bfd80c0545046236f28f9fb1c073ef5dbf4fbd1cc0290c8775e780faf8ba6622.png
+  source_image_sha256: 102090c73d47528100602f93e2ad3c970a3688e5cd84f522d8607c8f78f1b665
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Two scatter panels of operating COP versus outdoor air temperature, cooling and heating
+  description: |-
+    Figure 8: two scatter panels of single-building operating COP, including compressor and outdoor fan power, against outdoor dry-bulb air temperature in degrees F, with separate cooling and heating series, advanced performance beside standard performance. Cooling COP reaches about 6.7 for the advanced unit against roughly 5 for the standard unit. Table 7 lists the resulting annual end-use consumption.
+- source_image: 89042_images/image_000011_7d1f8d46088e4f5e97202461c24d4124c9bd9e3b727015e106f9327bef4f8d89.png
+  source_image_sha256: 5afeefbd1951c9661b0a5d6e1194fad491f1390c44eefa9ab29a80e810193eee
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Hour-by-day heatmap of heating operating COP difference between the two performance scenarios
+  description: |-
+    Figure 9: heatmap of the single-building heating operating COP difference between the two performance scenarios, hour of the day on the vertical axis and day of the year on the horizontal, on a diverging 0.5 to 2.5 scale where positive values mean the advanced unit performs better. Winter morning hours carry both the largest gains and the largest deficits. See Table 7.
+- source_image: 89042_images/image_000012_843ed9d2324976e6b751395866847309750cf1d4c0b7858a13e1e38387f60813.png
+  source_image_sha256: 954ed0e1650ff16946ec899b0b48a51efae2ef16fea4fb1cd0176fe8d6d8d1b6
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Stacked bars of annual site energy by end use and fuel for baseline and two HP-RTU scenarios
+  description: |-
+    Figure 10: stacked bar chart of annual site energy consumption in TBtu across the entire ComStock stock, one bar each for the baseline, advanced performance and standard performance scenarios, segmented by end use and fuel. Totals fall from 4,764 TBtu at baseline to 4,390 and 4,475 TBtu; natural gas heating shrinks while electric heating grows. Table ES-2 gives the savings.
+- source_image: 89042_images/image_000013_5a42130768d23f38676528084c230c8e6e3fbe5da4fd02d1a20909b0ac055bf2.png
+  source_image_sha256: 4fb5678eb18a5c8fad7d738ed97dca6bbce4489df15853a23c89e3a94b8bdd51
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Stacked bars of annual site energy for applicable buildings only, baseline and two HP-RTU scenarios
+  description: |-
+    Figure 11: the same stacked bar comparison of annual site energy consumption in TBtu, restricted to buildings the HP-RTU measure applies to. Totals fall from 1,656 TBtu at baseline to 1,282 TBtu for advanced performance and 1,367 TBtu for standard performance, as natural gas heating drops toward zero and electric heating rises. See Table ES-2.
+- source_image: 89042_images/image_000014_52d4f3dbdcf6353c533dd371713f41b73a2f33d54b452d70667345ca66fbd72a.png
+  source_image_sha256: d733dc7f90c3840d00bdc8427b4c3d4551c93f7b6db714df3c80954511a1fefd
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Three-panel GHG emissions bars for baseline and HP-RTU scenarios under three emissions factor sets
+  description: |-
+    Figure 12: three panels of stacked bar charts of annual greenhouse gas emissions in MMT CO2e, one panel per electricity emissions factor set - eGRID 2021, LRMER High RE Cost 15 and LRMER Low RE Cost 15 - each with baseline, advanced and standard performance bars segmented by fuel. Standard performance saves 4 to 7 percent depending on the factor set. See Table ES-3.
+- source_image: 89042_images/image_000015_9bf15aaa5443690e10115f3cdd91df9dfa3e156cbf3332d5df5b69f80c3b2ef9.png
+  source_image_sha256: 6c8d94fcf142e91e0f5f5ec5ecc42b2cf47853a02f9b9f2f5fcf3970abad9124
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Three-panel utility bill bars for baseline and HP-RTU scenarios at max, mean and min rates
+  description: |-
+    Figure 13: three panels of stacked bar charts of annual utility bills in billion 2022 USD, one panel each for the maximum, mean and minimum electricity rate, with baseline, advanced and standard performance bars segmented by fuel. At the mean rate bills fall from 124 to 120 billion dollars under standard performance, a 3 percent saving. See Table ES-4.
+- source_image: 89042_images/image_000016_78cb71c55bf0099c4924da0f6e11cda3c99f2697b5568a5c00f5297cc3ce5d7c.png
+  source_image_sha256: 649ae959549fe8bd55a02998036e604dd304c64828bd29b14888f3d26d95d4e0
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Violin and box distributions of percent site energy savings by end use and fuel type
+  description: |-
+    Figure 14: violin plots with embedded box plots of percent site energy savings by end use and fuel for models with the standard performance HP-RTU applied, x-axis -160 to 100 percent, sample counts printed per row. Natural gas and other fuel heating cluster near complete savings, while electricity heating, fans and heat recovery carry negative tails. Section 5.5 discusses these.
+- source_image: 89042_images/image_000017_1a7425c5ecff06e06a69ef854f3fa049a164acd648a1a1022308bdfeea9e0539.png
+  source_image_sha256: d81697e88fe10730e2246041ed9e1b057dd7055dd405296a3c0cde8e6ce55bc6
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Violin and box distributions of site EUI savings by end use and fuel in kBtu per square foot
+  description: |-
+    Figure 15: the same end-use rows plotted as absolute site EUI savings in kBtu per square foot rather than percentages, x-axis -60 to 100. Natural gas heating and other fuel heating carry the mass of the savings with long right tails past 40 kBtu per square foot, while the electricity end uses sit tightly around zero. Section 5.5 discusses these.
+- source_image: 89042_images/image_000018_2bfa8d9aae52703a5b5db4fb1997ce37b83a9bf5101e6dbb5ff4c7a2b14410c6.png
+  source_image_sha256: b9f24c2664b750cab5e858cef7b686ee2527dbc7e187ac0f9d6f27bf61fe2652
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Violin and box distributions of site EUI savings by ASHRAE climate zone in kBtu per square foot
+  description: |-
+    Figure 16: violin plots with embedded box plots of site EUI savings in kBtu per square foot for models with the HP-RTU measure applied, one row per ASHRAE climate zone from 1A to 8 with sample counts, x-axis -15 to 60. Medians rise with heating severity, and zones 5A through 7 carry the longest positive tails. Section 5.5 covers the pattern.
+- source_image: 89042_images/image_000019_fa7a47daa361113c17f615d26ccfb1eaa04a3b6320058171628d63cd120160e4.png
+  source_image_sha256: a5be7a9ed9fec49cac4de140f383b07b4aa4d181313f349cc6ba587bcbd1a1dc
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Box plots of rated and operating COP by state for the advanced and standard performance scenarios
+  description: |-
+    Figure 17: grid of box plots comparing the advanced and standard performance scenarios, both with a 0 degrees F lockout, for Arizona, Texas, New York and Minnesota. Five columns give rated cooling COP, annual average operating cooling COP, rated heating COP, and annual average operating heating COP with and without backup heating. Standard performance sits lower in every column. See Section 5.6.
+- source_image: 89042_images/image_000020_5bde6f633af10b8267bf3c4d92baf8388b9acdcec981890437aa45838396089d.png
+  source_image_sha256: 30cec8860ea1ea44ea697cf394239b106af610bb5c6e6e52502d65910be995a8
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Box plots of cooling cycling ratio and annual hours above 65 F by state and performance scenario
+  description: |-
+    Figure 18: grid of box plots over the same four states and two performance scenarios, but the two columns are annual average cooling cycling ratio (0 to 1) and total hours per year above 65 degrees F - not COP, despite the caption repeating Figure 17's. The standard performance unit shows a lower cycling ratio in every state. Section 5.6 discusses the operating behavior.
+- source_image: 89042_images/image_000021_35c76844ceb3d8ebd0dfd84632f24bbc81cbea698cb0d9f230c3964abe1c4a2d.png
+  source_image_sha256: a7fc97fc711cedaa59208a4fa8de601db8514c923f28d9650163132f1400fb78
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Two US state choropleth maps of median annual operating cooling COP, advanced versus standard
+  description: |-
+    Figure 19: paired choropleth maps of the contiguous United States shading each state by median annual operating cooling COP, advanced performance on the left and standard performance on the right, on a shared 3.1 to 5.1 scale. Advanced performance reaches 4.2 to 4.8 across the north while standard performance holds near 3.3 to 3.8 nationwide. Section 5.6 discusses.
+- source_image: 89042_images/image_000022_d2e7fc03c3779ff8fe6687d8975ed465be8f7087eb1592807085ac4ff877b389.png
+  source_image_sha256: 492016538b0dd71b607c14a46f634da39318d9b6b3a48a0724eda6f7ecf5ff48
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Two US state choropleth maps of median annual total operating heating COP including backup heat
+  description: |-
+    Figure 20: paired choropleth maps of median annual total operating heating COP including backup heating, advanced performance on the left and standard performance on the right, on a shared 1.5 to 4.3 scale. Values fall with heating severity, from roughly 3.6 in the south to 2.0 in the northern tier, and standard performance is lower in every state. See Section 5.6.
+- source_image: 89042_images/image_000023_8ac4138d520c4333b156755460fc29ad7e7c7d1f397910dee268da09729479b5.png
+  source_image_sha256: 4b30e8ac086d8026107872184058dead2d7b3225786aeb91f07d3745fcc4cf6c
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Box plots of peak power intensity by season, state and scenario in watts per square foot
+  description: |-
+    Figure 21: grid of box plots of peak power intensity in watts per square foot, three columns for the shoulder, summer and winter peaks and rows for Minnesota, New York, Texas and Arizona, each row holding baseline, advanced performance and standard performance under a 0 degrees F lockout. Winter peaks shift up most under both HP-RTU scenarios. Section 5.6 discusses peak impacts.
+- source_image: 89042_images/image_000024_48207e8cef2ae98aed5ccac4d34e0e8e99e23e5ca8e377252f4be38c67d3c6ab.png
+  source_image_sha256: 392bec8ee981ef835f923db0cab9b134f70b126031a1fb5c58a45bc4598e21a3
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Box plots of peak timing by season, state and scenario, in hour of the day
+  description: |-
+    Figure 22: grid of box plots of peak timing expressed as hour of the day from 0 to 24, three columns for the shoulder, summer and winter peaks and rows for Minnesota, New York, Texas and Arizona, comparing baseline against the advanced and standard performance scenarios. Summer peaks stay near mid-afternoon while winter peaks sit earlier in the day. Section 5.6 discusses.
+- source_image: 89042_images/image_000025_3fdb498011d27005e0af753f4469bc5b94d6541b4166cb6227565504bfbf6048.png
+  source_image_sha256: 2b9d030c39a1b5f3dbd1ab5464a1595070c52c961f02baeebdb1e227390b022c
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Grouped bars of site annual natural gas consumption by census division for three scenarios
+  description: |-
+    Figure A-1: grouped vertical bar chart of site annual natural gas consumption in TBtu by census division, three bars per division labeled Baseline, HP RTU E Backup and HP RTU Std Perf. East North Central is the largest, falling from about 375 to 290 TBtu, and every division declines under both scenarios. Table ES-2 gives the stock-level savings.
+- source_image: 89042_images/image_000026_1a688ee9b4b5c72b5a03db6a5f888cf3874897367058028ccfc7e3e30d65409f.png
+  source_image_sha256: 7599e4db99b8d389ec869c6e3daa15f430e4be48254b4b7dd60de87ebca68467
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Grouped bars of site annual natural gas consumption by ComStock building type for three scenarios
+  description: |-
+    Figure A-2: grouped vertical bar chart of site annual natural gas consumption in TBtu by ComStock building type, with Baseline, HP RTU E Backup and HP RTU Std Perf bars. SecondarySchool and RetailStripmall are the largest consumers; RetailStripmall drops from roughly 220 to 155 TBtu while SecondarySchool barely moves. See Table ES-2.
+- source_image: 89042_images/image_000027_1a652744ca19fdc30263d1f0f19940f9ae91538ed5137dbf3111fc0b439621cf.png
+  source_image_sha256: b4828dbbc284b3f10bfa67891e9c6496fbc9a9236593e3bd4e16f93801fdbe7c
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Grouped bars of site annual electricity consumption by ComStock building type for three scenarios
+  description: |-
+    Figure A-3: grouped vertical bar chart of site annual electricity consumption in TBtu by ComStock building type for the Baseline, HP RTU E Backup and HP RTU Std Perf scenarios. RetailStripmall is the largest at about 425 TBtu. Differences between scenarios are small at this scale and mostly upward, the counterpart to the gas reductions in Figure A-2.
+- source_image: 89042_images/image_000028_6dcdc89558c48873a7d3c621f3aeb178f8772c9c93d96dd80646fab8ba7fcc0f.png
+  source_image_sha256: d8d33452b5a7747028ab0078e0837bda2a0c88a1b64e8688b9407e7b8341ea77
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Grouped bars of site annual electricity consumption by census division for three scenarios
+  description: |-
+    Figure A-4: grouped vertical bar chart of site annual electricity consumption in TBtu by census division for the Baseline, HP RTU E Backup and HP RTU Std Perf scenarios. South Atlantic is the largest at roughly 680 TBtu, followed by Pacific and West South Central. Scenario differences are small at this scale. See Table ES-2.
