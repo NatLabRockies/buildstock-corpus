@@ -8,7 +8,10 @@ cold in a fresh session — everything you need to start is here.
 in one pass.
 
 **Progress:** Batch A done (PR #14). Batch B done (PR #15, + manifest fix #16). Batch C done
-(PR #17). 528 figures described across 32 docs. **Next up: Batch D.**
+(PR #17). Batch D done (PR #19). Batch E done (PR #20). **Batch F done — the sweep is
+complete.** 1,007 figure descriptions across 57 docs; every measure PDF with images is covered.
+Remaining optional scope is §7: `github_site` (triage first) and the 2 live
+`draft_publications/files/` docs.
 
 > ⚠️ **The description standard was deliberately lowered on 2026-08-21 — read §2.1 before
 > authoring anything.** Batches B and C ran ~180 words per description, roughly 3x the
@@ -17,11 +20,10 @@ in one pass.
 > entries are **not** being rewritten, so the corpus is intentionally uneven — recent files
 > being longer is not a precedent.
 
-**Start here (Batch D):** author **`89239` (31 images) first and stop** — the user wants to QA one
-full doc at the new §2.1 depth before the other five heavies (95003, 95002, 92766, 87746, 89653)
-are authored. Base the branch on a `main` that already contains §2.1 (this file's §2.1 heading is
-your check — if it's missing, you've branched off a stale `main`; see the depth-standard PR).
-Commit per-doc, not per-batch.
+**Nothing left to start in this file.** All six batches (A–F) are merged or open; §6's work-list is
+exhausted. If you are here for the next piece of work, it is either §7's optional scope or the
+generated-overlay automation for ResStock / the next ComStock release — not this sweep. The
+authoring conventions below stay authoritative for both. Commit per-doc, not per-batch.
 
 ---
 
