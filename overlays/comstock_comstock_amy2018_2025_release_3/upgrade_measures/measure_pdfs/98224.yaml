@@ -27,6 +27,32 @@
 #   * The blue and orange cell fills track the symbol already in the cell (blue behind every
 #     "O" and every unqualified "Yes", orange behind every "Δ" and both "Yes for some units"),
 #     so they add nothing that the transcribed values do not already say and are dropped.
+#
+# Figure notes (figures: block, added 2026-08-22):
+#   * 28 of the 30 extracted images are figures. Skipped: image_000000 (NREL photo collage) and
+#     image_000001 (NREL wordmark), both decorative. The tables: block above is caption-anchored,
+#     so it claims no image index and the two counts add up exactly.
+#   * Figures 7, 8, 9 and 10 are each ONE figure spanning TWO images. Each is a panel grid that
+#     breaks across a page, and docling emits the first block, then the caption, then the second
+#     block -- so the caption sits between the two halves rather than above them. The entries say
+#     which unit-size block they cover ("small and medium unit blocks" / "large unit block").
+#   * Figures 8, 10 and 11 have placeholder cells for large units reading "no data available for
+#     curve development" (or "for lookup table development"), directing the reader to the curve
+#     to the left or above. Described as printed.
+#   * Figures 16 and 17 are captioned "Percentage site energy use intensity savings" but their
+#     x-axes are absolute kBtu/ft2. The entries name the axis and flag the caption.
+#   * Figures 18 and 19 are captioned "between the baseline (left) and high-efficiency RTU
+#     (right)", but both charts put baseline and advanced RTU in ROWS and use the columns for the
+#     two metrics. The entries say upper/lower row and note the caption. Figure 20's paired maps
+#     genuinely are left and right.
+#   * Figure 4's color scale is unlabeled -- ticks at 5k, 10k and 15k with no legend title -- so
+#     the entry describes the two axes and the size breakpoints only.
+#   * Sample counts disagree between figures that plot the same rows: natural gas heating is
+#     n=18,806 in Figure 15 and n=24,382 in Figure 16, and Figures 14 and 17 differ by one model
+#     in zones 5A, 6A and 8. Noted, not investigated.
+#   * Figure 18's second panel (fan power minimum flow fraction) is not legible enough at normal
+#     resolution to state where the advanced RTU distribution sits, so the entry gives the axes
+#     and the fan-efficiency shift only.
 
 product: comstock
 release: "comstock_amy2018_2025_release_3"
@@ -78,3 +104,201 @@ tables:
       | Part Load Fraction Correlation Curve Name | Smaller Units | O | O | O |  |  |  |  |  |  |
 
       * Circle means sufficient data, triangle means data available but insufficient for curve development, and blank means no data.
+
+figures:
+- source_image: 98224_images/image_000002_ddfbf5f4af43132c78d321f657b6779ea623522e6061addc50725e469cc95747.png
+  source_image_sha256: 819fb4ad251221d7df7b522d5b4d3939244b9015b64c40acf13ba7a5c9406c33
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Bar chart of ComStock baseline in-force energy code by percent of stock floor area, split by applicability
+  description: |-
+    Figure 1: horizontal stacked bar chart of the ComStock baseline in-force energy code as a percentage of stock floor area, one bar per DOE Reference or DEER vintage, each split into floor area applicable and not applicable to the RTU upgrade. DOE Ref 1980-2004 is by far the largest vintage, with 16.73 percent of stock floor area applicable and 31.41 percent not. Section 2 explains the code mapping.
+- source_image: 98224_images/image_000003_d157d7e8da917a534b4d8d04cedcdbb83be5ea963560cb51b02dd073b000b77f.png
+  source_image_sha256: 23cda1ae41829a866b9e3f88a87a16b2ac7fd66aa64e55febc82537070d0393c
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Paired bars of HVAC system type by stock floor area and site energy, colored by upgrade applicability
+  description: |-
+    Figure 2: paired horizontal bar panels of ComStock HVAC system type prevalence - percent of stock floor area coverage and annual site energy consumption in TBtu - with bars colored by whether the high-efficiency RTU upgrade applies. The two applicable types are PSZ-AC with gas coil at 28.0 percent (1,452 TBtu) and PSZ-AC with electric coil at 12.3 percent (522 TBtu). Section 3.1 gives the criteria.
+- source_image: 98224_images/image_000004_ec866a72c4e0cac44f7bad96faaa6d980406493e4d137f08024045e866a14806.png
+  source_image_sha256: 60b6a607b6c6ef78e30d48093468a6ce1024e3942d01bfe493fd1a9ff2e91d35
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Histogram of rated cooling capacities in the manufacturer data used for modeling
+  description: |-
+    Figure 3: histogram of rated cooling capacity in tons across the manufacturer performance data used for modeling, count on the vertical axis and capacity from roughly 5 to 55 tons on the horizontal. The distribution is heavily weighted below 30 tons, clustering at common nominal sizes, and thins out above 40 tons. Section 3.2.1.1 describes the data set.
+- source_image: 98224_images/image_000005_9484e45afbd80c2c3b218db2855e50d11fbe6b9be9e41b953dfc5b9ede6d8937.png
+  source_image_sha256: b6252f8734010dd50c62b754737e9e376bc10f9e417db284f9d5fc214680c134
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Two scatter panels of rated EER and IEER against rated cooling capacity from manufacturer data
+  description: |-
+    Figure 4: two stacked scatter panels of rated EER above rated IEER, both against rated cooling capacity in Btu/hr, with dashed vertical lines marking the 135 kBtu/hr and 240 kBtu/hr breakpoints that bin units by size. Rated EER spans roughly 10 to 14 and IEER roughly 10 to 25, both trending down as capacity rises. See Section 3.2.1.1.
+- source_image: 98224_images/image_000006_fa7ee8888325efce13ea1dbe5fcc98e414781777704b81825fd33e57202efd18.png
+  source_image_sha256: c9d6b23dc31dae68806e0b74a6e70a459009844e68586525c8b5d98c02904587
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Scatter of rated COP against rated capacity with three piecewise linear regressions
+  description: |-
+    Figure 5: scatter of manufacturer rated cooling COP against rated capacity in watts, overlaid with three linear regressions, one per size bin split at 135 and 240 kBtu/hr. The fits are weak, with R-squared values of 0.0037, 0.0748 and 0.0014, and intercepts of 4.26, 4.24 and 3.68. Section 3.2.1.1 gives the resulting modeling assumptions.
+- source_image: 98224_images/image_000007_9eac1dad66a2e9a6de7233d77b93a17db7eb702c154ca608aba4c4658bf660d9.png
+  source_image_sha256: 43a38c05d7aabf1033c84931085dd41bd9babf822b1bec72619d81ba9f49352e
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Scatter of rated cfm per ton against rated capacity with three piecewise linear regressions
+  description: |-
+    Figure 6: scatter of rated airflow in cfm per ton against rated capacity in watts, with three linear regressions fitted by size bin. Values center near 350 cfm/ton across the whole capacity range and the fits are weak, with R-squared values of 0.1562, 0.0001 and 0.0185. Section 3.2.1.1 explains how the regressions set modeled airflow.
+- source_image: 98224_images/image_000008_d30096ed3cdcf4fb02621fcd5543095e64236a7a7328976d92060a8e863aaa3d.png
+  source_image_sha256: 27ef55fe4ce4711f45fe4847f2bee1cf69a1dc26ae3b49923f72eaf053107004
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Capacity modifier versus evaporator airflow curves for small and medium units, three operation stages
+  description: |-
+    Figure 7, small and medium unit blocks: six-panel grid of cooling capacity modifier against normalized evaporator airflow, columns running from highest to lowest operation stage and rows for small and medium unit sizes. Each panel plots manufacturer data, the new fitted quadratic with its equation and R-squared, and the existing/old curve. Table 2 maps data sources to curves.
+- source_image: 98224_images/image_000009_b070d272838cf72eca1ea4012fbd8ed872e84a4ad4db14c4d7a9000708bb61bb.png
+  source_image_sha256: ffb38c9e83d1af6c210d2ca0d2fa57bce01762aef0997e58a34e9e185ec19ed1
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Capacity modifier versus evaporator airflow curves for large units, three operation stages
+  description: |-
+    Figure 7, large unit block: the continuation of the grid, three panels of cooling capacity modifier against normalized evaporator airflow for large units at high, medium and low operation stage. The fits are strong here, with R-squared of 0.89, 0.96 and 0.99, and the new curves fall below the old curve at high airflow fractions. See Table 2.
+- source_image: 98224_images/image_000010_4637ec562ca7c97d240ec659f19d0341ca7346a39011c42eddb8ae1e0964dd10.png
+  source_image_sha256: 7191e32cbafffe2beed25cb868b3514a16934a3db1e2c7174a16cfb0616e7079
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: EIR modifier versus evaporator airflow curves for small and medium units, three operation stages
+  description: |-
+    Figure 8, small and medium unit blocks: six-panel grid of cooling energy input ratio modifier against normalized evaporator airflow, columns from highest to lowest operation stage and rows for small and medium unit sizes. Each panel shows manufacturer data, the new fitted quadratic with equation and R-squared, and the existing/old curve. Table 2 maps data sources to curves.
+- source_image: 98224_images/image_000011_6bfa4ea67f7f22c1136a1f1bdbeaa9af623c1a79b0de61200fa0d4eed944bb8e.png
+  source_image_sha256: 46114c3f0be06d59a92eb95d45153e7086e7ae175f122edee9a5e244e675db48
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: EIR modifier versus evaporator airflow curve for large units, with two stages lacking data
+  description: |-
+    Figure 8, large unit block: the continuation of the grid for large units. Only the highest operation stage has a fitted curve, quadratic with R-squared 0.90; the medium and low stage cells are placeholders reading no data available for curve development, use curve on the left. Section 3.2.1.2 explains the fallback. See Table 2.
+- source_image: 98224_images/image_000012_9b281bf93c4460ce118fdd9b5dfafc1713edb752f3ef19cb503f71453a77f254.png
+  source_image_sha256: 2b6edcc11365a633ec5e441be1abaa3cf3e87dc12a04d28c19fd64357310b4bd
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Capacity modifier versus condenser inlet temperature for small and medium units, new and old maps
+  description: |-
+    Figure 9, small and medium unit blocks: six-panel grid of cooling capacity modifier against condenser inlet dry-bulb temperature in degrees C, columns from highest to lowest operation stage and rows for small and medium units. Each panel shades the band between evaporator wet-bulb 25.0 and 13.9 degrees C for the new map against the same band for the old map. See Table 2.
+- source_image: 98224_images/image_000013_4ae3e2e6da5769a5cf1ad7ca37b6e94ccd9cca0913ef7fbc483a3668485a298c.png
+  source_image_sha256: 2a71e03abf3fa9c2111ff68f4e55305cc39ebdfe0f700bed33c43288d28d513c
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Capacity modifier versus condenser inlet temperature for large units, new and old maps
+  description: |-
+    Figure 9, large unit block: three panels of cooling capacity modifier against condenser inlet dry-bulb temperature for large units at high, medium and low operation stage, again shading the new map's evaporator wet-bulb band against the old map's. The medium and low stage panels use wet-bulb bounds of 24.4 and 14.4 degrees C rather than 25.0 and 13.9. See Table 2.
+- source_image: 98224_images/image_000014_e55d4444229a7a38a3879a04a2fdb925e4e82fc1c4d2a09773faf0d6934c136e.png
+  source_image_sha256: 3026ad5e85ef0b0008dc40090620c0fa0a40c3b32ad6997cb4f6d283b0be810c
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: EIR modifier versus condenser inlet temperature for small and medium units, new and old maps
+  description: |-
+    Figure 10, small and medium unit blocks: six-panel grid of cooling energy input ratio modifier against condenser inlet dry-bulb temperature in degrees C, columns from highest to lowest operation stage and rows for small and medium units, shading the new map's evaporator wet-bulb band against the old map's. Modifiers rise steeply with condenser temperature. See Table 2.
+- source_image: 98224_images/image_000015_a46e43d55cb76ed4fda46968297bc904c1419164172a84a3b2bb725c53cef546.png
+  source_image_sha256: e02e5a650e3272d9887a7dc4b7aa6860b1e022023689cf28becc4c52adc2f180
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: EIR modifier versus condenser inlet temperature for large units, with two stages lacking data
+  description: |-
+    Figure 10, large unit block: the continuation for large units, where only the highest operation stage has a lookup table. The medium and low stage cells are placeholders reading no data available for lookup table development, using map on the left. Section 3.2.1.2 explains the fallback. See Table 2.
+- source_image: 98224_images/image_000016_fbf71ee436d5181deb56cfc9c97a57edbefec382413e7cf0c500b912d8126134.png
+  source_image_sha256: 7da27dba5b9a1be4bdc6e034ebd7751940935831724c9acb158006ecac57c6bb
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Normalized power versus part-load ratio curves for small and medium units, large lacking data
+  description: |-
+    Figure 11: three stacked panels of normalized power against part-load ratio by unit size. Small units fit 0.911407x plus 0.097728 with R-squared 0.943 and medium units 0.947828x plus 0.068913 with R-squared 0.993; the large-unit panel reads no data available for curve development, use the curve above. Both new curves sit well below the old curve. See Table 2.
+- source_image: 98224_images/image_000017_b07093c045ac7dd919f50ddbbfdadbe7412da58a5416787486c8389cd5454d72.png
+  source_image_sha256: cfb83260d3f6ecacab1e8211a6c10d9fa1f46ef2f56e64ab53386032d4392071
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Three scatter panels of single-building COP, cooling runtime fraction and fan power versus temperature
+  description: |-
+    Figure 12: three scatter panels for one example single building, each plotted against outdoor air temperature in degrees F and comparing the upgrade against the baseline - operating cooling COP, cooling runtime fraction from 0 to 1, and supply fan power in watts. The upgrade holds a higher COP at every temperature and drops below the baseline's fixed fan power. Table 5 gives annual totals.
+- source_image: 98224_images/image_000018_68a6f7091568debcea0e459dfe91b2b94517778c9d7d71cf688613090ed65149.png
+  source_image_sha256: e1172880b9e6e84812b10c2fb349afbb57b8c71f3d5abca107736987381b7977
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Stacked bars of annual site energy for the whole stock and for applicable models only
+  description: |-
+    Figure 13: two stacked bar panels of annual site energy consumption in TBtu by end use and fuel, baseline against the high-efficiency RTU scenario - panel (a) the entire building stock, panel (b) applicable models only. Stock totals fall from 4,989 to 4,695 TBtu and applicable-model totals from 2,370 to 2,076 TBtu, driven by electric cooling and fans. Table 6 has the savings.
+- source_image: 98224_images/image_000019_8b0b20c27e83a4588d200e5fb27443f8580bf10199fa1d973097dbf866e535b5.png
+  source_image_sha256: 5e478c8b05205be133ffccc90c3e5cdcbb40f2a3915cd6f7251fa95c5b72aab0
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Violin and box distributions of percent annual utility bill savings by ASHRAE climate zone
+  description: |-
+    Figure 14: violin plots with embedded box plots of percentage annual utility bill savings for models with the upgrade applied, one row per ASHRAE climate zone from 1A to 8 with sample counts, x-axis -100 to 80 percent. Medians sit near 10 to 20 percent in every zone, with long tails in both directions. Table 7 gives the stock-level totals.
+- source_image: 98224_images/image_000020_a0cdd9bf92c3cf3a2b72af4f818de5e0fa80686f2f5c9d1683719d3d2bde9e3f.png
+  source_image_sha256: 4eda6bffaeb63bfffdd244fa3908f9691566b1bae0336682c65ad2227aa4509e
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Violin and box distributions of percent site energy savings by end use and fuel type
+  description: |-
+    Figure 15: violin plots with embedded box plots of percentage site energy savings by end use and fuel for models with the upgrade applied, sample counts printed per row, x-axis -160 to 100 percent. Electricity cooling and fans hold the mass of the savings, centered near 30 to 40 percent, while the heating and water-heating rows sit at zero. Section 5.4 discusses.
+- source_image: 98224_images/image_000021_836d2a0be3165e980388d61ee49d81acb1bf57bbe0be9e65cbc97166549dd6a8.png
+  source_image_sha256: ad78883c429ac89ba01504848870a834b34980d2fb001ebff1546e1a00a3fbcd
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Violin and box distributions of site EUI savings by end use and fuel in kBtu per square foot
+  description: |-
+    Figure 16: the same end-use rows as Figure 15 plotted as absolute site energy use intensity savings in kBtu per square foot, x-axis -20 to 80, despite the caption calling the metric a percentage. Electricity cooling and fans again carry the savings with long right tails, and every other end use sits at or near zero. Section 5.4 discusses.
+- source_image: 98224_images/image_000022_a31a2dd4953b90e9042ab08c49608916b500ed2b7aef14a3c3d763c396f88096.png
+  source_image_sha256: 78b2582f2dece412b2fe08d8c251faf81b77001b8534e2de77b69480aed6a95e
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Violin and box distributions of site EUI savings by ASHRAE climate zone in kBtu per square foot
+  description: |-
+    Figure 17: violin plots with embedded box plots of site energy use intensity savings by ASHRAE climate zone, one row per zone from 1A to 8 with sample counts, x-axis -20 to 90 kBtu per square foot despite the caption calling the metric a percentage. Medians run a few kBtu per square foot and are largest in the hot zones. Section 5.4 discusses.
+- source_image: 98224_images/image_000023_6a8072b5c7b5ea601e2f4cfcec41fbde51c62d16f31c85540cd9f6240fd1d106.png
+  source_image_sha256: 57977c4a2fecbc1e99e529f323567d503f0af91d005608e2c2e017b9b8e216fc
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Box plots of fan total efficiency and fan minimum flow fraction, baseline versus advanced RTU
+  description: |-
+    Figure 18: two box-plot panels for applicable models only - fan total efficiency and fan power minimum flow fraction, each a design-airflow-weighted average - with baseline in the upper row and advanced RTU in the lower, not left and right as the caption says. Baseline fan efficiency spreads from about 0.15 to 0.65 while the upgrade clusters near 0.6. Section 5.5 discusses.
+- source_image: 98224_images/image_000024_bcdfbb7b5b468dfcfe0683d1989c3cfe2d55b2a5e5e38737469f149565dca894.png
+  source_image_sha256: cfd1a3af581417e26005c513917f859344f6833f728261f72c0477fc17123ef5
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Box plots of rated and annual average operating cooling COP, baseline versus advanced RTU
+  description: |-
+    Figure 19: two box-plot panels for applicable models only, rated cooling COP and annual average operating cooling COP, both accounting for compressor and condenser fan power, with baseline in the upper row and advanced RTU in the lower rather than left and right as the caption says. Section 5.5 puts the median rated COP gain at 34 percent, from 3 to 4.
+- source_image: 98224_images/image_000025_4a0b01c047517c8e8e23b491eb24698858cd92c9f2717f449c8a86c23be0f04c.png
+  source_image_sha256: b1b194975c15195c6b34b70cc991d40e2773c141d67e0d2a7246f0ea6053f2bf
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Two US state choropleth maps of median annual average operating cooling COP, baseline versus upgrade
+  description: |-
+    Figure 20: paired choropleth maps of the contiguous United States shading each state by the median building's annual average operating cooling COP, baseline on the left and high-efficiency RTU on the right, on a shared 3.2 to 5.7 scale. Baseline values run about 3.2 to 3.7 against 4.2 to 5.4 for the upgrade, the 42 percent improvement Section 5.5 cites.
+- source_image: 98224_images/image_000026_5d7783ecacb1274f4e451e2d3c795b1714f6a6f0ca68238663be6900328b0dee.png
+  source_image_sha256: 4e480158d3f0b611e0e889db9b204c570ce8d402ac93c4549e4b59a7011070d6
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Grouped bars of site annual natural gas consumption by census division, baseline versus Adv_RTU
+  description: |-
+    Figure A-1: grouped vertical bar chart of site annual natural gas consumption in TBtu by census division, one bar each for Baseline and Adv_RTU. East North Central is the largest at roughly 385 TBtu, and the two scenarios are nearly identical in every division, edging up slightly under the upgrade. Table 6 gives the site energy savings.
+- source_image: 98224_images/image_000027_464bd79f71b93c0b3739245a1f806287179d30d2ec0cc3bffc022e68af6ec147.png
+  source_image_sha256: 88213524e2c00637db4a9091beecb511ce305824284656d6d07650818f9ec7f0
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Grouped bars of site annual natural gas consumption by ComStock building type, baseline versus Adv_RTU
+  description: |-
+    Figure A-2: grouped vertical bar chart of site annual natural gas consumption in TBtu by ComStock building type for the Baseline and Adv_RTU scenarios. RetailStripmall and SecondarySchool are the largest at roughly 230 and 220 TBtu. Gas use barely moves under the upgrade, edging up slightly in most building types. See Table 6.
+- source_image: 98224_images/image_000028_23fb32a1973d27aa23ae1579261c9c031e7bfffe5ed5ebda958d637be4702579.png
+  source_image_sha256: fd3e5a89363475a4ad5c32e6089bef3e429c0de729f68030e156c2f9faebf8fd
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Grouped bars of site annual electricity consumption by census division, baseline versus Adv_RTU
+  description: |-
+    Figure A-3: grouped vertical bar chart of site annual electricity consumption in TBtu by census division for the Baseline and Adv_RTU scenarios. South Atlantic is the largest, falling from about 730 to 685 TBtu, and every division declines under the upgrade. Table 6 gives the stock-level site energy savings.
+- source_image: 98224_images/image_000029_1f52066dcc3e34fe2e9622bc79a532c6a0ec68a7529bc514cc23575b683b785a.png
+  source_image_sha256: aa82ebf10d2ad84c4bae46abd43ca49061ca9feedfb4bf073e10816a32b26b5e
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: Grouped bars of site annual electricity consumption by ComStock building type, baseline versus Adv_RTU
+  description: |-
+    Figure A-4: grouped vertical bar chart of site annual electricity consumption in TBtu by ComStock building type for the Baseline and Adv_RTU scenarios. RetailStripmall is the largest and shows the biggest absolute reduction of any type, falling from roughly 490 to 425 TBtu, with every other type flat or slightly lower. See Table 6.
