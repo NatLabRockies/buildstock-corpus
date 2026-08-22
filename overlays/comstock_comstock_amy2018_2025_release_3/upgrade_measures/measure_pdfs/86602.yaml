@@ -150,3 +150,156 @@ tables:
       | 90.1-2019 | 300,000 | 999,999 |  | 0.8 |  | Boiler with No Minimum Turndown | From 90.1-2019 |
       | 90.1-2019 | 1,000,000 | 249,999,999 |  | 0.8 |  | Boiler with Minimum Turndown | From 90.1-2019 |
       | 90.1-2019 | 250,000,000 | no max |  |  | 0.82 | Boiler with Minimum Turndown | From 90.1-2019 |
+
+# Hand-authored figure descriptions for measure_pdfs/86602.pdf (Batch E).
+#
+# 86602 documents the combined High Efficiency Envelope, Interior Lighting and Heat Pump
+# upgrade package (wall and roof insulation, new windows, LED lighting, HP-RTU and
+# ASHP-Boiler). docling extracts every picture as a bare ![Image](...) ref: the caption line
+# survives above it, but the chart itself is invisible to retrieval. Each entry below rewrites
+# the ref with a hand-written alt and injects a description paragraph beneath it. Schema and
+# depth budget: overlays/FIGURE_DESCRIPTIONS_ROLLOUT.md (section 2.1 -- 40-70 words, alt <=120
+# chars, no corroboration against body prose).
+#
+# Scope: Figures 1-11 and A-1 through A-4 (15 charts). The five front-matter images (indices
+# 000000-000004: four cover photo-collage fragments and the National Laboratory of the Rockies
+# logo) are deliberately not described.
+#
+# Unlike 86599, Table 11 (On-Site Fossil Fuel Emissions Factors) extracted as TEXT here, so no
+# table bitmap needs vision-transcription; every entry in this block is vision-description.
+#
+# The `tables:` entries above are unrelated to this block -- no figure entry anchors on a table
+# bitmap, so the two do not interact.
+#
+# QA notes (vision reads; confirm before treating as a release record):
+#   * Section 5.3 says emissions are avoided "across two of the three electricity grid
+#     scenarios (not LRMER Low RE Cost 15)", but Figure 5 shows a reduction in all three
+#     (-10.0 MMT, 6.2%, for LRMER Low RE Cost 15) and the very next sentence gives the range
+#     as "between 6.2% and 9.7%", which includes it. The parenthetical looks wrong.
+#   * Section 5.6 says the winter and shoulder peaks "are shifted later in the day by several
+#     hours" and in the same sentence attributes the shift to morning electric heating. Figure
+#     11's Package 3 violins appear to gain a mid-morning mode, i.e. EARLIER. Direction worth
+#     a human check; the entry for Figure 11 quotes the prose rather than asserting a direction.
+#   * Figure 8's caption says "percent savings" but the x-axis is a fraction (-0.65 to 0.00),
+#     and every plotted model is a penalty -- the axis holds no positive values.
+#   * Figure 9's model counts (site n=9,544) are two orders of magnitude below Figure 6's
+#     per-end-use counts (electricity cooling n=328,932), and its chart title reads
+#     "Upgrade 07: High Efficiency Envelope plus HP and LED" where Figures 6, 7 and 10 read
+#     "Upgrade 18: Package 3". Two different result sets may be mixed into one section.
+#   * Figure 10 lists 7, 7A and 7B as separate ASHRAE climate-zone rows -- same upstream issue
+#     already recorded for 89340, 89481 and 86599.
+#   * Table 11's propane row again pairs 177.8 lb/MMBtu with 182.3 kg/MWh where ~275 is
+#     expected (text extraction here, not a bitmap read).
+
+figures:
+- source_image: 86602_images/image_000005_316aa0fda323fd01d3a71d36b1079b91a8e91cb41194ac780efb9c2fa661ffc4.png
+  source_image_sha256: bc65330238063142ab095ae02206a3e0c5dfa17aad719701ebce631e342c9bd8
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Bar chart of percent of stock floor area served by applicable RTUs, by baseline in-force energy
+    code
+  description: |-
+    Figure 1: horizontal bar chart of the percent of stock floor area served by applicable RTUs, one row per baseline in-force energy code from ComStock DOE Ref Pre-1980 through DEER 2017, x-axis 0 to 50% with printed labels. DOE Ref 1980-2004 dominates at 46.50%, followed by 90.1-2007 at 19.52% and 90.1-2004 at 9.10%; every DEER row is 2.93% or less. Applicability covers PSZ-AC gas- and electric-coil systems only.
+- source_image: 86602_images/image_000006_85aa8588566b800f542a79984bb6dc416b2ab866336bd61dea5e78a73318ae93.png
+  source_image_sha256: b1a8b0d90a7e708facd181e7b20aa9b8cdeb18b3c6a9cc25bdc1d68f08f0e157
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Bar chart of fraction of floor area applicable, by observed measure combination in the package
+  description: |-
+    Figure 2: horizontal bar chart of the fraction of stock floor area applicable by observed measure combination, x-axis 0 to 1.0 with printed labels. HP-RTU+LED+Window+Wall+Roof leads at 0.23, then HP-Boiler+LED+Window+Wall+Roof 0.21 and LED+Window+Wall+Roof 0.20; the remaining combinations run 0.13 to 0.11 and Not Applicable is 0.00. Section 5.1 notes individual measures reach 33% to 99% of floor area.
+- source_image: 86602_images/image_000007_77667f9f2b127d17004ed89a90620a3b7160b44ef2ce9ce1ce16c676dce814f8.png
+  source_image_sha256: 7d80bb82b03c3711432db903deec50602e4ea69bac63c6e54446fbc445978119
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar chart of annual site energy by end use and fuel, ComStock baseline vs Package 3
+  description: |-
+    Figure 3: two stacked bar columns comparing annual site energy consumption (TBtu, y-axis 0 to about 4,750) for the ComStock baseline and Package 3, stacked by end use and fuel with a 19-entry legend. The total falls from 4,638 to 3,479 TBtu. Natural gas heating drops 631.5 to 372.3, interior lighting 451.0 to 286.1 and fans 588.3 to 439.8. Section 5.2 lists 25.0% total savings, 1,159 TBtu.
+- source_image: 86602_images/image_000008_5235393584ecc1aadce1d21e7fab9e2d9b4b449f78c76c4c01018f4a3e02c20f.png
+  source_image_sha256: e3a11352d57d1d4707c8b93dc517f37bf21a99cc524358298360ba3d8cc3d0dc
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Bar chart of average percent site energy savings by observed measure combination
+  description: |-
+    Figure 4: horizontal bar chart of average percent site energy savings by observed measure combination, x-axis 0 to 40% with printed labels on six rows. HP-RTU+LED+Window+Wall+Roof is highest at 37.9% and HP-RTU+Window+Wall+Roof next at 34.3%; the HP-Boiler rows give 27.0% and 23.5%, and envelope-only Window+Wall+Roof is lowest at 12.8%. Section 5.2 pairs these with the package variants.
+- source_image: 86602_images/image_000009_b14c4d94d7d2146026f3990cabbd66769cadda31ca698a202479c670a6fc88e0.png
+  source_image_sha256: 83c5af8663d143b7eb645ea532165017ec2771c38614b77331df73fbbb9ba9b3
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Paired bar chart of annual GHG emissions by grid scenario and on-site fuel, baseline vs Package
+    3
+  description: |-
+    Figure 5: paired bar chart of annual GHG emissions (MMT CO2e, y-axis 0 to 500) for the baseline and Package 3 across three electricity grid scenarios plus natural gas, fuel oil and propane, each pair labeled with its delta. eGRID 2021 falls 336.6 to 304.1 (-32.5, 9.7%); natural gas falls 83.6 to 30.4 (-53.2, 63.6%) and propane 2.0 to 0.8 (-1.2, 60%). Section 5.3 explains the scenarios.
+- source_image: 86602_images/image_000010_225cca140537c0f311065da761ddc63bcef85fd2c772e4b3ab8e32d3b4dfa895.png
+  source_image_sha256: 99183f0cea5723c9cf4c625ef84d85cfb5c23aaaa61e25e3c8117cdb7b9040e0
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin and box plots of percent site energy savings by end use and fuel type for Package 3
+  description: |-
+    Figure 6: horizontal violin-and-box plot of percent site energy savings by end use and fuel type, x-axis -160% to 140%, titled Upgrade 18: Package 3 (unweighted), with model counts per row (electricity cooling n=328,932; natural gas heating n=220,576). The gas and other-fuel heating rows cluster near 100% savings while electricity heating carries a long negative tail. Sections 5.4.1 through 5.4.6 explain each end use.
+- source_image: 86602_images/image_000011_e33e7de0f23ef584441792ab737304d0a79875aaf0d3c7412ae0502a82c682b2.png
+  source_image_sha256: c3acad00bee5356f3c3475e28edc17db981d9946387d1a360c7b9ea5531b674b
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin and box plots of absolute site EUI savings by end use and fuel type for Package 3
+  description: |-
+    Figure 7: horizontal violin-and-box plot of site EUI savings in kBtu/ft2 by end use and fuel type, x-axis -150 to 500, same 17 rows and model counts as Figure 6 and the same Upgrade 18: Package 3 (unweighted) title. Natural gas heating is by far the widest distribution, with outliers approaching 500 kBtu/ft2; every other row sits tightly around zero. Figure 6 gives the same data in percentage terms.
+- source_image: 86602_images/image_000012_73cfd34b4e8cb526d96be48222466b78786e6274559064723cba0293da2f232c.png
+  source_image_sha256: ea255e44d0d20f92e57c4d9960b0d59c64410038e7d826e3db8f61723db478d3
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Scatter plot of daylight control fraction against interior lighting electricity savings
+  description: |-
+    Figure 8: scatter plot of daylight control fraction (y-axis 0 to 1.0) against percent savings in interior lighting electricity consumption (x-axis -0.65 to 0.00, plotted as a fraction). Points crowd against zero and the penalty widens as the control fraction rises; no model shows a saving. Section 5.4.6 attributes the penalty to lower window visible light transmittance in daylight-controlled models.
+- source_image: 86602_images/image_000013_2fdc99452add6eebd4497024c4cec9c3aa6741dd5215685dd106565ab0a2d31e.png
+  source_image_sha256: 57eca078be1f71a571f2dcc7627a8dad07acab98b4155d910a7cd5fc12609d07
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin and box plots of percent site energy savings by fuel type, including total site energy
+  description: |-
+    Figure 9: horizontal violin-and-box plot of percent site energy savings by fuel, x-axis -140% to 100%, six rows - district cooling (n=58), district heating (n=93), other fuel (n=447), natural gas (n=6,204), electricity (n=9,543) and site (n=9,544). Natural gas and other fuel carry the highest medians, roughly 60% to 90%. Section 5.4 puts the site row's middle 50% at 15% to 40%.
+- source_image: 86602_images/image_000014_2aa3e99cc19747cd602ac58a0a73db10b3c143b51b81f86f1f6660635b901819.png
+  source_image_sha256: 47607fbe035a9237e8e480249bd3d4aa7b8fbd67d4d381238b52f30912c43ccf
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin and box plots of site EUI savings by ASHRAE climate zone for Package 3
+  description: |-
+    Figure 10: horizontal violin-and-box plot of site EUI savings in kBtu/ft2 by ASHRAE climate zone, x-axis 0 to about 375, 16 rows from 1A (n=5,539) through 8 (n=64), titled Upgrade 18: Package 3 (unweighted). Medians are small and positive in every zone; the cold zones 5A and 6A carry the longest upper tails, past 300 and 250 kBtu/ft2. Section 5.5 discusses the climate pattern.
+- source_image: 86602_images/image_000015_e68c900144660d8f83d92000000026e0b85980e0ca1a1fb9a35b20a368d6025b.png
+  source_image_sha256: 13cbf41581983ec95d50a267835d158e2342c8de2b6a9d8483ac090970d974fd
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin and box plots of maximum daily peak timing by season, baseline vs Package 3
+  description: |-
+    Figure 11: horizontal violin-and-box plot of maximum daily peak timing (hour of day, x-axis 0 to 23) with a Baseline and a Package 3 distribution for each of winter, summer and shoulder. The winter and shoulder pairs differ visibly and pick up a mid-morning mode; summer changes least. Section 5.6 reports the winter and shoulder peaks moving several hours with morning electric heating driving them.
+- source_image: 86602_images/image_000016_1fad572ba786cefe18a40588d0967fc0e649d64f6f865ee962da768be8b70a53.png
+  source_image_sha256: 1df13f2dca55544355b9c9ec672b82894560715576c4cfdfb5d1c2e8fcbaed26
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of annual site natural gas consumption by census division, baseline vs Package
+    3
+  description: |-
+    Figure A-1: grouped bar chart of annual site natural gas consumption (TBtu, y-axis 0 to about 320) by census division, baseline against Package 3. East North Central is largest, falling from roughly 310 to 80 TBtu, and Pacific from about 225 to 95; every division drops steeply, consistent with the 96.3% stock heating gas savings reported in Section 5.2.
+- source_image: 86602_images/image_000017_39d3914b22750e57e455621b76c739366cd3ae348f9e0beb84f384a40da714c7.png
+  source_image_sha256: 212d3ad32b78e152cfe5f441d5d4c6090275fcf34d9e836841df9079ac856576
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of annual site natural gas consumption by building type, baseline vs Package
+    3
+  description: |-
+    Figure A-2: grouped bar chart of annual site natural gas consumption (TBtu, y-axis 0 to about 215) by ComStock building type, baseline against Package 3. RetailStripmall is largest, falling from roughly 215 to 120 TBtu, while the school and office types drop by most of their baseline. FullServiceRestaurant and LargeHotel change least, reflecting non-heating gas loads. Figure A-1 gives the same total by census division.
+- source_image: 86602_images/image_000018_0e97e18899c3b081f4660c438d6b3cdf5a94c4741261971687821bb999a71f93.png
+  source_image_sha256: 000ca3efee1b6d09d30a638d080c055d4a3188c0534fb33ce5b3fe610bc3175f
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of annual site electricity consumption by census division, baseline vs Package
+    3
+  description: |-
+    Figure A-3: grouped bar chart of annual site electricity consumption (TBtu, y-axis 0 to 700) by census division, baseline against Package 3. South Atlantic is largest, falling from about 665 to 565 TBtu, and Pacific from roughly 520 to 460. Reductions are modest everywhere because lighting, fan and cooling savings are partly offset by heating electrification, per Section 5.2.
+- source_image: 86602_images/image_000019_67a06ce1c9c43296f96e982acbecab7273b96d139df2e06cf2e3164e25e1be7d.png
+  source_image_sha256: 1ee0b1cb62e2d3558496854d832fbf1ff5397cdd6309fe3f675d42f4f8323ec1
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of annual site electricity consumption by building type, baseline vs Package
+    3
+  description: |-
+    Figure A-4: grouped bar chart of annual site electricity consumption (TBtu, y-axis 0 to about 450) by ComStock building type, baseline against Package 3. RetailStripmall and Warehouse are largest, each falling roughly 450 to 380 TBtu. Most types decline modestly while SecondarySchool rises slightly, the signature of heating electrification described in Section 5.2.

@@ -139,3 +139,164 @@ tables:
       (a) At altitudes substantially different than sea level, the Fixed Enthalpy limit shall be set to the enthalpy value at 75°F and 50% relative humidity. As an example, at approximately 6000 ft elevation the fixed enthalpy limit is approximately 30.7 Btu/lb.
 
       (b) Setpoint "A" corresponds to a curve on the psychrometric chart that goes through a point at approximately 75°F and 40% relative humidity and is nearly parallel to dry-bulb lines at low humidity levels and nearly parallel to enthalpy lines at high humidity levels.
+
+# Hand-authored figure descriptions for measure_pdfs/89128.pdf (Batch E).
+#
+# 89128 documents the HP-RTU + ASHP Boiler + DCV + Heat/Energy Recovery + Economizers package.
+# docling extracts every picture as a bare ![Image](...) ref: the caption line usually survives
+# above it, but the chart itself is invisible to retrieval. Each entry below rewrites the ref
+# with a hand-written alt and injects a description paragraph beneath it. Schema and depth
+# budget: overlays/FIGURE_DESCRIPTIONS_ROLLOUT.md (section 2.1 -- 40-70 words, alt <=120 chars,
+# no corroboration against body prose).
+#
+# Scope: all 18 non-decorative images (indices 000007-000024) -- Figures 1-17 plus the Table 6
+# bitmap. The seven cover images (000000-000005 photos, 000006 logo) are deliberately not
+# described.
+#
+# The `tables:` entries above are caption-anchored (Tables 1 and 5, by page and source PDF
+# hash), so they consume no image index and nothing here overlaps them.
+#
+# QA notes (vision reads; confirm before treating as a release record):
+#   * Table 6 survives ONLY as a caption-less bitmap (index 000013). Section 3.6 cites "Table 6"
+#     in prose but no caption line is extracted, so the transcription below is the only place
+#     its emissions factors exist as text. It prints propane as 182.3 kg/MWh -- the recurring
+#     conversion error across these measure documents; 95005 prints the correct 275.7.
+#   * Figure 4's caption reads "Upgrade applicability on building stock cooling energy", but the
+#     chart's axis is % of total floor area and its series are economizer control types.
+#   * Figure 13's in-chart title reads "Upgrade 32: Package 5 (unweighted)"; the document body
+#     calls the scenario Package 5 throughout.
+#   * Section 5.5 discusses only summer peak reductions. Figure 15 also shows large winter peak
+#     INCREASES that the prose never mentions (Cold 2.01 to 2.72, Very Cold 2.79 to 4.16,
+#     Subarctic 2.08 to 2.78 W/ft2).
+#   * The extracted List of Figures is badly mangled -- Figure 14's entry is replaced by a
+#     Table 7 line and several captions interleave. The body captions are intact, and those are
+#     what these entries anchor to.
+
+figures:
+- source_image: 89128_images/image_000007_1245f7ee4ca34ab09ef9ec75a8aa3ccf27c534dc168902fdfb9f647b1a8314f5.png
+  source_image_sha256: 7edd6fdd16a0ded2c1c66ad4636a8951727ce7eb670ba9edce49eecf4656f420
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Bar chart of percent of stock floor area served by applicable RTUs per in-force energy code
+  description: |-
+    Figure 1: horizontal bar chart of the percent of stock floor area served by applicable RTUs, one bar per ComStock in-force energy code with values printed. ComStock DOE Ref 1980-2004 dominates at 46.50%, followed by 90.1-2007 at 19.52% and 90.1-2004 at 9.10%; every DEER code is under 3%. Section 2.1 limits applicability to PSZ-AC gas and electric coil systems.
+- source_image: 89128_images/image_000008_e37227dcba9a955501f57e8a1b56c57865e8b0b12f2f5a710a4128d96c74e310.png
+  source_image_sha256: aa4da573c4d160047ba9d78ffb5d53d73e7345f493e520953c570129c6cd73bd
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Two-panel bar chart of economizer availability by building type and ventilation system type
+  description: |-
+    Figure 2: two side-by-side bar panels grouped by building type and then ventilation system type - percent of total floor area on the left, electricity used for cooling in TBtu on the right - with orange marking economizer availability true and gray false. The central multi-zone VAV RTU and central single-zone RTU rows carry most of the orange; zone terminal, DOAS and residential rows almost none. Section 2.3 quantifies the coverage.
+- source_image: 89128_images/image_000009_255ee20822a7c111e639786023809199c7e30d2ea0fbceb59ed92834578e7ba3.png
+  source_image_sha256: bc8c462989166a403a1920c0a0739dd6ee48d350c5308df35b06f93515987105
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Two stacked bar panels comparing economizer floor area coverage in ComStock and CBECS 2018
+  description: |-
+    Figure 3: two stacked bar panels of percent of floor area by building type - panel (a) coverage in ComStock, panel (b) coverage in CBECS 2018 - with yes and no segments labeled in place and CBECS adding a null category. Hospital and LargeHotel show the highest yes shares in both sources. Section 2.3 cautions that both counts are whole-building area.
+- source_image: 89128_images/image_000010_797431ef7a7b31b481723af0e3271f6d0d33a4b156e2f2bfbd960815ed339b1f.png
+  source_image_sha256: a5d1c418c87688a76c2fadc3aab67ce53062b0a2c8e8acb94358fd7244f9eda1
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar chart of economizer control type share of floor area for two central RTU groups
+  description: |-
+    Figure 4: stacked bar chart of percent of total floor area by economizer control type for central multi-zone VAV RTU and central single-zone RTU. NoEconomizer covers roughly the first 50% and 58% of area respectively, FixedDryBulb most of the remainder out to about 92%, with thin DifferentialEnthalpy and DifferentialDryBulb slivers at the right. Section 3.3.2 describes the applicability.
+- source_image: 89128_images/image_000011_dd3f442f7fe61a81a7e6f7cab72d25aa761a0dcde7f0c2e43e246f2b97efee16.png
+  source_image_sha256: 1712209a9404ec7cd44229be8aa87d908b472d2a664c33aed0ca1a1c90988d90
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Two-panel bar chart of weighted area with and without ERV/HRV by HVAC system grouping
+  description: |-
+    Figure 5: two bar panels of weighted floor area in square feet - existing ERV/HRV on the left, no ERV in the much wider right panel - for single-zone rooftop units, multi-zone VAV systems, systems not applicable, and DOAS systems, each bar segmented by ComStock building type. Both rooftop and multi-zone rows reach about 25 billion ft2 without recovery. Section 3.5.1 sets the applicability.
+- source_image: 89128_images/image_000012_2d1bdc8c4a363963a818703d11647e9165933601bfbe54924c36e002876a0568.png
+  source_image_sha256: 18154145fb07061fc55932367168afffdfeabd38006df915913b3fa40f445fc9
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Two-panel bar chart of heat and energy recovery applicability by building type
+  description: |-
+    Figure 6: paired panels giving floor area in square feet and percent of area for each building type, each bar split into Added HR/ER, NA HR/ER and Existing HR/ER. Warehouse has by far the largest absolute area and the largest not-applicable share; an All Types summary row spans roughly 60 billion ft2. Section 3.5.1 defines the three categories.
+- source_image: 89128_images/image_000013_522e0d35c43c7148afd3e1e4be7cbfe5a9fe96279e6b0ffce20be41434238067.png
+  source_image_sha256: 549b00ee2bb0b5df0aab51d436e7ed2e1e3f4f5e3bb21d5a478d845584debe5c
+  method: vision-transcription
+  described_utc: '2026-08-21'
+  alt: Table bitmap of on-site fossil fuel emissions factors for natural gas, propane and fuel oil
+  description: |-
+    Table bitmap, transcribed. Title: "Table 6. On-Site Fossil Fuel Emissions Factors". Rows: Natural gas, 147.3 lb/MMBtu (228.0 kg/MWh); Propane, 177.8 lb/MMBtu (182.3 kg/MWh); Fuel oil, 195.9 lb/MMBtu (303.2 kg/MWh). Footnote: "lb = pound; MMBtu = million British thermal units; kg = kilogram; MWh = megawatt-hour". Section 3.6 cites these factors from ANSI/RESNET/ICC 301 Table 7.1.2(1); no caption line for the table survives extraction, so this bitmap is the only place the values appear.
+- source_image: 89128_images/image_000014_4e43435dd124ed8f1f3e88280cb421b8c79a37331254699b63683897c15198de.png
+  source_image_sha256: 7d7c02332e7a2476611f71425d7ca0f9dd3d54d72c60bcaa52b6c398ddc01d16
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Horizontal bar chart of fraction of floor area applicable for each individual measure
+  description: |-
+    Figure 7: horizontal bar chart of the fraction of floor area applicable to each individual measure in the package, values printed on an axis running 0 to 1: HR 0.78, DCV 0.71, Economizer 0.57, HP-RTU 0.33 and HP-Boiler 0.29. Section 5.1 reads these as 29% to 78% applicability, with heat recovery highest and the ASHP boiler lowest.
+- source_image: 89128_images/image_000015_49ebd2d795f687b912925d60e6f9ba7d168277fc601b23c8f5f03b7de5650218.png
+  source_image_sha256: 8f262b05e08127ee0d1405e207f89d0bd0ddfcd1ba146f366106919b68b2df0d
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Horizontal bar chart of top observed measure combinations by fraction of floor area
+  description: |-
+    Figure 8: horizontal bar chart of the fraction of floor area receiving each observed measure combination, values printed on an axis to 0.35. The full HP-RTU + DCV + HR + Economizer combination leads at 0.31, followed by Not Applicable at 0.15 and DCV + HR + Economizer at 0.13; single-measure combinations fall to 0.02. Section 5.1 discusses the mix.
+- source_image: 89128_images/image_000016_89852b2fc36f921f9b377f4903ebd5d012e22748fb9a88a3530f4a1869316083.png
+  source_image_sha256: e949febdb97216790d21cfbba75ee9a221048db20b802d9a0255faa8dcd45c0e
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar chart of annual site energy consumption by end use and fuel, baseline vs Package
+    5
+  description: |-
+    Figure 9: stacked bar chart of annual site energy consumption in TBtu for the baseline and Package 5, each bar segmented by end use and fuel with the larger segments labeled. Totals fall from 4,338 to 3,481 TBtu. Natural gas heating drops from 838.9 while electricity heating rises 175.2 to 323.9 and cooling falls 667.3 to 521.8. Section 5.2 lists the end-use savings.
+- source_image: 89128_images/image_000017_3961700edd355771631f462f7d5ff15803cfa3446e838b05ed93569e5e4d959f.png
+  source_image_sha256: 121c0b6f6715e9dcf92f986528cdc12cb89e71f8070ac56307cf127b183f5a80
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel stacked bar chart of annual GHG emissions by grid scenario, baseline vs Package 5
+  description: |-
+    Figure 10: three stacked bar panels of annual GHG emissions in MMT CO2e - eGRID 2021, LRMER High RE Cost 15 and LRMER Low RE Cost 15 - each comparing baseline against Package 5 with electricity, natural gas, fuel oil and propane segments labeled. Totals fall 402 to 346 (-14%), 325 to 272 (-16%) and 240 to 191 (-20%), with natural gas dropping 81 to 31 in every panel. Section 5.3 breaks out the electricity term.
+- source_image: 89128_images/image_000018_f869c89db64d25ba1e9666d61ad415ecc27ab83f09bdeb3e24716dd51ab418f8.png
+  source_image_sha256: ca562895ee090e5c64efa2ecc66495f0174d3631584e08aaa4eb069597589fbd
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin and box plots of percent site energy savings by end use and fuel type
+  description: |-
+    Figure 11: horizontal violin-and-box plots of percent site energy savings by end use and fuel type, x-axis -150% to 100%, seventeen rows each labeled with its model count (natural gas heating n=193,783; electricity cooling n=280,728). Natural gas and other fuel heating cluster at 100% savings while electricity pumps and heat recovery show penalties. Section 5.4 explains the outliers.
+- source_image: 89128_images/image_000019_9281d85d662875890ff746202281ab92c15f1dfb53881900e86ef5ce420ba0fc.png
+  source_image_sha256: 80010ee16c9cc631b6977a056c3de787750228821b735ffd1b06ad4d79f44026
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin and box plots of percent site energy savings by fuel type and total site energy
+  description: |-
+    Figure 12: horizontal violin-and-box plots of percent site energy savings by fuel, x-axis -160% to 100%, six rows - district cooling n=53, district heating n=93, other fuel n=329, natural gas n=5,789, electricity n=8,452 and site n=8,452. Natural gas and other fuel sit near 80% to 100%; the site row's interquartile range spans roughly 15% to 35%, per Section 5.4.
+- source_image: 89128_images/image_000020_b8330c1d3c8d02b826251d328fdd09f98eded0422c2c7c6fa41edaadddce1e03.png
+  source_image_sha256: 7abe499881393378d4e8a93e09cae28f953d5bf997a7d6a5167d6e56f46f6bd7
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin and box plots of percent site energy savings by baseline HVAC system type
+  description: |-
+    Figure 13: horizontal violin-and-box plots titled Upgrade 32: Package 5 (unweighted), percent site energy savings on an x-axis from -20% to 70%, with 35 baseline HVAC system rows labeled by model count (PSZ-AC with gas coil n=133,433; PVAV with gas heat with electric reheat n=29,393). The PSZ-AC and boiler rows carry the highest medians, which Section 5.4 puts at 20-30%.
+- source_image: 89128_images/image_000021_3b1a28fc6e3751e1cfd36a08b61ae043cf2dceca391b7e3b8bce5579ca5e9273.png
+  source_image_sha256: cab18ad1b6b128e77fd35a8e9d1ecee936334ad985e4fed111581778091f6691
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin plots of maximum daily peak timing by season, baseline vs Package 5
+  description: |-
+    Figure 14: horizontal violin plots of maximum daily peak timing by season - winter, summer, shoulder - with one distribution per scenario on an x-axis of hour of day 0 to 24. The winter Package 5 distribution centers near hour 10 against about hour 12 for the baseline; summer and shoulder shift only slightly earlier from roughly hour 14. Section 5.5 reports the 1-2 hour winter shift.
+- source_image: 89128_images/image_000022_81392d9bb304c43c200b7cdcc45f68810089c60cdde16bcf44cce33ce04af246.png
+  source_image_sha256: c395564070bede95b240ca89d1edc2eebc91da6b4682c26f077efabdda7c560a
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel bar chart of median seasonal peak electricity intensity by climate zone
+  description: |-
+    Figure 15: three bar panels of median summer, winter and shoulder electricity peak in W/ft2, one baseline and Package 5 pair per Building America climate zone, every bar labeled. Summer peaks fall in every zone (Hot-Humid 3.82 to 3.01) while winter peaks rise in the colder zones - Cold 2.01 to 2.72, Very Cold 2.79 to 4.16, Subarctic 2.08 to 2.78. Subarctic has no summer bar.
+- source_image: 89128_images/image_000023_c95fc098502dafe0afe78243002a1ee3682f0fed987d503ac862a67608a10d00.png
+  source_image_sha256: d8738ebf9c8eb79c9b0ad4d43095ca6c5c84edba346ef87c031f439801d88e55
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of annual stock natural gas consumption by building type, baseline vs upgrade
+  description: |-
+    Figure 16: grouped bar chart of annual natural gas total energy consumption in TBtu by ComStock building type, one baseline and one Package 5 bar per type. RetailStripmall is largest in the baseline near 190 TBtu and keeps about half of it, while SecondarySchool, RetailStandalone and PrimarySchool fall to near zero. Section 5.6 links the pattern to baseline HVAC type and non-HVAC gas end uses.
+- source_image: 89128_images/image_000024_1b09b8dfeb4737690e5587150219937cedc03149a15cfe8b1b11528a15f1d53e.png
+  source_image_sha256: 6d77681328388cec8c3ed2ed035dcc3d0bdb4fd72257ec5507783d09b0cef304
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of annual stock electricity consumption by building type, baseline vs upgrade
+  description: |-
+    Figure 17: grouped bar chart of annual electricity total energy consumption in TBtu by ComStock building type, one baseline and one Package 5 bar per type. Most pairs are nearly level: RetailStripmall and RetailStandalone fall, roughly 395 to 362 and 275 to 240, while SecondarySchool and Hospital rise. Section 5.6 reads this figure together with Figure 16.

@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "comstock_amy2018_2025_release_3",
-  "generated_utc": "2026-08-21T20:55:50.425102+00:00",
+  "generated_utc": "2026-08-21T22:21:01.530126+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -752,12 +752,31 @@
           "title": "Geothermal Heat Pumps + High-Efficiency Envelope Package",
           "input_sha256": "594820f09b44e2d762e7092bfe1a951e9fcbae67fd94c0596f3b25e0b2b4e847",
           "output_path": "upgrade_measures/measure_pdfs/95005.md",
-          "output_sha256": "4ff4d26124d605426dd275aad67f15f64d559221d5f56a80d3ac27a54cc37091",
+          "output_sha256": "e49352ab9ab0cfd460a31f1a53394933f05dbbea090d4d25273550874ce46dad",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95005.yaml",
-            "sha256": "cc136e17a3c5245a86dbaed90a23ffb267f744c9633c8afe1b9f0fff9c32b5a5",
+            "sha256": "5107734e0e1f6ada28903aa55a0b3fe523511b618c35bd3e6cb36250c99eab50",
             "tables_applied": [
               "Table 4"
+            ],
+            "figures_applied": [
+              "95005_images/image_000003_2c9003a06fc9bc3e59f8fb23f1b340ead75bc03402bc8f8d864a2891c8b6b753.png",
+              "95005_images/image_000004_ae54adc04ee9dd19149b9e25877f84978407b7eeb5cb47efc268eac589b3353d.png",
+              "95005_images/image_000005_3904f34e875b253d73c199b27b3613399caa816d008e3d27f7f6091bc6768340.png",
+              "95005_images/image_000006_ca3c6ec1fefe1cd8c2bd035ed9b280f0e56c9777da254a1ebddaa6bc911e43af.png",
+              "95005_images/image_000007_b645ab94efd168b73322fb5bf8d489dbe2211839ddcb7320aed924804983b588.png",
+              "95005_images/image_000008_cab701c3db2926ffad88468de9c3053a45733f56893ef66ffc57a69395b686fc.png",
+              "95005_images/image_000009_5f8f863cfeefd6f56ae1f86c6676017ecb3ac54d5c08f6f73ab816843d2cf2c3.png",
+              "95005_images/image_000010_61b27d1c93000b00a392c23e24625ba535c4a8a8d2287f26189e6ee4db8cdecf.png",
+              "95005_images/image_000011_e686acb1d7ab64c5754dfd5f92700e22b693fdb1ca1a7e9687047ad6fbd56248.png",
+              "95005_images/image_000012_77a380cca5dbabb45da0cc1fad79e42ab4b9397622f4fcb7d6ccf552adaf108b.png",
+              "95005_images/image_000013_11d83a31f3346f643a27507941a63f9c17115378cbd8719e259c3588edf0c7d7.png",
+              "95005_images/image_000014_b922e2fad8a340a536a5e9c2f9059129c7f3d17f4c956ccd159de9190963a2f4.png",
+              "95005_images/image_000015_a9de057c2c1d24a65e94f11e54ed2d5efc14184b492612b78f85b93b2056c9dd.png",
+              "95005_images/image_000016_e6405aaebe3df6935d91474f385c257cc8552282de40aba49af1c829d811ceeb.png",
+              "95005_images/image_000017_1377297918793e04cd201734706d45a16aefb6eaff291b11dc96714514417072.png",
+              "95005_images/image_000018_560080a4a83f3f6877b81d886f6e6ab712d92c2607c49220324c3d2cb7567b2e.png",
+              "95005_images/image_000019_2f4648e2f2118e9e25105b19c82bb153adcf4859a2b2f8898891c2a08eed7295.png"
             ]
           }
         },
@@ -1002,10 +1021,10 @@
           "title": "Upgrade Envelope to Latest Code",
           "input_sha256": "612945456f16d2907f426ae300cf0df50373c5ebe29e217b84c7160ae0f10ce4",
           "output_path": "upgrade_measures/measure_pdfs/96598.md",
-          "output_sha256": "9d0d8f5d97ef09b5afd85acdd37402643259cc5632435991c59b21fd3f3df851",
+          "output_sha256": "40185f9696019bb67bb6d0f9ea0a4809df47017cbd611106d813a8b64c08bd80",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/96598.yaml",
-            "sha256": "2cca86ffe28ece79fad87910db8b1d22e0b2e7a0a923f2fd27f94a2d6a0de0ef",
+            "sha256": "f829353e3080b6cfb138ef071afb2d712539a6a0bfa0cc8d660b94c4fb8eb194",
             "tables_applied": [
               "Table 5.",
               "Table 6.",
@@ -1014,7 +1033,25 @@
               "Table 12.",
               "Table 13."
             ],
-            "text_repairs_applied": 1
+            "text_repairs_applied": 1,
+            "figures_applied": [
+              "96598_images/image_000002_7c0cd53f094e7b4639bc5803954c89ea9c0e8855c086fc174ed02cc1ce6b0d55.png",
+              "96598_images/image_000003_eaa52d4bee3ab599de8b5a175a9f27320c823a87f5575b79225410659b7605a6.png",
+              "96598_images/image_000004_e9fca371fb9cb26cf40c812bc8d64a88c12d29d901c72aacac3fff9d0bb6d82d.png",
+              "96598_images/image_000005_a630d7052aeb66a1b49206eb2f1f599bb3f20fcc0cef61133c12c8ed2036084a.png",
+              "96598_images/image_000006_9d8000350f71d05ee78ba29803c5ea925a7015068bc2a9011a67c8254bab973d.png",
+              "96598_images/image_000007_a40a80e0b47796f9b2adcc7a989e7cfb8669cd58373b845e8ab4ffd70270b9eb.png",
+              "96598_images/image_000008_ab4a956bb9c7b0955d7dff2b4a94c9b6e8352dfb95a647f8cf80721bfbea46c5.png",
+              "96598_images/image_000009_1e5fb48d9ee76199317e43447a70c43329a1f9a2a57c419095094225c4fcbc98.png",
+              "96598_images/image_000010_e60b2240dfa306944d6a932125f5b587de080eba3a334c880942b77214803726.png",
+              "96598_images/image_000011_d55a47938e2bd126acc4967eea1915a3726771a9216522cca74cf6417d9c185e.png",
+              "96598_images/image_000012_639b477cae48d844a6c650d31398c4dd9b4f9f7f51275b7daf25b46a15db52fc.png",
+              "96598_images/image_000013_c557a4efa0fa8074641b6ae52af53581619dc392f97c8b07cc59c8fe2434e7ed.png",
+              "96598_images/image_000014_33c96e2408954ce9732b5402c3cbb0c1ae8feb7055eecbce41a9153081eea1c2.png",
+              "96598_images/image_000015_ee0c1044010f60bac8be1c54aecf74253949717aa03277c3aec7c20ca306aa30.png",
+              "96598_images/image_000016_f855cf6f8a328ccf996dcd48df1460d33731d41a78182eae8bed0993b0b274f5.png",
+              "96598_images/image_000017_aa4ef557542ff7d1070e941c72746f73bf4cf5e3a08c2b0c507d94033800091d.png"
+            ]
           }
         },
         {
@@ -1303,13 +1340,38 @@
           "title": "Air-Source Heat Pump Boiler",
           "input_sha256": "be173f2dbe730146ceb402874c867c9be75438d2ecb00b4e1d93dde4f3b87270",
           "output_path": "upgrade_measures/measure_pdfs/86199.md",
-          "output_sha256": "61300f6e374c42b2ce8e4deefbc2d4d190f62173c17c08e70f7bdbb8ccce60e8",
+          "output_sha256": "9044fba155eb1db6da46f83c95f7db60ad9554ccf506905f87322e9bcc2190cb",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86199.yaml",
-            "sha256": "a526bebb596e0bab4b8b59786a557f546f8f8b9c52be06dafb1c3cca8e0351df",
+            "sha256": "ed5d4cc08406e656ac6b66d02f33aec4fdba11d7031b5e1c3a23cd6037b9dd93",
             "tables_applied": [
               "Table 1",
               "Table 2"
+            ],
+            "figures_applied": [
+              "86199_images/image_000002_401f196bec009750e44e024518d86b0372febce793197f858e06b387bdd44bb8.png",
+              "86199_images/image_000003_761fa8382000bfe82d38d118ecb461549bc748c6a5bdb4ad42ff0f41ec7a796a.png",
+              "86199_images/image_000004_d739b7b7fd422aa11e1a5a567ad20a7a9d3b7d588d6e7661feacf1c4b8b668b9.png",
+              "86199_images/image_000005_53281d120896065dfdbb3c40587a470c46be02ac143f0c4250f987d8eb7404df.png",
+              "86199_images/image_000006_0f0e72c917b035de7fb98bc90881a14b3e35114dc52ea53a5c67dbccf41ab1ed.png",
+              "86199_images/image_000007_9d976226315d7817a3a3d181fd7cdfb3529a60bc84acbc07601303f1121e743e.png",
+              "86199_images/image_000008_879d10bd373f0577436b98ee6660d4ae4875f0f2ad518df6c6628257c1116d29.png",
+              "86199_images/image_000009_1d5a487534488a78f815176dec3e52d707188b69c75948dbfcad9ba86e33898a.png",
+              "86199_images/image_000010_5a97cb86c04ea095b17450da5d62d12511a21a051016eb21561f1836a9827cf7.png",
+              "86199_images/image_000011_37b5a8029131e34d324a805ee1a59ecc8c65ffdedc9b1cdeda53e8d327f66aa0.png",
+              "86199_images/image_000012_01d1e052ed4f877b886e59640fb35c5cf5825f9472c4fc355cdadba5d992c70f.png",
+              "86199_images/image_000013_b2e1c43498276fff7f3edf9869d719f9646748ea2ab41c4c0b3f070d1f509feb.png",
+              "86199_images/image_000014_6d48e51ba6f0c705a6499ce5bec5ad2df3aa511028a3a3a450e1257204622878.png",
+              "86199_images/image_000015_e9579f9db49ec8e160be6d43b625f41b0b73132f412beef78cbd865913aa8e2b.png",
+              "86199_images/image_000016_425f4fce5b76eaabfe2704816d5e5a37c1a8e58d2e86546d749878fb3d171fc6.png",
+              "86199_images/image_000017_cc7070bdf0c2ca6cc8e4d417bd131ee6ce964af7b0f0ed26de2ea780048d4226.png",
+              "86199_images/image_000018_d7fd722d19441bad845a14ef274b80074f2463407815e433d8e1ac1fc1745429.png",
+              "86199_images/image_000019_4c034d992f456d392589f08993f18515039db0fd97563aa77a4f226629535a1c.png",
+              "86199_images/image_000020_bd0253e54ec91f8aabd09a4d4681aaa2ddb5546034d15906dd51cd98fc63d8fd.png",
+              "86199_images/image_000021_968228b3a408e2b1fe588540eaf723829d8de2e6fda2baca647f0d22216ccdd2.png",
+              "86199_images/image_000022_0a132b71cdcc6a95418490f244efe7de67108bbfa17b16fec7cad654d54b7b60.png",
+              "86199_images/image_000023_4ad212fd0237336c41b1be834c003d3aac4d7f989d6c462216bda5fea793110e.png",
+              "86199_images/image_000024_c3ee03e60a2f20a02a8eded9fe3f57553454c75eef31aad4c830c65c2a32433d.png"
             ]
           }
         },
@@ -1355,12 +1417,27 @@
           "title": "Wall and Roof Insulation and New Windows",
           "input_sha256": "c8c286e4939049366b50b203a8f6cac0f4201ca4d3aed2219a2089fefa45f2f3",
           "output_path": "upgrade_measures/measure_pdfs/86599.md",
-          "output_sha256": "a225225f12ce0e2b00242196001b93bf1cce393291a2d8f564c608798925c996",
+          "output_sha256": "c8d657bd3016de529b27990dea499e780b3fc2e56b813bcda6833915fcbe8e05",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86599.yaml",
-            "sha256": "b81dcf2c5f50d5eb72dc1b29e51ab09eb09009f3eae7d294ee811da69f5d27ad",
+            "sha256": "6637915335c4c58367a578afdde7e6ecc8dfef3d78414ec20a428a74a4018844",
             "tables_applied": [
               "Table 2"
+            ],
+            "figures_applied": [
+              "86599_images/image_000002_b479069287e3934bef711537d0e12cfa397a77e9190a6eb6024387dee4a7c64a.png",
+              "86599_images/image_000003_6853482632576de54cbf7af146b9fb16811e8ee7fe7adc9c7003bd1bafd08ab3.png",
+              "86599_images/image_000004_55123a785ab3a4b849b09a753dc86c9a0a131ae7a14b349bdc5b56ddefc79d69.png",
+              "86599_images/image_000005_a59e753ec28c2c2184da52e82edb775244dbc094bdd85abd3d3d85eef3466e60.png",
+              "86599_images/image_000006_d30bc27f0853a98daa437173073ccf1e8fb34746968992c42b5d4c6dadacfd04.png",
+              "86599_images/image_000007_ef113aecfaea2636221ff21c33a0c5821eb76a6025864fcacbf8ab8b40d76505.png",
+              "86599_images/image_000008_8db3246416380a5125bb535bfc0e6303196c6c7c4dddbdc1190866e229b5fc37.png",
+              "86599_images/image_000009_8744dfcbd1957939f5ff3db69e13c49fef3cb622c2842196bc14780f7c907043.png",
+              "86599_images/image_000010_ab15bb29bff3c4578d0187407efba0e499913f9438bf56c398b4eb257317bbf1.png",
+              "86599_images/image_000011_85e105b586d6e0e31943d29ba96451071ae0d81e68b1829c5989ffd2ff79f10e.png",
+              "86599_images/image_000012_31b321de53419cddbfca82c30a8dbcede6826643db724430d8938180fdc2de36.png",
+              "86599_images/image_000013_0630db0d33c13ed76842257001e69e4994b1534801dbeb80388c6766d11a716f.png",
+              "86599_images/image_000014_b9eb656fa0bae0d11cf7c7f9de9312c488cfc7178abd6847a051adbedde3a406.png"
             ]
           }
         },
@@ -1370,12 +1447,29 @@
           "title": "LED Lighting, HP-RTU and ASHP-Boiler",
           "input_sha256": "edee583b88290066a942c92d99f64f6a859058bf63f201cb005cf2b63098ac66",
           "output_path": "upgrade_measures/measure_pdfs/86601.md",
-          "output_sha256": "68e310399e49bdc0c44821ac80ef6823c67019bcd855453a6a891c19cc11dd11",
+          "output_sha256": "c6bcef8ecf74a2cc85e0e848ad3733646d92c962481ea56cb104b51a1ba3592a",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86601.yaml",
-            "sha256": "058d67f97de9fb232427d3f779d75108d9268f6b53fafdd53f95954daf9d4e51",
+            "sha256": "a6ee56b8e7182feecf8f627b16dabeda6c6088f8cbb1c2ca562a7726ce85932f",
             "tables_applied": [
               "Table 3"
+            ],
+            "figures_applied": [
+              "86601_images/image_000002_1245f7ee4ca34ab09ef9ec75a8aa3ccf27c534dc168902fdfb9f647b1a8314f5.png",
+              "86601_images/image_000003_ccbc14cdc9cea71248edc05f6fee80a1ff1e3a4015bca7b44a8567b1ddd6d8db.png",
+              "86601_images/image_000004_7ab8e41d451361fbbe298c7427a79ea892a019a3ce404aca08e6ff477e716718.png",
+              "86601_images/image_000005_5a5a4bf61a592e00dcd9d8ef7241819ffcb9ef94d7e09752851e3d03c8a3cbb4.png",
+              "86601_images/image_000006_ba88774fa3cd4d46062f7372396fffb184e5bb5316b86bd7e13c1bbc80d99ca4.png",
+              "86601_images/image_000007_bf4ceffa4568d406d915d04dc2c4b42ca0cbc1f71684978a02a4e767593a5553.png",
+              "86601_images/image_000008_90353263a2ff02cac43cbc61519abb5ed630fa38ae30cc6f4aa2c126887dd150.png",
+              "86601_images/image_000009_e9b7942ea7fc57229eff0b8d8bf32db55df9b028b52f72de0fffef2770bb9405.png",
+              "86601_images/image_000010_e156278ce9f6f589c89905120f2083b61c925b0ab84dec2f52717f9f9c176e55.png",
+              "86601_images/image_000011_8dc124df929d32da85ba7eba1398d573e697ac3efae1f4e42ee29112cf7a450b.png",
+              "86601_images/image_000012_84d5b6c83f9ffd62d85f01bc3721155919bbf879cab19b58b1ab1ff7992c299a.png",
+              "86601_images/image_000013_f0784cafedfed0089486f10b4d0be181bba2285bd936ce4c4de2fbf81070c751.png",
+              "86601_images/image_000014_9767ffa0ab0ff9a93301c511d1e928285e6b1017494b0b47708e31240b9fd59f.png",
+              "86601_images/image_000015_09dac684b183adde1552af6bfb86c5f604a2473d926ddb69db2c0331a9aefaee.png",
+              "86601_images/image_000016_59843115e8e585b917820a7a6c98d94ae27656b90ec264ba2afa526fcc27a83f.png"
             ]
           }
         },
@@ -1385,13 +1479,30 @@
           "title": "Wall and Roof Insulation, New Windows, LED Lighting, HP-RTU and ASHP-Boiler",
           "input_sha256": "cc5b290f302c11bf0a218b86e98c4300d616d094d0f5b20764c167e21bf38a73",
           "output_path": "upgrade_measures/measure_pdfs/86602.md",
-          "output_sha256": "2829d6a116cff00257763eea3669a931f358989fe41614dd837fb5551b097b35",
+          "output_sha256": "0154434971fe6860c41b8ee2f816f6685b897104b8ad778769608022b8753155",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86602.yaml",
-            "sha256": "ff90b9bbf171ec2941fe77ca6f298d67e08741af6970dd996fca2811111b4b1a",
+            "sha256": "35a5c27ff356c7663823cf32ace96d31e55fdf63f1fc65b4b12907ec88969bbd",
             "tables_applied": [
               "Table 2",
               "Table 6"
+            ],
+            "figures_applied": [
+              "86602_images/image_000005_316aa0fda323fd01d3a71d36b1079b91a8e91cb41194ac780efb9c2fa661ffc4.png",
+              "86602_images/image_000006_85aa8588566b800f542a79984bb6dc416b2ab866336bd61dea5e78a73318ae93.png",
+              "86602_images/image_000007_77667f9f2b127d17004ed89a90620a3b7160b44ef2ce9ce1ce16c676dce814f8.png",
+              "86602_images/image_000008_5235393584ecc1aadce1d21e7fab9e2d9b4b449f78c76c4c01018f4a3e02c20f.png",
+              "86602_images/image_000009_b14c4d94d7d2146026f3990cabbd66769cadda31ca698a202479c670a6fc88e0.png",
+              "86602_images/image_000010_225cca140537c0f311065da761ddc63bcef85fd2c772e4b3ab8e32d3b4dfa895.png",
+              "86602_images/image_000011_e33e7de0f23ef584441792ab737304d0a79875aaf0d3c7412ae0502a82c682b2.png",
+              "86602_images/image_000012_73cfd34b4e8cb526d96be48222466b78786e6274559064723cba0293da2f232c.png",
+              "86602_images/image_000013_2fdc99452add6eebd4497024c4cec9c3aa6741dd5215685dd106565ab0a2d31e.png",
+              "86602_images/image_000014_2aa3e99cc19747cd602ac58a0a73db10b3c143b51b81f86f1f6660635b901819.png",
+              "86602_images/image_000015_e68c900144660d8f83d92000000026e0b85980e0ca1a1fb9a35b20a368d6025b.png",
+              "86602_images/image_000016_1fad572ba786cefe18a40588d0967fc0e649d64f6f865ee962da768be8b70a53.png",
+              "86602_images/image_000017_39d3914b22750e57e455621b76c739366cd3ae348f9e0beb84f384a40da714c7.png",
+              "86602_images/image_000018_0e97e18899c3b081f4660c438d6b3cdf5a94c4741261971687821bb999a71f93.png",
+              "86602_images/image_000019_67a06ce1c9c43296f96e982acbecab7273b96d139df2e06cf2e3164e25e1be7d.png"
             ]
           }
         },
@@ -1435,13 +1546,37 @@
           "title": "Air-Source Heat Pump Boiler and Natural Gas Boiler Backup",
           "input_sha256": "337aee5d46a0849ba0ecec47df7248341bcf7bbecf64048baf7155ba8552ea84",
           "output_path": "upgrade_measures/measure_pdfs/87536.md",
-          "output_sha256": "e92ac9d0a65f49f18304fb08390ea3ccc77759a72be3f10f342253a0c17f63fe",
+          "output_sha256": "06a195a7ced21cce436c9df588f2ed7df205efa3814fd25067cab3871700d91b",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/87536.yaml",
-            "sha256": "e3244c89b3d90090e1516bd96213e6f9d7052fa01794353ab0bae1234c1f4d7f",
+            "sha256": "30717fc9a590b71acd297d301df6b1233882025c3c3b8d9d60af0a0d2dc97b7b",
             "tables_applied": [
               "Table 1",
               "Table 2"
+            ],
+            "figures_applied": [
+              "87536_images/image_000007_013c5622c7ee2f6d8df5e28323925163419fcdc23ed8fcf99db685056c158f78.png",
+              "87536_images/image_000008_761fa8382000bfe82d38d118ecb461549bc748c6a5bdb4ad42ff0f41ec7a796a.png",
+              "87536_images/image_000009_5b7a058bdb4ae7227bc982d5595d79f91db099450ecb3b9f856def78820a3397.png",
+              "87536_images/image_000010_c9a84f78d017a8ec87fc72178afd0162a1fceb01e58f913ffc30f00fc11c451e.png",
+              "87536_images/image_000011_5a97cb86c04ea095b17450da5d62d12511a21a051016eb21561f1836a9827cf7.png",
+              "87536_images/image_000012_89a15313fedebe548224baa10f969c4f0c823305366a2f0c9fe54ac9c93d459b.png",
+              "87536_images/image_000013_01d1e052ed4f877b886e59640fb35c5cf5825f9472c4fc355cdadba5d992c70f.png",
+              "87536_images/image_000014_ea5f991ff1380addac22ef9fa9c86dd11962c9fa07e349002c466e0e71222ae6.png",
+              "87536_images/image_000015_7faa5cff90f8fd991babc982d9e712e2c0fd994743050e00affb4f59ac4371f4.png",
+              "87536_images/image_000016_f50d40e67712cdafc87a9e168be51a97b005ea4d51b1c1d5e4b603c15d54c115.png",
+              "87536_images/image_000017_05ad0353f21670cb1fbd21a7a86c1fe1f13f1acf3c34f9bc75b0ba33e2fcb96a.png",
+              "87536_images/image_000018_31aa928bb3700a11e05576649e3d3bf6ae5ca75bc0bc6b7f42247284a3e3c276.png",
+              "87536_images/image_000019_90a5a0610b60e0cde06b876b1b702e2ac6a5f09abf4b09d1ecdc79709b744ee1.png",
+              "87536_images/image_000020_815aac1c81622fb43b2609e9c9f2d721483f536eb0aadc707c0d02c8bde9433f.png",
+              "87536_images/image_000021_f5549b322475b5e8e18d0ff95688673690d6cc10d5b54efbc74f0a66cdb365d0.png",
+              "87536_images/image_000022_0ffe9e065dd61de3cf0b270e3938f6d80d7ab1ed90ef158511a1a0f697957e76.png",
+              "87536_images/image_000023_36da2b577ab7120176dcb3d5ad9984cfc9555b0855344df8826cfc86bea24dce.png",
+              "87536_images/image_000024_0dba4830d76b541c3e376394d98087105d1906de613bfef6faeaea5a80626697.png",
+              "87536_images/image_000025_591464c0e65990aec2fe1d77e6bb67c2a03304f25e8ae69072fe15dabf269e0f.png",
+              "87536_images/image_000026_aa2ec03e03099912e1b33c03abc8e294d3e198f650e201992dbf3cce3bfadc8f.png",
+              "87536_images/image_000027_0941dc537f08fd906f56e5f62e42ce1bdb802c80911fbe1c2d460f6acd7605da.png",
+              "87536_images/image_000028_c2ab5c9dae1ab8d4d640ecad860a43e6166970000157066abe2ad684a18e4c12.png"
             ]
           }
         },
@@ -1576,14 +1711,37 @@
           "title": "Variable Refrigerant Flow With 25% Upsizing Allowance for Heating",
           "input_sha256": "28cea1febfd6bdabb0fc0635f0c89efd44a183c80158b7f5562f83e969698762",
           "output_path": "upgrade_measures/measure_pdfs/89040.md",
-          "output_sha256": "4448aeec9e238d70ae12d50a6ecb56472352d8ea529650713702c3d20700401a",
+          "output_sha256": "e1694eaa7c3c928d837f27a828dc4398843318a17e620a86f24f51008556c80b",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89040.yaml",
-            "sha256": "1820ff4efcaf2456b8682a6d66dcae4349dfa627c535b81bb6a630663d4d3cd7",
+            "sha256": "989a579483000fa1bfd8aa2550364b2827a6b9bbe61dc696371f2c7b30c1bf25",
             "tables_applied": [
               "Table 1",
               "Table 4",
               "Table 5"
+            ],
+            "figures_applied": [
+              "89040_images/image_000008_823b9276160ea2abe226a95a1c1662553b60c593fa2570fe888045aee25cdba0.png",
+              "89040_images/image_000009_dcff12afeb7b613d3674cbcc3629a6e6c73a0ed153d7c7ac6b31220c46ea54fc.png",
+              "89040_images/image_000010_f5b0cf20d74d5d4fe08060ee2b938446664434ce7e9d23286eb9858227650689.png",
+              "89040_images/image_000011_055123821654008ea5a573741ecb260c306e3fff332a6b0297281bdee6757f52.png",
+              "89040_images/image_000012_d8ed529a0b925cdc9622bc7b2e446cc33b2a5a69fe3f5914e303263775195680.png",
+              "89040_images/image_000013_0ac4d2bb05fa92696a1fe167977f77e0d89a2b131114b46379372ea23a72bcda.png",
+              "89040_images/image_000014_d10ebb791f89b1d09fde52bb8b29b11ef9881d4cb1c89fee2352d4fddf98928c.png",
+              "89040_images/image_000015_1c045ebcecb6bb715bcf9bbdad8f0048d3f59f304e640082b1e28e8c9abb6a4d.png",
+              "89040_images/image_000016_9e9ce401599712a4e2333906e91c3c66ad4056aac36ff8056a6109075b326231.png",
+              "89040_images/image_000017_4a302b3496be3783db70d37616b16be8c665d1bbbeb4449d4d75f40b9c8ab7a9.png",
+              "89040_images/image_000018_42356f9251017babe4734299fbc9ddb1a6380619076a0b01e0240ab08675ccf6.png",
+              "89040_images/image_000019_8e63e1791d7801484753b297fe2677b0a96118a53ec96f8eec7f5a6a8a5ed448.png",
+              "89040_images/image_000020_4847cc1c5f6d34726600f9a17a3a255293bd5a3031809e7a58bb508ad01387a3.png",
+              "89040_images/image_000021_3bf0caf4ce67d0fd94edd0314964354f03123b8d6fa55a97d74997e6a2936b73.png",
+              "89040_images/image_000022_4b10a7b41ca00ab98df9c2f94ff8e3675c73067887223238d6597488158c4f16.png",
+              "89040_images/image_000023_ef90095353cef7cf04c9fed0246263b7f79996d1e568070e5b20845773dd113d.png",
+              "89040_images/image_000024_932208c1e04efa97a8cbdb082cdcb238d2849c83cb14a84592515ba0e3c0a9e0.png",
+              "89040_images/image_000025_b2a578f6abaf31a72d567b246dc83227c7b768e66a6208da7fb7c5d9ebc7eba7.png",
+              "89040_images/image_000026_9cc6792b8e70c25769037f893e02dec691e1a4a292147f7951e03a487411f50f.png",
+              "89040_images/image_000027_a705777477efca154fbe4e2c5e501cca822200efd1437ab2dbf22143f7f130fd.png",
+              "89040_images/image_000028_3775d5ada3a452ae0674bbefa2330950ae8025435007cc9270826c04e5dccebb.png"
             ]
           }
         },
@@ -1661,13 +1819,33 @@
           "title": "HP-RTU + ASHP Boiler + Demand Control Ventilation + Heat/Energy Recovery + Economizers",
           "input_sha256": "68cc557325046095d37ac589ab50a713377945180193b43154422f5a981046f8",
           "output_path": "upgrade_measures/measure_pdfs/89128.md",
-          "output_sha256": "498b2ca3f249283330f87a10bf8745d2e49c0197fb187271f763882e7f1c29e9",
+          "output_sha256": "591fcfc66785bc49dc3d49a5ee3ee935f28fbdb6cf1982cdedbdb424aeefb33e",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89128.yaml",
-            "sha256": "68dbc1ad0bb4d2841eb7a3d7d1b1ba3a0cff48889310852f60337e7bd131d366",
+            "sha256": "9c0a291916c035cd739b470a331dba181ee044a43a077af851937e4463a65fc9",
             "tables_applied": [
               "Table 1",
               "Table 5"
+            ],
+            "figures_applied": [
+              "89128_images/image_000007_1245f7ee4ca34ab09ef9ec75a8aa3ccf27c534dc168902fdfb9f647b1a8314f5.png",
+              "89128_images/image_000008_e37227dcba9a955501f57e8a1b56c57865e8b0b12f2f5a710a4128d96c74e310.png",
+              "89128_images/image_000009_255ee20822a7c111e639786023809199c7e30d2ea0fbceb59ed92834578e7ba3.png",
+              "89128_images/image_000010_797431ef7a7b31b481723af0e3271f6d0d33a4b156e2f2bfbd960815ed339b1f.png",
+              "89128_images/image_000011_dd3f442f7fe61a81a7e6f7cab72d25aa761a0dcde7f0c2e43e246f2b97efee16.png",
+              "89128_images/image_000012_2d1bdc8c4a363963a818703d11647e9165933601bfbe54924c36e002876a0568.png",
+              "89128_images/image_000013_522e0d35c43c7148afd3e1e4be7cbfe5a9fe96279e6b0ffce20be41434238067.png",
+              "89128_images/image_000014_4e43435dd124ed8f1f3e88280cb421b8c79a37331254699b63683897c15198de.png",
+              "89128_images/image_000015_49ebd2d795f687b912925d60e6f9ba7d168277fc601b23c8f5f03b7de5650218.png",
+              "89128_images/image_000016_89852b2fc36f921f9b377f4903ebd5d012e22748fb9a88a3530f4a1869316083.png",
+              "89128_images/image_000017_3961700edd355771631f462f7d5ff15803cfa3446e838b05ed93569e5e4d959f.png",
+              "89128_images/image_000018_f869c89db64d25ba1e9666d61ad415ecc27ab83f09bdeb3e24716dd51ab418f8.png",
+              "89128_images/image_000019_9281d85d662875890ff746202281ab92c15f1dfb53881900e86ef5ce420ba0fc.png",
+              "89128_images/image_000020_b8330c1d3c8d02b826251d328fdd09f98eded0422c2c7c6fa41edaadddce1e03.png",
+              "89128_images/image_000021_3b1a28fc6e3751e1cfd36a08b61ae043cf2dceca391b7e3b8bce5579ca5e9273.png",
+              "89128_images/image_000022_81392d9bb304c43c200b7cdcc45f68810089c60cdde16bcf44cce33ce04af246.png",
+              "89128_images/image_000023_c95fc098502dafe0afe78243002a1ee3682f0fed987d503ac862a67608a10d00.png",
+              "89128_images/image_000024_1b09b8dfeb4737690e5587150219937cedc03149a15cfe8b1b11528a15f1d53e.png"
             ]
           }
         },
@@ -1677,10 +1855,10 @@
           "title": "Electric Cooking Equipment",
           "input_sha256": "917d4d390ae5079df21c37db82e6bf09c55af54f642c1b574b903d592fcd134e",
           "output_path": "upgrade_measures/measure_pdfs/89130.md",
-          "output_sha256": "736e5057e7f0317c5900cd313e3526fca41dd2cc346786cdf6b5f3f8ffa0294c",
+          "output_sha256": "4e525232c15dfbbe048352ce96ef9a0efc6c64a0118e8896b4257c96f3319019",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89130.yaml",
-            "sha256": "b2b89abd76b063a08a09bd1392929e78099c8d7d2ae523c44aea1ed5e27e9eba",
+            "sha256": "f9a88e9683eb5970f20fff71fd7ec20b5a74543dd670e8db1ce1be6cea2d2514",
             "tables_applied": [
               "Table 2",
               "Table 4",
@@ -1688,6 +1866,24 @@
               "Table 8",
               "Table 10",
               "Table 12"
+            ],
+            "figures_applied": [
+              "89130_images/image_000005_0adceeca6ba97c45eda8dfa778a327c8af0782ab3a10f97ec67551887c8bb33a.png",
+              "89130_images/image_000007_333e3c07f04d620aa5050bf87de3dba736c6d59ace2f219b8feadb29ed44689a.png",
+              "89130_images/image_000009_e7c7e5c91310ee625312971c87acf6030452cb8e3a910927a20bbb3cd41fda1d.png",
+              "89130_images/image_000011_31914119785e831b3802fc656fd5e9740d5a795a705201f8f8138145382d665a.png",
+              "89130_images/image_000013_2710d2a2b86893d1adf4a96145a2de4ec317cbf9b50825ac6f97fa386f7ceee9.png",
+              "89130_images/image_000015_8ab194fb619557cbdb82535a2e448de47a21d681f9d4ab13fa49d0e40d0ae874.png",
+              "89130_images/image_000017_20e74705323d9edf861029cfd41e31870472a213a8da158d00ff560ec7f715ab.png",
+              "89130_images/image_000018_3ea9e2674e380a7d04a491ce9ca2f9f427749c1552b6dd5cd0c85ea19322d5a9.png",
+              "89130_images/image_000019_25d21eb6e66dba2e40388aef90a20f9b09680773039a537fd0c7da7abe032464.png",
+              "89130_images/image_000020_e4bc0ebca437fd68caf71900da6793dfcf5f70c0ad79d353a26bca9b39feb14f.png",
+              "89130_images/image_000021_e9aceea7526afa54c6d103dd21fc4940a853c968d93dc526fc6e391227544e3c.png",
+              "89130_images/image_000022_fb84a3d603cc52b6071c554add39856e3e91abc786856e6e8eb9623d60c1f050.png",
+              "89130_images/image_000023_680a55de9fd25044bfbb9f882d3e3aae99ef46a1ce0bf009c3543374953642b9.png",
+              "89130_images/image_000024_4a71d7abd322156c9388dc98f35fd4010c3f84a99b30698691814d1793ed1547.png",
+              "89130_images/image_000025_a2e218d037f31dffc122a6d66b3c45dfb72c4280496a20406fbbc18df6008acc.png",
+              "89130_images/image_000026_f7e0861810d59302db5341ba5af918dbbf38cd6699e105724a01c6db566dcb09.png"
             ]
           }
         },
@@ -2186,7 +2382,7 @@
   ],
   "counts": {
     "documents": 118,
-    "chunks": 8029,
+    "chunks": 8152,
     "by_type": {
       "latex": 19,
       "markdown": 40,
@@ -2195,7 +2391,7 @@
     },
     "overlay_documents": 57,
     "overlay_tables": 57,
-    "overlay_figures": 748,
+    "overlay_figures": 924,
     "overlay_text_repairs": 1
   },
   "crosswalk": {

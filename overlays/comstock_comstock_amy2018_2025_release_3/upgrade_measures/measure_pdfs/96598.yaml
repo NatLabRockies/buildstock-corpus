@@ -310,3 +310,144 @@ tables:
     | IEAD | DEER 2020 | 25 | 29 | 29 | 29 | 26 | 15 | 20 | 20 | 29 | 29 | 29 | 29 | 29 | 29 | 29 | 29 |
     | Mass | DEER 2020 | 25 | 29 | 29 | 29 | 26 | 15 | 20 | 20 | 29 | 29 | 29 | 29 | 29 | 29 | 29 | 29 |
     | Wood framed | DEER 2020 | 25 | 29 | 29 | 29 | 26 | 15 | 20 | 20 | 29 | 29 | 29 | 29 | 29 | 29 | 29 | 29 |
+
+# Hand-authored figure descriptions for measure_pdfs/96598.pdf (Batch E).
+#
+# 96598 is the Upgrade Envelope to Current State Code measure documentation. docling extracts
+# every picture as a bare ![Image](...) ref: the caption line survives above it, but the chart
+# itself is invisible to retrieval. Each entry below rewrites the ref with a hand-written alt
+# and injects a description paragraph beneath it. Schema and depth budget:
+# overlays/FIGURE_DESCRIPTIONS_ROLLOUT.md (section 2.1 -- 40-70 words, alt <=120 chars, no
+# corroboration against body prose).
+#
+# Scope: Figures 1-16 (16 charts and maps). The two cover images (indices 000000-000001:
+# National Laboratory of the Rockies photo collage and logo) are deliberately not described.
+# This document is unusually map-heavy: five of the sixteen figures are choropleths.
+#
+# The `tables:` entries above are the reading-order repairs for the six damaged tables on
+# pages 20, 31 and 32. This figures: block is independent of them -- no figure entry anchors
+# on a table bitmap, so the two blocks do not interact.
+#
+# QA notes (vision reads; confirm before treating as a release record):
+#   * Section 5.4's opening sentence says "Figure 11 shows the impact ... on the median
+#     seasonal peak intensity" and then refers to Figure 10 two sentences later. The chart in
+#     that section is Figure 10; Figure 11 is the end-use savings distribution. Prose error.
+#   * Figure 16 reprints Figure 5 (the final code-in-force map) under a second number. The two
+#     bitmaps are byte-different, so each is described and pinned separately.
+#   * Figure 7, the sampling-regions map, carries no legend, labels or scale in the source, so
+#     it is described structurally only.
+
+figures:
+- source_image: 96598_images/image_000002_7c0cd53f094e7b4639bc5803954c89ea9c0e8855c086fc174ed02cc1ce6b0d55.png
+  source_image_sha256: d1874a457387013924945a10146a3c86528980a15dad070b2748f82d8f1fd92f
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Choropleth map of US commercial building energy code efficiency category by state, December 2024
+  description: |-
+    Figure 1: choropleth map of the United States shading each state by commercial building energy code efficiency category as of December 2024, legend running from 90.1-2019 or newer down to below 90.1-2007 plus No statewide code. Pacific, Mountain and New England states hold the newest codes; Arizona and Oklahoma sit lowest; Wyoming, Colorado, Kansas, Missouri and the Dakotas have no statewide code. Table 8 lists the categories by state.
+- source_image: 96598_images/image_000003_eaa52d4bee3ab599de8b5a175a9f27320c823a87f5575b79225410659b7605a6.png
+  source_image_sha256: df8e8226ede7d4a82195e98356648d27a5ff11bc5394063db2082c5f660a46db
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Heatmap of energy code in force during year of construction, by state and construction period
+  description: |-
+    Figure 2: heatmap grid with one row per state and columns for construction periods from 1900-1979 through 2019, each cell shaded by the energy code in force that year. The legend spans DOE Ref Pre-1980 through 90.1-2013 and DEER Pre-1975 through DEER 2017; California is the only state on the DEER track. Section 2.1 describes how these templates are assigned.
+- source_image: 96598_images/image_000004_e9fca371fb9cb26cf40c812bc8d64a88c12d29d901c72aacac3fff9d0bb6d82d.png
+  source_image_sha256: b342b3b71fdbc0688ce71277563eb6f155d95d2e0b8b8d000eb2d407fdb57dfb
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar chart of percent of square footage by window construction type for each climate zone
+  description: |-
+    Figure 3: 100% stacked horizontal bar chart of the percent of ComStock square footage by window construction type, one row per climate zone, x-axis 0 to 100%, with a 12-entry legend from triple-pane low-e to single-pane clear. Warmer zones carry more single-pane glazing. Section 2.3.3 reports 49% single-pane, 51% double-pane and under 1% triple-pane stock-wide; Table 7 gives the assembly properties.
+- source_image: 96598_images/image_000005_a630d7052aeb66a1b49206eb2f1f599bb3f20fcc0cef61133c12c8ed2036084a.png
+  source_image_sha256: b69f7c9d9f37bc63c0b18d87752b92e730738e25be6c5a7125a392e0b2e8f7a0
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: County-level map of Colorado shaded by adopted IECC code year, with city and county legends
+  description: |-
+    Figure 4: county-level map of Colorado shaded by adopted IECC code year, with separate legends for cities and counties running from 2021 back to 2006 plus unadopted. Adoption is patchy: Front Range and Denver-metro jurisdictions carry newer years while many rural eastern and western counties show older or no adoption. Section 3.2.1.4 explains the statewide assumption drawn from it.
+- source_image: 96598_images/image_000006_9d8000350f71d05ee78ba29803c5ea925a7015068bc2a9011a67c8254bab973d.png
+  source_image_sha256: 54311230d54a280dc9f75f8c1a127464d62431e741c3c43ee25c43dc27fa7e23
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Choropleth map of final assumed current energy code in force by state
+  description: |-
+    Figure 5: choropleth map of the United States shading each state by the final assumed current code in force, legend 90.1-2004 through 90.1-2019 plus DEER 2020 for California. Most of the West, Upper Midwest and Northeast are assigned 90.1-2016 or 90.1-2019, while Kansas sits at 90.1-2004 and Wyoming, Arizona and Oklahoma at 90.1-2007. Table 9 lists the per-state assumptions.
+- source_image: 96598_images/image_000007_a40a80e0b47796f9b2adcc7a989e7cfb8669cd58373b845e8ab4ffd70270b9eb.png
+  source_image_sha256: 1b96507b1907fbe721b8ea83c1ae4a79610592b1ce70146ce60ba2c38cd0c520
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Bar chart of weighted ComStock square footage by assumed current code in force
+  description: |-
+    Figure 6: horizontal bar chart of weighted ComStock square footage by assumed current code in force, x-axis 0 to about 16 billion ft2, one bar per code with printed labels. 90.1-2013 is largest at 16.01B ft2, followed by 90.1-2019 at 14.49B and 90.1-2016 at 11.68B; DEER 2020 accounts for 7.60B and 90.1-2004 only 1.76B. Table 9 holds the state assignments behind it.
+- source_image: 96598_images/image_000008_ab4a956bb9c7b0955d7dff2b4a94c9b6e8352dfb95a647f8cf80721bfbea46c5.png
+  source_image_sha256: b21178884fb24c18822a49f850881f7c292e884ee9187221e0ddf3d2dd19aae9
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Map of ComStock county sampling regions across the contiguous United States
+  description: |-
+    Figure 7: map of the contiguous United States with counties grouped into ComStock sampling regions, each region filled a distinct color, with no legend, labels or scale in the source. The regions are irregular and vary widely in size, crossing state lines in places. Reproduced from the ComStock Reference Documentation; Section 3.4 uses it to discuss geographic limitations.
+- source_image: 96598_images/image_000009_1e5fb48d9ee76199317e43447a70c43329a1f9a2a57c419095094225c4fcbc98.png
+  source_image_sha256: 5406e0d8931c70f72b3febcd3aaad68a9583bb31bfc25d21b9f3aa08c1a5308c
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Stacked bar chart of annual site energy by end use and fuel, baseline vs Code_Envelope
+  description: |-
+    Figure 8: two stacked bar columns comparing annual site energy consumption (TBtu, y-axis 0 to 5,000) for the ComStock baseline and the Code_Envelope scenario, stacked by end use and fuel with a 20-entry legend. The total falls from 4,982 to 4,596 TBtu, about 7.7%. Natural gas heating drops from 691.7 to 612.2 and electric heating from 267.7 to 210.3. Table 18 summarizes the savings.
+- source_image: 96598_images/image_000010_e60b2240dfa306944d6a932125f5b587de080eba3a334c880942b77214803726.png
+  source_image_sha256: a9d516273a3b06732180caa4b3ddb1e778acb77aa0acd725d89845e47b1a9245
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel stacked bar chart of annual utility bills by fuel at max, mean and min electricity
+    rates
+  description: |-
+    Figure 9: three-panel stacked bar chart of annual utility bills (billion USD 2022, y-axis 0 to 160) for the baseline and Code_Envelope scenario, one panel each for the max, mean and min electricity rate, stacked by fuel. Totals fall from 149 to 139, 129 to 120 and 112 to 104 - a 7% reduction in every panel. Table 19 gives the savings by fuel.
+- source_image: 96598_images/image_000011_d55a47938e2bd126acc4967eea1915a3726771a9216522cca74cf6417d9c185e.png
+  source_image_sha256: fb315839fc72f35f7fa4524b03aa984f92a413c640644ceadb070f474e345ecd
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Three-panel bar chart of median seasonal electric peak intensity by climate zone
+  description: |-
+    Figure 10: three-panel horizontal bar chart of median electric peak intensity (W/ft2) by ASHRAE climate zone 1 through 8, baseline and Code_Envelope paired per zone, with panels for summer, winter and shoulder peaks. Every pair shows a small reduction; the largest printed drop is winter zone 7, 3.38 to 3.03 W/ft2. Section 5.4 notes these are medians only.
+- source_image: 96598_images/image_000012_639b477cae48d844a6c650d31398c4dd9b4f9f7f51275b7daf25b46a15db52fc.png
+  source_image_sha256: 2a892e8d17ca8da722e4c0e0b99baa387fce7b078a3a8f8c4bd245bf181e562b
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin and box plots of percent site energy savings by end use and fuel type
+  description: |-
+    Figure 11: horizontal violin-and-box plot of percent site energy savings by end use and fuel type, x-axis -160% to 100%, titled Upgrade 49.0: Code_Envelope (unweighted), with model counts per row (electricity cooling n=119,036; natural gas heating n=60,609). Medians sit modestly above zero for the heating and cooling end uses, with long negative tails from low-load models. Section 5.5 discusses those outliers.
+- source_image: 96598_images/image_000013_c557a4efa0fa8074641b6ae52af53581619dc392f97c8b07cc59c8fe2434e7ed.png
+  source_image_sha256: 76343f03403801531cf043107836ed3c06de9427e04845c21abd8e4056f19d31
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin and box plots of percent site energy savings by fuel, including total site energy
+  description: |-
+    Figure 12: horizontal violin-and-box plot of percent site energy savings by fuel, x-axis -160% to 100%, six rows - district cooling, district heating, other fuel, natural gas, electricity and site (n=123,668). Other fuel has the highest median at about 20%, natural gas and district heating about 10%, electricity nearer 5%; the site row's middle 50% runs 5% to 13%, per Section 5.5.
+- source_image: 96598_images/image_000014_33c96e2408954ce9732b5402c3cbb0c1ae8feb7055eecbce41a9153081eea1c2.png
+  source_image_sha256: 814c861bdcfd5a93961ba68206fa1864821504b6033b28019991100fe41c82c8
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin and box plots of percent annual utility bill savings by fuel
+  description: |-
+    Figure 13: horizontal violin-and-box plot of percent annual utility bill savings by fuel, x-axis -160% to 100%, five rows - propane, fuel oil and natural gas state averages, electricity at the mean rate, and the bill mean (n=123,649). Fuel oil and natural gas carry the highest medians, roughly 20% to 30%, while the electricity and overall bill rows sit near 5%. Table 19 has the totals.
+- source_image: 96598_images/image_000015_ee0c1044010f60bac8be1c54aecf74253949717aa03277c3aec7c20ca306aa30.png
+  source_image_sha256: 601be1b1e9c709e745df07c9190ebfc078e9183b66fc57ed19f0340a03035b33
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin and box plots of percent annual utility bill savings by ASHRAE climate zone
+  description: |-
+    Figure 14: horizontal violin-and-box plot of percent annual utility bill savings by ASHRAE climate zone, x-axis -30% to 80%, 16 rows from 1A (n=3,078) through 8 (n=669), titled Upgrade 49.0: Code_Envelope (unweighted). Medians sit just above zero in every zone and the distributions lengthen in colder zones such as 5A, 6A and 7. Section 5.6 discusses the pattern.
+- source_image: 96598_images/image_000016_f855cf6f8a328ccf996dcd48df1460d33731d41a78182eae8bed0993b0b274f5.png
+  source_image_sha256: 3b554e91232a32bab6ed8677436c082ddd33710e19d9fc02fc35e16a1642b533
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Choropleth map of annual median percent site energy savings by state
+  description: |-
+    Figure 15: choropleth map of the United States shading each state by annual median percent site energy savings, with the value printed on each state and darker blue meaning higher savings. Cold northern states of the West, Midwest and New England reach 9% to 12%; California is lowest at 2.9% and southern states run 5% to 7%. Section 5.7 adds Alaska at 11.7% and Hawaii at 3.6%.
+- source_image: 96598_images/image_000017_aa4ef557542ff7d1070e941c72746f73bf4cf5e3a08c2b0c507d94033800091d.png
+  source_image_sha256: 29edf4474ce4ffc6de79abed9ea7dafec7922c6229afe6aebe10d5f34321aeef
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Choropleth map of final assumed current code in force by state, reprint of Figure 5
+  description: |-
+    Figure 16: choropleth map of the United States shading each state by the final assumed current code in force, legend 90.1-2004 through 90.1-2019 plus DEER 2020 - the same map printed earlier as Figure 5, reprinted so Section 5.7 can compare code stringency against the savings map in Figure 15. Table 9 lists the per-state assumptions.

@@ -100,3 +100,200 @@ tables:
       | Boiler Constant Efficiency Curve | Cubic | Efficiency Multiplier | Part Load Ratio | 1 | 0 | 0 | 0 | From DOE Reference Building |
       | Boiler with Minimum Turndown | Cubic | Efficiency Multiplier | Part Load Ratio | 0.7791 | 1.4745 | -2.5795 | 1.3467 | From Regression of Prototype Building EMS |
       | Boiler with No Minimum Turndown | Cubic | Efficiency Multiplier | Part Load Ratio | 0.7463 | 1.3196 | -2.2154 | 1.1674 | From Regression of Prototype Building EMS |
+
+# Hand-authored figure descriptions for measure_pdfs/87536.pdf (Batch E).
+#
+# 87536 documents the Boiler Replacement with Air-Source Heat Pump (ASHP) Boiler and Natural Gas
+# Boiler Backup measure -- the gas-backup twin of 86199. docling extracts every picture as a
+# bare ![Image](...) ref: the caption line usually survives above it, but the image itself is
+# invisible to retrieval. Each entry below rewrites the ref with a hand-written alt and injects
+# a description paragraph beneath it. Schema and depth budget:
+# overlays/FIGURE_DESCRIPTIONS_ROLLOUT.md (section 2.1 -- 40-70 words, alt <=120 chars, no
+# corroboration against body prose).
+#
+# Scope: the 22 images that are figures (Figures 1-21 and A-1 to A-3). Deliberately excluded:
+# indices 000000-000006 -- the six cover photographs and the NREL logo. The `tables:` block
+# above is caption-anchored (source_pdf_sha256, no source_image), so it consumes no image index
+# and nothing here overlaps it.
+#
+# QA notes (vision reads; confirm before treating as a release record):
+#   * image_000012 carries BOTH Figure 6 (CAPFT) and Figure 7 (EIRFT): Figure 6's caption is
+#     printed inside the bitmap, so only "Figure 7. EIRFT performance curve output" survives in
+#     the extracted text. image_000027 likewise carries both Figure A-1 and Figure A-2, with
+#     A-1's caption inside the bitmap. Neither figure is dropped; both entries name both
+#     numbers so a retrieval hit on either resolves.
+#   * image_000027 (Figures A-1/A-2) is a byte-different but visually identical reprint of
+#     image_000012 (Figures 6/7) -- same two contour plots, same ranges. Both entries describe
+#     the plots and cross-reference each other rather than pretending they differ.
+#   * Figure 9 panel (a): the data label on the upgrade's hatched natural-gas-heating band is
+#     illegible at the extracted raster resolution. The description omits it rather than guess.
+#     Arithmetic on the labels that are legible (totals 4,638 -> 4,293 TBtu, heating electricity
+#     197.6 -> 362.0, baseline gas heating 627.5) implies roughly 119 TBtu.
+#   * Figure 10's caption says "Average daily maximum peak demand comparison", but the chart is
+#     a violin plot of the distribution of maximum daily peak magnitude by season (W/ft2), not
+#     an average. Section 6.3 gives the averages: no summer change, +0.5% shoulder, +5% winter.
+#   * Figure 12 is a screenshot of a simulation time series with a hand-drawn annotation and
+#     ellipse; its axis labels do not survive at the extracted resolution, so the entry
+#     describes the annotated behavior and points at Section 6.4.
+#   * Figures 15-17 are choropleth state maps with per-state data labels and no color-bar
+#     legend. On Figure 16 negative values are electricity INCREASES; Section 6.7 flags
+#     Florida's positive outlier as an autosizing artifact discussed in Section 4.4.
+#   * Chart legends label the upgrade "HP Boiler G Backup" and titles read "Upgrade 06"; the
+#     electric-backup comparison series in Figures 19-21 is "HP Boiler E Backup" (that is
+#     measure 86199). Entries that name a series use the chart's own label.
+
+figures:
+- source_image: 87536_images/image_000007_013c5622c7ee2f6d8df5e28323925163419fcdc23ed8fcf99db685056c158f78.png
+  source_image_sha256: 85cf0fed4d5a97af56c8577f208acef5fb0bd0bc8879631e8b9052645553f9f5
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Schematic of air-source heat pump boiler refrigerant cycle from air coil to hot water coil
+  description: |-
+    Figure 1: schematic of ASHP boiler operation, tracing the refrigerant loop from a refrigerant-to-air cooling coil through an electronic expansion valve (EXV) and compressor to a refrigerant-to-water heating coil that delivers heating water. Green arrows mark the low-pressure side and orange the high-pressure side. Section 2 describes the cycle and the air-to-water configuration this measure models.
+- source_image: 87536_images/image_000008_761fa8382000bfe82d38d118ecb461549bc748c6a5bdb4ad42ff0f41ec7a796a.png
+  source_image_sha256: a44a8240c2777012b9bbc15d15d0828cba81f9fda97816a8c330c0004229c14b
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Scatter plot of boiler efficiency multiplier against boiler part load ratio for three curves
+  description: |-
+    Figure 2: scatter plot of boiler performance curves, with boiler part load ratio from 0 to 1.4 on the x-axis and boiler efficiency multiplier from 0 to 1.4 on the y-axis. One series is flat at 1.0 across the range while the other two dip to roughly 0.75-0.85 at low part load and rise above 1.2 near a ratio of 1.3. The tables above give the curve assignments and coefficients.
+- source_image: 87536_images/image_000009_5b7a058bdb4ae7227bc982d5595d79f91db099450ecb3b9f856def78820a3397.png
+  source_image_sha256: 50d5834bf3c16d89c8363c8d8831ee34cc4825320b473437fce4eeabd616e7f1
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Two bar panels of measure applicability by percent of stock floor area and stock gas heating
+  description: |-
+    Figure 3: two-panel bar chart of measure applicability, the left panel as a share of ComStock stock floor area and the right as a share of stock natural gas heating, each split between models with boilers (orange) and the rest. Boiler-bearing models are a minority of floor area but a much larger share of gas heating. Section 4.1 states the applicability criteria.
+- source_image: 87536_images/image_000010_c9a84f78d017a8ec87fc72178afd0162a1fceb01e58f913ffc30f00fc11c451e.png
+  source_image_sha256: 4efe89904af1f3639877f1c1b617a11af4331f6b64eede2f3030f7f4d9a65db4
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Schematic of the heat pump sizing approach relating design heating load to design outdoor air
+  description: |-
+    Figure 4: schematic of the heat pump sizing approach, plotting heating load against outdoor air temperature and marking the design heating load (DHL), the sizing fraction (%DHL), the heat pump design temperature (HDT), the target capacity and the design outdoor air temperature, with the curve pinned at 60 degrees F. Section 4.2 gives the sizing rules and the backup boiler cutoff.
+- source_image: 87536_images/image_000011_5a97cb86c04ea095b17450da5d62d12511a21a051016eb21561f1836a9827cf7.png
+  source_image_sha256: b6bed97a6b14b9bbda6a3eac3b8962d0fc0096351669afba92f8b6633c7be311
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Piping diagram of the heat pump loop, heat exchanger and hot water loop with backup boiler
+  description: |-
+    Figure 5: piping diagram of the configuration of heat pump and hot water loops - ASHP boilers and a circulation pump on the heat pump loop, a heat exchanger coupling it to the hot water loop, and the Backup Boiler plus hot water pump serving the building coils. Section 4.3 explains that the heat exchanger request is what triggers heat pump operation.
+- source_image: 87536_images/image_000012_89a15313fedebe548224baa10f969c4f0c823305366a2f0c9fe54ac9c93d459b.png
+  source_image_sha256: d8b5d336a079c84e8cfe0b926ad3ed5b1c547d2d2d1bad791303df9f4262fa2d
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Contour plots of CAPFT and EIRFT curve output over outdoor air and condenser leaving water temp
+  description: |-
+    Figures 6 and 7: paired filled-contour plots of CAPFT (capacity) and EIRFT (energy input ratio) curve output over outdoor air temperature, -15 to 30 degrees C, and condenser leaving water temperature, 60 to 82 degrees C. CAPFT's near-vertical contours climb 0.45 to 1.50 with outdoor temperature alone; EIRFT slants from 1.80 at cold air and hot water down to 0.60. Table A-3 lists the coefficients.
+- source_image: 87536_images/image_000013_01d1e052ed4f877b886e59640fb35c5cf5825f9472c4fc355cdadba5d992c70f.png
+  source_image_sha256: db27172ffff17a185e3db544cab2db14cdd6540567d29844749e2b8da312974c
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Scatter plot of boiler and heat pump heating rate against outdoor air temperature
+  description: |-
+    Figure 8: scatter plot of sequencing between the ASHP and the boiler, with outdoor air temperature from about -25 to 15 degrees C on the x-axis and heating rate up to roughly 450,000 W on the y-axis, one series per device. The heat pump carries the load at milder temperatures and the gas boiler takes over below the cutoff. Section 6.1 walks through the changeover logic.
+- source_image: 87536_images/image_000014_ea5f991ff1380addac22ef9fa9c86dd11962c9fa07e349002c466e0e71222ae6.png
+  source_image_sha256: e01b94ae9d46343aa2103b49d491a6f5ebaf284bf8422653e3e8e792cb6053b3
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Two-panel stacked bar chart of annual end-use energy for all ComStock and applicable buildings
+  description: |-
+    Figure 9: two panels of stacked bar charts of annual energy consumption in TBtu, baseline versus HP Boiler G Backup, segmented by end use and fuel - panel (a) all ComStock buildings, totals 4,638 to 4,293, and panel (b) applicable buildings, 1,640 to 1,294. In both, the hatched natural gas heating band shrinks sharply while heating electricity grows. Section 6.2 lists the end-use changes.
+- source_image: 87536_images/image_000015_7faa5cff90f8fd991babc982d9e712e2c0fd994743050e00affb4f59ac4371f4.png
+  source_image_sha256: 9b9f398791dfb2c3b58411bc3ab438da33b62129d3ebba4f44268c13b011b909
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin plots of maximum daily peak magnitude by season, baseline vs HP Boiler G Backup
+  description: |-
+    Figure 10: horizontal violin plots of maximum daily peak magnitude by season - winter, summer, shoulder - one distribution per scenario on an x-axis of W/ft2 running to about 320. Every distribution is concentrated near zero with a long high tail, and the paired shapes are close enough that the seasonal shift is not visible at this scale. Section 6.3 gives the average changes.
+- source_image: 87536_images/image_000016_f50d40e67712cdafc87a9e168be51a97b005ea4d51b1c1d5e4b603c15d54c115.png
+  source_image_sha256: 08791218e4efc42713e635ff4e05d281307d82405a3d188530ea5bbd96cd8538
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin and box plots of percent site energy savings by HVAC system type
+  description: |-
+    Figure 11: horizontal violin-and-box plots titled Upgrade 06: HP Boiler G Backup (unweighted), percent site energy savings from about -20% to 60% on the x-axis, with eleven HVAC system rows labeled by model count. PVAV with gas heat and electric reheat (n=21,687) sits near zero while the VAV-with-boiler-reheat rows center near 20-30%. Section 6.4 explains the spread.
+- source_image: 87536_images/image_000017_05ad0353f21670cb1fbd21a7a86c1fe1f13f1acf3c34f9bc75b0ba33e2fcb96a.png
+  source_image_sha256: bf02c597722e82d54f3333dfeaa47024625a20d4d5ee64618a005406ff1f7f31
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Annotated simulation time series showing very small flow in the hot water loop over spring
+  description: |-
+    Figure 12: screenshot of a simulation time series spanning roughly April through June, showing tightly spaced spikes in loop flow and an annotation with a red ellipse reading "Very small flow in the hot water loop". It documents the low-load case where the heat exchanger requests flow and the constant-flow heat pump model cycles frequently. Section 6.4 explains the resulting negative savings.
+- source_image: 87536_images/image_000018_31aa928bb3700a11e05576649e3d3bf6ae5ca75bc0bc6b7f42247284a3e3c276.png
+  source_image_sha256: f76125ac449520a8e991ebb9b0acb48043bb089c335094cbd152b750c902d8ef
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Violin and box plots of percent site energy savings by end use and fuel type
+  description: |-
+    Figure 13: horizontal violin-and-box plots titled Upgrade 06: HP Boiler G Backup (unweighted), percent site energy savings from -160% to 100%, with sixteen end-use and fuel rows labeled by model count. Natural gas heating (n=66,248) clusters near 100% savings while electricity heating (n=66,727) and electricity pumps (n=66,189) carry large negative tails. Section 6.5 explains the outliers.
+- source_image: 87536_images/image_000019_90a5a0610b60e0cde06b876b1b702e2ac6a5f09abf4b09d1ecdc79709b744ee1.png
+  source_image_sha256: c233265d8d5cc61260e9a3c5263a32e0ea33d2e1b2f69af2bd5e84b535f65527
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Bar chart of average percent site energy savings by ComStock building type, every bar labeled
+  description: |-
+    Figure 14: bar chart of average percent savings in total energy consumption by ComStock building type, y-axis 0% to 22%, every bar labeled. SecondarySchool is highest at 21.5%, then PrimarySchool 16.0% and Hospital 12.6%, while QuickServiceRestaurant is 0.1% and FullServiceRestaurant 0.6%. Section 6.6 ties the ranking to boiler saturation - about 63% in the schools and hospitals.
+- source_image: 87536_images/image_000020_815aac1c81622fb43b2609e9c9f2d721483f536eb0aadc707c0d02c8bde9433f.png
+  source_image_sha256: 0a87f9f4ca12aa63db1b447d334890e6ddc09a3b5bf871d0c60c5f870c2d83ce
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Choropleth map of average percent natural gas savings by US state, labeled per state
+  description: |-
+    Figure 15: choropleth map of the average percentage savings in natural gas consumption by state, each state labeled and shaded darker for larger savings, with no color-bar legend. Values run from about 4.3% in Maine to roughly 21.7% across the upper Midwest and Great Lakes, so cold states save most. Section 6.7 reads this map together with Figure 16.
+- source_image: 87536_images/image_000021_f5549b322475b5e8e18d0ff95688673690d6cc10d5b54efbc74f0a66cdb365d0.png
+  source_image_sha256: fbaa4574ab94618a8b9a9df6e7c9a2ebb953487e22f8482fefe67ef67f5a28f8
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Choropleth map of percent electricity savings by US state, negative values marking increases
+  description: |-
+    Figure 16: choropleth map of the average percentage savings in electricity consumption by state, each state labeled, where negative values are increases. Most states fall between about -0.5% and -10.8%, with the largest increases in the cold upper Midwest, and Florida the lone positive at 0.01%. Section 6.7 attributes Florida to the autosizing limitation in Section 4.4.
+- source_image: 87536_images/image_000022_0ffe9e065dd61de3cf0b270e3938f6d80d7ab1ed90ef158511a1a0f697957e76.png
+  source_image_sha256: 33ff80f4beae010e093092b99281877e442e0a7033937b76fae6fcbe8e1261bd
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Choropleth map of heat pump average COP by US state, labeled per state
+  description: |-
+    Figure 17: choropleth map of heat pump average COP by state, each state labeled and shaded darker for higher COP, with no color-bar legend. Values run from about 2.09 in the northern tier to 3.09 in Florida and 2.93 in Arizona, so warmer climates deliver the better seasonal efficiency. Section 6.7 uses this map to explain the state-level electricity increases.
+- source_image: 87536_images/image_000023_36da2b577ab7120176dcb3d5ad9984cfc9555b0855344df8826cfc86bea24dce.png
+  source_image_sha256: fec95f10a08da3a64c0f5d1b621699f5fddaae11bea14ca3b463259cc6577f45
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Bar chart of annual GHG emissions by grid scenario and fuel, baseline vs HP Boiler G Backup
+  description: |-
+    Figure 18: grouped bar chart of annual GHG emissions in MMT CO2e, baseline against HP Boiler G Backup, for three electricity grid scenarios plus natural gas, fuel oil and propane. Electricity emissions rise - eGRID 336.6 to 355.5 (+18.9, 5.6%), LRMER High RE Cost 15 253.3 to 268.2, LRMER Low RE Cost 15 161.1 to 172.6 - while natural gas falls 83.6 to 49.4 (-34.2, 41%). Section 6.8 gives net savings.
+- source_image: 87536_images/image_000024_0dba4830d76b541c3e376394d98087105d1906de613bfef6faeaea5a80626697.png
+  source_image_sha256: 95008b501ba22633ae4e55e2f60d94d0768babdc9a18f378212eca89e0b9e852
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Two-panel stacked bar chart comparing gas-backup and electric-backup end-use energy
+  description: |-
+    Figure 19: two stacked bar panels of annual energy consumption in TBtu for applicable buildings, each pairing the baseline against one backup option - HP Boiler G Backup at 1,294 on the left and HP Boiler E Backup at 1,292 on the right, both from a 1,640 baseline. The gas case keeps a thin hatched gas heating band; the electric case replaces it with heating electricity, 212.1 versus 219.8. Section 6.9 gives the percentages.
+- source_image: 87536_images/image_000025_591464c0e65990aec2fe1d77e6bb67c2a03304f25e8ae69072fe15dabf269e0f.png
+  source_image_sha256: 2dc977c99d76efc4a3bdb6ef6950d01ab7cb0311020ed6887657784d89aa711d
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of median seasonal electric peak by climate zone for baseline and both backups
+  description: |-
+    Figure 20: grouped horizontal bar chart of median winter, shoulder and summer electric peak in W/ft2, three bars per ASHRAE climate zone - baseline, HP Boiler G Backup and HP Boiler E Backup - every bar labeled. The two backup options are nearly identical everywhere; winter peaks rise most in Subarctic (2.792 to about 3.60) and Very Cold (2.808 to 3.32-3.43). Section 6.9 discusses the comparison.
+- source_image: 87536_images/image_000026_aa2ec03e03099912e1b33c03abc8e294d3e198f650e201992dbf3cce3bfadc8f.png
+  source_image_sha256: 9fdda1b53b1ac80059840eddf70290aaebfec3c44b1353f951f095c8352f4333
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Grouped bar chart of annual net GHG emissions savings for gas vs electric backup by grid scenario
+  description: |-
+    Figure 21: grouped bar chart of annual net GHG emissions savings in MMT CO2e, one pair per electricity grid scenario comparing HP Boiler G Backup against HP Boiler E Backup, every bar labeled. The two options are within a few hundredths of each other - eGRID 2021 13.96 versus 13.64, LRMER High RE Cost 18.35 versus 18.28, LRMER Low RE Cost 22.03 versus 22.07. Section 6.9 draws the conclusion.
+- source_image: 87536_images/image_000027_0941dc537f08fd906f56e5f62e42ce1bdb802c80911fbe1c2d460f6acd7605da.png
+  source_image_sha256: 412f6ebad3b11d5f7a8c04083661de5c823b26df5998b4c21563a62314daecb1
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Filled-contour plots of CAPFT and EIRFT curve output vs outdoor air and condenser leaving water
+  description: |-
+    Figures A-1 and A-2: the CAPFT and EIRFT performance curve output generated from the coefficients fitted to the Colmac data - the same pair of filled-contour plots reprinted from Figures 6 and 7. CAPFT climbs 0.45 to 1.50 with outdoor air temperature and is nearly flat in condenser leaving water temperature; EIRFT rises toward 1.80 as air cools and leaving water warms. Table A-3 lists the coefficients.
+- source_image: 87536_images/image_000028_c2ab5c9dae1ab8d4d640ecad860a43e6166970000157066abe2ad684a18e4c12.png
+  source_image_sha256: 8758a07e441d69f41f2c5815493b0a4d4f3f371fadc1b50b421e5f21f1649edf
+  method: vision-description
+  described_utc: '2026-08-21'
+  alt: Two 3D scatter plots comparing actual and predicted heating capacity and EIR with RMSE labels
+  description: |-
+    Figure A-3: two 3D scatter panels comparing actual against predicted values over outdoor air temperature (about -20 to 30 degrees C) and condenser water leaving temperature (60 to 80 degrees C). The left panel plots heating capacity in kW with RMSE = 0.026, the right plots EIR from about 0.35 to 0.65 with RMSE = 0.006. Appendix A cites the agreement as validation of the curves.
