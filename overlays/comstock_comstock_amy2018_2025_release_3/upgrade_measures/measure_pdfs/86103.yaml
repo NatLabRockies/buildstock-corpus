@@ -24,6 +24,28 @@
 #     this document (it does in nine sibling measure docs, but not this one), and its marker
 #     is written "(a)" rather than as a superscript.
 
+# Figure notes (figures: block, added 2026-08-22):
+#   * 29 of this doc's 37 extracted images are real figures. Skipped as decorative: image_000000-
+#     image_000005 (six NREL cover photo tiles) and image_000006 (NREL wordmark). image_000020 is
+#     NOT in this block - it is the Table 5 bitmap the tables: block above anchors on, and figures
+#     run after tables so that replacement wins. 7 decorative + 29 figures + 1 table bitmap = 37.
+#   * Results are numbered Section 6.x in this document, not 5.x, so the pointers cite Sections
+#     6.2-6.5. There are no stock-level results tables (Tables 7-9 are single-building examples),
+#     so Figures 14-25 point at their narrative sections rather than a table.
+#   * Figures 2, 4 and 13 are emitted with the caption BELOW the bitmap rather than above. For
+#     Figure 2 the "(a) Three-pipe system example" / "(b) Two-pipe system example" sublabels also
+#     survive as separate list items between the image and its caption.
+#   * Figure 4 and Figure 13 are the SAME graphic printed twice (the ASHRAE DOAS discharge-
+#     temperature schedule). The captions differ slightly and Figure 13's reads "recommendations
+#     form ASHRAE DOAS Design Guide" ("form" for "from"). Both entries describe the chart and
+#     cross-reference each other so either citation resolves.
+#   * Figure 3 is a vendor data sheet; its shaded "recommended operating range" is described but
+#     not measured, per the depth standard.
+#   * Figure 23's rows are split on the raw column name applicability.hvac_vrf_hr_doas (True/False)
+#     rather than a readable label, and the applicable-baseline case is not broken out separately.
+#   * QA: Table 5's propane row again pairs 177.8 lb/MMBtu with 182.3 kg/MWh where ~275.7 is
+#     expected - the tenth doc in the corpus with this shared-boilerplate error.
+
 product: comstock
 release: "comstock_amy2018_2025_release_3"
 source_id: upgrade_measures
@@ -135,3 +157,208 @@ tables:
       | Fuel oil | 195.9 lb/MMBtu (303.2 kg/MWh) |
 
       (a) lb = pound; MMBtu = million British thermal units; kg = kilogram; MWh = megawatt-hour
+
+figures:
+- source_image: 86103_images/image_000007_74a37b2d69fd5e8fc21669ba27453e964f2487518f49a639c6ff0cc74f67b128.png
+  source_image_sha256: 5c7df74b3f4333796ea9939d9a6bcee8b2b34b69b4b0d982acd599542a35333a
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Figure 1: cutaway diagram of a VRF heat-recovery system serving a commercial floor'
+  description: |-
+    Figure 1: cutaway isometric schematic of an open-plan commercial floor served by a VRF heat pump with heat recovery. Callouts label the outdoor unit, the two- or three-pipe refrigerant lines, the refrigerant management component (branch controller), and ceiling-mounted indoor units in each zone. Illustrates how simultaneously heating and cooling zones exchange heat through one refrigerant loop. See Section 1.1.
+- source_image: 86103_images/image_000008_9bd099f5218cc3fbbac0faab30e116439b40f9924630689368b12786ae873ed1.png
+  source_image_sha256: 0393e610eeeb5efcdd87706ec7da741ed9b29f4b6b0a5216558d23624b35662a
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Figure 2: three-pipe and two-pipe VRF piping layouts for the same building design'
+  description: |-
+    Figure 2: paired piping-layout diagrams for the same building design, three-pipe (a) and two-pipe (b), each overlaying refrigerant runs on a floor plan with the required components and pipe-length arithmetic listed beneath. The three-pipe layout needs four mode change units and 2,260 total feet of pipe; the two-pipe layout needs 5,320 feet. See Section 1.1.
+- source_image: 86103_images/image_000009_a9260b5ce9c67d8dca1b73a0bddb370444ad1f759c076b8274ca929957996a01.png
+  source_image_sha256: 2b1cfc121a5173246616d646db5fc965da9e5db8af37ba52f253dd3e36f5b902
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Figure 3: five-panel Ventacity ERV/HRV product data - fan curve and effectiveness versus flow'
+  description: |-
+    Figure 3: five-panel manufacturer data sheet for the Ventacity energy/heat recovery ventilator. The first panel plots external static pressure (in. W.C.) against flow rate over 175-1,020 CFM with a shaded recommended operating range; the rest plot HRV sensible and ERV latent, sensible and total effectiveness (%) versus flow for heating and cooling modes at AHRI 1060 conditions. Effectiveness falls as flow rises. Modeled values in Table 4.
+- source_image: 86103_images/image_000010_23c13416ee6e93e06344ef66e1781216cc4174297da848149737913c948bbf52.png
+  source_image_sha256: 6e3c1f5a546a81868953d9560c4d24377cf4a1285cfe2f991b8792691384858b
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Figure 4: ASHRAE DOAS discharge air temperature setpoint versus outdoor dry-bulb temperature'
+  description: |-
+    Figure 4: single-line control schedule from the ASHRAE DOAS Design Guide plotting DOAS discharge dry-bulb temperature setpoint (deg F, with deg C on the left axis) against outdoor dry-bulb temperature. The setpoint holds at 67 deg F below about 45 deg F outdoors, ramps down through the 45-55 deg F band, then holds at 52 deg F above 55 deg F. Reprinted as Figure 13 for Section 4.2.2.
+- source_image: 86103_images/image_000011_b5bf994bf136d2bfe2015ff7cc2256ccc6a7952d7ce4b1f861e3044bf5611e0a.png
+  source_image_sha256: 027f18a485851e04a89894ad329a5b1f4342b0b0caccc598c86dda47fcea0b5e
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Figure 5: baseline floor area and site energy by building type, stacked by HVAC system type'
+  description: |-
+    Figure 5: paired horizontal stacked bar charts of ComStock baseline floor area (% of total) and total site energy (TBtu) by building type, stacked by HVAC system type - PSZ-AC, PVAV, VAV, PTAC, PSZ-HP, PTHP, DOAS with VRF, DOAS with others, residential and other. PSZ and VAV systems dominate both measures while DOAS with VRF is a very small slice. A side panel lists the baseline VRF+DOAS assumptions. See Section 3.
+- source_image: 86103_images/image_000012_23c60aeca520362f9a3fe5fc17e0f28824fa5fed6b5d8cafb97472ec9dc50a57.png
+  source_image_sha256: 109eda68a70ed6c644d5d6c4a44b5510b116e381ce542f70fb17302d0a0487e7
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Figure 6: stacked bars of applicable floor area share by building type'
+  description: |-
+    Figure 6: vertical 100% stacked bar chart of percentage of floor area by ComStock building type, split into applicable and seven non-applicability reasons (floor area over 200,000 sq ft, large exhaust/ventilation, central multi-zone VAV RTU, central single-zone RTU, DOAS plus zone terminal equipment, residential forced air, zone terminal equipment). Applicable buildings cover 53% of stock floor area; restaurants and hospitals are excluded entirely. See Section 4.1.
+- source_image: 86103_images/image_000013_7c8fac16a0aff06e0b916e84675dc6f0450c567b03f75bb648a359a9fd4c6ed9.png
+  source_image_sha256: a996bae2ad9ec61da753d94e1357d347488fe838d8446c4bbdf3c3daec2320cf
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Figure 7: option matrix for the decoupled VRF and DOAS configuration modeled'
+  description: |-
+    Figure 7: option-matrix diagram of the decoupled VRF-plus-DOAS configuration modeled in this upgrade. The VRF block resolves two choices (heat recovery rather than multi-split, two-pipe rather than three-pipe) and the DOAS block three (HRV in dry climates or ERV in humid climates, counterflow plate heat exchanger, sensible heat or enthalpy exchange). Selected options are bold, rejected options greyed. See Section 4.2.
+- source_image: 86103_images/image_000014_1ce165e552f018b54cec004e8e157d20f59b79260e43563fe9bd15a46eb1f585.png
+  source_image_sha256: 6ec8f81343c4ac07d519a575859a03fe33fd017ea76c12ffbdb8e9a71a3c6025
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Figure 8: single- versus dual-curve heating EIR and COP modifiers versus outdoor air temperature'
+  description: |-
+    Figure 8: two simulation scatter panels against outdoor air temperature (-30 to 20 deg C) - (a) heating EIR modifier, (b) heating COPcomp&fan,operating modifier - each plotting LowTemp, HighTemp and AllTemp series. The single AllTemp curve tracks one straight line while the paired low- and high-temperature curves diverge below roughly -10 deg C. EIR modifier spans about 1.1 to 2.2. Curve sources in Table 3.
+- source_image: 86103_images/image_000015_01bb7afc017e8808dacdaba9eebbd227860a2750ffda19d89edcde8ed29344ee.png
+  source_image_sha256: 3e421b935d2809b3adf2fce2fc2a5f5118625d4a457faaf2b71d7d6aab4460cb
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Figure 9: VRF outdoor unit heating capacity modifier and design COP for two manufacturers'
+  description: |-
+    Figure 9: two line panels comparing two manufacturers' VRF outdoor units in heating against outdoor wet-bulb temperature (-35 to 10 deg C) - (a) capacity modifier, (b) COPcomp&fan,design - with Daikin RELQ72T and Mitsubishi PURY-HP72TNY/YNU series at several indoor dry-bulb temperatures. Capacity modifier plateaus near 1.2-1.3 above -15 deg C and falls to about 0.6 at -30 deg C. See Table 3.
+- source_image: 86103_images/image_000016_25a633a3d3ecc320e195e80a9f93620d0eb20f7c52abda541f542941a2e6a0a7.png
+  source_image_sha256: 327963dc79858e709aa39517b06efbca777b0e5ec03d7220b5c0cdbe5945bdc9
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Figure 10: VRF outdoor unit cooling capacity modifier and design COP for two manufacturers'
+  description: |-
+    Figure 10: two line panels comparing the same two VRF outdoor units in cooling against outdoor dry-bulb temperature (0-40 deg C) - (a) capacity modifier, (b) COPcomp&fan,design - with Daikin RELQ72T and Mitsubishi PURY-HP72TNY/YNU series at indoor wet-bulb temperatures of 16-24 deg C. Cooling COP falls steadily with outdoor temperature, from roughly 11 near 0 deg C to about 4 at 40 deg C. See Table 3.
+- source_image: 86103_images/image_000017_ce86be988483907d4e3b3ca8fc6ff326a2d9390228423d908db1ef3acb4b951d.png
+  source_image_sha256: ace42a6f1a84623abefc56105bdfb197d07a698c90e7e1054d909cc1e3514474
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Figure 11: cooling EIR and COP multipliers versus part-load ratio for three curve sets'
+  description: |-
+    Figure 11: two panels plotting cooling part-load performance against part-load ratio (0.15-0.95) - (a) EIR multiplier, (b) COPcomp&fan,design multiplier - comparing the EnergyPlus IDF example curve, Daikin's original curve, and the new curve adopted here. The EIR multiplier rises from about 0.3 at low part load to 1.0 at full load; the COP multiplier falls from roughly 3.5-5 to 1.0. See Table 3.
+- source_image: 86103_images/image_000018_c7cd27b2907baefc61d90b394bc017f684b0ed9e8fd39208e27180008262d654.png
+  source_image_sha256: d978c9a19f49875bd1fbc9e886c8c9c217a98e46b8da04415f24a06358f42498
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Figure 12: rated heating and cooling COP regressions against sized capacity'
+  description: |-
+    Figure 12: two scatter panels with fitted trend lines deriving rated non-ducted COP from sized capacity - (a) heating COP versus heating capacity (about 20,000-80,000 W), (b) cooling COP versus cooling capacity. Both decline with size; the printed fits are y = -0.000011x + 4.500686 for heating and y = -0.00002x + 4.934802 for cooling. See Section 4.2.1 under 'Other Configurations'.
+- source_image: 86103_images/image_000019_94a263dda12eb4ab3ab74aca137e75e0abff0e37170afb1b1ec546692c1d1539.png
+  source_image_sha256: d6f9103a732e4dcb1f1c34663a475852ef6cbe14ffce8ef6a77f34fffe019fe7
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Figure 13: ASHRAE DOAS discharge temperature setpoint schedule, same graphic as Figure 4'
+  description: |-
+    Figure 13: the ASHRAE DOAS Design Guide discharge-temperature schedule, plotting DOAS discharge dry-bulb setpoint (deg F and deg C) against outdoor dry-bulb temperature: 67 deg F below about 45 deg F outdoors, a ramp through 45-55 deg F, then 52 deg F above 55 deg F. This is the same graphic printed earlier as Figure 4; it documents the control described in Section 4.2.2.
+- source_image: 86103_images/image_000021_1663b9b18ca8754e4b4f3d63db6892772db1d69ece7a29430d8d88a1ebd21e2e.png
+  source_image_sha256: 685bc9ed8448ef950e9fc6cca0b38a6544e0326dda89a2df4a234de99a7ba524
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Figure 14: stacked bars of annual site energy, baseline 4,638 versus 3,909 TBtu with the upgrade'
+  description: |-
+    Figure 14: two stacked bar columns of annual site energy consumption (TBtu) - ComStock baseline 4,638 versus VRF with DOAS 3,909 - stacked by end use and fuel across about twenty legend series (heating, cooling, fans, heat recovery, heat rejection, interior equipment, lighting, water systems and others). Total site energy falls 16%, or 729 TBtu. Per-end-use savings are itemized in Section 6.2.
+- source_image: 86103_images/image_000022_fc802aa20eba02a1c503516a0f4f9316ac69b4b90814732c2a6a83d1a33372c6.png
+  source_image_sha256: a7623885a52dc08fc58e447216beb2f193028e1b620b20f9cb1d20512a91bcb8
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Figure 15: annual GHG emissions by fuel for three grid scenarios, baseline versus upgrade'
+  description: |-
+    Figure 15: three-panel grouped stacked bar chart of annual GHG emissions (MMT CO2e) for baseline versus VRF with DOAS under eGRID 2021, LRMER High RE Cost 15 and LRMER Low RE Cost 15, stacked by electricity, natural gas, fuel oil and propane. Totals fall from 427 to 371 (-13%), 344 to 294 (-14%), and 252 to 211 (-16%). Emissions factors in Table 5; see Section 6.3.
+- source_image: 86103_images/image_000023_653dce8b4a1742de9b9ea36be68abc27514ae130d4176a6bc50b9cede1008e3e.png
+  source_image_sha256: d4cbc42e03a83f9fdbd241d781e4af75103399a9d502f56045f7f85f41455a30
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Figure 16: violin plots of percent site energy savings by end use and fuel'
+  description: |-
+    Figure 16: horizontal violin plots of percent site energy savings (axis -160% to 100%) for sixteen end-use and fuel combinations, each row labeled with its unweighted model count. Natural gas heating (n=172,830) concentrates near 100% savings while electricity heat recovery (n=233,966) spreads far negative from the added DOAS fan energy. Drivers are itemized in Section 6.4.
+- source_image: 86103_images/image_000024_b3f619ed3ed57d52f13434ada1fdc431913e6f9e8c1b7f4a2c9f0818125e847c.png
+  source_image_sha256: 553373c55c41fd278f3a230a00d45011d3db8672a4612829e90572d2528d4240
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Figure 17: violin plots of site EUI savings by end use and fuel, kBtu/ft2'
+  description: |-
+    Figure 17: horizontal violin plots of site EUI savings (kBtu/ft2, axis -100 to 500) across the same sixteen end-use and fuel intensity rows as Figure 16, unweighted with model counts in each label. Most distributions cluster near zero; natural gas heating and electricity heating carry the long positive tails. The absolute view puts Figure 16's percentages in context. See Section 6.4.
+- source_image: 86103_images/image_000025_cffcae1e13013a32061952420e02302a936fc7dd09d2a7dac7826c79ad1e9a1e.png
+  source_image_sha256: c377cbc3b483dbb4c827c441f11b4a2e4982ed15281dc13573c994d7a3ae1f3f
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Figure 18: box plots of summer and winter peak timing and demand by climate zone'
+  description: |-
+    Figure 18: grid of box plots with rows for eight climate zones, each split into ComStock baseline and VRF with DOAS, and four metric columns: summer peak timing (hour of day), summer peak demand (kW/sq ft), winter peak timing, and winter peak demand. Winter peak demand shifts upward in the colder zones under this electrification measure. See Section 6.4.
+- source_image: 86103_images/image_000026_e60a0a0ad5e05d6b9476c9d79ce91c4d67f8ace082cfd75d47a65788689bba5b.png
+  source_image_sha256: 1ad5a50f07c804c48d3f0c60e5d4e1be223b8bd94cf7ae2592413f6bfae14f6a
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Figure 19: box plots of VRF rated and design COP across heating and cooling conditions'
+  description: |-
+    Figure 19: horizontal box-and-whisker distributions of design COPcomp&fan,design (axis 1 to 12) across nine conditions - design heating COP at 0, 20 and 40 deg F plus rated heating COP, and design cooling COP at 35, 60, 85 and 110 deg F plus rated cooling COP. Cooling at 35 deg F centers near 8 while heating at 0 deg F falls below 2. See Section 6.5.
+- source_image: 86103_images/image_000027_864688995575e5b22e0749efa760b249166473b131123f5c95c57bc812633767.png
+  source_image_sha256: 32ae30df1ae7ded97d07f0ebe76648d5818836aa240a02cebfca73b11f86bfd9
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Figure 20: box plots of annual average cooling and heating operating COP by climate zone'
+  description: |-
+    Figure 20: two panels of box plots by climate zone (Subarctic through Hot-Humid) for annual average cooling COPcomp&fan,operating with a SEER scale on the top axis, and annual average heating COPcomp&fan,operating with an HSPF scale. Cooling medians run roughly 4 to 6.5 and fall in hotter zones; heating medians are highest in Marine and lowest in the coldest zones. See Section 6.5.
+- source_image: 86103_images/image_000028_21f79ebe5d0b82c9484e24469fa757683ea354d313e1f492d03f2835b9973a2c.png
+  source_image_sha256: 07216dab2756e088c348f117d8c1895951f7ac02000dd74944790bc97513b174
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Figure 21: box plots of supplemental electric resistance heating fraction by climate zone'
+  description: |-
+    Figure 21: box plots by climate zone of the fraction of supplemental electric resistance heating relative to VRF heat pump heating (axis 0 to 0.24), for buildings that received the upgrade. Medians run about 0.03-0.06 in the colder zones and sit near zero in mild ones, with scattered outliers out to 0.24. See Section 6.5.
+- source_image: 86103_images/image_000029_010016b80e20abefc7f74be5b07ba981c43633279e10d7e7b740a9b332834f5d.png
+  source_image_sha256: 41cf39b553b7c36f8ee4e4a30b423e845c889ac8fe98e8aa5090f9879559d705
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Figure 22: box plots of heating system COP and its difference from compressor-and-fan COP'
+  description: |-
+    Figure 22: two panels of box plots by climate zone - annual average heating COPsystem,operating (axis 1 to 5) and the relative difference from COPcomp&fan,operating to COPsystem,operating (%, axis -10 to 60). System COP medians run about 2 to 3, and the two metrics differ by roughly 20% to 30%, reflecting indoor fan and supplemental heating energy. See Section 6.5.
+- source_image: 86103_images/image_000030_161a4477986be2f3470cdc9dace128d1d998e92f4e1bc90307d1ff73685ad387.png
+  source_image_sha256: 452bb559569aca72129c75e81325b29185d7f82a8b3085472416b731fb99591a
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Figure 23: box plots of annual unmet heating and cooling setpoint hours'
+  description: |-
+    Figure 23: box plots of total unmet setpoint hours per year (axis 0 to 250), grouped into cooling and heating setpoint unmet hours and split by scenario (Baseline, VRF with DOAS) and the raw applicability.hvac_vrf_hr_doas flag (True/False). Applicable models under the upgrade show the widest spread in heating unmet hours. See Section 6.5.
+- source_image: 86103_images/image_000031_0a1811bd3a911f33d380982c73720ce3b8712bf58b5b471e02b4d4db44032684.png
+  source_image_sha256: 2568f2b6d3bddb17bd9ebe3a59e2a9a6b7eb4221049cc0edda543cc43ce2d9ac
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Figure 24: box plots of maximum vertical piping height and equivalent length by story count'
+  description: |-
+    Figure 24: two panels of box plots by building story count (1 through 14, 15_25, over_25) - maximum vertical piping height (m, plotted negative to -60) and maximum equivalent piping length (m, 0 to 400), averaged per building. Vertical height grows with story count while equivalent length is widest for low-rise buildings. See Section 6.5.
+- source_image: 86103_images/image_000032_31e556f29efa848d176e47b129bd4e865ee3025dcdf0c6af770af103065f50a1.png
+  source_image_sha256: 3d6fd2448394ede059de3035e4c3d24653858e3d7964a2acdf9569440e37812b
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Figure 25: box plots of indoor and outdoor unit counts per building by story count'
+  description: |-
+    Figure 25: two panels of box plots by building story count of total indoor units per building (axis 0 to 250) and total outdoor units per building (axis 0 to 30), for buildings that received the upgrade. Both counts rise with story count - low-rise models cluster below about 25 indoor units while models of seven or more stories spread past 100. See Section 6.5.
+- source_image: 86103_images/image_000033_85c23d73b1c687937875cb9f905153fc3c02782265dd0ecdf55399b553ab7114.png
+  source_image_sha256: 7de34011fb0d61fa0ea8152392ff26dfc288fcbcf9bd771c412cb5d70b53d655
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Figure A-1: site natural gas consumption by census division, baseline versus upgrade'
+  description: |-
+    Figure A-1: grouped vertical bar chart of annual site natural gas consumption (TBtu) by census division, with paired ComStock baseline and VRF with DOAS bars. Gas use falls in every division; East North Central is the largest, dropping from roughly 315 to 197 TBtu. Stock totals are in Figure 14 and Section 6.2.
+- source_image: 86103_images/image_000034_359e5d11eb3fca9f0f484ae62643fa543cedd7db93298b99b73cff6f08459e66.png
+  source_image_sha256: a5f5f0faf1d27d614aca19f38c61345ee2d02022e01e68a01a9d29734fd3005b
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Figure A-2: site natural gas consumption by building type, baseline versus upgrade'
+  description: |-
+    Figure A-2: grouped vertical bar chart of annual site natural gas consumption (TBtu) by ComStock building type, baseline versus VRF with DOAS. Warehouses, standalone retail and primary schools show the largest reductions, while restaurants, hospitals and hotels are essentially unchanged - the building types excluded by the applicability criteria in Figure 6. See Section 6.2.
+- source_image: 86103_images/image_000035_4cee847e7199508fc739e157b83bbb3cf63653a74fea3310bf1eae3aa8ef3970.png
+  source_image_sha256: f6a01657e0b6cceabcdb377953884c266f08898a44abe421b03ee0ddf8c63bc0
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Figure A-3: site electricity consumption by building type, baseline versus upgrade'
+  description: |-
+    Figure A-3: grouped vertical bar chart of annual site electricity consumption (TBtu) by ComStock building type, baseline versus VRF with DOAS. Reductions are modest next to the natural gas view in Figure A-2 - strip-mall retail falls from about 450 to 405 TBtu and warehouses from 445 to 390 - and non-applicable types are unchanged. See Section 6.2.
+- source_image: 86103_images/image_000036_4d578055152e7e07c7b55c4f1f5b2f63aa71d997d36d4b5e6612c512ef2df8c1.png
+  source_image_sha256: 580dc55e7f8d470ce99d7e771fc810e5490a05c6b360024f618335c3d55c6680
+  method: vision-description
+  described_utc: '2026-08-22'
+  alt: 'Figure A-4: site electricity consumption by census division, baseline versus upgrade'
+  description: |-
+    Figure A-4: grouped vertical bar chart of annual site electricity consumption (TBtu) by census division, baseline versus VRF with DOAS. South Atlantic is the largest, falling from roughly 680 to 630 TBtu, and the Pacific division shows the biggest relative drop, about 510 to 400 TBtu. The companion gas chart is Figure A-1. See Section 6.2.

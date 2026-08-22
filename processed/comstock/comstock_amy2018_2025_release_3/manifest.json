@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "comstock_amy2018_2025_release_3",
-  "generated_utc": "2026-08-22T14:48:31.766068+00:00",
+  "generated_utc": "2026-08-22T15:06:27.401207+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -1316,15 +1316,46 @@
           "title": "VRF Heat Recovery with DOAS",
           "input_sha256": "6e6d96010400f6b37978b8e930a630d81d2d4b1497f4d8081c278f9a59dce99c",
           "output_path": "upgrade_measures/measure_pdfs/86103.md",
-          "output_sha256": "bcac03aa69cbac076568110b348f11915b3a9999d6a412423220b6c47086ac69",
+          "output_sha256": "a0c5c8a1d3744d25dba399fec74107f792f82a4f4d0d639598a78a1c345253b6",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86103.yaml",
-            "sha256": "e5ba506797f733eb7d7b04288a79c58b0e89c1aba99c3e24697ab22ecf0803b6",
+            "sha256": "888c5fa7d15f8d19a890ba525e511fee79ac773d47aa9189d179c8191b455630",
             "tables_applied": [
               "Table 1",
               "Table 2",
               "Table 3",
               "Table 5"
+            ],
+            "figures_applied": [
+              "86103_images/image_000007_74a37b2d69fd5e8fc21669ba27453e964f2487518f49a639c6ff0cc74f67b128.png",
+              "86103_images/image_000008_9bd099f5218cc3fbbac0faab30e116439b40f9924630689368b12786ae873ed1.png",
+              "86103_images/image_000009_a9260b5ce9c67d8dca1b73a0bddb370444ad1f759c076b8274ca929957996a01.png",
+              "86103_images/image_000010_23c13416ee6e93e06344ef66e1781216cc4174297da848149737913c948bbf52.png",
+              "86103_images/image_000011_b5bf994bf136d2bfe2015ff7cc2256ccc6a7952d7ce4b1f861e3044bf5611e0a.png",
+              "86103_images/image_000012_23c60aeca520362f9a3fe5fc17e0f28824fa5fed6b5d8cafb97472ec9dc50a57.png",
+              "86103_images/image_000013_7c8fac16a0aff06e0b916e84675dc6f0450c567b03f75bb648a359a9fd4c6ed9.png",
+              "86103_images/image_000014_1ce165e552f018b54cec004e8e157d20f59b79260e43563fe9bd15a46eb1f585.png",
+              "86103_images/image_000015_01bb7afc017e8808dacdaba9eebbd227860a2750ffda19d89edcde8ed29344ee.png",
+              "86103_images/image_000016_25a633a3d3ecc320e195e80a9f93620d0eb20f7c52abda541f542941a2e6a0a7.png",
+              "86103_images/image_000017_ce86be988483907d4e3b3ca8fc6ff326a2d9390228423d908db1ef3acb4b951d.png",
+              "86103_images/image_000018_c7cd27b2907baefc61d90b394bc017f684b0ed9e8fd39208e27180008262d654.png",
+              "86103_images/image_000019_94a263dda12eb4ab3ab74aca137e75e0abff0e37170afb1b1ec546692c1d1539.png",
+              "86103_images/image_000021_1663b9b18ca8754e4b4f3d63db6892772db1d69ece7a29430d8d88a1ebd21e2e.png",
+              "86103_images/image_000022_fc802aa20eba02a1c503516a0f4f9316ac69b4b90814732c2a6a83d1a33372c6.png",
+              "86103_images/image_000023_653dce8b4a1742de9b9ea36be68abc27514ae130d4176a6bc50b9cede1008e3e.png",
+              "86103_images/image_000024_b3f619ed3ed57d52f13434ada1fdc431913e6f9e8c1b7f4a2c9f0818125e847c.png",
+              "86103_images/image_000025_cffcae1e13013a32061952420e02302a936fc7dd09d2a7dac7826c79ad1e9a1e.png",
+              "86103_images/image_000026_e60a0a0ad5e05d6b9476c9d79ce91c4d67f8ace082cfd75d47a65788689bba5b.png",
+              "86103_images/image_000027_864688995575e5b22e0749efa760b249166473b131123f5c95c57bc812633767.png",
+              "86103_images/image_000028_21f79ebe5d0b82c9484e24469fa757683ea354d313e1f492d03f2835b9973a2c.png",
+              "86103_images/image_000029_010016b80e20abefc7f74be5b07ba981c43633279e10d7e7b740a9b332834f5d.png",
+              "86103_images/image_000030_161a4477986be2f3470cdc9dace128d1d998e92f4e1bc90307d1ff73685ad387.png",
+              "86103_images/image_000031_0a1811bd3a911f33d380982c73720ce3b8712bf58b5b471e02b4d4db44032684.png",
+              "86103_images/image_000032_31e556f29efa848d176e47b129bd4e865ee3025dcdf0c6af770af103065f50a1.png",
+              "86103_images/image_000033_85c23d73b1c687937875cb9f905153fc3c02782265dd0ecdf55399b553ab7114.png",
+              "86103_images/image_000034_359e5d11eb3fca9f0f484ae62643fa543cedd7db93298b99b73cff6f08459e66.png",
+              "86103_images/image_000035_4cee847e7199508fc739e157b83bbb3cf63653a74fea3310bf1eae3aa8ef3970.png",
+              "86103_images/image_000036_4d578055152e7e07c7b55c4f1f5b2f63aa71d997d36d4b5e6612c512ef2df8c1.png"
             ]
           }
         },
@@ -2440,7 +2471,7 @@
   ],
   "counts": {
     "documents": 118,
-    "chunks": 8192,
+    "chunks": 8214,
     "by_type": {
       "latex": 19,
       "markdown": 40,
@@ -2449,7 +2480,7 @@
     },
     "overlay_documents": 57,
     "overlay_tables": 57,
-    "overlay_figures": 978,
+    "overlay_figures": 1007,
     "overlay_text_repairs": 1
   },
   "crosswalk": {
