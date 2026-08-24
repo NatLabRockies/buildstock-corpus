@@ -7,6 +7,7 @@ works regardless of the caller's working directory.
 
 from __future__ import annotations
 
+import hashlib
 import os
 from pathlib import Path
 
@@ -59,6 +60,21 @@ def long_path(path: str | Path) -> str:
         return str(path)
     text = str(Path(path).resolve())
     return text if text.startswith("\\\\?\\") else f"\\\\?\\{text}"
+
+
+def sha256_file(path: Path) -> str:
+    """sha256 of a file's bytes, read in blocks so a large artifact never lands in memory.
+
+    Lives here rather than in manifest.py because two modules that must not import each
+    other both need it: manifest.py hashes every artifact it records, and corpus_map.py
+    hashes manifest.json to stamp which manifest a map was derived from. manifest.py then
+    imports the map's reader to check that stamp, so the dependency runs one way only.
+    """
+    h = hashlib.sha256()
+    with path.open("rb") as f:
+        for block in iter(lambda: f.read(1 << 20), b""):
+            h.update(block)
+    return h.hexdigest()
 
 
 def raw_root(product: str, release: str) -> Path:

@@ -13,27 +13,30 @@ the clone commit SHAs, the version of every tool in the chain, and the tracked g
 
 from __future__ import annotations
 
-import hashlib
 import json
 from datetime import datetime, timezone
 from pathlib import Path
 
 import yaml
 
+from .corpus_map import MAP_FILENAME, recorded_manifest_sha256
 from .index import EMBED_MODEL
 from .overlay import entry_kind
-from .paths import OVERLAYS_DIR, manifest_file, output_rel, processed_root
+from .paths import (
+    OVERLAYS_DIR,
+    manifest_file,
+    output_rel,
+    processed_root,
+    sha256_file,
+)
 
 PIPELINE_VERSION = "0.1.0"
 _COVERED_KINDS = {"internal_md", "external_pdf", "local_pdf"}
 
 
-def _sha256_file(path: Path) -> str:
-    h = hashlib.sha256()
-    with path.open("rb") as f:
-        for block in iter(lambda: f.read(1 << 20), b""):
-            h.update(block)
-    return h.hexdigest()
+# Shared with corpus_map (see paths.sha256_file); aliased rather than re-implemented so the
+# manifest's recorded hashes and the map's manifest stamp can never be computed differently.
+_sha256_file = sha256_file
 
 
 def _tooling() -> dict:
@@ -351,6 +354,29 @@ def validate_manifest(
                 errors.append(
                     f"crosswalk: measure {m['measure_id']} is neither covered nor a tracked gap"
                 )
+
+    # CORPUS_MAP.md is the entry point an agent reads instead of the corpus, so a stale one
+    # misroutes every question it answers -- and unlike a mismatched artifact hash, nothing
+    # above would notice: the loop only walks paths the manifest lists, and the map is not
+    # one of them. Absent is fine (it is derived, and `bsc map` regenerates it in seconds);
+    # present but describing a different manifest is not.
+    if (proot / MAP_FILENAME).is_file():
+        recorded_map_sha = recorded_manifest_sha256(product, release)
+        mf = manifest_file(product, release)
+        if recorded_map_sha is None:
+            # No parseable stamp means someone hand-edited the header, which is the one thing
+            # the file tells readers not to do. Unstamped, it cannot be checked at all.
+            errors.append(
+                f"{MAP_FILENAME}: no readable `manifest_sha256` stamp; "
+                f"run `bsc map` to regenerate it"
+            )
+        elif not mf.is_file():
+            errors.append(f"{MAP_FILENAME} exists but manifest.json does not")
+        elif recorded_map_sha != sha256_file(mf):
+            errors.append(
+                f"{MAP_FILENAME} is stale: it was generated from a different manifest "
+                f"than the one on disk; run `bsc map` to regenerate it"
+            )
 
     return errors
 

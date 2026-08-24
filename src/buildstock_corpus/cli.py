@@ -102,6 +102,24 @@ def build(
     _build.build_release(product, release, sample=sample, overlays=overlays)
 
 
+# Named explicitly so the function does not shadow the `map` builtin at module scope.
+@app.command("map")
+def corpus_map(
+    product: ProductOpt = "comstock",
+    release: ReleaseOpt = "comstock_amy2018_2025_release_3",
+    work_dir: WorkDirOpt = None,
+) -> None:
+    """Regenerate CORPUS_MAP.md, the entry point for reading this release's corpus.
+
+    Derived from the built artifacts (manifest, chunks, crosswalk), so this needs no raw/
+    and runs in seconds -- including in a fresh clone.
+    """
+    from . import corpus_map as _corpus_map
+
+    _workspace(work_dir)
+    _corpus_map.build_map(product, release)
+
+
 @app.command()
 def index(
     product: ProductOpt = "comstock",

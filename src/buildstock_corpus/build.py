@@ -14,6 +14,7 @@ from collections import defaultdict
 from pathlib import Path
 
 from .chunk import chunk_documents
+from .corpus_map import build_map
 from .extract.crosswalk import build_crosswalk
 from .extract.doc_dates import (
     DocDate,
@@ -411,6 +412,10 @@ def build_release(
         sample, applied,
     )
 
+    # After the manifest, never before: the map stamps the manifest's hash so `bsc validate`
+    # can catch a stale one, and the manifest has to exist to be hashed.
+    corpus_map = build_map(product, release)
+
     by_type: dict[str, int] = defaultdict(int)
     for d in docs:
         by_type[d.source_type] += 1
@@ -437,6 +442,7 @@ def build_release(
         "crosswalk": crosswalk["counts"] if crosswalk else None,
         "chunks_file": str(cf),
         "manifest_file": str(manifest_file(product, release)),
+        "corpus_map_file": corpus_map["file"],
     }
     if sample is not None:
         print(f"build: SAMPLE - at most {sample} document(s) per category; partial corpus")
@@ -466,4 +472,5 @@ def build_release(
             print(f"    - {w}")
     print(f"  manifest -> {manifest_file(product, release)} "
           f"({len(manifest['gaps']['measures'])} measure gaps recorded)")
+    print(f"  corpus map -> {corpus_map['file']} (read this first)")
     return summary
