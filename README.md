@@ -24,11 +24,39 @@ not follow it (`2025-3`, `2025_3`) and are pinned separately in the source regis
 REL=comstock_amy2018_2025_release_3
 
 uv run bsc fetch     --release $REL   # download + hash raw sources -> raw/
-uv run bsc build     --release $REL   # extract -> normalize -> chunks + manifest -> processed/
+uv run bsc build     --release $REL   # extract -> normalize -> chunks + manifest + map -> processed/
+uv run bsc map       --release $REL   # regenerate CORPUS_MAP.md on its own (seconds)
 uv run bsc index     --release $REL   # embed chunks -> index/
 uv run bsc query "How does ComStock determine HVAC system type?" --release $REL
 uv run bsc validate  --release $REL   # enforce provenance invariants
 ```
+
+That is the **authoring** pipeline, and it is not where a cloner starts. `processed/` is
+committed, so a fresh clone already has the corpus — see below. Do not begin with
+`bsc fetch`: it re-downloads every source PDF and can invalidate the hand-authored overlay
+hash pins that let a transcribed table prove it matches its source.
+
+## Reading the corpus
+
+Start at **`processed/<product>/<release>/CORPUS_MAP.md`**. It lists every document with its
+title, path, top-level sections and last-updated date, plus a measure → upgrade-id →
+document routing table and the corpus's known gaps — so one read tells you which file to
+open instead of grepping 118 of them. `bsc build` writes it, and `bsc map` regenerates it
+from the built artifacts in a second or two without touching `raw/`.
+
+Which consumer you are decides whether you need the RAG index at all:
+
+- **An agent or human with the repo checked out** needs nothing but `processed/`. The
+  markdown is committed and citable; read and grep it directly. No index, no API key.
+- **A consumer without filesystem access** (a hosted app, an MCP server) needs the vector
+  store: `bsc index` then `bsc query`. Budget for it — embedding all 8,214 chunks takes on
+  the order of an hour on a laptop CPU, and `index/` is gitignored, so every clone builds
+  its own. `bsc query --answer` additionally needs `ANTHROPIC_API_KEY` and the `llm` extra;
+  retrieval alone does not.
+
+`bsc validate` checks the manifest, the overlays, and whether `CORPUS_MAP.md` is stale
+relative to `manifest.json`. It does **not** open the Chroma store, so a stale index passes
+silently — re-run `bsc index` after any build that changed `chunks.jsonl`.
 
 ### Smoke test
 
@@ -56,7 +84,11 @@ uv sync --extra extract
 
 - `sources/<product>_<release>.yaml` — source registry (repos, tag, measure URLs)
 - `raw/<product>/<release>/` — downloaded originals (gitignored)
-- `processed/<product>/<release>/` — clean markdown, referenced image assets, `crosswalk.json`, `chunks.jsonl`, `manifest.json`
+- `processed/<product>/<release>/` — clean markdown, referenced image assets, `CORPUS_MAP.md`, `crosswalk.json`, `chunks.jsonl`, `manifest.json`
+  - `CORPUS_MAP.md` is the entry point for reading the corpus: every document's title,
+    path, sections and date, the measure→upgrade-id→document routing table, and the known
+    gaps. Generated (never hand-edited) and stamped with the sha256 of the manifest it was
+    derived from, so `bsc validate` can tell a current map from a stale one.
   - `crosswalk.json` maps each measure to its documentation and its upgrade id in this
     release. Every measure also carries `date_last_updated` — when its document last
     changed at its source — alongside the `date_last_updated_source` that established it
