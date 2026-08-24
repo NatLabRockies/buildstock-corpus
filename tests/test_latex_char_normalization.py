@@ -108,7 +108,7 @@ def test_a_lone_en_dash_between_non_digits_is_not_a_range():
 def test_audit_counts_each_character_class(tmp_path):
     body = f"# Doc\n\nHPA{SHY}CCOOL uses Table{NBSP}5 for 1980{EN}2004 and 132{EN}220.\n"
     (tmp_path / "doc.md").write_text(body, encoding="utf-8")
-    findings, totals = A.audit(tmp_path, {})
+    findings, totals = A.audit(tmp_path, {}, {})
     assert findings[0]["characters"] == {
         "soft_hyphens": 1,
         "nbsp": 1,
@@ -122,12 +122,12 @@ def test_audit_does_not_count_a_placeholder_dash_as_a_defect(tmp_path):
     (tmp_path / "doc.md").write_text(
         f"# Doc\n\n| a | b |\n|---|---|\n| x | {EN} |\n", encoding="utf-8"
     )
-    _, totals = A.audit(tmp_path, {})
+    _, totals = A.audit(tmp_path, {}, {})
     assert totals["unknown"]["range_en_dashes"] == 0
 
 
 def test_audit_reports_a_clean_file_as_having_no_character_findings(tmp_path):
     (tmp_path / "doc.md").write_text("# Doc\n\nAll ASCII, 1980-2004.\n", encoding="utf-8")
-    findings, totals = A.audit(tmp_path, {})
+    findings, totals = A.audit(tmp_path, {}, {})
     assert findings == []
     assert totals["unknown"]["soft_hyphens"] == 0

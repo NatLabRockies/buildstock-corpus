@@ -14,6 +14,7 @@
       "md_images": 34,
       "dangling_refs": 0,
       "duplicate_h1": 0,
+      "overlay_desc_warnings": 0,
       "soft_hyphens": 0,
       "nbsp": 1,
       "range_en_dashes": 4
@@ -30,6 +31,7 @@
       "md_images": 0,
       "dangling_refs": 0,
       "duplicate_h1": 0,
+      "overlay_desc_warnings": 0,
       "soft_hyphens": 0,
       "nbsp": 0,
       "range_en_dashes": 0
@@ -40,12 +42,13 @@
       "orphan_tables": 0,
       "figure_captions": 697,
       "orphan_figures": 7,
-      "md_tables": 731,
+      "md_tables": 733,
       "html_tables": 0,
       "html_imgs": 0,
       "md_images": 1245,
       "dangling_refs": 0,
       "duplicate_h1": 0,
+      "overlay_desc_warnings": 0,
       "soft_hyphens": 0,
       "nbsp": 0,
       "range_en_dashes": 11
@@ -62,6 +65,7 @@
       "md_images": 74,
       "dangling_refs": 0,
       "duplicate_h1": 0,
+      "overlay_desc_warnings": 0,
       "soft_hyphens": 0,
       "nbsp": 0,
       "range_en_dashes": 1
@@ -75,6 +79,7 @@
       "orphan_figures": [],
       "dangling_refs": [],
       "duplicate_h1": [],
+      "overlay_desc_warnings": [],
       "unconverted_html_tables": [],
       "unconverted_html_imgs": [
         48,
@@ -93,6 +98,7 @@
       "orphan_figures": [],
       "dangling_refs": [],
       "duplicate_h1": [],
+      "overlay_desc_warnings": [],
       "unconverted_html_tables": [
         22
       ],
@@ -106,6 +112,7 @@
       "orphan_figures": [],
       "dangling_refs": [],
       "duplicate_h1": [],
+      "overlay_desc_warnings": [],
       "unconverted_html_tables": [],
       "unconverted_html_imgs": [],
       "characters": {
@@ -119,6 +126,7 @@
       "orphan_figures": [],
       "dangling_refs": [],
       "duplicate_h1": [],
+      "overlay_desc_warnings": [],
       "unconverted_html_tables": [],
       "unconverted_html_imgs": [],
       "characters": {
@@ -132,6 +140,7 @@
       "orphan_figures": [],
       "dangling_refs": [],
       "duplicate_h1": [],
+      "overlay_desc_warnings": [],
       "unconverted_html_tables": [
         32
       ],
@@ -149,6 +158,7 @@
       "orphan_figures": [],
       "dangling_refs": [],
       "duplicate_h1": [],
+      "overlay_desc_warnings": [],
       "unconverted_html_tables": [
         10
       ],
@@ -162,6 +172,7 @@
       "orphan_figures": [],
       "dangling_refs": [],
       "duplicate_h1": [],
+      "overlay_desc_warnings": [],
       "unconverted_html_tables": [
         108
       ],
@@ -182,6 +193,7 @@
       "orphan_figures": [],
       "dangling_refs": [],
       "duplicate_h1": [],
+      "overlay_desc_warnings": [],
       "unconverted_html_tables": [
         22,
         136
@@ -199,6 +211,7 @@
       "orphan_figures": [],
       "dangling_refs": [],
       "duplicate_h1": [],
+      "overlay_desc_warnings": [],
       "unconverted_html_tables": [
         242,
         339,
@@ -237,6 +250,7 @@
       "orphan_figures": [],
       "dangling_refs": [],
       "duplicate_h1": [],
+      "overlay_desc_warnings": [],
       "unconverted_html_tables": [
         31,
         485,
@@ -283,6 +297,7 @@
       ],
       "dangling_refs": [],
       "duplicate_h1": [],
+      "overlay_desc_warnings": [],
       "unconverted_html_tables": [],
       "unconverted_html_imgs": [],
       "characters": {}
@@ -305,6 +320,7 @@
       ],
       "dangling_refs": [],
       "duplicate_h1": [],
+      "overlay_desc_warnings": [],
       "unconverted_html_tables": [],
       "unconverted_html_imgs": [],
       "characters": {}
@@ -315,13 +331,14 @@
       "orphan_tables": [],
       "orphan_figures": [
         {
-          "line": 224,
+          "line": 252,
           "label": "Figure 5",
           "caption": "Figure 5. Economizer configuration suggestions in ASHRAE 90.1-2010"
         }
       ],
       "dangling_refs": [],
       "duplicate_h1": [],
+      "overlay_desc_warnings": [],
       "unconverted_html_tables": [],
       "unconverted_html_imgs": [],
       "characters": {}
@@ -333,6 +350,7 @@
       "orphan_figures": [],
       "dangling_refs": [],
       "duplicate_h1": [],
+      "overlay_desc_warnings": [],
       "unconverted_html_tables": [],
       "unconverted_html_imgs": [],
       "characters": {
@@ -346,6 +364,7 @@
       "orphan_figures": [],
       "dangling_refs": [],
       "duplicate_h1": [],
+      "overlay_desc_warnings": [],
       "unconverted_html_tables": [],
       "unconverted_html_imgs": [],
       "characters": {
@@ -358,13 +377,14 @@
       "orphan_tables": [],
       "orphan_figures": [
         {
-          "line": 304,
+          "line": 332,
           "label": "Figure 5",
           "caption": "Figure 5. Narrative description of upsizing algorithm in measure implementation"
         }
       ],
       "dangling_refs": [],
       "duplicate_h1": [],
+      "overlay_desc_warnings": [],
       "unconverted_html_tables": [],
       "unconverted_html_imgs": [],
       "characters": {}
@@ -375,13 +395,14 @@
       "orphan_tables": [],
       "orphan_figures": [
         {
-          "line": 549,
+          "line": 584,
           "label": "Figure 6",
           "caption": "Figure 6. Distributions of the percentage of max daily peak load reduction by month compared to the baseline model"
         }
       ],
       "dangling_refs": [],
       "duplicate_h1": [],
+      "overlay_desc_warnings": [],
       "unconverted_html_tables": [],
       "unconverted_html_imgs": [],
       "characters": {}
@@ -393,6 +414,7 @@
       "orphan_figures": [],
       "dangling_refs": [],
       "duplicate_h1": [],
+      "overlay_desc_warnings": [],
       "unconverted_html_tables": [],
       "unconverted_html_imgs": [],
       "characters": {
@@ -406,6 +428,7 @@
       "orphan_figures": [],
       "dangling_refs": [],
       "duplicate_h1": [],
+      "overlay_desc_warnings": [],
       "unconverted_html_tables": [],
       "unconverted_html_imgs": [],
       "characters": {
