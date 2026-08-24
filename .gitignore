@@ -23,6 +23,12 @@ index/
 # overlay. The overlay's own pins are what make it re-checkable; these are notes.
 .scratch/
 
+# Plan-mode working notes. Scoped to plans/ rather than all of .claude/ so shared agent
+# config could still be committed later. What a change actually did is in its commit
+# message and PR; a plan is the thinking before that, and it goes stale the moment the
+# implementation diverges from it.
+.claude/plans/
+
 # Extracted figure assets under processed/ (~250 MB of binaries, regenerable
 # via `bsc fetch && bsc build`). The clean markdown keeps its image references,
 # so audit_md_fidelity.py still reports them -- only the binaries are uncommitted.
