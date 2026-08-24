@@ -1,7 +1,7 @@
 {
   "product": "comstock",
   "release": "comstock_amy2018_2025_release_3",
-  "generated_utc": "2026-08-21T22:21:01.530126+00:00",
+  "generated_utc": "2026-08-22T15:06:27.401207+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -1095,12 +1095,42 @@
           "title": "High-Efficiency Rooftop Unit",
           "input_sha256": "3d1422392c2bbfbefc9763156db9583c5bd65f2447fb75651dccf15c4c134691",
           "output_path": "upgrade_measures/measure_pdfs/98224.md",
-          "output_sha256": "554036b7b64f55981936bd49c35ea34fa87219ff5c0581be4c4aa42db9b918cc",
+          "output_sha256": "6865df63c4454940caead8e01dcdd8559d1b017f3683b446e83cc1c3a2688703",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/98224.yaml",
-            "sha256": "89ef95cae485690903e130c4aa73f51e05ffa1334fdd96a66967f0fdda5145ae",
+            "sha256": "0ba59b30b01a1771201a86ceb88bbbd91a5798af0abe4b2c01219ffd3a70d7a9",
             "tables_applied": [
               "Table 2"
+            ],
+            "figures_applied": [
+              "98224_images/image_000002_ddfbf5f4af43132c78d321f657b6779ea623522e6061addc50725e469cc95747.png",
+              "98224_images/image_000003_d157d7e8da917a534b4d8d04cedcdbb83be5ea963560cb51b02dd073b000b77f.png",
+              "98224_images/image_000004_ec866a72c4e0cac44f7bad96faaa6d980406493e4d137f08024045e866a14806.png",
+              "98224_images/image_000005_9484e45afbd80c2c3b218db2855e50d11fbe6b9be9e41b953dfc5b9ede6d8937.png",
+              "98224_images/image_000006_fa7ee8888325efce13ea1dbe5fcc98e414781777704b81825fd33e57202efd18.png",
+              "98224_images/image_000007_9eac1dad66a2e9a6de7233d77b93a17db7eb702c154ca608aba4c4658bf660d9.png",
+              "98224_images/image_000008_d30096ed3cdcf4fb02621fcd5543095e64236a7a7328976d92060a8e863aaa3d.png",
+              "98224_images/image_000009_b070d272838cf72eca1ea4012fbd8ed872e84a4ad4db14c4d7a9000708bb61bb.png",
+              "98224_images/image_000010_4637ec562ca7c97d240ec659f19d0341ca7346a39011c42eddb8ae1e0964dd10.png",
+              "98224_images/image_000011_6bfa4ea67f7f22c1136a1f1bdbeaa9af623c1a79b0de61200fa0d4eed944bb8e.png",
+              "98224_images/image_000012_9b281bf93c4460ce118fdd9b5dfafc1713edb752f3ef19cb503f71453a77f254.png",
+              "98224_images/image_000013_4ae3e2e6da5769a5cf1ad7ca37b6e94ccd9cca0913ef7fbc483a3668485a298c.png",
+              "98224_images/image_000014_e55d4444229a7a38a3879a04a2fdb925e4e82fc1c4d2a09773faf0d6934c136e.png",
+              "98224_images/image_000015_a46e43d55cb76ed4fda46968297bc904c1419164172a84a3b2bb725c53cef546.png",
+              "98224_images/image_000016_fbf71ee436d5181deb56cfc9c97a57edbefec382413e7cf0c500b912d8126134.png",
+              "98224_images/image_000017_b07093c045ac7dd919f50ddbbfdadbe7412da58a5416787486c8389cd5454d72.png",
+              "98224_images/image_000018_68a6f7091568debcea0e459dfe91b2b94517778c9d7d71cf688613090ed65149.png",
+              "98224_images/image_000019_8b0b20c27e83a4588d200e5fb27443f8580bf10199fa1d973097dbf866e535b5.png",
+              "98224_images/image_000020_a0cdd9bf92c3cf3a2b72af4f818de5e0fa80686f2f5c9d1683719d3d2bde9e3f.png",
+              "98224_images/image_000021_836d2a0be3165e980388d61ee49d81acb1bf57bbe0be9e65cbc97166549dd6a8.png",
+              "98224_images/image_000022_a31a2dd4953b90e9042ab08c49608916b500ed2b7aef14a3c3d763c396f88096.png",
+              "98224_images/image_000023_6a8072b5c7b5ea601e2f4cfcec41fbde51c62d16f31c85540cd9f6240fd1d106.png",
+              "98224_images/image_000024_bcdfbb7b5b468dfcfe0683d1989c3cfe2d55b2a5e5e38737469f149565dca894.png",
+              "98224_images/image_000025_4a0b01c047517c8e8e23b491eb24698858cd92c9f2717f449c8a86c23be0f04c.png",
+              "98224_images/image_000026_5d7783ecacb1274f4e451e2d3c795b1714f6a6f0ca68238663be6900328b0dee.png",
+              "98224_images/image_000027_464bd79f71b93c0b3739245a1f806287179d30d2ec0cc3bffc022e68af6ec147.png",
+              "98224_images/image_000028_23fb32a1973d27aa23ae1579261c9c031e7bfffe5ed5ebda958d637be4702579.png",
+              "98224_images/image_000029_1f52066dcc3e34fe2e9622bc79a532c6a0ec68a7529bc514cc23575b683b785a.png"
             ]
           }
         },
@@ -1286,15 +1316,46 @@
           "title": "VRF Heat Recovery with DOAS",
           "input_sha256": "6e6d96010400f6b37978b8e930a630d81d2d4b1497f4d8081c278f9a59dce99c",
           "output_path": "upgrade_measures/measure_pdfs/86103.md",
-          "output_sha256": "bcac03aa69cbac076568110b348f11915b3a9999d6a412423220b6c47086ac69",
+          "output_sha256": "a0c5c8a1d3744d25dba399fec74107f792f82a4f4d0d639598a78a1c345253b6",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86103.yaml",
-            "sha256": "e5ba506797f733eb7d7b04288a79c58b0e89c1aba99c3e24697ab22ecf0803b6",
+            "sha256": "888c5fa7d15f8d19a890ba525e511fee79ac773d47aa9189d179c8191b455630",
             "tables_applied": [
               "Table 1",
               "Table 2",
               "Table 3",
               "Table 5"
+            ],
+            "figures_applied": [
+              "86103_images/image_000007_74a37b2d69fd5e8fc21669ba27453e964f2487518f49a639c6ff0cc74f67b128.png",
+              "86103_images/image_000008_9bd099f5218cc3fbbac0faab30e116439b40f9924630689368b12786ae873ed1.png",
+              "86103_images/image_000009_a9260b5ce9c67d8dca1b73a0bddb370444ad1f759c076b8274ca929957996a01.png",
+              "86103_images/image_000010_23c13416ee6e93e06344ef66e1781216cc4174297da848149737913c948bbf52.png",
+              "86103_images/image_000011_b5bf994bf136d2bfe2015ff7cc2256ccc6a7952d7ce4b1f861e3044bf5611e0a.png",
+              "86103_images/image_000012_23c60aeca520362f9a3fe5fc17e0f28824fa5fed6b5d8cafb97472ec9dc50a57.png",
+              "86103_images/image_000013_7c8fac16a0aff06e0b916e84675dc6f0450c567b03f75bb648a359a9fd4c6ed9.png",
+              "86103_images/image_000014_1ce165e552f018b54cec004e8e157d20f59b79260e43563fe9bd15a46eb1f585.png",
+              "86103_images/image_000015_01bb7afc017e8808dacdaba9eebbd227860a2750ffda19d89edcde8ed29344ee.png",
+              "86103_images/image_000016_25a633a3d3ecc320e195e80a9f93620d0eb20f7c52abda541f542941a2e6a0a7.png",
+              "86103_images/image_000017_ce86be988483907d4e3b3ca8fc6ff326a2d9390228423d908db1ef3acb4b951d.png",
+              "86103_images/image_000018_c7cd27b2907baefc61d90b394bc017f684b0ed9e8fd39208e27180008262d654.png",
+              "86103_images/image_000019_94a263dda12eb4ab3ab74aca137e75e0abff0e37170afb1b1ec546692c1d1539.png",
+              "86103_images/image_000021_1663b9b18ca8754e4b4f3d63db6892772db1d69ece7a29430d8d88a1ebd21e2e.png",
+              "86103_images/image_000022_fc802aa20eba02a1c503516a0f4f9316ac69b4b90814732c2a6a83d1a33372c6.png",
+              "86103_images/image_000023_653dce8b4a1742de9b9ea36be68abc27514ae130d4176a6bc50b9cede1008e3e.png",
+              "86103_images/image_000024_b3f619ed3ed57d52f13434ada1fdc431913e6f9e8c1b7f4a2c9f0818125e847c.png",
+              "86103_images/image_000025_cffcae1e13013a32061952420e02302a936fc7dd09d2a7dac7826c79ad1e9a1e.png",
+              "86103_images/image_000026_e60a0a0ad5e05d6b9476c9d79ce91c4d67f8ace082cfd75d47a65788689bba5b.png",
+              "86103_images/image_000027_864688995575e5b22e0749efa760b249166473b131123f5c95c57bc812633767.png",
+              "86103_images/image_000028_21f79ebe5d0b82c9484e24469fa757683ea354d313e1f492d03f2835b9973a2c.png",
+              "86103_images/image_000029_010016b80e20abefc7f74be5b07ba981c43633279e10d7e7b740a9b332834f5d.png",
+              "86103_images/image_000030_161a4477986be2f3470cdc9dace128d1d998e92f4e1bc90307d1ff73685ad387.png",
+              "86103_images/image_000031_0a1811bd3a911f33d380982c73720ce3b8712bf58b5b471e02b4d4db44032684.png",
+              "86103_images/image_000032_31e556f29efa848d176e47b129bd4e865ee3025dcdf0c6af770af103065f50a1.png",
+              "86103_images/image_000033_85c23d73b1c687937875cb9f905153fc3c02782265dd0ecdf55399b553ab7114.png",
+              "86103_images/image_000034_359e5d11eb3fca9f0f484ae62643fa543cedd7db93298b99b73cff6f08459e66.png",
+              "86103_images/image_000035_4cee847e7199508fc739e157b83bbb3cf63653a74fea3310bf1eae3aa8ef3970.png",
+              "86103_images/image_000036_4d578055152e7e07c7b55c4f1f5b2f63aa71d997d36d4b5e6612c512ef2df8c1.png"
             ]
           }
         },
@@ -2186,14 +2247,42 @@
           "title": "Heat Pump Rooftop Units With Standard Performance",
           "input_sha256": "73340f4db3973580c0244e6d44c4b730832c495437270fd26baa9dbfba8543c0",
           "output_path": "upgrade_measures/measure_pdfs/89042.md",
-          "output_sha256": "024b39193fc757f0fc69803f253e4b368c31bada4057c37dafeb38faa5a71a5d",
+          "output_sha256": "581c326797c8d4a55ce2ff7d745477e5c4687254d152246d6c8c29dc1f8cf5c6",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89042.yaml",
-            "sha256": "4aaea53f4fe6e228633661dae0be5afad30b0dd6fb8695b9ab4c35210c2a3ebb",
+            "sha256": "87afe13e6e7dc947546afd2fa65038403e07a5bafa8afe6e248c9d8901263e13",
             "tables_applied": [
               "Table 1",
               "Table 3",
               "Table 7"
+            ],
+            "figures_applied": [
+              "89042_images/image_000002_411673573e02b632281ba7e6317f0a36d8a1b173d4da1e5efcc6eaf703414291.png",
+              "89042_images/image_000003_de032f09e977094c4f0bdbd849969663481d905bfc5b259966a475f85c5200b4.png",
+              "89042_images/image_000005_0f72e827af6af6dbcc3ee8697ba4d3ccd927f3bbe9aaccb7807e13015765e0ef.png",
+              "89042_images/image_000006_c0314c05258b1a902139123879981353ba11eeb7c673782800740fe98f9f8406.png",
+              "89042_images/image_000007_fed5c5c757f8a0f2c2be3c63006a4aefaf52058bd6f7f919a2e4f72e3c135eb6.png",
+              "89042_images/image_000008_486605afefa62cc52e4b0b8ea923513f4222370518156c28bea9c11b2246b9d6.png",
+              "89042_images/image_000009_cf54f95937c7abd6e5485cc56f48a4ea38d73d29e48b5a5d1dbcf77124596334.png",
+              "89042_images/image_000010_bfd80c0545046236f28f9fb1c073ef5dbf4fbd1cc0290c8775e780faf8ba6622.png",
+              "89042_images/image_000011_7d1f8d46088e4f5e97202461c24d4124c9bd9e3b727015e106f9327bef4f8d89.png",
+              "89042_images/image_000012_843ed9d2324976e6b751395866847309750cf1d4c0b7858a13e1e38387f60813.png",
+              "89042_images/image_000013_5a42130768d23f38676528084c230c8e6e3fbe5da4fd02d1a20909b0ac055bf2.png",
+              "89042_images/image_000014_52d4f3dbdcf6353c533dd371713f41b73a2f33d54b452d70667345ca66fbd72a.png",
+              "89042_images/image_000015_9bf15aaa5443690e10115f3cdd91df9dfa3e156cbf3332d5df5b69f80c3b2ef9.png",
+              "89042_images/image_000016_78cb71c55bf0099c4924da0f6e11cda3c99f2697b5568a5c00f5297cc3ce5d7c.png",
+              "89042_images/image_000017_1a7425c5ecff06e06a69ef854f3fa049a164acd648a1a1022308bdfeea9e0539.png",
+              "89042_images/image_000018_2bfa8d9aae52703a5b5db4fb1997ce37b83a9bf5101e6dbb5ff4c7a2b14410c6.png",
+              "89042_images/image_000019_fa7a47daa361113c17f615d26ccfb1eaa04a3b6320058171628d63cd120160e4.png",
+              "89042_images/image_000020_5bde6f633af10b8267bf3c4d92baf8388b9acdcec981890437aa45838396089d.png",
+              "89042_images/image_000021_35c76844ceb3d8ebd0dfd84632f24bbc81cbea698cb0d9f230c3964abe1c4a2d.png",
+              "89042_images/image_000022_d2e7fc03c3779ff8fe6687d8975ed465be8f7087eb1592807085ac4ff877b389.png",
+              "89042_images/image_000023_8ac4138d520c4333b156755460fc29ad7e7c7d1f397910dee268da09729479b5.png",
+              "89042_images/image_000024_48207e8cef2ae98aed5ccac4d34e0e8e99e23e5ca8e377252f4be38c67d3c6ab.png",
+              "89042_images/image_000025_3fdb498011d27005e0af753f4469bc5b94d6541b4166cb6227565504bfbf6048.png",
+              "89042_images/image_000026_1a688ee9b4b5c72b5a03db6a5f888cf3874897367058028ccfc7e3e30d65409f.png",
+              "89042_images/image_000027_1a652744ca19fdc30263d1f0f19940f9ae91538ed5137dbf3111fc0b439621cf.png",
+              "89042_images/image_000028_6dcdc89558c48873a7d3c621f3aeb178f8772c9c93d96dd80646fab8ba7fcc0f.png"
             ]
           }
         },
@@ -2382,7 +2471,7 @@
   ],
   "counts": {
     "documents": 118,
-    "chunks": 8152,
+    "chunks": 8214,
     "by_type": {
       "latex": 19,
       "markdown": 40,
@@ -2391,7 +2480,7 @@
     },
     "overlay_documents": 57,
     "overlay_tables": 57,
-    "overlay_figures": 924,
+    "overlay_figures": 1007,
     "overlay_text_repairs": 1
   },
   "crosswalk": {
