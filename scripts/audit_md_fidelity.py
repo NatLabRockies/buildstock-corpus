@@ -23,6 +23,17 @@ in measure_pdfs/ hid behind a clean report.
 A caption that binds to nothing, or to the wrong kind of artifact, is reported as
 ORPHANED — the content is gone.
 
+The audit has to tell the source document apart from this repo's own injections, or it grades
+us on our own output. Figure-description overlays inject a paragraph below each image ref they
+rewrite, and those paragraphs routinely *open* like a caption ("Table 2. On-Site Fossil Fuel
+Emissions Factors...") because naming the thing you describe is how you start. Counted, each is
+a caption for an artifact that was never in the document; left in place as prose, each severs a
+real caption from the image below it. Both are false positives about lost content — 425 phantom
+captions and 15 fabricated orphans on the completed sweep. overlay_description_lines() reads the
+sidecars to find exactly which lines are ours; they are then neither counted nor treated as
+content. If a description cannot be matched against the .md the drift is reported rather than
+guessed through.
+
 Image references are also resolved against the filesystem: a ref pointing at a file that
 was never copied into processed/ is reported as DANGLING. Raw <table>/<img> HTML that
 survived is reported as UNCONVERTED — it still carries the content, but it is not clean
@@ -52,6 +63,8 @@ import re
 from collections import defaultdict
 from pathlib import Path
 from urllib.parse import unquote
+
+import yaml
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -90,6 +103,12 @@ SUBNUMBERED = re.compile(
 SUBFIGURE = re.compile(r"^\s*(?:[-*+]\s*)?(?:\*\*|__|\*|_)?\(?[A-Za-z]\)")
 COMMENT_OPEN = re.compile(r"<!--")
 COMMENT_CLOSE = re.compile(r"-->")
+
+# The provenance comment a figure-description overlay leaves above the ref it rewrote, and the
+# `source:` line inside that comment. Kept in sync with overlay._FIGURE_MARKER / the head built
+# by overlay._figure_injection; together the two identify the exact sidecar entry behind a block.
+FIGURE_MARKER = "<!-- figure described by overlay:"
+MARKER_SOURCE = re.compile(r"^\s*source:\s*(\S+)")
 
 # How far a caption may reach for its artifact, counted in *content* lines: blank lines, HTML
 # comments and in-table titles are walked for free (see skippable / _reach). Only a backstop for
@@ -132,14 +151,14 @@ RANGE_EN_DASH = re.compile(r"(?<=\d)\u2013(?=\d)")
 CHAR_CLASSES = ("soft_hyphens", "nbsp", "range_en_dashes")
 
 
-def _reach(lines: list[str], i: int, comments: set[int], step: int, budget: int):
+def _reach(lines: list[str], i: int, walkable: set[int], step: int, budget: int):
     """Line indices out from caption `i`, spending `budget` only on non-skippable lines."""
     for n in range(1, SCAN_CAP + 1):
         j = i + step * n
         if not 0 <= j < len(lines):
             return
         yield j
-        if not skippable(lines, j, comments):
+        if not skippable(lines, j, walkable):
             budget -= 1
             if budget <= 0:
                 return
@@ -259,6 +278,100 @@ def comment_lines(lines: list[str]) -> set[int]:
     return out
 
 
+def overlay_entry_index(overlays: Path, product: str, release: str) -> dict[tuple[str, str], dict]:
+    """(sidecar path as the marker writes it, source_image) -> that figure entry.
+
+    Keyed on the pair because a marker line carries the sidecar and its comment span carries the
+    `source:` image, so the pair names the one overlay entry that produced a given injected block.
+    """
+    index: dict[tuple[str, str], dict] = {}
+    for path in sorted((overlays / f"{product}_{release}").rglob("*.yaml")):
+        data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+        rel = path.relative_to(overlays).as_posix()
+        for entry in data.get("figures") or []:
+            source = entry.get("source_image")
+            if source:
+                index[(rel, str(source))] = entry
+    return index
+
+
+def _norm(line: str) -> str:
+    return " ".join(line.split())
+
+
+def overlay_description_lines(
+    lines: list[str], comments: set[int], entry_index: dict[tuple[str, str], dict]
+) -> tuple[set[int], list[dict]]:
+    """Lines holding a figure description *we* injected. Returns (lines, warnings).
+
+    Same class of thing as comment_lines(), and here for the same reason: our own output sitting
+    between a caption and its artifact is not source content, so the scan has to step over it.
+
+    Hand-authored descriptions routinely *open* like a caption — "Figure 2: paired piping-layout
+    diagrams...", "Table 2. On-Site Fossil Fuel Emissions Factors..." — because naming the thing
+    you are describing is the natural way to start. Left undistinguished each one does two kinds
+    of damage: it is counted as a source caption it is not, and, being neither blank nor a
+    comment, it severs a real caption from the image below it and orphans one of the two.
+
+    Driven from the sidecars, not from the .md's shape. The injected block is fixed — comment,
+    blank, ref, blank, description (overlay._figure_injection) — so walking down from each marker
+    looks sufficient, but the engine omits the description for `decorative` entries and the walk
+    then runs on into the document's own content: in 85853.md that captures the next marker's
+    comment block at one ref and a real 11-row markdown table at another, and marking a real
+    table walkable would trade these false positives for false negatives. The marker names its
+    entry, so the expected text is knowable exactly; nothing is marked that does not match it.
+    """
+    out: set[int] = set()
+    warnings: list[dict] = []
+
+    def warn(line_no: int, detail: str) -> None:
+        warnings.append({"line": line_no + 1, "detail": detail})
+
+    for i, line in enumerate(lines):
+        if not line.lstrip().startswith(FIGURE_MARKER):
+            continue
+        sidecar = line.lstrip()[len(FIGURE_MARKER) :].strip()
+
+        j = i
+        span: list[int] = []
+        while j < len(lines) and j in comments:
+            span.append(j)
+            j += 1
+        source = next((m.group(1) for k in span if (m := MARKER_SOURCE.match(lines[k]))), None)
+        if source is None:
+            warn(i, "figure marker carries no source: line")
+            continue
+        entry = entry_index.get((sidecar, source))
+        if entry is None:
+            warn(i, f"no overlay entry for {sidecar} / {source}")
+            continue
+
+        description = str(entry.get("description") or "").strip()
+        if entry.get("decorative") or not description:
+            continue  # nothing was injected below this ref, so there is nothing to mark
+
+        while j < len(lines) and not lines[j].strip():
+            j += 1
+        if j >= len(lines) or not MD_IMAGE.search(lines[j]):
+            warn(i, f"no image ref below the marker for {source}")
+            continue
+        j += 1
+        while j < len(lines) and not lines[j].strip():
+            j += 1
+
+        # Confirm the text before marking anything. A mismatch means the sidecar and processed/
+        # have drifted, which is a finding in its own right — and guessing which lines are ours
+        # from that point is exactly how a false negative gets manufactured.
+        want = description.split("\n")
+        if [_norm(ln) for ln in lines[j : j + len(want)]] != [_norm(ln) for ln in want]:
+            warn(j, f"injected description does not match the sidecar entry for {source}")
+            continue
+        # By the entry's own line count: a description written as a YAML block scalar can span
+        # several lines (two do), so "up to the next blank" would stop inside it.
+        out.update(range(j, j + len(want)))
+    return out, warnings
+
+
 def artifact_at(i: int, tables: set[int], images: set[int], fences: set[int]) -> str | None:
     """Which kind of artifact, if any, line `i` is evidence of."""
     if i in tables:
@@ -286,11 +399,15 @@ def block_start(
 SATISFIES = {"table": {"table"}, "figure": {"image", "fence"}}
 
 
-def skippable(lines: list[str], i: int, comments: set[int]) -> bool:
-    """Lines that may sit between a caption and its artifact without severing them."""
+def skippable(lines: list[str], i: int, walkable: set[int]) -> bool:
+    """Lines that may sit between a caption and its artifact without severing them.
+
+    `walkable` is the precomputed set of lines that are ours rather than the document's —
+    comment_lines() plus overlay_description_lines().
+    """
     return (
         not lines[i].strip()
-        or i in comments
+        or i in walkable
         or bool(SUBNUMBERED.match(lines[i]))
         or bool(SUBFIGURE.match(lines[i]))
     )
@@ -308,18 +425,18 @@ def _bind_adjacent(
     tables: set[int],
     images: set[int],
     fences: set[int],
-    comments: set[int],
+    walkable: set[int],
 ) -> int | None:
     """The artifact immediately below caption `i`, else the one immediately above it.
 
-    "Immediately" meaning nothing but blank lines, comments, sub-figure labels or an
+    "Immediately" meaning nothing but blank lines, our own injections, sub-figure labels or an
     in-table title in between. Below wins ties: captioning above the artifact is the
     common convention, and the measure pages that caption underneath are consistent about
     it. This runs before the prose-tolerant reach below so that a caption cannot claim the
     *next* figure's image while its own sits right above it.
     """
     for probe in (_bind_below_strict, _bind_backward):
-        j = probe(lines, i, accept, tables, images, fences, comments)
+        j = probe(lines, i, accept, tables, images, fences, walkable)
         if j is not None:
             return j
     return None
@@ -332,14 +449,14 @@ def _bind_below_strict(
     tables: set[int],
     images: set[int],
     fences: set[int],
-    comments: set[int],
+    walkable: set[int],
 ) -> int | None:
     """Artifact directly below caption `i`, nothing but skippables in between."""
-    for j in _reach(lines, i, comments, 1, WINDOW):
+    for j in _reach(lines, i, walkable, 1, WINDOW):
         found = artifact_at(j, tables, images, fences)
         if found:
             return j if found in accept else None
-        if not skippable(lines, j, comments):
+        if not skippable(lines, j, walkable):
             return None
     return None
 
@@ -351,7 +468,7 @@ def _bind_forward(
     tables: set[int],
     images: set[int],
     fences: set[int],
-    comments: set[int],
+    walkable: set[int],
 ) -> int | None:
     """First artifact line below caption `i`, if it is one this caption accepts.
 
@@ -360,11 +477,11 @@ def _bind_forward(
     next caption or heading ends the search, so a caption cannot borrow its neighbour's
     table.
     """
-    for j in _reach(lines, i, comments, 1, WINDOW):
+    for j in _reach(lines, i, walkable, 1, WINDOW):
         found = artifact_at(j, tables, images, fences)
         if found:
             return j if found in accept else None
-        if skippable(lines, j, comments):
+        if skippable(lines, j, walkable):
             continue
         if boundary(lines[j]):
             break
@@ -378,11 +495,11 @@ def _bind_backward(
     tables: set[int],
     images: set[int],
     fences: set[int],
-    comments: set[int],
+    walkable: set[int],
 ) -> int | None:
     """Artifact directly above caption `i`, for the docs that caption underneath it.
 
-    Strict: only blank lines, comments, sub-figure labels and in-table titles may
+    Strict: only blank lines, our own injections, sub-figure labels and in-table titles may
     intervene. A prose-tolerant version re-borrows the previous caption's table.
 
     For a *table* found above, refused if that table already carries a caption of its own
@@ -398,17 +515,17 @@ def _bind_backward(
     those, every image has a caption above it — the previous figure's — and reading that as
     ownership orphans 8 correctly-captioned figures (measured corpus-wide).
     """
-    for j in _reach(lines, i, comments, -1, BACK_WINDOW):
+    for j in _reach(lines, i, walkable, -1, BACK_WINDOW):
         found = artifact_at(j, tables, images, fences)
         if found:
             if found not in accept:
                 return None
             if found == "table" and _captioned_from_above(
-                lines, j, found, tables, images, fences, comments
+                lines, j, found, tables, images, fences, walkable
             ):
                 return None
             return j
-        if not skippable(lines, j, comments):
+        if not skippable(lines, j, walkable):
             break
     return None
 
@@ -420,11 +537,11 @@ def _captioned_from_above(
     tables: set[int],
     images: set[int],
     fences: set[int],
-    comments: set[int],
+    walkable: set[int],
 ) -> bool:
     """Whether the artifact containing line `j` is already labelled by the caption above it."""
     for k in range(block_start(j, kind, tables, images, fences) - 1, -1, -1):
-        if skippable(lines, k, comments):
+        if skippable(lines, k, walkable):
             continue
         return bool(CAPTION.match(lines[k])) and not SUBNUMBERED.match(lines[k])
     return False
@@ -436,7 +553,7 @@ def bind_captions(
     tables: set[int],
     images: set[int],
     fences: set[int],
-    comments: set[int],
+    walkable: set[int],
 ) -> dict[int, bool]:
     """Bind every caption in a document to its artifact. Returns {caption line: bound}.
 
@@ -454,7 +571,7 @@ def bind_captions(
     for i, want in captions:
         accept = SATISFIES[want]
         bound[i] = any(
-            probe(lines, i, accept, tables, images, fences, comments) is not None
+            probe(lines, i, accept, tables, images, fences, walkable) is not None
             for probe in (_bind_adjacent, _bind_forward)
         )
     return bound
@@ -476,7 +593,9 @@ def classify_sources(manifest: dict) -> dict[str, str]:
     return kinds
 
 
-def audit(processed: Path, kinds: dict[str, str]) -> tuple[list[dict], dict]:
+def audit(
+    processed: Path, kinds: dict[str, str], entry_index: dict[tuple[str, str], dict]
+) -> tuple[list[dict], dict]:
     findings: list[dict] = []
     totals: dict = defaultdict(
         lambda: {
@@ -491,6 +610,7 @@ def audit(processed: Path, kinds: dict[str, str]) -> tuple[list[dict], dict]:
             "md_images": 0,
             "dangling_refs": 0,
             "duplicate_h1": 0,
+            "overlay_desc_warnings": 0,
             "soft_hyphens": 0,
             "nbsp": 0,
             "range_en_dashes": 0,
@@ -528,18 +648,24 @@ def audit(processed: Path, kinds: dict[str, str]) -> tuple[list[dict], dict]:
 
         in_toc = toc_lines(lines)
         comments = comment_lines(lines)
+        overlay_desc, desc_warnings = overlay_description_lines(lines, comments, entry_index)
+        # Both our own injections, and both invisible to the caption/artifact audit for the same
+        # reason. Half the description fix is not counting them (below); the other half is letting
+        # a real caption reach across one to its image.
+        walkable = comments | overlay_desc
+        t["overlay_desc_warnings"] += len(desc_warnings)
         tables = tbl | html_tbl
         images = img | html_img
 
         captions: list[tuple[int, str, str, str]] = []
         for i, line in enumerate(lines):
             m = CAPTION.match(line)
-            if not m or i in in_toc:
+            if not m or i in in_toc or i in overlay_desc:
                 continue
             want = "table" if m.group(1).lower().startswith("t") else "figure"
             captions.append((i, want, f"{m.group(1).title()} {m.group(2)}", " ".join(line.split())[:130]))
         bound = bind_captions(
-            lines, [(i, want) for i, want, _, _ in captions], tables, images, fence, comments
+            lines, [(i, want) for i, want, _, _ in captions], tables, images, fence, walkable
         )
 
         orphan_t: list[dict] = []
@@ -556,7 +682,15 @@ def audit(processed: Path, kinds: dict[str, str]) -> tuple[list[dict], dict]:
                     t["orphan_figures"] += 1
                     orphan_f.append({"line": i + 1, "label": label, "caption": caption})
 
-        if orphan_t or orphan_f or dangling or dup_h1 or html_tbl or any(chars.values()):
+        if (
+            orphan_t
+            or orphan_f
+            or dangling
+            or dup_h1
+            or html_tbl
+            or desc_warnings
+            or any(chars.values())
+        ):
             findings.append(
                 {
                     "file": rel,
@@ -565,6 +699,7 @@ def audit(processed: Path, kinds: dict[str, str]) -> tuple[list[dict], dict]:
                     "orphan_figures": orphan_f,
                     "dangling_refs": dangling,
                     "duplicate_h1": dup_h1,
+                    "overlay_desc_warnings": desc_warnings,
                     "unconverted_html_tables": sorted(n + 1 for n in html_tbl),
                     "unconverted_html_imgs": sorted(n + 1 for n in html_img),
                     "characters": {k: v for k, v in chars.items() if v},
@@ -583,6 +718,9 @@ def write_report(path: Path, findings: list[dict], totals: dict, product: str, r
         "not convert. The prose around it still cross-references the artifact, so the content",
         "is silently missing. **DANGLING** = an image reference whose target file is not present",
         "in `processed/`. **DUP H1** = the injected title heading repeated by the body's own H1.",
+        "**OVERLAY DESC** = a figure-description overlay's text could not be matched against the",
+        "processed `.md`, so the audit could not tell that block apart from source content — the",
+        "sidecar and `processed/` have drifted and the file needs a rebuild.",
         "Raw `<table>`/`<img>` counts are reported for visibility: in the LaTeX reference the",
         "tables use rowspan/colspan, which GFM cannot express, so those stay as HTML by design.",
         "",
@@ -605,7 +743,7 @@ def write_report(path: Path, findings: list[dict], totals: dict, product: str, r
         for k in (
             "table_captions", "orphan_tables", "figure_captions", "orphan_figures",
             "md_tables", "md_images", "html_imgs", "dangling_refs", "duplicate_h1",
-            *CHAR_CLASSES,
+            "overlay_desc_warnings", *CHAR_CLASSES,
         )
     }
     lines += [
@@ -614,7 +752,8 @@ def write_report(path: Path, findings: list[dict], totals: dict, product: str, r
         f"{agg['orphan_figures']}/{agg['figure_captions']} figure captions orphaned; "
         f"{agg['md_tables']} tables converted to markdown; "
         f"{agg['md_images'] + agg['html_imgs']} image refs present with "
-        f"{agg['dangling_refs']} dangling; {agg['duplicate_h1']} duplicated H1 heading(s).",
+        f"{agg['dangling_refs']} dangling; {agg['duplicate_h1']} duplicated H1 heading(s); "
+        f"{agg['overlay_desc_warnings']} unmatched figure description(s).",
         "",
         "## Character hygiene by extractor",
         "",
@@ -650,6 +789,7 @@ def write_report(path: Path, findings: list[dict], totals: dict, product: str, r
             + len(f["orphan_figures"])
             + len(f["dangling_refs"])
             + len(f["duplicate_h1"])
+            + len(f.get("overlay_desc_warnings", []))
         )
 
     for f in sorted(findings, key=severity):
@@ -664,6 +804,8 @@ def write_report(path: Path, findings: list[dict], totals: dict, product: str, r
             lines.append(f"- L{o['line']} **ORPHANED FIGURE** — {o['caption']}")
         for o in f["duplicate_h1"]:
             lines.append(f"- L{o['line']} **DUPLICATE H1** — {o['heading']}")
+        for o in f.get("overlay_desc_warnings", []):
+            lines.append(f"- L{o['line']} **OVERLAY DESC** — {o['detail']}")
         for o in f["dangling_refs"][:20]:
             lines.append(f"- L{o['line']} **DANGLING REF** — {o['target']}")
         if len(f["dangling_refs"]) > 20:
@@ -694,8 +836,9 @@ def main() -> None:
     processed = REPO / "processed" / args.product / args.release
     manifest = json.loads((processed / "manifest.json").read_text(encoding="utf-8"))
     kinds = classify_sources(manifest)
+    entry_index = overlay_entry_index(REPO / "overlays", args.product, args.release)
 
-    findings, totals = audit(processed, kinds)
+    findings, totals = audit(processed, kinds, entry_index)
 
     out_md = REPO / "md_fidelity_report.md"
     out_json = REPO / "md_fidelity_report.json"

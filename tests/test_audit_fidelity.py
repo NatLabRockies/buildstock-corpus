@@ -21,20 +21,57 @@ _spec.loader.exec_module(audit_md_fidelity)
 A = audit_md_fidelity
 
 
-def orphans(tmp_path: Path, body: str) -> tuple[list[int], list[int]]:
-    """Run the real audit over one document; return orphaned (table, figure) line numbers.
+def _audit_one(tmp_path: Path, body: str, entry_index: dict | None = None) -> dict:
+    """Run the real audit over one document and return its finding (empty dict if clean).
 
     The leading newline of each triple-quoted body is kept, so reported line numbers line up
     with the literal as written: the first line of content is line 2.
+
+    Every local image the body references is created on disk, as it would be in processed/, so
+    a finding holds only what the case is about and not the fixture's own dangling refs.
     """
-    (tmp_path / "doc.md").write_text(body.rstrip("\n") + "\n", encoding="utf-8")
-    findings, _ = A.audit(tmp_path, {})
-    if not findings:
+    body = body.rstrip("\n") + "\n"
+    (tmp_path / "doc.md").write_text(body, encoding="utf-8")
+    for _, target in A.image_targets(body.split("\n")):
+        image = tmp_path / target
+        image.parent.mkdir(parents=True, exist_ok=True)
+        image.touch()
+    findings, _ = A.audit(tmp_path, {}, entry_index or {})
+    return findings[0] if findings else {}
+
+
+def orphans(
+    tmp_path: Path, body: str, entry_index: dict | None = None
+) -> tuple[list[int], list[int]]:
+    """Orphaned (table, figure) caption line numbers for one document."""
+    f = _audit_one(tmp_path, body, entry_index)
+    if not f:
         return [], []
-    f = findings[0]
     return (
         [o["line"] for o in f["orphan_tables"]],
         [o["line"] for o in f["orphan_figures"]],
+    )
+
+
+def figure_entry(source: str, description: str = "", **kw) -> dict:
+    """One overlay figures: entry, and the index key the marker below will resolve to."""
+    entry = {"source_image": source, "alt": f"alt for {source}", **kw}
+    if description:
+        entry["description"] = description
+    return entry
+
+
+def entry_index(*entries: dict, sidecar: str = "p_r/src/doc.yaml") -> dict:
+    return {(sidecar, e["source_image"]): e for e in entries}
+
+
+def marker(source: str, sidecar: str = "p_r/src/doc.yaml") -> str:
+    """The provenance comment overlay._figure_injection writes above a ref it rewrote."""
+    return (
+        f"<!-- figure described by overlay: {sidecar}\n"
+        f"     source: {source}\n"
+        f"     method: vision-description\n"
+        f"     described: 2026-08-19 -->"
     )
 
 
@@ -342,6 +379,228 @@ Coil:Cooling:DX:SingleSpeed,
 """,
     )
     assert figures == []
+
+
+# --- injected figure descriptions are ours, not the document's ----------------------------
+#
+# The figure-description sweep injects a description paragraph below each ref it rewrites, and
+# those routinely *open* like a caption ("Table 2. On-Site Fossil Fuel Emissions Factors...")
+# because naming the thing you describe is the natural way to start. Undistinguished, each one
+# is counted as a source caption it is not, and each one severs a real caption from the image
+# below it. Measured on the completed sweep, that was 425 phantom captions and 15 fabricated
+# orphans. Both halves of the fix are needed and neither substitutes for the other: excluding
+# descriptions from detection cleared the 8 table cases and none of the figure ones; making
+# them walkable cleared the 7 figure cases and none of the table ones.
+
+def test_description_opening_like_a_caption_is_not_counted_as_one(tmp_path):
+    """95002.md:397 — docling dropped Table 2's real caption, so the description is the only
+    `Table N.` line in the file. Counted, it is a caption for a table that was never there.
+    """
+    source = "doc_images/image_000003.png"
+    description = (
+        "Table 2. On-Site Fossil Fuel Emissions Factors, which survives in the extraction "
+        "only as a bitmap. Rows: Natural gas 147.3 lb/MMBtu; Propane 177.8 lb/MMBtu."
+    )
+    f = _audit_one(
+        tmp_path,
+        f"""
+## 3.4  Carbon Emissions Equivalent
+
+Three electricity grid scenarios are presented to compare the emissions.
+
+{marker(source)}
+
+![Table 2 bitmap: on-site fossil fuel emissions factors]({source})
+
+{description}
+
+## 3.5  Limitations and Concerns
+""",
+        entry_index(figure_entry(source, description)),
+    )
+    assert f == {}  # neither counted nor orphaned, and no warning
+
+
+def test_real_caption_severed_from_its_image_by_a_description_still_binds(tmp_path):
+    """86105.md:229 — the source caption sits below its image, the description in between.
+
+    The description here does *not* match CAPTION ("Figure 3 (Section 2) compares..." — `(` is
+    not in `[.:)]`), so excluding descriptions from detection does nothing for this shape. It
+    needs the walkable half: prose that is ours must not sever a caption from its artifact.
+    """
+    source = "doc_images/image_000009.png"
+    description = "Figure 3 (Section 2) compares economizer coverage by building type."
+    _, figures = orphans(
+        tmp_path,
+        f"""
+{marker(source)}
+
+![Two-panel stacked bar chart comparing economizer coverage]({source})
+
+{description}
+
+- (a) Coverage in ComStock for each building type
+
+- (b) Coverage in CBECS 2018 for each building type
+
+Figure 3. Economizer floor area coverage between ComStock and CBECS (2018)
+
+## 3  Modeling Approach
+""",
+        entry_index(figure_entry(source, description)),
+    )
+    assert figures == []
+
+
+def test_a_genuinely_dropped_figure_is_still_orphaned_in_a_described_document(tmp_path):
+    """The guard against trading false positives for false negatives.
+
+    86105 and 89040 both carry descriptions *and* a genuinely dropped figure. Walking over our
+    own prose must not let a caption whose image is gone reach the *described* figure's image.
+    """
+    source = "doc_images/image_000009.png"
+    description = "Figure 3 (Section 2) compares economizer coverage by building type."
+    _, figures = orphans(
+        tmp_path,
+        f"""
+{marker(source)}
+
+![Two-panel stacked bar chart comparing economizer coverage]({source})
+
+{description}
+
+Figure 3. Economizer floor area coverage between ComStock and CBECS (2018)
+
+Figure 5. Economizer control types in the baseline building stock
+
+## 3  Modeling Approach
+""",
+        entry_index(figure_entry(source, description)),
+    )
+    assert figures == [13]  # Figure 3 binds upward; Figure 5's image was dropped
+
+
+def test_decorative_entry_leaves_the_table_below_it_intact(tmp_path):
+    """85853.md:1101 — the shape that rules out walking down from the marker.
+
+    The engine appends a description only for non-decorative entries, so below a decorative
+    ref the next paragraph is the *document's*. Here that is a real markdown table. Marking
+    its rows as ours would excuse a caption whose own table is missing — a false negative,
+    which is worse than the false positive it replaces.
+    """
+    decorative = "doc_images/image_000003.png"
+    tables, figures = orphans(
+        tmp_path,
+        f"""
+{marker(decorative)}
+
+![Three line icons joined by plus signs]({decorative})
+
+Table 4. Wall Assembly Thermal Performance
+
+| Wall Type | Energy Code | 1A |
+|---|---|---|
+| Mass | Pre-1980 | 4.3 |
+
+Table 5. Roof Assembly Thermal Performance
+
+![Bitmap of the roof table](doc_images/image_000004.png)
+""",
+        entry_index(figure_entry(decorative, decorative=True)),
+    )
+    # Table 4 keeps the table the walk would have swallowed; Table 5's really is gone.
+    assert (tables, figures) == ([15], [])
+
+
+def test_multi_line_description_is_marked_to_its_own_length(tmp_path):
+    """89341 / 95014 transcribe a bitmap table inside the description, so the block spans nine
+    lines including two blanks. "Up to the next blank" would stop inside it and leave the
+    transcribed rows looking like the document's own content.
+    """
+    source = "doc_images/image_000003.png"
+    description = (
+        "Table 1. On-Site Fossil Fuel Emissions Factors. Bitmap in the source PDF.\n"
+        "\n"
+        "| Fuel | Emissions factor |\n"
+        "| --- | --- |\n"
+        "| Natural gas | 147.3 lb/MMBtu |\n"
+        "\n"
+        "Footnote as printed: lb = pound; MMBtu = million British thermal units."
+    )
+    f = _audit_one(
+        tmp_path,
+        f"""
+{marker(source)}
+
+![Table 1 bitmap: on-site fossil fuel emissions factors]({source})
+
+{description}
+
+## 3.5  Limitations
+""",
+        entry_index(figure_entry(source, description)),
+    )
+    assert f == {}
+
+
+def test_description_that_does_not_match_the_sidecar_warns_instead_of_marking(tmp_path):
+    """A mismatch means the sidecar and processed/ have drifted, so the file needs a rebuild.
+
+    Guessing which lines are ours from that point is how a false negative gets made, so the
+    audit marks nothing and reports the drift as a finding of its own.
+    """
+    source = "doc_images/image_000003.png"
+    f = _audit_one(
+        tmp_path,
+        f"""
+{marker(source)}
+
+![Table 2 bitmap]({source})
+
+Table 2. On-Site Fossil Fuel Emissions Factors — an older wording, since revised.
+
+## 3.5  Limitations
+""",
+        entry_index(figure_entry(source, "Table 2. On-Site Fossil Fuel Emissions Factors.")),
+    )
+    assert [w["line"] for w in f["overlay_desc_warnings"]] == [9]
+    # Nothing was marked, so the stale line is still read as the document's own caption.
+    assert [o["line"] for o in f["orphan_tables"]] == [9]
+
+
+def test_marker_with_no_matching_overlay_entry_warns(tmp_path):
+    """A marker naming a sidecar entry that no longer exists is drift too, not something to
+    silently walk past."""
+    source = "doc_images/image_000003.png"
+    f = _audit_one(
+        tmp_path,
+        f"""
+{marker(source)}
+
+![Some figure]({source})
+
+A paragraph that may or may not be ours.
+""",
+        entry_index(figure_entry("doc_images/some_other_image.png", "Unrelated.")),
+    )
+    assert len(f["overlay_desc_warnings"]) == 1
+
+
+def test_overlay_entry_index_keys_on_the_path_the_marker_writes(tmp_path):
+    """The marker writes its sidecar path relative to overlays/, so the index must key that way."""
+    sidecar = tmp_path / "comstock_rel_1" / "upgrade_measures" / "measure_pdfs" / "85853.yaml"
+    sidecar.parent.mkdir(parents=True)
+    sidecar.write_text(
+        "product: comstock\n"
+        "figures:\n"
+        "- source_image: 85853_images/image_000004.png\n"
+        "  alt: A chart\n"
+        "  description: A description.\n",
+        encoding="utf-8",
+    )
+    index = A.overlay_entry_index(tmp_path, "comstock", "rel_1")
+    key = ("comstock_rel_1/upgrade_measures/measure_pdfs/85853.yaml", "85853_images/image_000004.png")
+    assert index[key]["description"] == "A description."
 
 
 # --- the pieces the binding leans on ------------------------------------------------------
