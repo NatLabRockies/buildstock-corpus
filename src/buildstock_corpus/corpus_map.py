@@ -245,6 +245,7 @@ def _render(product: str, release: str, manifest: dict, manifest_sha: str, facts
         "",
         f"- `product`: `{product}`",
         f"- `release`: `{release}`",
+        f"- `corpus_version`: `{manifest.get('corpus_version')}`",
         f"- `manifest_sha256`: `{manifest_sha}`",
         f"- `map_generated_utc`: `{datetime.now(timezone.utc).isoformat()}`",
         f"- `build_generated_utc`: `{manifest.get('generated_utc')}`",

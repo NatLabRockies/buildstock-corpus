@@ -39,6 +39,7 @@ from .paths import (
     raw_root,
     remap_dir,
 )
+from .provenance import default_corpus_version, render_header
 from .registry import Source, load_registry
 
 
@@ -287,9 +288,16 @@ def _strip_leading_heading(title: str, body: str) -> str:
 
 
 def _write_processed(
-    product: str, release: str, docs: list[Document], remaps: dict[str, tuple[str, str]]
+    product: str,
+    release: str,
+    docs: list[Document],
+    remaps: dict[str, tuple[str, str]],
+    corpus_version: str,
 ) -> None:
-    """Write one .md per document.
+    """Write one .md per document, each opening with its provenance header.
+
+    The header carries `corpus_version` so a file fetched on its own, with no clone and no
+    manifest, still says which build it belongs to (see provenance.py).
 
     newline="\\n" is load-bearing, not style: manifest.json records the sha256 of these
     bytes, so letting the platform pick the line ending would make the same inputs hash
@@ -300,7 +308,9 @@ def _write_processed(
     for doc in docs:
         out = root / output_rel(doc.source_id, doc.source_path, remaps.get(doc.source_id))
         out.parent.mkdir(parents=True, exist_ok=True)
-        front = f"<!-- {doc.product} {doc.release} | {doc.source_id} | {doc.source_path} -->\n"
+        front = render_header(
+            doc.product, doc.release, doc.source_id, doc.source_path, corpus_version
+        )
         body = _strip_leading_heading(doc.title, doc.body)
         out.write_text(front + f"# {doc.title}\n\n{body}", encoding="utf-8", newline="\n")
 
@@ -364,7 +374,11 @@ def _copy_source_images(product: str, release: str, pdf_images: dict[str, Path])
 
 
 def build_release(
-    product: str, release: str, sample: int | None = None, overlays: bool = True
+    product: str,
+    release: str,
+    sample: int | None = None,
+    overlays: bool = True,
+    corpus_version: str | None = None,
 ) -> dict:
     """Build processed artifacts for a release; `sample` caps documents per category.
 
@@ -374,7 +388,12 @@ def build_release(
     `overlays=False` skips the sidecar transcriptions (see overlay.apply_overlays), which
     is how you reproduce the pre-overlay output for a before/after comparison. A release
     build should leave them on — without them the affected tables exist only as bitmaps.
+
+    `corpus_version` names this build in every artifact (file headers, manifest, map). A
+    release build passes the tag it will be published under; otherwise it defaults to the
+    current commit's short hash (see provenance.default_corpus_version).
     """
+    corpus_version = corpus_version or default_corpus_version()
     state = _load_fetch_state(product, release)
     docs, excluded, warnings, crosswalk, pdf_images, image_dirs = _extract_documents(
         product, release, state, sample
@@ -392,7 +411,7 @@ def build_release(
         warnings += overlay_warnings
 
     remaps = reg.output_remaps()
-    _write_processed(product, release, docs, remaps)
+    _write_processed(product, release, docs, remaps, corpus_version)
     n_images = _copy_source_images(product, release, pdf_images)
 
     chunks = chunk_documents(docs)
@@ -409,7 +428,7 @@ def build_release(
 
     manifest = build_manifest(
         product, release, docs, crosswalk, warnings, excluded, state, len(chunks), remaps,
-        sample, applied,
+        sample, applied, corpus_version=corpus_version,
     )
 
     # After the manifest, never before: the map stamps the manifest's hash so `bsc validate`
@@ -430,6 +449,7 @@ def build_release(
         for rec in docs_.values()
     )
     summary = {
+        "corpus_version": corpus_version,
         "sample": sample,
         "documents": len(docs),
         "chunks": len(chunks),
@@ -446,6 +466,7 @@ def build_release(
     }
     if sample is not None:
         print(f"build: SAMPLE - at most {sample} document(s) per category; partial corpus")
+    print(f"build: corpus_version {corpus_version}")
     print(f"build: {len(docs)} docs -> {len(chunks)} chunks (by type: {dict(by_type)}) -> {cf}")
     print(f"  copied {n_images} image file(s) into processed/")
     if not overlays:

@@ -29,6 +29,7 @@ from .paths import (
     processed_root,
     sha256_file,
 )
+from .provenance import default_corpus_version, read_header
 
 PIPELINE_VERSION = "0.1.0"
 _COVERED_KINDS = {"internal_md", "external_pdf", "local_pdf"}
@@ -99,8 +100,13 @@ def build_manifest(
     remaps: dict[str, tuple[str, str]] | None = None,
     sample: int | None = None,
     overlays: dict[str, dict] | None = None,
+    corpus_version: str | None = None,
 ) -> dict:
     """Assemble and write manifest.json from the just-built documents + fetch state.
+
+    `corpus_version` names the build (see provenance.py) and must be the same value the
+    file headers were written with: validate_manifest checks them against each other.
+    None falls back to the current commit's hash, as build does.
 
     `remaps` mirrors the output-dir remapping build applied when writing the files, so
     recorded output_paths point at where the artifacts actually landed. source_path
@@ -118,6 +124,7 @@ def build_manifest(
     proot = processed_root(product, release)
     remaps = remaps or {}
     overlays = overlays or {}
+    corpus_version = corpus_version or default_corpus_version()
     src_hashes = input_hashes(state)
 
     sources_out: dict[str, dict] = {}
@@ -155,6 +162,7 @@ def build_manifest(
     manifest = {
         "product": product,
         "release": release,
+        "corpus_version": corpus_version,
         "generated_utc": datetime.now(timezone.utc).isoformat(),
         "tooling": _tooling(),
         "clones": state.get("clones", []),
@@ -316,6 +324,13 @@ def validate_manifest(
             f"release tag mismatch: manifest is "
             f"{manifest.get('product')}/{manifest.get('release')}, expected {product}/{release}"
         )
+    # The corpus version is what a fetched file cites, so the manifest must name one and
+    # every artifact's header must name the same one. A hash match alone would not catch a
+    # header written by a different build: the hash only proves the file is unchanged since
+    # *this* manifest recorded it, not that its header agrees with this manifest's version.
+    corpus_version = manifest.get("corpus_version")
+    if not corpus_version:
+        errors.append("manifest has no corpus_version")
 
     n_art = 0
     for src in manifest.get("sources", []):
@@ -332,6 +347,17 @@ def validate_manifest(
                 errors.append(f"{where}: output file missing on disk")
             elif _sha256_file(out_abs) != recorded:
                 errors.append(f"{where}: output hash mismatch (file changed since build)")
+            elif corpus_version:
+                header = read_header(out_abs)
+                if header is None:
+                    errors.append(f"{where}: line 1 is not a provenance header")
+                elif header.get("corpus_version") is None:
+                    errors.append(f"{where}: header names no corpus_version")
+                elif header["corpus_version"] != corpus_version:
+                    errors.append(
+                        f"{where}: header corpus_version {header['corpus_version']} "
+                        f"!= manifest {corpus_version}"
+                    )
             if a.get("overlay"):
                 ov_errors, n_ok, n_ok_pdf, n_skip = _validate_overlay(proot, a, where)
                 errors += ov_errors
@@ -400,7 +426,7 @@ def validate_release(product: str, release: str) -> bool:
             print(f"  ... and {len(errors) - 25} more")
         return False
 
-    print(f"validate: OK - {product} {release}")
+    print(f"validate: OK - {product} {release} (corpus_version {manifest.get('corpus_version')})")
     sample = manifest.get("sample")
     if sample:
         print(

@@ -16,7 +16,14 @@ from buildstock_corpus.normalize import Document
 RELEASE = "comstock_amy2018_2025_release_3"
 
 OUT_REL = "technical_reference/documentation/reference_doc/4_9_hvac.md"
+VERSION = "test-v1"
 OUT_CONTENT = (
+    f"<!-- comstock {RELEASE} | technical_reference"
+    f" | documentation/reference_doc/4_9_hvac.tex | corpus_version: {VERSION} -->\n"
+    "# HVAC Systems\n\nbody\n"
+)
+# A header from before the field existed: valid shape, no version.
+OUT_CONTENT_UNVERSIONED = (
     f"<!-- comstock {RELEASE} | technical_reference"
     " | documentation/reference_doc/4_9_hvac.tex -->\n"
     "# HVAC Systems\n\nbody\n"
@@ -60,6 +67,9 @@ def _patch(tmp_path, monkeypatch):
     proot.mkdir()
     monkeypatch.setattr(M, "processed_root", lambda p, r: proot)
     monkeypatch.setattr(M, "manifest_file", lambda p, r: proot / "manifest.json")
+    # Pin the default so these never shell out to git, and so the fixture header above
+    # matches what build_manifest records when no version is passed.
+    monkeypatch.setattr(M, "default_corpus_version", lambda: VERSION)
     return proot
 
 
@@ -87,9 +97,59 @@ def test_manifest_roundtrip_valid(tmp_path, monkeypatch):
     assert art["output_path"] == OUT_REL
     assert manifest["clones"][0]["sha"] == "abc123"  # commit provenance recorded
     assert manifest["counts"]["chunks"] == 1
+    assert manifest["corpus_version"] == VERSION  # defaulted, and agrees with the header
 
     assert M.validate_manifest("comstock", RELEASE, manifest) == []
     assert M.validate_release("comstock", RELEASE) is True
+
+
+def test_explicit_corpus_version_is_recorded(tmp_path, monkeypatch):
+    """A release build names its tag up front; the manifest must carry exactly that."""
+    proot = _patch(tmp_path, monkeypatch)
+    _write_output(proot, OUT_CONTENT.replace(VERSION, f"{RELEASE}-v1"))
+
+    manifest = M.build_manifest(
+        "comstock", RELEASE, [_doc()], None, [], {}, _state(), 1,
+        corpus_version=f"{RELEASE}-v1",
+    )
+
+    assert manifest["corpus_version"] == f"{RELEASE}-v1"
+    assert M.validate_manifest("comstock", RELEASE, manifest) == []
+
+
+def test_validate_fails_when_header_names_another_version(tmp_path, monkeypatch):
+    """Hash agreement is not enough: the header must name the manifest's own build."""
+    proot = _patch(tmp_path, monkeypatch)
+    _write_output(proot, OUT_CONTENT.replace(VERSION, "other-v9"))
+
+    manifest = M.build_manifest("comstock", RELEASE, [_doc()], None, [], {}, _state(), 1)
+
+    errors = M.validate_manifest("comstock", RELEASE, manifest)
+    assert len(errors) == 1
+    assert "other-v9" in errors[0] and VERSION in errors[0]
+
+
+def test_validate_fails_when_header_has_no_version(tmp_path, monkeypatch):
+    """A file from a pre-version build is a provenance gap, reported as such."""
+    proot = _patch(tmp_path, monkeypatch)
+    _write_output(proot, OUT_CONTENT_UNVERSIONED)
+
+    manifest = M.build_manifest("comstock", RELEASE, [_doc()], None, [], {}, _state(), 1)
+
+    errors = M.validate_manifest("comstock", RELEASE, manifest)
+    assert len(errors) == 1
+    assert "names no corpus_version" in errors[0]
+
+
+def test_validate_fails_when_manifest_has_no_version(tmp_path, monkeypatch):
+    proot = _patch(tmp_path, monkeypatch)
+    _write_output(proot)
+
+    manifest = M.build_manifest("comstock", RELEASE, [_doc()], None, [], {}, _state(), 1)
+    del manifest["corpus_version"]
+
+    errors = M.validate_manifest("comstock", RELEASE, manifest)
+    assert errors == ["manifest has no corpus_version"]
 
 
 def test_sampled_build_is_stamped_partial(tmp_path, monkeypatch):

@@ -7,13 +7,43 @@ from __future__ import annotations
 import os
 import subprocess
 
+import buildstock_corpus.build as B
 import buildstock_corpus.extract.latex as L
-from buildstock_corpus.build import _cap, _date_docs, _measure_extra
+from buildstock_corpus.build import _cap, _date_docs, _measure_extra, _write_processed
 from buildstock_corpus.extract.doc_dates import DocDate, git_doc_date
 from buildstock_corpus.extract.measures_index import MeasureRef
 from buildstock_corpus.normalize import Document
+from buildstock_corpus.provenance import parse_header
 
 RELEASE = "comstock_amy2018_2025_release_3"
+
+
+def test_written_file_opens_with_a_versioned_header(tmp_path, monkeypatch):
+    """Line 1 is all a consumer who fetched one file has; it must name the build."""
+    monkeypatch.setattr(B, "processed_root", lambda p, r: tmp_path)
+    doc = Document(
+        product="comstock",
+        release=RELEASE,
+        source_id="technical_reference",
+        source_type="latex",
+        source_path="documentation/reference_doc/4_9_hvac.tex",
+        title="HVAC Systems",
+        body="# HVAC Systems\n\nbody\n",
+    )
+
+    _write_processed("comstock", RELEASE, [doc], {}, f"{RELEASE}-v1")
+
+    out = tmp_path / "technical_reference/documentation/reference_doc/4_9_hvac.md"
+    first, second, *_ = out.read_text(encoding="utf-8").splitlines()
+    assert parse_header(first) == {
+        "product": "comstock",
+        "release": RELEASE,
+        "source_id": "technical_reference",
+        "source_path": "documentation/reference_doc/4_9_hvac.tex",
+        "corpus_version": f"{RELEASE}-v1",
+    }
+    assert second == "# HVAC Systems"
+    assert b"\r\n" not in out.read_bytes()
 
 
 def test_cap_none_keeps_everything():

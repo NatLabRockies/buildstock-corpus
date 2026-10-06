@@ -93,13 +93,24 @@ def build(
             "before/after comparison; a release build wants them on.",
         ),
     ] = True,
+    corpus_version: Annotated[
+        str | None,
+        typer.Option(
+            help="Name for this build, written into every file header, the manifest and "
+            "the map. A release build passes the tag it will be published under, e.g. "
+            "'comstock_amy2018_2025_release_3-v1'. Defaults to the current commit's short "
+            "hash ('-dirty' if the tree has local changes).",
+        ),
+    ] = None,
     work_dir: WorkDirOpt = None,
 ) -> None:
     """Extract, normalize, and chunk raw sources into release-tagged artifacts + manifest."""
     from . import build as _build
 
     _workspace(work_dir)
-    _build.build_release(product, release, sample=sample, overlays=overlays)
+    _build.build_release(
+        product, release, sample=sample, overlays=overlays, corpus_version=corpus_version
+    )
 
 
 # Named explicitly so the function does not shadow the `map` builtin at module scope.

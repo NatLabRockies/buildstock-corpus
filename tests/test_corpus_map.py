@@ -23,6 +23,7 @@ def _write_manifest(artifacts: list[dict], **extra) -> dict:
     manifest = {
         "product": "comstock",
         "release": RELEASE,
+        "corpus_version": "test-v1",
         "generated_utc": "2026-01-01T00:00:00+00:00",
         "counts": {"documents": len(artifacts), "chunks": 0, "by_type": {}},
         "crosswalk": {"file": "crosswalk.json", "counts": None},
@@ -98,6 +99,19 @@ def test_map_lists_every_document(workspace):
     assert "technical_reference/doc/a.md" in text
     assert "technical_reference/doc/b.md" in text
     assert "2025-09-04" in text
+
+
+def test_map_names_the_corpus_version(workspace):
+    """The map is the first thing an agent reads, so it has to say which build it describes."""
+    _write_manifest(
+        [_artifact("doc/a.tex", "Envelope", "technical_reference/doc/a.md")],
+        corpus_version=f"{RELEASE}-v1",
+    )
+    _write_chunk_rows([_meta("doc/a.tex", "Envelope", "Envelope > Windows")])
+
+    M.build_map("comstock", RELEASE)
+
+    assert f"- `corpus_version`: `{RELEASE}-v1`" in _map_text()
 
 
 def test_sections_skip_the_documents_own_title(workspace):
