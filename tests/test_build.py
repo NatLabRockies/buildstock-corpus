@@ -311,3 +311,47 @@ def test_measure_extra_and_crosswalk_agree_on_the_same_measure(tmp_path):
 
     assert extra["date_last_updated"] == cw_measure["date_last_updated"] == "2025-09-09"
     assert extra["date_last_updated_source"] == cw_measure["date_last_updated_source"]
+
+
+def test_registry_excluded_pdfs_are_skipped_and_recorded(tmp_path):
+    """A fetched PDF the registry excludes yields no spec, and the skip is recorded so the
+    manifest can say it was left out on purpose."""
+    state = {
+        "external_pdfs": [
+            {"url": "https://www.nlr.gov/docs/fy23osti/85853.pdf", "path": "measure_pdfs/85853.pdf", "sha256": "a", "status": "ok"},
+            {"url": "https://docs.nlr.gov/docs/fy25osti/95002.pdf", "path": "measure_pdfs/95002.pdf", "sha256": "b", "status": "ok"},
+        ],
+        "local_pdfs": [],
+    }
+    specs, skipped = B._pdf_specs(
+        "comstock", RELEASE, tmp_path, state, [],
+        exclude_urls=frozenset({"https://www.nlr.gov/docs/fy23osti/85853.pdf"}),
+    )
+    assert [s.source_path for s in specs] == ["measure_pdfs/95002.pdf"]
+    assert skipped == [{"path": "measure_pdfs/85853.pdf", "url": "https://www.nlr.gov/docs/fy23osti/85853.pdf",
+                        "reason": "excluded by source registry"}]
+
+
+def test_measure_doc_index_keys_every_url_spelling_to_one_document():
+    src = Source(id="upgrade_measures", type="measures", repo="r", git_ref="x",
+                 index_page="i.md", internal_dir="d", crosswalk_csv="c.csv",
+                 output_remap={"docs/upgrade_measures": "unpublished_docs/upgrade_measures"})
+    state = {"external_pdfs": [
+        {"url": "https://www.nlr.gov/docs/fy26osti/92504.pdf", "path": "measure_pdfs/92504.pdf", "sha256": "x"},
+        {"url": "https://docs.nlr.gov/docs/fy26osti/92504.pdf", "path": "measure_pdfs/92504.pdf", "sha256": "x"},
+    ]}
+    pdf = _doc("upgrade_measures", "pdf", "measure_pdfs/92504.pdf")
+    pdf.publication_url = "https://docs.nlr.gov/docs/fy26osti/92504.pdf"
+    page = _doc("upgrade_measures", "measures", "docs/upgrade_measures/env_window_film.md")
+    page.publication_url = "https://natlabrockies.github.io/ComStock.github.io/docs/upgrade_measures/env_window_film.html"
+
+    index = B._measure_doc_index([pdf, page], src, state)
+
+    one = {"corpus_path": "upgrade_measures/measure_pdfs/92504.md", "doc_url": pdf.publication_url}
+    assert index["https://www.nlr.gov/docs/fy26osti/92504.pdf"] == one
+    assert index["https://docs.nlr.gov/docs/fy26osti/92504.pdf"] == one
+    assert index["measure_pdfs/92504.pdf"] == one
+    assert index["docs/upgrade_measures/env_window_film.md"] == {
+        "corpus_path": "upgrade_measures/unpublished_docs/upgrade_measures/env_window_film.md",
+        "doc_url": page.publication_url,
+    }

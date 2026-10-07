@@ -40,6 +40,14 @@ class Source:
     # names the one publication its chapters are part of (`publication_url`).
     site_url: str | None = None
     publication_url: str | None = None
+    # alias URL -> canonical URL, for one upstream file the index page links under more than
+    # one spelling (www.nlr.gov vs docs.nlr.gov). Every link to the file is recorded under
+    # the canonical one; build refuses an undeclared duplicate rather than picking one.
+    canonical_urls: dict[str, str] = field(default_factory=dict)
+    # External PDF URLs the index page links that are not corpus documents (release webinar
+    # slide decks, for instance). Build skips them; fetch is untouched, so no re-download
+    # and no overlay pins move. Recorded in the manifest as excluded_by_registry.
+    exclude_urls: list[str] = field(default_factory=list)
 
 
 @dataclass
@@ -92,6 +100,8 @@ def load_registry(product: str, release: str) -> Registry:
             status=raw.get("status"),
             site_url=raw.get("site_url"),
             publication_url=raw.get("publication_url"),
+            canonical_urls=dict(raw.get("canonical_urls") or {}),
+            exclude_urls=list(raw.get("exclude_urls") or []),
         )
         if src.type not in SOURCE_TYPES:
             raise ValueError(f"source '{src.id}': unknown type '{src.type}'")
@@ -135,6 +145,22 @@ def _validate_source(src: Source, path) -> None:
             f"source '{src.id}' ({src.type}): {link_field} must be an absolute https URL, "
             f"got {link!r}"
         )
+    for alias, canonical in src.canonical_urls.items():
+        if not (is_absolute_https(alias) and is_absolute_https(canonical)):
+            raise ValueError(
+                f"source '{src.id}': canonical_urls entries must be absolute https URLs, "
+                f"got {alias!r} -> {canonical!r}"
+            )
+        if alias == canonical or canonical in src.canonical_urls:
+            raise ValueError(
+                f"source '{src.id}': canonical_urls must map an alias to a canonical URL "
+                f"that is not itself an alias ({alias!r} -> {canonical!r})"
+            )
+    for url in src.exclude_urls:
+        if not is_absolute_https(url):
+            raise ValueError(
+                f"source '{src.id}': exclude_urls entries must be absolute https URLs, got {url!r}"
+            )
     for src_dir, out_dir in src.output_remap.items():
         if not str(src_dir).strip("/ ") or not str(out_dir).strip("/ "):
             raise ValueError(

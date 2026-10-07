@@ -119,3 +119,46 @@ def test_the_real_registry_loads():
     assert reg.by_id("technical_reference").publication_url == (
         f"{site}/assets/files/comstock_reference_documentation_2025_3.pdf"
     )
+
+
+def test_canonical_and_exclude_urls_are_loaded_and_checked(tmp_path, monkeypatch):
+    reg = _registry(
+        tmp_path, monkeypatch,
+        measures_link=(
+            "site_url: https://example.org/site\n"
+            "    canonical_urls:\n"
+            '      "https://www.example.org/a.pdf": "https://docs.example.org/a.pdf"\n'
+            "    exclude_urls:\n"
+            "      - https://www.example.org/slides.pdf"
+        ),
+    )
+    um = reg.by_id("upgrade_measures")
+    assert um.canonical_urls == {"https://www.example.org/a.pdf": "https://docs.example.org/a.pdf"}
+    assert um.exclude_urls == ["https://www.example.org/slides.pdf"]
+
+
+def test_canonical_url_chains_and_self_maps_are_rejected(tmp_path, monkeypatch):
+    with pytest.raises(ValueError, match="not itself an alias"):
+        _registry(tmp_path, monkeypatch, measures_link=(
+            "site_url: https://example.org/site\n"
+            "    canonical_urls:\n"
+            '      "https://a.example.org/x.pdf": "https://b.example.org/x.pdf"\n'
+            '      "https://b.example.org/x.pdf": "https://c.example.org/x.pdf"'
+        ))
+
+
+def test_exclude_urls_must_be_absolute_https(tmp_path, monkeypatch):
+    with pytest.raises(ValueError, match="exclude_urls.*absolute https"):
+        _registry(tmp_path, monkeypatch, measures_link=(
+            "site_url: https://example.org/site\n"
+            "    exclude_urls:\n"
+            "      - assets/files/slides.pdf"
+        ))
+
+
+def test_the_real_registry_excludes_the_four_webinar_decks_and_canonicalises_92504():
+    um = R.load_registry("comstock", RELEASE).by_id("upgrade_measures")
+    assert sorted(u.rsplit("/", 1)[-1] for u in um.exclude_urls) == ["85853.pdf", "87746.pdf", "89653.pdf", "92766.pdf"]
+    assert um.canonical_urls == {
+        "https://www.nlr.gov/docs/fy26osti/92504.pdf": "https://docs.nlr.gov/docs/fy26osti/92504.pdf"
+    }

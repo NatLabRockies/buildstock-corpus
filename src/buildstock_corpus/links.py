@@ -74,6 +74,25 @@ def is_absolute_https(url: str | None) -> bool:
     return isinstance(url, str) and url.startswith("https://") and len(url) > len("https://")
 
 
+def canonical_url(src, urls: list[str], what: str) -> str:
+    """The one URL a file linked under several spellings is recorded as.
+
+    Each spelling is mapped through the source's `canonical_urls`; exactly one canonical
+    must come out. Two spellings with no declared relation is an error, not a coin toss:
+    the index page linking one OSTI report as both www.nlr.gov and docs.nlr.gov is a fact
+    about upstream the registry has to state, so a reader never sees the corpus cite the
+    same document two ways.
+    """
+    aliases = getattr(src, "canonical_urls", {}) or {}
+    canon = {aliases.get(u, u) for u in urls}
+    if len(canon) != 1:
+        raise ValueError(
+            f"{src.id}: {what} is linked under {len(canon)} URLs with no canonical declared "
+            f"in the registry's canonical_urls: {sorted(canon)}"
+        )
+    return canon.pop()
+
+
 def clone_for(src_state: dict, clones: list[dict]) -> dict | None:
     """The clone record a source's documents came out of (matched on its dest dir)."""
     dest = src_state.get("clone")
@@ -92,9 +111,10 @@ def artifact_urls(source_path: str, src, src_state: dict, clone: dict | None) ->
     live site page (markdown), the file the site serves (any other repo file), or, for a
     latex source, the one publication the registry names for all its chapters.
     """
-    for e in src_state.get("external_pdfs", []):
-        if e.get("path") == source_path and e.get("url"):
-            return e["url"], e["url"]
+    external = [e["url"] for e in src_state.get("external_pdfs", []) if e.get("path") == source_path and e.get("url")]
+    if external:
+        url = canonical_url(src, external, source_path)
+        return url, url
     if not clone:
         raise ValueError(f"{src.id}: no clone record for {source_path}; cannot build source_url")
     source_url = repo_file_url(clone["repo"], clone.get("sha", ""), source_path)

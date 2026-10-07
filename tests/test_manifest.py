@@ -531,3 +531,34 @@ def test_caption_anchored_overlay_pinned_to_another_revision_is_a_violation(tmp_
 
     assert len(errors) == 1
     assert "transcribed from a different revision" in errors[0]
+
+
+def _write_crosswalk(proot, measures: list[dict], gaps: list[dict] | None = None) -> None:
+    (proot / "crosswalk.json").write_text(
+        json.dumps({"counts": {}, "measures": measures, "gaps": gaps or []}), encoding="utf-8"
+    )
+
+
+def test_crosswalk_rows_must_point_at_a_manifest_document_and_its_publication(tmp_path, monkeypatch):
+    """A covered row's corpus_path has to be a file this manifest records, and its doc_url
+    has to be that file's own publication_url; a gap must point nowhere."""
+    proot = _patch(tmp_path, monkeypatch)
+    _write_output(proot)
+    manifest = M.build_manifest("comstock", RELEASE, [_doc()], None, [], {}, _state(), 1)
+
+    _write_crosswalk(proot, [
+        {"measure_id": "ok_0001", "doc_kind": "external_pdf", "corpus_path": OUT_REL, "doc_url": REF_PDF},
+        {"measure_id": "gap_0002", "doc_kind": "none", "corpus_path": None, "doc_url": None},
+    ], gaps=[{"measure_id": "gap_0002"}])
+    assert M.validate_manifest("comstock", RELEASE, manifest) == []
+
+    _write_crosswalk(proot, [
+        {"measure_id": "lost_0003", "doc_kind": "external_pdf", "corpus_path": "upgrade_measures/nope.md", "doc_url": REF_PDF},
+        {"measure_id": "wrong_0004", "doc_kind": "internal_md", "corpus_path": OUT_REL, "doc_url": "https://example.org/elsewhere.pdf"},
+        {"measure_id": "gap_0005", "doc_kind": "none", "corpus_path": OUT_REL, "doc_url": None},
+    ], gaps=[{"measure_id": "gap_0005"}])
+    errors = M.validate_manifest("comstock", RELEASE, manifest)
+    assert len(errors) == 3
+    assert any("lost_0003" in e and "not a manifest artifact" in e for e in errors)
+    assert any("wrong_0004" in e and "publication_url" in e for e in errors)
+    assert any("gap_0005" in e and "must not carry" in e for e in errors)

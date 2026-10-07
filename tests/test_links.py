@@ -110,3 +110,36 @@ def test_latex_chapters_all_point_at_the_one_reference_pdf():
 def test_clone_sourced_document_without_a_clone_record_is_an_error():
     with pytest.raises(ValueError, match="no clone record"):
         artifact_urls("docs/a.md", MEASURES, STATE, None)
+
+
+# --- canonical URLs: one file linked under several spellings --------------------------------
+
+ALIASED = Source(
+    id="upgrade_measures", type="measures", repo=CLONE["repo"], git_ref="2025_3",
+    index_page="i.md", internal_dir="d", crosswalk_csv="c.csv", site_url=SITE,
+    canonical_urls={"https://www.nlr.gov/docs/fy26osti/92504.pdf": "https://docs.nlr.gov/docs/fy26osti/92504.pdf"},
+)
+TWO_SPELLINGS = {"external_pdfs": [
+    {"url": "https://www.nlr.gov/docs/fy26osti/92504.pdf", "path": "measure_pdfs/92504.pdf", "sha256": "x", "status": "ok"},
+    {"url": "https://docs.nlr.gov/docs/fy26osti/92504.pdf", "path": "measure_pdfs/92504.pdf", "sha256": "x", "status": "ok"},
+]}
+
+
+def test_declared_alias_collapses_to_the_canonical_url():
+    assert L.canonical_url(ALIASED, [
+        "https://www.nlr.gov/docs/fy26osti/92504.pdf", "https://docs.nlr.gov/docs/fy26osti/92504.pdf",
+    ], "92504") == "https://docs.nlr.gov/docs/fy26osti/92504.pdf"
+    # the canonical alone, or the alias alone, both give the canonical
+    assert L.canonical_url(ALIASED, ["https://www.nlr.gov/docs/fy26osti/92504.pdf"], "x").startswith("https://docs.")
+
+
+def test_undeclared_duplicate_spellings_are_an_error_not_a_coin_toss():
+    with pytest.raises(ValueError, match="2 URLs with no canonical declared"):
+        L.canonical_url(MEASURES, [
+            "https://www.nlr.gov/docs/fy26osti/92504.pdf", "https://docs.nlr.gov/docs/fy26osti/92504.pdf",
+        ], "92504")
+
+
+def test_artifact_urls_record_the_canonical_spelling_for_both_links():
+    src, pub = artifact_urls("measure_pdfs/92504.pdf", ALIASED, TWO_SPELLINGS, CLONE)
+    assert src == pub == "https://docs.nlr.gov/docs/fy26osti/92504.pdf"

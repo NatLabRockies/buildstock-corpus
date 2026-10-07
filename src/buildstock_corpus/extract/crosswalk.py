@@ -60,14 +60,23 @@ def build_crosswalk(
     refs: list[MeasureRef],
     release: str,
     dates: dict[str, DocDate] | None = None,
+    docs: dict[str, dict] | None = None,
 ) -> dict:
     """Join the crosswalk CSV with the parsed index refs into a crosswalk document.
 
     `dates` maps a doc target to when that document was last updated at its source (see
     doc_dates.resolve_doc_dates). Measures sharing one document share its date; a measure
     whose documentation does not exist yet is dated None rather than given a stand-in.
+
+    `docs` maps a doc target (a repo path, or any URL spelling the index page uses) to the
+    corpus document it became: {"corpus_path": <processed/-relative .md>, "doc_url":
+    <its publication_url>}. Each row carries both, so a consumer with the crosswalk alone
+    can open the file or send a reader to the publication; a gap carries None for both.
+    `doc_target` -- the index page's literal link -- is kept for this release and is
+    deprecated in favour of them.
     """
     ref_by_id = {r.measure_id: r for r in refs}
+    docs = docs or {}
     measures: list[dict] = []
     gaps: list[dict] = []
 
@@ -75,6 +84,11 @@ def build_crosswalk(
         """(date, source) for a ref's document — both None together, never one alone."""
         d = dates.get(ref.target) if (dates and ref and ref.target) else None
         return (d.date, d.source) if d else (None, None)
+
+    def located(ref: MeasureRef | None) -> tuple[str | None, str | None]:
+        """(corpus_path, doc_url) for a ref's document — both None for a gap."""
+        d = docs.get(ref.target) if (ref and ref.target) else None
+        return (d["corpus_path"], d["doc_url"]) if d else (None, None)
 
     with csv_path.open(encoding="utf-8-sig", newline="") as f:
         reader = csv.DictReader(f)
@@ -86,6 +100,7 @@ def build_crosswalk(
             ref = ref_by_id.get(mid)
             upgrade_id = (row.get(id_col) or "").strip() if id_col else ""
             date, date_source = dated(ref)
+            corpus_path, doc_url = located(ref)
             entry = {
                 "measure_id": mid,
                 "documentation_name": (row.get("measure_documentation_name") or "").strip(),
@@ -93,6 +108,8 @@ def build_crosswalk(
                 "initial_release": ref.initial_release if ref else None,
                 "doc_kind": ref.kind if ref else "unknown",
                 "doc_target": ref.target if ref else None,
+                "corpus_path": corpus_path,
+                "doc_url": doc_url,
                 "status": status_for_kind(ref.kind, ref.target) if ref else MISSING,
                 "date_last_updated": date,
                 "date_last_updated_source": date_source,
@@ -111,6 +128,7 @@ def build_crosswalk(
     for r in refs:
         if r.measure_id not in csv_ids:
             date, date_source = dated(r)
+            corpus_path, doc_url = located(r)
             measures.append({
                 "measure_id": r.measure_id,
                 "documentation_name": r.name,
@@ -118,6 +136,8 @@ def build_crosswalk(
                 "initial_release": r.initial_release,
                 "doc_kind": r.kind,
                 "doc_target": r.target,
+                "corpus_path": corpus_path,
+                "doc_url": doc_url,
                 "status": status_for_kind(r.kind, r.target),
                 "date_last_updated": date,
                 "date_last_updated_source": date_source,
@@ -131,6 +151,10 @@ def build_crosswalk(
     covered = sum(1 for m in measures if m["doc_kind"] in _COVERED_KINDS)
     return {
         "release": release,
+        "deprecated": {
+            "doc_target": "the index page's literal link; use doc_url (absolute, canonical) "
+            "and corpus_path instead. Kept for this release only.",
+        },
         "counts": {"measures": len(measures), "covered": covered, "gaps": len(gaps)},
         "measures": sorted(measures, key=lambda m: m["measure_id"]),
         "gaps": sorted(gaps, key=lambda g: g["measure_id"]),

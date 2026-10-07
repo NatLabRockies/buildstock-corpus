@@ -72,3 +72,19 @@ sources:
       "docs/upgrade_measures": "unpublished_docs/upgrade_measures"
       "assets/files": "unpublished_docs/upgrade_measures"
     crosswalk_csv: "assets/files/measure_name_crosswalk_2025_3.csv"
+    # One OSTI report the index page links under two hosts. Every link to it -- the file's
+    # header and manifest row, and the crosswalk rows of all four measures it documents
+    # (dr_0005, dr_0006, pkg_0007, pkg_0009) -- is recorded under the canonical spelling
+    # (owner decision 2026-10-07).
+    canonical_urls:
+      "https://www.nlr.gov/docs/fy26osti/92504.pdf": "https://docs.nlr.gov/docs/fy26osti/92504.pdf"
+    # PDFs the index page links outside the measures table that are not measure
+    # documentation: the slide decks of the release webinars for 2023 release 1 through
+    # 2024 release 2. Not corpus documents (owner decision 2026-10-07). The dispatch-schedule
+    # report (89343) is linked the same way but is methodology the demand-flexibility
+    # measures rely on, so it stays.
+    exclude_urls:
+      - https://www.nlr.gov/docs/fy23osti/85853.pdf
+      - https://www.nlr.gov/docs/fy24osti/87746.pdf
+      - https://www.nlr.gov/docs/fy24osti/89653.pdf
+      - https://www.nlr.gov/docs/fy25osti/92766.pdf

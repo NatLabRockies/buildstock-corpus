@@ -208,8 +208,9 @@ def _write_crosswalk(measures: list[dict], gaps: list[dict] | None = None) -> No
     (proot / "crosswalk.json").write_text(json.dumps(cw, indent=2), encoding="utf-8", newline="\n")
 
 
-def test_external_pdf_measure_joins_on_filename(workspace):
-    """A crosswalk target is a URL; the artifact records where fetch put the file."""
+def test_measure_row_links_the_crosswalks_own_corpus_path(workspace):
+    """The map takes the document from the crosswalk row rather than joining filenames
+    itself, so it cannot disagree with the crosswalk about which file documents a measure."""
     _write_manifest(
         [_artifact("measure_pdfs/89340.pdf", "Load Shed", "upgrade_measures/measure_pdfs/89340.md")]
     )
@@ -221,6 +222,8 @@ def test_external_pdf_measure_joins_on_filename(workspace):
                 "documentation_name": "Thermostat Control for Load Shed",
                 "doc_kind": "external_pdf",
                 "doc_target": "https://www.nlr.gov/docs/fy24osti/89340.pdf",
+                "corpus_path": "upgrade_measures/measure_pdfs/89340.md",
+                "doc_url": "https://www.nlr.gov/docs/fy24osti/89340.pdf",
                 "upgrade_id": "32",
                 "upgrade_name": "Demand Flexibility",
             }
@@ -229,27 +232,25 @@ def test_external_pdf_measure_joins_on_filename(workspace):
 
     M.build_map("comstock", RELEASE)
 
-    row = next(ln for ln in _map_text().splitlines() if "dr_0001" in ln or "| 32 |" in ln)
+    row = next(ln for ln in _map_text().splitlines() if "| 32 |" in ln)
     assert "upgrade_measures/measure_pdfs/89340.md" in row
     assert "not in corpus" not in row
 
 
-def test_ambiguous_filename_is_not_linked(workspace):
-    """Two upstream files sharing a name must not route a reader to an arbitrary one."""
-    _write_manifest(
-        [
-            _artifact("a/report.pdf", "One", "upgrade_measures/a/report.md"),
-            _artifact("b/report.pdf", "Two", "upgrade_measures/b/report.md"),
-        ]
-    )
-    _write_chunk_rows([_meta("a/report.pdf", "One", "One > S")])
+def test_documented_measure_absent_from_the_corpus_links_upstream_instead(workspace):
+    """Documented upstream but not extracted here: say so and link the publication, rather
+    than linking a local file that does not exist."""
+    _write_manifest([_artifact("doc/a.tex", "Envelope", "technical_reference/doc/a.md")])
+    _write_chunk_rows([_meta("doc/a.tex", "Envelope", "Envelope > S")])
     _write_crosswalk(
         [
             {
                 "measure_id": "dr_0002",
-                "documentation_name": "Ambiguous",
+                "documentation_name": "Elsewhere",
                 "doc_kind": "external_pdf",
-                "doc_target": "https://example.gov/docs/report.pdf",
+                "doc_target": "https://www.example.gov/docs/report.pdf",
+                "corpus_path": None,
+                "doc_url": "https://docs.example.gov/docs/report.pdf",  # canonical spelling
                 "upgrade_id": "40",
                 "upgrade_name": "Whatever",
             }
@@ -258,9 +259,26 @@ def test_ambiguous_filename_is_not_linked(workspace):
 
     M.build_map("comstock", RELEASE)
 
-    row = next(ln for ln in _map_text().splitlines() if "Ambiguous" in ln)
+    row = next(ln for ln in _map_text().splitlines() if "Elsewhere" in ln)
     assert "not in corpus" in row
-    assert "upgrade_measures/a/report.md" not in row
+    assert "https://docs.example.gov/docs/report.pdf" in row  # doc_url, not the raw target
+
+
+def test_registry_excluded_pdfs_are_listed_as_a_known_gap(workspace):
+    _write_manifest(
+        [_artifact("doc/a.tex", "Envelope", "technical_reference/doc/a.md")],
+        gaps={"measures": [], "unreachable_pdfs": [], "excluded_unpublished": {},
+              "excluded_by_registry": [{"source_id": "upgrade_measures", "path": "measure_pdfs/85853.pdf",
+                                        "url": "https://www.nlr.gov/docs/fy23osti/85853.pdf",
+                                        "reason": "excluded by source registry"}]},
+    )
+    _write_chunk_rows([_meta("doc/a.tex", "Envelope", "Envelope > S")])
+
+    M.build_map("comstock", RELEASE)
+
+    text = _map_text()
+    assert "1 upstream PDF(s) excluded by the source registry" in text
+    assert "[85853.pdf](https://www.nlr.gov/docs/fy23osti/85853.pdf)" in text
 
 
 def test_undocumented_measure_is_shown_as_a_gap(workspace):

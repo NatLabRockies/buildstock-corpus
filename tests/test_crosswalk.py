@@ -174,3 +174,35 @@ def test_release_id_without_a_year_and_number_matches_no_column():
     """No silent wrong column: an id that encodes neither yields nothing to join on."""
     fields = list(CSV.split("\n")[0].split(","))
     assert _release_columns(fields, "comstock_amy2018_latest") == (None, None)
+
+
+def test_rows_locate_their_document_in_the_corpus(tmp_path):
+    """corpus_path and doc_url let a consumer with the crosswalk alone open the file or send
+    a reader to the publication; any URL spelling the index uses resolves to the one doc."""
+    csv_path = tmp_path / "crosswalk.csv"
+    csv_path.write_text(CSV, encoding="utf-8")
+    refs = parse_index(INDEX_MD, INDEX_PATH)
+    osti = {"corpus_path": "upgrade_measures/measure_pdfs/95002.md",
+            "doc_url": "https://docs.nlr.gov/docs/fy25osti/95002.pdf"}
+    docs = {
+        "https://docs.nlr.gov/docs/fy25osti/95002.pdf": osti,
+        "https://www.nlr.gov/docs/fy25osti/95002.pdf": osti,  # alias spelling, same doc
+        "assets/files/env_roof.pdf": {
+            "corpus_path": "upgrade_measures/unpublished_docs/upgrade_measures/env_roof.md",
+            "doc_url": "https://natlabrockies.github.io/ComStock.github.io/assets/files/env_roof.pdf"},
+        "docs/upgrade_measures/ltg_led.md": {
+            "corpus_path": "upgrade_measures/unpublished_docs/upgrade_measures/ltg_led.md",
+            "doc_url": "https://natlabrockies.github.io/ComStock.github.io/docs/upgrade_measures/ltg_led.html"},
+    }
+
+    cw = build_crosswalk(csv_path, refs, RELEASE, docs=docs)
+    by_id = {m["measure_id"]: m for m in cw["measures"]}
+
+    assert by_id["hvac_0001"]["corpus_path"] == "upgrade_measures/measure_pdfs/95002.md"
+    assert by_id["hvac_0001"]["doc_url"] == "https://docs.nlr.gov/docs/fy25osti/95002.pdf"
+    assert by_id["env_0002"]["corpus_path"].endswith("/env_roof.md")
+    assert by_id["ltg_0003"]["doc_url"].endswith("/ltg_led.html")  # index-only row located too
+    for gap in ("dr_0005", "dr_0006", "xyz_0009"):
+        assert by_id[gap]["corpus_path"] is None and by_id[gap]["doc_url"] is None
+    assert all("corpus_path" in m and "doc_url" in m for m in cw["measures"])
+    assert "doc_target" in cw["deprecated"]  # kept this release, flagged

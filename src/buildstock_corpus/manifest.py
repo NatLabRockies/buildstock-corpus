@@ -103,8 +103,13 @@ def build_manifest(
     sample: int | None = None,
     overlays: dict[str, dict] | None = None,
     corpus_version: str | None = None,
+    excluded_urls: list[dict] | None = None,
 ) -> dict:
     """Assemble and write manifest.json from the just-built documents + fetch state.
+
+    `excluded_urls` lists fetched upstream PDFs the source registry told build to leave out
+    (see Source.exclude_urls); recorded under gaps.excluded_by_registry so their absence
+    reads as a decision, not a failure.
 
     `corpus_version` names the build (see provenance.py) and must be the same value the
     file headers were written with: validate_manifest checks them against each other.
@@ -211,6 +216,7 @@ def build_manifest(
             "measures": [g["measure_id"] for g in crosswalk["gaps"]] if crosswalk else [],
             "unreachable_pdfs": unreachable_pdfs,
             "excluded_unpublished": excluded,
+            "excluded_by_registry": excluded_urls or [],
         },
         "warnings": warnings,
     }
@@ -417,11 +423,30 @@ def validate_manifest(
     if cw_file.is_file():
         cw = json.loads(cw_file.read_text(encoding="utf-8"))
         gap_ids = {g["measure_id"] for g in cw.get("gaps", [])}
+        # output_path -> publication_url, so a crosswalk row's location can be checked
+        # against the document it claims to point at.
+        pub_by_output = {
+            a.get("output_path"): a.get("publication_url")
+            for s in manifest.get("sources", [])
+            for a in s.get("artifacts", [])
+        }
         for m in cw.get("measures", []):
-            if m["doc_kind"] not in _COVERED_KINDS and m["measure_id"] not in gap_ids:
-                errors.append(
-                    f"crosswalk: measure {m['measure_id']} is neither covered nor a tracked gap"
-                )
+            mid = m["measure_id"]
+            if m["doc_kind"] not in _COVERED_KINDS and mid not in gap_ids:
+                errors.append(f"crosswalk: measure {mid} is neither covered nor a tracked gap")
+            # A covered row must point at a document in this manifest, and send readers to
+            # that document's own publication; a gap must point nowhere.
+            if m["doc_kind"] in _COVERED_KINDS:
+                cp = m.get("corpus_path")
+                if cp not in pub_by_output:
+                    errors.append(f"crosswalk: measure {mid} corpus_path {cp!r} is not a manifest artifact")
+                elif m.get("doc_url") != pub_by_output[cp]:
+                    errors.append(
+                        f"crosswalk: measure {mid} doc_url {m.get('doc_url')!r} != its document's "
+                        f"publication_url {pub_by_output[cp]!r}"
+                    )
+            elif m.get("corpus_path") or m.get("doc_url"):
+                errors.append(f"crosswalk: gap {mid} must not carry a corpus_path or doc_url")
 
     # CORPUS_MAP.md is the entry point an agent reads instead of the corpus, so a stale one
     # misroutes every question it answers -- and unlike a mismatched artifact hash, nothing
