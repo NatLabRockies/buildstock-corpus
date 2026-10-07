@@ -1,7 +1,8 @@
 {
   "product": "comstock",
   "release": "comstock_amy2018_2025_release_3",
-  "generated_utc": "2026-08-22T15:06:27.401207+00:00",
+  "corpus_version": "76f3d84",
+  "generated_utc": "2026-10-06T23:10:02.530620+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -43,7 +44,7 @@
           "title": "Executive Summary",
           "input_sha256": "9ff08296feb33f76d465cecb447914fbb9d345e553847e46a17c1a7765deacd4",
           "output_path": "technical_reference/documentation/reference_doc/0_1_exec_summary.md",
-          "output_sha256": "088e182088f04644591d6688b6df7ff1d28517b006bf9e148c7c6ff816698138"
+          "output_sha256": "df73ea07c6eacebede249492f6cd835f2cf6472d3322f4d53bcf7ee52b53ba65"
         },
         {
           "source_path": "documentation/reference_doc/0_2_acknowledgements.tex",
@@ -51,7 +52,7 @@
           "title": "Acknowledgments",
           "input_sha256": "5bd6de114ba9bee946782c1863ffda3f85d4f0cd37099b20ff3c0325b9c1ffca",
           "output_path": "technical_reference/documentation/reference_doc/0_2_acknowledgements.md",
-          "output_sha256": "def173c8af5fdcbbe2ff63866d7ecc6aa57a9feccfecfb172247fe32ee85944f"
+          "output_sha256": "c2289254420bb4878dfb16a245b131d9852e4563ce3d45e6550ba3bc3fc36702"
         },
         {
           "source_path": "documentation/reference_doc/0_3_acronyms.tex",
@@ -59,7 +60,7 @@
           "title": "List of Acronyms",
           "input_sha256": "9873e2b3aeaa253d0f0451b511a8b0637c8771cb9f5f0672b748a6268a292323",
           "output_path": "technical_reference/documentation/reference_doc/0_3_acronyms.md",
-          "output_sha256": "60e83e54dcfa79efd4ea679e8b68295f7eaec1b601b50ad0dd70cefadd93b6ee"
+          "output_sha256": "f2fbe5702644c845e974d90b6ff2b3eeb7bc93bbe900f5d7a4b81bf211cae72c"
         },
         {
           "source_path": "documentation/reference_doc/1_introduction.tex",
@@ -67,7 +68,7 @@
           "title": "Introduction",
           "input_sha256": "18c08d5f729c3f48ccdac686e44b121138d32761ccd2e76e67a2e30acdf445f0",
           "output_path": "technical_reference/documentation/reference_doc/1_introduction.md",
-          "output_sha256": "7bafcd5b2fc5484699cdbceb6284647014b59d67042cea34ec0fd5a9d808bcd6"
+          "output_sha256": "175bf3503905a561a2626f876ffb63079863494f8de32cd1cec966ce942f6f0b"
         },
         {
           "source_path": "documentation/reference_doc/2_workflow.tex",
@@ -75,7 +76,7 @@
           "title": "ComStock Workflow",
           "input_sha256": "02df0eb5ecad175e558dd1728c88826772debbed70afef472fd588a9ca9fd903",
           "output_path": "technical_reference/documentation/reference_doc/2_workflow.md",
-          "output_sha256": "843507f10af220f07e612c1134e1eadef8620991d65308673843194c1e9e2e33"
+          "output_sha256": "1e6c37394e9113b8547039aa89d1bcd744c8f6fa6e7b8e1264d9560eb4a34203"
         },
         {
           "source_path": "documentation/reference_doc/3_sampling.tex",
@@ -83,7 +84,7 @@
           "title": "Building Characteristic Sampling",
           "input_sha256": "9386d8ea1f6a44a0640d36466950fdc1b7709b9b869845a9ddb3c7581f0de0e0",
           "output_path": "technical_reference/documentation/reference_doc/3_sampling.md",
-          "output_sha256": "084ad22b6e09e4c6816fe6dcb8fdad1b35e4789ba65ef63cf01234188efb8f49"
+          "output_sha256": "4590a26e06e4c118fd4c20de5a6e9f503a58ce432af6191b779f989d7aedc85d"
         },
         {
           "source_path": "documentation/reference_doc/4_1_introduction.tex",
@@ -91,7 +92,7 @@
           "title": "ComStock Building Models",
           "input_sha256": "6cbfcb541d1357ec81469ea316ec2417f5886b5fb6df7e9be11eb4dd05a8a600",
           "output_path": "technical_reference/documentation/reference_doc/4_1_introduction.md",
-          "output_sha256": "e39b7bdf0b8bedb97b1654127975551b2379995ab21b84c0c36a221ecbb544f1"
+          "output_sha256": "0b59b5ca3201a8ee7ff95d94014663cfd7ca8e3d14497b56de86c8443c342e52"
         },
         {
           "source_path": "documentation/reference_doc/4_2_meta.tex",
@@ -99,7 +100,7 @@
           "title": "Location, Type, Age, Space Programming, Energy Code, and Change Over Time",
           "input_sha256": "a01de853a3139ef0239b8045eed470220c07a96be321207f75e316fc86e8eb44",
           "output_path": "technical_reference/documentation/reference_doc/4_2_meta.md",
-          "output_sha256": "7f5458808792a731986bd4521ad3da63b416c8ff178f05da3620735002c3eb3d"
+          "output_sha256": "e45dfd3bca364edf5cd61aa9c20dc0bbcbc406456cf42d645ac64b92b1166356"
         },
         {
           "source_path": "documentation/reference_doc/4_3_occupancy.tex",
@@ -107,7 +108,7 @@
           "title": "Hours of Operation and Occupancy",
           "input_sha256": "8e7100ddf2307411dc4f5cbb4a7a2b6a04ca002eb43d02ef32ce766d08b67cdc",
           "output_path": "technical_reference/documentation/reference_doc/4_3_occupancy.md",
-          "output_sha256": "a176702fab2d11d12edc67704d87e6ac92178cd2f996df5a535add37e1bd107e"
+          "output_sha256": "4b297a44dd3f7ce1daafbfc849c490e4ce865b14308f79f4abb3dc8eeb2a64b6"
         },
         {
           "source_path": "documentation/reference_doc/4_4_geometry.tex",
@@ -115,7 +116,7 @@
           "title": "Geometry",
           "input_sha256": "0f65d439ae800d24b91d3178aa6aca7a3665267b3f7d6bdaa2dffcecf4f1466b",
           "output_path": "technical_reference/documentation/reference_doc/4_4_geometry.md",
-          "output_sha256": "ac638ea87a2ad19de9b4a3d8f8239e9a1ce21b60ea4c576b382565c50ba157f3"
+          "output_sha256": "24fb26241fe62585f7c39a1a7f8e4081ddbd2ee6a56a7030e16847ac49c3c9c8"
         },
         {
           "source_path": "documentation/reference_doc/4_5_envelope.tex",
@@ -123,7 +124,7 @@
           "title": "Envelope",
           "input_sha256": "b68cc9ffc4c00af3f664b5a65a1adfd5c5fabd1ca1148e591c81baf08d11e327",
           "output_path": "technical_reference/documentation/reference_doc/4_5_envelope.md",
-          "output_sha256": "d81f25f5a85a2be7109a43621dcd3ab5dd316c567a805d78db602b7cf790ab9e"
+          "output_sha256": "07d5f67a5b6afc91897da4d02d0a7d82652281389a9f49b056cf68100095c5fb"
         },
         {
           "source_path": "documentation/reference_doc/4_6_lighting.tex",
@@ -131,7 +132,7 @@
           "title": "Lighting",
           "input_sha256": "da554c08c16238d31467a546badf4d0b13c4cc177e3baac2cc7a9cd09f654c1c",
           "output_path": "technical_reference/documentation/reference_doc/4_6_lighting.md",
-          "output_sha256": "41660bcd107179d02673c47a85f1a1ad2b9e327820afa041401d73bc23bd341e"
+          "output_sha256": "41bdd0ce7bdf23be41d376053a2af9969fe0a591b1e23d68f80279cfa8adddc6"
         },
         {
           "source_path": "documentation/reference_doc/4_7_plug_and_process.tex",
@@ -139,7 +140,7 @@
           "title": "Plug and Process Loads",
           "input_sha256": "f1134b58c14e786ec6f8e0cbf75c9c2cd76f97151616e8b21b6740c9148a7ae8",
           "output_path": "technical_reference/documentation/reference_doc/4_7_plug_and_process.md",
-          "output_sha256": "85612e12a533543d7988a14d920cd373a957bd9a75e77878998493a3ef456e78"
+          "output_sha256": "21c5e8871aa39f5448e41a610366b57eaab794e287434baabc4a3657e74dd61b"
         },
         {
           "source_path": "documentation/reference_doc/4_8_service_water_heating.tex",
@@ -147,7 +148,7 @@
           "title": "Service Water Heating",
           "input_sha256": "9d23275e41232044ad6cbfa954b0594c56384794e6b3e2fe40e9040e1a75f7cd",
           "output_path": "technical_reference/documentation/reference_doc/4_8_service_water_heating.md",
-          "output_sha256": "a14a04d178e2c083c5c6e6d17b1e8486981eac788516d496784813dd343e184a"
+          "output_sha256": "508c68071bfdb4c012ca3e62a7efd9e35fdf6f552d8d702252f3be7846075eba"
         },
         {
           "source_path": "documentation/reference_doc/4_9_hvac.tex",
@@ -155,7 +156,7 @@
           "title": "Heating, Ventilating, Air Conditioning, and Refrigeration",
           "input_sha256": "b21f5fc7c2c008d355cc13e9d2eb6445ba6ce53c6079cb2f10d953b29cbbd485",
           "output_path": "technical_reference/documentation/reference_doc/4_9_hvac.md",
-          "output_sha256": "5cd821931ec35c053a36f97a87c1458cec4c635a430f9ec850965835cba85d75"
+          "output_sha256": "6dd280287ec0f0576a3bc0a18f93ffb2e59b419490c9b7cd2e8aa5964dfdac78"
         },
         {
           "source_path": "documentation/reference_doc/4_10_simulation_settings.tex",
@@ -163,7 +164,7 @@
           "title": "Simulation Settings",
           "input_sha256": "b5f739794ed359bf8da4ae73bdf9223333fa5bc7ef12fef0fc36a43a36bac9b5",
           "output_path": "technical_reference/documentation/reference_doc/4_10_simulation_settings.md",
-          "output_sha256": "1b1f2a8f1132701327bf490a9f2d7470840774bd586f6ef0213b6470f585ce25"
+          "output_sha256": "01fcb455cbad0fa19aec01c11d66a4d5887313f4a821a67f5d346624af4b2dcb"
         },
         {
           "source_path": "documentation/reference_doc/5_outputs.tex",
@@ -171,7 +172,7 @@
           "title": "ComStock Outputs",
           "input_sha256": "7c31ecba9445664d8dab1fe9b3f7b36a1cbd7f1b1a71479fe54ba5ff74f98f30",
           "output_path": "technical_reference/documentation/reference_doc/5_outputs.md",
-          "output_sha256": "0a92846412d53078fbdfb62125b10bfccac3da80e79c99004051413968e8df35"
+          "output_sha256": "ee95443b66090fdaab4db4616b74ed213fd5250f1b5d57cf77ef49be5e8630c7"
         },
         {
           "source_path": "documentation/reference_doc/6_AppendixA.tex",
@@ -179,7 +180,7 @@
           "title": "6_AppendixA",
           "input_sha256": "8544772829f7a2626d9607e13bdf01165044707425c05067569fc6d872a36eaa",
           "output_path": "technical_reference/documentation/reference_doc/6_AppendixA.md",
-          "output_sha256": "1d7b5b1fd50a55305e9a91d54f1c8ae3d237a0181558c28d7f1dea626fc4308e"
+          "output_sha256": "17f7db6d74ddc1a242cc9ead6ee68c64a6d650a5b2d9f15224f63e667820640c"
         },
         {
           "source_path": "documentation/reference_doc/7_AppendixB.tex",
@@ -187,7 +188,7 @@
           "title": "7_AppendixB",
           "input_sha256": "8b6b0a42ca0c4d0b1eb999bc926e29ef934286aa78069e69ca8c906577df16ae",
           "output_path": "technical_reference/documentation/reference_doc/7_AppendixB.md",
-          "output_sha256": "b22aa65fa1b1b88c8825d4301bf8acef0813202e4688f6171efd660867acff05"
+          "output_sha256": "958cc7c4db2199574050e1de3084a2b72cce757d3e40dc7c74130340dc8c02ec"
         }
       ]
     },
@@ -202,7 +203,7 @@
           "title": "Citation and Data Attribution",
           "input_sha256": "c9af953c488389651966ffe6fb1925064de30753c173727fb7408b0d4e39fa38",
           "output_path": "github_site/docs/citation.md",
-          "output_sha256": "4014d4d4822e4edde00f14e1af8dfa136e751ec20d3027a6f83319b69fc966a4"
+          "output_sha256": "d6db63187d632ca015df8bc9a6c0e63d44fbf480ededb60f7424e8ab1987bb66"
         },
         {
           "source_path": "docs/contact.md",
@@ -210,7 +211,7 @@
           "title": "Contact",
           "input_sha256": "1645542c159c927ea65188d4ea1121388414cfd5c1940a459042b2158ade98da",
           "output_path": "github_site/docs/contact.md",
-          "output_sha256": "ac2d16c99bdd5afb0117affeb8bb5324ad552667e73eb548c1448635a655bf96"
+          "output_sha256": "fc147b6f6e2e02993fbbf8e034b3fa3e32a9f8e5a144321b50541685e1cda62b"
         },
         {
           "source_path": "docs/data.md",
@@ -218,7 +219,7 @@
           "title": "Data",
           "input_sha256": "60f0971e0c67feb8faaaf38b63bcab7f14c2119168199113c4c9dd7d1b5b9a4a",
           "output_path": "github_site/docs/data.md",
-          "output_sha256": "78d02d02b1788de1d484d1a2cfe3b1a9a0d05283f2b898a12261ed5d5d2ea2dd"
+          "output_sha256": "76eeb8059cf4ada29f8889c287d788483189ce054b26fe80bd6fb0ece8689ebd"
         },
         {
           "source_path": "docs/faq.md",
@@ -226,7 +227,7 @@
           "title": "FAQ",
           "input_sha256": "7248142d9cdce044f6c1d6feef7900e3b466b53eb88c2b426b432ce500fceb4f",
           "output_path": "github_site/docs/faq.md",
-          "output_sha256": "091dc975c5dc3d57e6745b236db178f712095985d037a96871a3bb3dc266872a"
+          "output_sha256": "d5d3d26291aa5a713136934fee33e165950006b7d77a989bcd8f64cc5035cac4"
         },
         {
           "source_path": "docs/for_developers/for_developers.md",
@@ -234,7 +235,7 @@
           "title": "For Developers",
           "input_sha256": "5c11d961c4d7008844bbc6148a77623b7c006e76c8d7f10a4200a7e5c1e267b4",
           "output_path": "github_site/docs/for_developers/for_developers.md",
-          "output_sha256": "b8a65cc64e93864bf13b9155b43a34493a1e8527634f039b1da31dcac3e041d8"
+          "output_sha256": "eb5206d08e33bee8261a1f50d3f9bc60ce35e0827fe9cb8d9f48227fcbbd20d5"
         },
         {
           "source_path": "docs/for_state_local/for_state_local.md",
@@ -242,7 +243,7 @@
           "title": "For State and Local Government Users",
           "input_sha256": "e7c52c237659172fe632f6124a22774ce1c8f70d11c63fcf8eff46b9c6aad81b",
           "output_path": "github_site/docs/for_state_local/for_state_local.md",
-          "output_sha256": "1412bc4e2b50c3e29eaf16ba590716558c60c99b32544b81d4eb4805d6225549"
+          "output_sha256": "dc4b7e50471584d15cce1cdf3364832beac425841d6d4f3d80ceb7ef40d81b07"
         },
         {
           "source_path": "docs/for_state_local/segmentation.md",
@@ -250,7 +251,7 @@
           "title": "Building Segmentation Analysis",
           "input_sha256": "950e365e49998956c485944732ad1dcf83e5bee86a84007901393c660b81a5ae",
           "output_path": "github_site/docs/for_state_local/segmentation.md",
-          "output_sha256": "2056c2265aff599192e3a5cb7b76ec6df1de22564f60a150cf266190102aa651"
+          "output_sha256": "0a12726d5ba96136b9151d8eb2a9b74108ce979edc7f2aad61f2d3b86cd70077"
         },
         {
           "source_path": "docs/projects/euss/euss.md",
@@ -258,7 +259,7 @@
           "title": "End-Use Savings Shapes (EUSS)",
           "input_sha256": "9e1f92a7618be67363c25725b16229ca6ca6cd173fb65c147d4fb721ddcf0f9f",
           "output_path": "github_site/docs/projects/euss/euss.md",
-          "output_sha256": "747da280a3b5cf89759a775f36e82c83d6c29a29c93e9a0c04ccb146f0616a54"
+          "output_sha256": "6fc435b5ab7d48aca66690cf6be32e27970fcf2f9b583aa17024d996344a88b6"
         },
         {
           "source_path": "docs/projects/euss/euss_rnd1.md",
@@ -266,7 +267,7 @@
           "title": "EUSS Round 1",
           "input_sha256": "acb6bc0e3ab57065bcc144927b355c1c2550184b400801c3345fc29f124ff130",
           "output_path": "github_site/docs/projects/euss/euss_rnd1.md",
-          "output_sha256": "1493c4d51cfbedb3cad41100ec4e12122fd1a86ad116bae28484ed33dfd8cf40"
+          "output_sha256": "acdfaa87640ed463e916d99cda3d4c9d17eb810182fba7201a4e0e2a3fc7a3db"
         },
         {
           "source_path": "docs/projects/euss/euss_rnd2.md",
@@ -274,7 +275,7 @@
           "title": "EUSS Round 2",
           "input_sha256": "fede8d9b957f98c9ca53f8ecf4355c2e2036efb106d15626b64578b3b137ad95",
           "output_path": "github_site/docs/projects/euss/euss_rnd2.md",
-          "output_sha256": "6c703dd14742047482c972e049848ba0bee551ce36c121c71dccaf0a82d0114d"
+          "output_sha256": "222b8615f213b05df6cad890455a55d1a35a8fcfca6e8b63da48ec46360f1a71"
         },
         {
           "source_path": "docs/publications.md",
@@ -282,7 +283,7 @@
           "title": "Publications",
           "input_sha256": "6e2ebe52a91abb696eeb6e0473d682b8b562411f334ef6e2eb55bef339d1e952",
           "output_path": "github_site/docs/publications.md",
-          "output_sha256": "c6fb53d27b9deb6782e52ab05b738f3f1ef5364cec26b6b4b135323cf95bec12"
+          "output_sha256": "3d80a4aee7889612239b3bd6d28d8ec2f5aae7f3facc705bedddfb408293a196"
         },
         {
           "source_path": "docs/resources/explanations/2025_release_2_hi_known_issue.md",
@@ -290,7 +291,7 @@
           "title": "Hawaii AMY2012 Weather Files in ComStock 2025 Release 2",
           "input_sha256": "709791b92488065a6471962d1a12db575a6866ba5ff6d58dfe0cdbb28e60b87c",
           "output_path": "github_site/docs/resources/explanations/2025_release_2_hi_known_issue.md",
-          "output_sha256": "9c8f83ac48a78a20357ee5a70ef7d355bebf16e39ab561bfad32076a8a2df48d"
+          "output_sha256": "21d71e1488714b2d383cd3b674dda481ec0d1ff3b89be28cf866512687bd210f"
         },
         {
           "source_path": "docs/resources/explanations/2025_release_2_packages_known_issue.md",
@@ -298,7 +299,7 @@
           "title": "Geothermal Heat Pump and Demand Flexibility Package Naming in ComStock 2025 Release 2",
           "input_sha256": "8b1fe1935ec0d5ad233a23ff36eda430621703f2472a7a044018a6c9861b1a09",
           "output_path": "github_site/docs/resources/explanations/2025_release_2_packages_known_issue.md",
-          "output_sha256": "55c46d24250aaa6b71e8c902f864d75a61b57f21dcc90cab1e36aa19282cc276"
+          "output_sha256": "88c64ef73d2637da435f5cce0b4eb616b95ee827c90edc9671edfc22a0c9195e"
         },
         {
           "source_path": "docs/resources/explanations/2025_release_3_ca_swh_known_issue.md",
@@ -306,7 +307,7 @@
           "title": "California Service Water Heating in ComStock 2025 Release 3",
           "input_sha256": "1e9351c795325d2216fd65e9a425b8efc32a2af6f1f7f17c79694924731b6733",
           "output_path": "github_site/docs/resources/explanations/2025_release_3_ca_swh_known_issue.md",
-          "output_sha256": "50e4c3c464d5c6b48fd347393015645b8cee1f1a3ad4b199ab73bca886d3bbd8"
+          "output_sha256": "35a57ab702ab709a0012296f59773b618866e56f9556deb3ec87e56187662bd5"
         },
         {
           "source_path": "docs/resources/explanations/2025_release_3_packages_known_issue.md",
@@ -314,7 +315,7 @@
           "title": "Heat Pump and Envelope Package Naming in ComStock 2025 Release 3",
           "input_sha256": "133d3121a3e9b12d6c3ce8776f12e6005b9dc1db910fd083261bfa26467d625a",
           "output_path": "github_site/docs/resources/explanations/2025_release_3_packages_known_issue.md",
-          "output_sha256": "f6fefb9860539c24d1c5ae90e395771d959b311157b657ade8bda7cbb760bcbb"
+          "output_sha256": "9140f2e74cf0e0621ef900d917eb5e50e92b5c4cb891b714dfb831d1b54646b5"
         },
         {
           "source_path": "docs/resources/explanations/aggregate_file_discrepancy_known_issue.md",
@@ -322,7 +323,7 @@
           "title": "Metadata and Annual Results Aggregate File Discrepancy in 2024 Release 2",
           "input_sha256": "0262972b34cf3f5b8c8e62f38199f68c0da19ab9113b49c311929fcd04970666",
           "output_path": "github_site/docs/resources/explanations/aggregate_file_discrepancy_known_issue.md",
-          "output_sha256": "a1f16640ae5ba8112fde02e289f455ee82fadc6f4202c51a49dc23afb7f5ce1a"
+          "output_sha256": "d14e55b014f5c105270e3bbadd6b2603c46c5f9fe9c56d9364c0faa8b00bff06"
         },
         {
           "source_path": "docs/resources/explanations/building_type_crosswalks.md",
@@ -330,7 +331,7 @@
           "title": "Building Type Crosswalks",
           "input_sha256": "5cb745756131c38f36cab8b75caf3d1c88589ebd2e1c980b72be5dd673fc784a",
           "output_path": "github_site/docs/resources/explanations/building_type_crosswalks.md",
-          "output_sha256": "fd3d0593c754d871815b8f3abf7aa460dec4e3577b0250110d8d5d720c0e47c0"
+          "output_sha256": "0e5a87c70d35f1c34f29fb5fc5acd1ed9abe883f433ae83337273d55bd757649"
         },
         {
           "source_path": "docs/resources/explanations/building_types_not_included.md",
@@ -338,7 +339,7 @@
           "title": "Building Types Not Included in ComStock",
           "input_sha256": "426f51ca01d6c1515f5a555651479ba9df3652e9f9b8c0672e0109570805d764",
           "output_path": "github_site/docs/resources/explanations/building_types_not_included.md",
-          "output_sha256": "c3cfc9f473d724cb0d4c078bb22ae975558124c39b57ca3ac43f5bc02dce7737"
+          "output_sha256": "a7a27f0c65af36301e07330f4d311c3d0621f14e69033e8d8fc9333efe15c97a"
         },
         {
           "source_path": "docs/resources/explanations/california_known_issues.md",
@@ -346,7 +347,7 @@
           "title": "California Model Known Issues",
           "input_sha256": "fc91db8b7ebc7b79706aaf133b67427bdf61bc2ea6e01760f65a710cec7ee332",
           "output_path": "github_site/docs/resources/explanations/california_known_issues.md",
-          "output_sha256": "c6ae24f08d9844d8aa599e5a71829056364282b0c16bc179af4c0d11747e1ec3"
+          "output_sha256": "0ccbe36b8efe84c8338a1b85c72ea98b93a6a061e2a15728edd04663dfa5cfa8"
         },
         {
           "source_path": "docs/resources/explanations/combining_measure_results.md",
@@ -354,7 +355,7 @@
           "title": "Combining Measure Results",
           "input_sha256": "63d5f3737f9522aa64dbf61e6b673aa49a13de5325d2d56827fa4ee7267c2123",
           "output_path": "github_site/docs/resources/explanations/combining_measure_results.md",
-          "output_sha256": "e08f3be13338687c8964e7d0d16a5bc54a76b8d888f48e79f980e5a6aef59953"
+          "output_sha256": "382cef8ce87b7eba94542b5e874f8efde42c6ffaf8bab0b75e7a4aae039b4872"
         },
         {
           "source_path": "docs/resources/explanations/component_loads.md",
@@ -362,7 +363,7 @@
           "title": "Component Loads Data and Analysis",
           "input_sha256": "a9d06c333046ca2d50248ad53c056ae3d0ff80cb8c6800bcc9d9cc7e19a9c238",
           "output_path": "github_site/docs/resources/explanations/component_loads.md",
-          "output_sha256": "0942f1036e86a10d71b3d314366e44b28ce94b3fa32f5f69337b5f4855dc88a9"
+          "output_sha256": "ee794efdf51ff929f0ca1136b45b0727dbc51f661282dd598ede543922f79994"
         },
         {
           "source_path": "docs/resources/explanations/comstock_calibration.md",
@@ -370,7 +371,7 @@
           "title": "ComStock Calibration, Validation, and Uncertainty",
           "input_sha256": "5663fa9ebdd5a0fc9413b053178a70594ee15d38d832fb0123a5e49888d59fda",
           "output_path": "github_site/docs/resources/explanations/comstock_calibration.md",
-          "output_sha256": "eeb5a0289206315709dd83df7f3071f2e625bfbe9312dd1a4fbdf6d552a41de9"
+          "output_sha256": "e79ba710cf560ebfcfd140911d7148c1d16c453481620ad88d4103935bc65c15"
         },
         {
           "source_path": "docs/resources/explanations/costing_analysis.md",
@@ -378,7 +379,7 @@
           "title": "Cost Analysis",
           "input_sha256": "55fd583015b1edc85446bcf6275fd070473a5d8bffce2c36d2e923929dfa3ab3",
           "output_path": "github_site/docs/resources/explanations/costing_analysis.md",
-          "output_sha256": "75d28c9789520b9b1c1516456dcd1cfae06927619aaa3beac7a0b9a49f9cdd96"
+          "output_sha256": "cc15ea1cdc84ff1af4ad690b4dd58a75524a8dfa5131dc10c7a6ffb115807c08"
         },
         {
           "source_path": "docs/resources/explanations/gas_consumption_underrepresented.md",
@@ -386,7 +387,7 @@
           "title": "Gas Consumption Underrepresented",
           "input_sha256": "16136167dcf5287780682d9d4f9ece48124652b9a312ce41b62bad2a3712f93a",
           "output_path": "github_site/docs/resources/explanations/gas_consumption_underrepresented.md",
-          "output_sha256": "ff94891a273207d7962f7c5f3229006c6a16ebebfc707040687adc33224f152a"
+          "output_sha256": "5204fb441dfd4fc61469b5c471620911deac49c3715c198d63f32ba7269d2466"
         },
         {
           "source_path": "docs/resources/explanations/hospital_modeling.md",
@@ -394,7 +395,7 @@
           "title": "ComStock Hospital Modeling",
           "input_sha256": "6f5243270210b80a6c336c807a9ca2730bce658cf6e05cf14f80ff4acd65ed15",
           "output_path": "github_site/docs/resources/explanations/hospital_modeling.md",
-          "output_sha256": "776a413296628b14e313b6f8f8a08a1555f18dc90d974dc2ac1b558d951b0ac0"
+          "output_sha256": "ee4066b7c7dd58b076cb3ac69180c2ba1e5056f632ef71bb837345a389ce24de"
         },
         {
           "source_path": "docs/resources/explanations/new_sampling_method.md",
@@ -402,7 +403,7 @@
           "title": "New ComStock Sampling Method",
           "input_sha256": "483f810493b0fff8badbadc83c9d454f30ee130f51e3145a1cb64f1c001c042b",
           "output_path": "github_site/docs/resources/explanations/new_sampling_method.md",
-          "output_sha256": "0a018a49b6722385ddca9d18028916e0616bec33b96a011b1c43b2835fa84529"
+          "output_sha256": "ffd17da279ef480f7d155e1ea53eec5e45a484cd1969e85c9be3d1832fe70ea0"
         },
         {
           "source_path": "docs/resources/explanations/reference_geographic_codes.md",
@@ -410,7 +411,7 @@
           "title": "Geographic Fields and Codes",
           "input_sha256": "1022851afeae32283779f88ea21d26031637a0e70ddf08c45c45a1d5f0663c3d",
           "output_path": "github_site/docs/resources/explanations/reference_geographic_codes.md",
-          "output_sha256": "a4d89ad00f3a4603e39c6bc1bfa68f5de2ff72d2bd0073259a7273f29990db48"
+          "output_sha256": "711d28998c3565af1b5fdf7d5056d3fd7cc31b06c7327894284e82fbfbde0214"
         },
         {
           "source_path": "docs/resources/explanations/sample_size_considerations.md",
@@ -418,7 +419,7 @@
           "title": "Sample Size Considerations",
           "input_sha256": "3f0a881048e02a2c51e043c79b903343b1afa5963c32e15536d16d371bdcde76",
           "output_path": "github_site/docs/resources/explanations/sample_size_considerations.md",
-          "output_sha256": "8f20a2ed7f2209572ffefa9f5be0c54b1563bf9f81f4ed62c71f5d0c3f720f00"
+          "output_sha256": "7e10f92b30b74b96a4565b2601f4519cebde6d0975a4d4017b735c91520a6c42"
         },
         {
           "source_path": "docs/resources/explanations/sampling_and_weighting.md",
@@ -426,7 +427,7 @@
           "title": "Sampling and Weighting in ComStock",
           "input_sha256": "61038701a1fd673df3921678b0dd4110254b8e517038a059f89ef2d17365538f",
           "output_path": "github_site/docs/resources/explanations/sampling_and_weighting.md",
-          "output_sha256": "4d3b86ae126b4a58b607fc626954251bb442d0f38dacddd437af1d654930c04c"
+          "output_sha256": "f4db7bfbdb87d2b9640c414b7f16a7287edeb0cd7b6ec679dc1543980e7c2040"
         },
         {
           "source_path": "docs/resources/explanations/utility_bills_emissions_known_issue.md",
@@ -434,7 +435,7 @@
           "title": "Utility Bills and Emissions in ComStock 2024 Release 2",
           "input_sha256": "5d8ed1e603d57fccff97c28c5595417d1f9c47c5c7c3b7cb5ceb857cdb1c7f3f",
           "output_path": "github_site/docs/resources/explanations/utility_bills_emissions_known_issue.md",
-          "output_sha256": "3dc7f9dd73f5f6dc09c4da71fe7ae37599a0f07dd72a83ae76ca454859047971"
+          "output_sha256": "a18e0558b69b32228e4880bf208d87fbb966e377618500c0010ee6ec2c30f0b5"
         },
         {
           "source_path": "docs/resources/how_to_guides/aws_athena_queries.md",
@@ -442,7 +443,7 @@
           "title": "AWS Athena Queries",
           "input_sha256": "eba72e6b99893aaad23e27b4f2cb8596c5d4c27bc5288917c7e52ed4752894c8",
           "output_path": "github_site/docs/resources/how_to_guides/aws_athena_queries.md",
-          "output_sha256": "411c5a9b9c014f5b2f01d1bc1c7bc3faf80bb60334d031f00de1c96fddfc9334"
+          "output_sha256": "0ccc6f7c9151c66190dc7d857adea77c929b1f7884790282def55446319094b7"
         },
         {
           "source_path": "docs/resources/how_to_guides/basic_stock_characterization_workbook.md",
@@ -450,7 +451,7 @@
           "title": "Basic Stock Characterization Workbook",
           "input_sha256": "a3feeeaf416b52bf7cc9d55c82ace7b60240da8f9749f42499b7952c14a80860",
           "output_path": "github_site/docs/resources/how_to_guides/basic_stock_characterization_workbook.md",
-          "output_sha256": "b34317074ee86bf096571cbaecde230c57e912d450a2ed0d74bf60f816992953"
+          "output_sha256": "def71cd2d0f0ed1a97fd5e24118d7d6cf53ca32045935387f38933484de7aeef"
         },
         {
           "source_path": "docs/resources/how_to_guides/characteristics_dashboard.md",
@@ -458,7 +459,7 @@
           "title": "Building Characterization Dashboard",
           "input_sha256": "94b8c6693236e6c5c670084b40318d6103923a25b49ff295bf46a9f99f943f30",
           "output_path": "github_site/docs/resources/how_to_guides/characteristics_dashboard.md",
-          "output_sha256": "7b82bf4e1135e11a465782cfad56b508f1a708d56d3bfcfa0f242fb216a065ad"
+          "output_sha256": "8638eadd44ba573a9a593c00b58f948beba2daf79421adf7d9ff925be1b86c0a"
         },
         {
           "source_path": "docs/resources/how_to_guides/example_scripts.md",
@@ -466,7 +467,7 @@
           "title": "Access the ComStock Datasets Programmatically",
           "input_sha256": "9abb0c858a809896fc6cc127194bf07ed316fad8ea832a667050d96ae21f3f12",
           "output_path": "github_site/docs/resources/how_to_guides/example_scripts.md",
-          "output_sha256": "5674333fa4ba41f852b09874d610d03354d79b04c4145ce92825a9a051a19a63"
+          "output_sha256": "ff6828c8f8aeb230c63afab65ed90798d1bd072e799d78b5ac8f1c2690ebfe84"
         },
         {
           "source_path": "docs/resources/how_to_guides/impact_workbook.md",
@@ -474,7 +475,7 @@
           "title": "Building Stock Characterization and Upgrades Impact Workbook",
           "input_sha256": "cc9c83c3273717771fc483aa60a94888083ce8bded61d34cb760da472f1b509f",
           "output_path": "github_site/docs/resources/how_to_guides/impact_workbook.md",
-          "output_sha256": "2775797907f80fa976a93fd29e5f061c3dc63561460daa85f7d905ade06cd19e"
+          "output_sha256": "c084fbc5e9da7a271e0063dfc1673b0a43e6c76dd1f9ab713bcac45070ada3a6"
         },
         {
           "source_path": "docs/resources/how_to_guides/puma_level_analysis.md",
@@ -482,7 +483,7 @@
           "title": "City-level Analysis",
           "input_sha256": "38a6bb2cd524bd98362af450c1c046cde0f96b64c902e1e50218e22ab45ee9f6",
           "output_path": "github_site/docs/resources/how_to_guides/puma_level_analysis.md",
-          "output_sha256": "0011d358f265d62b688d4c5efc80a360a817a0e06a874a36787609e288ef4cfb"
+          "output_sha256": "a1b9296f2dc8a7f8d2c20e0541661aaf2d57a00bda9111ed4deb494d8d27bd77"
         },
         {
           "source_path": "docs/resources/references/comstock.md",
@@ -490,7 +491,7 @@
           "title": "ComStock",
           "input_sha256": "e1fc902917a7a3f3e6c52dd775626bc4ff29b67c3d7c216e440c8b5eb9f75b48",
           "output_path": "github_site/docs/resources/references/comstock.md",
-          "output_sha256": "9e70767aa3f3e0572843ab76d9bc41eb5ed6ab5bba71131d6cc0abf6e9fe73b3"
+          "output_sha256": "eba01913f73949627e3d9fecd2b0d5b1ce8f5fcaa4f6cb7d4373dc1e0554aa77"
         },
         {
           "source_path": "docs/resources/resources.md",
@@ -498,7 +499,7 @@
           "title": "Resources",
           "input_sha256": "52f4a9edea39b8646db7d08470f198f8e2e14fa365eb2f63a72a86d796aedb9e",
           "output_path": "github_site/docs/resources/resources.md",
-          "output_sha256": "29f9f269709b8d26d0c8ffd64cd7a138c94be36e262c40935a4d02631a18a23a"
+          "output_sha256": "201a8be911caa8d619963cda7c53d119b9d9e899ac666edf1ec3792b396c2454"
         },
         {
           "source_path": "docs/resources/tutorials/join_geospatial_data.md",
@@ -506,7 +507,7 @@
           "title": "Joining External Geospatial Data",
           "input_sha256": "c468f11cae7010ef0612e5b3fd170382076067f5b27dfe9a783f592d6d62d7b9",
           "output_path": "github_site/docs/resources/tutorials/join_geospatial_data.md",
-          "output_sha256": "ded5d1cbcd2ee3a5d2d5279e924580422baf73c5831171178c6f57bac896c43c"
+          "output_sha256": "97dae1f2f15102962579d4ef358ff14a6fd41771179f2d282210fdc719ec3b2d"
         },
         {
           "source_path": "docs/resources/tutorials/local_segmentation_study.md",
@@ -514,7 +515,7 @@
           "title": "Using Local Data in a ComStock Analysis",
           "input_sha256": "048128f5f1f6589c60ccd2f071da6bebda78c5b0cc793f7b0496fcba70aa6755",
           "output_path": "github_site/docs/resources/tutorials/local_segmentation_study.md",
-          "output_sha256": "28dc99a07986c7d609e9272345c15d5ef354a2bf73deb2bf5667ad0bfa646ca8"
+          "output_sha256": "c5c5522cb211c92ebb7b89db426d25d1d63db00f58ca6fa4c300e779a63a7c6a"
         }
       ]
     },
@@ -529,7 +530,7 @@
           "title": "Secondary Window System",
           "input_sha256": "91d7f8e5b641c4072d96dfaf6f4cde4a0c367d69b15eba943e1248254ff2d74e",
           "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/env_ext_secondary_window.md",
-          "output_sha256": "506ba6157cdc8e61ee4121457009b1eb3defd823b31ce91d5e97b21574fafa22",
+          "output_sha256": "1be9b3a1e128216149d2cf5b744615ab84bd5a093c354ef8360802950f7ced80",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_ext_secondary_window.yaml",
             "sha256": "e1249a2e40be36a60594457e5e2a5797524a562670e16664733c7b3f9b783cf4",
@@ -549,7 +550,7 @@
           "title": "Exterior Wall Insulation",
           "input_sha256": "fc7967438ace1780461253dbd100b5473293bfc2857f360c48db0b6c8da69427",
           "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/env_ext_wall_insulation.md",
-          "output_sha256": "42d8fbc82b6646a8a9d335f10810dd04827917480c5727799b6f338599664419",
+          "output_sha256": "379c0b50e361b8136633233407b537998ad7433fc50ee094172c044b887163a5",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_ext_wall_insulation.yaml",
             "sha256": "2e85f3d672bfa16cdd7d45831c719c5cae754d6aabbb2aac35edc562ab32a69c",
@@ -569,7 +570,7 @@
           "title": "Window Replacement",
           "input_sha256": "497dd2df0b3e05a8fac4584a654433cbcded2a4740038109d86d9adfc8bc450c",
           "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/env_ext_window_replacement.md",
-          "output_sha256": "cadd7c79a4421936ccec4f7b4b6320683c36bde00a7a525800a467cb8eba3ebf",
+          "output_sha256": "d9c175c07ab1fec5467625efcf9576eb5a1a73fd378f79c6fba93680502f0596",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_ext_window_replacement.yaml",
             "sha256": "7b24b424c24d0fb0e7197da5e4a2ee0fcf2f4f5a4d84acfeed7fdf185e1ce62b",
@@ -584,7 +585,7 @@
           "title": "Roof Insulation",
           "input_sha256": "ff64c90258e39d1cbd56d7edb587ed698ec411ccc384b990f2362b856a3e6d5a",
           "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/env_roof_insulation.md",
-          "output_sha256": "b279da05e31ecba325a700eaacacabe40ec0d77a7510c47c3dee82413d0552e5",
+          "output_sha256": "1e9a8e5c696590551f775ed70b0f997e8ba057094301a9bb9657d25a355da356",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_roof_insulation.yaml",
             "sha256": "fc34ddec7b32cd3bc5b2ddeda867769d5b8abd48181ff7ef62373277c21db661",
@@ -605,7 +606,7 @@
           "title": "Window Film",
           "input_sha256": "9aecf35790f36883b35a5cd81346b82124b8d244bace87048e5867810b4480fb",
           "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/env_window_film.md",
-          "output_sha256": "5ad7215df134cc4cfd244df26a61cfdcf85f1acd755c74042e144415000e9a52",
+          "output_sha256": "1a43555fe751d118429d1e7297eb8177e26580d833952034b22d5ad831d3e76d",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_window_film.yaml",
             "sha256": "2d165f0cd1850f38d759c0f0ed1d03e853157e29c184222470ff6e7072802087",
@@ -621,7 +622,7 @@
           "title": "DOAS with Mini Split Heat Pumps",
           "input_sha256": "2d76398f21c560da3ee0972360659d7a47d114736d2df7ca36603f8df1cf37b0",
           "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/hvac_doas_mshp.md",
-          "output_sha256": "8aa9bad801fb500a8baaf61b70f38fbbdda6b5306fbeb4a823d6a8b5d34034da"
+          "output_sha256": "3cb774ee51e8d589d9eeeb29229a12a6ac6dd105373962435b0f7fe99946db79"
         },
         {
           "source_path": "measure_pdfs/95002.pdf",
@@ -629,7 +630,7 @@
           "title": "Reduced Thermostat Setbacks for Heat Pumps",
           "input_sha256": "1b84b12cbe3c61950f6f9047c630d639e4878bde459a240c05a9f3f2f58330cd",
           "output_path": "upgrade_measures/measure_pdfs/95002.md",
-          "output_sha256": "aff646a933b0dcb0a5f4dbabc5afb32c6b3b93d1e673eb003d1c2253dec6d8be",
+          "output_sha256": "24d21fce4fc7f4f862854a8e2186eeb537223068dc31a3d8bd3ab9232fb0edf3",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95002.yaml",
             "sha256": "d13133329b9ffe3d583be3a97a5bfd6e97c92d4e36f357ed12fa0163dd502dfd",
@@ -682,7 +683,7 @@
           "title": "Chiller Replacement",
           "input_sha256": "1e577fd68f96349c9cd5ad8b2092b8a4c1b343a15c7a33ba7d2095cc6c6917e2",
           "output_path": "upgrade_measures/measure_pdfs/95003.md",
-          "output_sha256": "2cbf1b736f3d8ac4c3ff4b1acf864a3b1df08c52fd0cb74d17c81ef426afd623",
+          "output_sha256": "58bb31d5585d057723d8f6130b4d58fa286d6e1a941717ff1a714e010c7f9b63",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95003.yaml",
             "sha256": "a6167cf3fe8b2526c05d279221df72709380d67623c1294d3e0a81c840f28748",
@@ -728,7 +729,7 @@
           "title": "Photovoltaics With 40% Rooftop Coverage",
           "input_sha256": "8326dfa0d203237aae92fca1555f1ed3a3d80410ff7f12553bfee7b5e3105c07",
           "output_path": "upgrade_measures/measure_pdfs/95004.md",
-          "output_sha256": "fa5867a5b477c5b176f10dbf5d0766ada51a555980214f4f920cba47c4acf050",
+          "output_sha256": "dba7107630df7aaa728ba8e7e813d1485fc9ded69a3c9125061992e1e9d9754a",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95004.yaml",
             "sha256": "a9bb72ce16e251a5757e717d4d30eacdc5af8bde6517feeb9b8896a0b53f25ba",
@@ -752,7 +753,7 @@
           "title": "Geothermal Heat Pumps + High-Efficiency Envelope Package",
           "input_sha256": "594820f09b44e2d762e7092bfe1a951e9fcbae67fd94c0596f3b25e0b2b4e847",
           "output_path": "upgrade_measures/measure_pdfs/95005.md",
-          "output_sha256": "e49352ab9ab0cfd460a31f1a53394933f05dbbea090d4d25273550874ce46dad",
+          "output_sha256": "f5fdbd088bc6d00a184d5c7274b2a80aa824d787eb80842ba7f71afbf367e5fe",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95005.yaml",
             "sha256": "5107734e0e1f6ada28903aa55a0b3fe523511b618c35bd3e6cb36250c99eab50",
@@ -786,7 +787,7 @@
           "title": "Standard Performance Heat Pump Rooftop Unit with New Windows",
           "input_sha256": "f02e60fcaf6ecbef3197fb29feeb3e8e36dadabcc3b9a59ac8032e77bf78fde9",
           "output_path": "upgrade_measures/measure_pdfs/95006.md",
-          "output_sha256": "9a6198830771eea10e3a4753b65ec46cf9d122facc5cadc0b64a7d0cace213c6",
+          "output_sha256": "7532121aa752234c1f52355dd5eb3d0e4ce636342612fa39928e72b462f09323",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95006.yaml",
             "sha256": "cb546976ab6008ea310f1933d382001043746f075c7e23e77ff3598b6425bcb6",
@@ -813,7 +814,7 @@
           "title": "Geothermal Heat Pumps + High-Efficiency Envelope + LED Lighting Package",
           "input_sha256": "548deff66240e93c7f371db672e7322a5078aaff46d9867bfe7664393992c918",
           "output_path": "upgrade_measures/measure_pdfs/95009.md",
-          "output_sha256": "7498b99473efddd491c637827a20abb82bff0d654a9e56c64b5868c0de04f795",
+          "output_sha256": "dfc93324ec98d3f878163e7c64f3c069ec2ece426a0ffa0ba55c73707c5ff7ce",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95009.yaml",
             "sha256": "7ac4b052b7c81c78b401c4e96736a3038f8763b805fd306d52d9c66611d5bc93",
@@ -842,7 +843,7 @@
           "title": "Condensing Gas Boilers",
           "input_sha256": "fa8a71456204914597a0f5e9cb580b0b11f71de24c3450974b192946210aeb85",
           "output_path": "upgrade_measures/measure_pdfs/95014.md",
-          "output_sha256": "09ca6d45dd2cdef769c546c66acd35add336ae1c7b579b8341cac801a8a6982a",
+          "output_sha256": "9a5d6e0cdf0cd31bf9171c257e855b68af1cc23ed8675e82967cd55ee3f401a8",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95014.yaml",
             "sha256": "1452207183ec73057832bec2e79b0931228181c16f8697a9b266a300a8d88aec",
@@ -875,7 +876,7 @@
           "title": "Electric Resistance Boilers",
           "input_sha256": "3cf5bd438e5c25856135f92adb02530aaf6ba678bef52c02133e33bad4eba4a4",
           "output_path": "upgrade_measures/measure_pdfs/95015.md",
-          "output_sha256": "a1afa0083d0a3d960d9168dcc89eedd915991e96c2f5a1fc575bb806575949ce",
+          "output_sha256": "4046eb55d63abf52c4c71ca36528bd6d4d6a6046279e01a083ce030bc621dd9b",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95015.yaml",
             "sha256": "18ae493fce97fb30375b248c1d94993feceacf080f92c5cb8efe78d2d23035fa",
@@ -904,7 +905,7 @@
           "title": "Laboratory-Informed Modeling of Standard Performance Heat Pump Rooftop Units",
           "input_sha256": "0f7ce74e4adb36870055269cc2b4bdb922b439ad0234a55ae009136ffe766d61",
           "output_path": "upgrade_measures/measure_pdfs/95119.md",
-          "output_sha256": "5ed5217846863d95d4918a2837f4c7fd93f26c152362883b1a818fb2471d8cb4",
+          "output_sha256": "23f7672a348a40498efddc404dee7b0ce467e56e924e0b773d4158715e32ec7a",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95119.yaml",
             "sha256": "a7724bbfa84e6469b25d06023068e933d32c993e5cdee3cb3cdbf7cf50ae49f1",
@@ -933,7 +934,7 @@
           "title": "Thermostat and Lighting Control for Load Shedding",
           "input_sha256": "d5da891d0fcd4e44ee2038713085551b9c9d6d1b4af401be40ccab9fafa350d2",
           "output_path": "upgrade_measures/measure_pdfs/92504.md",
-          "output_sha256": "10fc022813d889b1c21770f7e2d8a517d014d92470329ac8e31eb282584508b7",
+          "output_sha256": "799c2fd32e683f2fb49c2d95b2edf099e081c390a6ac0f2aa51e1a3cea9ea8bc",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/92504.yaml",
             "sha256": "d29be3e0757cc5d8279e4c9b458310af97e247b849eb5ef13520b40ce5f90e0e",
@@ -969,7 +970,7 @@
           "title": "Thermostat and Lighting Control for Load Shedding + Photovoltaics With 40% Rooftop Coverage",
           "input_sha256": "193c08aa84b24626b1b4cb10eb54da76d52b9757f3ec32d1d027a6b7bba534bf",
           "output_path": "upgrade_measures/measure_pdfs/95013.md",
-          "output_sha256": "a4d52850f72f0af70d74f56840eb7eb0c637ca6389396fa2e95991087fceb80a",
+          "output_sha256": "298e37e7ea0793894dde1c9f8a5fca7e78ecba00a1d889b1d5459d1ba2759a4d",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95013.yaml",
             "sha256": "48e1c093a92f77c65a0233cd98c021d4d4654de3e30a575e97f80b7026142fa6",
@@ -997,7 +998,7 @@
           "title": "Lighting Controls",
           "input_sha256": "d03a71362184f273b80c106b8c8ec9ce6f38a64119855526d2ad9bc87755f6a9",
           "output_path": "upgrade_measures/measure_pdfs/96597.md",
-          "output_sha256": "82810bb0fe8daa09490c8f96dd5d492857667ec8f83fae217d6d10a727a1bc18",
+          "output_sha256": "bd8a6ebb42902ba505a4201069ceee82df35a2b7d9c0b7885680f9b80316f12a",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/96597.yaml",
             "sha256": "95bd0500e77d0852252c397ffaa6623394e633c0140c55c47d69bd19debd0c4b",
@@ -1021,7 +1022,7 @@
           "title": "Upgrade Envelope to Latest Code",
           "input_sha256": "612945456f16d2907f426ae300cf0df50373c5ebe29e217b84c7160ae0f10ce4",
           "output_path": "upgrade_measures/measure_pdfs/96598.md",
-          "output_sha256": "40185f9696019bb67bb6d0f9ea0a4809df47017cbd611106d813a8b64c08bd80",
+          "output_sha256": "5a588a49b1996fb9715f67d68b5af736304938bd9a5991ac66279a4218a3e75a",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/96598.yaml",
             "sha256": "f829353e3080b6cfb138ef071afb2d712539a6a0bfa0cc8d660b94c4fb8eb194",
@@ -1060,7 +1061,7 @@
           "title": "Variable Speed Pumps",
           "input_sha256": "390e50e2cae9fbbac6635e6a529b5ae26b8cc9531e8d4106101e0a87147aa251",
           "output_path": "upgrade_measures/measure_pdfs/98223.md",
-          "output_sha256": "677dcba540a8f88f1bfb77bdac7d55f7989c96e6e96d7b32d91bef85b4b71868",
+          "output_sha256": "c8f4800b8d60fd63bdb1326177608595bd1eed28e30f789964cc353da710e2e8",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/98223.yaml",
             "sha256": "e3e095d2279575e9931a2cf2f35cb3e2bb5c69718d448676c656257f1a4df92e",
@@ -1095,7 +1096,7 @@
           "title": "High-Efficiency Rooftop Unit",
           "input_sha256": "3d1422392c2bbfbefc9763156db9583c5bd65f2447fb75651dccf15c4c134691",
           "output_path": "upgrade_measures/measure_pdfs/98224.md",
-          "output_sha256": "6865df63c4454940caead8e01dcdd8559d1b017f3683b446e83cc1c3a2688703",
+          "output_sha256": "4fd557b216b902c1559db7ef353c942676e551830ad7d6818c55fadb0e8a645c",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/98224.yaml",
             "sha256": "0ba59b30b01a1771201a86ceb88bbbd91a5798af0abe4b2c01219ffd3a70d7a9",
@@ -1140,7 +1141,7 @@
           "title": "Fan Static Pressure Reset for Multizone VAV Systems",
           "input_sha256": "75f23306d2e62efe1a8a0b7ed76ff98bb62801424068b4a1bd5e5f06860bbade",
           "output_path": "upgrade_measures/measure_pdfs/98345.md",
-          "output_sha256": "ad62939184bc730b2f86a7750f9c8b20e240193650a373ec8e3a4eaaf5f7f278",
+          "output_sha256": "34e700fb7287fdead8cb2599363c244894349c60e9e0e2805ccdece293360702",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/98345.yaml",
             "sha256": "082e72da35bfd014a0b93cad550973eda2d292a5d4e180a6e161d7ab8388d1fe",
@@ -1178,7 +1179,7 @@
           "title": "Thermostat Setbacks During Unoccupied Periods",
           "input_sha256": "49eb99ad293cd46cdbd5e4ae7b037386a495721e163d607878ac846a39d2ecf6",
           "output_path": "upgrade_measures/measure_pdfs/98346.md",
-          "output_sha256": "db38f0be234333d84e9da581f146499a1bc6a9cf824dfb7c85332992e0e5dd35",
+          "output_sha256": "f08632b2a65aa194a8188a5242dbf54acbcb23877478f57e97e5637a7192ff36",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/98346.yaml",
             "sha256": "373f7aec85087f1beae8b8ecf3026104da69dc9ddbd1358a1db09dc4e0ebd9b9",
@@ -1216,7 +1217,7 @@
           "title": "End-Use Savings Shapes",
           "input_sha256": "75006b0a53fdf761bfcc71fa7803a1430fc87e4a8c613caa32c969b8d41abe61",
           "output_path": "upgrade_measures/measure_pdfs/85853.md",
-          "output_sha256": "bb76e76939f98a637ac42dca5dec6208f2dc30d3717b5b04dcc92e69ed1502b2",
+          "output_sha256": "19044751b207456bbbb00a8ce032f52f42694ab1e7f26a8a5fbdd03fd0b94213",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/85853.yaml",
             "sha256": "23d0b3272059a4492b707037c46f286bc3fdc8e955da1a1cbf364b087cd2e1ca",
@@ -1291,7 +1292,7 @@
           "title": "LED Lighting",
           "input_sha256": "8571300be9139a57b75768d87cdcf942a7295de9419011f858f11f7526fd4e5c",
           "output_path": "upgrade_measures/measure_pdfs/86100.md",
-          "output_sha256": "1fc45e995dfa2411271d93c044a89edc746419cc0177312a22bbc3aead7af341",
+          "output_sha256": "8eab81a83e85e780bcef5dd7223654aac97ebc9a5d603e113646f46a313af4cc",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86100.yaml",
             "sha256": "068e5bef0df94848faaa92ded8cfaded438cedb75ca1e37938f4a192be7b4228",
@@ -1316,7 +1317,7 @@
           "title": "VRF Heat Recovery with DOAS",
           "input_sha256": "6e6d96010400f6b37978b8e930a630d81d2d4b1497f4d8081c278f9a59dce99c",
           "output_path": "upgrade_measures/measure_pdfs/86103.md",
-          "output_sha256": "a0c5c8a1d3744d25dba399fec74107f792f82a4f4d0d639598a78a1c345253b6",
+          "output_sha256": "0d06a28886484575229bc6b2433efc61ac34b92c1baf99e92ba112a17518a355",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86103.yaml",
             "sha256": "888c5fa7d15f8d19a890ba525e511fee79ac773d47aa9189d179c8191b455630",
@@ -1365,7 +1366,7 @@
           "title": "Economizers",
           "input_sha256": "ac239093593f300240a55b0a2ff74a876916772a05d1eb85a6a8264375ea105d",
           "output_path": "upgrade_measures/measure_pdfs/86105.md",
-          "output_sha256": "977e6a6b614bccdb2ea185abc7b319718f6b8e51aef907bdb4bc0e3e5728f8ab",
+          "output_sha256": "7d3402e2a8f94e3d1413cb6e6c31a352bb2adba46f7943201f64124f71330fad",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86105.yaml",
             "sha256": "1caa0c93720cc4d9ebf3e94808951daab862ca38f104466b3e37f4fdd5b45520",
@@ -1401,7 +1402,7 @@
           "title": "Air-Source Heat Pump Boiler",
           "input_sha256": "be173f2dbe730146ceb402874c867c9be75438d2ecb00b4e1d93dde4f3b87270",
           "output_path": "upgrade_measures/measure_pdfs/86199.md",
-          "output_sha256": "9044fba155eb1db6da46f83c95f7db60ad9554ccf506905f87322e9bcc2190cb",
+          "output_sha256": "dec13d7c124b005bfa4252b20c2a6b5db2d0074605779e5cdca23ae8571acf42",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86199.yaml",
             "sha256": "ed5d4cc08406e656ac6b66d02f33aec4fdba11d7031b5e1c3a23cd6037b9dd93",
@@ -1442,7 +1443,7 @@
           "title": "Heat Pump RTU",
           "input_sha256": "cde16361012f00876e5fe99c8810dc936d9bab46ad8b5af478403ff533da47d2",
           "output_path": "upgrade_measures/measure_pdfs/86585.md",
-          "output_sha256": "5aca0e2f05de937db6c36665e229f5e4d80a79caa8b0be5634f81f6e9209946a",
+          "output_sha256": "4335c2c9f5768e3fa8b83221e8e566e568c7ad29b6c0498c3beb0465db51a32a",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86585.yaml",
             "sha256": "3944598c71776f9d2cd6dbcb0b1da66ddc2acff4698da218dbdbdc2e310cb2ad",
@@ -1478,7 +1479,7 @@
           "title": "Wall and Roof Insulation and New Windows",
           "input_sha256": "c8c286e4939049366b50b203a8f6cac0f4201ca4d3aed2219a2089fefa45f2f3",
           "output_path": "upgrade_measures/measure_pdfs/86599.md",
-          "output_sha256": "c8d657bd3016de529b27990dea499e780b3fc2e56b813bcda6833915fcbe8e05",
+          "output_sha256": "3af0ffe32383559d1db533acd887f2a50538108c5da2a9aeff2608c705e83885",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86599.yaml",
             "sha256": "6637915335c4c58367a578afdde7e6ecc8dfef3d78414ec20a428a74a4018844",
@@ -1508,7 +1509,7 @@
           "title": "LED Lighting, HP-RTU and ASHP-Boiler",
           "input_sha256": "edee583b88290066a942c92d99f64f6a859058bf63f201cb005cf2b63098ac66",
           "output_path": "upgrade_measures/measure_pdfs/86601.md",
-          "output_sha256": "c6bcef8ecf74a2cc85e0e848ad3733646d92c962481ea56cb104b51a1ba3592a",
+          "output_sha256": "60000054500c3ffd507bff74b550d3a565f39bda30f5006094e356449ad641e6",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86601.yaml",
             "sha256": "a6ee56b8e7182feecf8f627b16dabeda6c6088f8cbb1c2ca562a7726ce85932f",
@@ -1540,7 +1541,7 @@
           "title": "Wall and Roof Insulation, New Windows, LED Lighting, HP-RTU and ASHP-Boiler",
           "input_sha256": "cc5b290f302c11bf0a218b86e98c4300d616d094d0f5b20764c167e21bf38a73",
           "output_path": "upgrade_measures/measure_pdfs/86602.md",
-          "output_sha256": "0154434971fe6860c41b8ee2f816f6685b897104b8ad778769608022b8753155",
+          "output_sha256": "0d4769afe8d36c5db583665f44798b2b4a9b3e06da5595f8c83e6afb13593735",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86602.yaml",
             "sha256": "35a5c27ff356c7663823cf32ace96d31e55fdf63f1fc65b4b12907ec88969bbd",
@@ -1573,7 +1574,7 @@
           "title": "Demand Control Ventilation",
           "input_sha256": "adabde599ab070779032d2b992f75cf3cb5273aca6142cae447153b532321d9e",
           "output_path": "upgrade_measures/measure_pdfs/86897.md",
-          "output_sha256": "ea1787cf54fafe1e304f888c28a7cd5c3cd08e3f173687224d6bab9a520e5d33",
+          "output_sha256": "32cffad4cb4a6e39395086763c318fbd3c5cdcc029e019a3a9e1808617db109a",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86897.yaml",
             "sha256": "dd24f0868f662edd90d686fcbec86196baadd80cd3446f52bacbae903869b0da",
@@ -1607,7 +1608,7 @@
           "title": "Air-Source Heat Pump Boiler and Natural Gas Boiler Backup",
           "input_sha256": "337aee5d46a0849ba0ecec47df7248341bcf7bbecf64048baf7155ba8552ea84",
           "output_path": "upgrade_measures/measure_pdfs/87536.md",
-          "output_sha256": "06a195a7ced21cce436c9df588f2ed7df205efa3814fd25067cab3871700d91b",
+          "output_sha256": "319596e7ff7ba870eaf4b2ab97ab85ec3bf8a10cbfa5aa021b06c91bc4b7dd42",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/87536.yaml",
             "sha256": "30717fc9a590b71acd297d301df6b1233882025c3c3b8d9d60af0a0d2dc97b7b",
@@ -1647,7 +1648,7 @@
           "title": "Exhaust Air Heat/Energy Recovery",
           "input_sha256": "f9b51313bf2435991d52fc5695a7858c8fd87a0422e9310e6d66d8f539f9635e",
           "output_path": "upgrade_measures/measure_pdfs/87542.md",
-          "output_sha256": "6a16b24ad8ff16e079db368f50db69c3d51cefc4687480648a3cda259d6677ba",
+          "output_sha256": "b543ed70d0af4dabfc927820f916386d3db7fe5f2b1080f42333d73504ec861e",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/87542.yaml",
             "sha256": "fcccc120716b12002f07170cb37ac7851a7ce924776e59b1fa551152313f6206",
@@ -1680,7 +1681,7 @@
           "title": "Heat Pump RTU with Original Fuel Backup",
           "input_sha256": "b0a451118921cbe20f24ac62bd785dc2927de3e9dfafd7f5d663c0e78fb4e5c4",
           "output_path": "upgrade_measures/measure_pdfs/87570.md",
-          "output_sha256": "28bd19d819cc0fddb48befade668fc447513bddb41951cd41d5f09547f488928",
+          "output_sha256": "8c92af9a4b842b8874203e6aa0dcffd707e17e845f88a901be362302103b6d4c",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/87570.yaml",
             "sha256": "d535ddb3483d58c2975c4435805c91b80bc1151e8b259dffa579918dc3811910",
@@ -1708,7 +1709,7 @@
           "title": "End-Use Savings Shapes",
           "input_sha256": "1b783132c54c6c28f1a4049801905f57f2b96def015003cb079d9393d670f16d",
           "output_path": "upgrade_measures/measure_pdfs/87746.md",
-          "output_sha256": "2a7e76ffefe009947c7fb9309f35f14ba83db0c33bc66c85111c971dc94126d0",
+          "output_sha256": "82e02e2caedd6226d332f8e44cf9f658d368c285d5e797fd9871c4867eb674e6",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/87746.yaml",
             "sha256": "e864917474edf0d9190737fea3f3f6710fc30334592ed4324b87f000bff4ef6c",
@@ -1772,7 +1773,7 @@
           "title": "Variable Refrigerant Flow With 25% Upsizing Allowance for Heating",
           "input_sha256": "28cea1febfd6bdabb0fc0635f0c89efd44a183c80158b7f5562f83e969698762",
           "output_path": "upgrade_measures/measure_pdfs/89040.md",
-          "output_sha256": "e1694eaa7c3c928d837f27a828dc4398843318a17e620a86f24f51008556c80b",
+          "output_sha256": "13a4f53510cee0b6ab824e05f31539a4d7593aa7ecde8d511aa355a8b2afb113",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89040.yaml",
             "sha256": "989a579483000fa1bfd8aa2550364b2827a6b9bbe61dc696371f2c7b30c1bf25",
@@ -1812,7 +1813,7 @@
           "title": "Advanced Rooftop Unit Control",
           "input_sha256": "427acb6d738f013bc3cdef41b8bdbffd61a943b9e8fa4cf76ee961df3386a474",
           "output_path": "upgrade_measures/measure_pdfs/89117.md",
-          "output_sha256": "f6cd1c077d05350bb5223fbfdc9d13ab6c3f8d8219fb7fb739dfd0fbe21954fe",
+          "output_sha256": "ab2574c9976e8c873b99d4a7e8e528bbd4fbc55aac0ef077fcffbadaffd51f57",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89117.yaml",
             "sha256": "dd13403cfd5bfceed2aec013c6b9104c6a521e2b42929a8bfdbab99f8b29ccc2",
@@ -1848,7 +1849,7 @@
           "title": "Improved Fan Scheduling and Control of Outdoor Air During Unoccupied Periods",
           "input_sha256": "a57db276a7037c4f8eaae4d5c52972e5fcda52d9a2de50875099bae3455bf275",
           "output_path": "upgrade_measures/measure_pdfs/89120.md",
-          "output_sha256": "609f2d06bc60af7caf14f0a89123edd037c6fc3d69a6e5cd6d24729f4e4adb40",
+          "output_sha256": "7cdc15679e1311003268c82449732bda65ef8a31794d82845bae42e2a458c354",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89120.yaml",
             "sha256": "5f606a521d6a466a4f372436125605ae25a07c27a5fecbe4dad3490443966327",
@@ -1880,7 +1881,7 @@
           "title": "HP-RTU + ASHP Boiler + Demand Control Ventilation + Heat/Energy Recovery + Economizers",
           "input_sha256": "68cc557325046095d37ac589ab50a713377945180193b43154422f5a981046f8",
           "output_path": "upgrade_measures/measure_pdfs/89128.md",
-          "output_sha256": "591fcfc66785bc49dc3d49a5ee3ee935f28fbdb6cf1982cdedbdb424aeefb33e",
+          "output_sha256": "a03167254c4d693816f38febb53dfb235e6e3ffd916d79e72711a8e6283d1996",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89128.yaml",
             "sha256": "9c0a291916c035cd739b470a331dba181ee044a43a077af851937e4463a65fc9",
@@ -1916,7 +1917,7 @@
           "title": "Electric Cooking Equipment",
           "input_sha256": "917d4d390ae5079df21c37db82e6bf09c55af54f642c1b574b903d592fcd134e",
           "output_path": "upgrade_measures/measure_pdfs/89130.md",
-          "output_sha256": "4e525232c15dfbbe048352ce96ef9a0efc6c64a0118e8896b4257c96f3319019",
+          "output_sha256": "b75fa664701947651997076858e31226a2c5349ef95b03293dd2cad3510a1822",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89130.yaml",
             "sha256": "f9a88e9683eb5970f20fff71fd7ec20b5a74543dd670e8db1ce1be6cea2d2514",
@@ -1954,7 +1955,7 @@
           "title": "Packaged Water-to-Air Geothermal Heat Pump",
           "input_sha256": "85880d4c853a58d9d7fd9b0968d231eb067b7290f557423b95412f4dc75326b1",
           "output_path": "upgrade_measures/measure_pdfs/89131.md",
-          "output_sha256": "167b892b52b5c6083998bfab32922079d7d3ad68e7bf4bc5fdb0e10f1cb4ef4f",
+          "output_sha256": "726e8a029cd9cdf4c2f2bc261ff31c5beb3e46124fdc0ed875319e6870c109cd",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89131.yaml",
             "sha256": "24a4d3ae06e65761076605be372ca8786d7aece047699371a0aa4c1458bfee86",
@@ -1982,7 +1983,7 @@
           "title": "Ground-Coupled Console Water-to-Air Heat Pump",
           "input_sha256": "d27965b6024345d0e5cbc9b992a860ade04061b1a852737a9d0147ddd4acea75",
           "output_path": "upgrade_measures/measure_pdfs/89132.md",
-          "output_sha256": "9fe7ecef22f2734b1d89d421b9dc35a0e5419cea2e9bed66979fe3e521129a3b",
+          "output_sha256": "11504039e81799eb404713d0403a9401701e20c5710a16f38e2fe7d8e5d7c861",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89132.yaml",
             "sha256": "3bb059e3d9ffe2f08e09d787e78fac5188a248a775730b053868f0fe0a4007fd",
@@ -2007,7 +2008,7 @@
           "title": "Comprehensive Geothermal Heat Pump Package, Hydronic GHP, Packaged GHP, or Console GHP",
           "input_sha256": "4a0bd34653edc9575fe758a285e562e617c5068f1dddfb58a008541a0e7044d7",
           "output_path": "upgrade_measures/measure_pdfs/89133.md",
-          "output_sha256": "bdcc592163793ce584eeb8a51054619ca3d67e4dc1c02ab3fe6717b58f2d563e",
+          "output_sha256": "6df41c696d6e8feae692ad38263c920194e0ccc874ba4723a5a9deca356a06ea",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89133.yaml",
             "sha256": "69f83ef5c52040ce5444cd8d45212f2512b68ab62a7095b5964656f97c000c49",
@@ -2031,7 +2032,7 @@
           "title": "Central Ground-Source Water-to-Water Heat Pump",
           "input_sha256": "14a5392a8c27b99ffb63774e045b5c0184fade4bf2f841845e7fedc012865d34",
           "output_path": "upgrade_measures/measure_pdfs/89239.md",
-          "output_sha256": "062daf7858fa37938ff5e62329c75ae55aabd5141f29951c32e2c19a8e0d03bc",
+          "output_sha256": "f7b782c63ab2a8f955a3c7090b85186574fc56144af3e57ded7ce523b680c0f4",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89239.yaml",
             "sha256": "9a2174818d2d3f416a8cd7eb3d3aa27132033d79c262c48dc58ca2cd09620219",
@@ -2070,7 +2071,7 @@
           "title": "Thermostat Control for Load Shedding",
           "input_sha256": "6f332db13bcc769e23398c1671f8f8accf98103f00a28872e827596d1fa31e20",
           "output_path": "upgrade_measures/measure_pdfs/89340.md",
-          "output_sha256": "e4c21f18ea72330e9843f6379c8ed68dae1793747600200c2f337f241bda148c",
+          "output_sha256": "4a8fac9d7d46e2f2122c58010bad65ef0611e852878491dd503a32406784cc07",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89340.yaml",
             "sha256": "1eb6696eaaf5c6e64935c0d5bd36f51905700b7c95b2ce53dbab6e2f9304ebae",
@@ -2103,7 +2104,7 @@
           "title": "Thermostat Control for Load Shifting",
           "input_sha256": "42458a537dad6d4ed7e8d64fbdc0fde8d13dac6f40ffb61ba225c7f48c4b0e3e",
           "output_path": "upgrade_measures/measure_pdfs/89341.md",
-          "output_sha256": "c2fb13eef74ce62758fa23e2927178666794f52669994a3c6612d119dc80fac4",
+          "output_sha256": "35278830aea3d335c13ec5599502b560355679f5582201d76494503350e069f3",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89341.yaml",
             "sha256": "b56fc71edeedb2b042153274c599f31c4fbfffb125af0e6aa790bdeee636c819",
@@ -2133,7 +2134,7 @@
           "title": "End-Use Savings Shapes Measure Documentation:",
           "input_sha256": "0181a0a3c8a946eee048ce240c43310938149931702f93c081626624c575b95a",
           "output_path": "upgrade_measures/measure_pdfs/89343.md",
-          "output_sha256": "5d9244f0e3a62dd9318e911556135efc8935b8b37feabfc033068727b87393eb",
+          "output_sha256": "f069f690908f9c77fd2f8deb52a76d241df6d1bd2166ebe6692696863836ac49",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89343.yaml",
             "sha256": "a751ea4b4ac63447588544a58c1f528fe380f6df3e3486d96f5df3b8bc7bd9f3",
@@ -2153,7 +2154,7 @@
           "title": "Heat Pump RTU with Exhaust Air Energy Recovery",
           "input_sha256": "e42a2d212760f7fecf76ed67e1e1b9b1fe55258b70d85b5f794bfdf89b13a37b",
           "output_path": "upgrade_measures/measure_pdfs/89481.md",
-          "output_sha256": "f06f2255e4c3bc22d91752d1ac775ea14a578441edf99ed60a7e6f4d1f177d94",
+          "output_sha256": "1527e6fda6476077876f4786a642de4ca6718d28e71aa62693f1eb745f6d3670",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89481.yaml",
             "sha256": "a262a73e370853175495e2eebcbd62e35a6586cbd635bda335223f1292ecc1c5",
@@ -2186,7 +2187,7 @@
           "title": "End-Use Savings Shapes",
           "input_sha256": "dcc921f4c71fed1a05532786f29a03ecd95531ba4494a2265f934b3635ebbd24",
           "output_path": "upgrade_measures/measure_pdfs/89653.md",
-          "output_sha256": "5288b06b72d55747cf09068f62e91138fbe20bc90a294b06d67e93a99a8f1cac",
+          "output_sha256": "48a6b1cdb22d1a9f68de9cd9d0532ed02b68727c750a85ffd6397ae112e9f9b6",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89653.yaml",
             "sha256": "24d54f697603fc7b04367b70c851e7ca85755c07e672544eedfe4da46909ec83",
@@ -2247,7 +2248,7 @@
           "title": "Heat Pump Rooftop Units With Standard Performance",
           "input_sha256": "73340f4db3973580c0244e6d44c4b730832c495437270fd26baa9dbfba8543c0",
           "output_path": "upgrade_measures/measure_pdfs/89042.md",
-          "output_sha256": "581c326797c8d4a55ce2ff7d745477e5c4687254d152246d6c8c29dc1f8cf5c6",
+          "output_sha256": "f66ba4d81bff6e8669163e37c8da2585114b5a99b748fad901f6691546c31328",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89042.yaml",
             "sha256": "87afe13e6e7dc947546afd2fa65038403e07a5bafa8afe6e248c9d8901263e13",
@@ -2292,7 +2293,7 @@
           "title": "LED Lighting, Standard Performance HP-RTU and ASHP-Boiler",
           "input_sha256": "75a157ce3e645e97f06a1d52fdfe22cc252ba28bd261a6d7088dde8c59fdd947",
           "output_path": "upgrade_measures/measure_pdfs/89126.md",
-          "output_sha256": "d76f1902ee6b492d8155ecddbf39c00db6dfb7c21a84291c8183e283d0d7951e",
+          "output_sha256": "c343160354711ec5c52d4cd4e8f006b5ae37cf4cd34e8f729032cfcfacc3e76c",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89126.yaml",
             "sha256": "917463449c1c96195802e8492caf43bbcef0624e828ac77122188bd9b94f15d4",
@@ -2321,7 +2322,7 @@
           "title": "Ideal Thermal Air Loads",
           "input_sha256": "8e39bddcc97c54c144610cdb214b535989f9dc8bc33aa020dbaedfe8db24a239",
           "output_path": "upgrade_measures/measure_pdfs/92546.md",
-          "output_sha256": "12b8d4e92633eafbb7e7950721f19a81b70de955dee681fd843a38c0811ccf47",
+          "output_sha256": "20b7f98868d650ced60321ac8ce2699f98f8969f7efa9c31c735678ed54e491d",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/92546.yaml",
             "sha256": "d368faa19b5e029e0266d29f58698c767cd216ae5f0c300dded1fe7365aeec17",
@@ -2342,7 +2343,7 @@
           "title": "Standard Performance Heat Pump Rooftop Unit with New Roof",
           "input_sha256": "f03bdb09b5fc391cf99eeb27596086db1f499279a7e1a5009a9532b81fe2823a",
           "output_path": "upgrade_measures/measure_pdfs/92618.md",
-          "output_sha256": "801453144982bc60ef1255aa1d248f208e1eaf394db3f888b01bdaa684d5a37a",
+          "output_sha256": "11615edbd97ad9d5a6ad58b07db306a3748c21dc242f71646c2a4bc79a2f8257",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/92618.yaml",
             "sha256": "b0a4fb23ba451cc30542ab205cdc8ba4f53fbb42590f58a47d8f07f5c0cdca6e",
@@ -2371,7 +2372,7 @@
           "title": "ComStock Standard Dataset Release",
           "input_sha256": "5cab79ed38185985f08dc28c145baef5b1975480c9ac739b6b2debc9b5f19ab4",
           "output_path": "upgrade_measures/measure_pdfs/92766.md",
-          "output_sha256": "4ef4fddedaec37e9993eb56ab7758fa0ecc5fbadaf75e896ae9bb3c269910894",
+          "output_sha256": "9696bf38a1ab2043f6e9c939516675977bff3b40ed35cebdeb50b0ecb6ac9437",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/92766.yaml",
             "sha256": "f384f79b72627dc6c9f4bab6e3bd4de56d043e043942a63caed9055366e54bd1",
@@ -2418,7 +2419,7 @@
           "title": "Lighting Control for Load Shedding",
           "input_sha256": "62f9c11c6d3e6d9c35700a7dc9c74f204b3196e476e1fb9e97ee528e74b6085e",
           "output_path": "upgrade_measures/measure_pdfs/92502.md",
-          "output_sha256": "baf6cc9aea4f934acb62aa508b355806b1864c2fba150189fba3df245a7e3f42",
+          "output_sha256": "0692dfb17a331b55a3b13ae450dd0004fb93c9d36817ca285dc1371f4db32d82",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/92502.yaml",
             "sha256": "c972494e90536e447feb96976ea5e8a17b771b82855f797b6e55f2e8032c9df9",
@@ -2449,7 +2450,7 @@
           "title": "Heat Pump Rooftop Units With Higher Compressor Lockout Temperature for Heating",
           "input_sha256": "4a9ec2da0c73739e62864378fde4a9d2ebfc7c7872aeaa4c338564c588c69973",
           "output_path": "upgrade_measures/draft_publications/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.md",
-          "output_sha256": "66108fdc377e2be9da02a152d475d439532cbd94ae282be3d6f7144f445c0564",
+          "output_sha256": "e249b77cfa1bd864f36fab40d441b3c3afc10d99ad22ade1b5613942cfc974a1",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/assets/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.yaml",
             "sha256": "5e1c2241254fd9634cb476389346ad741d18245abe7da28d456fc3a3a908d89d",
@@ -2464,7 +2465,7 @@
           "title": "Photovoltaics With 40% Rooftop Coverage and Battery Storage",
           "input_sha256": "8d88850523d4a3a0223bdba0b370575ab9642272b0ca0c825c1d65df81b532bf",
           "output_path": "upgrade_measures/draft_publications/files/ComStock Measure Doc_PV with Battery Storage.md",
-          "output_sha256": "be847506580b3bdaaa2baa041d1d4efc8ca0f4bbcda9f8d5fa5146e80549039e"
+          "output_sha256": "b82154cd77d194e4ee3f03724e2922e27fd6f3205cd395dab8135d5b0bf23b12"
         }
       ]
     }

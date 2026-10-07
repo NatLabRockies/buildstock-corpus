@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/hospital_modeling.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/hospital_modeling.md | corpus_version: 76f3d84 -->
 # ComStock Hospital Modeling
 
 ## Summary

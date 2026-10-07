@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/citation.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/citation.md | corpus_version: 76f3d84 -->
 # Citation and Data Attribution
 
 # Suggested Citation

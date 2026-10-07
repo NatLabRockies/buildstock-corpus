@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/2025_release_2_packages_known_issue.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/2025_release_2_packages_known_issue.md | corpus_version: 76f3d84 -->
 # Geothermal Heat Pump and Demand Flexibility Package Naming in ComStock 2025 Release 2
 
 # Issue Report: Geothermal Heat Pump and Demand Flexibility Package Naming in ComStock 2025 Release 2

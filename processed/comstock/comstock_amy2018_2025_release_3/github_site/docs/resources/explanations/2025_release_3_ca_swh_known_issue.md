@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/2025_release_3_ca_swh_known_issue.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/2025_release_3_ca_swh_known_issue.md | corpus_version: 76f3d84 -->
 # California Service Water Heating in ComStock 2025 Release 3
 
 # Issue Report: California Service Water Heating in ComStock 2025 Release 3

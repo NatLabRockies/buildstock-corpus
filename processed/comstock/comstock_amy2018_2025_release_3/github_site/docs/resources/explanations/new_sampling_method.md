@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/new_sampling_method.md -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/new_sampling_method.md | corpus_version: 76f3d84 -->
 # New ComStock Sampling Method
 
 ComStock™ uses statistical sampling methods to generate building energy models that represent the U.S. commercial building stock.
