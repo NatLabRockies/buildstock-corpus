@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/reference_geographic_codes.md | corpus_version: 76f3d84 -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/reference_geographic_codes.md | corpus_version: bc1a784 -->
 # Geographic Fields and Codes
 
 ## Is there a legend or lookup for the geographic codes (G0100010, G01000100, etc.) in ComStock data sets?

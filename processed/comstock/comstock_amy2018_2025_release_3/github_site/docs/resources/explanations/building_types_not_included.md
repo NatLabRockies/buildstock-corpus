@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/building_types_not_included.md | corpus_version: 76f3d84 -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/building_types_not_included.md | corpus_version: bc1a784 -->
 # Building Types Not Included in ComStock
 
 *This resource incorporates updates in ComStock 2025 Release 3, including the addition of a new building type, and applies to all subsequent releases.*
