@@ -43,6 +43,7 @@ def _artifact(source_path: str, title: str, output_path: str, **extra) -> dict:
         "source_path": source_path,
         "source_type": "latex",
         "status": "site_page",
+        "publication_url": f"https://natlabrockies.github.io/ComStock.github.io/{source_path.rsplit('.', 1)[0]}.html",
         "title": title,
         "input_sha256": "a" * 64,
         "output_path": output_path,
@@ -170,7 +171,7 @@ def test_pipe_in_a_title_does_not_break_the_table(workspace):
     row = next(ln for ln in _map_text().splitlines() if "doc/a.md" in ln)
     assert "Cooling \\| Heating" in row
     # Count delimiters only: the escaped pipe inside the cell must not be one of them.
-    assert row.replace("\\|", "").count("|") == 6, f"escaping changed the column count: {row}"
+    assert row.replace("\\|", "").count("|") == 7, f"escaping changed the column count: {row}"
 
 
 def test_sample_build_is_marked_as_partial(workspace):
@@ -368,3 +369,45 @@ def test_recorded_stamp_round_trips(workspace):
     result = M.build_map("comstock", RELEASE)
 
     assert M.recorded_manifest_sha256("comstock", RELEASE) == result["manifest_sha256"]
+
+
+# --- the Published column ----------------------------------------------------------------------
+
+
+def test_document_rows_link_their_publication_under_a_short_label(workspace):
+    """A full URL per row would double the table's width; the status word carries the kind
+    of publication and the URL sits behind it."""
+    _write_manifest([_artifact("doc/a.tex", "Envelope", "technical_reference/doc/a.md")])
+    _write_chunk_rows([_meta("doc/a.tex", "Envelope", "Envelope > Windows")])
+
+    M.build_map("comstock", RELEASE)
+
+    text = _map_text()
+    assert "| Published |" in text
+    row = next(ln for ln in text.splitlines() if "technical_reference/doc/a.md" in ln)
+    assert row.rstrip().endswith("| [site_page](https://natlabrockies.github.io/ComStock.github.io/doc/a.html) |")
+
+
+def test_measure_rows_link_doc_url_and_gaps_show_a_dash(workspace):
+    _write_manifest([_artifact("measure_pdfs/89340.pdf", "Load Shed", "upgrade_measures/measure_pdfs/89340.md")])
+    _write_chunk_rows([_meta("measure_pdfs/89340.pdf", "Load Shed", "Load Shed > S")])
+    _write_crosswalk(
+        [
+            {"measure_id": "dr_0001", "documentation_name": "Load Shed", "doc_kind": "external_pdf",
+             "corpus_path": "upgrade_measures/measure_pdfs/89340.md",
+             "doc_url": "https://www.nlr.gov/docs/fy24osti/89340.pdf", "status": "osti_pdf",
+             "upgrade_id": "32", "upgrade_name": "Demand Flexibility"},
+            {"measure_id": "dr_0004", "documentation_name": "Undocumented", "doc_kind": "none",
+             "corpus_path": None, "doc_url": None, "status": "missing",
+             "upgrade_id": "35", "upgrade_name": "Lighting Control"},
+        ],
+        gaps=[{"measure_id": "dr_0004"}],
+    )
+
+    M.build_map("comstock", RELEASE)
+
+    lines = _map_text().splitlines()
+    documented = next(ln for ln in lines if "| 32 |" in ln)
+    assert documented.rstrip().endswith("| [osti_pdf](https://www.nlr.gov/docs/fy24osti/89340.pdf) |")
+    gap = next(ln for ln in lines if "| 35 |" in ln)
+    assert gap.rstrip().endswith("| — |")

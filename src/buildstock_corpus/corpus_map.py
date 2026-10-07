@@ -109,12 +109,24 @@ def _overlay_note(artifact: dict) -> str:
     return ", ".join(parts)
 
 
+def _published(status: str | None, url: str | None) -> str:
+    """The Published cell: the status word linking to the publication, or a dash.
+
+    A short label rather than the URL itself keeps the tables readable -- the map is the
+    first thing an agent reads -- while the status says what kind of publication the link
+    is (an OSTI report, a page or file on the ComStock site) before it is followed.
+    """
+    if not url:
+        return "—"
+    return f"[{status or 'link'}]({url})"
+
+
 def _source_section(src: dict, facts: dict[tuple[str, str], dict]) -> list[str]:
     lines = [
         f"### `{src['id']}` — {len(src.get('artifacts', []))} document(s)",
         "",
-        "| Document | Path | Top-level sections | Updated | Hand-authored |",
-        "| --- | --- | --- | --- | --- |",
+        "| Document | Path | Top-level sections | Updated | Hand-authored | Published |",
+        "| --- | --- | --- | --- | --- | --- |",
     ]
     for a in src.get("artifacts", []):
         rec = facts.get((src["id"], a["source_path"]), {})
@@ -128,7 +140,8 @@ def _source_section(src: dict, facts: dict[tuple[str, str], dict]) -> list[str]:
             f"| [`{a['output_path']}`]({a['output_path']}) "
             f"| {_cell('; '.join(shown))}{more} "
             f"| {rec.get('date') or '—'} "
-            f"| {_overlay_note(a) or '—'} |"
+            f"| {_overlay_note(a) or '—'} "
+            f"| {_published(a.get('status'), a.get('publication_url'))} |"
         )
     lines.append("")
     return lines
@@ -156,8 +169,8 @@ def _measures_section(crosswalk: dict) -> list[str]:
         f"{len(measures)} measure(s) in this release; "
         f"{crosswalk.get('counts', {}).get('covered', 0)} documented, {len(gaps)} tracked gap(s).",
         "",
-        "| Upgrade id | Measure | Upgrade name | Document |",
-        "| --- | --- | --- | --- |",
+        "| Upgrade id | Measure | Upgrade name | Document | Published |",
+        "| --- | --- | --- | --- | --- |",
     ]
     for m in measures:
         mid = m.get("measure_id", "")
@@ -177,7 +190,8 @@ def _measures_section(crosswalk: dict) -> list[str]:
             f"| {_cell(m.get('upgrade_id') or '—')} "
             f"| {_cell(m.get('documentation_name') or mid)} "
             f"| {_cell(m.get('upgrade_name') or '—')} "
-            f"| {doc} |"
+            f"| {doc} "
+            f"| {_published(m.get('status'), m.get('doc_url'))} |"
         )
     lines.append("")
     return lines
@@ -253,6 +267,10 @@ def _render(product: str, release: str, manifest: dict, manifest_sha: str, facts
         "plus its publication `status`, the `source_url` of the upstream file at its pinned "
         "commit, the `publication_url` a reader should be sent to, and the `corpus_version` "
         "of the build. Line 1 alone is enough to cite the file.",
+        "- **The Published column links the human-readable publication.** Its label is the "
+        "document's status: `osti_pdf` for a report with an OSTI number, `site_page` for a page "
+        "or file the ComStock site serves without one. Send a reader there, not to the "
+        "markdown.",
         "- **Images are not in the clone.** `processed/**/*.png` is gitignored (~250 MB, "
         "regenerable), so image references resolve to absent files. Tables and figure "
         "descriptions marked *hand-authored* were transcribed from those images, so the "
