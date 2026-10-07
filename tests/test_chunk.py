@@ -61,6 +61,15 @@ def test_chunk_metadata_and_breadcrumbs():
     assert "heating and cooling" in chunks[2].text
 
 
+def test_chunk_carries_the_documents_status_and_omits_it_when_unset():
+    """Retrieval filters and citation guidance key on status, so every chunk carries it;
+    None is omitted rather than written, because Chroma metadata cannot hold it."""
+    for c in chunk_document(_doc(status="site_page")):
+        assert c.metadata["status"] == "site_page"
+    for c in chunk_document(_doc()):
+        assert "status" not in c.metadata
+
+
 def test_chunk_ids_unique_and_ordered():
     chunks = chunk_document(_doc())
     ids = [c.id for c in chunks]

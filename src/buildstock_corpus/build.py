@@ -41,6 +41,7 @@ from .paths import (
 )
 from .provenance import default_corpus_version, render_header
 from .registry import Source, load_registry
+from .status import SITE_PAGE, status_for_url
 
 
 def _load_fetch_state(product: str, release: str) -> dict:
@@ -164,6 +165,41 @@ def _cap(items: list, sample: int | None) -> list:
     return items if sample is None else items[:sample]
 
 
+def _measure_statuses(src_state: dict) -> dict[str, str]:
+    """source_path -> publication status for every document of a measures source.
+
+    The index page's internal pages and the PDFs committed beside them are both things
+    the ComStock site serves, so both are site_page; a PDF fetched from elsewhere is judged
+    by its URL (see status.status_for_url). Keyed by the same source_path the extractors
+    stamp on each Document, so build can assign without re-deriving link kinds.
+    """
+    statuses: dict[str, str] = {}
+    for page in src_state.get("internal_pages", []):
+        statuses[page["path"]] = SITE_PAGE
+    for lp in src_state.get("local_pdfs", []):
+        statuses[lp["path"]] = SITE_PAGE
+    for e in src_state.get("external_pdfs", []):
+        statuses[e["path"]] = status_for_url(e["url"])
+    return statuses
+
+
+def _assign_status(docs: list[Document], src: Source, src_state: dict) -> None:
+    """Stamp every document of one source with its publication status."""
+    if src.type == "measures":
+        by_path = _measure_statuses(src_state)
+        for doc in docs:
+            try:
+                doc.status = by_path[doc.source_path]
+            except KeyError:
+                raise ValueError(
+                    f"{src.id}: no publication status for {doc.source_path}; it is not "
+                    f"among the fetched internal pages, local PDFs or external PDFs"
+                ) from None
+    else:
+        for doc in docs:
+            doc.status = src.status
+
+
 def _attach_internal_measure_identity(
     docs: list[Document], refs: list[MeasureRef], dates: dict[str, DocDate] | None = None
 ) -> None:
@@ -266,6 +302,8 @@ def _extract_documents(
             cw = src_state.get("crosswalk")
             if cw:
                 crosswalk = build_crosswalk(clone_dir / cw["path"], refs, release, doc_dates)
+
+        _assign_status(docs[first:], src, src_state)
 
         # Everything not filled in above is a clone-sourced page, whose images sit beside it
         # at the same relative depth they keep in processed/.

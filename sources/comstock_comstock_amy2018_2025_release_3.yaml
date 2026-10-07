@@ -11,8 +11,14 @@
 product: comstock
 release: "comstock_amy2018_2025_release_3"
 
+# Publication status (see src/buildstock_corpus/status.py): osti_pdf for reports with an
+# OSTI number, site_page for anything the ComStock site publishes without one, whether as a
+# rendered page or a PDF file. latex/markdown sources declare one status for all their
+# documents here; the measures source derives it per document from the index page's links.
+
 sources:
-  # ComStock technical reference — LaTeX source, converted with pandoc.
+  # ComStock technical reference — LaTeX source, converted with pandoc. Published as a PDF
+  # on the ComStock site, without an OSTI number (owner decision 2026-10-06).
   - id: technical_reference
     type: latex
     repo: https://github.com/NatLabRockies/ComStock.git
@@ -21,6 +27,7 @@ sources:
     root_hint: documentation        # LaTeX project root within the repo
     doc_glob: "documentation/**/*.tex"
     latex_main: "documentation/reference_doc/main.tex"  # \include list drives chapter conversion
+    status: site_page
 
   # Public how-to / methodology site — Jekyll markdown, read directly.
   # Upgrade-measure pages are excluded here and handled by the measures source.
@@ -28,6 +35,7 @@ sources:
     type: markdown
     repo: https://github.com/NatLabRockies/ComStock.github.io.git
     git_ref: "2025_3"
+    status: site_page
     # assets/images is checked out for the figures the docs pages reference
     # (../assets/images/...), not for doc_glob — it holds no markdown.
     sparse: ["docs", "assets/images"]
@@ -45,13 +53,14 @@ sources:
     index_page: "docs/upgrade_measures/upgrade_measures.md"
     internal_dir: "docs/upgrade_measures"
     # Output-side directory renames. Source paths above are untouched: these only change
-    # where artifacts land under processed/, so the corpus does not inherit upstream dir
-    # names that misdescribe the content's publication status.
+    # where artifacts land under processed/.
+    #
+    # Measure documents the ComStock site serves itself, without an OSTI number, are one
+    # class (status site_page) whether the site renders them as pages or links a PDF file
+    # committed in the repo. Both land in unpublished_docs/, side by side: "unpublished"
+    # here means "no OSTI publication yet", not "absent from the site". When one gains an
+    # OSTI publication it is fetched from there instead and lands in measure_pdfs/.
     output_remap:
-      # Pages absent from the live ComStock site (their canonical public form is the
-      # external measure PDF), so they must not sit in a dir called "docs".
       "docs/upgrade_measures": "unpublished_docs/upgrade_measures"
-      # PDFs committed in the site repo rather than published to the NREL publications
-      # site. Once published they move to measure_pdfs/ and leave draft status.
-      "assets": "draft_publications"
+      "assets/files": "unpublished_docs/upgrade_measures"
     crosswalk_csv: "assets/files/measure_name_crosswalk_2025_3.csv"

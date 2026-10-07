@@ -13,6 +13,7 @@ import csv
 import re
 from pathlib import Path
 
+from ..status import MISSING, status_for_kind
 from .doc_dates import DocDate
 from .measures_index import MeasureRef
 
@@ -92,6 +93,7 @@ def build_crosswalk(
                 "initial_release": ref.initial_release if ref else None,
                 "doc_kind": ref.kind if ref else "unknown",
                 "doc_target": ref.target if ref else None,
+                "status": status_for_kind(ref.kind, ref.target) if ref else MISSING,
                 "date_last_updated": date,
                 "date_last_updated_source": date_source,
                 "in_release": bool(upgrade_id),
@@ -116,6 +118,7 @@ def build_crosswalk(
                 "initial_release": r.initial_release,
                 "doc_kind": r.kind,
                 "doc_target": r.target,
+                "status": status_for_kind(r.kind, r.target),
                 "date_last_updated": date,
                 "date_last_updated_source": date_source,
                 "in_release": None,

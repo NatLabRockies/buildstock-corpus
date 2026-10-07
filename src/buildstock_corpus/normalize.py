@@ -24,6 +24,7 @@ class Document:
     body: str  # cleaned markdown
     extra: dict = field(default_factory=dict)  # extra provenance folded into chunk metadata
                                                # (e.g. measure_id, measure_initial_release, url)
+    status: str | None = None  # publication status (see status.py); set by build, not extractors
 
 
 def collapse_blank_lines(text: str) -> str:

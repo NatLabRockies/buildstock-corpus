@@ -39,6 +39,7 @@ def _doc() -> Document:
         source_path="documentation/reference_doc/4_9_hvac.tex",
         title="HVAC Systems",
         body="# HVAC Systems\n\nbody\n",
+        status="site_page",
     )
 
 
@@ -139,6 +140,32 @@ def test_validate_fails_when_header_has_no_version(tmp_path, monkeypatch):
     errors = M.validate_manifest("comstock", RELEASE, manifest)
     assert len(errors) == 1
     assert "names no corpus_version" in errors[0]
+
+
+def test_artifact_status_is_recorded(tmp_path, monkeypatch):
+    proot = _patch(tmp_path, monkeypatch)
+    _write_output(proot)
+
+    manifest = M.build_manifest("comstock", RELEASE, [_doc()], None, [], {}, _state(), 1)
+
+    assert manifest["sources"][0]["artifacts"][0]["status"] == "site_page"
+    assert M.validate_manifest("comstock", RELEASE, manifest) == []
+
+
+def test_validate_fails_on_missing_or_unknown_status(tmp_path, monkeypatch):
+    """Citation guidance keys on status, so an artifact without a valid one cannot be cited."""
+    proot = _patch(tmp_path, monkeypatch)
+    _write_output(proot)
+    manifest = M.build_manifest("comstock", RELEASE, [_doc()], None, [], {}, _state(), 1)
+    art = manifest["sources"][0]["artifacts"][0]
+
+    art["status"] = None
+    errors = M.validate_manifest("comstock", RELEASE, manifest)
+    assert len(errors) == 1 and "status None" in errors[0]
+
+    art["status"] = "draft_pdf"  # a value the vocabulary no longer has
+    errors = M.validate_manifest("comstock", RELEASE, manifest)
+    assert len(errors) == 1 and "'draft_pdf'" in errors[0]
 
 
 def test_validate_fails_when_manifest_has_no_version(tmp_path, monkeypatch):

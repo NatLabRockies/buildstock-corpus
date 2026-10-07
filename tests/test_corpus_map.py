@@ -42,6 +42,7 @@ def _artifact(source_path: str, title: str, output_path: str, **extra) -> dict:
     return {
         "source_path": source_path,
         "source_type": "latex",
+        "status": "site_page",
         "title": title,
         "input_sha256": "a" * 64,
         "output_path": output_path,

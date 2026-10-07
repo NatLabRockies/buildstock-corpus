@@ -30,6 +30,7 @@ from .paths import (
     sha256_file,
 )
 from .provenance import default_corpus_version, read_header
+from .status import STATUSES
 
 PIPELINE_VERSION = "0.1.0"
 _COVERED_KINDS = {"internal_md", "external_pdf", "local_pdf"}
@@ -143,6 +144,7 @@ def build_manifest(
         artifact = {
             "source_path": doc.source_path,
             "source_type": doc.source_type,
+            "status": doc.status,
             "title": doc.title,
             "input_sha256": src_hashes.get(doc.source_id, {}).get(doc.source_path),
             "output_path": out_rel,
@@ -339,6 +341,12 @@ def validate_manifest(
             where = f"{src.get('id')}: {a.get('output_path')}"
             if not a.get("input_sha256"):
                 errors.append(f"{where}: output has no hashed source input")
+            # Status is what citation guidance keys on, so an artifact without one, or with
+            # a value outside the vocabulary, cannot be cited correctly.
+            if a.get("status") not in STATUSES:
+                errors.append(
+                    f"{where}: status {a.get('status')!r} is not one of {sorted(STATUSES)}"
+                )
             recorded = a.get("output_sha256")
             out_abs = proot / a.get("output_path", "")
             if not recorded:

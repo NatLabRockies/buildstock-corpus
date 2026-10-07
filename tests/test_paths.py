@@ -21,7 +21,7 @@ RELEASE = "comstock_amy2018_2025_release_3"
 
 REMAP = {
     "docs/upgrade_measures": "unpublished_docs/upgrade_measures",
-    "assets": "draft_publications",
+    "assets/files": "unpublished_docs/upgrade_measures",
 }
 
 
@@ -44,9 +44,16 @@ def test_remap_rewrites_nested_source_dir():
     )
 
 
-def test_remap_rewrites_single_segment_source_dir():
+def test_two_source_dirs_can_share_one_output_dir():
+    """Site-served measure PDFs land beside the site-served measure pages."""
     assert output_rel("upgrade_measures", "assets/files/ComStock Measure Doc.pdf", REMAP) == (
-        "upgrade_measures/draft_publications/files/ComStock Measure Doc.md"
+        "upgrade_measures/unpublished_docs/upgrade_measures/ComStock Measure Doc.md"
+    )
+
+
+def test_remap_rewrites_single_segment_source_dir():
+    assert output_rel("upgrade_measures", "assets/x.pdf", {"assets": "drafts"}) == (
+        "upgrade_measures/drafts/x.md"
     )
 
 
@@ -74,7 +81,7 @@ def test_longest_matching_prefix_wins():
 def test_remap_applies_to_image_dirs_not_just_docs():
     """Image dirs travel with their .md file, so relative refs keep resolving."""
     assert remap_dir("assets/files/ComStock_Measure_Doc_images", REMAP) == (
-        "draft_publications/files/ComStock_Measure_Doc_images"
+        "unpublished_docs/upgrade_measures/ComStock_Measure_Doc_images"
     )
     assert remap_dir("docs/upgrade_measures/media", REMAP) == (
         "unpublished_docs/upgrade_measures/media"

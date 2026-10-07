@@ -7,6 +7,7 @@ from dataclasses import dataclass, field
 import yaml
 
 from .paths import sources_file
+from .status import STATUSES
 
 SOURCE_TYPES = {"latex", "markdown", "measures"}
 
@@ -26,10 +27,13 @@ class Source:
     index_page: str | None = None
     internal_dir: str | None = None
     crosswalk_csv: str | None = None
-    # source dir -> output dir, for dirs the corpus must not name the way upstream does
-    # (e.g. upstream "docs" holds pages absent from the live site). Output-side only:
-    # source_path, input hashes, and the fetch/sparse config are never rewritten.
+    # source dir -> output dir, for dirs the corpus must not name the way upstream does.
+    # Output-side only: source_path, input hashes, and the fetch/sparse config are never
+    # rewritten.
     output_remap: dict[str, str] = field(default_factory=dict)
+    # Publication status shared by every document of this source (see status.py). Required
+    # for latex/markdown sources; a measures source derives it per document instead.
+    status: str | None = None
 
 
 @dataclass
@@ -79,6 +83,7 @@ def load_registry(product: str, release: str) -> Registry:
             internal_dir=raw.get("internal_dir"),
             crosswalk_csv=raw.get("crosswalk_csv"),
             output_remap=dict(raw.get("output_remap") or {}),
+            status=raw.get("status"),
         )
         if src.type not in SOURCE_TYPES:
             raise ValueError(f"source '{src.id}': unknown type '{src.type}'")
@@ -102,6 +107,17 @@ def _validate_source(src: Source, path) -> None:
     missing = [f for f in required if not getattr(src, f)]
     if missing:
         raise ValueError(f"source '{src.id}' ({src.type}) missing required fields: {missing}")
+    if src.type == "measures":
+        if src.status is not None:
+            raise ValueError(
+                f"source '{src.id}' (measures) must not set status: it is derived per "
+                f"document from the index page's link kinds"
+            )
+    elif src.status not in STATUSES:
+        raise ValueError(
+            f"source '{src.id}' ({src.type}): status {src.status!r} must be one of "
+            f"{sorted(STATUSES)}"
+        )
     for src_dir, out_dir in src.output_remap.items():
         if not str(src_dir).strip("/ ") or not str(out_dir).strip("/ "):
             raise ValueError(
