@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/costing_analysis.md | corpus_version: 60076ab -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/costing_analysis.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/explanations/costing_analysis.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/costing_analysis.html | corpus_version: 4e1f08c -->
 # Cost Analysis
 
 # Using ComStock to Analyze Cost
