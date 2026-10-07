@@ -21,7 +21,7 @@ import yaml
 
 from .corpus_map import MAP_FILENAME, recorded_manifest_sha256
 from .index import EMBED_MODEL
-from .links import is_absolute_https, repo_file_url, site_file_url, site_page_url
+from .links import is_absolute_https
 from .overlay import entry_kind
 from .paths import (
     OVERLAYS_DIR,
@@ -30,8 +30,7 @@ from .paths import (
     processed_root,
     sha256_file,
 )
-from .provenance import default_corpus_version, read_header
-from .registry import Registry, Source, load_registry
+from .provenance import HEADER_FIELDS, default_corpus_version, read_header
 from .status import STATUSES
 
 PIPELINE_VERSION = "0.1.0"
@@ -91,41 +90,6 @@ def _by_type(docs) -> dict[str, int]:
     return out
 
 
-def artifact_urls(
-    source_path: str, src: Source, src_state: dict, clone: dict | None
-) -> tuple[str, str]:
-    """(source_url, publication_url) for one document -- see links.py for what each means.
-
-    A PDF fetched from an external URL (an OSTI report) has that URL as both: it is where
-    the bytes came from and where a reader should be sent. Everything else came out of a
-    clone, so its source is the file at the clone's commit, and its publication is the
-    live site page (markdown), the file the site serves (any other repo file), or, for a
-    latex source, the one publication the registry names for all its chapters.
-    """
-    for e in src_state.get("external_pdfs", []):
-        if e.get("path") == source_path and e.get("url"):
-            return e["url"], e["url"]
-    if not clone:
-        raise ValueError(f"{src.id}: no clone record for {source_path}; cannot build source_url")
-    source_url = repo_file_url(clone["repo"], clone.get("sha", ""), source_path)
-    if src.type == "latex":
-        publication_url = src.publication_url or ""
-    elif source_path.endswith(".md"):
-        publication_url = site_page_url(src.site_url or "", source_path)
-    else:
-        publication_url = site_file_url(src.site_url or "", source_path)
-    return source_url, publication_url
-
-
-def _clone_for(src_state: dict, clones: list[dict]) -> dict | None:
-    """The clone record a source's documents came out of (matched on its dest dir)."""
-    dest = src_state.get("clone")
-    for c in clones:
-        if c.get("dest") == f"repos/{dest}" or c.get("dest") == dest:
-            return c
-    return None
-
-
 def build_manifest(
     product: str,
     release: str,
@@ -139,7 +103,6 @@ def build_manifest(
     sample: int | None = None,
     overlays: dict[str, dict] | None = None,
     corpus_version: str | None = None,
-    registry: Registry | None = None,
 ) -> dict:
     """Assemble and write manifest.json from the just-built documents + fetch state.
 
@@ -147,8 +110,10 @@ def build_manifest(
     file headers were written with: validate_manifest checks them against each other.
     None falls back to the current commit's hash, as build does.
 
-    `registry` supplies each source's site_url / publication_url for the artifact links
-    (see artifact_urls); None loads the release's registry from sources/.
+    Each document's status, source_url and publication_url are read from the Document,
+    where build resolved them before writing the file (see build._assign_provenance), so
+    the row and the file header come from one value. A document without them is an error
+    here, not a row with blanks.
 
     `remaps` mirrors the output-dir remapping build applied when writing the files, so
     recorded output_paths point at where the artifacts actually landed. source_path
@@ -167,9 +132,7 @@ def build_manifest(
     remaps = remaps or {}
     overlays = overlays or {}
     corpus_version = corpus_version or default_corpus_version()
-    registry = registry or load_registry(product, release)
     src_hashes = input_hashes(state)
-    clones = state.get("clones", [])
 
     sources_out: dict[str, dict] = {}
     for doc in docs:
@@ -185,16 +148,17 @@ def build_manifest(
                 "artifacts": [],
             },
         )
-        source_url, publication_url = artifact_urls(
-            doc.source_path, registry.by_id(doc.source_id), src_state,
-            _clone_for(src_state, clones),
-        )
+        if not (doc.source_url and doc.publication_url):
+            raise ValueError(
+                f"{doc.source_id}: {doc.source_path} has no source_url/publication_url; "
+                f"build must resolve them before the manifest is written"
+            )
         artifact = {
             "source_path": doc.source_path,
             "source_type": doc.source_type,
             "status": doc.status,
-            "source_url": source_url,
-            "publication_url": publication_url,
+            "source_url": doc.source_url,
+            "publication_url": doc.publication_url,
             "corpus_version": corpus_version,
             "title": doc.title,
             "input_sha256": src_hashes.get(doc.source_id, {}).get(doc.source_path),
@@ -417,17 +381,25 @@ def validate_manifest(
                 errors.append(f"{where}: output file missing on disk")
             elif _sha256_file(out_abs) != recorded:
                 errors.append(f"{where}: output hash mismatch (file changed since build)")
-            elif corpus_version:
+            else:
+                # The header is all a consumer who fetched this one file has, so it must
+                # say exactly what the manifest row says, field by field. The manifest's own
+                # corpus_version is the reference for that field (a row's copy is checked
+                # against it below).
                 header = read_header(out_abs)
+                expected = {**{k: a.get(k) for k in HEADER_FIELDS}, "corpus_version": corpus_version}
                 if header is None:
                     errors.append(f"{where}: line 1 is not a provenance header")
-                elif header.get("corpus_version") is None:
-                    errors.append(f"{where}: header names no corpus_version")
-                elif header["corpus_version"] != corpus_version:
-                    errors.append(
-                        f"{where}: header corpus_version {header['corpus_version']} "
-                        f"!= manifest {corpus_version}"
-                    )
+                else:
+                    for k in HEADER_FIELDS:
+                        if expected[k] is None:
+                            continue  # the row's own problem, reported elsewhere
+                        if header.get(k) is None:
+                            errors.append(f"{where}: header names no {k}")
+                        elif header[k] != expected[k]:
+                            errors.append(
+                                f"{where}: header {k} {header[k]!r} != manifest {expected[k]!r}"
+                            )
             if a.get("overlay"):
                 ov_errors, n_ok, n_ok_pdf, n_skip = _validate_overlay(proot, a, where)
                 errors += ov_errors

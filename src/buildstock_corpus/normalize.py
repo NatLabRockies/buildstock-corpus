@@ -24,7 +24,12 @@ class Document:
     body: str  # cleaned markdown
     extra: dict = field(default_factory=dict)  # extra provenance folded into chunk metadata
                                                # (e.g. measure_id, measure_initial_release, url)
-    status: str | None = None  # publication status (see status.py); set by build, not extractors
+    # Provenance the build resolves after extraction (see status.py, links.py). Set once per
+    # document and then read by both the header writer and the manifest, so the two cannot
+    # disagree.
+    status: str | None = None
+    source_url: str | None = None
+    publication_url: str | None = None
 
 
 def collapse_blank_lines(text: str) -> str:

@@ -265,8 +265,11 @@ def _render(product: str, release: str, manifest: dict, manifest_sha: str, facts
         "- **No vector index needed.** These are plain markdown files — read and grep them. "
         "`bsc query` exists for consumers *without* filesystem access and needs a ~1 hour "
         "`bsc index` build first.",
-        "- **Cite as `source_id/source_path`.** Every document opens with an HTML comment "
-        "recording the product, release, source id and upstream path it came from.",
+        "- **Cite as `source_id/source_path`.** Every document opens with a one-line HTML "
+        "comment recording the product, release, source id and upstream path it came from, "
+        "plus its publication `status`, the `source_url` of the upstream file at its pinned "
+        "commit, the `publication_url` a reader should be sent to, and the `corpus_version` "
+        "of the build. Line 1 alone is enough to cite the file.",
         "- **Images are not in the clone.** `processed/**/*.png` is gitignored (~250 MB, "
         "regenerable), so image references resolve to absent files. Tables and figure "
         "descriptions marked *hand-authored* were transcribed from those images, so the "

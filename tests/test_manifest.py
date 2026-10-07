@@ -10,34 +10,26 @@ from __future__ import annotations
 import hashlib
 import json
 
+import pytest
+
 import buildstock_corpus.manifest as M
 from buildstock_corpus.normalize import Document
-from buildstock_corpus.registry import Registry, Source
 
 RELEASE = "comstock_amy2018_2025_release_3"
 
 REF_PDF = "https://example.org/site/assets/files/comstock_reference_documentation_2025_3.pdf"
-REGISTRY = Registry(
-    product="comstock",
-    release=RELEASE,
-    sources=[
-        Source(
-            id="technical_reference", type="latex",
-            repo="https://github.com/NatLabRockies/ComStock.git", git_ref="2025-3",
-            doc_glob="documentation/**/*.tex", latex_main="documentation/reference_doc/main.tex",
-            status="site_page", publication_url=REF_PDF,
-        )
-    ],
-)
+SOURCE_URL = "https://github.com/NatLabRockies/ComStock/blob/abc123/documentation/reference_doc/4_9_hvac.tex"
 
 OUT_REL = "technical_reference/documentation/reference_doc/4_9_hvac.md"
 VERSION = "test-v1"
 OUT_CONTENT = (
     f"<!-- comstock {RELEASE} | technical_reference"
-    f" | documentation/reference_doc/4_9_hvac.tex | corpus_version: {VERSION} -->\n"
+    f" | documentation/reference_doc/4_9_hvac.tex | status: site_page"
+    f" | source_url: {SOURCE_URL} | publication_url: {REF_PDF}"
+    f" | corpus_version: {VERSION} -->\n"
     "# HVAC Systems\n\nbody\n"
 )
-# A header from before the field existed: valid shape, no version.
+# A header from before any labelled field existed: valid shape, nothing to check against.
 OUT_CONTENT_UNVERSIONED = (
     f"<!-- comstock {RELEASE} | technical_reference"
     " | documentation/reference_doc/4_9_hvac.tex -->\n"
@@ -55,6 +47,8 @@ def _doc() -> Document:
         title="HVAC Systems",
         body="# HVAC Systems\n\nbody\n",
         status="site_page",
+        source_url=SOURCE_URL,
+        publication_url=REF_PDF,
     )
 
 
@@ -86,9 +80,6 @@ def _patch(tmp_path, monkeypatch):
     # Pin the default so these never shell out to git, and so the fixture header above
     # matches what build_manifest records when no version is passed.
     monkeypatch.setattr(M, "default_corpus_version", lambda: VERSION)
-    # The registry supplies the publication links; pin a one-source one rather than
-    # reading the release's own sources/ file, so these stay hermetic.
-    monkeypatch.setattr(M, "load_registry", lambda p, r: REGISTRY)
     return proot
 
 
@@ -148,16 +139,39 @@ def test_validate_fails_when_header_names_another_version(tmp_path, monkeypatch)
     assert "other-v9" in errors[0] and VERSION in errors[0]
 
 
-def test_validate_fails_when_header_has_no_version(tmp_path, monkeypatch):
-    """A file from a pre-version build is a provenance gap, reported as such."""
+def test_validate_fails_when_header_has_no_fields(tmp_path, monkeypatch):
+    """A file from a pre-field build is a provenance gap, reported field by field."""
     proot = _patch(tmp_path, monkeypatch)
     _write_output(proot, OUT_CONTENT_UNVERSIONED)
 
     manifest = M.build_manifest("comstock", RELEASE, [_doc()], None, [], {}, _state(), 1)
 
     errors = M.validate_manifest("comstock", RELEASE, manifest)
+    assert sorted(e.rsplit("names no ", 1)[1] for e in errors) == [
+        "corpus_version", "publication_url", "source_url", "status",
+    ]
+
+
+def test_validate_fails_when_a_header_field_differs_from_its_row(tmp_path, monkeypatch):
+    """Hash agreement is not enough: each header field must say what the row says."""
+    proot = _patch(tmp_path, monkeypatch)
+    _write_output(proot, OUT_CONTENT.replace(f"publication_url: {REF_PDF}", "publication_url: https://example.org/other.pdf"))
+
+    manifest = M.build_manifest("comstock", RELEASE, [_doc()], None, [], {}, _state(), 1)
+
+    errors = M.validate_manifest("comstock", RELEASE, manifest)
     assert len(errors) == 1
-    assert "names no corpus_version" in errors[0]
+    assert "header publication_url 'https://example.org/other.pdf'" in errors[0]
+    assert REF_PDF in errors[0]
+
+
+def test_manifest_refuses_a_document_without_links(tmp_path, monkeypatch):
+    """Links are resolved by build onto the Document; a row with blanks is never written."""
+    _patch(tmp_path, monkeypatch)
+    doc = _doc()
+    doc.source_url = None
+    with pytest.raises(ValueError, match="no source_url/publication_url"):
+        M.build_manifest("comstock", RELEASE, [doc], None, [], {}, _state(), 1)
 
 
 def test_artifact_status_is_recorded(tmp_path, monkeypatch):
@@ -183,7 +197,10 @@ def test_validate_fails_on_missing_or_unknown_status(tmp_path, monkeypatch):
 
     art["status"] = "draft_pdf"  # a value the vocabulary no longer has
     errors = M.validate_manifest("comstock", RELEASE, manifest)
-    assert len(errors) == 1 and "'draft_pdf'" in errors[0]
+    # the row is wrong, and the (correct) header now disagrees with it
+    assert len(errors) == 2
+    assert any("'draft_pdf' is not one of" in e for e in errors)
+    assert any("header status 'site_page' != manifest 'draft_pdf'" in e for e in errors)
 
 
 def test_artifact_links_and_version_are_recorded(tmp_path, monkeypatch):
@@ -195,9 +212,7 @@ def test_artifact_links_and_version_are_recorded(tmp_path, monkeypatch):
     manifest = M.build_manifest("comstock", RELEASE, [_doc()], None, [], {}, _state(), 1)
 
     art = manifest["sources"][0]["artifacts"][0]
-    assert art["source_url"] == (
-        "https://github.com/NatLabRockies/ComStock/blob/abc123/documentation/reference_doc/4_9_hvac.tex"
-    )
+    assert art["source_url"] == SOURCE_URL  # verbatim from the Document build resolved
     assert art["publication_url"] == REF_PDF
     assert art["corpus_version"] == manifest["corpus_version"] == VERSION
     assert M.validate_manifest("comstock", RELEASE, manifest) == []
@@ -211,7 +226,8 @@ def test_validate_fails_on_a_missing_or_relative_link(tmp_path, monkeypatch):
 
     art["publication_url"] = "assets/files/ref.pdf"
     errors = M.validate_manifest("comstock", RELEASE, manifest)
-    assert len(errors) == 1 and "publication_url" in errors[0]
+    # the row is wrong, and the (correct) header disagrees with it
+    assert len(errors) == 2 and all("publication_url" in e for e in errors)
 
     art["publication_url"] = REF_PDF
     del art["source_url"]

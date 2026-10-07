@@ -72,3 +72,36 @@ def site_page_url(site_url: str, source_path: str) -> str:
 
 def is_absolute_https(url: str | None) -> bool:
     return isinstance(url, str) and url.startswith("https://") and len(url) > len("https://")
+
+
+def clone_for(src_state: dict, clones: list[dict]) -> dict | None:
+    """The clone record a source's documents came out of (matched on its dest dir)."""
+    dest = src_state.get("clone")
+    for c in clones:
+        if c.get("dest") == f"repos/{dest}" or c.get("dest") == dest:
+            return c
+    return None
+
+
+def artifact_urls(source_path: str, src, src_state: dict, clone: dict | None) -> tuple[str, str]:
+    """(source_url, publication_url) for one document of a registry source `src`.
+
+    A PDF fetched from an external URL (an OSTI report) has that URL as both: it is where
+    the bytes came from and where a reader should be sent. Everything else came out of a
+    clone, so its source is the file at the clone's commit, and its publication is the
+    live site page (markdown), the file the site serves (any other repo file), or, for a
+    latex source, the one publication the registry names for all its chapters.
+    """
+    for e in src_state.get("external_pdfs", []):
+        if e.get("path") == source_path and e.get("url"):
+            return e["url"], e["url"]
+    if not clone:
+        raise ValueError(f"{src.id}: no clone record for {source_path}; cannot build source_url")
+    source_url = repo_file_url(clone["repo"], clone.get("sha", ""), source_path)
+    if src.type == "latex":
+        publication_url = src.publication_url or ""
+    elif source_path.endswith(".md"):
+        publication_url = site_page_url(src.site_url or "", source_path)
+    else:
+        publication_url = site_file_url(src.site_url or "", source_path)
+    return source_url, publication_url

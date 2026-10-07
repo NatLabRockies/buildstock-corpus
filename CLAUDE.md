@@ -17,9 +17,12 @@ tells you which file to open; without it you are grepping 118 files blind.
 - **These are plain markdown files — read and grep them directly.** You do not need the
   vector index. `bsc query` exists for consumers *without* filesystem access, and it
   requires a ~1 hour `bsc index` build first.
-- **Cite as `source_id/source_path`.** Every processed file opens with an HTML comment
-  recording the product, release, source id and upstream path it came from. Quote that,
-  not the path under `processed/`, so a citation survives a re-layout.
+- **Cite as `source_id/source_path`.** Every processed file opens with a one-line HTML
+  comment recording the product, release, source id and upstream path it came from, plus
+  its publication `status`, the `source_url` of the upstream file at its pinned commit, the
+  `publication_url` a reader should be sent to, and the `corpus_version` of the build. Line
+  1 alone is enough to cite the file. Quote the source id and path, not the path under
+  `processed/`, so a citation survives a re-layout.
 - **Images are absent from a clone.** `processed/**/*.png` is gitignored (~250 MB,
   regenerable), so image references point at files that are not there. Tables and figures
   marked *hand-authored* in the map were transcribed from those images, so their content is

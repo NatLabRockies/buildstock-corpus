@@ -78,8 +78,9 @@ def test_measure_document_outside_the_fetch_state_is_an_error():
         _assign_status(docs, MEASURES_SRC, MEASURES_STATE)
 
 
-def test_written_file_opens_with_a_versioned_header(tmp_path, monkeypatch):
-    """Line 1 is all a consumer who fetched one file has; it must name the build."""
+def test_written_file_opens_with_the_full_provenance_header(tmp_path, monkeypatch):
+    """Line 1 is all a consumer who fetched one file has; it must carry everything a
+    citation needs, taken from the same Document fields the manifest row is built from."""
     monkeypatch.setattr(B, "processed_root", lambda p, r: tmp_path)
     doc = Document(
         product="comstock",
@@ -89,6 +90,9 @@ def test_written_file_opens_with_a_versioned_header(tmp_path, monkeypatch):
         source_path="documentation/reference_doc/4_9_hvac.tex",
         title="HVAC Systems",
         body="# HVAC Systems\n\nbody\n",
+        status="site_page",
+        source_url="https://github.com/NatLabRockies/ComStock/blob/b77c60d/documentation/reference_doc/4_9_hvac.tex",
+        publication_url="https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf",
     )
 
     _write_processed("comstock", RELEASE, [doc], {}, f"{RELEASE}-v1")
@@ -100,10 +104,33 @@ def test_written_file_opens_with_a_versioned_header(tmp_path, monkeypatch):
         "release": RELEASE,
         "source_id": "technical_reference",
         "source_path": "documentation/reference_doc/4_9_hvac.tex",
+        "status": "site_page",
+        "source_url": doc.source_url,
+        "publication_url": doc.publication_url,
         "corpus_version": f"{RELEASE}-v1",
     }
     assert second == "# HVAC Systems"
     assert b"\r\n" not in out.read_bytes()
+
+
+def test_assign_provenance_resolves_status_and_both_links_once():
+    """One resolution feeds both the header and the manifest row."""
+    clones = [{"repo": "https://github.com/NatLabRockies/ComStock.github.io.git", "sha": "bacf551",
+               "dest": "repos/ComStock.github.io@2025_3"}]
+    state = {**MEASURES_STATE, "clone": "ComStock.github.io@2025_3"}
+    src = Source(id="upgrade_measures", type="measures", repo=clones[0]["repo"], git_ref="2025_3",
+                 index_page="i.md", internal_dir="d", crosswalk_csv="c.csv",
+                 site_url="https://natlabrockies.github.io/ComStock.github.io")
+    page = _doc("upgrade_measures", "measures", "docs/upgrade_measures/env_window_film.md")
+    osti = _doc("upgrade_measures", "pdf", "measure_pdfs/95002.pdf")
+
+    B._assign_provenance([page, osti], src, state, clones)
+
+    assert page.status == "site_page"
+    assert page.source_url == "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551/docs/upgrade_measures/env_window_film.md"
+    assert page.publication_url == "https://natlabrockies.github.io/ComStock.github.io/docs/upgrade_measures/env_window_film.html"
+    assert osti.status == "osti_pdf"
+    assert osti.source_url == osti.publication_url == "https://docs.nlr.gov/docs/fy25osti/95002.pdf"
 
 
 def test_cap_none_keeps_everything():

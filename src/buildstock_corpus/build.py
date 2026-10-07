@@ -39,6 +39,7 @@ from .paths import (
     raw_root,
     remap_dir,
 )
+from .links import artifact_urls, clone_for
 from .provenance import default_corpus_version, render_header
 from .registry import Source, load_registry
 from .status import SITE_PAGE, status_for_url
@@ -183,6 +184,20 @@ def _measure_statuses(src_state: dict) -> dict[str, str]:
     return statuses
 
 
+def _assign_provenance(
+    docs: list[Document], src: Source, src_state: dict, clones: list[dict]
+) -> None:
+    """Resolve status, source_url and publication_url onto every document of one source.
+
+    Done once, here, after extraction: the header writer and the manifest both read these
+    fields from the Document, so a file and its manifest row cannot disagree.
+    """
+    _assign_status(docs, src, src_state)
+    clone = clone_for(src_state, clones)
+    for doc in docs:
+        doc.source_url, doc.publication_url = artifact_urls(doc.source_path, src, src_state, clone)
+
+
 def _assign_status(docs: list[Document], src: Source, src_state: dict) -> None:
     """Stamp every document of one source with its publication status."""
     if src.type == "measures":
@@ -303,7 +318,7 @@ def _extract_documents(
             if cw:
                 crosswalk = build_crosswalk(clone_dir / cw["path"], refs, release, doc_dates)
 
-        _assign_status(docs[first:], src, src_state)
+        _assign_provenance(docs[first:], src, src_state, state.get("clones", []))
 
         # Everything not filled in above is a clone-sourced page, whose images sit beside it
         # at the same relative depth they keep in processed/.
@@ -334,8 +349,10 @@ def _write_processed(
 ) -> None:
     """Write one .md per document, each opening with its provenance header.
 
-    The header carries `corpus_version` so a file fetched on its own, with no clone and no
-    manifest, still says which build it belongs to (see provenance.py).
+    The header carries the document's status, source_url, publication_url and the
+    corpus_version, so a file fetched on its own, with no clone and no manifest, can still
+    be cited (see provenance.py). The values are the ones _assign_provenance resolved onto
+    the Document, which the manifest row is also built from.
 
     newline="\\n" is load-bearing, not style: manifest.json records the sha256 of these
     bytes, so letting the platform pick the line ending would make the same inputs hash
@@ -347,7 +364,9 @@ def _write_processed(
         out = root / output_rel(doc.source_id, doc.source_path, remaps.get(doc.source_id))
         out.parent.mkdir(parents=True, exist_ok=True)
         front = render_header(
-            doc.product, doc.release, doc.source_id, doc.source_path, corpus_version
+            doc.product, doc.release, doc.source_id, doc.source_path,
+            status=doc.status, source_url=doc.source_url,
+            publication_url=doc.publication_url, corpus_version=corpus_version,
         )
         body = _strip_leading_heading(doc.title, doc.body)
         out.write_text(front + f"# {doc.title}\n\n{body}", encoding="utf-8", newline="\n")
@@ -466,7 +485,7 @@ def build_release(
 
     manifest = build_manifest(
         product, release, docs, crosswalk, warnings, excluded, state, len(chunks), remaps,
-        sample, applied, corpus_version=corpus_version, registry=reg,
+        sample, applied, corpus_version=corpus_version,
     )
 
     # After the manifest, never before: the map stamps the manifest's hash so `bsc validate`

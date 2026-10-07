@@ -9,7 +9,7 @@ from __future__ import annotations
 import pytest
 
 from buildstock_corpus import links as L
-from buildstock_corpus.manifest import artifact_urls
+from buildstock_corpus.links import artifact_urls
 from buildstock_corpus.registry import Source
 
 SHA = "b77c60d341c9b68c58c5d51e51b06f08f293d3cb"
