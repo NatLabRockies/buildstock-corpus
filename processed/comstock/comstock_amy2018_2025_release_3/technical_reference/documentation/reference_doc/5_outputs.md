@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/5_outputs.tex | corpus_version: bc1a784 -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/5_outputs.tex | corpus_version: 60076ab -->
 # ComStock Outputs
 
 ComStock creates a wide array of data that can be analyzed and aggregated to draw conclusions. While it is common to look at how results vary by building type and climate zone, ComStock provides a wide range of outputs not traditionally provided in large-scale analyses, with the hope of providing maximum utility.

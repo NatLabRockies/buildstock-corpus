@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/0_1_exec_summary.tex | corpus_version: bc1a784 -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/0_1_exec_summary.tex | corpus_version: 60076ab -->
 # Executive Summary
 
 The commercial building sector stock model, or ComStock<sup>TM</sup>, is a highly granular, bottom-up model that uses multiple data sources, statistical sampling methods, and advanced building energy simulations to estimate the annual subhourly energy consumption of the commercial building stock across the United States.

@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/data.md | corpus_version: bc1a784 -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/data.md | corpus_version: 60076ab -->
 # Data
 
 Given the complexity of the ComStock software workflow, and the big-data skill set and computing hardware required, the pathway for professionals and researchers to use ComStock successfully is to interact with the pre-created results, rather than running the ComStock modeling tool. This section provides information about accessing ComStock data, and a list of published datasets.

@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | assets/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.pdf | corpus_version: bc1a784 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | assets/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.pdf | corpus_version: 60076ab -->
 # Heat Pump Rooftop Units With Higher Compressor Lockout Temperature for Heating
 
 ComStock Measure Documentation: Heat Pump Rooftop Units With Higher Compressor Lockout Temperature for Heating Janghyun Kim, Chris CaraDonna, and Andrew Parker PRE-PUBLICATIO

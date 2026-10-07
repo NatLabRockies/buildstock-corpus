@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/for_state_local/segmentation.md | corpus_version: bc1a784 -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/for_state_local/segmentation.md | corpus_version: 60076ab -->
 # Building Segmentation Analysis
 
 ## Understanding Commercial Buildings in the U.S.

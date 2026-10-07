@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_7_plug_and_process.tex | corpus_version: bc1a784 -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_7_plug_and_process.tex | corpus_version: 60076ab -->
 # Plug and Process Loads
 
 Plug and process loads (PPLs) are all electrical or gas building loads that do not fall under lighting, heating, cooling, ventilation, or water heating. As lighting and HVAC equipment becomes more efficient, PPLs represent an increasing percentage of commercial building energy consumption—up to 50% in high-performance buildings. This section describes how electric equipment, gas equipment, data centers, elevators, and kitchen equipment are modeled in ComStock.

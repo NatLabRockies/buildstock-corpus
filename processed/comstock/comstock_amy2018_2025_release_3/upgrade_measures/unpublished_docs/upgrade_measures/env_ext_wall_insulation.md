@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | docs/upgrade_measures/env_ext_wall_insulation.md | corpus_version: bc1a784 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | docs/upgrade_measures/env_ext_wall_insulation.md | corpus_version: 60076ab -->
 # Exterior Wall Insulation
 
 Authors: Andrew Parker and Amy LeBar

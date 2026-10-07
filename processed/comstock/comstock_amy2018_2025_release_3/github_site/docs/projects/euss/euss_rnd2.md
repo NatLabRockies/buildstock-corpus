@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/projects/euss/euss_rnd2.md | corpus_version: bc1a784 -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/projects/euss/euss_rnd2.md | corpus_version: 60076ab -->
 # EUSS Round 2
 
 ![project_logo](../../../assets/images/coming_soon.png)

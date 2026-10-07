@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_8_service_water_heating.tex | corpus_version: bc1a784 -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_8_service_water_heating.tex | corpus_version: 60076ab -->
 # Service Water Heating
 
 Service water heating (SWH) includes all water heating usage other than space heating and process requirements. This includes general water heating for uses such as sink faucets and showers, but also building-type-specific uses like commercial dish washing and laundry. This section describes how SWH equipment, fuel type, and usage is incorporated into ComStock models.

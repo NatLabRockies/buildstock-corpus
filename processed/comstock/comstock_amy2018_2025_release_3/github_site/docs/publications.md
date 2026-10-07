@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/publications.md | corpus_version: bc1a784 -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/publications.md | corpus_version: 60076ab -->
 # Publications
 
 <details markdown="block" class="level1-collapse-section" open>

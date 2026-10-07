@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/combining_measure_results.md | corpus_version: bc1a784 -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/combining_measure_results.md | corpus_version: 60076ab -->
 # Combining Measure Results
 
 # Why Individual ComStock Measure Results Should Not Be Combined

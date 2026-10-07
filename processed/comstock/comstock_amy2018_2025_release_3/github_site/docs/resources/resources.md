@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/resources.md | corpus_version: bc1a784 -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/resources.md | corpus_version: 60076ab -->
 # Resources
 
 This section provides tutorials, how-to guides, explanations and reference material designed to aid users in answering questions about the ComStock dataset.

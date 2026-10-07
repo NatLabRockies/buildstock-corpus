@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_10_simulation_settings.tex | corpus_version: bc1a784 -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_10_simulation_settings.tex | corpus_version: 60076ab -->
 # Simulation Settings
 
 ## EnergyPlus Simulation Settings

@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/comstock_calibration.md | corpus_version: bc1a784 -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/comstock_calibration.md | corpus_version: 60076ab -->
 # ComStock Calibration, Validation, and Uncertainty
 
 # Considerations for ComStock Calibration, Validation, and Uncertainty

@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/tutorials/join_geospatial_data.md | corpus_version: bc1a784 -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/tutorials/join_geospatial_data.md | corpus_version: 60076ab -->
 # Joining External Geospatial Data
 
 # Tutorial: Joining Data from an External Dataset to ComStock using Geospatial Fields
