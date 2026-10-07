@@ -986,3 +986,45 @@ def test_overlay_file_ignores_the_work_dir_sandbox(tmp_path):
         assert P.overlay_file("comstock", RELEASE, "s", "a.md") == before
     finally:
         P.use_workspace(None)
+
+
+# --- the sidecar must name the document it patches ------------------------------------------
+
+SRC_URL = "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551/docs/upgrade_measures/env_roof.md"
+PUB_URL = "https://natlabrockies.github.io/ComStock.github.io/docs/upgrade_measures/env_roof.html"
+
+
+def _linked_doc():
+    doc = _doc()
+    doc.source_url, doc.publication_url = SRC_URL, PUB_URL
+    return doc
+
+
+def test_overlay_with_matching_links_is_applied(env):
+    env.write([env.entry()], source_url=SRC_URL, publication_url=PUB_URL)
+    applied, warnings = _apply([_linked_doc()], env)
+    assert warnings == []
+    assert applied["upgrade_measures"]["docs/upgrade_measures/env_roof.md"]["tables_applied"] == ["Table 1"]
+
+
+def test_overlay_naming_another_source_is_skipped(env):
+    env.write([env.entry()], source_url=SRC_URL.replace("bacf551", "0ldc0mm"), publication_url=PUB_URL)
+    doc = _linked_doc()
+    applied, warnings = _apply([doc], env)
+    assert applied == {}
+    assert len(warnings) == 1 and "source_url" in warnings[0] and "skipped" in warnings[0]
+    assert "![](media/roof.png)" in doc.body  # body left untouched
+
+
+def test_overlay_without_links_is_skipped_when_the_document_has_them(env):
+    env.write([env.entry()])  # pre-W2.4 sidecar: no links at all
+    applied, warnings = _apply([_linked_doc()], env)
+    assert applied == {}
+    assert len(warnings) == 1 and "source_url=None" in warnings[0]
+
+
+def test_links_are_not_required_when_the_document_has_none(env):
+    """Unit fixtures (and any caller that never resolved links) are not held to them."""
+    env.write([env.entry()])
+    applied, warnings = _apply([_doc()], env)
+    assert warnings == [] and applied

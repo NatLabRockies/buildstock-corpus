@@ -393,6 +393,8 @@ def _overlay_fixture(tmp_path, monkeypatch, proot, *, png: bytes | None = PNG_BY
     ov_abs = ov_root / OV_REL
     ov_abs.parent.mkdir(parents=True, exist_ok=True)
     ov_abs.write_text(
+        f"source_url: {SOURCE_URL}\n"
+        f"publication_url: {REF_PDF}\n"
         "tables:\n"
         '  - label: "Table 1"\n'
         "    source_image: media/roof.png\n"
@@ -492,6 +494,8 @@ def _pdf_overlay_fixture(tmp_path, monkeypatch, *, pinned_sha: str = "deadbeef")
     ov_abs = ov_root / OV_REL
     ov_abs.parent.mkdir(parents=True, exist_ok=True)
     ov_abs.write_text(
+        f"source_url: {SOURCE_URL}\n"
+        f"publication_url: {REF_PDF}\n"
         "tables:\n"
         '  - label: "Table 1"\n'
         '    caption: "Sizing results"\n'
@@ -562,3 +566,24 @@ def test_crosswalk_rows_must_point_at_a_manifest_document_and_its_publication(tm
     assert any("lost_0003" in e and "not a manifest artifact" in e for e in errors)
     assert any("wrong_0004" in e and "publication_url" in e for e in errors)
     assert any("gap_0005" in e and "must not carry" in e for e in errors)
+
+
+def test_overlay_naming_another_source_is_a_violation(tmp_path, monkeypatch):
+    """A sidecar's links must be the artifact's own: a transcription made from a different
+    file or revision cannot back the table it injected."""
+    proot = _patch(tmp_path, monkeypatch)
+    _write_output(proot)
+    overlay = _overlay_fixture(tmp_path, monkeypatch, proot)
+    ov_abs = M.OVERLAYS_DIR / OV_REL
+    ov_abs.write_text(
+        ov_abs.read_text(encoding="utf-8").replace(f"source_url: {SOURCE_URL}",
+                                                   "source_url: https://github.com/x/y/blob/other/z.tex"),
+        encoding="utf-8", newline="\n",
+    )
+    overlay["sha256"] = hashlib.sha256(ov_abs.read_bytes()).hexdigest()  # as a build would record
+    manifest = _manifest_with_overlay(proot, overlay)
+
+    errors = M.validate_manifest("comstock", RELEASE, manifest)
+    assert len(errors) == 1
+    assert "overlay source_url 'https://github.com/x/y/blob/other/z.tex'" in errors[0]
+    assert SOURCE_URL in errors[0]

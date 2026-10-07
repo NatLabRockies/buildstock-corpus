@@ -42,6 +42,10 @@
 
 product: comstock
 release: "comstock_amy2018_2025_release_3"
+source_id: upgrade_measures
+source_path: measure_pdfs/96598.pdf
+source_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf
+publication_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf
 text_repairs:
 - find: '## Data from [11], [23]'
   replace: Data from [11], [23]

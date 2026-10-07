@@ -59,6 +59,8 @@ product: comstock
 release: "comstock_amy2018_2025_release_3"
 source_id: upgrade_measures
 source_path: docs/upgrade_measures/env_roof_insulation.md
+source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551…/docs/upgrade_measures/env_roof_insulation.md
+publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/upgrade_measures/env_roof_insulation.html
 
 tables:
   - label: "Table 1"                 # matched against the caption line in the body
@@ -203,6 +205,13 @@ Two rules keep hand-authored text distinguishable from extracted text:
   extractor" have to be tellable apart by a reader who never opens the sidecar. Repairs are
   counted separately, as `counts.overlay_text_repairs` and `text_repairs_applied` on the
   artifact, and `bsc validate` reports them on their own line for the same reason.
+* **A sidecar names the document it transcribes.** The header's `source_url` (the upstream
+  file at the commit the corpus was built from) and `publication_url` (where a reader is sent
+  for the human-readable form) are the same two links the document's own line-1 header and
+  manifest row carry. They are stamped from the manifest by
+  `scripts/stamp_overlay_links.py`, never typed; build skips a sidecar whose links differ
+  from its document's, and `bsc validate` reports it. A reader holding only the sidecar can
+  therefore open the exact source it was transcribed from.
 * **A transcription is only trustworthy for the thing it was made from.** Every entry pins a
   hash, checked at build time and again by `bsc validate`:
   * `source_image_sha256` is re-hashed from the bitmap on disk. If upstream redraws or

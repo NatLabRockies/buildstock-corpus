@@ -279,6 +279,14 @@ def _validate_overlay(proot: Path, artifact: dict, where: str) -> tuple[list[str
     except yaml.YAMLError as exc:
         return [f"{where}: overlay is not readable YAML: {str(exc)[:120]}"], 0, 0, 0
 
+    # The sidecar names the document it transcribes by its two links; they must be the ones
+    # this artifact carries, or the transcription was made from something else.
+    for field in ("source_url", "publication_url"):
+        if data.get(field) != artifact.get(field):
+            errors.append(
+                f"{where}: overlay {field} {data.get(field)!r} != artifact {artifact.get(field)!r}"
+            )
+
     applied = set(ov.get("tables_applied") or [])
     page_dir = (proot / artifact.get("output_path", "")).parent
     checked = checked_pdf = unverifiable = 0
