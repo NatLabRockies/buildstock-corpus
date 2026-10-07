@@ -28,6 +28,9 @@ sources:
     doc_glob: "documentation/**/*.tex"
     latex_main: "documentation/reference_doc/main.tex"  # \include list drives chapter conversion
     status: site_page
+    # The human-readable form of all 19 chapters: the release's reference-documentation PDF,
+    # listed in the References table of the ComStock site's Resources page.
+    publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf
 
   # Public how-to / methodology site — Jekyll markdown, read directly.
   # Upgrade-measure pages are excluded here and handled by the measures source.
@@ -36,6 +39,8 @@ sources:
     repo: https://github.com/NatLabRockies/ComStock.github.io.git
     git_ref: "2025_3"
     status: site_page
+    # Live site that renders these pages: docs/a/b.md is served at <site_url>/docs/a/b.html.
+    site_url: https://natlabrockies.github.io/ComStock.github.io
     # assets/images is checked out for the figures the docs pages reference
     # (../assets/images/...), not for doc_glob — it holds no markdown.
     sparse: ["docs", "assets/images"]
@@ -50,6 +55,9 @@ sources:
     repo: https://github.com/NatLabRockies/ComStock.github.io.git
     git_ref: "2025_3"
     sparse: ["docs/upgrade_measures", "assets/files"]
+    # Same live site: measure pages render at <site_url>/docs/upgrade_measures/<page>.html and
+    # the site-served measure PDFs are at <site_url>/assets/files/<file>.pdf.
+    site_url: https://natlabrockies.github.io/ComStock.github.io
     index_page: "docs/upgrade_measures/upgrade_measures.md"
     internal_dir: "docs/upgrade_measures"
     # Output-side directory renames. Source paths above are untouched: these only change

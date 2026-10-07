@@ -21,6 +21,7 @@ import yaml
 
 from .corpus_map import MAP_FILENAME, recorded_manifest_sha256
 from .index import EMBED_MODEL
+from .links import is_absolute_https, repo_file_url, site_file_url, site_page_url
 from .overlay import entry_kind
 from .paths import (
     OVERLAYS_DIR,
@@ -30,6 +31,7 @@ from .paths import (
     sha256_file,
 )
 from .provenance import default_corpus_version, read_header
+from .registry import Registry, Source, load_registry
 from .status import STATUSES
 
 PIPELINE_VERSION = "0.1.0"
@@ -89,6 +91,41 @@ def _by_type(docs) -> dict[str, int]:
     return out
 
 
+def artifact_urls(
+    source_path: str, src: Source, src_state: dict, clone: dict | None
+) -> tuple[str, str]:
+    """(source_url, publication_url) for one document -- see links.py for what each means.
+
+    A PDF fetched from an external URL (an OSTI report) has that URL as both: it is where
+    the bytes came from and where a reader should be sent. Everything else came out of a
+    clone, so its source is the file at the clone's commit, and its publication is the
+    live site page (markdown), the file the site serves (any other repo file), or, for a
+    latex source, the one publication the registry names for all its chapters.
+    """
+    for e in src_state.get("external_pdfs", []):
+        if e.get("path") == source_path and e.get("url"):
+            return e["url"], e["url"]
+    if not clone:
+        raise ValueError(f"{src.id}: no clone record for {source_path}; cannot build source_url")
+    source_url = repo_file_url(clone["repo"], clone.get("sha", ""), source_path)
+    if src.type == "latex":
+        publication_url = src.publication_url or ""
+    elif source_path.endswith(".md"):
+        publication_url = site_page_url(src.site_url or "", source_path)
+    else:
+        publication_url = site_file_url(src.site_url or "", source_path)
+    return source_url, publication_url
+
+
+def _clone_for(src_state: dict, clones: list[dict]) -> dict | None:
+    """The clone record a source's documents came out of (matched on its dest dir)."""
+    dest = src_state.get("clone")
+    for c in clones:
+        if c.get("dest") == f"repos/{dest}" or c.get("dest") == dest:
+            return c
+    return None
+
+
 def build_manifest(
     product: str,
     release: str,
@@ -102,12 +139,16 @@ def build_manifest(
     sample: int | None = None,
     overlays: dict[str, dict] | None = None,
     corpus_version: str | None = None,
+    registry: Registry | None = None,
 ) -> dict:
     """Assemble and write manifest.json from the just-built documents + fetch state.
 
     `corpus_version` names the build (see provenance.py) and must be the same value the
     file headers were written with: validate_manifest checks them against each other.
     None falls back to the current commit's hash, as build does.
+
+    `registry` supplies each source's site_url / publication_url for the artifact links
+    (see artifact_urls); None loads the release's registry from sources/.
 
     `remaps` mirrors the output-dir remapping build applied when writing the files, so
     recorded output_paths point at where the artifacts actually landed. source_path
@@ -126,25 +167,35 @@ def build_manifest(
     remaps = remaps or {}
     overlays = overlays or {}
     corpus_version = corpus_version or default_corpus_version()
+    registry = registry or load_registry(product, release)
     src_hashes = input_hashes(state)
+    clones = state.get("clones", [])
 
     sources_out: dict[str, dict] = {}
     for doc in docs:
         out_rel = output_rel(doc.source_id, doc.source_path, remaps.get(doc.source_id))
         out_abs = proot / out_rel
+        src_state = state.get("sources", {}).get(doc.source_id, {})
         grp = sources_out.setdefault(
             doc.source_id,
             {
                 "id": doc.source_id,
-                "type": state.get("sources", {}).get(doc.source_id, {}).get("type"),
-                "clone": state.get("sources", {}).get(doc.source_id, {}).get("clone"),
+                "type": src_state.get("type"),
+                "clone": src_state.get("clone"),
                 "artifacts": [],
             },
+        )
+        source_url, publication_url = artifact_urls(
+            doc.source_path, registry.by_id(doc.source_id), src_state,
+            _clone_for(src_state, clones),
         )
         artifact = {
             "source_path": doc.source_path,
             "source_type": doc.source_type,
             "status": doc.status,
+            "source_url": source_url,
+            "publication_url": publication_url,
+            "corpus_version": corpus_version,
             "title": doc.title,
             "input_sha256": src_hashes.get(doc.source_id, {}).get(doc.source_path),
             "output_path": out_rel,
@@ -346,6 +397,17 @@ def validate_manifest(
             if a.get("status") not in STATUSES:
                 errors.append(
                     f"{where}: status {a.get('status')!r} is not one of {sorted(STATUSES)}"
+                )
+            # The two links are what a citation is built from; a row without them, or with
+            # a relative one, sends a reader nowhere. The per-row version must agree with the
+            # manifest's own, or a row copied out of it would name the wrong build.
+            for field in ("source_url", "publication_url"):
+                if not is_absolute_https(a.get(field)):
+                    errors.append(f"{where}: {field} is not an absolute https URL: {a.get(field)!r}")
+            if corpus_version and a.get("corpus_version") != corpus_version:
+                errors.append(
+                    f"{where}: row corpus_version {a.get('corpus_version')!r} != manifest "
+                    f"{corpus_version}"
                 )
             recorded = a.get("output_sha256")
             out_abs = proot / a.get("output_path", "")

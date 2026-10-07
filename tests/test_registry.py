@@ -26,6 +26,7 @@ BASE = textwrap.dedent(
         doc_glob: "documentation/**/*.tex"
         latex_main: "documentation/reference_doc/main.tex"
         {{latex_status}}
+        {{latex_link}}
       - id: upgrade_measures
         type: measures
         repo: https://example.org/ComStock.github.io.git
@@ -34,18 +35,52 @@ BASE = textwrap.dedent(
         internal_dir: "docs/upgrade_measures"
         crosswalk_csv: "assets/files/crosswalk.csv"
         {{measures_status}}
+        {{measures_link}}
     """
 )
 
 
-def _registry(tmp_path, monkeypatch, latex_status="status: site_page", measures_status=""):
+def _registry(
+    tmp_path,
+    monkeypatch,
+    latex_status="status: site_page",
+    measures_status="",
+    latex_link="publication_url: https://example.org/site/assets/files/ref_2025_3.pdf",
+    measures_link="site_url: https://example.org/site",
+):
     path = tmp_path / "sources.yaml"
     path.write_text(
-        BASE.format(latex_status=latex_status, measures_status=measures_status),
+        BASE.format(
+            latex_status=latex_status, measures_status=measures_status,
+            latex_link=latex_link, measures_link=measures_link,
+        ),
         encoding="utf-8",
     )
     monkeypatch.setattr(R, "sources_file", lambda p, r: path)
     return R.load_registry("comstock", RELEASE)
+
+
+def test_publication_links_are_loaded(tmp_path, monkeypatch):
+    reg = _registry(tmp_path, monkeypatch)
+    assert reg.by_id("technical_reference").publication_url.endswith("ref_2025_3.pdf")
+    assert reg.by_id("upgrade_measures").site_url == "https://example.org/site"
+
+
+def test_latex_source_without_publication_url_is_rejected(tmp_path, monkeypatch):
+    with pytest.raises(ValueError, match="technical_reference.*publication_url"):
+        _registry(tmp_path, monkeypatch, latex_link="")
+
+
+def test_site_source_without_site_url_is_rejected(tmp_path, monkeypatch):
+    with pytest.raises(ValueError, match="upgrade_measures.*site_url"):
+        _registry(tmp_path, monkeypatch, measures_link="")
+
+
+def test_relative_or_http_links_are_rejected(tmp_path, monkeypatch):
+    with pytest.raises(ValueError, match="absolute https"):
+        _registry(tmp_path, monkeypatch, measures_link="site_url: http://example.org/site")
+    with pytest.raises(ValueError, match="absolute https"):
+        _registry(tmp_path, monkeypatch, latex_link="publication_url: assets/files/ref.pdf")
 
 
 def test_source_status_is_loaded(tmp_path, monkeypatch):
@@ -78,3 +113,9 @@ def test_the_real_registry_loads():
     # The two site-served measure PDFs land beside the site-served measure pages.
     remap = reg.by_id("upgrade_measures").output_remap
     assert remap["assets/files"] == remap["docs/upgrade_measures"]
+    # Both site-backed sources name the same live site; the reference chapters name one PDF.
+    site = reg.by_id("github_site").site_url
+    assert site == reg.by_id("upgrade_measures").site_url == "https://natlabrockies.github.io/ComStock.github.io"
+    assert reg.by_id("technical_reference").publication_url == (
+        f"{site}/assets/files/comstock_reference_documentation_2025_3.pdf"
+    )

@@ -466,7 +466,7 @@ def build_release(
 
     manifest = build_manifest(
         product, release, docs, crosswalk, warnings, excluded, state, len(chunks), remaps,
-        sample, applied, corpus_version=corpus_version,
+        sample, applied, corpus_version=corpus_version, registry=reg,
     )
 
     # After the manifest, never before: the map stamps the manifest's hash so `bsc validate`

@@ -43,4 +43,7 @@ dev = ["pytest>=8.0"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-q"
+# Network-marked tests fetch real URLs and are deselected by default; run them with
+# `pytest -m network` once the links in a rebuilt manifest should be proven live.
+addopts = "-q -m 'not network'"
+markers = ["network: fetches real URLs (deselected by default)"]
