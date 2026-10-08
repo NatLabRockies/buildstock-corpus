@@ -32,6 +32,7 @@ uv run bsc map       --release $REL   # regenerate CORPUS_MAP.md on its own (sec
 uv run bsc index     --release $REL   # embed chunks -> index/
 uv run bsc query "How does ComStock determine HVAC system type?" --release $REL
 uv run bsc validate  --release $REL   # enforce provenance invariants
+uv run bsc changelog --release $REL --from $REL-v1   # release notes: diff this build against a tag
 ```
 
 That is the **authoring** pipeline, and it is not where a cloner starts. `processed/` is

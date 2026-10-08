@@ -7,6 +7,7 @@ Commands map to pipeline stages, all addressed by (product, release):
     bsc index     embed chunks into a persistent Chroma collection
     bsc query     retrieve cited passages (optionally answer via an LLM)
     bsc validate  enforce provenance invariants on the manifest
+    bsc changelog release notes: diff this build's manifest against a tagged one
 
 Heavy dependencies (docling, fastembed, ...) are imported lazily inside each
 command so `bsc --help` and unrelated commands stay fast.
@@ -180,6 +181,56 @@ def query(
 
     _workspace(work_dir)
     _query.query_corpus(text, product=product, release=release, k=k, answer=answer)
+
+
+@app.command()
+def changelog(
+    from_ref: Annotated[
+        str,
+        typer.Option(
+            "--from",
+            help="Git ref of the previous build to diff against, normally its release tag "
+            "(e.g. 'comstock_amy2018_2025_release_3-v1').",
+        ),
+    ],
+    to_ref: Annotated[
+        str | None,
+        typer.Option(
+            "--to",
+            help="Git ref of the new build. Default: the manifest in the working tree, i.e. "
+            "the build you just ran.",
+        ),
+    ] = None,
+    append: Annotated[
+        bool,
+        typer.Option(help="Also insert the entry at the top of CHANGELOG.md (refuses a duplicate heading)."),
+    ] = False,
+    product: ProductOpt = "comstock",
+    release: ReleaseOpt = "comstock_amy2018_2025_release_3",
+    work_dir: WorkDirOpt = None,
+) -> None:
+    """Print release notes computed from two builds' manifests.
+
+    Lists documents added, removed, revised upstream (input hash moved), with a changed
+    overlay, or re-rendered from an unchanged source (body hash moved), plus measure gaps
+    opened or closed, registry exclusions and tooling versions. Paste the output into the
+    GitHub Release; `--append` adds it to CHANGELOG.md. The reasons behind re-rendered
+    documents are not in any manifest: add those bullets by hand.
+    """
+    from . import changelog as _changelog
+    from .paths import PROJECT_ROOT
+
+    _workspace(work_dir)
+    try:
+        _log, entry = _changelog.changelog(product, release, from_ref, to_ref)
+        if append:
+            _changelog.append_entry(entry, PROJECT_ROOT / _changelog.CHANGELOG_FILENAME)
+    except _changelog.ChangelogError as exc:
+        print(f"changelog: {exc}", file=sys.stderr)
+        raise typer.Exit(code=1)
+    print(entry, end="")
+    if append:
+        print(f"changelog: entry added to {_changelog.CHANGELOG_FILENAME}", file=sys.stderr)
 
 
 @app.command()
