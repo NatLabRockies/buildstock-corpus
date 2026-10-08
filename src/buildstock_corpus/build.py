@@ -14,6 +14,7 @@ from collections import defaultdict
 from pathlib import Path
 
 from .chunk import chunk_documents
+from .corpus_index import build_index
 from .corpus_map import build_map
 from .extract.crosswalk import build_crosswalk
 from .extract.doc_dates import (
@@ -536,9 +537,10 @@ def build_release(
         sample, applied, corpus_version=corpus_version, excluded_urls=excluded_urls,
     )
 
-    # After the manifest, never before: the map stamps the manifest's hash so `bsc validate`
-    # can catch a stale one, and the manifest has to exist to be hashed.
+    # After the manifest, never before: the map and the index stamp the manifest's hash so
+    # `bsc validate` can catch a stale one, and the manifest has to exist to be hashed.
     corpus_map = build_map(product, release)
+    corpus_index = build_index(product, release)
 
     by_type: dict[str, int] = defaultdict(int)
     for d in docs:
@@ -568,6 +570,8 @@ def build_release(
         "chunks_file": str(cf),
         "manifest_file": str(manifest_file(product, release)),
         "corpus_map_file": corpus_map["file"],
+        "index_file": corpus_index["index_file"],
+        "sections_file": corpus_index["sections_file"],
     }
     if sample is not None:
         print(f"build: SAMPLE - at most {sample} document(s) per category; partial corpus")
@@ -602,4 +606,5 @@ def build_release(
     print(f"  manifest -> {manifest_file(product, release)} "
           f"({len(manifest['gaps']['measures'])} measure gaps recorded)")
     print(f"  corpus map -> {corpus_map['file']} (read this first)")
+    print(f"  index -> {corpus_index['index_file']} (+ sections.json) for consumers without a clone")
     return summary

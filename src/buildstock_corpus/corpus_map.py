@@ -267,6 +267,10 @@ def _render(product: str, release: str, manifest: dict, manifest_sha: str, facts
         "plus its publication `status`, the `source_url` of the upstream file at its pinned "
         "commit, the `publication_url` a reader should be sent to, and the `corpus_version` "
         "of the build. Line 1 alone is enough to cite the file.",
+        "- **No clone? Fetch `index.json`, then `sections.json`.** Beside this map: the index "
+        "lists every document and measure with its paths, links and status (~60 KB); the "
+        "sections file lists every heading with its line range (~200 KB). Both stamp the "
+        "manifest they describe and validate against `schemas/` in the repo.",
         "- **The Published column links the human-readable publication.** Its label is the "
         "document's status: `osti_pdf` for a report with an OSTI number, `site_page` for a page "
         "or file the ComStock site serves without one. Send a reader there, not to the "

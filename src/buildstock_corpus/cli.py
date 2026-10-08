@@ -120,15 +120,19 @@ def corpus_map(
     release: ReleaseOpt = "comstock_amy2018_2025_release_3",
     work_dir: WorkDirOpt = None,
 ) -> None:
-    """Regenerate CORPUS_MAP.md, the entry point for reading this release's corpus.
+    """Regenerate CORPUS_MAP.md, index.json and sections.json for this release.
 
-    Derived from the built artifacts (manifest, chunks, crosswalk), so this needs no raw/
-    and runs in seconds -- including in a fresh clone.
+    The map is the entry point for a reader; index.json and sections.json are the entry
+    point for a program fetching the corpus over HTTPS. All three are derived from the
+    built artifacts (manifest, chunks, crosswalk, the processed files), so this needs no
+    raw/ and runs in seconds -- including in a fresh clone.
     """
+    from . import corpus_index as _corpus_index
     from . import corpus_map as _corpus_map
 
     _workspace(work_dir)
     _corpus_map.build_map(product, release)
+    _corpus_index.build_index(product, release)
 
 
 @app.command()

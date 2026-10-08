@@ -19,6 +19,7 @@ from pathlib import Path
 
 import yaml
 
+from .corpus_index import validate_index_files
 from .corpus_map import MAP_FILENAME, recorded_manifest_sha256
 from .index import EMBED_MODEL
 from .links import is_absolute_https
@@ -478,6 +479,12 @@ def validate_manifest(
                 f"{MAP_FILENAME} is stale: it was generated from a different manifest "
                 f"than the one on disk; run `bsc map` to regenerate it"
             )
+
+    # index.json / sections.json are the map's equivalent for a consumer without a clone,
+    # and stale ones misroute in the same way; they are also held to their JSON Schemas.
+    mf = manifest_file(product, release)
+    if mf.is_file():
+        errors += validate_index_files(product, release, sha256_file(mf))
 
     return errors
 

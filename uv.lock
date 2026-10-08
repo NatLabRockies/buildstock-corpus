@@ -323,6 +323,7 @@ dependencies = [
     { name = "chromadb" },
     { name = "fastembed" },
     { name = "httpx" },
+    { name = "jsonschema" },
     { name = "pyyaml" },
     { name = "typer" },
 ]
@@ -349,6 +350,7 @@ requires-dist = [
     { name = "docling", marker = "extra == 'extract'", specifier = ">=2.0" },
     { name = "fastembed", specifier = ">=0.8.0" },
     { name = "httpx", specifier = ">=0.28.1" },
+    { name = "jsonschema", specifier = ">=4.0" },
     { name = "pypandoc-binary", marker = "extra == 'extract'", specifier = ">=1.13" },
     { name = "pypdfium2", marker = "extra == 'extract'", specifier = ">=4.30" },
     { name = "pyyaml", specifier = ">=6.0.3" },
