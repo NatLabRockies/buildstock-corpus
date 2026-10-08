@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95119.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/95119.md | section: 3.2.6  Cooling Performance | lines: 403-417 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95119.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/95119.md | section: 3.2.6  Cooling Performance | lines: 403-417 -->
 ## 3.2.6  Cooling Performance
 
 The cooling system is modeled with two stages: the first using one compressor and the second using both compressors simultaneously. The performance curves and other performance assumptions are described thoroughly in [4]. These performance assumptions represent commercially available standard performance RTUs. The staging assumptions are summarized in Table 2.

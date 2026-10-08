@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_9_hvac.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_9_hvac.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: fadc83e | corpus_path: technical_reference/documentation/reference_doc/4_9_hvac.md | section: Furnaces | lines: 667-842 -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_9_hvac.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_9_hvac.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: 43ae2d4 | corpus_path: technical_reference/documentation/reference_doc/4_9_hvac.md | section: Furnaces | lines: 667-842 -->
 ## Furnaces
 
 Furnaces are used in a variety of HVAC equipment for space heating through the direct combustion of a fuel. For ComStock models, the fuel type can be natural gas, propane, or fuel oil. The following ComStock system types use furnaces: direct evaporative coolers with forced air furnace, gas unit heaters, PSZ-AC with gas coil, PTAC with gas coil, residential AC with residential forced air furnace, and residential forced air furnace.
@@ -11,7 +11,7 @@ Furnaces in ComStock are all assumed to be standard, non-condensing types at thi
 
 Furnaces in ComStock do not use any performance curves, so there is no change in efficiency or capacity as a function of temperature or part load ratio, and therefore no cycling losses. Furthermore, no parasitic fuel losses are included in ComStock furnace models.
 
-<div id="tab:furnace_eff_assignments">
+<div id="tab:furnace_eff_assignments" data-source="tables/furnace_eff_table.tex">
 
 <table>
 <caption>Furnace Efficiency by Capacity and Code Year</caption>

@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95009.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95009.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95009.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/95009.md | section: 3.11.1 GHP Measures | lines: 734-739 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95009.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95009.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95009.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/95009.md | section: 3.11.1 GHP Measures | lines: 734-739 -->
 ## 3.11.1 GHP Measures
 
 The representation of heat pump performance in EnergyPlus relies on data obtained from manufacturers. Only one set of performance data was used for each of the three GHP configurations. These data are not fully representative of all heat pumps of this type available in the United States. Field demonstrations to document the reasonableness of the curves have not been performed.

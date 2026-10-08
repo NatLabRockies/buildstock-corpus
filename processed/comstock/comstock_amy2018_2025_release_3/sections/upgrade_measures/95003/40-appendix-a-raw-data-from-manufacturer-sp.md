@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95003.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95003.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95003.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/95003.md | section: Appendix A.  Raw Data From Manufacturer Specification Datasheets | lines: 827-1026 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95003.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95003.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95003.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/95003.md | section: Appendix A.  Raw Data From Manufacturer Specification Datasheets | lines: 827-1026 -->
 ## Appendix A.  Raw Data From Manufacturer Specification Datasheets
 
 Table A-1. Chiller Performances Gathered From Public Resources as of January of 2025 [5], [6], [7], [8], [9], [10], [11], [12], [13], [14], [15], [16], [17], [18], [19]

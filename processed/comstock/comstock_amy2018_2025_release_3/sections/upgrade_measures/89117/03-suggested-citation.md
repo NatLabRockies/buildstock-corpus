@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89117.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89117.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89117.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/89117.md | section: Suggested Citation | lines: 32-43 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89117.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89117.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89117.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/89117.md | section: Suggested Citation | lines: 32-43 -->
 ## Suggested Citation
 
 Allen, Amy and Chris CaraDonna. 2024. End-Use Savings Shapes Measure Documentation: Advanced Rooftop Unit Control . Golden, CO: National Renewable Energy Laboratory. NREL/TP-5500-89117. https://www.nrel.gov/docs/fy24osti/89117.pdf.

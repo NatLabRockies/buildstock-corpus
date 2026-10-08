@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_9_hvac.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_9_hvac.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: fadc83e | corpus_path: technical_reference/documentation/reference_doc/4_9_hvac.md | section: Unoccupied Air Handling Unit Operation | lines: 489-529 -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_9_hvac.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_9_hvac.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: 43ae2d4 | corpus_path: technical_reference/documentation/reference_doc/4_9_hvac.md | section: Unoccupied Air Handling Unit Operation | lines: 489-529 -->
 ## Unoccupied Air Handling Unit Operation
 
 Commercial buildings require constant design outdoor air ventilation rates when the building is occupied per ASHRAE-90.1. For air handling units (AHUs), the outdoor air is generally mixed with the supply air. This requires constant supply fan operation to maintain the outdoor air requirements established by ASHRAE-62.1 (ASHRAE 2004). However, AHUs do not need to provide outdoor ventilation air when the building is unoccupied. Therefore, ASHRAE-90.1 requires outdoor air dampers to close when the building is unoccupied, and to only cycle on supply fans as needed to maintain thermostat set points. This control scheme can have a large impact on energy usage, and data suggests that not all buildings implement these controls in their AHU systems. This section discusses ComStock’s methodology for including the prevalence of different unoccupied AHU control schemes observed in real buildings, which follows the methodology used in (CaraDonna and Dombrovski 2022).
@@ -9,7 +9,7 @@ The data set suggests that 27% of AHUs use scheme 1 (least efficient), 50% of AH
 
 The following building types are not included in the unnocupied air handling unit operation workflow, and utilize default scheduling only: small hotels, large hotels, outpatient, hospitals, primary schools, and secondary schools. The building types may be integrated into this workflow in the future as more data becomes available.
 
-<div id="tab:unnoc_ahu_data_counts">
+<div id="tab:unnoc_ahu_data_counts" data-source="tables/unnoc_ahu_data_counts.tex">
 
 | **Building Type** | **Site Count** | **AHU Count** |
 |:------------------|:---------------|:--------------|
@@ -28,7 +28,7 @@ Site and AHU Counts of Time Series BAS Data per Building Type
 
 </div>
 
-<div id="tab:unnoc_ahu_schemes">
+<div id="tab:unnoc_ahu_schemes" data-source="tables/unnoc_ahu_schemes.tex">
 
 | **Scheme Name** | **Unoccupied Control Scheme Description** | **Expected Efficiency** | **Occupied Status** | **Fan Status** | **Ventilation Status** |
 |:---|:---|:---|:---|:---|:---|

@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/87536.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/87536.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/87536.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/87536.md | section: 4  Modeling Approach | lines: 372-396 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/87536.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/87536.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/87536.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/87536.md | section: 4  Modeling Approach | lines: 372-396 -->
 ## 4  Modeling Approach
 
 According to the Commercial Buildings Energy Consumption Survey (CBECS), natural gas used by boilers and furnaces accounts for 73% of space-heating energy consumption in U.S. commercial buildings [4]. This measure replaces natural gas boilers used for HVAC applications with heat pump boilers. The results of the simulations could be used to estimate the carbon reduction and energy impacts from electrifying these boilers.

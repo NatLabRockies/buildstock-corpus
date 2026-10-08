@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/98346.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/98346.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/98346.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/98346.md | section: 3.1  Applicability | lines: 224-246 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/98346.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/98346.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/98346.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/98346.md | section: 3.1  Applicability | lines: 224-246 -->
 ## 3.1  Applicability
 
 This measure is generally applicable to all baseline system types. The measure is applied to any zone that currently lacks a setback in a given space conditioning mode (heating or cooling) but has an occupancy schedule (to infer a thermostat schedule) and is not otherwise excluded due to a need for continuous operation at fixed conditions.

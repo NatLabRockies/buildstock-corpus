@@ -1,11 +1,11 @@
-<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_9_hvac.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_9_hvac.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: fadc83e | corpus_path: technical_reference/documentation/reference_doc/4_9_hvac.md | section: Air-Side Economizers | lines: 567-666 -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_9_hvac.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_9_hvac.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: 43ae2d4 | corpus_path: technical_reference/documentation/reference_doc/4_9_hvac.md | section: Air-Side Economizers | lines: 567-666 -->
 ## Air-Side Economizers
 
 Air-side economizers reduce HVAC cooling energy by increasing the amount of outdoor ventilation air during times when the temperature and/or enthalpy are beneficial for cooling. For example, if the outdoor air temperature is 55°F when the building needs cooling, the HVAC system can increase the amount of outdoor ventilation air being delivered to the space to satisfy some or all of the cooling requirement in place of mechanical cooling.
 
 As described in Section <a href="#sec:system_turnover_and_eul" data-reference-type="ref" data-reference="sec:system_turnover_and_eul">[sec:system_turnover_and_eul]</a>, we assume that some building systems, including the HVAC system, are replaced over the lifespan of the building. We re-evaluate the requirement for an air-side economizer based on the energy code in force at the time of the latest HVAC system replacement. For buildings outside of CA, energy code requirements were taken from ASHRAE 90.1. For buildings inside CA, the CA energy code requirements were evaluated taken from the CA DEER MASControl3 models (Hirsch 2021), where the economizer limits and applicability were found as shown in Table <a href="#tab:econ_lims_mascontrol3" data-reference-type="ref" data-reference="tab:econ_lims_mascontrol3">11</a> and Table <a href="#tab:econ_applic_mascontrol3" data-reference-type="ref" data-reference="tab:econ_applic_mascontrol3">12</a>.
 
-<div id="tab:econ_lims_mascontrol3">
+<div id="tab:econ_lims_mascontrol3" data-source="tables/econ_lims_mascontrol3.tex">
 
 | **Climate Zone** | **Drybulb Limit (°F)** | **Enthalpy Limit (Btu/lb)** |
 |:-----------------|:-----------------------|:----------------------------|
@@ -30,7 +30,7 @@ Economizer limits from MASControl3
 
 </div>
 
-<div id="tab:econ_applic_mascontrol3">
+<div id="tab:econ_applic_mascontrol3" data-source="tables/econ_applic_mascontrol3.tex">
 
 | **Vintage** | **Packaged DX** | **Chilled Water** | **Water Loop HP** |
 |:------------|:----------------|:------------------|:------------------|

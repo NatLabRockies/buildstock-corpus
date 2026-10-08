@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89131.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89131.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89131.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/89131.md | section: 3.2  Technology Specifics Such as Sizing, Performance, and Configuration | lines: 259-287 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89131.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89131.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89131.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/89131.md | section: 3.2  Technology Specifics Such as Sizing, Performance, and Configuration | lines: 259-287 -->
 ## 3.2  Technology Specifics Such as Sizing, Performance, and Configuration
 
 As part of this measure, existing heating and cooling coils are replaced with, respectively, Coil:Cooling:WaterToAirHeatPump:EquationFit and

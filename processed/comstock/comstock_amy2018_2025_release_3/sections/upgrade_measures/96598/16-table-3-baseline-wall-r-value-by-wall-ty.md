@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/96598.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/96598.md | section: Table 3. Baseline Wall R-Value by Wall Type, Energy Code, and Climate Zone for Non-California Buildings. | lines: 316-398 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/96598.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/96598.md | section: Table 3. Baseline Wall R-Value by Wall Type, Energy Code, and Climate Zone for Non-California Buildings. | lines: 316-398 -->
 ## Table 3. Baseline Wall R-Value by Wall Type, Energy Code, and Climate Zone for Non-California Buildings.
 
 Table from [11]

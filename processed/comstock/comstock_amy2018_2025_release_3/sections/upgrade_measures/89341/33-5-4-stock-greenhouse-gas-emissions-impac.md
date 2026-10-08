@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89341.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89341.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89341.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/89341.md | section: 5.4  Stock Greenhouse Gas Emissions Impact | lines: 490-504 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89341.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89341.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89341.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/89341.md | section: 5.4  Stock Greenhouse Gas Emissions Impact | lines: 490-504 -->
 ## 5.4  Stock Greenhouse Gas Emissions Impact
 
 Figure 8 shows the annual stock-level impact of the measure on greenhouse gas emissions and presents approximately 0% emission reductions for all the three grid electricity scenarios. This is as expected due to the small energy savings.

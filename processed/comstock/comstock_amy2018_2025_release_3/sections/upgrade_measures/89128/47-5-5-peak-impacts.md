@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89128.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89128.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89128.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/89128.md | section: 5.5 Peak Impacts | lines: 923-954 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89128.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89128.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89128.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/89128.md | section: 5.5 Peak Impacts | lines: 923-954 -->
 ## 5.5 Peak Impacts
 
 Figure 14 shows the impact of the HP-RTU + ASHP Boiler + DCV + HR + Economizers package on seasonal peak timing. The median winter peak is shifted earlier in the day by 1-2 hours, as morning electric heating now has a large impact on the peak in the winter. Summer and shoulder peak distributions moved slightly earlier in the day, but not to the extent of the winter peak.

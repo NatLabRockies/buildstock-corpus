@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/96597.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96597.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96597.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/96597.md | section: 5.5  Utility Bill Savings Distributions | lines: 640-673 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/96597.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96597.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96597.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/96597.md | section: 5.5  Utility Bill Savings Distributions | lines: 640-673 -->
 ## 5.5  Utility Bill Savings Distributions
 
 Figure 5 shows the percentage utility bill savings distributions of the baseline ComStock models versus the Interior Lighting Controls measure by fuel type for applicable models. In other words, each data point in the distribution represents the percentage utility bill savings between a baseline ComStock model and the corresponding model with the measure applied.

@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95119.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/95119.md | section: 5.1  Single Building Measure Tests | lines: 531-559 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95119.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/95119.md | section: 5.1  Single Building Measure Tests | lines: 531-559 -->
 ## 5.1  Single Building Measure Tests
 
 In this section, we describe the operation of a small office building in Alamosa County, Colorado, climate zone 6B, to demonstrate the measure scenario application on a single building. The baseline model uses packaged RTUs with direct expansion cooling and gas furnace heating. Outdoor ventilation air is provided directly through the RTUs.
