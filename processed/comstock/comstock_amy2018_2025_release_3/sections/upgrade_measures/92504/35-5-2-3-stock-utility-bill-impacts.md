@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92504.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/92504.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/92504.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/92504.md | section: 5.2.3 Stock Utility Bill Impacts | lines: 679-706 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92504.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/92504.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/92504.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/92504.md | section: 5.2.3 Stock Utility Bill Impacts | lines: 677-704 -->
 ## 5.2.3 Stock Utility Bill Impacts
 
 Overall, it shows around 1% savings among the different rates, mainly attributed to reduced electricity consumption. The comparison in Figure 13 shows around 2% of the savings for the three statistics across all electric utility bill costs for applicable buildings.

@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92504.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/92504.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/92504.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/92504.md | section: References | lines: 771-788 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92504.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/92504.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/92504.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/92504.md | section: References | lines: 769-786 -->
 ## References
 
 [1] A. Parker et al. , 'ComStock Reference Documentation (V.1),' NREL/TP--5500-83819, 1967948, MainId:84592, Mar. 2023. doi: 10.2172/1967948.

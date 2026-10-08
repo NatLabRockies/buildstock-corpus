@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95015.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95015.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95015.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/95015.md | section: 5.2  Stock Energy Impacts | lines: 533-561 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95015.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95015.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95015.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/95015.md | section: 5.2  Stock Energy Impacts | lines: 531-559 -->
 ## 5.2  Stock Energy Impacts
 
 The electric boiler measure demonstrates 2.5% total site energy savings (123 trillion British thermal units [TBtu]) for the U.S. commercial building stock modeled in ComStock. The savings contributions by end use and fuel type are summarized in Table 8 and illustrated in Figure 6.

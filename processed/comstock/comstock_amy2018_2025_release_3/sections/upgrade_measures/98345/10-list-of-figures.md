@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/98345.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/98345.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/98345.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/98345.md | section: List of Figures | lines: 189-216 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/98345.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/98345.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/98345.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/98345.md | section: List of Figures | lines: 187-214 -->
 ## List of Figures
 
 | Figure 1. Illustration of fan behavior under fixed static pressure (SP) setpoint as load declines. ................ 1 Figure 2. Comparison of VAV fan curve without SP reset from ComStock baseline with curves emulating                                                                                                                                                          |       |

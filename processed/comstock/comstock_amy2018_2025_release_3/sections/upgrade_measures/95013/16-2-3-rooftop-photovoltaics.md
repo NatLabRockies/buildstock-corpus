@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95013.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95013.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95013.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/95013.md | section: 2.3  Rooftop Photovoltaics | lines: 284-289 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95013.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95013.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95013.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/95013.md | section: 2.3  Rooftop Photovoltaics | lines: 282-287 -->
 ## 2.3  Rooftop Photovoltaics
 
 The ComStock baseline model does not currently include photovoltaics (PV); however, according to the 2018 Commercial Building Energy Consumption Survey (CBECS), fewer than 2% of commercial buildings have on-site PV [4]. So, although this study does not account for buildings that already have PV, the impact of this prevalence is somewhat minimal.

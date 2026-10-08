@@ -9,6 +9,7 @@ exactly what fetch hashed — keeping the provenance chain intact.
 from __future__ import annotations
 
 import json
+import re
 import shutil
 from collections import defaultdict
 from pathlib import Path
@@ -381,6 +382,35 @@ def _extract_documents(
     return docs, excluded, excluded_urls, warnings, crosswalk, pdf_images, image_dirs
 
 
+# docling names a PDF's extracted bitmaps image_000000, image_000001, ... in page order. In
+# every ComStock measure report the first two are the cover photo grid and the NREL wordmark,
+# and the figure-description standard skipped them on purpose (no overlay entry), so they
+# reach the markdown as bare `![Image](...)` refs to files a clone does not even have. They
+# are replaced with a comment naming the omission, so a report's first screen is text.
+# Only an *undescribed* ref is touched: a described figure's alt text is its description.
+_DECORATIVE_REF_RE = re.compile(
+    r"^!\[Image\]\((?P<path>[^)\s]*image_(?P<idx>00000[01])_[0-9a-f]+\.png)\)\s*$", re.M
+)
+_DECORATIVE_NAMES = {"000000": "cover art", "000001": "wordmark"}
+
+
+def _omit_decorative_images(docs: list[Document]) -> int:
+    """Replace a measure PDF's undescribed cover and wordmark image refs with a comment."""
+    n = 0
+    for doc in docs:
+        if doc.source_type != "pdf":
+            continue
+
+        def repl(m: re.Match) -> str:
+            nonlocal n
+            n += 1
+            name = _DECORATIVE_NAMES[m.group("idx")]
+            return f"<!-- decorative image omitted: image_{m.group('idx')} ({name}; no description by the figure standard) -->"
+
+        doc.body = _DECORATIVE_REF_RE.sub(repl, doc.body)
+    return n
+
+
 def _leading_heading_offset(title: str, body: str) -> tuple[str, int]:
     """(body as written after the injected `# title` line, file-line offset for body indices).
 
@@ -545,6 +575,10 @@ def build_release(
         )
         warnings += overlay_warnings
 
+    # After overlays, so a described figure (alt text rewritten) is never mistaken for a
+    # decorative one; before writing, so files, sections and chunks all agree.
+    n_decorative = _omit_decorative_images(docs)
+
     remaps = reg.output_remaps()
     _write_processed(product, release, docs, remaps, corpus_version)
     n_images = _copy_source_images(product, release, pdf_images)
@@ -618,6 +652,8 @@ def build_release(
     print(f"build: {len(docs)} docs -> {len(chunks)} chunks (by type: {dict(by_type)}) -> {cf}")
     print(f"  copied {n_images} image file(s) into processed/")
     print(f"  cut {n_sections} section file(s) under processed/.../{SECTIONS_DIRNAME}/")
+    if n_decorative:
+        print(f"  omitted {n_decorative} decorative image ref(s) (measure-report cover art and wordmarks)")
     print(f"  split chunks into {n_chunk_files} per-document file(s) under processed/.../{CHUNKS_DIRNAME}/")
     if not overlays:
         print("  overlays: SKIPPED (--no-overlays); bitmap-only tables stay unconverted")

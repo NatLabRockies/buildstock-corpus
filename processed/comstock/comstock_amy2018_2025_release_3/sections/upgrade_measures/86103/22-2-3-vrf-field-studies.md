@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86103.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86103.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86103.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/86103.md | section: 2.3  VRF Field Studies | lines: 322-339 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86103.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86103.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86103.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/86103.md | section: 2.3  VRF Field Studies | lines: 320-337 -->
 ## 2.3  VRF Field Studies
 
 As mentioned previously, there are some known concerns over the realized performance of VRF systems. Notably, there are very few case studies on 2023 cold climate VRF technologies. However, it is still important to discuss our understanding of such concerns with the results of field studies.

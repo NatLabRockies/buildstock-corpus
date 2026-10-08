@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86599.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/86599.md | section: List of Figures | lines: 195-224 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86599.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/86599.md | section: List of Figures | lines: 193-222 -->
 ## List of Figures
 
 | Figure 1. Applicability for the High-Efficiency Envelope package and by individual measure Figure 2.                                                                                                                                          | ................ 11 between the ComStock baseline and the High-                                                                                           |

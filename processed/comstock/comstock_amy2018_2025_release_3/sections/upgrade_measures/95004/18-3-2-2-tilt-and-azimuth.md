@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95004.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/95004.md | section: 3.2.2 Tilt and Azimuth | lines: 344-356 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95004.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/95004.md | section: 3.2.2 Tilt and Azimuth | lines: 342-354 -->
 ## 3.2.2 Tilt and Azimuth
 
 Tilt angle is measured as the angle of the panel relative to horizontal. A completely horizontal panel has a tilt angle of 0 degrees, while a vertical panel has a tilt angle of 90 degrees. Azimuth angle is measured as the angle clockwise to true north. A completely north-facing array has an azimuth angle of 0 degrees, while a south facing array has an azimuth angle of 180 degrees.

@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89126.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/89126.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/89126.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/89126.md | section: 5.2 Stock Energy Impacts | lines: 523-564 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89126.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/89126.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/89126.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/89126.md | section: 5.2 Stock Energy Impacts | lines: 521-562 -->
 ## 5.2 Stock Energy Impacts
 
 The LED Lighting + HP-RTU Standard Performance + ASHP Boiler package demonstrates 17.8% total site energy savings (822 TBtu) for the U.S. commercial building stock modeled in ComStock. The savings contributions by end use and fuel type are summarized in Table 7.

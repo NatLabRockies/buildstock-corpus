@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86199.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86199.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86199.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/86199.md | section: 6.2  Stock Energy Impact | lines: 733-755 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86199.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86199.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86199.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/86199.md | section: 6.2  Stock Energy Impact | lines: 731-753 -->
 ## 6.2  Stock Energy Impact
 
 This measure is applicable for a natural gas boiler heating type, which accounts for 33% of the floor area of the U.S. commercial building stock modeled in ComStock (Figure 3). The following key observations are made from application of this measure.

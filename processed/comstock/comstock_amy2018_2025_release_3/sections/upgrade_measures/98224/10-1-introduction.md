@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/98224.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/98224.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/98224.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/98224.md | section: 1  Introduction | lines: 186-199 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/98224.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/98224.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/98224.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/98224.md | section: 1  Introduction | lines: 184-197 -->
 ## 1  Introduction
 
 Rooftop units (RTUs) are the predominant heating, ventilating, and air-conditioning (HVAC) technology for small to medium commercial buildings in the United States, serving over 50% of commercial floor area [1]. However, many installed RTUs are aging and operate well below current best-available efficiencies, resulting in opportunities for energy savings and peak demand reduction through retrofit or replacement [2].

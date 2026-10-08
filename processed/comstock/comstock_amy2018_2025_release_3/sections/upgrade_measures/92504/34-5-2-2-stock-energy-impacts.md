@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92504.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/92504.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/92504.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/92504.md | section: 5.2.2  Stock Energy Impacts | lines: 649-678 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92504.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/92504.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/92504.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/92504.md | section: 5.2.2  Stock Energy Impacts | lines: 647-676 -->
 ## 5.2.2  Stock Energy Impacts
 
 The grid peak objective demonstrates 0.73% total site energy savings (35.6 TBtu) for the U.S. commercial building stock modeled in ComStock, with 1.55% savings for applicable buildings only. The savings contributions by end use and fuel type are summarized in Table 7 and illustrated in Figure 11.

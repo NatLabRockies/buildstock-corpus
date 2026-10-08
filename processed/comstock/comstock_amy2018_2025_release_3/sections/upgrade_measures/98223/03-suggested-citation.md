@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/98223.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/98223.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/98223.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/98223.md | section: Suggested Citation | lines: 26-37 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/98223.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/98223.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/98223.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/98223.md | section: Suggested Citation | lines: 24-35 -->
 ## Suggested Citation
 
 Kim, Janghyun, and Chris CaraDonna. 2026. ComStock Measure Documentation: Variable-Speed Pumps . Golden, CO: National Laboratory of the Rockies. NLR/TP-550098223. https://www.nlr.gov/docs/fy26osti/98223.pdf.

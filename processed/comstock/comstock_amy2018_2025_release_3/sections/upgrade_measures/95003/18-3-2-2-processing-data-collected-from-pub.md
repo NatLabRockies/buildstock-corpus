@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95003.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95003.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95003.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/95003.md | section: 3.2.2  Processing Data Collected From Public Resources | lines: 366-377 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95003.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95003.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95003.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/95003.md | section: 3.2.2  Processing Data Collected From Public Resources | lines: 364-375 -->
 ## 3.2.2  Processing Data Collected From Public Resources
 
 Based on the distinct differences in chiller performances shown in Table A-1 (with key highlights in Section 3.2.1), we have translated the real-world data into EnergyPlus ® /OpenStudio ® -compatible inputs using the following criteria:

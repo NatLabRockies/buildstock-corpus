@@ -1,10 +1,8 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86103.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86103.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86103.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/86103.md | section: VRF Heat Recovery with DOAS | lines: 2-15 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86103.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86103.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86103.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/86103.md | section: VRF Heat Recovery with DOAS | lines: 2-13 -->
 # VRF Heat Recovery with DOAS
 
-![Image](86103_images/image_000000_0ee8ffce859b30e0e7e404e4653681b7f66821f30e18425c98ea8ec337820de8.png)
-
-![Image](86103_images/image_000001_98386c0cbf6d0d54a830726f28e5d71bff6d9a2e78ef9e1ee146c066e4891e46.png)
-
+<!-- decorative image omitted: image_000000 (cover art; no description by the figure standard) -->
+<!-- decorative image omitted: image_000001 (wordmark; no description by the figure standard) -->
 ![Image](86103_images/image_000002_bc7f2f7e9dc886ca70250712d29d1b82b919f38bcea169dbe4436cc4edb59c92.png)
 
 ![Image](86103_images/image_000003_39cd60e314b20e53de04e60cc655604ad6e1d4e2e6fbc07cbe8b6e2dcb23b65a.png)

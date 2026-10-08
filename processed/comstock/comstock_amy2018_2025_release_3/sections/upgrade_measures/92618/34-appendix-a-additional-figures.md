@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92618.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/92618.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/92618.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/92618.md | section: Appendix A. Additional Figures | lines: 543-589 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92618.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/92618.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/92618.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/92618.md | section: Appendix A. Additional Figures | lines: 541-587 -->
 ## Appendix A. Additional Figures
 
 Figure A-1. Site annual natural gas consumption of the ComStock baseline and the measure scenario by census division

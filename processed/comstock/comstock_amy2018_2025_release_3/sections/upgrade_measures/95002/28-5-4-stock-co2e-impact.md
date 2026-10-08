@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95002.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95002.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95002.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/95002.md | section: 5.4  Stock CO2e Impact | lines: 682-700 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95002.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95002.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95002.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/95002.md | section: 5.4  Stock CO2e Impact | lines: 680-698 -->
 ## 5.4  Stock CO2e Impact
 
 Figure 19 shows ComStock simulation results for CO2e avoided across all electricity grid scenarios and on-site combustion fuel types. Three electricity grid scenarios are presented in this report, but other scenarios are available in the ComStock public dataset.

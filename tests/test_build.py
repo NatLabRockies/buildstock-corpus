@@ -384,3 +384,34 @@ def test_line_offset_maps_body_indices_onto_the_written_file(tmp_path, monkeypat
     for j in range(kept_from, len(body_lines) - 1):  # every body line that is written
         assert file_lines[j + offset - 1] == body_lines[j], (j, offset)
     assert file_lines[1] == "# HVAC Systems"  # the injected title line is always line 2
+
+
+def test_only_undescribed_cover_and_wordmark_refs_of_pdfs_are_omitted():
+    """The first two docling images of a measure report are decorative by the figure
+    standard; a described figure (alt rewritten), a later image, or a non-PDF document is
+    left exactly as it was."""
+    body = (
+        "# Report\n\n"
+        "![Image](92504_images/image_000000_aaaa.png)\n\n"
+        "![Image](92504_images/image_000001_bbbb.png)\n\n"
+        "![Image](92504_images/image_000002_cccc.png)\n\n"
+        "![Stacked bar chart of lighting generations](92504_images/image_000003_dddd.png)\n"
+    )
+    pdf = _doc("upgrade_measures", "pdf", "measure_pdfs/92504.pdf"); pdf.body = body
+    page = _doc("upgrade_measures", "measures", "docs/upgrade_measures/x.md"); page.body = body
+
+    assert B._omit_decorative_images([pdf, page]) == 2
+
+    assert "<!-- decorative image omitted: image_000000 (cover art; no description by the figure standard) -->" in pdf.body
+    assert "<!-- decorative image omitted: image_000001 (wordmark; no description by the figure standard) -->" in pdf.body
+    assert "![Image](92504_images/image_000002_cccc.png)" in pdf.body  # later images untouched
+    assert "![Stacked bar chart" in pdf.body  # described figure untouched
+    assert pdf.body.count("![") == 2
+    assert page.body == body  # not a PDF: untouched
+
+
+def test_a_described_cover_image_is_not_omitted():
+    pdf = _doc("upgrade_measures", "pdf", "measure_pdfs/x.pdf")
+    pdf.body = "# R\n\n![Photo of the test building](x_images/image_000000_aaaa.png)\n"
+    assert B._omit_decorative_images([pdf]) == 0
+    assert "![Photo of the test building]" in pdf.body

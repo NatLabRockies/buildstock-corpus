@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89343.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89343.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89343.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/89343.md | section: 3.2.2  Load Prediction Through Bin Sampling | lines: 287-334 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89343.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89343.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89343.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/89343.md | section: 3.2.2  Load Prediction Through Bin Sampling | lines: 285-332 -->
 ## 3.2.2  Load Prediction Through Bin Sampling
 
 The objective of utilizing bin-sampling techniques in this measure is to generate predicted load profiles that carry sufficient insight into the timing, shape, and magnitude of the building's daily peak demand. This method bins 365 days in a year (e.g., Jan. 1 = bin A, Jan. 2 = bin B, Jan. 3 =

@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/96598.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/96598.md | section: 5.4  Peak Demand Impacts | lines: 1230-1250 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/96598.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/96598.md | section: 5.4  Peak Demand Impacts | lines: 1228-1248 -->
 ## 5.4  Peak Demand Impacts
 
 Figure 11 shows the impact of the Upgrade Envelope to Current State Code measure on the median seasonal peak intensity. The peak intensity is the seasonal peak normalized by square footage in units of watts per square foot. Note that this plot shows only the median peak values, meaning there could be individual buildings with lower or higher peak reductions than what are shown in Figure 10.

@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95004.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/95004.md | section: 3.5  Limitations and Concerns | lines: 403-413 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95004.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/95004.md | section: 3.5  Limitations and Concerns | lines: 401-411 -->
 ## 3.5  Limitations and Concerns
 
 - This study assumes that all roofs have 40% unshaded area available for a PV array, which may not be the case for all buildings. For example, a 2016 NREL report suggests smaller values in some cases (e.g., buildings under 5000 ft 2 average only 26% area) [5]. This may overestimate the potential of PV in some cases. Alternatively, some buildings show

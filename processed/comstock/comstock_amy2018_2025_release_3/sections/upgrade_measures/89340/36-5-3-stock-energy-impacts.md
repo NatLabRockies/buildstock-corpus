@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89340.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89340.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89340.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/89340.md | section: 5.3  Stock Energy Impacts | lines: 537-560 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89340.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89340.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89340.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/89340.md | section: 5.3  Stock Energy Impacts | lines: 535-558 -->
 ## 5.3  Stock Energy Impacts
 
 The thermostat control for load shedding measure with perfect load prediction method that is applicable to large office buildings -9.72% of the total building stock floor area -demonstrates 0.046% total site energy savings (2 trillion British thermal units [TBtu]) for the U.S. commercial building stock modeled in ComStock, as shown in Figure 9.

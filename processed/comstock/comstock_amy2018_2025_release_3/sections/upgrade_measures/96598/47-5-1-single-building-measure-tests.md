@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/96598.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/96598.md | section: 5.1  Single-Building Measure Tests | lines: 1144-1168 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/96598.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/96598.md | section: 5.1  Single-Building Measure Tests | lines: 1142-1166 -->
 ## 5.1  Single-Building Measure Tests
 
 This section demonstrates the impacts of the Upgrade Envelope to Current State Code measure on a 175,000-ft 2 large hotel test model in Billings, Montana, which is climate zone 6B. This section walks through the checks that were done to ensure that the measure is properly applied and the resulting wall, roof, and window properties are as expected.

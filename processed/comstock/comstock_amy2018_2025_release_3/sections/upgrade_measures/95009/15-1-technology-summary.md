@@ -1,3 +1,3 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95009.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95009.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95009.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/95009.md | section: 1  Technology Summary | lines: 350-351 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95009.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95009.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95009.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/95009.md | section: 1  Technology Summary | lines: 348-349 -->
 ## 1  Technology Summary
 

@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95119.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/95119.md | section: Suggested Citation | lines: 24-35 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95119.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/95119.md | section: Suggested Citation | lines: 22-33 -->
 ## Suggested Citation
 
 CaraDonna, Chris. 2025. ComStock Measure Scenario Documentation: LaboratoryInformed Modeling of Standard Performance Heat Pump Rooftop Units. Golden, CO: National Renewable Energy Laboratory. NREL/TP-5500-95119. https://docs.nrel.gov/docs/fy25osti/95119.pdf.

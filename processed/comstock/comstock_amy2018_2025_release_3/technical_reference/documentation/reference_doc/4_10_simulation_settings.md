@@ -1,9 +1,9 @@
-<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_10_simulation_settings.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_10_simulation_settings.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: 43ae2d4 -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_10_simulation_settings.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_10_simulation_settings.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: b5faf42 -->
 # Simulation Settings
 
 ## EnergyPlus Simulation Settings
 
-The EnergyPlus simulation settings are a crucial part of any run because they set the length of the run, the calendar year, the number of time steps, and a number of other inputs. A list of all the simulation settings used in ComStock and their descriptions is shown in Table <a href="#tab:simulation_settings" data-reference-type="ref" data-reference="tab:simulation_settings">1</a>.
+The EnergyPlus simulation settings are a crucial part of any run because they set the length of the run, the calendar year, the number of time steps, and a number of other inputs. A list of all the simulation settings used in ComStock and their descriptions is shown in Table “EnergyPlus Simulation Settings”.
 
 <div id="tab:simulation_settings" data-source="tables/simulation_settings.tex">
 

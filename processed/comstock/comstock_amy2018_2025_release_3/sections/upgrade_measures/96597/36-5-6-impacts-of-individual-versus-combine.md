@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/96597.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96597.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96597.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/96597.md | section: 5.6  Impacts of Individual Versus Combined Controls | lines: 674-722 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/96597.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96597.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96597.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/96597.md | section: 5.6  Impacts of Individual Versus Combined Controls | lines: 672-720 -->
 ## 5.6  Impacts of Individual Versus Combined Controls
 
 While developing and testing this measure, we wanted to understand the impacts of daylighting controls and occupancy sensors individually before combining them together into the 'Lighting Controls' measure. We ran a medium-scale test run (~13,000 models) with three measure scenarios:

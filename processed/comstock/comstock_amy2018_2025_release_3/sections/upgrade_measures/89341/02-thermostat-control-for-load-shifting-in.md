@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89341.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89341.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89341.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/89341.md | section: Thermostat Control for Load Shifting in Large Offices | lines: 8-21 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89341.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89341.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89341.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/89341.md | section: Thermostat Control for Load Shifting in Large Offices | lines: 7-19 -->
 ## Thermostat Control for Load Shifting in Large Offices
 
 Jie Xiong and Janghyun Kim
@@ -11,5 +11,4 @@ This report is available at no cost from the National Renewable Energy Laborator
 
 Technical Report NREL/TP-5500-89341 May 2024
 
-![Image](89341_images/image_000001_66a016788f96d88a90034d395eb7522c015d347d459ddfc9145a34e75aba1827.png)
-
+<!-- decorative image omitted: image_000001 (wordmark; no description by the figure standard) -->

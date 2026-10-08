@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95004.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/95004.md | section: 1  Introduction | lines: 299-308 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95004.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/95004.md | section: 1  Introduction | lines: 297-306 -->
 ## 1  Introduction
 
 Photovoltaics (PV) are a renewable energy technology that has enjoyed a sharp uptick in adoption in recent years. Much of the increased penetration rate is attributed to the reduced costs and increased efficiency of modern PV modules [1]. State-of-the-art modules are now approaching nearly 25% efficiency, compared to less than 10% efficiency in the 1980s [2].
