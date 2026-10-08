@@ -466,7 +466,7 @@ def _apply_entry(
     # chunk._pack splits on blank lines, so what matters is the largest single paragraph,
     # not the size of the whole injected block: a table decomposed into blank-line-separated
     # sub-tables survives intact however long the group runs in total.
-    longest = max((len(p) for p in _paragraphs(str(entry["markdown"]).split("\n"))), default=0)
+    longest = max((len(p.text) for p in _paragraphs(str(entry["markdown"]).split("\n"))), default=0)
     if longest > _CHUNK_MAX_CHARS:
         return True, warn(
             f"largest table paragraph is {longest} chars, over the {_CHUNK_MAX_CHARS}-char "
@@ -585,7 +585,7 @@ def _apply_figure(
 
     desc = str(entry.get("description", "")).strip()
     if desc and not entry.get("decorative"):
-        longest = max((len(p) for p in _paragraphs(desc.split("\n"))), default=0)
+        longest = max((len(p.text) for p in _paragraphs(desc.split("\n"))), default=0)
         if longest > _CHUNK_MAX_CHARS:
             return True, warn(
                 f"description paragraph is {longest} chars, over the {_CHUNK_MAX_CHARS}-char "

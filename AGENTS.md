@@ -64,7 +64,9 @@ How to cite depends on the status:
 
 In every case also name `source_id/source_path` and the `corpus_version`, so the claim
 traces to the exact file and build it came from. When quoting a passage from a long
-document, add the line range from `sections.json`.
+document, add a line range: a section's from `sections.json`, or a retrieved chunk's own
+`line_start`–`line_end` (every chunk in `chunks.jsonl` carries them, with its heading path
+in `section` and its `corpus_version`).
 
 ## Do not run `bsc fetch`
 
