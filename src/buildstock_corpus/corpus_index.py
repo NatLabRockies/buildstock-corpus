@@ -162,14 +162,16 @@ def build_index(product: str, release: str) -> dict:
     return result
 
 
-def validate_index_files(product: str, release: str, manifest_sha: str) -> list[str]:
-    """Violations for index.json / sections.json: unreadable, stale, or off-schema.
+def validate_index_files(proot: Path, manifest_sha: str) -> list[str]:
+    """Violations for index.json / sections.json under `proot`: unreadable, stale, off-schema.
 
     Absent is fine (they are derived; `bsc map` regenerates them). Present but describing
     a different manifest is a violation for the same reason a stale map is: a consumer
     that fetched it would route questions by a corpus that no longer exists.
+
+    Takes the processed root rather than (product, release) so the caller's notion of
+    where the release lives -- including a test's redirected one -- is the one checked.
     """
-    proot = processed_root(product, release)
     errors: list[str] = []
     for name, schema in ((INDEX_FILENAME, INDEX_SCHEMA), (SECTIONS_FILENAME, SECTIONS_SCHEMA)):
         path = proot / name

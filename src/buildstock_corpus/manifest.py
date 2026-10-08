@@ -484,7 +484,7 @@ def validate_manifest(
     # and stale ones misroute in the same way; they are also held to their JSON Schemas.
     mf = manifest_file(product, release)
     if mf.is_file():
-        errors += validate_index_files(product, release, sha256_file(mf))
+        errors += validate_index_files(proot, sha256_file(mf))
 
     return errors
 
