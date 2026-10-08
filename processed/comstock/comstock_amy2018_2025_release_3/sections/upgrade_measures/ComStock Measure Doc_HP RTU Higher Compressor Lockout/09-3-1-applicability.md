@@ -1,0 +1,9 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | assets/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.pdf | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/assets/files/ComStock%20Measure%20Doc_HP%20RTU%20Higher%20Compressor%20Lockout.pdf | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/ComStock%20Measure%20Doc_HP%20RTU%20Higher%20Compressor%20Lockout.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/unpublished_docs/upgrade_measures/ComStock Measure Doc_HP RTU Higher Compressor Lockout.md | section: 3.1  Applicability | lines: 196-203 -->
+## 3.1  Applicability
+
+The HP-RTU measure is applicable to ComStock models with either gas furnace RTUs ('PSZAC with gas coil') or electric resistance RTUs ('PSZ-AC with electric coil'). This accounts for about 34% of the ComStock floor area (Figure 2). ComStock HVAC distributions are informed by the 2012 CBECS. The methodology for interpreting CBECS data to create HVAC probability distributions for ComStock is discussed in the ComStock Documentation report [2]. The measure is not applicable to space types that directly serve kitchens, spaces that are unconditioned, or RTUs with outdoor air ratios above 65% (due to an EnergyPlus ®  bug with cycling operation).
+
+![Image](ComStock_Measure_Doc_HP_RTU_Higher_Compressor_Lockout_images/image_000002_7a27a0ddb1c027755318f619a413f1791433a57dd8025b33fcc9fe0e8f83ccec.png)
+
+Figure 2. ComStock HVAC system type prevalence by stock floor area . PTHP stands for packaged terminal heat pump, PTAC stands for packaged terminal air conditioner, PVAV stands for packaged variable air volume, DOAS stands for dedicated outdoor air system, and PFP stands for parallel fan-power. PRE-PUBLICATION
+

@@ -1,0 +1,11 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86599.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/86599.md | section: 3.3 Roof Insulation | lines: 405-414 -->
+## 3.3 Roof Insulation
+
+The Roof Insulation upgrade increases the insulation value of roof surfaces in the models such that the final applied insulation value meets the specified R-value, determined from the Zero Energy Small/Medium Office AEDG target assembly performance for each climate zone (Table 6), skipping roof surfaces that already meet or exceed these values. To better align with how insulation is often sold, the applied thickness of additional insulation is rounded up to the nearest inch, which may cause some buildings to slightly exceed the AEDG values. The upgrade assumes XPS insulation with a thermal resistance of R-5/inch.
+
+Table 6. AEDG Overall Target Roof Assembly Performance Characteristics by Climate Zone [3]
+
+| ASHRAE Climate Zone     |   1 |   2 |   3 |   4 |   5 |   6 |   7 |   8 |
+|-------------------------|-----|-----|-----|-----|-----|-----|-----|-----|
+| R-Value (hr ft 2 F/Btu) |  21 |  26 |  26 |  33 |  33 |  33 |  37 |  37 |
+

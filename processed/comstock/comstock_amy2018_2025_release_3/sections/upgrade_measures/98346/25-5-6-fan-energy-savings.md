@@ -1,0 +1,16 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/98346.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/98346.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/98346.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/98346.md | section: 5.6  Fan Energy Savings | lines: 601-615 -->
+## 5.6  Fan Energy Savings
+
+As discussed previously, the effect of this measure on fan energy savings is also influenced by the control strategies for AHUs in unoccupied periods present in the underlying models. About 34% of the applicable sample has fan energy savings from this measure of less than 1%. Figure 18 shows a distribution of this portion of the sample by nighttime fan control strategy. Over 60% of this subset of the sample has fans operating continuously at night. In this scenario, the effect of setbacks on fan energy use is expected to be minimal, since fans will continue to operate with or without a cooling or heating load. (In VAV systems with this control strategy, fans may ramp down in the absence of a heating/cooling load.) Additionally, a subset of the buildings grouped in the 'default/no change' category also have this control strategy of continuous nighttime fan operation. The data presented reflect the status of a ComStock measure that is used to (in some cases) alter the nighttime fan control strategy. That measure is applied to buildings with AHUbased HVAC systems, and is not applied to building types (hotels, hospitals, outpatient medical facilities, and schools) not represented in an underlying building automation system data set that informs the control strategy application [12].
+
+Figure 18. Distribution of buildings with low fan energy savings by nighttime fan control strategy
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/98346.yaml
+     source: 98346_images/image_000020_65ba31c7c194f7361bf61c9e9ca5f3438b5114a1b15e08df3890e58f0d47e852.png
+     method: vision-description
+     described: 2026-08-21 -->
+
+![Bar chart of the weighted share of low-fan-savings buildings by nighttime fan control strategy, dominated by fans left on with ventilation.](98346_images/image_000020_65ba31c7c194f7361bf61c9e9ca5f3438b5114a1b15e08df3890e58f0d47e852.png)
+
+Figure 18. Distribution of the buildings with low fan energy savings by nighttime fan control strategy. The vertical axis is Proportion of weighted sample as a percentage, 0% to just above 60%, and four categories are plotted along the horizontal axis: night_fanon_vent at about 63%, night_fancycle_vent at about 21%, night_fancycle_novent at about 9% and default_nochange at about 8%. The four bars sum to about 100%. Section 5.6 uses this figure to explain why fan savings from this measure are small: about 34% of the applicable sample has fan energy savings below 1%, and more than 60% of that subset operates its fans continuously at night, which is the night_fanon_vent category, so a thermostat setback cannot reduce fan runtime in those models. The remaining categories cycle fans at night with or without ventilation, or apply no nighttime fan change at all. The body text also notes that the separate nighttime fan control measure is not applied to hotels, hospitals, outpatient medical facilities or schools.
+

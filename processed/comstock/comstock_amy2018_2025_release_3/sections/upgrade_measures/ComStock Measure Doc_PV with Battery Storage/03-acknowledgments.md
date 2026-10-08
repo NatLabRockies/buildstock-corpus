@@ -1,0 +1,7 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | assets/files/ComStock Measure Doc_PV with Battery Storage.pdf | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/assets/files/ComStock%20Measure%20Doc_PV%20with%20Battery%20Storage.pdf | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/ComStock%20Measure%20Doc_PV%20with%20Battery%20Storage.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/unpublished_docs/upgrade_measures/ComStock Measure Doc_PV with Battery Storage.md | section: Acknowledgments | lines: 105-110 -->
+## Acknowledgments
+
+The authors would like to acknowledge the valuable guidance and input provided by Eric Bonnema and Eric Ringold (National Renewable Energy Laboratory).
+
+![Image](ComStock_Measure_Doc_PV_with_Battery_Storage_images/image_000001_a27ad8a4f51fb12164031d26c2a57ee089a2c899a7847e204fd3180f19454904.png)
+

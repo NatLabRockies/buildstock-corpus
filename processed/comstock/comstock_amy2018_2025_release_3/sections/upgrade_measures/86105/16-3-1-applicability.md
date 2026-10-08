@@ -1,0 +1,16 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86105.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86105.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86105.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/86105.md | section: 3.1  Applicability | lines: 233-247 -->
+## 3.1  Applicability
+
+The applicability criterion of the economizer upgrade is simple; economizers will be installed in buildings including air systems with ventilation (i.e., AHUs and RTUs) that do not have economizers. Figure 4 shows the coverage of baseline buildings in terms of economizer availability and control type and how they contribute toward total building stock floor area and electricity usage for cooling. The applicable buildings for the economizer upgrade cover 66% of the total building stock floor area; however, this floor area also includes a building's total floor area when there are multiple air systems and if any of those air systems does not include an economizer. Thus, the actual impact of the economizer upgrade on the floor area will be less than 66%. Also, the amount of savings will be determined by the weather, a building's outdoor air requirement, heat gain level in the return air stream, and configuration of the economizer.
+
+Figure 4. Upgrade applicability on building stock floor area and electricity usage for cooling
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86105.yaml
+     source: 86105_images/image_000010_d02e1790b6b3322e78a099028494376e8119010e306ea9c8f74d54f2597e217b.png
+     method: vision-description
+     described: 2026-08-21 -->
+
+![Two single-bar panels showing upgrade applicability: 66.20% of total stock building floor area is applicable versus 33.80% not applicable, and a second bar breaks total cooling electricity down by baseline economizer control type, dominated by NoEconomizer at 354.2 TBtu.](86105_images/image_000010_d02e1790b6b3322e78a099028494376e8119010e306ea9c8f74d54f2597e217b.png)
+
+Figure 4 (Section 3.1, Applicability) states the measure's reach with two single stacked bars. The top panel, "Percentage of total stock building floor area [%]" from 0 to 100%, carries an "Economizer applicability" legend and prints False 33.80% and True 66.20%, corroborating the body's statement that the upgrade applies to 66% of total building stock floor area. The bottom panel, "Total electricity consumption for cooling [TBtu]" on a 0-450 axis, is segmented by "Out.Params.Economizer Control Type". NoEconomizer (354.2, printed) and FixedDryBulb (71.8, printed) dominate; DifferentialEnthalpy (roughly 16) and DifferentialDryBulb (roughly 5) are unlabelled slivers measured from the bar geometry. The panel total is therefore about 452 TBtu, of which roughly four-fifths is consumed by systems with no economizer at all - the headroom the upgrade targets. Note that this total is well below the stock cooling electricity implied by the Executive Summary's "2.0% stock cooling electricity savings (13.6 TBtu)", so the panel evidently covers only buildings with air systems and should not be used to derive stock-wide percentages.
+

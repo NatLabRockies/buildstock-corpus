@@ -1,0 +1,6 @@
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/how_to_guides/characteristics_dashboard.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/how_to_guides/characteristics_dashboard.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/resources/how_to_guides/characteristics_dashboard.html | corpus_version: 267e3ea | corpus_path: github_site/docs/resources/how_to_guides/characteristics_dashboard.md | section: Instructions | lines: 8-12 -->
+## Instructions
+1. Visit the [ComStock Building Characteristics Dashboard](https://public.tableau.com/app/profile/comstock.nrel/viz/ComStockBuildingCharacteristicsDashboard/Introduction) on the [ComStock Tableau public](https://public.tableau.com/app/profile/comstock.nrel/vizzes) page.
+2. On the "Introduction" tab, use the "County" filter to select "VA, Richmond city." This will apply the filter to the whole dashboard.
+3. Use the tabs at the top of the dashboard to view modeled distributions of various building characteristics for Richmond, including building size, geometry, envelope construction, HVAC system, heating and water heating fuels, and interior lighting type.
+

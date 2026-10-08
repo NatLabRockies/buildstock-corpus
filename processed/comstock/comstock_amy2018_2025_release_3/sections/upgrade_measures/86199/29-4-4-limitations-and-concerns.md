@@ -1,0 +1,7 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86199.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86199.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86199.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/86199.md | section: 4.4  Limitations and Concerns | lines: 664-669 -->
+## 4.4  Limitations and Concerns
+
+As indicated in Section 3, some of the boilers in the baseline ComStock models don't have minimum load turndown control. This allows small flow with insignificant heating in the hot water loop. This had a negative impact during the application of this measure, as the measure introduces a heat pump loop that is triggered by a nonzero flow in the hot water loop. The small flow in the hot water loop forces the heat pump to cycle frequently and eventually affects the expected savings from the application of this measure. This issue should be addressed in the next version of the ComStock models.
+
+The heat pump object used in this measure-the plant loop EIR heating heat pump-is a constant flow model that requires full design flow from the plant. This model assumption imposes limitations on modeling variable speed heat pumps and introduces frequent cycling of the heat pump, leading to inefficiencies to the system. This measure could be updated in the future once the updated version of the heat pump object with a variable speed option is available.
+

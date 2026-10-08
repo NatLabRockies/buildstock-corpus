@@ -1,0 +1,7 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95119.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/95119.md | section: 2  ComStock Baseline Approach | lines: 269-274 -->
+## 2  ComStock Baseline Approach
+
+This measure replaces gas or electric resistance RTUs in the baseline ComStock models with a HP-RTU, as specified in this report. The prevalence of RTUs in the ComStock baseline is interpreted from the 2012 CBECS microdata [5]. The stock prevalence of HVAC system types in ComStock is shown in Figure 1.
+
+RTUs in the ComStock baseline assume performance specifications and energy efficiency features based on the governing energy code during the time of the last HVAC replacement. This includes cooling efficiency, heating efficiency, and fan power as well as the prevalence of demand control ventilation, energy recovery, and economizers. For models with the 'PSZ-AC [packaged single-zone air conditioner] with electric coil' HVAC system type, the ComStock baseline will use electric resistance coils with a heating coefficient of performance (COP) of 1. For models with the 'PSZ-AC with gas coil' HVAC system type, the ComStock baseline will generally use a gas furnace efficiency of around 80%. More information on the baseline ComStock assumptions for RTUs can be found in the ComStock Reference Documentation [6].
+

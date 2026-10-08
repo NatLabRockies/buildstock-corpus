@@ -1,0 +1,13 @@
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_2_meta.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_2_meta.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: 267e3ea | corpus_path: technical_reference/documentation/reference_doc/4_2_meta.md | section: Building Type | lines: 28-39 -->
+## Building Type
+
+The building types used by ComStock were originally defined by the DOE reference buildings, which were extended to create the prototype buildings. These building type definitions represent buildings by drawing on the applicable building code sets. Both the reference buildings and the prototype buildings have historically been used by building code organizations, include the ASHRAE 90.1 committee, to understand the potential impact of various code updates on newly constructed buildings.
+
+Each building type is predominantly defined by a space type breakdown. For a given square footage of a ComStock building type, the fraction of the square footage of space type A (open office) vs. B (closed office) will remain the same as what they are in the DOE prototype models with two exceptions. Although these definitions are useful in the analysis of energy codes, there are several cases where they fail to provide the variability required for ComStock to provide a useful representation of the U.S. commercial building stock. There are two building types are currently represented with additional variability in space programming - large office and strip malls.
+
+Large Offices
+Currently, large offices have variable data-center loads in ComStock. This aligns with study data obtained through the [End-Use Load Profiles](https://www.nrel.gov/docs/fy22osti/80889.pdf) (EULP) project that was used to calibrate ComStock. This results in a higher degree of EUI variability within the large office building type than would be expected with only a change in space programming, given the high energy intensity of the data center space type.
+
+Strip Malls
+Strip malls often contain one or more restaurants. Strip malls with restaurants often have significantly higher EUIs than restaurant-free strip malls, which are the only kind represented by the reference and prototype models. To address the significant lack of diversity and variability in strip mall EUIs, the End-Use Load Profiles project added a variable restaurant component to strip mall models in ComStock. This results in a more realistic distribution of loads by end use across the strip mall segment.
+

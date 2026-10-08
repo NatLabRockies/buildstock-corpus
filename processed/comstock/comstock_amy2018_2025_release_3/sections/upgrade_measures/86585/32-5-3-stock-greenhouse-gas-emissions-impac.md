@@ -1,0 +1,16 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86585.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86585.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86585.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/86585.md | section: 5.3  Stock Greenhouse Gas Emissions Impact | lines: 593-607 -->
+## 5.3  Stock Greenhouse Gas Emissions Impact
+
+ComStock simulation results show greenhouse gas emissions avoided across all electricity grid scenarios and on-site combustion fuel types (Figure 11). For the combined impact across all sources, a single electricity grid scenario should be chosen and combined with all three on-site combustion fuel scenarios. Greenhouse gas emissions avoided from the electricity grid range between 6.7% and 7.5%, depending on the scenario chosen. This is due to reduced electricity consumption from the fans and cooling end use, but also includes the increase in electricity from electrifying gas-furnace systems. The emissions avoided from on-site combustion fuels are attributable to electrifying some of these combustion-based heating systems.
+
+Figure 11: Greenhouse gas emissions comparison of the ComStock baseline and the HP-RTU scenario. Three electricity grid scenarios are presented: Cambium Long-Run Marginal Emissions Rate (LRMER) High Renewable Energy (RE) Cost 15-Year, Cambium LRMER Low RE Cost 15-Year, and eGrid. MMT stands for million metric tons.
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86585.yaml
+     source: 86585_images/image_000016_27ba459e4cbaa6ff13a0a4b11c458e438673b8cb45d8b3cfa71621604f704f5a.png
+     method: vision-description
+     described: 2026-08-21 -->
+
+![Grouped bar chart of annual greenhouse gas emissions for the ComStock baseline versus the HP-RTU scenario across three electricity grid scenarios and three on-site fuels.](86585_images/image_000016_27ba459e4cbaa6ff13a0a4b11c458e438673b8cb45d8b3cfa71621604f704f5a.png)
+
+Grouped vertical bar chart. The y-axis is "Annual Greenhouse Gas Emissions (MMT)" from 0 to 500. Six groups sit on the x-axis, each a dark blue Baseline bar beside a light blue HP-RTU bar, with values printed inside the bars and the absolute and percent reduction printed above each group. A bracket labelled "Electricity Grid Scenarios: Choose 1" spans the first three groups. Electricity: LRMER High RE Cost 15 falls 371.2 to 343.5, -28 (7.5%). Electricity: eGRID falls 313.8 to 290.1, -24 (7.6%). Electricity: LRMER Low RE Cost 15 falls 286.0 to 266.8, -19 (6.7%). Natural Gas falls 73.0 to 60.3, -13 (17.4%). Fuel Oil falls 0.9 to 0.3 and Propane 0.8 to 0.4; both are too small to render as visible bars and carry only printed labels. The 19 to 28 MMT spread across grid scenarios and the 13 MMT natural gas reduction match the Executive Summary. Note that section 5.3 states the grid emissions avoided "range between 6.7% and 7.5%" although the eGRID group is printed here as 7.6%, and that the plotted order places eGRID second while the caption lists it last. To total emissions across sources, combine one electricity scenario with all three on-site fuel groups.
+

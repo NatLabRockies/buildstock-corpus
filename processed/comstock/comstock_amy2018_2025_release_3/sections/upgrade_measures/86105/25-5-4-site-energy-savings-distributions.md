@@ -1,0 +1,50 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86105.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86105.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86105.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/86105.md | section: 5.4  Site Energy Savings Distributions | lines: 405-453 -->
+## 5.4  Site Energy Savings Distributions
+
+This section discusses site energy consumption for quality assurance and quality control purposes. Note that site energy savings can be useful for these purposes, but other factors should be considered when drawing conclusions, as these do not necessarily translate proportionally to source/primary energy savings, greenhouse gas emissions avoided, or energy cost.
+
+Figure 12 through Figure 15 show the percent savings or site energy use intensity (EUI) savings distributions of the baseline ComStock models versus the upgrade scenario for applicable models with different classifications (e.g., end use, climate zone, building type). Percent savings provide the relative impact of the measure at the individual building level while site EUI savings provide the absolute (or aggregated) scale of impact. Also, the data points that appear above some of the distributions indicate outliers in the distribution, meaning they fall outside 1.5 times the interquartile range. The value for n indicates the number of ComStock models that were applicable for energy savings. Below are contexts to highlights that are reflected in these figures:
+
+Figure 13. Percent site energy savings distribution for ComStock models with the upgrade measure applied by end use and fuel type
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86105.yaml
+     source: 86105_images/image_000018_f3413cf905731e83f467dd982b441dbd87a27cef0bc4b2c14b74e54a814ba26a.png
+     method: vision-description
+     described: 2026-08-21 -->
+
+![Box and violin distribution of percent site energy savings by end use and fuel type for applicable ComStock models, with sixteen rows labelled by sample count on an axis running from -140% to 100%.](86105_images/image_000018_f3413cf905731e83f467dd982b441dbd87a27cef0bc4b2c14b74e54a814ba26a.png)
+
+Figure 13 (Section 5.4) shows the distribution of percent site energy savings across applicable ComStock models, broken out by end use and fuel type. The plot is titled "Upgrade 10: Economizer (unweighted)" and the x-axis, "Percent Site Energy Savings by End Use (%)", runs from -140 to 100 with a reference line at zero. Sixteen rows each carry a printed sample count: Electricity Cooling (n=230363), Electricity Fans (n=145702), Natural Gas Heating (n=141797), Electricity Heating (n=60641), Electricity Pumps (n=16663), Electricity Refrigeration (n=11707), Natural Gas Water Systems (n=9993), Other Fuel Heating (n=8999), Electricity Water Systems (n=7357), Electricity Heat Rejection (n=4734), Electricity Heat Recovery (n=4324), District Heating Heating (n=1467), District Cooling Cooling (n=1033), Other Fuel Water Systems (n=226), District Heating Water Systems (n=47) and a degenerate Electricity Interior Equipment row (n=5). Almost every distribution is tightly centred on zero. The two clearly positive ones are Electricity Cooling, whose box sits just above zero with outliers reaching about +95%, and District Cooling Cooling, whose box sits near +2 to +5% with a whisker to about +33%. Heating and fan rows are symmetric about zero with long tails in both directions.
+
+Figure 14. Site EUI savings distribution for ComStock models with the upgrade measure applied by end use and fuel type
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86105.yaml
+     source: 86105_images/image_000019_ed5be93ee1f03b5e1c733c5da9c946ecdb304f4d3d270ca175c5f9d665f9d849.png
+     method: vision-description
+     described: 2026-08-21 -->
+
+![Box and violin distribution of site EUI savings in kBtu per square foot by end use and fuel type for applicable ComStock models, on an axis from -5 to 35, with the same sixteen rows and sample counts as the percent-savings figure.](86105_images/image_000019_ed5be93ee1f03b5e1c733c5da9c946ecdb304f4d3d270ca175c5f9d665f9d849.png)
+
+Figure 14 (Section 5.4) is the absolute-magnitude counterpart to Figure 13: the same sixteen end-use and fuel rows, the same title "Upgrade 10: Economizer (unweighted)" and the same printed sample counts, but the x-axis is now "Site EUI Savings by End Use (kBtu/ft2)" running from -5 to 35. Each row label carries the suffix "Intensity". The identical n values across the two figures cross-corroborate the reads: Electricity Cooling n=230363, Electricity Fans n=145702, Natural Gas Heating n=141797, Electricity Heating n=60641, and so on down to District Heating Water Systems n=47 and Electricity Interior Equipment n=5. On this absolute scale nearly every distribution collapses onto zero, which is the point of showing both views: the percent savings in Figure 13 can be large for a small end use without moving much energy. District Cooling Cooling is the one row with a visible box, sitting between roughly 0.5 and 1.5 kBtu/ft2 with a whisker to about 11.5. The longest tails belong to Electricity Heating (outliers to about 34), Electricity Cooling (to about 25) and Electricity Fans (to about 17); Natural Gas Heating spans roughly -3 to +11.
+
+Figure 15. Percent site energy savings distribution for ComStock models with the upgrade measure applied by climate zone
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86105.yaml
+     source: 86105_images/image_000020_e3478e8b49afcfe6ef3a33c9e28631efb7431134932a952399825f8d4f702f3c.png
+     method: vision-description
+     described: 2026-08-21 -->
+
+![Box and violin distribution of percent site energy savings by ASHRAE climate zone for applicable ComStock models, seventeen rows from 1A to 8 with printed sample counts, showing the widest positive distributions in the dry zones 3C and 3B.](86105_images/image_000020_e3478e8b49afcfe6ef3a33c9e28631efb7431134932a952399825f8d4f702f3c.png)
+
+Figure 15 (Section 5.4) shows percent site energy savings distributions by climate zone. The plot is titled "Upgrade 10: Economizer (unweighted)" and the x-axis, "Percent Site Energy Savings by Climate Zone (%)", runs from about -5 to +23 with a reference line at zero. Seventeen rows each carry a printed sample count: 1A (n=4821), 2A (n=30612), 2B (n=3383), 3A (n=37551), 3B (n=15789), 3C (n=4788), 4A (n=56149), 4B (n=1500), 4C (n=5926), 5A (n=47505), 5B (n=9448), 6A (n=10961), 6B (n=1398), 7 (n=306), 7A (n=1110), 7B (n=128) and 8 (n=40); these sum to 231,415 models. Zone 3C has by far the widest and most positive distribution, with an interquartile range of roughly 0.7 to 2.0%, followed by 3B, 2B and 4C. The very hot and humid zone 1A and the very cold zones 7, 7A, 7B and 8 are pinned tightly against zero. This ordering is exactly the pattern the body text describes: extremely hot climates offer few economizing hours, extremely cold climates have little cooling to displace, and drier climates such as 3B and 3C save more than the humid 3A. Outlier points extend past +20% in several of the larger zones.
+
+- Positive savings in cooling-related end uses are the typical benefit of leveraging favorable outdoor air with economizing when a space requires cooling. As shown in Figure 12 and Figure 13, this has the most impact for this upgrade.
+- Positive savings in electricity used for heat recovery are shown in Figure 12. This is the power consumed by the heat/energy recovery wheels and the additional fan pressure of the wheel. When the outdoor air conditions are favorable for economizing, the heat recovery is bypassed during the economizing operation. Thus, the power used for the heat/energy recovery wheel and the static pressure from bypassing the coil are reduced during economizing. However, the overall impact is small, as shown in Figure 13.
+- Because the savings potential with the economizer is heavily influenced by the climate and cooling needs in the building, the savings distributions are also distinct in between different climate zones, as shown in Figure 14. Because extremely hot climates have relatively less opportunity for economizing and extremely cold climates have relatively less need for space cooling, savings are mostly less in those very hot or very cold regions compared to other in between climate zones. And it is also shown that drier climates (e.g., 3B or 3C) can save relatively more cooling energy compared to humid climates (e.g., 3A) when leveraging economizers.
+- Positive gas savings, shown in Figure 12, are attributed to one of the limitations described in Section 4.4. This is related to buildings with a larger ventilation requirement, which
+
+includes zone-level exhaust fans that are currently not aligned with the nighttime ventilation scheme that is being modeled. As shown in Figure 13, the stock-level impact due to this issue is small compared to the savings realized from electric cooling energy usage. This issue will be revised in future analysis.
+
+- Negative heating savings, shown in Figure 12, are attributed to one of the limitations described in Section 4.4. This is related to buildings with zone-level exhaust fans and including zone mixing (e.g., air from dining area to kitchen area). As shown in Figure 13, the stock-level impact due to this issue is small compared to the savings realized from electric cooling energy usage. This issue will be revised in future analysis.
+- Additionally, some of the data points showing extreme savings in percent savings figures are (1) buildings either in very hot or very cold climates, (2) where absolute heating or cooling demand is small, and (3) even small change (due to upgrade) in heating or cooling demand (e.g., MWh) resulting in large relative (e.g., percent) savings. The stocklevel or aggregate impact is well-reflected in the site EUI savings figures.
+

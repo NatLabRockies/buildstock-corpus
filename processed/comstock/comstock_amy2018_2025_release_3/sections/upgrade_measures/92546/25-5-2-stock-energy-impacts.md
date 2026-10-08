@@ -1,0 +1,26 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92546.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/92546.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/92546.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/92546.md | section: 5.2  Stock Energy Impacts | lines: 306-330 -->
+## 5.2  Stock Energy Impacts
+
+The annual stock site energy savings by end use and fuel type are presented in Figure 3. Again, the Ideal Thermal Air Loads measure scenario does not represent an actual technology that can be implemented in a building. The results presented should only be used to understand how the measure is applied and therefore how to best utilize the results for understanding building thermal loads.
+
+Figure 3. Comparison of annual site energy consumption between the ComStock baseline and the Ideal Thermal Air Loads scenario. Energy consumption is categorized both by fuel type and end use.
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/92546.yaml
+     source: 92546_images/image_000003_9c4aee7474f9cc201c929ea92681c9222a61944b92b9e1a7f4fb113a898ecb6c.png
+     method: vision-description
+     described: 2026-08-20 -->
+
+![Stacked column chart of annual stock site energy consumption by end use and fuel, Baseline vs Ideal Thermal Air Loads (same chart as Figure 1)](92546_images/image_000003_9c4aee7474f9cc201c929ea92681c9222a61944b92b9e1a7f4fb113a898ecb6c.png)
+
+Figure 3. Stacked column chart of annual stock site energy consumption (TBtu), y-axis 0 to about 5000, comparing ComStock Baseline (total 4763) and Ideal Thermal Air Loads (total 5049); this is the same chart shown as Figure 1. Columns are segmented by end use and fuel per the legend (Interior Equipment, Fans, Cooling, Interior Lighting, Water Systems, Heating, Heat Recovery, Heat Rejection, Pumps, Refrigeration across Electricity, Natural Gas, District Heating, District Cooling, Other Fuel). Interior Equipment (726.4 Electricity, 305.6 Natural Gas) is unchanged; baseline shows Fans Electricity 557.4, Cooling Electricity 704.5, Heating Natural Gas 574.5, while the Ideal Thermal Air Loads scenario re-meters heating and cooling as district energy (District Cooling about 1876.3, District Heating about 1610.6) and removes fan energy. Illustrates that ideal air roughly triples cooling energy, slightly raises heating, and eliminates fan energy.
+
+In the ComStock baseline compared to the Ideal Thermal Air Loads measure scenario, all heating energy is converted to district heating, regardless of the heating fuel type in the baseline. This is expected since the EnergyPlus ideal air loads objects are metered as district energy. The total heating energy increases slightly in the Ideal Thermal Air Loads scenario compared to the baseline. This is primarily because district energy is modeled as 100% efficient, while any gas heating found in the baseline is generally going to be modeled around 80% efficient. Additionally, the ideal air loads measure doesn't include potential system efficiency losses such as reheat in VAV systems and ensures ideal alignment between operation schedules. However, there are some features that can cause increased heating energy in some models. Energy efficiency technologies, such as heat recovery, economizers, and demand control ventilation, are not included in the Ideal Thermal Air Loads measure scenario, which can increase consumption. We chose not to include these technologies in the measure scenario to better represent the raw thermal building loads, irrespective of system-type-specific HVAC energy efficiency features.
+
+Similarly, energy used for cooling is reported under the district cooling end use. However, one notable distinction is that the cooling end use shows much higher annual consumption in the Ideal Thermal Air Loads scenario compared to the baseline. This is because space cooling in the baseline predominately uses some kind of DX system with operational COPs generally ranging between 3 and 4. The Ideal Thermal Air Loads scenario models all cooling with 100%
+
+efficiency, or a COP of 1, resulting in comparatively higher cooling energy consumption. But again, the results from this measure should only be used to understand building thermal loads and should not be used to compare energy consumption against the baseline ComStock model.
+
+The fan end use is predominately eliminated in the Ideal Thermal Air Loads measure since supply and return fans are not used in this scenario. The small remaining fan energy usage shown is from zone exhaust fans, which are kept consistent between the baseline and Ideal Thermal Air Loads scenarios. Zone exhaust fans in ComStock are found in spaces such as kitchens and restrooms.
+
+All other end uses show the same energy usage between the baseline and Ideal Thermal Air Loads measure scenario. This is expected since the systems driving energy usage in these other end uses are not impacted by the Ideal Thermal Air Loads scenario. The only exception to this is in systems where operation and efficiency are dependent on indoor air temperature, such as refrigeration. Small differences in indoor air temperature can lead to minimal changes in energy usage.
+

@@ -1,0 +1,37 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95014.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95014.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95014.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/95014.md | section: 1  Technology Summary | lines: 338-373 -->
+## 1  Technology Summary
+
+In traditional gas boilers, heat from the combustion of natural gas is transferred to water inside a heat exchanger. Return water enters the chamber, is heated up, and then is used for space heating or water heating. The hot flue gasses are exhausted out through a vent, meaning that some of the heat produced is wasted. If the standard boiler is ~80% efficient, then ~20% of the heat is exhausted through the vent. Condensing boilers aim to recover much of this wasted heat using a second heat exchanger, which increases the overall system efficiency. Noncondensing boilers typically operate in the range of 70%-85% efficiency, whereas condensing boilers often reach efficiencies of 95% or higher because of their ability to recover waste heat. Although condensing boilers may have a higher upfront cost, they can deliver higher efficiencies and energy savings than a like-for-like replacement. As of 2016, condensing boilers represented over 50% of the commercial boiler market [1].
+
+The processes of standard boilers and condensing boilers are illustrated in Figure 1 [2].
+
+Figure 1. Standard boiler versus condensing boiler diagram [2]
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95014.yaml
+     source: 95014_images/image_000002_c447fe5df46f14225ecf63d0e1ac64b52eedc98e49b1671b37a3dc6d32030a62.png
+     method: vision-description
+     described: 2026-08-20 -->
+
+![Figure 1. Side-by-side schematic contrasting a standard noncondensing boiler with one heat exchanger against a condensing boiler with two heat exchangers that recovers heat from the flue gas and drains the condensate](95014_images/image_000002_c447fe5df46f14225ecf63d0e1ac64b52eedc98e49b1671b37a3dc6d32030a62.png)
+
+Two-panel schematic credited to MEP Academy. Left panel, Standard Boiler (Non-condensing): cold water in at the upper left, a single serpentine heat exchanger above a gas burner, Fuel In at the right, Hot Water Out, and a Flue Exhaust stack at the top carrying unrecovered heat away. Right panel, Condensing Boiler: two heat exchangers in series, the primary coil above the burner plus a secondary coil in the flue path. Cold water enters at the lower left through the secondary exchanger, where blue droplets depict water vapor in the exhaust condensing and giving up its latent heat before the water reaches the primary exchanger; hot water leaves at the right and a drain line at the bottom carries the condensate away. Flue exhaust leaves at the top left, cooler than in the standard boiler. The graphic illustrates Section 1: if a standard boiler is about 80% efficient then roughly 20% of the heat produced is exhausted through the vent, whereas the second heat exchanger recovers much of that waste heat and pushes efficiency to 95% or higher. Retrofit corollaries noted in the text are that the cooler exhaust requires noncorrosive vent material and that drain piping is needed for the condensate.
+
+Figure 2 illustrates the effect of inlet water temperatures on condensing boiler performance [3]. The boiler efficiency is highest at low entering water temperatures (EWTs), in which waste heat can be recovered from water vapor in the exhaust (i.e., condensing mode). As the EWT rises beyond the condensing threshold (i.e., noncondensing mode, around the 131°F (55°C) dew point), the boiler efficiency decreases. Standard boilers operate with a supply temperature of 180°F (71°C) and an EWT around 140°F (60°C), which would result in efficiencies of ~86% and would never allow for condensing mode to occur.
+
+Figure 2. Typical condensing boiler efficiency curve [3]
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95014.yaml
+     source: 95014_images/image_000003_ddd03eee014e8c9ea49475ce5db55acea40abff27244d2d8908ec11a724b5736.png
+     method: vision-description
+     described: 2026-08-20 -->
+
+![Figure 2. Line chart of boiler efficiency versus inlet water temperature in degrees Celsius, falling from about 99% at 10 C to a dew-point kink near 55 C and then declining slowly to about 84% at 110 C](95014_images/image_000003_ddd03eee014e8c9ea49475ce5db55acea40abff27244d2d8908ec11a724b5736.png)
+
+Single-curve line chart from the ASHRAE reference. X-axis: INLET WATER TEMPERATURE, degrees C, 10 to 110. Y-axis: BOILER EFFICIENCY, %, 84 to 100 on 2-point gridlines. The curve starts near 99% at 10 C, holds above 97% to about 30 C, falls steeply through the 40-55 C range to a kink labeled DEW POINT at roughly 55 C and about 87%, then declines gradually along a segment annotated 10% EXCESS AIR to about 84% at 110 C. Two horizontal span arrows divide the axis: CONDENSING MODE from 10 C to the dew point, NONCONDENSING MODE from the dew point to 110 C. Annotations printed on the plot: NATURAL GAS = 39 MJ/kg, and STOICHIOMETRIC AIR = 17.24 kg/kg of fuel or 9.57 m3/m3 of fuel. Section 1 uses this to explain that efficiency is highest at low entering water temperature (EWT), where waste heat is recovered from water vapor in the exhaust, and that a standard boiler with a 180 F (71 C) supply and roughly 140 F (60 C) EWT sits in noncondensing mode near 86% and never condenses. Reaching 95% or higher requires an EWT below 35-40 C (95-104 F); an EWT of 27 C (80 F) is needed for peak efficiency near 98%.
+
+For condensing boilers to achieve their advertised efficiencies of 95% or higher, the EWT must be lower than 35°C-40°C (95°F-104°F). EWTs of 27°C (80°F) are required to achieve peak efficiencies of 98%. With a standard boiler supply temperature (leaving water temperature) of 180°F, achieving an EWT of 100°F would require an 80°F drop in temperature (subsequently referred to as 'delta-T'). Therefore, condensing boilers must have lower supply temperatures; typical supply temperatures for condensing boilers are in the range of 54°C-66°C (130°F-150°F) [4].
+
+To ensure that the supply temperatures are low enough to realize the benefits of the condensing boiler, outdoor air temperature reset controls can be implemented [1]. When outdoor air temperatures are higher in shoulder seasons, the boiler supply temperature is reduced, meaning that less heat is needed to heat the spaces. Therefore, the boiler can more often achieve the return temperatures required for condensing operation. This measure applies outdoor air temperature reset controls, which are not included in baseline boiler models.
+
+The lower supply temperatures can lead to increased water flow rates, which the system may not be designed to support. This could require piping or pump replacement when retrofitting a standard boiler with a condensing boiler. Beyond this, however, condensing boilers can typically be retrofitted easily in buildings with existing noncondensing boilers. They tend to be more compact than traditional boilers, so space constraints are typically not a concern [3]. Some additional retrofit considerations include ensuring that the vent system is made of noncorrosive materials (because the exhaust air will be cooler and thus can cause condensation in the vent) and installing drain piping for the condensate [2].
+

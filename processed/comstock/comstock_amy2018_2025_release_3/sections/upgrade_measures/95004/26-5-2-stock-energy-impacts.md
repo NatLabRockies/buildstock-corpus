@@ -1,0 +1,18 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95004.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/95004.md | section: 5.2  Stock Energy Impacts | lines: 489-505 -->
+## 5.2  Stock Energy Impacts
+
+The PV 40% measure results in 1,039 TBtu of PV electricity used on-site annually across the modeled U.S. commercial building stock in ComStock, with an additional 845 TBtu of excess generation exported to the grid (Figure 2). Therefore, the total amount of PV produced is 1,884 TBtu. PV electricity used on-site accounts for ~33% of the stock annual electricity usage modeled in ComStock. All other end uses remain unchanged between scenarios, as PV offsets electricity consumption from the grid but does not reduce the actual electricity demand of equipment in the building. This is consistent with the formatting of the data in the ComStock public dataset. Note that in the ComStock public dataset, PV generation is represented as negative electricity consumption.
+
+Figure 2. Comparison of annual site energy consumption between the ComStock baseline and the PV 40% measure scenario
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95004.yaml
+     source: 95004_images/image_000004_ee182666c006dd5d3ae8a92f9280b9a163de792e6d8064fbdf2039d3ea346cf4.png
+     method: vision-description
+     described: 2026-08-20 -->
+
+![Stacked column chart of annual stock site energy consumption by end use and fuel, Baseline vs PV 40%, with PV generation shown below zero](95004_images/image_000004_ee182666c006dd5d3ae8a92f9280b9a163de792e6d8064fbdf2039d3ea346cf4.png)
+
+Figure 2. Stacked column chart of annual stock site energy consumption (TBtu), y-axis roughly -2000 to 5000, comparing ComStock Baseline and Add_PV_40pct. Both scenarios share identical positive consumption totaling 4865 TBtu, segmented by end use and fuel per the legend (Heat Rejection, Heat Recovery, Pumps, Refrigeration, Exterior Lighting, Water Systems, Heating, Interior Lighting, Cooling, Fans, Interior Equipment across Electricity, Natural Gas, District Heating/Cooling, and Other Fuel). Legible segments include Refrigeration Electricity 965.7, Heating Electricity 740.2, Interior Lighting Electricity 727.0, Cooling Electricity 568.5, Water Systems Other Fuel 440.4, and Interior Equipment about 310.6. The PV scenario adds two negative (generation) segments below zero: Photovoltaics Used 844.7 (on-site self-consumption) and Photovoltaics Excess 1038.6 (exported), totaling about 1883 TBtu of PV generation, consistent with the roughly 1,884 TBtu on-site generation cited in the summary. Shows a 40%-sizing PV deployment generates energy comparable to a large share of stock electricity, with more than half exported as excess.
+
+Figure 2 shows 845 TBtu of excess PV generation-energy produced beyond the building's electricity demand during any time interval. This accounts for ~44% of the total PV electricity generated. In practice, excess PV electricity is generally sent to the electric grid. Alternatively, PV could be coupled with battery storage to use some of this electricity on site. Battery storage is not included in this study but may be investigated in future work. In some cases, higher amounts of excess electricity can indicate an oversized PV system. This study uses a simple sizing methodology (40% of roof area), but future work may investigate a more sophisticated PV sizing approach.
+

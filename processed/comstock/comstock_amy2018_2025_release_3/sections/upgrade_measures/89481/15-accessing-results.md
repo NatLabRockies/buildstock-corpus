@@ -1,0 +1,5 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89481.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89481.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89481.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/89481.md | section: Accessing Results | lines: 214-217 -->
+## Accessing Results
+
+This documentation covers the 'Heat Pump Rooftop Unit With Energy Recovery' upgrade methodology and briefly discusses key results. Results can be accessed on the ComStock™ data lake at 'end-use-load-profiles-for-us-building-stock' or via the Data Viewer at comstock.nrel.gov.
+

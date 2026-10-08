@@ -1,0 +1,9 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/98223.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/98223.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/98223.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/98223.md | section: 5  Results | lines: 384-391 -->
+## 5  Results
+
+In this section, results are presented both at the stock level and for individual buildings through savings distributions. Stock-level results include the combined impact of all the analyzed buildings in ComStock, including buildings that are not applicable to this measure. Therefore, they do not necessarily represent the energy savings of a particular or average building. Stocklevel results should not be interpreted as the savings that a building might realize by implementing the measure.
+
+Total site energy savings are also presented in this section. Total site energy savings can be a useful metric, especially for quality assurance/quality control, but this metric on its own can have limitations for drawing conclusions. Further context should be considered, as site energy savings alone do not necessarily translate proportionally to savings for a particular fuel type (e.g., gas or electricity), source energy savings, or cost savings. This is especially important when a measure impacts multiple fuel types or causes decreased consumption of one fuel type and increased consumption of another. Many factors should be considered when analyzing the impact of a strategy, depending on the use case.
+
+While Sections 5.1 and 5.2 present results of two upgrade scenarios-(1) pump replacement only and (2) pump replacement with chilled water/hot water reset control-the stock-level results presented in Section 5.3 and beyond, as well as in the published dataset, reflect only the pumpreplacement-only scenario.
+

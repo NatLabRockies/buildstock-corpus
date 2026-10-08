@@ -1,0 +1,18 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89131.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89131.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89131.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/89131.md | section: 3.2.2 Single-Zone Variable Air Volume Fan Operation | lines: 296-312 -->
+## 3.2.2 Single-Zone Variable Air Volume Fan Operation
+
+Some packaged water-to-air heat pump models offer single-zone variable air volume (VAV) operation, which will be available as an option in this measure. A variable-speed supply fan is modeled in units larger than 8 tons in capacity. Based on the nature of commercially available water-to-air heat pumps, constant-speed fans are modeled in units smaller than 8 tons in capacity [4], [9].
+
+The VAV operation varies the supply airflow and discharge air temperature to efficiently maintain zone thermostat set points. As loads increase during heating operation, the supply air temperature is gradually raised until it hits a maximum threshold, and then supply airflow is increased until loads are met. As loads increase during cooling operation, supply air temperature is gradually lowered until it meets a minimum threshold, and the supply airflow is increased until loads are met (Figure 2) [10]. This is generally expected to provide fan energy savings during periods of reduced loads. The minimum supply airflow ratio modeled is 40%, which is common for single-zone RTUs [11]. The exception to the 40% minimum is when higher outdoor airflow rates are required to maintain American Society of Heating, Refrigeration, and Air-Conditioning Engineers (ASHRAE) Standard-62.1 minimum outdoor airflow rates.
+
+Figure 2. Visual representation of single-zone VAV operation Image from Rheem (ND)
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89131.yaml
+     source: 89131_images/image_000006_eefef03057508b63a58508ae6d22487b8194870e41b262ae0b5be9764ff7759d.png
+     method: vision-description
+     described: 2026-08-20 -->
+
+![Figure 2. Control diagram of single-zone VAV operation, plotting supply air temperature setpoint and supply airflow against zone sensible load from design heating load to design cooling load. Image from Rheem](89131_images/image_000006_eefef03057508b63a58508ae6d22487b8194870e41b262ae0b5be9764ff7759d.png)
+
+Control-strategy diagram (reproduced from Rheem) showing how single-zone variable air volume operation sequences supply air temperature and supply airflow as zone load changes. The x-axis runs from design zone heating load on the left, through zero zone sensible load in the middle, to design zone cooling load on the right. The left y-axis is supply air temperature setpoint and the right y-axis is supply airflow. The orange SAT setpoint line slopes downward across the full width, bounded above by a dashed horizontal maximum SAT for heating line and below by a dashed horizontal design SAT for cooling line. The black supply airflow trace forms a flat-bottomed bathtub shape: high at the design heating end, falling to a flat dotted minimum airflow limit through the middle low-load region, then rising again to design airflow at the design cooling end. The logic illustrated is that temperature modulates first and airflow only after the temperature limit is reached: in heating, supply air temperature rises until it hits the maximum, then airflow increases; in cooling, supply air temperature falls to its minimum, then airflow increases. The modeled minimum supply airflow ratio is 40%, raised only where ASHRAE 62.1 outdoor airflow requires it.
+

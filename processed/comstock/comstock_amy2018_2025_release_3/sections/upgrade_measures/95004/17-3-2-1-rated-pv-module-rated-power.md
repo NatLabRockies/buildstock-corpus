@@ -1,0 +1,9 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95004.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/95004.md | section: 3.2.1  Rated PV Module Rated Power | lines: 336-343 -->
+## 3.2.1  Rated PV Module Rated Power
+
+The rated PV system power in the models is based mainly on panel efficiency, which is assumed here to be 21% to reflect the high-performance options commonly available today. This matches the 'premium' panel efficiency in the PVWatts tool [4]. The power rating also depends on the total panel area, which is set to 40% of the model's total roof area (noting that this work models the PV system as a single array rather than individual panels). Panel efficiency is 21%, which corresponds to 210 W/m² under standard test conditions (1,000 W/m² irradiance). Total PV capacity is then calculated based on this module area and panel efficiency. This routine is applied individually to each ComStock model.
+
+For example, a building with 1,000 ft² of roof area would receive 400 ft² (40%) of PV module area. Converting to metric, this is approximately 37.2 m². Note that in reality, additional roof area would be required to account for panel spacing, access, and so on. At 210 W/m² (21% panel efficiency under Standard Test Conditions (STC) of 1,000 W/m² irradiance), the resulting system would be rated at about 7.8 kilowatts (kW) DC.
+
+The 40% roof area assumption used in this analysis is intended to be a simple starting point. More sophisticated approaches may be explored in future work. This assumption directly impacts the rated system power applied to the models. A 2016 NREL report suggests smaller values in some cases (e.g., buildings under 5000 ft 2 average only 26% area), but this type of nuance is not currently included [7].
+

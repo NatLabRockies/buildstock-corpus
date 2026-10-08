@@ -1,0 +1,5 @@
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/comstock_calibration.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/explanations/comstock_calibration.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/comstock_calibration.html | corpus_version: 267e3ea | corpus_path: github_site/docs/resources/explanations/comstock_calibration.md | section: Other Notes | lines: 80-83 -->
+## Other Notes
+- Always consider sample size (see [Sample Size Considerations](docs/resources/explanations/sample_size_considerations.md)).
+- Consider the granularity of input data for a given aspect of the model when assessing ComStock for your use case.
+- ComStock has received minimal natural gas calibration at this point, but there are ongoing efforts to improve this aspect of the model (see [Gas Consumption Underrepresented](docs/resources/explanations/gas_consumption_underrepresented.md)).

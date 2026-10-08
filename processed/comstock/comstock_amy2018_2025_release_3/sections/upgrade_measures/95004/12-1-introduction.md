@@ -1,0 +1,11 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95004.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/95004.md | section: 1  Introduction | lines: 299-308 -->
+## 1  Introduction
+
+Photovoltaics (PV) are a renewable energy technology that has enjoyed a sharp uptick in adoption in recent years. Much of the increased penetration rate is attributed to the reduced costs and increased efficiency of modern PV modules [1]. State-of-the-art modules are now approaching nearly 25% efficiency, compared to less than 10% efficiency in the 1980s [2].
+
+Despite increased overall PV adoption rates, commercial buildings still use PV at relatively low rates. According to the 2018 Commercial Buildings Energy Consumption Survey (CBECS), fewer than 2% of commercial buildings have on-site PV [3]. This statistic might have increased since the survey was conducted. However, it still underscores the potential to reduce electricity consumption-and subsequently energy costs-through widespread adoption of rooftop PV in commercial buildings.
+
+Commercial buildings generally have flat roofs, with fewer than 10% of the building stock having a pitched roof [3]. Ballasted PV panels can be placed on flat roofs at the preferred pitch and azimuth angle for the location to maximize energy and/or cost reduction. Pitched roofs generally require a system that mounts into the roof. Some commercial buildings use a portion of the roof for heating, ventilating, and air conditioning (HVAC) and other equipment, so PV panels would have to work around these constraints. Rooftops can also be used for occupant space, such as rooftop patios, so these areas would need to be avoided as well. Additionally, with any configuration, proper access pathways need to be maintained. Thus, although there is notable commercial building rooftop area available, some of these areas would not be applicable for PV panels.
+
+This ComStock measure scenario analyzes the impact of mass rooftop PV adoption-40% rooftop coverage on all commercial buildings-for the U.S. commercial building stock.
+

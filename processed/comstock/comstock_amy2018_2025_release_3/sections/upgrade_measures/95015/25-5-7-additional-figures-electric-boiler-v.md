@@ -1,0 +1,46 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95015.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95015.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95015.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/95015.md | section: 5.7  Additional Figures-Electric Boiler vs. Heat Pump Boiler | lines: 653-697 -->
+## 5.7  Additional Figures-Electric Boiler vs. Heat Pump Boiler
+
+This section compares some of the key results for the electric boiler measure and heat pump boiler measure. This will demonstrate how the electric boiler measure, a basic electric retrofit option for buildings with boilers, performs compared to a high-efficiency electric heat pump in terms of energy, utility bill, and emissions impacts. The heat pump boiler scenario chosen for comparison has electric backup heat, but there are other variations of this measure in the full dataset. Figure 12 shows the annual site energy by end use and fuel type for the full stock (left) and applicable buildings only (right) for the baseline, heat pump boiler scenario, and electric boiler scenario. The electric boiler measure shows 3% site energy savings for the full stock and 9% for buildings that received the measure. The heat pump boiler shows 8% site energy savings for the full stock and 24% for buildings that received the measure. Although results for individual buildings can vary, on aggregate, the heat pump boiler will show two to three times greater energy savings than the electric boiler. This is consistent with the difference in the coefficient of performance between a heat pump and electric resistance heating.
+
+Figure 12. Comparison of annual site energy consumption between the ComStock baseline, heat pump boiler, and electric boiler measure scenarios for the full stock (left) and applicable buildings only (right).
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95015.yaml
+     source: 95015_images/image_000013_a48e93167964acd11eabb3425864e19472ba97701e8b5cc8574ee564afe5f6c5.png
+     method: vision-description
+     described: 2026-08-20 -->
+
+![Figure 12. Stacked bar comparison of annual site energy consumption across the ComStock baseline, heat pump boiler, and electric boiler measure scenarios, for the full stock and for applicable buildings only](95015_images/image_000013_a48e93167964acd11eabb3425864e19472ba97701e8b5cc8574ee564afe5f6c5.png)
+
+Figure 12 extends Figure 6 with a third scenario, adding a heat pump boiler variant labeled "HP_Boiler_E_Backup" (heat pump boiler with electric backup) between the baseline and the electric resistance boiler. It is a two-panel stacked bar chart of annual site energy in trillion British thermal units (TBtu) segmented by end use and fuel. Full stock, left panel: Baseline 4865 TBtu, HP_Boiler_E_Backup 4511 TBtu, Electric Resistance Boilers 4743 TBtu. Applicable buildings only, right panel: Baseline 1432 TBtu, HP_Boiler_E_Backup 1077 TBtu, Electric Resistance Boilers 1309 TBtu. The heat pump boiler is clearly the better performer on site energy -- about a 7% full-stock and 25% applicable-buildings reduction, versus roughly 2.5% and 8.6% for the electric resistance boiler. The mechanism is visible in the heating segments: both scenarios replace the baseline hatched Heating Natural Gas block, but the heat pump boiler needs far less electricity to do it (about 184.3 TBtu of electric heating in the applicable panel versus 426.3 TBtu for the resistance boiler). Panel totals are high confidence; segment values are provisional.
+
+Energy consumption is categorized both by fuel type and end use.
+
+Figure 13 shows the stock-level annual utility bills by fuel type for the baseline, heat pump boiler, and electric boiler measure scenarios. The annual bills using the maximum, mean, and minimum electricity rates are shown. In all scenarios, the electric boiler measure increases the total utility bills across the stock by 4%-6%. The heat pump boiler results in less than 1% change in total utility bills. These results demonstrate that fuel switching from natural gas heating to electric resistance is likely to result in increased utility bills with the current rate structures; however, by switching to a heat pump boiler with higher efficiency heating, the utility bill impacts are minimal at the stock level.
+
+Figure 13. National annual utility bills comparison of the ComStock baseline, heat pump boiler, and electric boiler measure scenarios
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95015.yaml
+     source: 95015_images/image_000014_d04704ef3e75440de5cc83a51813c5a74b6914eddfd8ab3a8a0d275cc7d8f68a.png
+     method: vision-description
+     described: 2026-08-20 -->
+
+![Figure 13. Three-panel stacked bar chart of national annual utility bills by fuel for the baseline, heat pump boiler, and electric boiler scenarios, under maximum, mean, and minimum electricity rates](95015_images/image_000014_d04704ef3e75440de5cc83a51813c5a74b6914eddfd8ab3a8a0d275cc7d8f68a.png)
+
+Figure 13 has three side-by-side panels titled "With Max Electricity Rate", "With Mean Electricity Rate", and "With Min Electricity Rate", each stacking annual utility bills in billion USD (2022) by fuel for three scenarios: Baseline, HP_Boiler_E_Backup (heat pump boiler with electric backup), and Electric Resistance Boilers. Totals are printed above each bar with percent change from baseline in parentheses. Max electricity rate: 144, then 145 (1%), then 153 (6%). Mean electricity rate: 127, then 126 (-0%), then 134 (5%). Min electricity rate: 112, then 110 (-1%), then 116 (4%). In every rate case the electric resistance boiler raises stock-level bills by 4%-6% while the heat pump boiler is within about 1% of the baseline. Natural gas falls from 17 to 11 billion USD under both measures, but the heat pump boiler's electricity increase is much smaller (for example 108 to 111 billion USD at the mean rate, versus 108 to 121 for the resistance boiler). The conclusion drawn in the text is that fuel switching to electric resistance raises bills under current rate structures, whereas switching to a higher-efficiency heat pump boiler leaves stock-level bills roughly unchanged.
+
+Figure 14 shows the stock-level annual emissions by fuel type for the baseline, heat pump boiler scenario, and electric boiler scenario. In the eGRID 2021 scenario (the grid as of 2021), the electric boiler measure shows a 2% increase in total emissions, and the heat pump boiler shows a 3% reduction in emissions. In the LRMER scenarios (the projected grid in 15 years), the electric boiler measure shows a 1%-5% reduction in total emissions, and the heat pump boiler shows a 6%-10% reduction. Natural gas emissions are reduced by the same amount in both scenarios because both measures involve fuel switching of the full gas heating load in applicable buildings. Electricity emissions increase in both scenarios for this same reason; however, the heat pump boiler has a much higher efficiency heating, and therefore the increase in electricity emissions is lower than that of the electric boiler scenario.
+
+Figure 14. Emissions comparison of the ComStock baseline, heat pump boiler, and electric boiler measure scenarios.
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95015.yaml
+     source: 95015_images/image_000015_642c84fa89154890fb0525996c451c91f9c9a11371ba09b5a1cba1b8bbbdac2c.png
+     method: vision-description
+     described: 2026-08-20 -->
+
+![Figure 14. Three-panel stacked bar chart of annual CO2e emissions by fuel for the baseline, heat pump boiler, and electric boiler scenarios, under eGRID 2021 and two LRMER grid scenarios](95015_images/image_000015_642c84fa89154890fb0525996c451c91f9c9a11371ba09b5a1cba1b8bbbdac2c.png)
+
+Figure 14 has three side-by-side panels titled "eGRID 2021", "LRMER High RE Cost 15", and "LRMER Low RE Cost 15" (LRMER = long-run marginal emissions rate, 15-year levelization; RE = renewable energy), each stacking annual emissions in million metric tons of CO2 equivalent (MMT CO2e) by fuel for the Baseline, HP_Boiler_E_Backup (heat pump boiler with electric backup), and Electric Resistance Boilers scenarios. Totals are printed above each bar with percent change from baseline in parentheses. eGRID 2021: 452, then 437 (-3%), then 463 (2%). LRMER High RE Cost 15: 346, then 325 (-6%), then 343 (-1%). LRMER Low RE Cost 15: 245, then 220 (-10%), then 233 (-5%). Natural gas emissions drop from 102 to 66 MMT CO2e under both measures in all three panels, because both fully fuel-switch the same gas heating load. Electricity emissions rise under both, but far less for the heat pump boiler (for example 345 to 367 MMT CO2e under eGRID, versus 345 to 393 for the resistance boiler). The result is that the heat pump boiler reduces emissions under every grid assumption while the electric resistance boiler only does so under the projected future grids and actually increases emissions against the 2021 grid.
+
+Three electricity grid scenarios are presented: Cambium LRMER High RE Cost 15-Year, Cambium LRMER Low RE Cost 15-Year, and eGRID. MMT stands for million metric tons.
+

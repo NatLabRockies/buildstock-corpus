@@ -1,0 +1,7 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89126.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/89126.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/89126.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/89126.md | section: 3.5.2 Air-Source Heat Pump Boilers | lines: 434-439 -->
+## 3.5.2 Air-Source Heat Pump Boilers
+
+Some of the boilers in the baseline ComStock models do not have minimum load turndown control. This allows a small flow with insignificant heating in the hot water loop. This had a negative impact during the application of this upgrade, as the upgrade introduces a heat pump loop triggered by a nonzero flow in the hot water loop. The small flow in the hot water loop forces the heat pump to cycle frequently and eventually affects the expected savings from the application of this upgrade. This issue should be addressed in the next version of the ComStock models.
+
+Another limitation is the current version of the heat pump object used in this upgrade, the plant loop energy input ratio heating heat pump. This object is a constant flow model that requests full design flow from the plant. This limits the ability to model variable-speed heat pumps and forces the heat pump to cycle more. This upgrade should be updated in the future once the updated version of the heat pump object with a variable-speed option is available.
+

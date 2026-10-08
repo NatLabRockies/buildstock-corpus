@@ -1,0 +1,7 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95013.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95013.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95013.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/95013.md | section: 2.3  Rooftop Photovoltaics | lines: 284-289 -->
+## 2.3  Rooftop Photovoltaics
+
+The ComStock baseline model does not currently include photovoltaics (PV); however, according to the 2018 Commercial Building Energy Consumption Survey (CBECS), fewer than 2% of commercial buildings have on-site PV [4]. So, although this study does not account for buildings that already have PV, the impact of this prevalence is somewhat minimal.
+
+ComStock assumes all roofs to be flat. Flat roofs are not required for commercial PV, but the roof style can impact the panel mounting type and possibly the panel angle. This work does not consider these potential constraints and assumes that ideal panel angles can be used on every roof. Additionally, ComStock does not currently include shading from neighboring buildings and trees. Although many commercial buildings do not have notable shading limitations, this analysis might overestimate the potential of PV for those that do. This could be particularly impactful for some buildings with relatively lower height than their neighbors or surrounding wooded areas.
+

@@ -1,0 +1,15 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86601.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86601.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86601.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/86601.md | section: Upgrade Package Summary | lines: 312-325 -->
+## Upgrade Package Summary
+
+| Package Title      | Interior Lighting and Heat Pump                                                                                                                                                                                       |
+|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Package Definition | This package upgrades interior lighting to LEDs and replaces RTUs and boilers with HPs in applicable models. It is a combination of three upgrades released in 2023 Release 1: LED Lighting, HP-RTU, and ASHP Boiler. |
+| Applicability      | This package is applicable to 89% of the stock floor area. For a package to be applicable, the model must meet the applicability criteria of one or more of the measures.                                             |
+|                    | LED Lighting: Models without LED lighting installed. This measure is applicable to 65% of the stock floor area.                                                                                                       |
+|                    | HP-RTU: Models that contain gas-fired or electric resistance RTUs. This measure is applicable to 36% of the stock floor area.                                                                                         |
+|                    | ASHP Boiler: Models with a natural gas boiler for space heating. This measure is applicable to 33% of the stock floor area.                                                                                           |
+| Not Applicable     | LED Lighting: Models with LED lighting already installed.                                                                                                                                                             |
+|                    | HP-RTU: Models that do not contain gas-fired or electric resistance RTUs. Not applicable to kitchen spaces.                                                                                                           |
+|                    | ASHP Boiler: Models not using a natural gas boiler for space heating such as those with a furnace or district heat source.                                                                                            |
+| Release            | 2023 Release 2: 2023/comstock_amy2018_release_2/                                                                                                                                                                      |
+

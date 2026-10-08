@@ -1,0 +1,24 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86105.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86105.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86105.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/86105.md | section: 1  Technology Summary | lines: 174-196 -->
+## 1  Technology Summary
+
+An air-side economizer (hereafter economizer) has the capability of introducing and controlling favorable (i.e., relatively cold and dry) outdoor air into the air-conditioning system to reduce the mechanical cooling energy used by the HVAC system when spaces require cooling. Figure 1 shows the components of an economizer. Typical controllers shown in the figure can implement one of multiple control schemes by leveraging different inputs with different types of sensors.
+
+Figure 1. Economizer components
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86105.yaml
+     source: 86105_images/image_000007_5ceac8bb6addef9308dcbfb8fe226b17817f5da96531b9173fefae15b12896a7.png
+     method: vision-description
+     described: 2026-08-21 -->
+
+![Schematic of economizer components: photographs of louvred mechanical dampers, a controller module and a coiled sensor cable sit above three labelled boxes for mechanical dampers, controller and sensors, with arrows tracing the signal path from sensors through the controller to the dampers and a noted dependency between controller and sensors.](86105_images/image_000007_5ceac8bb6addef9308dcbfb8fe226b17817f5da96531b9173fefae15b12896a7.png)
+
+Figure 1 (Section 1, Technology Summary) is a labelled schematic of the three physical parts of an air-side economizer. Across the top are three photographs: a louvred mechanical damper assembly, a controller module, and a coiled sensor cable. Beneath each sits a tan box, and left-pointing arrows trace the signal path from the sensors to the controller and from the controller to the dampers. A bracket between the controller and sensor boxes is annotated "dependency exists", with arrows in both directions, because the control type dictates which sensors are required. The controller box is annotated with two sub-lists. "different control type" names fixed dry-bulb, differential dry-bulb, fixed enthalpy and differential enthalpy control among others; "different limits" names the temperature limit used for fixed dry-bulb control and the enthalpy limit used for fixed enthalpy control. The sensors box lists temperature, humidity, enthalpy and pressure. The figure is the reference for the control-type vocabulary used throughout the report, including the "Out.Params.Economizer Control Type" legend in Figures 4 and 16.
+
+There are many types of controls on the market including fixed dry-bulb, fixed enthalpy, differential dry-bulb, differential enthalpy, electronic enthalpy, combinations of controls, and more. 'Fixed' controls typically set a constant limit for certain property (e.g., dry-bulb temperature, enthalpy) for setting the high operating condition so that the economizer is disabled when the reading is above the high limit. 'Differential' controls compare the property (e.g., drybulb temperature or enthalpy) between return air and outdoor air and disable economizing when the return air property (e.g., dry-bulb temperature) is lower than the outdoor air property.
+
+In typical (and ideal) situations, there are certain control types and limits depending on weather and return air condition (e.g., level of heat gain in return air duct) that can maximize the efficiency (i.e., cooling energy savings) of an economizer. Building energy codes such as ASHRAE 90.1 and Title 24 provide preferrable choices of economizer control types and limits depending on climate zones. However, there are more factors that affect the efficiency of an economizer.
+
+Most of the economizer control types leverage temperature and humidity measurements, and these sensors come with errors (i.e., uncertainty). For enthalpy-based control types, measurement of enthalpy includes uncertainty propagation of both temperature and humidity sensors. Taylor and Cheng [2] highlighted the realistic efficiencies of economizers with different control types via building energy simulation and concluded that, in most cases, the conventional and simple fixed dry-bulb control will perform the best in terms of both energy savings and initial investment. More details including economizer controls and limits are also described in Taylor and Cheng [2].
+
+In summary, economizers leverage simple concepts (i.e., bring in outdoor air when favorable) with an impact on the system efficiency depending on weather, a building's outdoor air requirement, heat gain level in the return air stream, control algorithm, and reliability of the economizer.
+

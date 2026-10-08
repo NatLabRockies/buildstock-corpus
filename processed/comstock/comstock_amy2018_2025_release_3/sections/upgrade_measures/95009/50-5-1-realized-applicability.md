@@ -1,0 +1,16 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95009.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95009.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95009.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/95009.md | section: 5.1 Realized Applicability | lines: 795-809 -->
+## 5.1 Realized Applicability
+
+Figure 2 provides a breakdown of the applicability of the Comprehensive GHP + High Efficiency Envelope + LED Lighting package by upgrade combination. As a reminder, the wall, roof, window, and lighting measures were only applied if one of the three GHP measures was applicable. The most common scenario was the Packaged GHP + Walls + Roof + Windows + LED Lighting, making up 40.1% of floor area. The next most common combinations were Packaged GHP + Walls + Roof + Windows (20.6% of floor area), Hydronic GHP + Walls + Roof + Windows + LED Lighting (7.2% of floor area), and Console GHP + Walls + Roof + Windows + LED Lighting (7.0% of floor area). There are many other upgrade combinations making up less than 5% of floor area each. Upgrade combinations that make up less than 0.1% of floor area are not shown in the figure. In total, the package was applicable to 84% of the stock floor area, leaving 16% of floor area not applicable to any measures in the package.
+
+Figure 2. Applicability for the Comprehensive GHP + High Efficiency Envelope + LED Lighting package by upgrade combination
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95009.yaml
+     source: 95009_images/image_000003_9dd4bbe6fc162be69105cb283ed2ea4fe0380baa0bd2eb046df0e314e572e045.png
+     method: vision-description
+     described: 2026-08-20 -->
+
+![Figure 2. Horizontal bar chart of the percent of stock floor area in each applicable upgrade combination for the Comprehensive GHP + High Efficiency Envelope + LED Lighting package](95009_images/image_000003_9dd4bbe6fc162be69105cb283ed2ea4fe0380baa0bd2eb046df0e314e572e045.png)
+
+Figure 2, titled "Percent of Floor Area per Upgrade Combination," is a horizontal bar chart breaking down applicability of the Comprehensive GHP + High Efficiency Envelope + LED Lighting package by which measures actually landed together. Bars, longest first with the printed value at the right of each bar: Packaged GHP + Walls + Roof + Windows + LED Lighting 40.1%; Packaged GHP + Walls + Roof + Windows 20.6%; Hydronic GHP + Walls + Roof + Windows + LED Lighting 7.2%; Console GHP + Walls + Roof + Windows + LED Lighting 7.0%; Hydronic GHP + Walls + Roof + Windows 4.5%; Console GHP + Walls + Roof + Windows 3.9%; Packaged GHP + Roof + Windows + LED Lighting 0.6%; Packaged GHP + Roof + Windows 0.3%; Hydronic GHP + Roof + Windows + LED Lighting 0.1%; Console GHP + Roof + Windows + LED Lighting 0.1%. The x-axis runs 0% to about 45%. Combinations below 0.1% of floor area are omitted from the chart. Packaged GHP dominates, and the wall measure is present in every combination above 1% of floor area. Per the surrounding text the package was applicable to 84% of stock floor area overall, leaving 16% not applicable to any measure in the package.
+

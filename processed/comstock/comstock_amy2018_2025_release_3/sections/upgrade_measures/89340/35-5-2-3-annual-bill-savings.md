@@ -1,0 +1,22 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89340.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89340.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89340.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/89340.md | section: 5.2.3 Annual Bill Savings | lines: 516-536 -->
+## 5.2.3 Annual Bill Savings
+
+Figure 8 shows the distribution of annual bill savings for the default scenario with respect to the maximum, mean, and median bill costs among all considered utility rate structures (for more information related to utility bill costs, refer to the utility bills section in Section 5 of the ComStock Reference Documentation [40]). To provide high level context of the bill calculation, each building model with locational information is used to find all utility rate structures (from Utility Rate Database [41]) applicable/available for the building. After calculating annual utility bill costs for all applicable utility rates, we report statistics (mean, median, and max) of all utility bill costs for each of the building model. All the comparisons show positive bill savings of around 1%-3%, except for the no rebound control scenario. Savings corresponding to the max bill are generally smaller than the mean or median ones, indicating that the rate structure resulting in max bill typically benefits less in peak reduction or has no portion related to demand. When the building is equipped with an electric heating system, the savings would be increased around 1%, indicating that the savings potential from this load shedding strategy is lower for electric heating systems than for cooling systems. The bill savings are primarily from:
+
+- 1) Net energy use reduction (major)
+- 2) TOU rates that have matched time of peak prices with the peak windows on a monthly average (there could be negative savings for TOU rates that have peak prices outside of the daily peak window identified by this measure)
+- 3) Applicable monthly or seasonal demand charge reduction.
+
+These savings underestimate the benefits from a measure targeting daily peak load reduction, as most rate structures consider peak demand charge on a monthly or seasonal basis, while demand response programs or rate structures including DR incentives that favor daily demand flexibility control are currently not able to be directly integrated into ComStock analysis.
+
+Figure 8. Distribution of annual bill savings compared to the baseline model for maximum, mean, and median bills, separated by buildings with electric and non-electric heating
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89340.yaml
+     source: 89340_images/image_000009_1c084fb215dbcfd2bb6c1d1af3411a7ccfb960112eef2e2d4a0d5d8ccf959c77.png
+     method: vision-description
+     described: 2026-08-20 -->
+
+![Box plots of annual utility bill cost savings percentage for the default scenario, split into electric heating and non-electric heating groups, each with savings computed from the maximum, mean, and median bill among applicable utility rate structures](89340_images/image_000009_1c084fb215dbcfd2bb6c1d1af3411a7ccfb960112eef2e2d4a0d5d8ccf959c77.png)
+
+Figure 8 of the ComStock thermostat-control-for-load-shedding measure documentation shows annual utility bill savings for the default scenario. Six box plots are grouped into 'Electric heating' and 'Non-electric heating', each containing 'Savings from max bill', 'Savings from mean bill', and 'Savings from median bill', on a shared x-axis of utility bill cost savings in percent from -3% to +7%. All six distributions are centred in positive territory. The electric-heating group has interquartile boxes spanning roughly 1.5% to 3% with medians near 2% to 2.5% and upper whiskers reaching about 5%. The non-electric-heating group sits about one percentage point lower, with boxes spanning roughly 0.5% to 2% and medians near 1% to 1.5%. Within each group the max-bill row is shifted lowest, indicating that the rate structure producing the highest bill benefits least from peak reduction or lacks a demand component. Whiskers extend to about -2% to -3%, so a minority of buildings see higher bills. The text reports roughly 1% to 3% savings for all comparisons except the no-rebound-control scenario, and attributes savings to net energy reduction, time-of-use rates aligned with the peak window, and reduced demand charges.
+

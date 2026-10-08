@@ -1,0 +1,20 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86897.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86897.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86897.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/86897.md | section: 5.1  Single Building Example | lines: 444-462 -->
+## 5.1  Single Building Example
+
+The operational behavior of an example strip mall model in Georgia is described in this section. The model has 27 air loops, none of which had DCV prior to the DCV measure being applied. The air loops serve strip mall and full-service restaurant space types. Based on the applicability criteria of this measure, we would expect full-service restaurant spaces (which are included in some ComStock strip malls), such as kitchens and dining areas, to be marked as ineligible space types and not have DCV applied.
+
+Following the application of the measure, 18 of the 27 air loops were eligible for DCV. The 9 that were ineligible were those that served full-service restaurant spaces exclusively. Three of the spaces served by the 18 eligible air loops did not have a per-occupant outdoor air requirement in OpenStudio Standards. The measure split the outdoor air requirements for these spaces between per-occupant and per-area rates using the 10 CFM/occupant minimum. After the split, the peroccupant rate was set to 10 CFM/occupant, and the remaining outdoor air requirement was met by the per-area rate. The total outdoor air requirement before and after the measure were the same, indicating that the split was executed correctly. Additionally, we would expect the outdoor air rate to decrease proportionally to occupancy in the spaces. Figure 1 shows three days of outdoor air mass flow rate and occupant count in the model, confirming that the outdoor air flow decreases with decreased occupant count. In general, the DCV measure functions as expected.
+
+Figure 1. Air system outdoor air rate (right, orange) and zone occupancy (left, blue) over three days
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86897.yaml
+     source: 86897_images/image_000002_af95a7d2badb3283fa47e7f10619c9347ac333afa5e1a58260bf6781c0e6dabe.png
+     method: vision-description
+     described: 2026-08-20 -->
+
+![Figure 1. Dual-axis time series over three July days for one strip mall zone, with zone occupancy on the left axis in blue and air system outdoor air mass flow rate on the right axis in orange, the outdoor air trace holding a flat 0.11 lb/s through each occupied period](86897_images/image_000002_af95a7d2badb3283fa47e7f10619c9347ac333afa5e1a58260bf6781c0e6dabe.png)
+
+Dual-axis line chart for the single strip mall model in Georgia used as the Section 5.1 example. X-axis: three days, Jul 02 to Jul 04, ticked every three hours from 00 to 21. Left axis, blue: ZONE STRIPMALL STRIP MALL - TYPE 1 A - STORY GROUND, Run Period Zone Timestep 15 minutes, an occupant count scaled 0 to 3.5. Right axis, orange: ZONE STRIPMALL STRIP MALL - TYPE 1 A - STORY GROUND PSZ-AC, Run Period Zone Timestep 15 minutes, in lb/s, scaled 0 to 0.12; this is the air system outdoor air mass flow rate. Blue occupancy: day 1 rises from 0 at about 05:00 to roughly 3.1 from 09:00 to 11:00, peaks at 3.53 near noon, steps down to about 2.2 until 15:00 and reaches 0 by 18:00; day 2 holds 3.53 from 09:00 to 13:00 before falling to 0 by 18:00; day 3 is much lighter, plateauing at only 1.77 from about 10:00 to 13:00 and reaching 0 by 15:30. Orange outdoor air: zero overnight, then a brief morning start-up spike (about 0.066, 0.098 and 0.072 lb/s on the three days) with an immediate dip, then a flat 0.11 lb/s held for the entire occupied period on all three days before dropping to zero. Retrieval caveat: Section 5.1 cites this figure as confirming that outdoor air flow decreases with occupant count, but the plotted trace is flat at 0.11 lb/s across every occupied window, including day 3 when occupancy peaks near half the day 2 level.
+
+All report figures by the National Renewable Energy Laboratory.
+

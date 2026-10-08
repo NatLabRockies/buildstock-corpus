@@ -1,0 +1,16 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95006.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95006.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95006.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/95006.md | section: 3.2.1  Modeling Approach | lines: 359-373 -->
+## 3.2.1  Modeling Approach
+
+Window performance depends on frame material, glass panes, gas fill, and coatings. Aluminum frames are common in commercial windows for their strength and cost but have high U-values, which can be improved with thermal breaks. Glazing options include single, double, and triple panes, with double-pane offering a good balance of cost and performance and triple-pane reserved for high-performance needs. Gas fills like air, argon, or vacuum also affect U-values, with vacuum achieving the lowest. Solar heat gain coefficient (SHGC) varies by tint and should balance cooling and heating benefits per climate zone. Upgrades will use aluminum frames with properties aligning to ASHRAE Advanced Energy Design Guide (AEDG) guidelines [4]. These properties are summarized in Table 1, along with some informal window characteristics that may achieve these properties. More details can be found in the original measure documentation.
+
+Table 1. Target Properties for Window Replacements
+
+|                           | ASHRAE Climate Zone   | ASHRAE Climate Zone   | ASHRAE Climate Zone   | ASHRAE Climate Zone   | ASHRAE Climate Zone   | ASHRAE Climate Zone   | ASHRAE Climate Zone   | ASHRAE Climate Zone   | ASHRAE Climate Zone   |
+|---------------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|
+|                           | 0                     | 1                     | 2                     | 3                     | 4                     | 5                     | 6                     | 7                     | 8                     |
+| Number of Panes           | Double                | Double                | Double                | Double                | Double                | Double                | Double                | Triple                | Triple                |
+| Fill                      | Air                   | Air                   | Air                   | Air                   | Argon or vacuum       | Argon or vacuum       | Argon or vacuum       | Argon or vacuum       | Argon or vacuum       |
+| Thermal Breaks            | 1                     | 1                     | 1                     | 1                     | >1                    | >1                    | >1                    | >1                    | >1                    |
+| Maximum Assembly U-Factor | 0.48                  | 0.48                  | 0.43                  | 0.40                  | 0.34                  | 0.34                  | 0.32                  | 0.28                  | 0.25                  |
+| Maximum SHGC              | 0.21                  | 0.22                  | 0.24                  | 0.24                  | 0.34                  | 0.36                  | 0.36                  | 0.38                  | 0.38                  |
+

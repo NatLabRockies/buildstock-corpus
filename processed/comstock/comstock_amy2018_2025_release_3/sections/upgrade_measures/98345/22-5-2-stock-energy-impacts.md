@@ -1,0 +1,47 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/98345.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/98345.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/98345.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/98345.md | section: 5.2  Stock Energy Impacts | lines: 445-490 -->
+## 5.2  Stock Energy Impacts
+
+The Fan SP Reset measure demonstrates 1.9% total site energy savings (92.7 TBtu) for the U.S. commercial building stock modeled in ComStock (Figure 3) and 8.7% site energy savings among applicable buildings only. The savings contributions by end use and fuel type are summarized in Table 5 and are illustrated in Figure 7.
+
+Table 5. Summary of Site Energy Savings From Upgrade Measure Application vs. the ComStock Baseline
+
+| End Use/Fuel Type   | Percentage Site Energy Savings (All Buildings)   | Percentage Site Energy Savings (Applicable Buildings Only)   |   Absolute Site Energy Savings (TBtu) |
+|---------------------|--------------------------------------------------|--------------------------------------------------------------|---------------------------------------|
+| Total natural gas   | -0.8%                                            | -4.5%                                                        |                                 -12.2 |
+| Total electricity   | 3.0%                                             | 14.0%                                                        |                                 100.0 |
+| Total heating       | -1.3%                                            | -5.7%                                                        |                                 -17.6 |
+| Gas heating         | -1.3%                                            | -5.7%                                                        |                                 -12.2 |
+| Electric heating    | -2.2%                                            | -8.3%                                                        |                                  -5.4 |
+| Electric fans       | 12.7%                                            | 65.0%                                                        |                                  85.4 |
+| Electric cooling    | 2.5%                                             | 9.9%                                                         |                                  18.8 |
+
+Figure 7 shows a disaggregation by end use of the effects of applying the Fan SP Reset measure. Figure 7a shows the effects for the full building stock sample, and Figure 7b shows the effects for only those buildings to which the measure was applicable. Energy savings primarily result from a reduction in fan electricity energy use, since the SP reset reduces fan power during periods of low load. The fraction of fan energy savings in applicable buildings (65%) is consistent with expectations for a fan operating at low load, based on the fan curve used to model the impacts of this measure. This is examined in more detail in Section 4.6. Past studies of SP resets implemented in real buildings have reported fan energy savings from 25% to 50% [10] [1].
+
+The penalty for heating end uses results from a reduction in fan heat, which at times would have provided useful heating to the airstream. The reduction in fan heat also explains the reduction in cooling energy. The expected magnitude of these impacts on heating and cooling energy use depends on the amount of time the reduction in fan heat results in creating a heating demand, reducing the cooling demand, or neither (if zones are operating in the deadband) across the ComStock sample. As a high-level check, the aggregate fan energy reduction was compared to the magnitude of the heating penalty and cooling energy savings, adjusted for the typical natural gas heating efficiency in ComStock (80%), and a typical direct expansion (DX) minimum cooling efficiency in ComStock (an energy efficiency ratio of 8.2 and COP of 2.4) [14]. (The electric heating energy penalty was not adjusted, since electric heating coils operate with an effective efficiency of 1.0.) DX cooling serves 81% of the floor area in ComStock. The sum of the estimated reduction in useful fan heat, based on the heating penalty converted to a heating load (9.7 TBtu), and the estimated reduction in fan heat imposing a cooling penalty (based on the cooling energy savings converted to a cooling load) (45 TBtu) is 55 TBtu, equal to about 64% of the overall reduction in fan electricity (about 85 TBtu). This is consistent with expectations, since much of the time fan heat will either provide useful heating or result in a cooling requirement. The only periods in which the fan heat is not useful or imposing a cooling requirement are those in which the unit is ventilating but not heating or cooling (e.g., inside the thermostat deadband).
+
+Past studies assessing the impacts of fan SP resets have done so through both modeling analyses and with data from real buildings. Past studies of SP resets implemented in real buildings have reported fan energy savings from 25% to 50% [10] [1]. Fan energy savings from an SP reset is highly dependent on the relationship between fan sizing and relative loads. Another U.S. building stock-level analysis of fan SP resets found 4.6% site energy savings from implementation of a T&amp;R style SP reset (and lower percentage savings from a scheduled reset) [11]. The reset implemented in this study more closely approximates a T&amp;R style reset than a scheduled reset. The energy savings reported in this study exceed both the fan energy savings and site energy savings proportions reported in past studies (65% and 8.7% among applicable buildings in this study, respectively). This reflects the load conditions under which fans typically operate in ComStock, which is discussed in more detail in Section 4.6.
+
+a)
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/98345.yaml
+     source: 98345_images/image_000008_2ee64a14444fd143b3057c64cbb212df8193a91c2a6937ec0dac269885561529.png
+     method: vision-description
+     described: 2026-08-21 -->
+
+![Stacked bar chart comparing annual site energy consumption by end use and fuel between the ComStock baseline and the Fan SP Reset scenario for the entire modeled building stock.](98345_images/image_000008_2ee64a14444fd143b3057c64cbb212df8193a91c2a6937ec0dac269885561529.png)
+
+Figure 7a. Two stacked vertical bars comparing annual site energy consumption in TBtu for the entire ComStock building stock, ComStock Baseline on the left and Fan_SP_Reset_MZVAV on the right, with each bar broken into segments by end use and fuel type per the legend. Bar totals are about 4,989 TBtu for the baseline and 4,896 TBtu with the measure, a reduction near 93 TBtu that matches the 92.7 TBtu and 1.9% total site energy savings in Table 5. The segment pattern is what the report's narrative describes: the fan electricity segment shrinks substantially, the cooling electricity segment shrinks modestly, and the heating segments for both natural gas and electricity grow slightly, while lighting, interior equipment and water systems are unchanged. Natural gas heating is the single largest segment in both bars, and fans, cooling and interior equipment electricity are the next largest. The precise per-segment values are given in Table 5 rather than read from this figure; Table 5 reports fan savings of 85.4 TBtu, cooling savings of 18.8 TBtu, an electric heating penalty of 5.4 TBtu and a natural gas heating penalty of 12.2 TBtu.
+
+Figure 7. Comparison of annual site energy consumption between the ComStock baseline and the Fan SP Reset measure scenario.
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/98345.yaml
+     source: 98345_images/image_000009_cfdc0c4be06c12c262690239e8b935436b76af5a0eb644727d7f0b0b382ad115.png
+     method: vision-description
+     described: 2026-08-21 -->
+
+![Stacked bar chart comparing annual site energy consumption by end use and fuel between baseline and Fan SP Reset, restricted to the models the measure applies to.](98345_images/image_000009_cfdc0c4be06c12c262690239e8b935436b76af5a0eb644727d7f0b0b382ad115.png)
+
+Figure 7b. The same stacked-bar comparison as Figure 7a but restricted to the models to which the Fan SP Reset measure was applicable. Two vertical bars, ComStock Baseline and Fan_SP_Reset_MZVAV, are broken into segments by end use and fuel type per the legend. Bar totals are about 1,070 TBtu for the baseline and 977 TBtu with the measure, a reduction of about 93 TBtu or 8.7%, matching the 8.7% site energy savings among applicable buildings quoted in Section 5.2. Restricting to applicable buildings makes the fan effect far more visible than in Figure 7a: the fan electricity segment is roughly a third of its baseline size in the measure bar, a 65% reduction, which is the headline figure Section 5.2 cites. Cooling electricity falls modestly, natural gas and electric heating both grow slightly, and lighting and interior equipment are unchanged. Per-segment values should be taken from Table 5 rather than from this figure, since several segment labels are white text printed over a hatched fill and are not legible.
+
+Energy consumption is categorized both by fuel type and end use. (a) shows the entire building stock modeled in ComStock while (b) shows only models applicable to the Fan SP Reset measure.
+

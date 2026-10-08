@@ -1,0 +1,14 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95004.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/95004.md | section: 3.4  Carbon Emissions Equivalent | lines: 390-402 -->
+## 3.4  Carbon Emissions Equivalent
+
+We present three electricity grid scenarios to compare the emissions of the ComStock baseline to the PV scenario. More are available in the ComStock public dataset. The choice of grid scenario will impact the grid emissions factors used in the simulation, which will determine the corresponding emissions produced per kilowatt-hour. Two scenarios-Long-Run Marginal Emissions Rate (LRMER) High Renewable Energy Cost 15-Year and LRMER Low Renewable Energy Cost 15-Year-use the Cambium dataset, and the last uses the Emissions and Generation Resource Integrated Database (eGRID) dataset [9], [10]. All three scenarios vary the emissions factors geospatially to reflect the variation in grid resources used to produce electricity across the United States. The Cambium datasets also vary emissions factors seasonally and by time of day. This study does not imply a preference for any particular grid emissions scenario, but other analysis suggests that the choice of grid emissions scenario can impact results [11]. Emissions from on-site combustion of fossil fuels use the emissions factors shown in Table 4, which are from Table 7.1.2(1) of the draft American National Standards Institute/Residential Energy Services Network/International Code Council 301 standard [14]. To compare total emissions from both on-site fossil fuel consumption and grid electricity generation, the emissions from a single electricity grid scenario should be combined with all three on-site fossil fuel emissions.
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95004.yaml
+     source: 95004_images/image_000002_6932e4e6b973474062ef2e795ff8aad01531912d02c56d81a5eeffe72887de44.png
+     method: vision-transcription
+     described: 2026-08-20 -->
+
+![Table 4. On-site fossil fuel emissions factors for natural gas, propane, and fuel oil](95004_images/image_000002_6932e4e6b973474062ef2e795ff8aad01531912d02c56d81a5eeffe72887de44.png)
+
+Table 4. On-Site Fossil Fuel Emissions Factors, transcribed from a small legible table bitmap. Three fuels with on-site combustion emissions factors in two unit systems: Natural gas 147.3 lb/MMBtu (228.0 kg/MWh); Propane 177.8 lb/MMBtu (182.3 kg/MWh); Fuel oil 195.9 lb/MMBtu (303.2 kg/MWh). Footnote: lb = pound; MMBtu = million British thermal units; kg = kilogram; MWh = megawatt-hour. These are the direct-combustion factors used to attribute on-site fossil emissions; grid-electricity emissions are handled separately via the eGRID/LRMER factors used elsewhere in the doc.
+

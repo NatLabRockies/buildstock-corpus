@@ -1,0 +1,16 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/87542.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/87542.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/87542.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/87542.md | section: 5.3  Stock Greenhouse Gas Emissions Impact | lines: 551-565 -->
+## 5.3  Stock Greenhouse Gas Emissions Impact
+
+The ComStock simulation results show greenhouse gas emissions avoided across all electricity grid scenarios and on-site combustion fuel types (Figure 8). For the combined impact across all fuel sources, a single electricity grid scenario should be chosen and combined with all three onsite combustion fuel scenarios. Comprehensive greenhouse gas emissions avoided (one electricity grid scenario plus all on-site combustion fuels) range between 5% (21.4 MMT CO2e; eGRID 2021) and 7% (17.7 MMT CO2e; Cambium Low RE Cost 15 year), depending on the grid scenario chosen. The emissions avoided are due to reduced electricity consumption from the cooling and heating end uses, but also include the increase in electricity from the heat recovery (added fan power) end use.
+
+Figure 9. Greenhouse gas emissions comparison of the ComStock baseline and the heat/energy recovery scenario. Three electricity grid scenarios are presented: Cambium Long-Run Marginal Emissions Rate (LRMER) High Renewable Energy (RE) Cost 15-Year, Cambium LRMER Low RE Cost 15-Year, and eGRID. MMT stands for million metric tons.
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/87542.yaml
+     source: 87542_images/image_000010_157a1ea490fa0bc24aa6fd5b743868f4c304b1ddb3a839e8740cbd4ee3858841.png
+     method: vision-description
+     described: 2026-08-20 -->
+
+![Figure 9. Grouped column chart of annual greenhouse gas emissions in MMT CO2e comparing the ComStock baseline and the energy recovery scenario, with three electricity grid scenarios grouped under a Choose 1 bracket followed by natural gas, fuel oil, and propane](87542_images/image_000010_157a1ea490fa0bc24aa6fd5b743868f4c304b1ddb3a839e8740cbd4ee3858841.png)
+
+Greenhouse gas emissions comparison in million metric tons of CO2 equivalent (MMT CO2e). Paired columns give Baseline (dark blue) and Energy Recovery (light blue) for six categories along the x-axis. The first three, spanned by a bracket labeled Electricity Grid Scenarios: Choose 1, are Electricity: eGRID 2021, Electricity: LRMER High RE Cost 15, and Electricity: LRMER Low RE Cost 15; the remaining three are Natural Gas, Fuel Oil, and Propane. Values with the change annotated above each pair: eGRID 2021 336.6 to 330.0 (-6.6, 2.0%); LRMER High RE Cost 15 253.3 to 248.5 (-4.8, 1.9%); LRMER Low RE Cost 15 161.1 to 158.2 (-2.9, 1.8%); Natural Gas 83.6 to 70.3 (-13.3, 15.9%); Fuel Oil 4.8 to 3.7; Propane 2.0 to 1.6. Because a comprehensive total takes one electricity scenario plus all three combustion fuels, the avoided emissions span 21.4 MMT CO2e (5%) under eGRID 2021 down to 17.7 MMT CO2e (7%) under Cambium Low RE Cost 15. Natural gas is the single largest avoided component. Electricity emissions fall despite the added heat recovery fan power, because cooling and electric heating savings outweigh it.
+
