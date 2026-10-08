@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86105.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86105.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86105.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/86105.md | section: 5.3  Stock Greenhouse Gas Emissions Impact | lines: 390-404 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86105.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86105.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86105.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/86105.md | section: 5.3  Stock Greenhouse Gas Emissions Impact | lines: 388-402 -->
 ## 5.3  Stock Greenhouse Gas Emissions Impact
 
 ComStock simulation results show greenhouse gas emissions avoided across all electricity grid scenarios and on-site combustion fuel types (Figure 11). Greenhouse gas emissions avoided from the electricity grid with the economizer upgrade are 0.2% -0.4% depending on three grid scenarios.

@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92546.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/92546.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/92546.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/92546.md | section: 5.1  Single Building Measure Tests | lines: 277-305 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92546.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/92546.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/92546.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/92546.md | section: 5.1  Single Building Measure Tests | lines: 275-303 -->
 ## 5.1  Single Building Measure Tests
 
 This section explores the application of the Ideal Thermal Air Loads measure scenario on a single ComStock building energy model to demonstrate performance at a manageable scale. The sample model is a 17,500 ft 2 small office located in Cody, Wyoming (climate zone 7A). The HVAC system type is packaged rooftop units (RTU) with gas furnace heating and direct expansion (DX) cooling.

@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89132.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89132.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89132.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/89132.md | section: Suggested Citation | lines: 36-47 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89132.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89132.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89132.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/89132.md | section: Suggested Citation | lines: 34-45 -->
 ## Suggested Citation
 
 Praprost, Marlena, Amy Allen, Andrew Parker and Matt Leach. 2024. End-Use Savings Shapes Measure Documentation: Console Water-to-Air Geothermal Heat Pump. Golden, CO: National Renewable Energy Laboratory. NREL/TP-5500-89132. https://www.nrel.gov/docs/fy24osti/89132.pdf.

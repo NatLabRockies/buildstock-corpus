@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95009.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95009.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95009.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/95009.md | section: References | lines: 1087-1134 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95009.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95009.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95009.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/95009.md | section: References | lines: 1085-1132 -->
 ## References
 
 [1] U.S. Department of Energy, "Now Available: IEA 2020 U.S. Geothermal Report," 8 June 2021. [Online]. Available: https://www.energy.gov/eere/geothermal/articles/now-available-iea2020-us-geothermal-report. [Accessed March 2025].

@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95119.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/95119.md | section: References | lines: 682-702 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95119.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/95119.md | section: References | lines: 680-700 -->
 ## References
 
 | [1]     | C. CaraDonna, A. Parker, and R. Meyer, 'End-Use Savings Shapes Measure Documentation: Heat Pump Rooftop Units,' 2024. [Online]. Available: www.nrel.gov/publications. C. CaraDonna, 'End-Use Savings Shapes Measure Documentation: Heat Pump Units with Original Fuel Backup,' 2023. Accessed: May 21, 2025. [Online].                                                                                                               |

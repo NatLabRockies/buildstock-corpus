@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/98345.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/98345.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/98345.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/98345.md | section: 3.1  Applicability | lines: 311-329 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/98345.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/98345.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/98345.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/98345.md | section: 3.1  Applicability | lines: 309-327 -->
 ## 3.1  Applicability
 
 This measure is applicable to multizone VAV systems currently modeled without SP resets in ComStock [16]. This accounts for 23% of the weighted floor area in ComStock (14.6 billion square feet). Figure 3 illustrates the applicability of this measure by HVAC system type.

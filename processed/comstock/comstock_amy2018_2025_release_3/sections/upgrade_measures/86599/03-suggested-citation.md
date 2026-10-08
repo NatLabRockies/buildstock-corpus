@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86599.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/86599.md | section: Suggested Citation | lines: 26-39 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86599.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/86599.md | section: Suggested Citation | lines: 24-37 -->
 ## Suggested Citation
 
 Van Sant, Amy and Marlena Praprost. 2024. End-Use Savings Shapes Upgrade Package Documentation: Wall and Roof Insulation and New Windows . Golden, CO: National Renewable Energy Laboratory. NREL/TP-5500-86599.

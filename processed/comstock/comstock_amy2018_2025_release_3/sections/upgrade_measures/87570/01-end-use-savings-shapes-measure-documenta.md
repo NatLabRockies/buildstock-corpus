@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/87570.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/87570.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/87570.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/87570.md | section: End-Use Savings Shapes Measure Documentation: Heat Pump Rooftop Units with Original Fuel Backup | lines: 6-19 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/87570.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/87570.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/87570.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/87570.md | section: End-Use Savings Shapes Measure Documentation: Heat Pump Rooftop Units with Original Fuel Backup | lines: 5-17 -->
 ## End-Use Savings Shapes Measure Documentation: Heat Pump Rooftop Units with Original Fuel Backup
 
 Chris CaraDonna
@@ -11,5 +11,4 @@ This report is available at no cost from the National Renewable Energy Laborator
 
 Technical Report NREL/TP5500-87570 September 2024
 
-![Image](87570_images/image_000001_44bf1b2f4edcc1c1232b7675d7de444294040908b1a7f695150e8074d8336580.png)
-
+<!-- decorative image omitted: image_000001 (wordmark; no description by the figure standard) -->

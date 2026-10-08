@@ -1,5 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86599.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/86599.md | section: Wall and Roof Insulation and New Windows | lines: 2-5 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86599.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/86599.md | section: Wall and Roof Insulation and New Windows | lines: 2-4 -->
 # Wall and Roof Insulation and New Windows
 
-![Image](86599_images/image_000000_8b76daf9b63395f2386d6dcfbc279ff7de40b76dd17129a40225761bd0cf8ac2.png)
-
+<!-- decorative image omitted: image_000000 (cover art; no description by the figure standard) -->

@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86602.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86602.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86602.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/86602.md | section: NOTICE | lines: 44-55 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86602.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86602.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86602.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/86602.md | section: NOTICE | lines: 42-53 -->
 ## NOTICE
 
 This  work  was  authored  by  the  National  Renewable  Energy  Laboratory,  operated  by  Alliance  for  Sustainable Energy,  LLC,  for  the  U.S.  Department  of  Energy  (DOE)  under  Contract  No.  DE-AC36-08GO28308.  Funding provided  by  the  U.S.  Department  of  Energy  Office  of  Energy  Efficiency  and  Renewable  Energy  Building Technologies Office. The views expressed herein do not necessarily represent the views of the DOE or the U.S. Government.

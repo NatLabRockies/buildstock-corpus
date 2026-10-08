@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89239.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89239.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89239.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/89239.md | section: 5.2  Stock Energy Impacts | lines: 486-525 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89239.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89239.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89239.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/89239.md | section: 5.2  Stock Energy Impacts | lines: 484-523 -->
 ## 5.2  Stock Energy Impacts
 
 The Central Hydronic GHP measure demonstrates 5.3% total site energy savings (232 trillion British thermal units [TBtu]) for the U.S. commercial building stock modeled in ComStock (Figure 10). The savings are primarily attributed to:

@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92618.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/92618.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/92618.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/92618.md | section: 3.1.1  Modeling Approach | lines: 231-241 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92618.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/92618.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/92618.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/92618.md | section: 3.1.1  Modeling Approach | lines: 229-239 -->
 ## 3.1.1  Modeling Approach
 
 The methodology and assumptions used to develop the model for the standard efficiency HPRTU are discussed in depth in the documentation for that measure scenario. Below are a few key assumptions:

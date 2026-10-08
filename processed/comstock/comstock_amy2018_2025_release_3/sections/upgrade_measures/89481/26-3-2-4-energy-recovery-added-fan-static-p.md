@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89481.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89481.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89481.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/89481.md | section: 3.2.4  Energy Recovery Added Fan Static Pressure | lines: 402-407 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89481.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89481.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89481.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/89481.md | section: 3.2.4  Energy Recovery Added Fan Static Pressure | lines: 400-405 -->
 ## 3.2.4  Energy Recovery Added Fan Static Pressure
 
 Adding heat exchangers to the airstream for heat/energy recovery creates additional pressure drops that the supply and exhaust fans need to overcome. The pressure drops are modeled as an additional 0.85 in. w.c. and 0.65 in. w.c. for the supply fan and exhaust fan, respectively. These values align with both the AEDG and PNNL values [5], [6].

@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/faq.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/faq.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/faq.html | corpus_version: 0a2f61f | corpus_path: github_site/docs/faq.md | section: Datasets and Data Access | lines: 70-210 -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/faq.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/faq.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/faq.html | corpus_version: b5faf42 | corpus_path: github_site/docs/faq.md | section: Datasets and Data Access | lines: 70-210 -->
 ## Datasets and Data Access
 <ul class="jk_accordion">
   <li class="acc" id="faq-dataset-access-section"><input id="faq-dataset-access" type="checkbox" /><label for="faq-dataset-access">How do I access the dataset?</label>

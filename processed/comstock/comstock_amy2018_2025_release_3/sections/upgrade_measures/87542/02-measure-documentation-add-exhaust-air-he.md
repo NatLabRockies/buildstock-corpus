@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/87542.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/87542.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/87542.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/87542.md | section: Measure Documentation: Add Exhaust Air Heat/Energy Recovery | lines: 8-21 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/87542.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/87542.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/87542.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/87542.md | section: Measure Documentation: Add Exhaust Air Heat/Energy Recovery | lines: 7-19 -->
 ## Measure Documentation: Add Exhaust Air Heat/Energy Recovery
 
 Chris CaraDonna
@@ -11,5 +11,4 @@ This report is available at no cost from the National Renewable Energy Laborator
 
 Technical Report NREL/TP-5500-87542 January 202 4
 
-![Image](87542_images/image_000001_44bf1b2f4edcc1c1232b7675d7de444294040908b1a7f695150e8074d8336580.png)
-
+<!-- decorative image omitted: image_000001 (wordmark; no description by the figure standard) -->

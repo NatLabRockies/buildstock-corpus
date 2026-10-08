@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86199.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86199.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86199.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/86199.md | section: 4.2.2.2  Sizing Based on a Target Outdoor Air Temperature | lines: 531-536 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86199.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86199.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86199.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/86199.md | section: 4.2.2.2  Sizing Based on a Target Outdoor Air Temperature | lines: 529-534 -->
 ## 4.2.2.2  Sizing Based on a Target Outdoor Air Temperature
 
 In this approach, the heat pump is sized using the target capacity on the heat load line corresponding to the target outdoor air temperature provided by the user. The target capacity is calculated as:

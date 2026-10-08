@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | assets/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.pdf | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/assets/files/ComStock%20Measure%20Doc_HP%20RTU%20Higher%20Compressor%20Lockout.pdf | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/ComStock%20Measure%20Doc_HP%20RTU%20Higher%20Compressor%20Lockout.pdf | corpus_version: 0a2f61f -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | assets/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.pdf | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/assets/files/ComStock%20Measure%20Doc_HP%20RTU%20Higher%20Compressor%20Lockout.pdf | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/ComStock%20Measure%20Doc_HP%20RTU%20Higher%20Compressor%20Lockout.pdf | corpus_version: b5faf42 -->
 # Heat Pump Rooftop Units With Higher Compressor Lockout Temperature for Heating
 
 ComStock Measure Documentation: Heat Pump Rooftop Units With Higher Compressor Lockout Temperature for Heating Janghyun Kim, Chris CaraDonna, and Andrew Parker PRE-PUBLICATIO
@@ -7,8 +7,7 @@ ComStock Measure Documentation: Heat Pump Rooftop Units With Higher Compressor L
 
 The authors would like to acknowledge the valuable guidance, review, and input provided by Grant Wheeler, Jeff Munk, Emily Laidlaw, Deanna Cook, Nicholas Long, and Ronald Judkoff at the National Renewable Energy Laboratory.
 
-![Image](ComStock_Measure_Doc_HP_RTU_Higher_Compressor_Lockout_images/image_000000_a27ad8a4f51fb12164031d26c2a57ee089a2c899a7847e204fd3180f19454904.png)
-
+<!-- decorative image omitted: image_000000 (cover art; no description by the figure standard) -->
 ## List of Acronyms
 
 CBECS
@@ -183,8 +182,7 @@ This document primarily discusses changes to the compressor lockout temperature,
 
 The characteristics of existing RTUs in ComStock, the U.S. Department of Energy's commercial building stock model, are based on a combination of when the buildings were built and how the HVAC equipment has been assumed to have been updated over time. This is described in detail in the ComStock Documentation report [2]. HVAC equipment performance is assumed to meet the energy code requirements in force at the time and place of installation. For this reason, most existing RTUs are modeled as constant air volume with single-speed compressors and either gas or electric resistance supplemental heating.
 
-![Image](ComStock_Measure_Doc_HP_RTU_Higher_Compressor_Lockout_images/image_000001_62d180636fe5419bb13e3a02349126b86c2dd99c9b00c7d12c9c1f00dae21ada.png)
-
+<!-- decorative image omitted: image_000001 (wordmark; no description by the figure standard) -->
 The in-force energy code for the ComStock baseline is shown as a percentage of applicable floor area in Figure 1. Applicable floor area for this analysis includes ComStock buildings with 'PSZAC with gas coil' and 'PSZ-AC with electric coil' HVAC system types (where PSZ-AC stands for packaged single-zone air conditioner). Most ComStock baseline RTUs follow energy code requirements from the early 2000s. Other energy efficiency features, such as demand control ventilation, energy recovery, and economizer control, are only applied to baseline ComStock RTUs if required by the in-force energy code. The ComStock workflow checks the necessary characteristics of each RTU to determine whether the feature is required. Similarly, heating, cooling, and fan efficiencies are set based on the in-force code year. For models with the 'PSZAC with electric coil' HVAC system type, the ComStock baseline uses electric resistance coils that have an efficiency of 100%. For models with the 'PSZ-AC with gas coil' HVAC system type, the ComStock baseline generally uses a gas furnace efficiency of around 80%. PRE-PUBLICATION
 
 Figure 1. ComStock baseline in-force energy code followed as a percentage of applicable floor area.

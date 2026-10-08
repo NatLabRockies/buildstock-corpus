@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95003.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95003.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95003.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/95003.md | section: Appendix C. Comparison of New Performance Curves to Old Curves | lines: 1087-1153 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95003.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95003.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95003.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/95003.md | section: Appendix C. Comparison of New Performance Curves to Old Curves | lines: 1085-1151 -->
 ## Appendix C. Comparison of New Performance Curves to Old Curves
 
 Figure C-1. Air-cooled chiller performance curves comparisons against pre 90.1-2004

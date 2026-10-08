@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/96598.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/96598.md | section: ComStock Measure Documentation: Upgrade Envelope to Current State Code | lines: 6-19 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/96598.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/96598.md | section: ComStock Measure Documentation: Upgrade Envelope to Current State Code | lines: 5-17 -->
 ## ComStock Measure Documentation: Upgrade Envelope to Current State Code
 
 Marlena Praprost
@@ -11,5 +11,4 @@ This report is available at no cost from the National Laboratory of the Rockies 
 
 Technical Report NLR/TP-5500-96598 January 2026
 
-![Image](96598_images/image_000001_5d613b52a131512918281c90b414f406323eb0a30b44a28492fc9672f8a42248.png)
-
+<!-- decorative image omitted: image_000001 (wordmark; no description by the figure standard) -->

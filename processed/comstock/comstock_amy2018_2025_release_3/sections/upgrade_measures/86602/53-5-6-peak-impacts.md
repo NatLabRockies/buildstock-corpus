@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86602.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86602.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86602.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/86602.md | section: 5.6 Peak Impacts | lines: 970-984 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86602.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86602.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86602.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/86602.md | section: 5.6 Peak Impacts | lines: 968-982 -->
 ## 5.6 Peak Impacts
 
 Figure 11 shows the impact of the High Efficiency Envelope, Interior Lighting and Heat Pump package on seasonal peak hours. The winter and shoulder peaks are shifted later in the day by several hours, and morning electric heating is now driving the peak in these seasons. The summer peak distribution remained relatively similar between the two cases.

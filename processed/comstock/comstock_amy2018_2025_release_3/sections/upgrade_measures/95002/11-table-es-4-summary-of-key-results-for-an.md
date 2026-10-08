@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95002.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95002.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95002.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/95002.md | section: Table ES-4. Summary of Key Results for Annual CO2e Savings | lines: 109-120 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95002.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95002.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95002.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/95002.md | section: Table ES-4. Summary of Key Results for Annual CO2e Savings | lines: 107-118 -->
 ## Table ES-4. Summary of Key Results for Annual CO2e Savings
 
 Electricity emissions avoided in this table are calculated using Cambium Long-Run Marginal Emissions Rate (LRMER) High Renewable Energy (RE) Cost 15-Year grid scenario. Other grid scenarios are presented in this report and in the public dataset.

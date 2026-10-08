@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89130.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89130.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89130.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/89130.md | section: 1.1.1.3  Griddles | lines: 343-395 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89130.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89130.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89130.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/89130.md | section: 1.1.1.3  Griddles | lines: 341-393 -->
 ## 1.1.1.3  Griddles
 
 The two main types of griddles are standard griddles (flat, one-sided plate) and double-sided griddles (like a panini press). Standard griddles, as the name suggests, are more common and will be assumed for modeling.

@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86100.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86100.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86100.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/86100.md | section: 6  References | lines: 403-406 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86100.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86100.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86100.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/86100.md | section: 6  References | lines: 401-404 -->
 ## 6  References
 
 - [1] N. Buccitelli, C. Elliott, S. Schober, and M. Yamada. 2017. 2015 U.S. Lighting Market Characterization. U.S. Department of Energy. doi: https://doi.org/10.2172/1413883.

@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/7_AppendixB.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/7_AppendixB.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: 0a2f61f -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/7_AppendixB.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/7_AppendixB.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: b5faf42 -->
 # 7_AppendixB
 
 <span id="appendix:B_figures" label="appendix:B_figures"></span> \[Intentionally Blank\]

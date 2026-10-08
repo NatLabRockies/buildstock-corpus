@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89132.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89132.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89132.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/89132.md | section: 3.3  Additional Energy Efficiency Features | lines: 273-278 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89132.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89132.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89132.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/89132.md | section: 3.3  Additional Energy Efficiency Features | lines: 271-276 -->
 ## 3.3  Additional Energy Efficiency Features
 
 If the user elects to model a DOAS to supply ventilation, several additional options for energy efficiency features are available: demand-controlled ventilation and energy recovery ventilation. These options are not generally available on console water-to-air heat pumps (due to their compact configuration) but could be implemented through a DOAS.

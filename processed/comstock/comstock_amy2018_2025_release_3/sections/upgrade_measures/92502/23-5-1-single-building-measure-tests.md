@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92502.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy26osti/92502.pdf | publication_url: https://www.nlr.gov/docs/fy26osti/92502.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/92502.md | section: 5.1  Single Building Measure Tests | lines: 542-558 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92502.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy26osti/92502.pdf | publication_url: https://www.nlr.gov/docs/fy26osti/92502.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/92502.md | section: 5.1  Single Building Measure Tests | lines: 540-556 -->
 ## 5.1  Single Building Measure Tests
 
 Several single building measure tests are performed to demonstrate the implementation of the developed measure, as shown in the following sections. Specifically, a small office building model is applied as the sample model to evaluate performance, and the test results are shown in five consecutive summer weekdays (7/16-7/20) to illustrate details of the load profiles for comparison.

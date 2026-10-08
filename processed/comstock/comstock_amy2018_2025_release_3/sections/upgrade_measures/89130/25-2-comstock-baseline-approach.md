@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89130.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89130.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89130.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/89130.md | section: 2  ComStock Baseline Approach | lines: 605-674 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89130.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89130.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89130.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/89130.md | section: 2  ComStock Baseline Approach | lines: 603-672 -->
 ## 2  ComStock Baseline Approach
 
 This measure replaces existing gas-fired cooking equipment in kitchen space types with comparable electric equipment. The measure only applies to building types in ComStock that already have kitchens:

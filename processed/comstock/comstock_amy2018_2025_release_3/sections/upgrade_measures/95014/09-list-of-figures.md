@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95014.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95014.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95014.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/95014.md | section: List of Figures | lines: 294-337 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95014.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95014.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95014.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/95014.md | section: List of Figures | lines: 292-335 -->
 ## List of Figures
 
 | Figure 1. Standard boiler versus condensing boiler diagram [2]                                                                                                                                                                           | .................................................................. 1   |

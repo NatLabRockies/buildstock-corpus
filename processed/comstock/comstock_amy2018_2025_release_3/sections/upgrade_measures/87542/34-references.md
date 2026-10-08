@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/87542.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/87542.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/87542.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/87542.md | section: References | lines: 639-664 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/87542.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/87542.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/87542.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/87542.md | section: References | lines: 637-662 -->
 ## References
 
 - [1] Quinnell, J. et al. 2013. Energy Recovery in Minnesota Commercial and Institutional Buildings: Expectations and Performance Conservation Applied Research &amp; Development (CARD) FINAL REPORT Prepared for: Minnesota Department of Commerce Division of Energy Resources Prepared by: Cent .
