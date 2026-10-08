@@ -355,3 +355,31 @@ def test_measure_doc_index_keys_every_url_spelling_to_one_document():
         "corpus_path": "upgrade_measures/unpublished_docs/upgrade_measures/env_window_film.md",
         "doc_url": page.publication_url,
     }
+
+
+@pytest.mark.parametrize(
+    "body",
+    [
+        "# HVAC Systems\n\nIntro.\n\n## A\n\nText a.\n",          # body's own title line is dropped
+        "# HVAC Systems\n\n\n\nIntro.\n\n## A\n\nText a.\n",      # ... plus extra blank lines
+        "## A\n\nText a.\n\nMore.\n",                             # no title line: body written verbatim
+        "Just prose.\n",
+    ],
+)
+def test_line_offset_maps_body_indices_onto_the_written_file(tmp_path, monkeypatch, body):
+    """The offset the chunker is given must turn a body index into the line of the file a
+    reader opens -- for every way build rewrites the top of a document."""
+    monkeypatch.setattr(B, "processed_root", lambda p, r: tmp_path)
+    doc = Document(product="comstock", release=RELEASE, source_id="technical_reference",
+                   source_type="latex", source_path="doc/x.tex", title="HVAC Systems", body=body,
+                   status="site_page", source_url="https://github.com/x/y/blob/s/doc/x.tex",
+                   publication_url="https://example.org/ref.pdf")
+    _write_processed("comstock", RELEASE, [doc], {}, "v")
+    file_lines = (tmp_path / "technical_reference/doc/x.md").read_text(encoding="utf-8").split("\n")
+    _, offset = B._leading_heading_offset(doc.title, body)
+
+    body_lines = body.split("\n")
+    kept_from = next(j for j, l in enumerate(body_lines) if l.strip() and not (j == 0 and l == "# HVAC Systems"))
+    for j in range(kept_from, len(body_lines) - 1):  # every body line that is written
+        assert file_lines[j + offset - 1] == body_lines[j], (j, offset)
+    assert file_lines[1] == "# HVAC Systems"  # the injected title line is always line 2

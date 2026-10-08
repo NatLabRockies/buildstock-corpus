@@ -379,14 +379,27 @@ def _extract_documents(
     return docs, excluded, excluded_urls, warnings, crosswalk, pdf_images, image_dirs
 
 
+def _leading_heading_offset(title: str, body: str) -> tuple[str, int]:
+    """(body as written after the injected `# title` line, file-line offset for body indices).
+
+    The processed file is: line 1 the provenance header, line 2 `# <title>`, line 3 blank,
+    then the body -- minus its own first line when that is an H1 equal to the title, and
+    minus the blank lines that followed it. The chunker works on the body, so it needs the
+    offset that turns a 0-based body index into a 1-based line of that file: 4 when the
+    body is written verbatim, 3 minus the number of dropped blank lines when its title line
+    was removed (indices before the first kept line are never inside a paragraph).
+    """
+    lines = body.split("\n", 1)
+    if lines and lines[0].startswith("# ") and lines[0].lstrip("# ").strip() == title:
+        rest = lines[1] if len(lines) > 1 else ""
+        kept = rest.lstrip("\n")
+        return kept, 3 - (len(rest) - len(kept))
+    return body, 4
+
+
 def _strip_leading_heading(title: str, body: str) -> str:
     """Remove the first line of body if it's an H1 matching the title we inject."""
-    lines = body.split("\n", 1)
-    if lines and lines[0].startswith("# "):
-        heading_text = lines[0].lstrip("# ").strip()
-        if heading_text == title:
-            return lines[1].lstrip("\n") if len(lines) > 1 else ""
-    return body
+    return _leading_heading_offset(title, body)[0]
 
 
 def _write_processed(
@@ -520,7 +533,12 @@ def build_release(
     _write_processed(product, release, docs, remaps, corpus_version)
     n_images = _copy_source_images(product, release, pdf_images)
 
-    chunks = chunk_documents(docs)
+    # Chunk line ranges are lines of the files just written, so a hit can be re-read with
+    # `sed -n a,bp`; the offset per document is the same arithmetic _write_processed used.
+    line_offsets = {
+        (d.source_id, d.source_path): _leading_heading_offset(d.title, d.body)[1] for d in docs
+    }
+    chunks = chunk_documents(docs, line_offsets=line_offsets, corpus_version=corpus_version)
     cf = chunks_file(product, release)
     cf.parent.mkdir(parents=True, exist_ok=True)
     with cf.open("w", encoding="utf-8", newline="\n") as f:
