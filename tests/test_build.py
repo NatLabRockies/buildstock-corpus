@@ -108,6 +108,7 @@ def test_written_file_opens_with_the_full_provenance_header(tmp_path, monkeypatc
         "source_url": doc.source_url,
         "publication_url": doc.publication_url,
         "corpus_version": f"{RELEASE}-v1",
+        "corpus_path": None, "section": None, "lines": None,  # only section files carry these
     }
     assert second == "# HVAC Systems"
     assert b"\r\n" not in out.read_bytes()

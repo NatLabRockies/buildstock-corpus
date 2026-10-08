@@ -11,7 +11,10 @@ published without provenance.
 ## Requirements
 
 - [`uv`](https://docs.astral.sh/uv/) (manages Python 3.12 and all deps)
-- `git` (sources are fetched by cloning tagged repos)
+- `git` (sources are fetched by cloning tagged repos). **On Windows, enable long paths
+  before cloning**: `git config --global core.longpaths true`. The per-section files under
+  `processed/.../sections/` reach 290 characters, past the 260-character default limit,
+  and a checkout without the setting fails on them.
 
 ## Usage
 
@@ -93,15 +96,19 @@ The recipe is two fetches, three when you need headings:
    start from its `upgrade_id` or `measure_id`.
 2. **`sections.json`** (~194 KB raw, ~25 KB over the wire), only if you need to land on a
    heading: every heading of every document with `line_start` and `line_end` in the file.
-3. **The document**, at `<corpus_path>`. Its line 1 is a provenance header carrying the
-   release, upstream path, `status`, both URLs and the `corpus_version`, so the file alone
-   is enough to cite. Quote `source_id/source_path` and the `corpus_version`, and send a
-   reader to the `publication_url`, not to the markdown.
+3. **The document**, at `<corpus_path>` — or **one section of it**: every H2 entry in
+   `sections.json` carries a `file`, `sections/<corpus_path minus .md>/<NN>-<slug>.md`,
+   holding that heading and everything beneath it down to the next H2, usually a few KB.
+   Line 1 of either is a provenance header carrying the release, upstream path, `status`,
+   both URLs and the `corpus_version` (a section file's also names its parent
+   `corpus_path`, its `section` and the `lines` it spans), so the file alone is enough to
+   cite. Quote `source_id/source_path` and the `corpus_version`, and send a reader to the
+   `publication_url`, not to the markdown.
 
 **Mind the size.** 40 of the 114 documents are over 100 KB and four are over 200 KB; the
 largest, the reference documentation's Appendix A, is 437 KB. Check `bytes` in the index
-before fetching, and use the line range from `sections.json` to read only the section you
-need. Per-section files are planned so that a heading can be fetched on its own.
+before fetching a whole document; fetch the section file instead, or use the line range
+from `sections.json`.
 
 Both JSON files stamp the `manifest_sha256` they were generated from and validate against
 [`schemas/`](schemas/) in this repo; code against the schema, not the example.
@@ -132,7 +139,11 @@ uv sync --extra extract
 
 - `sources/<product>_<release>.yaml` — source registry (repos, tag, measure URLs)
 - `raw/<product>/<release>/` — downloaded originals (gitignored)
-- `processed/<product>/<release>/` — clean markdown, referenced image assets, `CORPUS_MAP.md`, `index.json`, `sections.json`, `crosswalk.json`, `chunks.jsonl`, `manifest.json`
+- `processed/<product>/<release>/` — clean markdown, referenced image assets, `CORPUS_MAP.md`, `index.json`, `sections.json`, `sections/`, `crosswalk.json`, `chunks.jsonl`, `manifest.json`
+  - `sections/<corpus_path minus .md>/<NN>-<slug>.md` — every H2 of every document as its
+    own file (plus `00-` for the text before the first H2), each with a citable line-1
+    header naming its parent and line range. A pure function of the document: `bsc
+    validate` regenerates them and compares, so they are not hashed into the manifest.
   - `CORPUS_MAP.md` is the entry point for reading the corpus: every document's title,
     path, sections and date, the measure→upgrade-id→document routing table, and the known
     gaps. Generated (never hand-edited) and stamped with the sha256 of the manifest it was

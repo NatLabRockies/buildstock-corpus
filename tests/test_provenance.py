@@ -35,6 +35,7 @@ def test_header_round_trips_every_field():
         "source_id": "upgrade_measures",
         "source_path": "assets/files/ComStock Measure Doc_PV with Battery Storage.pdf",
         **FIELDS,
+        "corpus_path": None, "section": None, "lines": None,  # section-file fields, absent here
     }
 
 
@@ -54,6 +55,7 @@ def test_none_fields_are_omitted_not_written_as_none():
     parsed = P.parse_header(line)
     assert parsed["corpus_version"] == "abc1234"
     assert parsed["status"] is parsed["source_url"] is parsed["publication_url"] is None
+    assert all(parsed[k] is None for k in ("corpus_path", "section", "lines"))
 
 
 def test_unknown_field_and_unsafe_value_are_errors():
@@ -129,3 +131,16 @@ def test_default_version_is_the_short_hash_and_marks_a_dirty_tree(tmp_path):
     (tmp_path / "a.txt").write_text("a\n", encoding="utf-8")
     (tmp_path / "scratch.txt").write_text("x\n", encoding="utf-8")
     assert P.default_corpus_version(root=tmp_path) == sha
+
+
+def test_section_file_header_fields_round_trip():
+    """A section file's header is the document's plus where in the document it came from."""
+    line = P.render_header("comstock", RELEASE, "github_site", "docs/a.md", **FIELDS,
+                           corpus_path="github_site/docs/a.md", section="Floor Height", lines="57-83")
+    parsed = P.parse_header(line)
+    assert parsed["corpus_path"] == "github_site/docs/a.md"
+    assert parsed["section"] == "Floor Height" and parsed["lines"] == "57-83"
+    assert parsed["corpus_version"] == FIELDS["corpus_version"]
+    # a document header parses with the three section fields absent
+    doc_line = P.render_header("comstock", RELEASE, "github_site", "docs/a.md", **FIELDS)
+    assert all(P.parse_header(doc_line)[k] is None for k in ("corpus_path", "section", "lines"))
