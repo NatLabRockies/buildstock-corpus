@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86602.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86602.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86602.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/86602.md | section: References | lines: 985-1000 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86602.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86602.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86602.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/86602.md | section: References | lines: 985-1000 -->
 ## References
 
 - [1] U.S. Department of Energy, "Building Envelope | Better Buildings Initiative," [Online]. Available: https://betterbuildingssolutioncenter.energy.gov/alliance/technologysolution/building-envelope. [Accessed 5 April 2023].

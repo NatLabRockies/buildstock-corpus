@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/87536.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/87536.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/87536.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/87536.md | section: 1.2  Measure Summary | lines: 247-255 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/87536.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/87536.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/87536.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/87536.md | section: 1.2  Measure Summary | lines: 247-255 -->
 ## 1.2  Measure Summary
 
 | Measure Title      | Replace Boiler with Air-Source Heat Pump Boiler (replace_boiler_with_heatpump)                                                                                                                                              |

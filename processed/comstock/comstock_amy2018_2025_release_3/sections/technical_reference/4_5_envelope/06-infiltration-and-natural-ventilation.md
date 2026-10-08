@@ -1,9 +1,9 @@
-<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_5_envelope.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_5_envelope.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: 43ae2d4 | corpus_path: technical_reference/documentation/reference_doc/4_5_envelope.md | section: Infiltration and Natural Ventilation | lines: 315-448 -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_5_envelope.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_5_envelope.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: 0a2f61f | corpus_path: technical_reference/documentation/reference_doc/4_5_envelope.md | section: Infiltration and Natural Ventilation | lines: 315-448 -->
 ## Infiltration and Natural Ventilation
 
 ### Infiltration
 
-Infiltration in ComStock uses the same model as EnergyPlus (*EnergyPlus, Version 00* 2017), detailed in equation <a href="#energyplus_infiltration_eqn" data-reference-type="ref" data-reference="energyplus_infiltration_eqn">[energyplus_infiltration_eqn]</a>.
+Infiltration in ComStock uses the same model as EnergyPlus (*EnergyPlus, Version 00* 2017), detailed in equation energyplus_infiltration_eqn.
 
 ``` math
 \begin{align}
@@ -34,9 +34,9 @@ The selection of the design infiltration rate is somewhat arbitrary, as it depen
 
 ### Infiltration Rates
 
-Infiltration rates are calculated from measured airtightness data from (Emmerich and Persily 2014). There are significant differences in building airtightness due to differences in wall construction, shown in Figure 6 of the NIST reference. Airtightness does not vary significantly by building type or vintage. Airtightness does depend on size, but this is inherently captured by larger buildings having smaller surface area to volume ratios. Air barriers greatly reduce leakiness, but they are rare in existing buildings, and only recently have been required in some jurisdictions. Airtightness of buildings in ComStock follow lognormal distributions with airtightness means by wall construction type matched to those in (Emmerich and Persily 2014), shown in Figure <a href="#fig:airtightness_by_wall_construction_type" data-reference-type="ref" data-reference="fig:airtightness_by_wall_construction_type">6</a>. Airtightness values are measured at 75 Pa and are 6-sided, meaning the infiltration is normalized by total building exterior surface area including wall, roof, and ground surfaces.
+Infiltration rates are calculated from measured airtightness data from (Emmerich and Persily 2014). There are significant differences in building airtightness due to differences in wall construction, shown in Figure 6 of the NIST reference. Airtightness does not vary significantly by building type or vintage. Airtightness does depend on size, but this is inherently captured by larger buildings having smaller surface area to volume ratios. Air barriers greatly reduce leakiness, but they are rare in existing buildings, and only recently have been required in some jurisdictions. Airtightness of buildings in ComStock follow lognormal distributions with airtightness means by wall construction type matched to those in (Emmerich and Persily 2014), shown in Figure “6-sided airtightness distributions by wall construction type. Distributions are lognormal, with means matched to means by wall construction type in nist_infiltration_data.”. Airtightness values are measured at 75 Pa and are 6-sided, meaning the infiltration is normalized by total building exterior surface area including wall, roof, and ground surfaces.
 
-The design infiltration rate is calculated from the airtightness value assuming a 4 Pa design pressure, shown in <a href="#airtightness_to_design_infiltration" data-reference-type="ref" data-reference="airtightness_to_design_infiltration">[airtightness_to_design_infiltration]</a>
+The design infiltration rate is calculated from the airtightness value assuming a 4 Pa design pressure, shown in “Infiltration Rates”
 ``` math
 \begin{align}
 \label{airtightness_to_design_infiltration}

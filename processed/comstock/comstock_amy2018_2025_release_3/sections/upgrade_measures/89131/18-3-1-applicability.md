@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89131.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89131.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89131.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/89131.md | section: 3.1  Applicability | lines: 223-254 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89131.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89131.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89131.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/89131.md | section: 3.1  Applicability | lines: 223-254 -->
 ## 3.1  Applicability
 
 This measure is applicable to most buildings that have an existing PSZ system. The exception is PSZ systems that operate using district chilled water or district hot water. Therefore, the GHP retrofit is not applied to the following baseline system types: 'PSZ-AC district chilled water with electric coil,' and 'PSZ-AC with district hot water,' These two systems make up less than 0.5% of the total baseline stock.

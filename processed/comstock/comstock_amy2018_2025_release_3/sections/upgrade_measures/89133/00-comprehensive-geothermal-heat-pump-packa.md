@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89133.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89133.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89133.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/89133.md | section: Comprehensive Geothermal Heat Pump Package, Hydronic GHP, Packaged GHP, or Console GHP | lines: 2-29 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89133.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89133.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89133.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/89133.md | section: Comprehensive Geothermal Heat Pump Package, Hydronic GHP, Packaged GHP, or Console GHP | lines: 2-29 -->
 # Comprehensive Geothermal Heat Pump Package, Hydronic GHP, Packaged GHP, or Console GHP
 
 ![Image](89133_images/image_000000_26a4688b53fcaf0cbcad630012085508b6478eedcf33ac06d651a60e1e27e7e3.png)

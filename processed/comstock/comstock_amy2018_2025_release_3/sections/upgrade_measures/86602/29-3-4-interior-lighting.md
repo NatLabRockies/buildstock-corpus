@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86602.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86602.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86602.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/86602.md | section: 3.4 Interior Lighting | lines: 624-629 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86602.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86602.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86602.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/86602.md | section: 3.4 Interior Lighting | lines: 624-629 -->
 ## 3.4 Interior Lighting
 
 The Interior Lighting upgrade replaces model interior lighting with Generation 5 LED lighting, where applicable. The upgrade will first identify whether the upgrade is applicable to the model.

@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86601.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86601.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86601.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/86601.md | section: 5.5 Peak Impacts | lines: 755-782 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86601.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86601.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86601.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/86601.md | section: 5.5 Peak Impacts | lines: 755-782 -->
 ## 5.5 Peak Impacts
 
 Figure 9 shows the impact of the Interior Lighting and Heat Pump package on seasonal peak hours. The winter peak is shifted earlier in the day by several hours, and morning electric heating is now driving the peak in the winter. Summer and shoulder peak distributions remained relatively similar between the two cases but show minor reductions likely due to LED lighting and cooling/fan reductions from the HP-RTU measure.

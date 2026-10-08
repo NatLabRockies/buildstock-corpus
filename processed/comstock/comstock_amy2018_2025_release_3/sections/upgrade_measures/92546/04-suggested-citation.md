@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92546.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/92546.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/92546.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/92546.md | section: Suggested Citation | lines: 24-35 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92546.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/92546.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/92546.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/92546.md | section: Suggested Citation | lines: 24-35 -->
 ## Suggested Citation
 
 CaraDonna, Chris. 2025. ComStock Measure Documentation: Ideal Thermal Air Loads . Golden, CO: National Renewable Energy Laboratory. NREL/TP-5500-92546. https://www.nrel.gov/docs/fy25osti/92546.pdf.

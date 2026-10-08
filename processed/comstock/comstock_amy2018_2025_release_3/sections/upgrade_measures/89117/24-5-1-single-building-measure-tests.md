@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89117.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89117.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89117.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/89117.md | section: 5.1  Single Building Measure Tests | lines: 422-499 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89117.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89117.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89117.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/89117.md | section: 5.1  Single Building Measure Tests | lines: 422-499 -->
 ## 5.1  Single Building Measure Tests
 
 To demonstrate the functionality of the measure, the Advanced RTU Controls measure was applied to a retail model with single-zone, constant-volume RTU systems in Climate Zone 4A ('retail PSZ AC model'), with the Leesburg, Virginia, weather file. This section reviews the operation of the VAV fan control and air-side economizing features.

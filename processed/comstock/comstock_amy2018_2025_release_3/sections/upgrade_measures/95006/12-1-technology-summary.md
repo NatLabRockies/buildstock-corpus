@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95006.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95006.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95006.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/95006.md | section: 1  Technology Summary | lines: 264-284 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95006.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95006.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95006.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/95006.md | section: 1  Technology Summary | lines: 264-284 -->
 ## 1  Technology Summary
 
 Many technologies are used to generate the heat provided by commercial building heating, ventilating, and air-conditioning (HVAC) systems. Heat pumps currently provide space heating for only approximately 11% of commercial buildings (representing 15% of the total floor area) [1].

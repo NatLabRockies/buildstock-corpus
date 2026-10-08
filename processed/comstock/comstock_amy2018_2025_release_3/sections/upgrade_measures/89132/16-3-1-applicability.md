@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89132.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89132.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89132.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/89132.md | section: 3.1  Applicability | lines: 204-233 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89132.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89132.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89132.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/89132.md | section: 3.1  Applicability | lines: 204-233 -->
 ## 3.1  Applicability
 
 This measure is applicable to most buildings that have an existing packaged terminal system. The measure will be applicable to the four packaged terminal systems shown in Table 2 and make up 7.2% of the total baseline square footage in ComStock.

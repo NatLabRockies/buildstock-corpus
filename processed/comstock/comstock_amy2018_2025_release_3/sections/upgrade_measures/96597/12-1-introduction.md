@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/96597.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96597.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96597.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/96597.md | section: 1  Introduction | lines: 187-204 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/96597.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96597.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96597.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/96597.md | section: 1  Introduction | lines: 187-204 -->
 ## 1  Introduction
 
 Lighting control is a method of conserving lighting energy and costs in buildings by reducing or turning off artificial lighting when it is not necessary. There are many types of lighting control methods, including [1]:

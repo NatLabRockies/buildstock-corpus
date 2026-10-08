@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/87570.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/87570.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/87570.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/87570.md | section: References | lines: 582-604 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/87570.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/87570.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/87570.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/87570.md | section: References | lines: 582-604 -->
 ## References
 
 - [1] Leung, Jessica. 2018. 'Decarbonizing U.S. Buildings.' Arlington, VA: Center for Climate and Energy Solutions. https://www.c2es.org/document/decarbonizing-u-s-buildings/.

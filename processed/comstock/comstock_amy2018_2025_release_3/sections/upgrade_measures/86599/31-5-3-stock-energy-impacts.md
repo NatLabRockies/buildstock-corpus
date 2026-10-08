@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86599.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/86599.md | section: 5.3 Stock Energy Impacts | lines: 491-527 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86599.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/86599.md | section: 5.3 Stock Energy Impacts | lines: 491-527 -->
 ## 5.3 Stock Energy Impacts
 
 The High-Efficiency Envelope upgrade package demonstrates 7.2% total site energy savings (332 trillion TBtu) for the U.S. commercial building stock modeled in ComStock (Figure 2). The savings are primarily attributed to natural gas heating and electricity cooling due to wall and roof insulation improvements and reduced heat gain through windows:

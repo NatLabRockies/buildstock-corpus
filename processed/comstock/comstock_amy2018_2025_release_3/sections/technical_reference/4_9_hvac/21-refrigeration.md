@@ -1,7 +1,7 @@
-<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_9_hvac.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_9_hvac.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: 43ae2d4 | corpus_path: technical_reference/documentation/reference_doc/4_9_hvac.md | section: Refrigeration | lines: 2085-2293 -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_9_hvac.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_9_hvac.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: 0a2f61f | corpus_path: technical_reference/documentation/reference_doc/4_9_hvac.md | section: Refrigeration | lines: 2085-2293 -->
 ## Refrigeration
 
-In ComStock, refrigeration systems refer to the refrigerated cases and walk-ins found in commercial kitchens, grocery stores, and other food service spaces. Small plug-in refrigerators are included in plug and process loads, as described in Section <a href="#sec:plug_and_process_loads" data-reference-type="ref" data-reference="sec:plug_and_process_loads">[sec:plug_and_process_loads]</a>. Refrigeration is modeled in building types where it is a major end use (primary and secondary schools, restaurants, hotels, hospitals, and grocery stores).
+In ComStock, refrigeration systems refer to the refrigerated cases and walk-ins found in commercial kitchens, grocery stores, and other food service spaces. Small plug-in refrigerators are included in plug and process loads, as described in Section “Plug and Process Loads”. Refrigeration is modeled in building types where it is a major end use (primary and secondary schools, restaurants, hotels, hospitals, and grocery stores).
 
 ### Walk-ins and Case Scaling
 
@@ -15,11 +15,11 @@ The assignment of technology levels draws from three TSVs:
 
 - *include_refrigeration_technology_level.tsv* flags buildings with refrigeration.
 
-- *year_bin_of_last_refrigeration_replacement.tsv* assigns the year range of the last major equipment replacement, based on survival curves (see Section <a href="#sec:refrigeration_survival" data-reference-type="ref" data-reference="sec:refrigeration_survival">[sec:refrigeration_survival]</a>).
+- *year_bin_of_last_refrigeration_replacement.tsv* assigns the year range of the last major equipment replacement, based on survival curves (see Section “Commercial Refrigeration Equipment”).
 
 - *refrigeration_technology_level.tsv* probabilistically assigns equipment efficiency distributions based on year built, replacement year, and building size.
 
-Figure <a href="#fig:refrigeration_tech_distribution" data-reference-type="ref" data-reference="fig:refrigeration_tech_distribution">17</a> illustrates the resulting distribution of refrigeration technology levels by building size and year of last replacement.
+Figure “Distribution of refrigeration technology levels (old, new, advanced) by building size and year of last replacement. Based on DOE shipment data mapped to OpenStudio Standards performance levels.” illustrates the resulting distribution of refrigeration technology levels by building size and year of last replacement.
 
 ### Efficiency Distributions
 
@@ -33,7 +33,7 @@ Efficiency distributions for refrigeration equipment are derived from DOE Techni
 
 - By the late 2000s, most new commercial refrigeration equipment met or exceeded federal standards, with widespread adoption of LED case lighting, ECM fan motors, anti-sweat heater controls, and night covers.
 
-These historical shipment distributions were mapped to *old*, *new*, and *advanced* efficiency levels using Oak Ridge National Laboratory (ORNL) performance data embedded in OpenStudio Standards. In practice, ComStock samples from these distributions to assign performance characteristics to each refrigeration system. Approximate efficiency values by technology level are summarized in Table <a href="#tab:refrigeration_efficiency_levels" data-reference-type="ref" data-reference="tab:refrigeration_efficiency_levels">19</a>. This ensures the resulting stock reflects both legacy equipment and the adoption of modern efficiency measures over time.
+These historical shipment distributions were mapped to *old*, *new*, and *advanced* efficiency levels using Oak Ridge National Laboratory (ORNL) performance data embedded in OpenStudio Standards. In practice, ComStock samples from these distributions to assign performance characteristics to each refrigeration system. Approximate efficiency values by technology level are summarized in Table “Approximate efficiency levels for refrigeration equipment categories (illustrative ranges).”. This ensures the resulting stock reflects both legacy equipment and the adoption of modern efficiency measures over time.
 
 <div class="threeparttable">
 
@@ -78,7 +78,7 @@ In summary, ComStock’s refrigeration modeling now:
 
 - Scales walk-in and case sizes based on space type floor area, validated against site visits and data sources;
 
-- Applies survival-based replacement schedules to reflect realistic equipment lifetimes (Section <a href="#sec:refrigeration_survival" data-reference-type="ref" data-reference="sec:refrigeration_survival">[sec:refrigeration_survival]</a>);
+- Applies survival-based replacement schedules to reflect realistic equipment lifetimes (Section “Commercial Refrigeration Equipment”);
 
 - Assigns technology levels probabilistically, capturing distributions of baseline efficiency by vintage and size, based on DOE shipment data mapped to OpenStudio Standards performance levels;
 

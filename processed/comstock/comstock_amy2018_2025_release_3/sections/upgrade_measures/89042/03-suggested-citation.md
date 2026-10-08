@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89042.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/89042.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/89042.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/89042.md | section: Suggested Citation | lines: 24-35 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89042.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/89042.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/89042.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/89042.md | section: Suggested Citation | lines: 24-35 -->
 ## Suggested Citation
 
 Janghyun, Kim, Chris CaraDonna, and Andrew Parker. 2025. ComStock Measure Documentation: Heat Pump Rooftop Units with Standard Performance . Golden, CO: National Renewable Energy Laboratory. NREL/TP-5500-89042. https://www.nrel.gov/docs/fy25osti/89042.pdf.

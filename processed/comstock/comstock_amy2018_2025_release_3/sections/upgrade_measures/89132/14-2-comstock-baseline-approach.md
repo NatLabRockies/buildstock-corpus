@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89132.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89132.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89132.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/89132.md | section: 2  ComStock Baseline Approach | lines: 183-197 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89132.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89132.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89132.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/89132.md | section: 2  ComStock Baseline Approach | lines: 183-197 -->
 ## 2  ComStock Baseline Approach
 
 By square footage, packaged terminal systems make up 7.2% of the ComStock™ baseline. There are four packaged terminal system types represented in the ComStock baseline, which are listed in Table 1 along with the square footage percentage that they make up.

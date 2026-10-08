@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89117.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89117.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89117.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/89117.md | section: 5.2  Stock Energy Impacts | lines: 500-535 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89117.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89117.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89117.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/89117.md | section: 5.2  Stock Energy Impacts | lines: 500-535 -->
 ## 5.2  Stock Energy Impacts
 
 The Advanced RTU Controls measure demonstrates 4.2% total site energy savings (182 trillion TBtu) for the U.S. commercial building stock modeled in ComStock (Figure 8). The savings are primarily attributed to:

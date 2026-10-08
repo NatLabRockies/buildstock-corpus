@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95119.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/95119.md | section: 1  Introduction | lines: 248-268 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95119.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/95119.md | section: 1  Introduction | lines: 248-268 -->
 ## 1  Introduction
 
 Packaged rooftop units (RTUs) are one of the most prominent HVAC system types in the United States, making them an impactful segment of the building stock for energy usage, energy bill costs, and electricity grid load shape. Most existing RTUs in the U.S. building stock use gasfired heating, with a lesser proportion using electric resistance heating (among other less common options).

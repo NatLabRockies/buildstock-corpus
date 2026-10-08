@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89120.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89120.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89120.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/89120.md | section: 5.2  Stock Energy Impacts | lines: 285-323 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89120.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89120.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89120.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/89120.md | section: 5.2  Stock Energy Impacts | lines: 285-323 -->
 ## 5.2  Stock Energy Impacts
 
 The Improved Fan Scheduling and Outdoor Air Control measure demonstrates 3.5% total site energy savings (150 TBtu) for the U.S. commercial building stock modeled in ComStock (Figure 4). The savings are primarily attributed to:

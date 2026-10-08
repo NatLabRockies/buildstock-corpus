@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86897.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86897.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86897.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/86897.md | section: 5.4  Stock Greenhouse Gas Emissions Impact | lines: 500-518 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86897.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86897.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86897.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/86897.md | section: 5.4  Stock Greenhouse Gas Emissions Impact | lines: 500-518 -->
 ## 5.4  Stock Greenhouse Gas Emissions Impact
 
 ComStock simulation results show greenhouse gas emissions avoided across all electricity grid scenarios and on-site combustion fuel types (Figure 4).

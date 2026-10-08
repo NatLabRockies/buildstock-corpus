@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89130.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89130.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89130.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/89130.md | section: 1.1.1.1  Broilers | lines: 243-291 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89130.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89130.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89130.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/89130.md | section: 1.1.1.1  Broilers | lines: 243-291 -->
 ## 1.1.1.1  Broilers
 
 There are several types of commercial broilers, including underfired, overfired, and salamander. According to a U.S. Department of Energy (DOE) study, underfired broilers (pictured in Figure 1) are the most common and versatile type [8]; therefore, we will assume this type of broiler in our modeling.

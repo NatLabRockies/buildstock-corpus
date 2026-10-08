@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/98223.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/98223.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/98223.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/98223.md | section: 5.1  Single-Building Measure Tests | lines: 392-481 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/98223.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/98223.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/98223.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/98223.md | section: 5.1  Single-Building Measure Tests | lines: 392-481 -->
 ## 5.1  Single-Building Measure Tests
 
 In this section, we analyze the performance of a medium office building model-equipped with a variable air volume system connected to water-cooled chiller, cooling tower, and natural gas boiler-located in Montgomery, Alabama (climate zone 3A) to demonstrate the application of the measure scenario to a single building.

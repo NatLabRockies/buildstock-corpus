@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86599.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/86599.md | section: 2.1 Windows | lines: 257-279 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86599.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/86599.md | section: 2.1 Windows | lines: 257-279 -->
 ## 2.1 Windows
 
 The ComStock baseline uses a mix of wood-framed and aluminum-framed windows with or without a thermal break. They range from single-pane to triple-pane and can be clear/tinted or low-emissivity (low-e). The properties were informed by a variety of data sources, described in the ComStock Reference Documentation and shown in Table 1 [2].

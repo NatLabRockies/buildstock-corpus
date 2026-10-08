@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89340.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89340.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89340.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/89340.md | section: References | lines: 632-677 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89340.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89340.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89340.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/89340.md | section: References | lines: 632-677 -->
 ## References
 
 - [1]  H. Wang, S. Wang, and K. Shan, 'Experimental study on the dynamics, quality and impacts of using variable-speed pumps in buildings for frequency regulation of smart power grids,' Energy , vol. 199, p. 117406, May 2020, doi: 10.1016/j.energy.2020.117406.

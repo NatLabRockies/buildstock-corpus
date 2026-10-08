@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89481.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89481.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89481.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/89481.md | section: 5.2  Stock Energy Impacts | lines: 498-532 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89481.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89481.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89481.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/89481.md | section: 5.2  Stock Energy Impacts | lines: 498-532 -->
 ## 5.2  Stock Energy Impacts
 
 The HP-RTU with heat/energy recovery measure ('HP-RTU + ER') is applicable to buildings comprising 33% of the stock floor area and demonstrates 9% total site energy savings (382 trillion British thermal units [TBtu]) for the U.S. commercial building stock ('Baseline') modeled in ComStock (Figure 7a). The savings are primarily attributed to:

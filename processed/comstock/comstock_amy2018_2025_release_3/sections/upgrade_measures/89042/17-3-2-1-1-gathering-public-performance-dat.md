@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89042.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/89042.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/89042.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/89042.md | section: 3.2.1.1  Gathering Public Performance Data and Selecting Relevant Data | lines: 331-357 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89042.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/89042.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/89042.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/89042.md | section: 3.2.1.1  Gathering Public Performance Data and Selecting Relevant Data | lines: 331-357 -->
 ## 3.2.1.1  Gathering Public Performance Data and Selecting Relevant Data
 
 Table 1 shows a summary of some HP-RTU products relevant to this study that can be researched online by searching for standard efficiency products claimed by manufacturers. Key highlights from the table include the following.

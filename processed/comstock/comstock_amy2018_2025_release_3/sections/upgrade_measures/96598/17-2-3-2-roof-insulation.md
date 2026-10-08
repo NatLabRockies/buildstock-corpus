@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/96598.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/96598.md | section: 2.3.2 Roof Insulation | lines: 399-517 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/96598.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/96598.md | section: 2.3.2 Roof Insulation | lines: 399-517 -->
 ## 2.3.2 Roof Insulation
 
 In the ComStock baseline, the thermal performance of roofs (R-value/U-value) is determined by the energy code assigned to the building, the climate zone, and the roof construction type. Our research indicated that more than 90% of commercial floor space has flat or shallow pitch roofs; therefore, ComStock assumes flat roofs for modeling simplicity.

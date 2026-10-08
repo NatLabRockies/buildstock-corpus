@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86105.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86105.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86105.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/86105.md | section: Economizers | lines: 2-15 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86105.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86105.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86105.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/86105.md | section: Economizers | lines: 2-15 -->
 # Economizers
 
 ![Image](86105_images/image_000000_26a4688b53fcaf0cbcad630012085508b6478eedcf33ac06d651a60e1e27e7e3.png)

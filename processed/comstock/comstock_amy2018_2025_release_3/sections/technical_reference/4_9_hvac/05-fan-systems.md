@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_9_hvac.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_9_hvac.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: 43ae2d4 | corpus_path: technical_reference/documentation/reference_doc/4_9_hvac.md | section: Fan Systems | lines: 226-324 -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_9_hvac.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_9_hvac.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: 0a2f61f | corpus_path: technical_reference/documentation/reference_doc/4_9_hvac.md | section: Fan Systems | lines: 226-324 -->
 ## Fan Systems
 
 Fans are used in all ComStock HVAC systems except those that rely on radiant heat transfer, such as baseboards. Fans induce pressure in the air stream of HVAC equipment, producing the airflow needed for space conditioning and/or outdoor air ventilation.
@@ -9,9 +9,9 @@ Fan power determines the amount of energy it takes a fan system to provide a cer
 
 Fan power in ComStock is determined by ASHRAE-90.1 code requirements. ASHRAE-90.1 determines fan power primarily based on the system type. Constant air volume, variable air volume, and unitary zone equipment are all assigned different fan power allowances.
 
-For implementation in ComStock, fan power is determined based on the static pressure of the air delivery system, the efficiencies of the fan/motor system, and the airflow of the system. The static pressure is based on the HVAC system type and the maximum airflow of the system, as shown in Table <a href="#tab:fan_power" data-reference-type="ref" data-reference="tab:fan_power">4</a>. The fan motor efficiencies are a function of the motor size and HVAC code year, as shown in Table <a href="#tab:fan_motor_efficiencies" data-reference-type="ref" data-reference="tab:fan_motor_efficiencies">[tab:fan_motor_efficiencies]</a>.
+For implementation in ComStock, fan power is determined based on the static pressure of the air delivery system, the efficiencies of the fan/motor system, and the airflow of the system. The static pressure is based on the HVAC system type and the maximum airflow of the system, as shown in Table “Fan Pressure Rise and Efficiency”. The fan motor efficiencies are a function of the motor size and HVAC code year, as shown in Table “Motor Efficiency for Fans and Pumps”.
 
-The addition of energy recovery ventilators (ERVs) in HVAC air loops can add additional static pressure to the air system and therefore result in a higher fan power requirement. ComStock accounts for this additional fan power in the ERV wheel power rather than the fan itself; this allows for improved accuracy during ERV bypass modes (where the airflow bypasses the additional static pressure of the ERV system). See Section <a href="#sec:erv" data-reference-type="ref" data-reference="sec:erv">1.10</a> for more information on ComStock ERV systems.
+The addition of energy recovery ventilators (ERVs) in HVAC air loops can add additional static pressure to the air system and therefore result in a higher fan power requirement. ComStock accounts for this additional fan power in the ERV wheel power rather than the fan itself; this allows for improved accuracy during ERV bypass modes (where the airflow bypasses the additional static pressure of the ERV system). See Section “Air-Side Energy Recovery” for more information on ComStock ERV systems.
 
 <div id="tab:fan_power" data-source="tables/fan_power.tex">
 
@@ -88,7 +88,7 @@ The addition of energy recovery ventilators (ERVs) in HVAC air loops can add add
 
 ### Fan Controls
 
-This section describes the operation of fan systems during the hours a building is occupied. Details on the operation of fan systems during unoccupied hours are described in Section <a href="#sec:unoccupied_ahu_operation" data-reference-type="ref" data-reference="sec:unoccupied_ahu_operation">1.8</a>.
+This section describes the operation of fan systems during the hours a building is occupied. Details on the operation of fan systems during unoccupied hours are described in Section “Unoccupied Air Handling Unit Operation”.
 
 #### HVAC Systems Providing Outdoor Air
 

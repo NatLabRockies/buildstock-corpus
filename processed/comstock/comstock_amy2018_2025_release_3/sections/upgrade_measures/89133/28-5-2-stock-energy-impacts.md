@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89133.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89133.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89133.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/89133.md | section: 5.2 Stock Energy Impacts | lines: 327-356 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89133.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89133.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89133.pdf | corpus_version: 0a2f61f | corpus_path: upgrade_measures/measure_pdfs/89133.md | section: 5.2 Stock Energy Impacts | lines: 327-356 -->
 ## 5.2 Stock Energy Impacts
 
 This package demonstrates 18.0% total site energy savings (783 trillion British thermal units [TBtu]) for the U.S. commercial building stock modeled in ComStock (Figure 3). The savings are attributed to the electrification of natural gas heating systems, as well as efficiency improvements to cooling due to the installation of a GHP:
