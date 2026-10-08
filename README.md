@@ -57,6 +57,11 @@ Which consumer you are decides what you need:
   `bsc query --answer` additionally needs `ANTHROPIC_API_KEY` and the `llm` extra;
   retrieval alone does not.
 
+How to cite a document depends on its publication status; the rules are in
+[AGENTS.md § Citing](AGENTS.md#citing). `AGENTS.md` is the canonical instructions file for
+agents; `CLAUDE.md` and `GEMINI.md` are one-line pointers that import it, and `llms.txt` at
+the root is the discovery file for readers without a clone.
+
 `bsc validate` checks the manifest, the overlays, and whether `CORPUS_MAP.md`, `index.json`
 and `sections.json` are stale relative to `manifest.json`. It does **not** open the Chroma
 store, so a stale index passes silently — re-run `bsc index` after any build that changed
