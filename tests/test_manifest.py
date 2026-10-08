@@ -599,3 +599,18 @@ def test_validate_flags_a_surviving_pandoc_cross_reference_anchor(tmp_path, monk
 
     errors = M.validate_manifest("comstock", RELEASE, manifest)
     assert len(errors) == 1 and "cross-reference anchor survives" in errors[0]
+
+
+def test_validate_flags_a_surviving_cover_image_ref_in_a_pdf(tmp_path, monkeypatch):
+    proot = _patch(tmp_path, monkeypatch)
+    _write_output(proot, OUT_CONTENT + "![Image](4_9_hvac_images/image_000000_abcd.png)\n")
+    doc = _doc(); doc.source_type = "pdf"
+    manifest = M.build_manifest("comstock", RELEASE, [doc], None, [], {}, _state(), 1)
+
+    errors = M.validate_manifest("comstock", RELEASE, manifest)
+    assert len(errors) == 1 and "cover/wordmark image ref survives" in errors[0]
+
+    # the same line in a non-PDF document is not the build's to omit
+    _write_output(proot, OUT_CONTENT + "![Image](media/image_000000_abcd.png)\n")
+    manifest = M.build_manifest("comstock", RELEASE, [_doc()], None, [], {}, _state(), 1)
+    assert M.validate_manifest("comstock", RELEASE, manifest) == []
