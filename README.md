@@ -58,7 +58,10 @@ Which consumer you are decides what you need:
   retrieval alone does not.
 
 How to cite a document depends on its publication status; the rules are in
-[AGENTS.md § Citing](AGENTS.md#citing). `AGENTS.md` is the canonical instructions file for
+[AGENTS.md § Citing](AGENTS.md#citing). To cite the corpus itself, as distinct from
+ComStock's documents, use [CITATION.cff](CITATION.cff) and name the release tag you read.
+The repository is under the BSD-3 [LICENSE](LICENSE); the underlying documentation remains
+ComStock's and is attributed per its citation page. `AGENTS.md` is the canonical instructions file for
 agents; `CLAUDE.md` and `GEMINI.md` are one-line pointers that import it, and `llms.txt` at
 the root is the discovery file for readers without a clone.
 
