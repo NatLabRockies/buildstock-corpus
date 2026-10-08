@@ -1,0 +1,95 @@
+# Cut the GitHub Release for a corpus tag, only if the tagged tree passes (W7.2, W1.1).
+#
+# A tag is named `<release id>-v<N>` (W1.1). On its push this workflow re-runs the tests
+# and `bsc validate` at the tag, checks that the tag is the corpus_version the build was
+# stamped with and that CHANGELOG.md carries an entry for it, and only then creates the
+# Release with that entry as its notes. A tag that fails any of this gets a red run and no
+# Release; a ruleset restricting who may create `*-v*` tags is the org admin's side of the
+# same guard (see PLAN.md W7.2).
+#
+# The tag ref itself cannot be rejected by a workflow, so if this fails, delete the tag,
+# fix, rebuild, and push it again before anyone pins it.
+name: release
+
+on:
+  push:
+    tags: ["*_release_*-v*"]
+
+permissions:
+  contents: write   # gh release create
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # bsc changelog reads the previous tag's manifest out of git
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Install (locked)
+        run: uv sync --locked
+
+      - name: Resolve product and release from the tag
+        id: names
+        run: |
+          set -euo pipefail
+          tag=${GITHUB_REF_NAME}
+          release=${tag%-v*}
+          yaml=$(ls sources/*_"${release}".yaml)
+          product=$(basename "$yaml" "_${release}.yaml")
+          prev=$(git tag --list "${release}-v*" --sort=-v:refname | grep -vx "$tag" | head -n1 || true)
+          echo "tag=$tag"          >> "$GITHUB_OUTPUT"
+          echo "release=$release"  >> "$GITHUB_OUTPUT"
+          echo "product=$product"  >> "$GITHUB_OUTPUT"
+          echo "prev=$prev"        >> "$GITHUB_OUTPUT"
+          echo "tag=$tag product=$product release=$release previous=${prev:-none}"
+
+      - name: The tag must be the corpus_version the build was stamped with
+        run: |
+          set -euo pipefail
+          stamped=$(jq -r .corpus_version "processed/${{ steps.names.outputs.product }}/${{ steps.names.outputs.release }}/manifest.json")
+          if [ "$stamped" != "${{ steps.names.outputs.tag }}" ]; then
+            echo "::error::manifest corpus_version is '$stamped', tag is '${{ steps.names.outputs.tag }}'; rebuild with --corpus-version ${{ steps.names.outputs.tag }}"
+            exit 1
+          fi
+
+      - name: Tests
+        run: uv run pytest
+
+      - name: Validate
+        run: uv run bsc validate --product ${{ steps.names.outputs.product }} --release ${{ steps.names.outputs.release }}
+
+      - name: Release notes are the CHANGELOG.md entry for this tag
+        run: uv run bsc changelog --show ${{ steps.names.outputs.tag }} > release-notes.md
+
+      - name: Cross-check against the computed diff from the previous tag
+        if: steps.names.outputs.prev != ''
+        run: |
+          {
+            echo "## Computed by \`bsc changelog --from ${{ steps.names.outputs.prev }} --to ${{ steps.names.outputs.tag }}\`"
+            echo
+            uv run bsc changelog --product ${{ steps.names.outputs.product }} --release ${{ steps.names.outputs.release }} \
+              --from ${{ steps.names.outputs.prev }} --to ${{ steps.names.outputs.tag }}
+          } | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Create (or refresh) the GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tag=${{ steps.names.outputs.tag }}
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release edit "$tag" --title "$tag" --notes-file release-notes.md
+            echo "refreshed existing release $tag"
+          else
+            gh release create "$tag" --verify-tag --title "$tag" --notes-file release-notes.md
+            echo "created release $tag"
+          fi

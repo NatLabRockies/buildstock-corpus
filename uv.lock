@@ -340,6 +340,7 @@ llm = [
 
 [package.dev-dependencies]
 dev = [
+    { name = "pypdfium2" },
     { name = "pytest" },
 ]
 
@@ -359,7 +360,10 @@ requires-dist = [
 provides-extras = ["extract", "llm"]
 
 [package.metadata.requires-dev]
-dev = [{ name = "pytest", specifier = ">=8.0" }]
+dev = [
+    { name = "pypdfium2", specifier = ">=4.30" },
+    { name = "pytest", specifier = ">=8.0" },
+]
 
 [[package]]
 name = "certifi"

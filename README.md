@@ -136,6 +136,15 @@ The heavy extractors (LaTeX via pandoc, PDF via docling) live in an optional ext
 uv sync --extra extract
 ```
 
+### Continuous integration
+
+`.github/workflows/ci.yml` runs the test suite and `bsc validate` for every release under
+`sources/` on each push, on Ubuntu and Windows, from `uv sync --locked` alone: the tests
+never import the extractors. `.github/workflows/release.yml` runs on a `<release id>-v<N>`
+tag push, repeats those checks at the tag, requires the tag to be the manifest's
+`corpus_version` and `CHANGELOG.md` to carry an entry for it, and then creates the GitHub
+Release with that entry as its notes. A tag whose tree fails gets no Release.
+
 ## Layout
 
 - `sources/<product>_<release>.yaml` — source registry (repos, tag, measure URLs)

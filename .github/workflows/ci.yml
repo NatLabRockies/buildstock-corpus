@@ -1,0 +1,62 @@
+# Tests and provenance validation on every push (W7.2).
+#
+# `bsc validate` recomputes the sha256 of every committed artifact, so it runs here on a
+# fresh clone of the pushed tree: if it is red, something under processed/ was edited by
+# hand or a build was committed without its manifest. The gitignored figure bitmaps are
+# absent in a clone, so the ~850 image-anchored overlay pins report as unverifiable there;
+# that is counted, not failed (see manifest._validate_overlay).
+#
+# Windows is in the matrix because the corpus is built there and once hit MAX_PATH; the
+# .gitattributes LF pin is what lets the same hashes validate on both.
+name: ci
+
+on:
+  push:
+    branches: ["**"]
+    tags-ignore: ["**"]   # tag pushes run release.yml, which repeats these checks
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  check:
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - name: Allow long paths (Windows)
+        if: runner.os == 'Windows'
+        run: git config --system core.longpaths true
+
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Install (locked; core + dev group, no extractors)
+        run: uv sync --locked
+
+      - name: Tests
+        run: uv run pytest
+
+      - name: Validate every release's provenance
+        run: |
+          set -euo pipefail
+          for f in sources/*.yaml; do
+            name=$(basename "$f" .yaml)            # <product>_<release id>
+            product=${name%%_*}
+            release=${name#*_}
+            echo "::group::bsc validate --product $product --release $release"
+            uv run bsc validate --product "$product" --release "$release"
+            echo "::endgroup::"
+          done
