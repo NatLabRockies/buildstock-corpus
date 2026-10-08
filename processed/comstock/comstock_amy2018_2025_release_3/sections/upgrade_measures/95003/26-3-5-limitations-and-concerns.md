@@ -1,0 +1,8 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95003.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95003.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95003.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/95003.md | section: 3.5  Limitations and Concerns | lines: 506-512 -->
+## 3.5  Limitations and Concerns
+
+Comprehensive chiller performance maps across many different chiller products, which are required for detailed energy modeling, are not publicly available as a whole. Consequently, we have to make engineering judgements to closely reflect products in the current market. The work presented here attempts to use the most informative data available and makes documented assumptions about chiller operation and performance. These will notably impact results. Please consider these assumptions.
+
+- This study relies on data gathered from public sources, such as manufacturer websites. While we made an effort to collect as much data as possible in an unbiased manner, some relevant information may not have been included. We welcome input from others, including readers of this report, regarding any additional data that can enhance this work. Since the process of deriving chiller performance and applying measures to ComStock can be repeated, we are open to incorporating new data as they become available.
+- Air-cooled chillers under 150 tons and chillers following the energy code of DOE reference 1980-2004 are incorrectly modeled with higher rated COPs (i.e., 5.2). The upgrade measure in this study skips these chillers with higher efficiency. Details of the issue are also described in this pull request: https://github.com/NREL/openstudio-standards/pull/1905.
+

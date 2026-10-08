@@ -1,0 +1,7 @@
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_9_hvac.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_9_hvac.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: 267e3ea | corpus_path: technical_reference/documentation/reference_doc/4_9_hvac.md | section: HVAC System Sizing | lines: 166-171 -->
+## HVAC System Sizing
+
+HVAC system design sizing is determined from several EnergyPlus design day sizing runs. Equipment capacity is hardsized, meaning it is explicitly set in the model. Design day conditions come from the same weather location as the weather file. Design days include the annual heating 99.6% drybulb temperature, annual cooling 0.4% drybulb temperature, annual cooling 0.4% wetbulb temperature for cooling towers and evaporative coolers, and monthly 0.4% drybulb temperature for August, September, and October to account for buildings with solar-gain driven cooling load maximums.
+
+Per ASHRAE 90.1 Appendix G, HVAC systems are oversized by 15% for cooling and 25% for heating. Note that sizing results for a model will be impacted by several control properties specific to the model, such as supply air temperature control, thermostat set points, and outdoor ventilation rates, which are described in later sections.
+

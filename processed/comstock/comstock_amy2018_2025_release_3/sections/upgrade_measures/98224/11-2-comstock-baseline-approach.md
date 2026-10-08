@@ -1,0 +1,22 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/98224.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/98224.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/98224.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/98224.md | section: 2  ComStock Baseline Approach | lines: 200-220 -->
+## 2  ComStock Baseline Approach
+
+The characteristics of existing RTUs in ComStock™, the U.S. Department of Energy's commercial building stock model, are based on a combination of when the buildings were built and how the HVAC equipment has been assumed to have been updated over time. This is described in detail in the ComStock Reference Documentation report [10]. HVAC equipment performance is assumed to meet the energy code requirements in force at the time and place of installation. For this reason, most existing RTUs are modeled as constant-air-volume units with single-speed compressors and either gas or electric resistance backup heat, with no degradation in performance modeled over time.
+
+Direct expansion (DX) cooling is the predominant cooling technology in commercial buildings and is implemented across multiple ComStock HVAC system types, including packaged single zone, packaged terminal, packaged variable air volume, and residential split systems. These systems are typically modeled with single-speed compressors and constant-speed supply fans, which limit modulation capabilities and reduce part-load efficiency. Rated performance is assigned based on equipment capacity and the applicable ASHRAE 90.1 standard or U.S. Department of Energy reference building vintage, with both full-load and part-load efficiency values sourced from code templates. To capture performance variability under non-standard conditions, ComStock applies five modifier curves that adjust energy input ratio (EIR) and cooling capacity as functions of part-load ratio, outdoor air temperature, entering coil wet-bulb temperature, and supply airflow fraction.
+
+The in-force energy code for the ComStock baseline is shown as a percentage of applicable floor area in Figure 1. Applicable floor area for this analysis includes ComStock buildings with 'PSZAC with gas coil' and 'PSZ-AC with electric coil' HVAC system types (where PSZ-AC stands for packaged single-zone air conditioner). Most ComStock baseline RTUs follow energy code requirements from the early 2000s. Other energy efficiency features, such as demand control ventilation, energy recovery, and economizer control, are only applied to baseline ComStock RTUs if required by the in-force energy code. The ComStock workflow checks the necessary characteristics of each RTU to determine whether the feature is required. Similarly, heating, cooling, and fan efficiencies are set based on the in-force code year. For models with the 'PSZAC with electric coil' HVAC system type, the ComStock baseline will use electric resistance coils that have an efficiency of 1. For models with the 'PSZ-AC with gas coil' HVAC system type, the ComStock baseline will generally use a gas furnace efficiency of around 80%.
+
+Figure 1. ComStock baseline in-force energy code followed as a percentage of applicable floor area. Applicable floor area includes ComStock buildings with 'PSZ-AC with gas coil' and 'PSZAC with electric coil' HVAC system types.
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/98224.yaml
+     source: 98224_images/image_000002_ddfbf5f4af43132c78d321f657b6779ea623522e6061addc50725e469cc95747.png
+     method: vision-description
+     described: 2026-08-22 -->
+
+![Bar chart of ComStock baseline in-force energy code by percent of stock floor area, split by applicability](98224_images/image_000002_ddfbf5f4af43132c78d321f657b6779ea623522e6061addc50725e469cc95747.png)
+
+Figure 1: horizontal stacked bar chart of the ComStock baseline in-force energy code as a percentage of stock floor area, one bar per DOE Reference or DEER vintage, each split into floor area applicable and not applicable to the RTU upgrade. DOE Ref 1980-2004 is by far the largest vintage, with 16.73 percent of stock floor area applicable and 31.41 percent not. Section 2 explains the code mapping.
+
+DEER stands for Database for Energy Efficiency Resources, which represents building characteristics for California models following Title 24.
+

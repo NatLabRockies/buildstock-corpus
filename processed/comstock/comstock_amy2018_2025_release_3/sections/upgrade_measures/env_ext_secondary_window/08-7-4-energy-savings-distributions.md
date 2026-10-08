@@ -1,0 +1,19 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | docs/upgrade_measures/env_ext_secondary_window.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/upgrade_measures/env_ext_secondary_window.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/upgrade_measures/env_ext_secondary_window.html | corpus_version: 267e3ea | corpus_path: upgrade_measures/unpublished_docs/upgrade_measures/env_ext_secondary_window.md | section: 7.4  Energy Savings Distributions | lines: 459-476 -->
+## 7.4  Energy Savings Distributions
+
+Figure 7 shows the distribution of annual energy percent savings for the ComStock baseline compared to the window
+replacement scenario. The majority of the distributions show site energy savings between roughly 2% and 5% for the 25<sup>th</sup> and 75<sup>th</sup> percentiles (as indicated by the boxplots), respectively. The distributions extend fairly wide, but much of this range is covered by outliers outside of the standard 1.5 times the interquartile range calculation. Outliers are indicated by dots above the distribution, and they represent a relatively small portion of models. Some models in the distributions show negative energy savings for a given fuel type. This is expected to some degree with this type of window strategy, as reducing the SHGC can increase heating load.
+
+![Chart Description automatically generated](./media/1ed78901-1755-499b-a218-aa19a7c5d2e0.jpeg)
+
+Figure 7. Percent savings distribution of ComStock models by fuel type
+
+Figure 8 shows the percent savings distribution for each end use and fuel type combination between the baseline
+ComStock model and the corresponding upgrade model. Models are included in these distributions only if they experienced savings (or a penalty) for the specific distribution. The model count for the distributions is indicated in each distribution title. Many end uses demonstrated a wide range of savings.
+
+The heating end use (for the various fuel types) generally shows energy savings above the 25<sup>th</sup> percentile of the distribution. Heating savings are expected when decreasing the window U-value due to the increased insulative properties. However, some models experienced heating penalties. This is often due to the increased SHGC of the replacement windows, which is intended to decrease cooling energy consumption. However, this can also block some beneficial solar heat gain, which can cause an increased heating load. Whether or not annual heating savings are realized depends on a combination of factors, including the window to wall area, window orientation, thermostat set points, HVAC system, outdoor air temperatures, and amount of solar radiation affecting the window surface. Heating-only HVAC system types can be especially prone to energy penalties from lower SHGC because there is no cooling system to save energy from the decreased solar gains, although this does not reflect other potential benefits such as thermal comfort or glare control. Also, in some cases, HVAC systems that use multiple fuel types may experience heating savings for one of the fuel types and a heating penalty for the other due to nuanced load changes that shift load within the system.
+
+![Diagram Description automatically generated](./media/5e5935e8-1632-439f-b520-f267f2d423c8.jpeg)
+
+Figure 8. Percent savings distribution of ComStock models by end use and fuel type
+

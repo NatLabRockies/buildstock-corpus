@@ -1,0 +1,12 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89343.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89343.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89343.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/89343.md | section: 3.2  Load Prediction Methods | lines: 270-280 -->
+## 3.2  Load Prediction Methods
+
+The dispatch schedule generation method creates a schedule (i.e., 8,760 hourly values for the year) with hourly indicators of when to dispatch demand flexibility for a certain objective (e.g., daily peak load reductions), with options using different load prediction methods: perfect prediction, bin-sampling, fixed schedule, and outdoor air temperature (OAT)-based prediction. High-level descriptions of each prediction method are as follows:
+
+1. The perfect prediction method performs a full annual baseline (without demand flexibility measure) simulation to obtain the annual electricity load profile as predicted load, representing the scenario of perfect load prediction.
+2. The bin-sampling method categorizes days into bins by temperature characteristics and performs simulations on selected sample days from bins as the representative 'predicted' load, and then assigns the sample prediction for all days based on the bin categorization.
+3. The fixed schedule method defines uniform start and end times of a peak window with an assumed fixed daily peak time, for all days in a season or a year.
+4. The OAT-based prediction method uses OAT statistics (minimum and maximum) as the indicators of peak load, with a specified delay response time from building loads to temperature.
+
+There are various methods that could be applied to understand building load; they are as complex as using digital twin modeling approaches or machine learning prediction models (data-driven gray-box or black-box models such as in [30], [31], [32]) or as straightforward as reading in baseline (for simulation) or historical (for actual) building load data and adjusting the data for prediction. In a dynamic dispatch scenario, the control system is expected to decide what data could be leveraged to determine optimized dispatch. The practical application of demand flexibility dispatch measures would require extensive input data and complex model structure (such as the neural network model developed in [33]) for load prediction. Detailed definitions and explanations are provided for the options selected/developed in the following sections.
+

@@ -1,0 +1,22 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95009.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95009.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95009.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/95009.md | section: 5.8.2  Geothermal Heat Pump Sizing | lines: 1066-1086 -->
+## 5.8.2  Geothermal Heat Pump Sizing
+
+In addition to recalculating the ground heat exchanger size, the envelope measures can also impact the capacity of the required geothermal heat pump unit. In the GHP packages, the envelope measures are applied before any heat pump sizing occurs, therefore the GHP capacities consider the impacts of the envelope improvements. As such, the GHP capacities in most buildings can be reduced because the envelope measures reduce the heating and cooling requirements.
+
+Figure 13 shows the water-to-air GHP heating and cooling capacities for the two packages. Note that only water-to-air GHPs (modeled in the packaged GHP and console GHP measures) are represented in this plot. As explained in the Comprehensive GHP + High Efficiency Envelope measure documentation, the heat pump capacities are reduced by over 15% for much of the building stock when envelope measures are combined with GHPs. However, when adding the LED Lighting measure to this package, we see relatively minimal impact to the heating and cooling capacities across this board. Because the LED Lighting measure almost exclusively impacts the lighting end use, the heat pump capacity for most buildings is not reduced substantially. The more efficient lights give off less heat and therefore have some minimal impacts on a building's heating and cooling load, but we are not seeing notable savings in heat pump capacity with this upgrade included in the package.
+
+Compared to the Comprehensive GHP + High Efficiency Envelope package, we see some heat pump capacity reductions at the upper whisker (20 kW or 1.6% for heating and 86 kW or 1.8%). The buildings at this end of the distribution are large buildings with significant loads/capacities to begin with. In general, we can say that the envelope measures have much more impact on the heat pump capacities than the lighting measure, which is expected.
+
+The results for the water-to-water GHPs are not included at this time, as the output variables required for this analysis are not yet included in the dataset.
+
+Figure 13. Water-to-air GHP heating and cooling capacities for Comprehensive GHP, Comprehensive GHP + High Efficiency Envelope, and Comprehensive GHP + High Efficiency Envelope + LED Lighting package
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95009.yaml
+     source: 95009_images/image_000014_628544d53e0262ea67932e7c0dfff280396bc509d08b5d536725e820ba266e60.png
+     method: vision-description
+     described: 2026-08-20 -->
+
+![Figure 13. Two stacked box plot panels of water-to-air geothermal heat pump heating and cooling capacities for the three Comprehensive GHP packages](95009_images/image_000014_628544d53e0262ea67932e7c0dfff280396bc509d08b5d536725e820ba266e60.png)
+
+Figure 13 is a set of two stacked box plot panels titled "geothermal water-to-air heat pump heating capacity" and "geothermal water-to-air heat pump cooling capacity". Each panel lists three rows under "Upgrade Name": Comprehensive GHP, Comprehensive GHP + Envelope, and Comprehensive GHP + Envelope + Lighting. The heating panel plots Water-to-Air Heat Pump Heating Capacity in watts on an x-axis from 0 to about 1600 thousand watts; the GHP-only box extends to roughly 600 thousand watts while both envelope packages end nearer 500 thousand watts, with whiskers out past 1200 thousand watts. The cooling panel plots Water-to-Air Heat Pump Cooling Capacity in watts on an x-axis from 0 to about 6000 thousand watts, with the GHP-only box reaching roughly 2400 thousand watts and the envelope packages closer to 1900 thousand watts. Only water-to-air units -- those modeled in the packaged GHP and console GHP measures -- appear in this figure, so hydronic GHP models are excluded. The envelope measures cut required heat pump capacity by more than 15% for much of the stock, while adding LED lighting on top has minimal further effect, since more efficient lights reduce internal heat gain only slightly and that shows up as little change in equipment sizing.
+

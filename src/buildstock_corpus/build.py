@@ -43,6 +43,7 @@ from .paths import (
 from .links import artifact_urls, clone_for
 from .provenance import default_corpus_version, render_header
 from .registry import Source, load_registry
+from .sections import SECTIONS_DIRNAME, write_all_sections
 from .status import SITE_PAGE, status_for_url
 
 
@@ -434,6 +435,20 @@ def _write_processed(
         out.write_text(front + f"# {doc.title}\n\n{body}", encoding="utf-8", newline="\n")
 
 
+def _write_section_files(
+    product: str, release: str, docs: list[Document], remaps: dict[str, tuple[str, str]]
+) -> int:
+    """Cut every just-written document into per-H2 section files (see sections.py).
+
+    The whole sections/ tree is replaced, not patched: a document renamed or dropped since
+    the last build would otherwise leave section files behind that no document produces,
+    which `bsc validate` would then report as orphans.
+    """
+    proot = processed_root(product, release)
+    rels = [output_rel(d.source_id, d.source_path, remaps.get(d.source_id)) for d in docs]
+    return write_all_sections(proot, rels)
+
+
 def _replace_dir(src_dir: Path, dst: Path) -> int:
     """Replace `dst` with a copy of `src_dir`, returning the number of files copied.
 
@@ -532,6 +547,7 @@ def build_release(
     remaps = reg.output_remaps()
     _write_processed(product, release, docs, remaps, corpus_version)
     n_images = _copy_source_images(product, release, pdf_images)
+    n_sections = _write_section_files(product, release, docs, remaps)
 
     # Chunk line ranges are lines of the files just written, so a hit can be re-read with
     # `sed -n a,bp`; the offset per document is the same arithmetic _write_processed used.
@@ -596,6 +612,7 @@ def build_release(
     print(f"build: corpus_version {corpus_version}")
     print(f"build: {len(docs)} docs -> {len(chunks)} chunks (by type: {dict(by_type)}) -> {cf}")
     print(f"  copied {n_images} image file(s) into processed/")
+    print(f"  cut {n_sections} section file(s) under processed/.../{SECTIONS_DIRNAME}/")
     if not overlays:
         print("  overlays: SKIPPED (--no-overlays); bitmap-only tables stay unconverted")
     elif n_overlay_tables or n_overlay_figures:

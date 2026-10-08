@@ -1,0 +1,22 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89341.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89341.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89341.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/89341.md | section: 3.1  Applicability | lines: 187-207 -->
+## 3.1  Applicability
+
+This measure is likely applicable to most commercial building types as it targets thermostat (schedule) control regardless of the details of HVAC system operations. Although in this study we narrow down the applicability to large office buildings only, we plan to expand the applicability in the future.
+
+There were two reasons behind the decision of making large office the target building type. First is the initial feedback and decisions we got from stakeholders in the early phase of the Energy Efficiency and Demand Flexibility State Level Potential project. An informal survey of a statelevel working group and the initial engagement of stakeholders both found that large offices are a building type of interest to state-level energy policy and incentive program staff seeking to support the implementation of measures and enable GEBs in their jurisdictions. Second is to secure some time for correcting/improving dispatch window generation method instead of planning time on testing/applying/debugging the measure on many more building types.
+
+This measure is applicable to buildings with electric HVAC systems (either electric heating, electric cooling, or both), as demand flexibility control is applicable to buildings and/or equipment associated with the electric grid. Correspondingly, this measure will only affect electric HVAC equipment present in a building-e.g., it will not apply changes to the heating setpoints of the thermostat if the building does not have electric heating equipment (e.g., if the building's heat is provided by a natural gas furnace).
+
+Figure 1 shows the area percentage of large office buildings among all the commercial building types in ComStock and the floor area percentage of applicable buildings with electric HVAC systems (cooling only or both heating and cooling) for each building type. All large office buildings are applicable to this measure; 33.3% of large office floor area has both electric heating and cooling systems and the remaining 66.7% of the floor area has only electric cooling. In terms of building counts, this applicability corresponds to 3158 large office building model samples which then extend to 19212 large office buildings (with weighting factors applied) for representing the counts in national level.
+
+Figure 1. Prevalence of building types and applicability for each building type
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89341.yaml
+     source: 89341_images/image_000002_5973bd6f6f9707b611941a35a031fd970abf78b59145455460b128e61bcccd58.png
+     method: vision-description
+     described: 2026-08-20 -->
+
+![Figure 1. Two-panel bar chart showing each ComStock building type's share of stock floor area (left) and the applicability of the thermostat load shifting measure within each building type (right), with large office the only applicable type at 9.72% of floor area](89341_images/image_000002_5973bd6f6f9707b611941a35a031fd970abf78b59145455460b128e61bcccd58.png)
+
+Paired horizontal bar chart establishing the measure's applicability. The left panel plots % of Stock Floor Area for each ComStock building type, listed top to bottom: FullServiceRestaurant, Hospital, LargeHotel, LargeOffice, MediumOffice, Outpatient, PrimarySchool, QuickServiceRestaurant, RetailStandalone, RetailStripmall, SecondarySchool, SmallHotel, SmallOffice, Warehouse. The LargeOffice bar is highlighted green and labeled 9.72%; Warehouse is the largest type at 23.41% and PrimarySchool is 11.29%, with the remaining types each under about 10%. The right panel plots Applicability % of Building Type Area on a 0 to 100% axis; only the LargeOffice row is filled, split into 33.30% of large office area with both electric heating and electric cooling and 66.70% with electric cooling only, so 100% of large office floor area is applicable. Two legends are given: Applicability - electric HVAC (Applicable: cool only; Applicable: heat & cool; Not applicable) and Applicability - building type (Applicable: large office; Not applicable). The body text ties this to 3,158 large office model samples, which weight up to 19,212 buildings nationally.
+

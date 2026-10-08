@@ -1,0 +1,5 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86103.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86103.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86103.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/86103.md | section: Exhaust Air Recovery Type | lines: 592-595 -->
+## Exhaust Air Recovery Type
+
+The measure applies HRVs in drier/milder climate zones (ASHRAE climate zones 3B, 3C, 4B, 4C, 5B, 5C, and 6B) where addressing latent energy loads is of lesser concern. The HRVs are modeled as aluminum counterflow plate heat exchangers and include a bypass for temperature control and economizer lockout where applicable. The measure applies ERVs to applicable airhandling units in humid climate zones, where addressing latent loads with the ERV would be beneficial. The ERVs are modeled as membrane counterflow heat exchangers and also include a bypass for temperature control and economizer lockout where applicable.
+

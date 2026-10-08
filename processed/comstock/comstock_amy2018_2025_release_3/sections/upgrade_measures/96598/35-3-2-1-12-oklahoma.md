@@ -1,0 +1,5 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/96598.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/96598.md | section: 3.2.1.12 Oklahoma | lines: 697-700 -->
+## 3.2.1.12 Oklahoma
+
+According to BECP, Oklahoma's commercial energy code is '&lt;90.1-2007', so we did additional research to confirm which code year should be assigned to Oklahoma [4]. According to ACEEE, Oklahoma has a technical commission called the Oklahoma Uniform Building Code Commission, which reviews and recommends buildings codes for new construction. The energyrelated chapter of this code references the 2006 IECC. Many jurisdictions in Oklahoma have set their own codes and standards, but after review, many of the codes adopted by jurisdictions are not IECC or ASHRAE 90.1 [21]; therefore, in the absence of other information, we conservatively assume ASHRAE 90.1-2004, for the state of Oklahoma.
+

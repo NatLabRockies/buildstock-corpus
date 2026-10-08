@@ -1,0 +1,40 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/87542.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/87542.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/87542.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/87542.md | section: 5.5  Other Observations | lines: 600-638 -->
+## 5.5  Other Observations
+
+Figure 12 compares the noncoindcident peak electricity demand intensity for the median building between the ComStock baseline and the heat/energy recovery scenario. Results are presented by Building America climate zone. The highest peak reductions occur during the summer. This is because summer peak demand is influenced primarily by the cooling end use, which largely uses electricity, except for the small set of buildings using district cooling. Larger reductions are observed in warmer climates. Comparatively, the winter peak demand yields smaller reductions, and sometimes causes peak demand increases. There are a few considerations here. First, the added fan power for the heat/energy recovery will increase electricity consumption and therefore electricity peak demand. In cases where the building uses electric heating, the ventilation load reduction can reduce electric heating consumption during the seasonal peak, often resulting in a net peak increase. However, if the building uses nonelectric heating, the energy savings will be for the heating fuel type rather than electricity, which can result in a net increase in electricity due to the added fan energy. This is not as much of a concern for the summer peak because, as mentioned, most buildings use electricity for cooling, which outweighs the electricity fan penalty.
+
+Figure 12 . Normalized median peak electric demand comparison between ComStock baseline models and the models with the heat/energy recovery measure applied.
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/87542.yaml
+     source: 87542_images/image_000013_6fa1bca10caaf43e4e93ed9bd17c2d3959f34fdfa209392e057a3a0d485a0e0d.png
+     method: vision-description
+     described: 2026-08-20 -->
+
+![Figure 12. Grouped horizontal bar chart of normalized median peak electric demand intensity in W/ft2 for the ComStock baseline versus the energy recovery scenario, with rows grouped by Building America climate zone and three column panels for summer, winter, and shoulder seasons](87542_images/image_000013_6fa1bca10caaf43e4e93ed9bd17c2d3959f34fdfa209392e057a3a0d485a0e0d.png)
+
+Small-multiple horizontal bar chart of noncoincident median peak electricity demand intensity in watts per square foot, with a Baseline bar above an Energy Recovery bar within each climate zone group and numeric values printed at the bar ends. Three column panels give Median Summer Elect. Peak W/ft2, Median Winter Elect. Peak W/ft2, and Median Shoulder Elect. Peak W/ft2 on shared axes running 0 to about 5. Climate zone rows top to bottom: Hot-Humid, Hot-Dry, Marine, Mixed-Dry, Mixed-Humid, Cold, Very Cold, and Subarctic; the Subarctic rows carry values only in the winter and shoulder panels because that zone has no days classified as summer. The text states the interpretation: the highest peak reductions occur in summer, because summer peak demand is driven mainly by electric cooling, and reductions are larger in warmer climates. Winter reductions are smaller and in some cases become increases, for two reasons: the added heat/energy recovery fan power raises electricity demand directly, and in buildings that heat with a nonelectric fuel the ventilation load reduction saves that fuel rather than electricity, leaving a net electric increase. This concern is weaker in summer because nearly all cooling is electric, so cooling savings outweigh the fan penalty.
+
+Figure 13 and Figure 14 show the median heating energy savings intensity by state from applying the heat/energy recovery measure. As expected, the heating plot shows higher savings in the colder states of the Midwest and Northeast, where there are higher heating loads. The warmer states show lower savings because they generally have lower heating loads.
+
+Figure 13 . Annual median heating energy savings intensity (kWh/sf/yr). Plot only shows buildings that are applicable to the measure.
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/87542.yaml
+     source: 87542_images/image_000014_089039d91c7d3aaa02e323f4d7b3964f0d6cabe354e3a4c74839cf2518e59e6e.png
+     method: vision-description
+     described: 2026-08-20 -->
+
+![Figure 13. Choropleth map of the contiguous United States showing annual median heating energy savings intensity in kWh per square foot per year by state for buildings applicable to the heat/energy recovery measure, with values labeled on each state](87542_images/image_000014_089039d91c7d3aaa02e323f4d7b3964f0d6cabe354e3a4c74839cf2518e59e6e.png)
+
+State-level choropleth map of the contiguous United States showing annual median heating energy savings intensity in kWh/sf/yr from the heat/energy recovery measure, restricted to buildings applicable to the measure. Each state is labeled with its value and shaded on a single-hue blue scale, with darker blue meaning larger heating savings. The geographic pattern matches the text's expectation of higher savings in the colder Midwest and Northeast, where heating loads are larger, and lower savings in warmer states. The darkest, highest-value band runs through the northern plains and upper Midwest, with values in the roughly 3.0 to 3.9 kWh/sf/yr range, and New England states are also comparatively high, with several in the 2.0 to 3.4 range. Mid-latitude states fall in the roughly 1.0 to 2.5 range. The lightest, lowest-value states are along the southern tier and the Gulf and southern Atlantic coasts, where labeled values drop below 0.5 and in places to a few hundredths of a kWh/sf/yr. Southwestern desert states are also low. California is a notable exception to the latitude pattern, reading higher than its neighbors.
+
+Figure 14 . Annual median cooling energy savings intensity (kWh/sf/yr). Plot only shows buildings that are applicable to the measure.
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/87542.yaml
+     source: 87542_images/image_000015_be5a12f470007b23977cb0d5af4b4bb72241256d36a6c0fd5ce17100be36b92f.png
+     method: vision-description
+     described: 2026-08-20 -->
+
+![Figure 14. Choropleth map of the contiguous United States showing annual median cooling energy savings intensity in kWh per square foot per year by state for buildings applicable to the heat/energy recovery measure, with values labeled on each state](87542_images/image_000015_be5a12f470007b23977cb0d5af4b4bb72241256d36a6c0fd5ce17100be36b92f.png)
+
+State-level choropleth map of the contiguous United States showing annual median cooling energy savings intensity in kWh/sf/yr from the heat/energy recovery measure, restricted to applicable buildings. Each state carries a printed value and is shaded on the same single-hue blue scale used for the heating map, darker meaning larger savings. The geographic pattern is the mirror image of the heating map: cooling savings are largest across the South, where the darkest states are along the Gulf Coast and lower Mississippi valley with labeled values in the roughly 0.5 to 0.8 kWh/sf/yr range, and they decline moving north. The southern Atlantic states and Texas are intermediate, in the roughly 0.3 to 0.6 range, and the mid-Atlantic and lower Midwest fall around 0.2 to 0.4. The lightest states are along the northern border and in the interior West, with values of a few hundredths to about 0.1 kWh/sf/yr. Absolute magnitudes are much smaller than the heating map, which tops out near 3.9 kWh/sf/yr, consistent with the stock results where heating savings (268 TBtu) are roughly three times the cooling savings (82 TBtu).
+

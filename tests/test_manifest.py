@@ -433,7 +433,8 @@ def test_overlay_recorded_and_verified_against_its_source_image(tmp_path, monkey
     assert manifest["counts"]["overlay_tables"] == 1
     stats: dict = {}
     assert M.validate_manifest("comstock", RELEASE, manifest, stats) == []
-    assert stats == {"overlay_checked": 1, "overlay_checked_pdf": 0, "overlay_unverifiable": 0}
+    assert stats == {"overlay_checked": 1, "overlay_checked_pdf": 0, "overlay_unverifiable": 0,
+                     "sections_checked": 0, "docs_without_sections": 1}
 
 
 def test_absent_source_image_is_unverifiable_not_a_violation(tmp_path, monkeypatch):
@@ -450,7 +451,8 @@ def test_absent_source_image_is_unverifiable_not_a_violation(tmp_path, monkeypat
 
     stats: dict = {}
     assert M.validate_manifest("comstock", RELEASE, manifest, stats) == []
-    assert stats == {"overlay_checked": 0, "overlay_checked_pdf": 0, "overlay_unverifiable": 1}
+    assert stats == {"overlay_checked": 0, "overlay_checked_pdf": 0, "overlay_unverifiable": 1,
+                     "sections_checked": 0, "docs_without_sections": 1}
 
 
 def test_redrawn_source_image_is_a_violation(tmp_path, monkeypatch):
@@ -522,7 +524,8 @@ def test_caption_anchored_overlay_verified_against_the_artifacts_input_hash(tmp_
 
     stats: dict = {}
     assert M.validate_manifest("comstock", RELEASE, manifest, stats) == []
-    assert stats == {"overlay_checked": 0, "overlay_checked_pdf": 1, "overlay_unverifiable": 0}
+    assert stats == {"overlay_checked": 0, "overlay_checked_pdf": 1, "overlay_unverifiable": 0,
+                     "sections_checked": 0, "docs_without_sections": 1}
 
 
 def test_caption_anchored_overlay_pinned_to_another_revision_is_a_violation(tmp_path, monkeypatch):

@@ -1,0 +1,16 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89343.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89343.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89343.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/89343.md | section: 4.3  Test Run Results Comparison | lines: 453-467 -->
+## 4.3  Test Run Results Comparison
+
+A ComStock test run with 10,000 building models and 90 applicable large offices was performed to compare the effectiveness of the thermostat control for the load shedding measure applied with different dispatch schedule generation options: perfect load prediction, OAT-based prediction, and fixed schedules (the bin-sampling method is excluded in this test due to the computational issue). The test run includes 90 large office models that are applicable for applying the demand flexibility measure. Because the major objective of the demand flexibility measure in this analysis is to achieve peak load reductions (on a daily basis), we use the distribution of median daily peak load reduction percentages by month throughout the stock as the metric to illustrate and compare the performance (more explanation in the demand flexibility measure documentation Section 5.5). Figure 6 shows that the perfect prediction option outperforms the fixed schedule option and the OAT-based prediction option, which is consistent with the single building comparison results shown in Section 4.1. In addition, the fixed schedule option has the largest negative peak savings (Q1-Q3 boxes all located on the negative side), which indicates new higher peak loads are generated with the fixed schedule option for most of the applicable buildings for most of the time.
+
+Figure 6. Distribution of median daily peak load reduction percentage by month compared to the baseline model for load shedding measure with perfect prediction, fixed schedule, and OAT-based prediction options. Boxes span from Q1 (25th percentile) to Q3 (75th percentile) and whiskers extend from the box to the smallest and largest values within 1.5×IQR from Q1 and Q3.
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89343.yaml
+     source: 89343_images/image_000006_9420c73265ec4c1660e8c363924ac2331c6655611a660ac9a2d39831abda932d.png
+     method: vision-description
+     described: 2026-08-20 -->
+
+![Horizontal box plots of median daily peak load savings percent by month for three load-prediction options](89343_images/image_000006_9420c73265ec4c1660e8c363924ac2331c6655611a660ac9a2d39831abda932d.png)
+
+Figure 6. Horizontal box-and-whisker plot of median daily peak load reduction (Median Peak savings, percent) across a stock of large-office models, x-axis from about -5% to 15%. Rows are grouped by month (Jan through Dec), and within each month there are three bars: Perfect prediction, Fixed schedule, and OAT-based prediction. Boxes span Q1 to Q3 and whiskers extend to 1.5x IQR. Perfect prediction consistently shows the largest positive median peak savings (medians and boxes shifted right of zero, largest in summer months), OAT-based prediction gives modest positive savings, and the fixed-schedule option is often centered near or below zero, indicating it creates new higher peaks for many buildings much of the time.
+

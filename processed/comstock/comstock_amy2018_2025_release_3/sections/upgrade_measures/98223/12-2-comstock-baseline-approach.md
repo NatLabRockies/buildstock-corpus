@@ -1,0 +1,22 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/98223.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/98223.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/98223.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/98223.md | section: 2  ComStock Baseline Approach | lines: 202-222 -->
+## 2  ComStock Baseline Approach
+
+The ComStock™ baseline models simulate pump systems used in various hydronic loops, including heating hot water, chilled water, condenser water, service/domestic water heating, and ground-source heat pump loops. Pump power is modeled based on loop-specific pressure head requirements aligned with American Society of Heating, Refrigerating and Air-Conditioning Engineers (ASHRAE) 90.1 standards and incorporates motor efficiencies consistent with those used for fans. ComStock accounts for both primary-only and primary-secondary loop configurations, reflecting common design practices in commercial heating, ventilating, and airconditioning (HVAC) systems.
+
+In ComStock, all pumps use intermittent control, allowing them to turn off when the loop has no load. Constant-volume pumps follow the ASHRAE 90.1 pump curve, while variable-speed pumps vary speed to modulate flow. Variable-speed pumps are modeled with a 0% minimum flow ratio, which likely underestimates energy use because most systems must maintain roughly 30%-50% flow to keep equipment like chillers and boilers operating properly. These assumptions guide how pumping energy is estimated across different building types and system configurations in the ComStock models. This is also described in detail in the ComStock Reference Documentation [6].
+
+The characteristics of existing HVAC systems in ComStock are primarily determined by building type, as HVAC system types vary by building use. HVAC equipment performance is assumed to comply with the energy code requirements in effect at the time and location of installation, which informs assumptions about system efficiency. Figure 2 presents the heating/cooling type percentage of floor area by building type. It also reflects the proportion of systems that include water pumps for space heating and cooling-specifically, those with boilers, chillers, and district water systems.
+
+Figure 2. ComStock baseline heating and cooling system type percentages of floor area by building type
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/98223.yaml
+     source: 98223_images/image_000003_99570cd7162731051d8b01249b24c6a5b531f55a6faf04f3052d8543fde5a9b2.png
+     method: vision-description
+     described: 2026-08-20 -->
+
+![Figure 2: two 100 percent stacked horizontal bar charts giving ComStock baseline heating type and cooling type as a percentage of stock floor area for 14 building types, with the pump-served system types bracketed in each legend](98223_images/image_000003_99570cd7162731051d8b01249b24c6a5b531f55a6faf04f3052d8543fde5a9b2.png)
+
+Figure 2 of the ComStock Variable-Speed Pumps measure documentation. Two side-by-side panels share a common y axis of 14 ComStock building types; the x axis of each is 'Stock floor area percentage [%]' running 0 to 100. The left panel is titled Heating Type and its legend lists Boiler, District, GHP and WSHP - bracketed with the annotation 'pumps are used!' - followed by Furnace, Electric Resistance and ASHP. The right panel is titled Cooling Type and its legend lists water-cooled chillers, air-cooled chillers, District, GHP and WSHP - again bracketed 'pumps are used!' - followed by DX and ASHP. Within each bar the bands stack in the reverse of the legend order. Reading the bands, boiler heating dominates the floor area of Hospital, LargeOffice, LargeHotel, PrimarySchool, SecondarySchool and MediumOffice, while QuickServiceRestaurant, RetailStripmall, RetailStandalone, SmallOffice, Warehouse and SmallHotel are almost entirely furnace or electric resistance heated. Water-cooled chillers likewise take most of the cooling floor area in Hospital, LargeOffice, LargeHotel, PrimarySchool and SecondarySchool, whereas the small retail, office, warehouse and restaurant types are almost all DX. A footnote defines GSHP, WSHP, ASHP and DX. No bar carries a data label.
+
+GSHP = ground-source heat pump; WSHP = water-source heat pump; ASHP = air-source heat pump; DX = direct expansion
+

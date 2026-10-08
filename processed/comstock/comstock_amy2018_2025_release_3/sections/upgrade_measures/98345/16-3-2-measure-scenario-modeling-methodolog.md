@@ -1,0 +1,9 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/98345.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/98345.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/98345.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/98345.md | section: 3.2  Measure Scenario Modeling Methodology | lines: 330-337 -->
+## 3.2  Measure Scenario Modeling Methodology
+
+This measure is implemented by replacing the existing power vs. airflow fan curve with a curve representing the effects of an SP reset for systems that do not already use SP reset. The new curve represents a 'good' (fairly effective) SP reset published in the Advanced VAV Design Guide, which is also used to represent an SP reset in OpenStudio Standards [1] [15]. Figure 2 compares the two fan curves, along with a curve representing a 'perfect' SP reset. The 'good'
+
+and 'perfect' SP reset curves are quite similar. As shown in Figure 2, the Good SP Reset curve results in lower power at all levels of flow less than 100% relative to the baseline curve. (At 100% flow, the curves coincide.)
+
+Minimum variable frequency drive speed, corresponding in this context to minimum airflow fraction, is an important consideration. Totally enclosed fan-cooled motors are generally the most sensitive to minimum speeds to ensure adequate motor cooling; they are generally intended to operate at a minimum speed of 25% [17]. Some sources recommend a minimum speed of only 10% for HVAC fan motors equipped with variable frequency drives [1]. To avoid the need for motor replacement in some applications, this measure will assume a 25% minimum speed, consistent with the existing VAV fan implementation in ComStock without an SP reset. 5 The effects on energy savings of a 25% minimum speed vs. a 10% minimum speed are expected to be minimal, given the low slope of the 'good' SP reset power vs. flow curve in this region.
+

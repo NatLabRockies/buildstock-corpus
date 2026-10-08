@@ -1,0 +1,9 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89341.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89341.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89341.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/89341.md | section: 3.2.1  Thermostat Setpoint Schedule Generation | lines: 210-217 -->
+## 3.2.1  Thermostat Setpoint Schedule Generation
+
+By applying the method 'Dispatch Schedule Generation' described in the 'Supplemental Documentation: Dispatch Schedule Generation for Demand Flexibility Measures' on the ComStock webpage, a daily peak load schedule will be generated and used as the input for this measure. This measure will clone the existing schedules that are used for cooling and heating (if applicable with electric heating) setpoints for thermal zones. Then the schedules are adjusted by the specified setpoint adjustment values for the specified number of hours (pre-peak length) before the peak windows, which are determined by the input peak load schedule.
+
+Compared to the baseline, the HVAC load is increased for the pre-conditioning period with adjusted setpoints, and decreased in peak window with pre-conditioned (initial) thermal conditions, and thus the load is shifted from the peak window to the pre-peak period.
+
+The measure is flexible and allows users to adjust the heating and cooling offset values, as well as the length of pre-conditioning before the peak period, but for this study, the load shifting strategy is applied as pre-cooling only (adjusting only cooling setpoints), in order to avoid the conflict between decreased cooling setpoint and increased heating setpoint that causes a reverse deadband error for the thermostat (cooling setpoint lower than heating setpoint for the same thermostat). The default adjustment for cooling setpoints is set to -1°C, and the default duration of pre-cooling is 1 hour.
+

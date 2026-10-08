@@ -1,0 +1,9 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86585.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86585.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86585.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/86585.md | section: 1.2  Heat Pump Rooftop Units As a Decarbonization Pathway | lines: 270-277 -->
+## 1.2  Heat Pump Rooftop Units As a Decarbonization Pathway
+
+Many technologies are used to provide space heating in commercial building heating, ventilating, and air conditioning (HVAC) systems. Packaged rooftop units (RTUs) are currently used to heat 37% of commercial buildings in the United States. (representing 50% of the total commercial floor space) [2]. Heat pumps currently provide space heating for only approximately 11% of commercial buildings (representing 15% of the total floor area) [2].
+
+Heat pumps offer a high-performance electric option for commercial building space heating. Their use of electricity for heating enables pathways toward decarbonization, as they deliver space heating 2-4 times more efficiently than electric resistance options. Based on the 2018 Commercial Buildings Energy Consumption Survey (CBECS) data, it is estimated that fewer than 15% of commercial buildings utilize heat pumps for space heating equipment, and when they are in use, they are more commonly found in the warmer southern region of the United States [2].
+
+Heat pump technologies are available on the market today to replace existing gas-fired or electric resistance RTU systems. Most manufacturers offer heat pump rooftop units (HP-RTU) with compressors capable of providing 105 kilowatts (kW) or less of cooling capacity (30 tons). There is remarkable opportunity for the growth and widespread adoption of this technology, and expansion of the field will have an extensive impact on electrification efforts.
+

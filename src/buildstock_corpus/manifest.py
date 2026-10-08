@@ -32,6 +32,7 @@ from .paths import (
     sha256_file,
 )
 from .provenance import HEADER_FIELDS, default_corpus_version, read_header
+from .sections import check_sections, orphan_section_files
 from .status import STATUSES
 
 PIPELINE_VERSION = "0.1.0"
@@ -365,6 +366,8 @@ def validate_manifest(
         errors.append("manifest has no corpus_version")
 
     n_art = 0
+    sections_checked = 0
+    docs_without_sections = 0
     for src in manifest.get("sources", []):
         for a in src.get("artifacts", []):
             n_art += 1
@@ -415,6 +418,15 @@ def validate_manifest(
                             errors.append(
                                 f"{where}: header {k} {header[k]!r} != manifest {expected[k]!r}"
                             )
+                    # Section files are committed output a consumer fetches on their own,
+                    # and a pure function of the document: regenerate and compare.
+                    sec_errors, n_sec, present = check_sections(
+                        proot, a["output_path"], out_abs.read_text(encoding="utf-8"), where
+                    )
+                    errors += sec_errors
+                    sections_checked += n_sec
+                    if not present:
+                        docs_without_sections += 1
             if a.get("overlay"):
                 ov_errors, n_ok, n_ok_pdf, n_skip = _validate_overlay(proot, a, where)
                 errors += ov_errors
@@ -423,10 +435,17 @@ def validate_manifest(
                 unverifiable += n_skip
     if n_art == 0:
         errors.append("manifest records zero artifacts")
+    # A section dir for a document this manifest does not list is stale output.
+    for rel in orphan_section_files(
+        proot, [a["output_path"] for s in manifest.get("sources", []) for a in s.get("artifacts", [])]
+    ):
+        errors.append(f"sections: file belongs to no document in this manifest: {rel}")
     if stats is not None:
         stats["overlay_checked"] = checked
         stats["overlay_checked_pdf"] = checked_pdf
         stats["overlay_unverifiable"] = unverifiable
+        stats["sections_checked"] = sections_checked
+        stats["docs_without_sections"] = docs_without_sections
 
     cw_file = proot / "crosswalk.json"
     if cw_file.is_file():
@@ -516,6 +535,13 @@ def validate_release(product: str, release: str) -> bool:
             f"at most {sample.get('per_category')} document(s) per category"
         )
     print(f"  {n_art} artifacts, all traced to hashed inputs and present on disk with matching hashes")
+    if stats.get("sections_checked"):
+        print(f"  {stats['sections_checked']} section file(s) regenerated from their documents and matching")
+    if stats.get("docs_without_sections"):
+        print(
+            f"  {stats['docs_without_sections']} document(s) have no section files on disk "
+            f"(derived output; run `bsc map` to regenerate them)"
+        )
     counts = manifest.get("counts", {})
     n_tables = counts.get("overlay_tables") or 0
     n_figs = counts.get("overlay_figures") or 0

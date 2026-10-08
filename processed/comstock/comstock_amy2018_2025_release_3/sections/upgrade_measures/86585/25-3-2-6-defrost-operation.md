@@ -1,0 +1,9 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86585.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86585.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86585.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/86585.md | section: 3.2.6 Defrost Operation | lines: 478-485 -->
+## 3.2.6 Defrost Operation
+
+Frost formation can occur on the outdoor unit during heat pump heating operation due to humidity in the outdoor air condensing and freezing on the cold outdoor coil. Frost needs to be periodically removed so the coil can function properly. This is generally done using either an electric resistance coil or by reversing the heat pump cycle to heat the outdoor coil and melt frost buildup, both of which result in additional energy consumption. This analysis uses the reverse cycle, as it is common in practice and does not require additional heating coils.
+
+Reverse cycle defrost inhibits the heating capacity of the heat pump system, which may require the use of lower-efficiency supplemental heating during these times. Additionally, reversing the cycle of the heat pump causes additional heating load in the RTU because the system is essentially in cooling mode, which EnergyPlus adds to the total effective heating load [4], [5].
+
+Control of the defrost cycle can also vary. Some units use a set time fraction, where the unit operates in defrost mode for a specified time when outdoor air temperatures are below a specified temperature. This analysis uses the EnergyPlus 'on-demand' defrost operation, which estimates the amount of time needed for defrost based on a set of empirical calculations dependent on outdoor air wetbulb temperature, coil temperature, and other parameters. These calculations are described in detail in the EnergyPlus documentation [4], [5].
+

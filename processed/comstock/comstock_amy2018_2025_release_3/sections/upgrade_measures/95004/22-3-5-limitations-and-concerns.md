@@ -1,0 +1,12 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95004.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/95004.md | section: 3.5  Limitations and Concerns | lines: 403-413 -->
+## 3.5  Limitations and Concerns
+
+- This study assumes that all roofs have 40% unshaded area available for a PV array, which may not be the case for all buildings. For example, a 2016 NREL report suggests smaller values in some cases (e.g., buildings under 5000 ft 2 average only 26% area) [5]. This may overestimate the potential of PV in some cases. Alternatively, some buildings show
+
+- negative net metered electricity usage with PV covering 40% of the roof area. This can suggest an oversized PV system in some cases, depending on the goals of the project.
+- The ComStock baseline does not include any PV. CBECS 2018 estimates that ~2% of commercial buildings use PV, so this study may slightly overestimate the impact of mass adoption of PV.
+- The PV assumptions in this work primarily follow the defaults used in the PVWatts tool. Although these are meant to be reasonable, real PV systems designs may vary, which can impact performance.
+- The PV Watts module used in this analysis does consider roof shading from the PV panels. Shading could affect the solar heat gain on the roof. The overall impact of this potential roof shading is likely minimal, especially in the context of larger multistory commercial buildings. However, it could have some impact on heating and cooling loads.
+- This study uses a DC-to-AC size ratio of 1.1, which is the default assumption in PVWatts. This is a conservative estimate, with other sources suggesting higher values of 1.2-1.3. A higher value can increase the prevalence of clipping, where PV output beyond what the inverter can handle is lost. However, a higher ratio can be more economical for some projects [8].
+- Net metering impacts on utility bills or carbon emissions equivalent (CO2e) are not included in this study; the PV panels simply reduce the electricity demand on the building meter at the time of generation, with no resale back to the utility. This may underestimate the savings presented in this report and in the ComStock public dataset. However, PV energy that is generated but not used by the building is reported in the public dataset, enabling users to account for excess generation as needed.
+

@@ -1,0 +1,33 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95009.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95009.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95009.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/95009.md | section: 5.3 Stock Utility Bill Impact | lines: 867-898 -->
+## 5.3 Stock Utility Bill Impact
+
+This section includes a comparison of national-level annual utility bills of the stock across different fuel sources (i.e., electricity, natural gas, propane, fuel oil). ComStock uses utility region mapping to determine all associated electricity rates that can be used by a building in that region. Therefore, the results can include many annual utility rates per building. The comparison in this section highlights three statistics (i.e., maximum, mean, and minimum) across all possible electric utility rates in a given location. For more information about the utility bill methodology in ComStock, see the ComStock Reference Documentation [5].
+
+When combining all fuel types, the Comprehensive GHP + High Efficiency Envelope + LED Lighting package resulted in $32-$37 billion nationally of utility bills savings (26%-29% reduction) compared to the baseline, depending on the electricity rate used (Figure 4). Natural gas bills are reduced by $9 billion (53%) as a result of fuel switching much of the space heating load. The natural gas rates used are fixed by state and therefore remain constant across all three scenarios shown.
+
+Electricity rates are determined based on the utility region of each building in the dataset. For the Comprehensive GHP + High Efficiency Envelope + LED Lighting package, the electricity bills showed a $22-$26 billion reduction in electricity bills nationally depending on the rate chosen.
+
+Figure 4. National annual utility bills comparison of the ComStock baseline, Comprehensive GHP scenario, Comprehensive GHP + High Efficiency Envelope scenario, and Comprehensive GHP + High Efficiency Envelope + LED Lighting scenario using maximum, mean, and minimum electricity rates
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95009.yaml
+     source: 95009_images/image_000005_acc4b964055ecca14eb220272b926e9f78e9d27373f9c529b71692bafcbcc973.png
+     method: vision-description
+     described: 2026-08-20 -->
+
+![Figure 4. Three-panel stacked bar chart of national annual utility bills by fuel for the baseline and three Comprehensive GHP scenarios, under maximum, mean, and minimum electricity rates](95009_images/image_000005_acc4b964055ecca14eb220272b926e9f78e9d27373f9c529b71692bafcbcc973.png)
+
+Figure 4 has three side-by-side panels titled "With Max Electricity Rate", "With Mean Electricity Rate", and "With Min Electricity Rate". Each panel stacks annual utility bills in billion USD (2022) by fuel -- electricity, natural gas, propane, and fuel oil -- for four scenarios: Baseline, Comprehensive GHP, Comprehensive GHP + High Efficiency Envelope, and Comprehensive GHP + High Efficiency Envelope + LED Lighting. Totals are printed above each bar with the percent change from baseline in parentheses. Max electricity rate: 144, then 120 (-17%), 112 (-22%), 107 (-26%). Mean electricity rate: 127, then 103 (-19%), 96 (-24%), 92 (-27%). Min electricity rate: 112, then 89 (-20%), 83 (-26%), 80 (-29%). Electricity is the dominant segment in every bar (about 125, 110, and 93 billion USD in the three baseline cases) and natural gas is the second largest at about 17 billion USD in every baseline; propane and fuel oil are thin slivers. The pattern is consistent across all three rate assumptions: bill savings grow as measures are added, and the relative savings are larger when electricity is cheap, because the packages shift load onto electricity while cutting gas use substantially.
+
+A comparison of the utility bill results for the three Comprehensive GHP packages is summarized in Table 16:
+
+Table 16. Utility Bill Savings Comparison Between Comprehensive GHP + High Efficiency Envelope + LED Lighting Package and the Other Two Comprehensive GHP Packages, Using the Mean Electricity Rate
+
+| Compared to the Comprehensive GHP package, the Comprehensive GHP + High Efficiency Envelope + LED Lighting package demonstrates:   | Compared to the Comprehensive GHP + High Efficiency Envelope package, the Comprehensive GHP + High Efficiency Envelope + LED Lighting package demonstrates:   |
+|------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 11.5% total utility bill savings across all fuels ($11 billion USD nationally)                                                     | 4.2% total utility bill savings across all fuels ($4 billion USD nationally)                                                                                  |
+| 12.5% electricity utility bill savings ($11 billion USD nationally)                                                                | 4.5% electricity utility bill savings ($4 billion USD nationally)                                                                                             |
+| No change in natural gas utility bill savings                                                                                      | No change in natural gas utility bill savings                                                                                                                 |
+| No change in propane and fuel oil utility bill savings                                                                             | No change in propane and fuel oil utility bill savings                                                                                                        |
+
+When the LED Lighting measure is added into the package, we see additional utility bill savings nationally. The utility bill savings are seen only in electricity bills, which is a result of replacing lighting with more efficient LEDs. The natural gas and other fuel bills do not change substantially at the stock level, indicating that the internal load reductions from the LED lights have minimal effect on natural gas bills. Individual buildings or smaller geographic regions could see changes in natural gas, propane, or fuel oil bills (due to changes in HVAC load when installing more efficient lighting with lower internal gains). However, at the stock level, we only see additional utility bill savings for electricity bills.
+

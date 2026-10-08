@@ -1,0 +1,12 @@
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/gas_consumption_underrepresented.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/explanations/gas_consumption_underrepresented.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/gas_consumption_underrepresented.html | corpus_version: 267e3ea | corpus_path: github_site/docs/resources/explanations/gas_consumption_underrepresented.md | section: Recommendations | lines: 12-22 -->
+## Recommendations
+Using the latest release of ComStock will ensure you have the best available data. Improvements to the baseline model are incorporated before each release. For the latest documentation on recent changes, please visit [ComStock’s public repository](https://github.com/NatLabRockies/ComStock) on GitHub. A summary change log can also be found in the release notes.
+
+For ComStock dataset releases 2023.2 and earlier, users could consider applying a correction factor to the gas consumption results. The recommended approach to this is:
+- Sum the floor area and energy data for the region you care about.
+- Compare to known floor area and energy data.
+    - Some users may have locally provided private data.
+    - Energy Information Administration [Form 861](https://www.eia.gov/electricity/data/eia861/) (electricity) and [Form 176](https://www.eia.gov/naturalgas/ngqs/#?year1=2019&year2=2022&company=Name) (gas) are useful for this exercise. Be aware that these sources report any consumption considered “commercial” by utilities, which may include light industrial facilities, street lighting, etc.
+    - Use [Commercial Building Energy Consumption Survey](https://www.eia.gov/consumption/commercial/) data, such as Table B20. “Energy sources, floorspace” is another option that is available at the Census region level.
+- Scale the ComStock data to match the known floor area. If possible, corrections should be done by building type, vintage, etc.
+- Scale the gas consumption of the ComStock results to match the area-weighted gas energy consumption intensity in the known data.

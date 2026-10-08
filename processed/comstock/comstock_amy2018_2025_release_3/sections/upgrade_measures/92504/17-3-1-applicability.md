@@ -1,0 +1,18 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92504.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/92504.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/92504.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/92504.md | section: 3.1  Applicability | lines: 280-296 -->
+## 3.1  Applicability
+
+The two upgrades share the same building types-office buildings (small, medium, and large), warehouses, and schools (primary and secondary). However, while the lighting control upgrade assumes all the lighting systems in the applicable buildings are controllable for the measure to be applied (some existing old lighting systems may require additional retrofitting/controls to implement the measure), the thermostat control measure will only affect thermostats associated with electric HVAC equipment in a building, as shown in Figure 2. Overall, the package is applicable to 67.26% of the stock floor area.
+
+Figure 2. Prevalence of building types and applicability for each building type (for both scenarios) and HVAC fuel type (for thermostat control scenario)
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/92504.yaml
+     source: 92504_images/image_000003_340cc162dae2f8359d97324d76bf4c5e5eb01d8f6ad9ac269c1c98231742601a.png
+     method: vision-description
+     described: 2026-08-20 -->
+
+![Two-panel horizontal bar chart of measure applicability: left panel gives each building type's share of stock floor area, right panel splits each building type's own area into heating-and-cooling, cooling-only and not-applicable fractions](92504_images/image_000003_340cc162dae2f8359d97324d76bf4c5e5eb01d8f6ad9ac269c1c98231742601a.png)
+
+Figure 2 has two horizontal bar panels sharing 14 ComStock building-type rows. The left panel, 'Percent of Stock Floor Area', colors a row green when applicable and grey when not: Full Service Restaurant 1.52, Hospital 3.79, Large Hotel 5.66, Large Office 8.54, Medium Office 6.42, Outpatient 2.91, Primary School 8.72, Quick Service Restaurant 0.48, Retail Standalone 8.57, Retail Stripmall 8.10, Secondary School 8.84, Small Hotel 0.98, Small Office 6.77, Warehouse 28.71. The 14 rows sum to 100.01 and the six green rows (Large Office, Medium Office, Primary School, Secondary School, Small Office, Warehouse) sum to exactly 68.00, the lighting-measure applicability quoted in Table ES-1. The right panel, 'Applicability Percent of Building Type Area', splits each type's own floor area into orange (thermostat control on heating and cooling), blue (cooling only) and grey: Full Service Restaurant 35.26/64.40, Large Hotel 51.93/48.07, Large Office 37.70/62.30, Medium Office 40.80/59.20, Outpatient 40.29/59.71, Primary School 27.00/73.00, Retail Standalone 38.27/61.13, Retail Stripmall 30.06/69.94, Secondary School 20.16/79.78, Small Hotel 74.96/24.59, Small Office 42.74/57.17, Warehouse 33.44/63.98 plus 2.58 grey, Hospital roughly 5.9/94.15. Weighting the orange fractions by floor area gives 67.24%, matching Table ES-1's 67.26%.
+
+Both upgrade measures will identify the building types for each ComStock baseline model, with the same building type applicability criteria. If the building type passes the applicability check, the thermostat control measure will then extract all the thermostats of the model and check the fuel sources of associated HVAC systems. The measure will identify and adjust the temperature set point schedules of the thermostats controlling electric heating systems or electric cooling systems.
+

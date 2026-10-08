@@ -120,18 +120,29 @@ def corpus_map(
     release: ReleaseOpt = "comstock_amy2018_2025_release_3",
     work_dir: WorkDirOpt = None,
 ) -> None:
-    """Regenerate CORPUS_MAP.md, index.json and sections.json for this release.
+    """Regenerate CORPUS_MAP.md, index.json, sections.json and sections/ for this release.
 
     The map is the entry point for a reader; index.json and sections.json are the entry
-    point for a program fetching the corpus over HTTPS. All three are derived from the
-    built artifacts (manifest, chunks, crosswalk, the processed files), so this needs no
-    raw/ and runs in seconds -- including in a fresh clone.
+    point for a program fetching the corpus over HTTPS; sections/ holds every H2 as its
+    own file. All are derived from the built artifacts (manifest, chunks, crosswalk, the
+    processed files), so this needs no raw/ and runs in seconds -- including in a fresh
+    clone.
     """
+    import json
+
     from . import corpus_index as _corpus_index
     from . import corpus_map as _corpus_map
+    from .paths import manifest_file, processed_root
+    from .sections import write_all_sections
 
     _workspace(work_dir)
     _corpus_map.build_map(product, release)
+    manifest = json.loads(manifest_file(product, release).read_text(encoding="utf-8"))
+    n = write_all_sections(
+        processed_root(product, release),
+        [a["output_path"] for s in manifest.get("sources", []) for a in s.get("artifacts", [])],
+    )
+    print(f"sections: {n} section file(s) regenerated under processed/.../sections/")
     _corpus_index.build_index(product, release)
 
 

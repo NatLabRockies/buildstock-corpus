@@ -32,8 +32,13 @@ import subprocess
 from .paths import PROJECT_ROOT
 
 # Labelled segments, in the order they are written. Values never contain " | " or "-->":
-# URLs are percent-encoded, status is a bare word, the version is a tag or hash.
-HEADER_FIELDS = ("status", "source_url", "publication_url", "corpus_version")
+# URLs are percent-encoded, status is a bare word, the version is a tag or hash. The last
+# three appear only on section files (see sections.py): the parent document's corpus_path,
+# the section heading, and the lines it spans in the parent.
+HEADER_FIELDS = (
+    "status", "source_url", "publication_url", "corpus_version",
+    "corpus_path", "section", "lines",
+)
 
 _POSITIONAL_RE = re.compile(
     r"^<!--\s*(?P<product>\S+)\s+(?P<release>\S+)\s*\|\s*(?P<source_id>[^|]+?)\s*\|\s*"

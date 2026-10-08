@@ -1,0 +1,18 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92504.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/92504.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/92504.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/92504.md | section: 5.3.1 Demand Flexibility Performance | lines: 709-725 -->
+## 5.3.1 Demand Flexibility Performance
+
+Figure 14 shows the comparison of distributions of the savings percentages of mean daily peak load with respect to different target time frames (for the whole day or during grid peak windows), and with different scenarios (individual peak reduction objective or grid peak reduction objective).
+
+Figure 14. Distribution of the percentage of mean daily peak load reduction by month compared to the baseline model, during the whole day (top) and grid peak window (bottom), with individual building peak reduction objective (left, blue) and grid peak reduction objective (right, orange)
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/92504.yaml
+     source: 92504_images/image_000015_36c11625c0922749d0d811691d5f188ad9d90443dad1a1aa3d541a5d01c2c7eb.png
+     method: vision-description
+     described: 2026-08-20 -->
+
+![Two-by-two matrix of monthly box plots crossing the two peak reduction objectives against the two peak savings metrics, showing that each objective performs well only on its own metric](92504_images/image_000015_36c11625c0922749d0d811691d5f188ad9d90443dad1a1aa3d541a5d01c2c7eb.png)
+
+Figure 14 is a two-by-two matrix of monthly box plots. The columns are the two objectives (left, blue, individual building peak reduction; right, orange, grid peak reduction) and the rows are the two metrics (top, 'Mean Peak Savings [%]' on each building's own daily peak, axis 20% to -10%; bottom, 'Mean Peak Savings on Grid Peak [%]', axis 50% to -10%). The two diagonal panels reproduce Figure 3 (top left) and Figure 10 (bottom right) exactly. The two off-diagonal panels show that neither objective transfers. In the top right panel the grid objective delivers essentially nothing on the individual peak metric: the interquartile boxes are only three to seven pixels tall, spanning roughly -0.9% to +0.2% with medians between 0.0% and -0.2%, and whiskers of about -4.4% to +3.3% in December and -2.4% to +2.2% in April; this matches Table ES-4's grid-objective mean daily peak row, which is 0.0 to -0.7 in every month. In the bottom left panel the individual objective yields small savings during the grid peak window, at a resolution of 0.43% per pixel; Table ES-4 gives the medians as 0.7, 0.6, 0.5, 0.6, -0.2, -0.4, -1.3, -1.0, -0.1, 0.3, 0.5, 0.5, with whiskers widest in July and August at about -11.6% to +9.9%.
+
+Despite the savings illustrated in Figure 3 and Figure 10, demand flexibility control targeting each building's own peak demand shows minimal to negligible impacts on peak savings during grid critical periods, and even negative savings during cooling months (lower left). Similarly, demand flexibility control targeting grid-level profile results in no-change to slightly adverse savings in terms of overall peak savings (top right). These discrepancies indicate the general misalignment between grid peaks and individual building peaks-the time gaps between these two peaks always exceed the dispatch window, so controls targeting the building-level peak loads have substantially reduced influence on the grid peak periods, and vice versa. In other words, the non-coincidence of grid and building peaks leads directly to the differences observed in the results.
+

@@ -1,0 +1,106 @@
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/data.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/data.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/data.html | corpus_version: 267e3ea | corpus_path: github_site/docs/data.md | section: Data Access Platforms, Structure and Contents | lines: 31-135 -->
+## Data Access Platforms, Structure and Contents
+At the most fundamental level, the ComStock dataset is a collection of end-use load profiles of approximately 350,000 building energy models. The output of each building energy model is 1 year of energy consumption in 15-minute intervals, separated into end-use categories.
+
+Accessing national ComStock building load profiles in the full dataset requires big-data skills that make the full dataset inaccessible for most users. To support many use cases, aggregate load profiles for the following geographic resolutions are published for ComStock releases:
+
+- 16 ASHRAE/International Energy Conservation Code climate zones
+- 5 U.S. Department of Energy Building America climate zones
+- 8 Electric System independent system operator and regional transmission organization regions
+- 2,400+ U.S. Census Public Use Microdata Areas
+- 3,000+ U.S. counties.
+
+### Data Access Platforms
+The following table summarizes the various ways to access and use ComStock data.
+![](../assets/images/data_access_summary.PNG)
+
+The dataset has been formatted to be accessible in four main ways to meet the needs of many different users and use cases.
+
+<img src="..\assets\images\metadata_icon.png" style="height:25px;"/>  **Metadata**: Files of individual model characteristics together with annual results, commonly referred to as the “metadata” file
+
+<img src="..\assets\images\load_profile_icon.png" style="height:25px;"/>  **Load Profiles**: Timeseries load profiles (individual building and pre-aggregated) in downloadable spreadsheets
+
+<img src="..\assets\images\web_data_viewer_icon.png" style="height:25px;"/>   **Data Viewer**: A web-based data viewer, customizable time scales and aggregations
+
+<img src="..\assets\images\database_icon.png" style="height:25px;"/>  **Full Database**: A detailed format that can be queried with big data tools
+
+Aggregate ComStock datasets can be accessed via the [Open Energy Data Initiative (OEDI) Data Lake](https://data.openei.org/s3_viewer?bucket=oedi-data-lake&prefix=nrel-pds-building-stock%2F) and the [ComStock data viewer](https://comstock.nlr.gov/). ComStock datasets are published with actual weather data (AMY). In the initial public dataset release (2021_1), there are two versions published: one with AMY weather, and another with typical weather data (TMY3). Note that the TMY3 15-minute energy data should not be used for larger geographies because weather events are not regionally aligned.
+
+For information on how to query the full ComStock dataset, please refer to this [documentation](https://github.com/openEDI/documentation/blob/main/NREL_Building_Stock/Query_ComStock_Athena.md). Please note that the documentation was published nearly five years ago and has not been maintained. While it still contains helpful guidance for querying ComStock results on Athena, it does not reflect the current list of column names or modeled upgrades. For the most up-to-date information, refer to the `data_dictionary.tsv` for available columns and the `upgrades_lookup.json` for upgrade IDs associated with a specific dataset release—both available on OEDI.
+
+Please note, there are separate public datasets available for residential and commercial building stocks.
+
+### ComStock Data Viewer
+The ComStock data viewer exists to quickly filter, slice, combine, visualize, and download the results in custom ways. This platform is available at [comstock.nlr.gov](https://comstock.nlr.gov). Multiple geographic views of the datasets on the data viewer have been created: by state, and by Census region by PUMA.
+
+![](../assets/images/data_viewer_screenshot.PNG)
+
+### Open Energy Data Initiative (OEDI) Data Lake
+OEDI is an energy information portal, and is developed and maintained by the National Laboratory of the Rockies with funding and support from the U.S. Department of Energy and a network of International Partners & Sponsors. The OEDI data lake contains comprehensive aggregate data for ComStock releases. This includes metadata and timeseries energy consumption results (baseline and upgrades, if applicable), individual building energy models, weather files, geographic information, and data dictionaries.
+
+The ComStock release directory structure of the data lake is summarized in the table, below. For more detailed information about the contents of the ComStock OEDI data lake, visit the [README](https://oedi-data-lake.s3.amazonaws.com/nrel-pds-building-stock/end-use-load-profiles-for-us-building-stock/README.md).
+
+#### OEDI Directory Structure and Contents[^1]
+
+| **Name**                              | **Contents**|
+|---------------------------------------|-------------|
+|building_energy_models                 | Building energy models, in [OpenStudio](https://www.openstudio.net/) format, that were run to create the dataset.|
+|commercial_gap_model                   | Estimates the county-level, hourly electricity consumption of Commercial-sector (building and non-building, e.g. street lighting) uses not modeled in ComStock – the “commercial gap”.|
+|comparison_plots                       | Plots comparing this ComStock release to CBECS 2018, including energy consumption, and energy use intensity by fuel type, building type, vintage, and census division, and floor area by building type, vintage, and census division.|
+|geographic_information                 | Information on various geographies used in the dataset provided for convenience. Includes map files showing the shapes of the geographies (states, PUMAs) used for partitioning and a lookup table mapping between census tracts and various other geographies. |
+|metadata_and_annual_results            | Building characteristics (age, area, HVAC system type, etc.) and annual results for each building energy models.|
+|metadata_and_annual_results_aggregates | Building characteristics (age, area, HVAC system type, etc.) and annual results aggregated to a specific geography (e.g, state, county, PUMA).|
+|timeseries_aggregates                  | Aggregate end-use load profiles by building type and geography that can be opened and analyzed in Excel, python, or other common data analysis tools.|
+|timeseries_individual_buildings        | The raw individual building timeseries data. The file names in this directory correspond to the “bldg_id” column in the metadata_and_annual_results and metadata_and_annual_results_aggregates files.|
+|weather                                | Key weather data used as an input to run the building energy models to create the dataset.|
+|data_dictionary.tsv                    | Describes the column names found in the metadata and timeseries data files. This file also specifies which columns are included in the “basic” and “full” metadata files.|
+|enumeration_dictionary.tsv             | Expands the definitions of the enumerations used in the metadata files.|
+|upgrades_lookup.json                   | Lookup table with upgrade ID and upgrade name for the given dataset release. |
+|measure_name_crosswalk.csv             | Relates a universal “Measure ID” and the upgrade IDs and upgrade names (found in upgrades_lookup.json) across dataset releases.|
+
+#### File Types and How to Open
+The following table lists the file types included on the ComStock OEDI data lake and provides details for how to open each file type.
+
+|     File type                             |     Description                                                                                                                                                                                                                  |     How to Open                                                                                                                                                                        |
+|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     .csv (Comma-Separated Values)         |     A plain text file that stores tabular data, where   each line is a data row and values are separated by commas.                                                                                                              |     Use spreadsheet software like Excel or Google   Sheets, or programmatically with tools like Python’s “pandas.”                                                                     |
+|     .json (JavaScript Object Notation)    |     A lightweight, text-based format for storing   structured data as key-value pairs; widely used in APIs and configurations.                                                                                                   |     Open with any text editor or view/edit with code   editors like VisualStudioCode; programmatically accessible with Python (json   module) or JavaScript.                           |
+|     .osm (OpenStudio Model)               |     A file format used by OpenStudio to define energy   models for buildings, including geometry, HVAC, schedules, and loads.                                                                                                    |     Open with the OpenStudio   Application or edit programmatically with the OpenStudio   SDK.     Note that OpenStudio files can be converted to   EnergyPlus IDF files as needed.    |
+|     .parquet                              |     A columnar storage file format optimized for   large-scale data processing, commonly used with big data tools. The file   sizes are much smaller than the .csv versions and are therefore easier to   download and store.    |     Use Python libraries like “pyarrow” or “pandas”, or   tools like Apache Spark.                                                                                                     |
+|     .tsv (Tab-Separated Values)           |     Similar to CSV, but uses tabs instead of commas to   separate values; used for cleanly formatted tabular data.                                                                                                               |     Open with Excel, Google Sheets (specifying tab as   delimiter), or programmatically using tools such as Python.                                                                    |
+
+### Dataset Naming Convention
+ComStock releases on OEDI and the data viewer use the following naming convention.
+```
+         <dataset type>_<weather data>_<year of publication>_release_<release number>
+ example:   comstock   _   amy2018    _         2021        _release_       1
+  result:   comstock_amy2018_2021_release_1
+```
+  - dataset type
+    - resstock = residential buildings stock
+    - comstock = commercial building stock
+  - weather data
+    - amy2018 = actual meteorological year 2018 (2018 weather data from NOAA ISD, NSRDB, and MesoWest)
+    - tmy3 = typical weather from 1991-2005 (see [this publication](https://www.nlr.gov/docs/fy08osti/43156.pdf) for details)
+  - year of publication
+    - 2021 = dataset was published in 2021
+    - 2022 = dataset was published in 2022
+    - etc.
+  - release
+    - release_1 = first release of the dataset during the year of publication
+    - release_2 = second release of the dataset during the year of publication
+    - etc.
+
+### Field Naming Convention
+
+The field naming convention is fairly simple. At the highest level there is – “in.” for inputs, “out.” for outputs, “calc.” for calculated fields, then a handful of columns that provide simulation information.
+
+For the "out." prefix there is a second level that includes – fuel type, emissions, utility bills, model parameter and statistic fields, and total site energy. The "in." prefix does not have a second level.
+
+The third level of “out.” is where you’ll find the energy consumption for the end uses.
+
+Finally, units are denoted by a “..” with the unit following.
+
+![](../assets/images/field_naming_convention.png)
+
+[^1]: OEDI file structure for 2024 Release 2 and continuing forward

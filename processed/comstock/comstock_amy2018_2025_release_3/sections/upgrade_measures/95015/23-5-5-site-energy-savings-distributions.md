@@ -1,0 +1,22 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95015.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95015.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95015.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/95015.md | section: 5.5  Site Energy Savings Distributions | lines: 602-622 -->
+## 5.5  Site Energy Savings Distributions
+
+This section discusses site energy consumption for quality assurance/quality control purposes. Site energy savings can be useful for these purposes, but other factors should be considered when drawing conclusions, as they do not necessarily translate proportionally to source energy savings, CO2e avoided, or energy costs.
+
+Figure 9 shows the percent savings distributions of the baseline ComStock models versus the electric boiler measure by end use and fuel type for applicable models. In other words, each data point in the distribution represents the percent energy savings between a baseline ComStock model and the corresponding model with measures applied.
+
+As expected, the only end uses and fuel type combinations that see a substantial percent change in energy use are other fuel heating, natural gas heating, and electricity heating. Both natural gas heating and other fuel heating show 100% savings in applicable buildings, indicating that the full space heating load in applicable buildings was converted to electricity. As a result, applicable buildings see a large increase in electric heating, anywhere from 10%-70% in the middle 50% of buildings. Note that the only buildings that are shown on this plot with changes to electricity heating are ones that started out with some electric heating in the baseline. Some building types have multiple types of heating in the baseline-for example, an office can be primarily heated by a boiler system, but the vestibule space has electric baseboard heaters. Buildings that started out with no electric heating would have an infinite increase in electric heating and therefore cannot be displayed on this plot.
+
+Figure 9. Percent site energy savings distribution for ComStock models with applied measure scenario by end use and fuel type.
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95015.yaml
+     source: 95015_images/image_000010_f4267209a4f06321eadf51cb742e00c183b2de355ab56a8895e7d1805490a566.png
+     method: vision-description
+     described: 2026-08-20 -->
+
+![Figure 9. Violin and box plot distribution of percent site energy savings by end use and fuel type for models with the electric boiler measure applied](95015_images/image_000010_f4267209a4f06321eadf51cb742e00c183b2de355ab56a8895e7d1805490a566.png)
+
+Figure 9 is a horizontal violin plot with embedded box plots of per-model percent site energy savings by end use and fuel type, annotated "Upgrade 17.0: Electric Resistance Boilers (unweighted)". The x-axis runs from about -140% to +100% with a reference line at 0%. Rows top to bottom, with model counts, grouped by fuel: Other Fuel -- Water Systems (n=19), Heating (n=541); District Heating -- Water Systems (n=7); Natural Gas -- Water Systems (n=1618), Heating (n=30365); Electricity -- Water Systems (n=377), Refrigeration (n=120), Pumps (n=3246), Interior Equipment (n=11), Heating (n=14), Heat Rejection (n=1007), Heat Recovery (n=259), Fans (n=4542), Cooling (n=4733). Most rows collapse to a tick or thin line at or near 0%, because this measure changes only the heating fuel and leaves other end uses alone. Two rows sit hard against +100% savings: Other Fuel Heating and Natural Gas Heating, whose fuel use is eliminated outright. One row carries a broad left-tailed violin from roughly -140% to 0% -- large penalties where consumption increases -- aligning with the Electricity Heating row, whose tiny sample (n=14) reflects that percent savings is only defined for models with some baseline electric heating. Sample sizes here are far smaller than in the by-climate-zone charts because each row counts only models with nonzero baseline consumption for that end use and fuel.
+
+The data points that appear above some of the distributions indicate outliers in the distribution, meaning they fall outside 1.5 times the interquartile range. The value for n indicates the number of ComStock models that were applicable for energy savings for the fuel type category.
+

@@ -1,0 +1,32 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95005.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95005.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95005.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/95005.md | section: 2.1 HVAC Systems | lines: 341-371 -->
+## 2.1 HVAC Systems
+
+Of the buildings represented in ComStock, about 17% are served by hydronic HVAC systems, 43% are served by rooftop units (RTU), 24% are served by packaged variable air volume (PVAV) systems, and 8% are served by packaged terminal air conditioners (PTACs) or packaged terminal heat pumps (PTHPs). These totals exclude buildings served by district energy systems. The remaining 8% of buildings in ComStock are served by a variety of other HVAC systems with relatively low prevalence. GHPs are currently represented in the baseline stock, making up roughly 1% of ComStock floor area.
+
+The GHP measures do not apply to buildings served by district energy (heating hot water or chilled water) systems, as this retrofit is intended to represent the installation of a ground heat exchanger to serve a single building's load. Other system types not applicable include direct evaporative coolers, variable refrigerant flow systems, and some dedicated outdoor air systems (DOAS). The applicability for each measure was determined based on thorough research into the ease and practicality of retrofit, and discussions with industry experts as part of a Technical Advisory Group. More details about the modeling approach for each measure can be found in the individual measure documentation. Table 1 summarizes the HVAC system types that were applicable to each of the GHP measures and their corresponding percentage of the ComStock floor area. Of the 29 HVAC systems modeled in ComStock, 18 systems received one of the three GHP measures.
+
+While the total floor area of eligible systems in Table 1 adds up to 95% of the floor area, only approximately 84% of the stock floor area had one of the GHP measures successfully applied. There are several reasons for this discrepancy. The largest reason is a known issue with California warehouses, in which they are assigned an HVAC system in the model, but they are effectively unconditioned. Therefore, the GHP measures are not actually applied to any warehouses in California. In addition, a small percentage of models failed during simulation for various reasons, while others were unsuccessfully able to apply the GHP due to limitations of the ground heat exchanger sizing algorithm. This was typically only the case for very large buildings with high loads (such as hospitals or outpatient buildings), as the ground heat exchanger sizing algorithm imposes a limit on the size of the land available for the ground heat exchanger.
+
+Table 1. GHP Upgrade Applicability by Baseline HVAC System and Percent of Floor Area
+
+| Baseline HVAC System Type                                        | Applicable GHP Upgrade   | Percent of ComStock Floor Area   | Total Percent of Floor Area by Upgrade   |
+|------------------------------------------------------------------|--------------------------|----------------------------------|------------------------------------------|
+| Packaged single-zone air conditioner (PSZ-AC) with electric heat | Packaged                 | 13.0%                            | 11.9%                                    |
+| PSZ-AC with gas boiler                                           | Packaged                 | 1.8%                             | 11.9%                                    |
+| PSZ-AC with gas heat                                             | Packaged                 | 25.7%                            | 11.9%                                    |
+| PSZ-heat pump                                                    | Packaged                 | 3.0%                             | 11.9%                                    |
+| PVAV with gas boiler reheat                                      | Packaged                 | 9.7%                             | 11.9%                                    |
+| PVAV with gas heat with electric reheat                          | Packaged                 | 5.3%                             | 11.9%                                    |
+| PVAV with parallel fan-powered (PFP) boxes                       | Packaged                 | 9.1%                             | 11.9%                                    |
+| PTAC with electric coil                                          | Console                  | 3.2%                             |                                          |
+| PTAC with gas boiler                                             | Console                  | 1.3%                             |                                          |
+| PTAC with gas coil                                               | Console                  | 0.5%                             |                                          |
+| PTHP                                                             | Console                  | 3.3%                             |                                          |
+| Residential AC with residential forced air furnace               | Console                  | 3.6%                             |                                          |
+| DOAS with fan coil air-cooled chiller with boiler                | Hydronic                 | 1.1%                             | 15.1%                                    |
+| DOAS with fan coil chiller with boiler                           | Hydronic                 | 0.6%                             | 15.1%                                    |
+| VAV air-cooled chiller with gas boiler reheat                    | Hydronic                 | 4.2%                             | 15.1%                                    |
+| VAV air-cooled chiller with PFP boxes                            | Hydronic                 | 0.1%                             | 15.1%                                    |
+| VAV chiller with gas boiler reheat                               | Hydronic                 | 6.5%                             | 15.1%                                    |
+| VAV chiller with PFP boxes                                       | Hydronic                 | 2.6%                             | 15.1%                                    |
+

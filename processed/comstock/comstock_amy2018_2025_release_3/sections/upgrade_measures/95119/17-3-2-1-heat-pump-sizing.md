@@ -1,0 +1,9 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95119.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/95119.md | section: 3.2.1  Heat Pump Sizing | lines: 298-305 -->
+## 3.2.1  Heat Pump Sizing
+
+The HP-RTUs in this study are sized to meet the design cooling load, following the same methodology as [4]. Sizing to the design cooling load is not necessarily optimal, but it is common practice [1].
+
+The sizing of heat pumps is nontrivial because the same refrigerant system is used for both heating and cooling. Heat pumps in very cold climates often require a source of supplemental heat, which is often sized to meet the entirety of the heating load. This is because heat pump capacity generally decreases as outdoor ambient temperature decreases, which generally corresponds to the highest heating loads for the building. Furthermore, compressor lockout controls are often implemented in heat pump systems, which disable heat pump operation below a certain temperature. This requires the supplemental heat source to be sized to meet the full load below this temperature.
+
+Because the supplemental heat source in colder climates is often sized to meet the design heating load, the system can then be sized based on the required cooling capacity with the assumption that the supplemental heat source will address any heating load exceeding the corresponding capacity of the heat pump, avoiding the need to purchase a larger-capacity unit. Supplemental heat is less of a concern in warmer climates where the design cooling load exceeds the design heating load, even when accounting for heat pump capacity degradation at lower temperatures, and where the design heating temperature is well above any minimum compressor lockout temperature.
+

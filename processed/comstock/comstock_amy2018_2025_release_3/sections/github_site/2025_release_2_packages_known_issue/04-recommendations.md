@@ -1,0 +1,7 @@
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/2025_release_2_packages_known_issue.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/explanations/2025_release_2_packages_known_issue.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/2025_release_2_packages_known_issue.html | corpus_version: 267e3ea | corpus_path: github_site/docs/resources/explanations/2025_release_2_packages_known_issue.md | section: Recommendations | lines: 41-46 -->
+## Recommendations
+This issue has been resolved in 2025 Release 3. For 2018 weather year data, please use 2025 Release 3.
+
+2012 weather year data was not released in 2025 Release 3. For 2025 Release 2 - 2012 Weather on OEDI, use the `upgrades_lookup.json` and `measure_name_crosswalk.csv` to identify which upgrade package corresponds to each upgrade ID. Note that the "in.upgrade_name" field in the metadata and annual results files cannot be fixed and remains incorrect.
+
+For 2025 Release 2 - 2012 Weather on the Data Viewer, note that upgrades "Package 6, Demand Flexibility, Lighting + Thermostat Control, Load Shed for Daily Bldg Peak Reduction" and "Package 9, Hydronic GHP or Packaged GHP or Console GHP" are reversed. To view, filter, or download data for these packages in the Data Viewer, you will need to select the opposite package name from the dropdown.

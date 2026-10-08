@@ -31,8 +31,8 @@ from pathlib import Path
 
 import jsonschema
 
-from .chunk import _HEADING_RE
 from .paths import PROJECT_ROOT, manifest_file, processed_root, sha256_file
+from .sections import document_sections, plan_sections  # noqa: F401  (re-exported)
 
 INDEX_FILENAME = "index.json"
 SECTIONS_FILENAME = "sections.json"
@@ -43,26 +43,22 @@ SECTIONS_SCHEMA = SCHEMAS_DIR / "sections.schema.json"
 _MEASURE_FIELDS = ("measure_id", "upgrade_id", "upgrade_name", "corpus_path", "doc_url", "status")
 
 
-def document_sections(text: str) -> list[dict]:
-    """Every heading in a processed file, with its level and 1-based line range.
+def sections_with_files(corpus_path: str, text: str) -> list[dict]:
+    """document_sections plus, where one exists, the section file that holds the heading.
 
-    A section runs from its heading line to the line before the next heading of any
-    level (or the last line of the file), so ranges tile the file after the first heading
-    and `lines[line_start-1:line_end]` is exactly the section's text.
+    Every H2 has one; the H1 (line 2) has the `00-` preamble file when the document has
+    text before its first H2 (or no H2 at all). H3+ entries name no file -- they are read
+    inside their H2's file.
     """
-    lines = text.split("\n")
-    if lines and lines[-1] == "":
-        lines.pop()  # the trailing newline is not a line
-    heads = [(i + 1, m) for i, line in enumerate(lines) if (m := _HEADING_RE.match(line))]
-    out: list[dict] = []
-    for k, (ln, m) in enumerate(heads):
-        end = heads[k + 1][0] - 1 if k + 1 < len(heads) else len(lines)
-        out.append({
-            "heading": m.group(2).strip(),
-            "level": len(m.group(1)),
-            "line_start": ln,
-            "line_end": end,
-        })
+    by_start = {p.line_start: p.file for p in plan_sections(corpus_path, text)}
+    out = []
+    for s in document_sections(text):
+        entry = dict(s)
+        if s["level"] == 2 and s["line_start"] in by_start:
+            entry["file"] = by_start[s["line_start"]]
+        elif s["level"] == 1 and s["line_start"] == 2 and 2 in by_start:
+            entry["file"] = by_start[2]
+        out.append(entry)
     return out
 
 
@@ -100,7 +96,7 @@ def build_index(product: str, release: str) -> dict:
         for a in src.get("artifacts", []):
             path = proot / a["output_path"]
             text = path.read_text(encoding="utf-8")
-            secs = document_sections(text)
+            secs = sections_with_files(a["output_path"], text)
             sections[a["output_path"]] = secs
             documents.append({
                 "title": a.get("title") or "",

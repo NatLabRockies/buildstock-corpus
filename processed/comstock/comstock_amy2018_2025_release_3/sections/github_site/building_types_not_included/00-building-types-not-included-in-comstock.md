@@ -1,0 +1,17 @@
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/building_types_not_included.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/explanations/building_types_not_included.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/building_types_not_included.html | corpus_version: 267e3ea | corpus_path: github_site/docs/resources/explanations/building_types_not_included.md | section: Building Types Not Included in ComStock | lines: 2-17 -->
+# Building Types Not Included in ComStock
+
+*This resource incorporates updates in ComStock 2025 Release 3, including the addition of a new building type, and applies to all subsequent releases.*
+
+Compared to the Commercial Building Energy Consumption Survey (CBECS) 2018 estimation, the ComStock™ data set accounts for 63% of both the energy use and  floor area of commercial buildings in the United States. The remaining 37% of energy use not represented is due to several CBECS building types that are not yet included in ComStock, such as colleges/universities and religious worship.
+
+Figure 1 below shows the building types not represented in the ComStock model, on a CBECS Principal Building Activity Plus basis, and their relative contribution to commercial building energy use in the United States. As can be seen in the figure, mixed-use offices represent the largest un-modeled building classification by energy use, followed by recreation, other, religious worship, and nursing homes/assisted living buildings.
+
+The U.S. Department of Energy prototype building type is used to represent a significant amount of the U.S. building stock, but it is also not used in many cases due to concerns regarding its accurate representation of specific building subtypes. Please see the Building Type Assignments section in the [ComStock Reference Documentation](docs/resources/resources.md#references) for further discussion on each building type. It includes what buildings each type does and does not represent, as understood by ComStock's developers.
+
+![](../../../assets/images/btypes_not_in_comstock.svg)
+
+Figure 1. Overview of building types modeled and not modeled in ComStock, and comparison to CBECS 2018 annual site energy consumption.
+
+*Other includes other public order and safety, convenience store with gas station, other classroom education, vacant, fire station/police station, courthouse/probation office, vehicle dealership/showroom, other lodging, preschool/daycare, repair shop, post office/postal center, other food service, and other food sales.
+

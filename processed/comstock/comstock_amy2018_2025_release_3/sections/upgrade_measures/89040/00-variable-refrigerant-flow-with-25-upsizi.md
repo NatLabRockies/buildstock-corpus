@@ -1,0 +1,15 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89040.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89040.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89040.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/89040.md | section: Variable Refrigerant Flow With 25% Upsizing Allowance for Heating | lines: 2-15 -->
+# Variable Refrigerant Flow With 25% Upsizing Allowance for Heating
+
+![Image](89040_images/image_000000_0ee8ffce859b30e0e7e404e4653681b7f66821f30e18425c98ea8ec337820de8.png)
+
+![Image](89040_images/image_000001_98386c0cbf6d0d54a830726f28e5d71bff6d9a2e78ef9e1ee146c066e4891e46.png)
+
+![Image](89040_images/image_000002_932a1d78da2dcd969eb9f33417ebee2441c8bb8d0e1db8fb53277da529e1d596.png)
+
+![Image](89040_images/image_000003_147ff6d04b7a5c612e0e5afed18856d8521d3c0662e5e6a67a2b94512fcfd51d.png)
+
+![Image](89040_images/image_000004_a873f3f8bec8ff2636a2d0341dfa1684a6bf03e9f7f7686a0f786820e0adab65.png)
+
+![Image](89040_images/image_000005_9fefad90d221bc7e8e23350025b390796fd9abe5e4bd5809f0c4f43689c0717e.png)
+

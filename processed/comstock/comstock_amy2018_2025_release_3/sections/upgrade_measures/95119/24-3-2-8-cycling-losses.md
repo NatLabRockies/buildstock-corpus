@@ -1,0 +1,7 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95119.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/95119.md | section: 3.2.8  Cycling Losses | lines: 446-451 -->
+## 3.2.8  Cycling Losses
+
+The operating efficiency of a heat pump system can be reduced when the unit runs for short periods of time. This is often referred to as short cycling, which occurs primarily because the useful system thermal output lags power input during the start-up and warm-up of compressors. The impact of the warm-up period becomes nearly negligible when the unit has long run times but can be notable if the system experiences frequent short run cycles. Proper sizing of equipment can mitigate the prevalence of short cycling, although complete elimination is sometimes unavoidable due to the wide variation in building loads.
+
+To model the efficiency impacts of short cycling, we use the EIR as a function of part load ratio EnergyPlus performance curve. This curve uses the calculated part load ratio for the timestep to determine an EIR modifier to represent efficiency loss due to compressor short cycling. The curve used in this work is shown in Figure 4, which is derived from NREL lab data for a multispeed HP-RTU. The output of this curve is divided by the EIR; therefore, a lower curve output represents reduced efficiency.
+

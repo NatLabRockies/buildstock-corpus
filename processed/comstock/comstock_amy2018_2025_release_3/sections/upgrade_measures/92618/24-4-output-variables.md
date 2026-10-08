@@ -1,0 +1,21 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92618.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/92618.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/92618.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/92618.md | section: 4  Output Variables | lines: 325-344 -->
+## 4  Output Variables
+
+Table 4 includes a list of output variables that are calculated in ComStock. These variables are important in terms of understanding the differences between buildings with and without the measure package applied. These output variables can also be used for understanding the economics of the upgrade (e.g., return on investment) if cost information (i.e., material, labor, and maintenance costs for technology implementation) is available.
+
+Table 4. Output Variables Calculated From the Measure Application
+
+| Upgrade         | Variable Name                                             | Description                                                                                                                                                                       |
+|-----------------|-----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Roof Insulation | Energy Code Followed During Last Roof Replacement         | The energy code followed during the last roof replacement (or installation) for a building model, which dictates the roof performance properties for the ComStock baseline models |
+|                 | Average Roof Absorptance                                  | The average absorptance of all roof surfaces for a building model                                                                                                                 |
+|                 | Average Roof U-Value                                      | The average thermal conductivity of all roof surfaces for a building model (Btu/hr ft 2 F)                                                                                        |
+|                 | stat.hvac_count_dx_cooling_XX_to_XX_kbtuh                 | Total number of direct expansion (DX) cooling units within a size bin                                                                                                             |
+|                 | stat.hvac_count_dx_heating_XX_to_XX_kbtuh                 | Total number of DX heating units within a size bin                                                                                                                                |
+|                 | stat.hvac_count_heat_pumps_XX_to_XX_kbtuh                 | Total number of heat pump units within a size bin                                                                                                                                 |
+| HP-RTU          | stat.dx_cooling_average_cop..COP                          | Average operational COP (compressor only) of DX cooling models during simulation                                                                                                  |
+|                 | stat.dx_cooling_capacity_tons..tons                       | Total tons of DX cooling modeled                                                                                                                                                  |
+|                 | stat.dx_cooling_design_cop..COP                           | Average rated (compressor only) COP of DX cooling units at rated conditions                                                                                                       |
+|                 | stat.dx_heating_average_cop..COP                          | Average operational COP (compressor only) of DX cooling models during simulation                                                                                                  |
+|                 | stat.dx_heating_average_minimum_operating_temperature.. C | Average compressor minimum heating lockout                                                                                                                                        |
+

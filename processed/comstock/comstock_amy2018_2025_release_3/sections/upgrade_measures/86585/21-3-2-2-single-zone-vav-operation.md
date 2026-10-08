@@ -1,0 +1,16 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86585.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86585.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86585.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/86585.md | section: 3.2.2  Single-Zone VAV Operation | lines: 320-334 -->
+## 3.2.2  Single-Zone VAV Operation
+
+The modeled HP-RTUs utilize a single-zone variable air volume (VAV) operation, which varies the supply airflow and discharge air temperature to efficiently maintain zone thermostat set points. As loads increase during heating operation, the supply air temperature is gradually raised until it hits a maximum threshold, and then supply airflow is increased until loads are met. As loads increase during cooling operation, supply air temperature is gradually lowered until it meets a minimum threshold, and the supply airflow is increased until loads are met (Figure 3) [6]. This is generally expected to provide fan energy savings during periods of reduced loads. The minimum supply airflow ratio modeled is 40%, which is common for single-zone RTUs [7]. The exception to the 40% minimum is when higher outdoor airflow fractions are required to maintain ASHRAE Standard-62.1 minimum outdoor airflow rates: in these cases, the minimum flow rate to satisfy design outdoor air ventilation rates are modeled [8].
+
+Figure 3. Visual representation of single-zone VAV operation. Image from [10].
+
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86585.yaml
+     source: 86585_images/image_000007_133f7deb49b50611ef0d848883387f4a8c3173c04f256e5874f58509b81c48c9.png
+     method: vision-description
+     described: 2026-08-21 -->
+
+![Schematic of single-zone VAV control showing supply-air temperature setpoint and supply fan airflow against zone sensible load.](86585_images/image_000007_133f7deb49b50611ef0d848883387f4a8c3173c04f256e5874f58509b81c48c9.png)
+
+Schematic line diagram (not simulation output; the caption credits an external source). The x-axis is "zone sensible load", running from "design zone heating load" at the left edge to "design zone cooling load" at the right edge. Two y-axes are used: the left axis, in orange, is "supply-air temperature setpoint"; the right axis, in black, is "supply fan airflow", with "design airflow" at the top. Two curves are drawn. The black supply-airflow curve starts at design airflow at the design heating load, falls steeply to a horizontal "minimum airflow limit" about one-fifth of the way across, runs flat along that limit through the middle of the load range, then rises steeply back to design airflow at the design cooling load - a broad V. The orange supply-air-temperature curve is flat at "maximum SAT for heating" over the left-hand fifth, then falls steadily across the middle of the load range, then flattens at "design SAT for cooling" on the right. Read from the heating end inward, supply air temperature is raised first until it hits its maximum and only then is airflow increased; read from the cooling end inward, supply air temperature is lowered to its design value first and then airflow is increased.
+

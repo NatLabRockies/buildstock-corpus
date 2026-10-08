@@ -1,0 +1,13 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86602.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86602.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86602.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/86602.md | section: 1  Technology Summary | lines: 309-320 -->
+## 1  Technology Summary
+
+The building envelope refers to the physical barrier between the external environment and the conditioned spaces of a building. It includes a building's windows, walls, roofs, doors, insulation, exterior cladding systems, and air, vapor, and moisture barriers. Envelope technologies affect the energy consumption of several different end uses in a building, such as interior lighting, ventilation, heating, and cooling. According to Better Buildings, these technologies are responsible for 30% of primary energy consumed in residential and commercial buildings [1]. Improving the performance of the building envelope can therefore have a substantial impact on whole-building energy consumption.
+
+Additionally, many technologies are used to provide space heating in commercial building HVAC systems. Packaged RTUs are currently used to heat 37% of commercial buildings in the United States (representing 50% of the total commercial floor space) [2]. Heat pumps currently provide space heating for only approximately 11% of commercial buildings (representing 15% of the total floor area) [2]. Heat pumps offer a high-performance electric option for commercial building space heating. Their use of electricity for heating enables pathways toward decarbonization, as they deliver space heating 2-4 times more efficiently than electric resistance options.
+
+Natural gas used by boilers and furnaces accounts for 73% of space heating end-use energy consumption in the United States [2]. Retrofitting natural gas boilers with ASHP boilers offers a decarbonization solution for this equipment.
+
+This upgrade package focuses on three elements of the building envelope: windows, walls, and roofs, and applies LEDs for interior lighting, and also heat pump technologies. The upgrade package applies the Window Replacement, Exterior Wall Insulation, Roof Insulation, LED Lighting, HP-RTU, and/or ASHP Boiler upgrades based on the applicability criteria of each individual upgrade. A model will have all, some, or none of the upgrades applied depending on how the model's characteristics align with each upgrade's applicability criteria.
+
+For details about each of the three technologies, reference their individual upgrade documentation: Window Replacement, Exterior Wall Insulation, Roof Insulation, LED Lighting, HP-RTU, ASHP Boiler.
+

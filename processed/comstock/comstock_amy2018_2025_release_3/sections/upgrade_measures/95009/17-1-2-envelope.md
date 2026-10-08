@@ -1,0 +1,7 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95009.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95009.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95009.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/95009.md | section: 1.2 Envelope | lines: 358-363 -->
+## 1.2 Envelope
+
+The building envelope refers to the physical barrier between the external environment and the conditioned spaces of a building. It includes a building's windows, walls, roofs, doors, insulation, exterior cladding systems, as well as air, vapor, and moisture barriers. According to Better Buildings, these technologies are responsible for 30% of primary energy consumed in residential and commercial buildings due to their direct impact the heating and cooling requirements of a building [4]. Improving the performance of the building envelope can therefore have a substantial impact on whole-building energy consumption.
+
+This upgrade package includes three envelope measures: windows, walls, and roofs. The upgrade package applies the Window Replacement, Exterior Wall Insulation, and/or Roof Insulation measures based on the applicability criteria of each individual measure. A model will have all, some, or none of the upgrades applied, depending on how the model's characteristics align with each measure's applicability criteria. For details about each of the three technologies, reference their individual measure documentation: Window Replacement, Exterior Wall Insulation, and Roof Insulation.
+
