@@ -139,11 +139,17 @@ uv sync --extra extract
 
 - `sources/<product>_<release>.yaml` — source registry (repos, tag, measure URLs)
 - `raw/<product>/<release>/` — downloaded originals (gitignored)
-- `processed/<product>/<release>/` — clean markdown, referenced image assets, `CORPUS_MAP.md`, `index.json`, `sections.json`, `sections/`, `crosswalk.json`, `chunks.jsonl`, `manifest.json`
+- `processed/<product>/<release>/` — clean markdown, referenced image assets, `CORPUS_MAP.md`, `index.json`, `sections.json`, `sections/`, `chunks/`, `crosswalk.json`, `chunks.jsonl`, `manifest.json`
   - `sections/<source_id>/<document stem>/<NN>-<slug>.md` — every H2 of every document as its
     own file (plus `00-` for the text before the first H2), each with a citable line-1
     header naming its parent and line range. A pure function of the document: `bsc
     validate` regenerates them and compares, so they are not hashed into the manifest.
+  - `chunks/<source_id>/<document stem>.jsonl` — each document's rows of `chunks.jsonl` as
+    their own file, byte for byte, for a consumer indexing a subset of documents; named
+    per document as `chunks_file` in `index.json`. Regenerated and compared by `bsc
+    validate` like the section files. For reading text, fetch the section file instead:
+    a document's chunk file is larger than the document, since chunks overlap and carry
+    metadata.
   - `CORPUS_MAP.md` is the entry point for reading the corpus: every document's title,
     path, sections and date, the measure→upgrade-id→document routing table, and the known
     gaps. Generated (never hand-edited) and stamped with the sha256 of the manifest it was

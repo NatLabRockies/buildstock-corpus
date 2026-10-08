@@ -19,6 +19,7 @@ from pathlib import Path
 
 import yaml
 
+from .chunk_files import check_chunk_files
 from .corpus_index import validate_index_files
 from .corpus_map import MAP_FILENAME, recorded_manifest_sha256
 from .index import EMBED_MODEL
@@ -440,12 +441,21 @@ def validate_manifest(
         proot, [a["output_path"] for s in manifest.get("sources", []) for a in s.get("artifacts", [])]
     ):
         errors.append(f"sections: file belongs to no document in this manifest: {rel}")
+    # Per-document chunk files are a pure function of chunks.jsonl; regenerate and compare.
+    chunk_files_checked = 0
+    cf = proot / "chunks.jsonl"
+    if cf.is_file():
+        cf_errors, chunk_files_checked, _present = check_chunk_files(
+            proot, manifest, cf.read_text(encoding="utf-8")
+        )
+        errors += cf_errors
     if stats is not None:
         stats["overlay_checked"] = checked
         stats["overlay_checked_pdf"] = checked_pdf
         stats["overlay_unverifiable"] = unverifiable
         stats["sections_checked"] = sections_checked
         stats["docs_without_sections"] = docs_without_sections
+        stats["chunk_files_checked"] = chunk_files_checked
 
     cw_file = proot / "crosswalk.json"
     if cw_file.is_file():
@@ -537,6 +547,8 @@ def validate_release(product: str, release: str) -> bool:
     print(f"  {n_art} artifacts, all traced to hashed inputs and present on disk with matching hashes")
     if stats.get("sections_checked"):
         print(f"  {stats['sections_checked']} section file(s) regenerated from their documents and matching")
+    if stats.get("chunk_files_checked"):
+        print(f"  {stats['chunk_files_checked']} per-document chunk file(s) matching their slice of chunks.jsonl")
     if stats.get("docs_without_sections"):
         print(
             f"  {stats['docs_without_sections']} document(s) have no section files on disk "

@@ -132,17 +132,22 @@ def corpus_map(
 
     from . import corpus_index as _corpus_index
     from . import corpus_map as _corpus_map
-    from .paths import manifest_file, processed_root
+    from .chunk_files import write_chunk_files
+    from .paths import chunks_file, manifest_file, processed_root
     from .sections import write_all_sections
 
     _workspace(work_dir)
     _corpus_map.build_map(product, release)
+    proot = processed_root(product, release)
     manifest = json.loads(manifest_file(product, release).read_text(encoding="utf-8"))
     n = write_all_sections(
-        processed_root(product, release),
-        [a["output_path"] for s in manifest.get("sources", []) for a in s.get("artifacts", [])],
+        proot, [a["output_path"] for s in manifest.get("sources", []) for a in s.get("artifacts", [])]
     )
     print(f"sections: {n} section file(s) regenerated under processed/.../sections/")
+    cf = chunks_file(product, release)
+    if cf.is_file():
+        n = write_chunk_files(proot, manifest, cf.read_text(encoding="utf-8"))
+        print(f"chunks: {n} per-document chunk file(s) regenerated under processed/.../chunks/")
     _corpus_index.build_index(product, release)
 
 

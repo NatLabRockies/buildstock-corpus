@@ -14,6 +14,7 @@ from collections import defaultdict
 from pathlib import Path
 
 from .chunk import chunk_documents
+from .chunk_files import CHUNKS_DIRNAME, write_chunk_files
 from .corpus_index import build_index
 from .corpus_map import build_map
 from .extract.crosswalk import build_crosswalk
@@ -572,7 +573,11 @@ def build_release(
     )
 
     # After the manifest, never before: the map and the index stamp the manifest's hash so
-    # `bsc validate` can catch a stale one, and the manifest has to exist to be hashed.
+    # `bsc validate` can catch a stale one, and the manifest has to exist to be hashed. The
+    # per-document chunk files are routed by the manifest's artifact list, so they follow too.
+    n_chunk_files = write_chunk_files(
+        processed_root(product, release), manifest, cf.read_text(encoding="utf-8")
+    )
     corpus_map = build_map(product, release)
     corpus_index = build_index(product, release)
 
@@ -613,6 +618,7 @@ def build_release(
     print(f"build: {len(docs)} docs -> {len(chunks)} chunks (by type: {dict(by_type)}) -> {cf}")
     print(f"  copied {n_images} image file(s) into processed/")
     print(f"  cut {n_sections} section file(s) under processed/.../{SECTIONS_DIRNAME}/")
+    print(f"  split chunks into {n_chunk_files} per-document file(s) under processed/.../{CHUNKS_DIRNAME}/")
     if not overlays:
         print("  overlays: SKIPPED (--no-overlays); bitmap-only tables stay unconverted")
     elif n_overlay_tables or n_overlay_figures:

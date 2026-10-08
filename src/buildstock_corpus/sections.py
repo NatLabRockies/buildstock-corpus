@@ -88,10 +88,16 @@ def sections_dir(corpus_path: str) -> str:
     opt-in; this form stays under the 260 limit. `sections.json` names the exact file for
     every heading, so no consumer derives the path by hand.
     """
+    source_id, stem = doc_slot(corpus_path)
+    return f"{SECTIONS_DIRNAME}/{source_id}/{stem}"
+
+
+def doc_slot(corpus_path: str) -> tuple[str, str]:
+    """(source_id, document stem): the short, flat address every derived tree keys on."""
     base = corpus_path[:-3] if corpus_path.endswith(".md") else corpus_path
     source_id, _, rest = base.partition("/")
     stem = rest.rsplit("/", 1)[-1] if rest else source_id
-    return f"{SECTIONS_DIRNAME}/{source_id}/{stem}"
+    return source_id, stem
 
 
 def check_unique_section_dirs(corpus_paths: list[str]) -> None:
