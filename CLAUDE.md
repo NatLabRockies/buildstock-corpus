@@ -10,7 +10,25 @@ extracted from ComStock's documentation, with a provenance manifest.
 
 It lists every document with its title, path, sections and last-updated date, plus a
 measure → upgrade-id → document routing table and the corpus's known gaps. One read there
-tells you which file to open; without it you are grepping 118 files blind.
+tells you which file to open; without it you are grepping 114 files blind.
+
+## Reading without a clone
+
+If you can fetch URLs but have no checkout, every file under `processed/` is served raw:
+
+```
+https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/<ref>/processed/<product>/<release>/<path>
+```
+
+- **Pin `<ref>` to a release tag** (`<release id>-v<N>`, first one
+  `comstock_amy2018_2025_release_3-v1`); until tags exist, to a commit hash. `main` moves
+  on every rebuild.
+- **Fetch `index.json` first** (~6 KB over the wire): every document and measure with its
+  `corpus_path`, `status`, `source_url`, `publication_url` and `bytes`. Then the one
+  document you need. Fetch `sections.json` only to land on a heading by line range.
+- **Check `bytes` before fetching.** 40 documents are over 100 KB; Appendix A is 437 KB.
+  Read a line range rather than the whole file.
+- Both JSON files validate against `schemas/` in this repo.
 
 ## Reading the corpus
 
