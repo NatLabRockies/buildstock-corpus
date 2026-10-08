@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92504.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/92504.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/92504.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/92504.md | section: 5.3.2  Stock Energy Impacts | lines: 726-742 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92504.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/92504.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/92504.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/92504.md | section: 5.3.2  Stock Energy Impacts | lines: 726-742 -->
 ## 5.3.2  Stock Energy Impacts
 
 Figure 15 shows the energy consumption comparison between the upgrade packages with different objectives. The comparison shows that the demand flexibility strategy with an individual building peak objective saves more energy than controls with a grid peak objective, and the differences are mainly contributed by HVAC (thermostat) control.

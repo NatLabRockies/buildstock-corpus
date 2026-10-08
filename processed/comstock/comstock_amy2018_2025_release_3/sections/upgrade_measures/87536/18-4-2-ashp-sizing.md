@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/87536.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/87536.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/87536.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/87536.md | section: 4.2  ASHP Sizing | lines: 429-463 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/87536.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/87536.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/87536.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/87536.md | section: 4.2  ASHP Sizing | lines: 429-463 -->
 ## 4.2  ASHP Sizing
 
 Heat pump sizing is a critical step to consider when retrofitting a boiler with an ASHP boiler. The sizing process requires consideration of several factors, such as: [2]

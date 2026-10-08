@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/96597.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96597.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96597.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/96597.md | section: 2.2  Lighting Power | lines: 223-252 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/96597.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96597.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96597.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/96597.md | section: 2.2  Lighting Power | lines: 223-252 -->
 ## 2.2  Lighting Power
 
 The technology baseline approach follows a similar process to how the ASHRAE 90.1 lighting subcommittee determines the LPD allowance for a given space type in ASHRAE 90.1. In the lighting subcommittee model (LSM), four categories of lighting are considered when estimating the lighting needed to meet the target horizontal illuminance for a space:

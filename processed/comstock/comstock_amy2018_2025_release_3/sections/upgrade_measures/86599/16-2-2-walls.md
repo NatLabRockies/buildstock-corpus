@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86599.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/86599.md | section: 2.2 Walls | lines: 280-337 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86599.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/86599.md | section: 2.2 Walls | lines: 280-337 -->
 ## 2.2 Walls
 
 The ComStock baseline uses a mix of mass, metal building, steel-framed, and wood-framed or other walls. The properties and distribution of the wall types were informed by a variety of data sources described in the ComStock Reference Documentation [2]. R-value values by climate zone and wall type are shown in Table 2.

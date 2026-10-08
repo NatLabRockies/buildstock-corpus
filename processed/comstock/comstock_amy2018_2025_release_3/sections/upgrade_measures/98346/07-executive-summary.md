@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/98346.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/98346.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/98346.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/98346.md | section: Executive Summary | lines: 73-121 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/98346.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/98346.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/98346.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/98346.md | section: Executive Summary | lines: 73-121 -->
 ## Executive Summary
 
 Building on the 3-year End-Use Load Profiles project to calibrate and validate the U.S. Department of Energy's ResStock™ and ComStock™ models, this work produces national datasets that enable cities, states, utilities, and other stakeholders to answer a broad range of questions regarding their commercial building stock.

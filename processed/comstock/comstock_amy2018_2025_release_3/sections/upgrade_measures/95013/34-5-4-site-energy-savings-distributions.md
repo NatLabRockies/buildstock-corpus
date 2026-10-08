@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95013.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95013.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95013.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/95013.md | section: 5.4  Site Energy Savings Distributions | lines: 618-649 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95013.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95013.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95013.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/95013.md | section: 5.4  Site Energy Savings Distributions | lines: 618-649 -->
 ## 5.4  Site Energy Savings Distributions
 
 This section discusses the site energy consumption for quality assurance/quality control. Note that the site energy savings can be useful for these purposes, but other factors should be considered when drawing conclusions, as they do not necessarily translate proportionally to source energy savings, or energy cost.

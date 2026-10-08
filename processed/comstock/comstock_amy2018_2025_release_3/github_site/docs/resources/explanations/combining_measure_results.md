@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/combining_measure_results.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/explanations/combining_measure_results.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/combining_measure_results.html | corpus_version: 267e3ea -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/combining_measure_results.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/explanations/combining_measure_results.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/combining_measure_results.html | corpus_version: fadc83e -->
 # Combining Measure Results
 
 # Why Individual ComStock Measure Results Should Not Be Combined

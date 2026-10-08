@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/96598.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/96598.md | section: 3.2.2 Final List of Current Code Assumptions by State | lines: 713-800 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/96598.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/96598.md | section: 3.2.2 Final List of Current Code Assumptions by State | lines: 713-800 -->
 ## 3.2.2 Final List of Current Code Assumptions by State
 
 Considering all the assumptions from the previous section, Table 9 and Figure 5 represent the final list of current commercial energy code assumptions by state that will be implemented in this measure.

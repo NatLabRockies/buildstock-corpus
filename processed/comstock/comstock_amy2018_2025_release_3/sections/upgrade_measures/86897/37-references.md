@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86897.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86897.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86897.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/86897.md | section: References | lines: 682-689 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86897.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86897.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86897.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/86897.md | section: References | lines: 682-689 -->
 ## References
 
 - [1]   A. Parker, H. Horsey, M. Dahlhausen, M. Praprost, C. CaraDonna, A. LeBar and L. Klun, "ComStock Reference Documentation: Version 1," National Renewable Energy Laboratory, Golden, CO, 2022.

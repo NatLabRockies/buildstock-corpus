@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95013.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95013.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95013.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/95013.md | section: ComStock Measure Documentation: | lines: 6-19 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95013.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95013.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95013.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/95013.md | section: ComStock Measure Documentation: | lines: 6-19 -->
 ## ComStock Measure Documentation:
 
 Thermostat and Lighting Control for Load Shedding + Photovoltaics With 40% Rooftop Coverage

@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/98224.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/98224.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/98224.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/98224.md | section: 5.3  Stock Utility Bill Impacts | lines: 642-676 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/98224.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/98224.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/98224.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/98224.md | section: 5.3  Stock Utility Bill Impacts | lines: 642-676 -->
 ## 5.3  Stock Utility Bill Impacts
 
 This section includes a comparison of annual utility bills for buildings using different energy sources (i.e., electricity, natural gas, propane, fuel oil) and for the entire building stock. Because we apply many electricity utility rate structures that are available for a building located in a certain geographical location, our data include many annual utility bills per building model.

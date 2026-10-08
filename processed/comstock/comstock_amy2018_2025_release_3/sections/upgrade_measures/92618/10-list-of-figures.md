@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92618.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/92618.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/92618.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/92618.md | section: List of Figures | lines: 157-186 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92618.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/92618.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/92618.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/92618.md | section: List of Figures | lines: 157-186 -->
 ## List of Figures
 
 | Figure 1. Percentage of ComStock floor area by HVAC energy code followed during last HVAC                                                                                                                                                                                                                 | .............................................................................................................................. 3   |
