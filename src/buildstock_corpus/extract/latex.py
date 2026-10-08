@@ -194,6 +194,116 @@ def _pandoc(text: str, cwd: Path, citeproc: bool):
     )
 
 
+# --- pandoc artefacts: cross-references and heading levels -----------------------------------
+#
+# pandoc renders `\ref{tab:x}` as <a href="#tab:x" data-reference-type="ref" ...>TEXT</a>,
+# where TEXT is its own count within the one chapter file it converted (wrong for chapter 4,
+# which is split across eight files) or the bare label in brackets when the target is in
+# another file. Neither helps a reader of markdown. The target's own title does: "Table
+# “Window Property Data Sources”" can be searched for and found, in this file or another.
+_XREF_RE = re.compile(
+    r'<a href="#(?P<label>[^"]+)" data-reference-type="[^"]*" data-reference="[^"]*">'
+    r"(?P<text>[^<]*)</a>"
+)
+_BRACED = r"\{((?:[^{}]|\{[^{}]*\})*)\}"
+_HEADING_CMD_RE = re.compile(
+    r"\\(chapter|section|subsection|subsubsection|paragraph)\*?(?:\[[^\]]*\])?" + _BRACED
+)
+_CAPTION_CMD_RE = re.compile(r"\\caption(?:\[[^\]]*\])?" + _BRACED)
+_ANY_LABEL_RE = re.compile(r"\\label\{([^}]+)\}")
+_TEX_CMD_RE = re.compile(r"\\[A-Za-z]+\*?(?:\[[^\]]*\])?")
+_EQN_LABEL_RE = re.compile(r"(^|[:_])eqn?($|[:_])|equation", re.I)
+_CAPTION_PREFIXES = ("tab:", "tbl:", "fig:")
+_FORWARD_PREFIXES = ("chap:", "appendix:")  # labels written before their heading, not after
+
+
+def _tex_to_text(s: str) -> str:
+    """A caption or heading's plain text: unwrap macros, drop labels, resolve TeX spacing."""
+    s = _ANY_LABEL_RE.sub("", s)
+    for _ in range(3):  # nested macros: \textbf{\gls{x}}
+        s = re.sub(r"\\[A-Za-z]+\*?(?:\[[^\]]*\])?\{([^{}]*)\}", r"\1", s)
+    s = _TEX_CMD_RE.sub("", s)
+    s = s.replace("~", " ").replace("--", "\u2013").replace("\\%", "%").replace("\\&", "&")
+    s = s.replace("{", "").replace("}", "")
+    return " ".join(s.split())
+
+
+def _label_titles(proj_dir: Path) -> dict[str, str]:
+    """Every `\\label` in the project -> the title of the thing it labels.
+
+    A table or figure label takes the nearest preceding \\caption; a section-like label
+    (sec:, chap:, a bare name) the nearest heading -- preceding, or following for chap:
+    and appendix: labels, which are written before the heading. Equation labels have no
+    title and are left out, so the reference keeps its plain label text.
+    """
+    titles: dict[str, str] = {}
+    for tex in sorted(proj_dir.rglob("*.tex")):
+        text = tex.read_text(encoding="utf-8", errors="replace")
+        heads = [(m.start(), _tex_to_text(m.group(2))) for m in _HEADING_CMD_RE.finditer(text)]
+        caps = [(m.start(), _tex_to_text(m.group(1))) for m in _CAPTION_CMD_RE.finditer(text)]
+        for m in _ANY_LABEL_RE.finditer(text):
+            label = m.group(1).strip()
+            if label in titles or _EQN_LABEL_RE.search(label):
+                continue
+            pos = m.start()
+            if label.startswith(_CAPTION_PREFIXES):
+                prev = [t for p, t in caps if p < pos]
+                if prev:
+                    titles[label] = prev[-1]
+            elif label.startswith(_FORWARD_PREFIXES):
+                nxt = [t for p, t in heads if p > pos]
+                if nxt:
+                    titles[label] = nxt[0]
+            else:
+                prev = [t for p, t in heads if p < pos]
+                if prev:
+                    titles[label] = prev[-1]
+    return titles
+
+
+def _render_cross_references(md: str, titles: dict[str, str]) -> str:
+    """Replace pandoc's cross-reference anchors with the target's title in quotes, or with
+    the anchor's own text (brackets dropped) when the label has no title."""
+
+    def repl(m: re.Match) -> str:
+        title = titles.get(m.group("label"))
+        if title:
+            return f"\u201c{title}\u201d"
+        return m.group("text").strip().strip("[]")
+
+    return _XREF_RE.sub(repl, md)
+
+
+_MD_HEADING_RE = re.compile(r"^(#{1,6})(\s+.*)$")
+
+
+def _normalize_heading_levels(md: str) -> str:
+    """No heading sits more than one level below the heading before it.
+
+    pandoc maps \\paragraph to H5 even when a chapter uses it directly under its H1, and two
+    chapters go \\section -> \\subsubsection. Each heading is re-levelled to at most its
+    nearest open ancestor's level + 1; siblings at the same original level get the same new
+    level, so structure is kept while the gaps close. Fenced code is left alone.
+    """
+    out: list[str] = []
+    stack: list[tuple[int, int]] = []  # (original level, new level)
+    in_fence = False
+    for line in md.split("\n"):
+        if line.startswith("```"):
+            in_fence = not in_fence
+        m = None if in_fence else _MD_HEADING_RE.match(line)
+        if not m:
+            out.append(line)
+            continue
+        orig = len(m.group(1))
+        while stack and stack[-1][0] >= orig:
+            stack.pop()
+        new = min(orig, (stack[-1][1] + 1) if stack else 1)
+        stack.append((orig, new))
+        out.append("#" * new + m.group(2))
+    return "\n".join(out)
+
+
 def _stamp_table_sources(md: str, labels: dict[str, str], chapter_file: str) -> str:
     """Add `data-source="<file>.tex"` to every table wrapper pandoc emitted.
 
@@ -242,6 +352,7 @@ def load_latex_docs(
     proj_dir = main_tex.parent
     docs: list[Document] = []
     warnings: list[str] = []
+    titles = _label_titles(proj_dir)  # once per project: cross-references span chapters
 
     for stem in _chapter_files(main_tex):
         tex_name = stem if stem.endswith(".tex") else f"{stem}.tex"
@@ -254,6 +365,7 @@ def load_latex_docs(
         except RuntimeError as exc:  # one unparseable chapter must not abort the build
             warnings.append(str(exc))
             continue
+        md = _normalize_heading_levels(_render_cross_references(md, titles))
         md = _normalize_characters(_dedupe_repeated_header(md))
         body = collapse_blank_lines(md)
         if not body.strip():

@@ -419,11 +419,15 @@ def validate_manifest(
                             errors.append(
                                 f"{where}: header {k} {header[k]!r} != manifest {expected[k]!r}"
                             )
+                    text = out_abs.read_text(encoding="utf-8")
+                    # A pandoc cross-reference anchor is an extraction artefact the LaTeX
+                    # extractor renders as the target's title; one surviving means that
+                    # step was skipped and a reader sees a dead link in place of a name.
+                    if 'data-reference-type="' in text:
+                        errors.append(f"{where}: pandoc cross-reference anchor survives (data-reference-type)")
                     # Section files are committed output a consumer fetches on their own,
                     # and a pure function of the document: regenerate and compare.
-                    sec_errors, n_sec, present = check_sections(
-                        proot, a["output_path"], out_abs.read_text(encoding="utf-8"), where
-                    )
+                    sec_errors, n_sec, present = check_sections(proot, a["output_path"], text, where)
                     errors += sec_errors
                     sections_checked += n_sec
                     if not present:
