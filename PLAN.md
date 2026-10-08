@@ -61,8 +61,9 @@ Release cut from it with the CHANGELOG entry. Check passed: the raw URL at the t
 `index.json`, which names the tag as its `corpus_version`. Release step as run: finalize
 CHANGELOG/CITATION/llms.txt → `bsc build --corpus-version <tag>` → validate + network link
 test → `bsc changelog --from <previous tag> --append` and add the hand-written tooling
-bullets (W1.3) → commit → PR → merge commit → `git tag -a` on the merge commit → push tag →
-`gh release create --verify-tag --notes-file` with that entry. *Size:* S.
+bullets (W1.3) → commit → PR → merge commit → `git tag -a` on the merge commit → push tag.
+The tag push runs `release.yml` (W7.2), which repeats the checks and cuts the GitHub Release
+from the CHANGELOG entry; nothing is created by hand. *Size:* S.
 
 **W1.2 · Mid-release updates get a new build and a new tag.** *Operating rule from 2026-10-08.*
 When a known-issues document is added or a measure PDF is revised inside a data release,
@@ -269,9 +270,25 @@ lab), `CITATION.cff` (sole author, NLR, type dataset, no DOI, version = the tag 
 `CHANGELOG.md` (convention + an Unreleased entry for the two branches). `AGENTS.md` and
 `llms.txt` landed in W4.3. *Size:* S.
 
-**W7.2 · Future work, proposed:** a CI workflow that runs `bsc validate` and the test suite on
-every push, blocks a release tag unless both pass, and runs `bsc changelog` to draft the
-release notes. Until it exists, the release step in W1 is a checklist a person runs.
+**W7.2 · CI.** *Done 2026-10-08, branch `ci`.* Two workflows under `.github/workflows/`:
+
+- `ci.yml` runs the test suite and `bsc validate` for every release named in `sources/` on
+  every branch push, on Ubuntu and Windows, from `uv sync --locked` (core + dev group; the
+  extractors are never imported by the tests, and `pypdfium2` moved to the dev group for the
+  date tests). In a clone the gitignored bitmaps make the image-anchored overlay pins
+  unverifiable, which validate counts rather than fails.
+- `release.yml` runs on a `*_release_*-v*` tag push: same tests and validate at the tag, the
+  tag must equal the manifest's `corpus_version`, CHANGELOG.md must have an entry for it
+  (`bsc changelog --show <tag>`), the computed diff from the previous tag goes to the job
+  summary, and only then is the GitHub Release created with that entry as its notes. A tag
+  that fails gets a red run and no Release.
+
+What a workflow cannot do is reject the tag push itself. That is a ruleset, and the repo
+has none; the owner's account has push but not admin, so it is an **org admin request**:
+(1) a branch ruleset on `main` requiring the `ci` status checks (`ubuntu-latest`,
+`windows-latest`) before merge, and (2) a tag ruleset on `*_release_*-v*` restricting
+creation and deletion to maintainers. Until then the release step is the recipe in W1.1,
+with the Release cut by the workflow rather than by hand. *Size:* S.
 
 ## W8 · ResStock
 

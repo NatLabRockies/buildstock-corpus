@@ -186,13 +186,21 @@ def query(
 @app.command()
 def changelog(
     from_ref: Annotated[
-        str,
+        str | None,
         typer.Option(
             "--from",
             help="Git ref of the previous build to diff against, normally its release tag "
             "(e.g. 'comstock_amy2018_2025_release_3-v1').",
         ),
-    ],
+    ] = None,
+    show: Annotated[
+        str | None,
+        typer.Option(
+            "--show",
+            help="Instead of diffing, print the body of CHANGELOG.md's entry for this version "
+            "(what the release workflow publishes as the GitHub Release notes).",
+        ),
+    ] = None,
     to_ref: Annotated[
         str | None,
         typer.Option(
@@ -221,10 +229,17 @@ def changelog(
     from .paths import PROJECT_ROOT
 
     _workspace(work_dir)
+    changelog_md = PROJECT_ROOT / _changelog.CHANGELOG_FILENAME
+    if (from_ref is None) == (show is None):
+        print("changelog: pass exactly one of --from <ref> or --show <version>", file=sys.stderr)
+        raise typer.Exit(code=2)
     try:
+        if show is not None:
+            print(_changelog.entry_for(show, changelog_md), end="")
+            return
         _log, entry = _changelog.changelog(product, release, from_ref, to_ref)
         if append:
-            _changelog.append_entry(entry, PROJECT_ROOT / _changelog.CHANGELOG_FILENAME)
+            _changelog.append_entry(entry, changelog_md)
     except _changelog.ChangelogError as exc:
         print(f"changelog: {exc}", file=sys.stderr)
         raise typer.Exit(code=1)

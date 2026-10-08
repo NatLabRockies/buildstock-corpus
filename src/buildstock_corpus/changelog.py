@@ -345,6 +345,26 @@ def append_entry(entry: str, path: Path) -> None:
     path.write_text(before + entry + ("\n" + after if after else ""), encoding="utf-8", newline="\n")
 
 
+def entry_for(version: str, path: Path) -> str:
+    """The body of CHANGELOG.md's `## <version> — <date>` entry: a GitHub Release's notes.
+
+    The heading is left out, as the v1 Release was written, because the Release page
+    already shows the tag. Raises if the file has no entry for `version`, which is how the
+    release workflow refuses to publish a tag nobody wrote notes for.
+    """
+    if not path.is_file():
+        raise ChangelogError(f"no {path.name}")
+    lines = path.read_text(encoding="utf-8").splitlines()
+    start = next(
+        (i for i, line in enumerate(lines) if line.startswith(f"## {version} ") or line == f"## {version}"),
+        None,
+    )
+    if start is None:
+        raise ChangelogError(f"{path.name} has no entry for {version!r}")
+    end = next((i for i in range(start + 1, len(lines)) if lines[i].startswith("## ")), len(lines))
+    return "\n".join(lines[start + 1 : end]).strip("\n") + "\n"
+
+
 # --------------------------------------------------------------------------- entry point
 
 

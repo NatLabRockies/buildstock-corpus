@@ -294,3 +294,26 @@ def test_manifest_and_bodies_are_read_from_the_tagged_ref(tmp_path, monkeypatch)
 
     with pytest.raises(C.ChangelogError, match="no processed/"):
         C.load_manifest_at("no-such-ref", "comstock", RELEASE, repo)
+
+
+# --------------------------------------------------------------------------- --show
+
+
+def test_entry_for_returns_the_body_of_one_entry(tmp_path):
+    path = tmp_path / "CHANGELOG.md"
+    path.write_text(
+        PREAMBLE + "## v2 — 2026-10-20\n\nSecond build.\n\n### Added\n\n- a doc\n\n" + V1_ENTRY,
+        encoding="utf-8",
+    )
+    assert C.entry_for("v2", path) == "Second build.\n\n### Added\n\n- a doc\n"
+    assert C.entry_for("v1", path) == "First tagged build.\n"  # the last entry runs to EOF
+
+
+def test_entry_for_refuses_a_version_without_notes(tmp_path):
+    path = tmp_path / "CHANGELOG.md"
+    path.write_text(PREAMBLE + V1_ENTRY, encoding="utf-8")
+    with pytest.raises(C.ChangelogError, match="no entry for 'v2'"):
+        C.entry_for("v2", path)
+    # A version that is a prefix of another is not a match.
+    with pytest.raises(C.ChangelogError):
+        C.entry_for("v", path)
