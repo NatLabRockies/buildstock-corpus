@@ -8,10 +8,12 @@ Layout, beside the documents under processed/<product>/<release>/:
 
     sections/<source_id>/<document stem>/<NN>-<slug>.md
 
-`00-<title slug>` holds what sits between the H1 and the first H2 (a document with no H2 at
-all gets only that file, which is the document again under a predictable path); `NN-<slug>`
+`00-<title slug>` holds what sits between the H1 and the first H2 when there is any text
+there (a document with no H2 at all gets only that file, which is the document again under
+a predictable path; a bare title line followed by its H2 gets no 00- file); `NN-<slug>`
 holds the NN-th H2 with every H3+ beneath it, down to the next H2. Files tile the document
-from line 2 onward, so concatenating a document's sections in order reproduces it.
+from line 2 onward -- or from the first H2 when only the title line precedes it -- so
+concatenating a document's sections in order reproduces its content.
 
 Line 1 of a section file is the document's own provenance header plus three labelled
 fields: the parent `corpus_path`, the `section` heading, and the `lines` it spans in the
