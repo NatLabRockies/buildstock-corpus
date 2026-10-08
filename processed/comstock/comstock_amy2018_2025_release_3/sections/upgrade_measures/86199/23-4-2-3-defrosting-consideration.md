@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86199.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86199.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86199.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/86199.md | section: 4.2.3 Defrosting Consideration | lines: 537-552 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86199.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86199.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86199.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/86199.md | section: 4.2.3 Defrosting Consideration | lines: 537-552 -->
 ## 4.2.3 Defrosting Consideration
 
 ASHP boilers require occasional defrosting when operating at an outdoor air temperature below 47°F. Commercial ASHP boilers with multiple compressors reduce the impact of defrosting by limiting the defrosting to only one circuit at a time. The frequency of defrosting depends on the operating conditions. Table 6 summarizes the suggested capacity derate factors for sizing application [2].

@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86599.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/86599.md | section: 5.1 Single Building Example | lines: 465-475 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86599.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86599.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/86599.md | section: 5.1 Single Building Example | lines: 465-475 -->
 ## 5.1 Single Building Example
 
 A 37,500-ft 2 quick service restaurant in Los Angeles with pre-1980 components was selected as a test example. All three measures within the package are applicable to this model. Table 9 shows the initial and final conditions for the three measures. The thermal properties of the model's windows, walls, and roof were all increased, indicating the package was applied correctly.

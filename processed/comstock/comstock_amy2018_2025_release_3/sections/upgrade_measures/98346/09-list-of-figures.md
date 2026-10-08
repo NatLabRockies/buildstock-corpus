@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/98346.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/98346.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/98346.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/98346.md | section: List of Figures | lines: 142-170 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/98346.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/98346.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/98346.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/98346.md | section: List of Figures | lines: 142-170 -->
 ## List of Figures
 
 | Figure 1. Applicability of Thermostat Setbacks measure by building type. ................................................. Figure 2. Thermostat heating setpoint schedule with setbacks and building occupancy schedule for the                                                                                   | 6                               |

@@ -31,6 +31,7 @@ from pathlib import Path
 
 import jsonschema
 
+from .chunk_files import chunk_counts, chunks_file_for
 from .paths import PROJECT_ROOT, manifest_file, processed_root, sha256_file
 from .sections import document_sections, plan_sections  # noqa: F401  (re-exported)
 
@@ -90,6 +91,9 @@ def build_index(product: str, release: str) -> dict:
     manifest_sha = sha256_file(mf)
     proot = processed_root(product, release)
 
+    cf = proot / "chunks.jsonl"
+    counts = chunk_counts(cf.read_text(encoding="utf-8")) if cf.is_file() else {}
+
     documents: list[dict] = []
     sections: dict[str, list[dict]] = {}
     for src in manifest.get("sources") or []:
@@ -108,6 +112,8 @@ def build_index(product: str, release: str) -> dict:
                 "status": a.get("status"),
                 "bytes": path.stat().st_size,
                 "sections": len(secs),
+                "chunks": counts.get((src["id"], a["source_path"]), 0),
+                "chunks_file": chunks_file_for(a["output_path"]),
             })
 
     measures: list[dict] = []

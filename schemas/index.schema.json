@@ -37,7 +37,7 @@
     "document": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["title", "source_id", "corpus_path", "source_path", "source_url", "publication_url", "status", "bytes", "sections"],
+      "required": ["title", "source_id", "corpus_path", "source_path", "source_url", "publication_url", "status", "bytes", "sections", "chunks", "chunks_file"],
       "properties": {
         "title": { "type": "string" },
         "source_id": { "type": "string", "minLength": 1 },
@@ -47,7 +47,9 @@
         "publication_url": { "$ref": "#/$defs/https_url", "description": "Where a reader is sent for the human-readable form." },
         "status": { "type": "string", "enum": ["osti_pdf", "site_page"] },
         "bytes": { "type": "integer", "minimum": 1, "description": "Size of the processed markdown file." },
-        "sections": { "type": "integer", "minimum": 0, "description": "Number of headings; the headings themselves are in sections.json." }
+        "sections": { "type": "integer", "minimum": 0, "description": "Number of headings; the headings themselves are in sections.json." },
+        "chunks": { "type": "integer", "minimum": 0, "description": "Number of retrieval chunks cut from this document." },
+        "chunks_file": { "type": "string", "pattern": "^chunks/.+\\.jsonl$", "description": "This document's rows of chunks.jsonl as their own JSON Lines file, byte for byte; relative to processed/<product>/<release>/." }
       }
     },
     "measure": {

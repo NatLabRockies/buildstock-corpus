@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95005.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95005.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95005.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/95005.md | section: 3.5.1 Applicability | lines: 590-597 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95005.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95005.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95005.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/95005.md | section: 3.5.1 Applicability | lines: 590-597 -->
 ## 3.5.1 Applicability
 
 Based on many examples readily identified through a cursory search, it appears that exterior insulation is readily applied to mass, wood-framed, and steel-framed walls. For metal buildings, interior insulation is a more practical and likely retrofit; this upgrade is therefore not applicable to metal buildings.

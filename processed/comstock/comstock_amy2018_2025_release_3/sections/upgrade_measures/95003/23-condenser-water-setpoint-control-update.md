@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95003.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95003.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95003.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/95003.md | section: Condenser water setpoint control update: | lines: 466-471 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95003.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95003.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95003.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/95003.md | section: Condenser water setpoint control update: | lines: 466-471 -->
 ## Condenser water setpoint control update:
 
 - Change condenser water system (including cooling tower) specifications based on ASHRAE 90.1-2019 section G3.1.3.11

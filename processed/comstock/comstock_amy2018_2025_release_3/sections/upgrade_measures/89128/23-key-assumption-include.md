@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89128.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89128.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89128.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/89128.md | section: Key assumption include: | lines: 508-515 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89128.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89128.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89128.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/89128.md | section: Key assumption include: | lines: 508-515 -->
 ## Key assumption include:
 
 - The new HP-RTUs are modeled with top-of-the-line variable-speed compressors and fans. Performance curves are used to determine how efficiency and capacity vary with indoor and outdoor temperature and part-load ratio, including cycling losses. At full compressor speed, the performance curves yield 56% and 46% COP and capacity retention at 0°F, respectively.

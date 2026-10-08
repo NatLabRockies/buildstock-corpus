@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86602.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86602.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86602.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/86602.md | section: 3.6 Air-Source Heat Pump Boiler | lines: 648-672 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86602.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86602.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86602.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/86602.md | section: 3.6 Air-Source Heat Pump Boiler | lines: 648-672 -->
 ## 3.6 Air-Source Heat Pump Boiler
 
 The Air-Source Heat Pump Boiler upgrade replaces natural gas boilers for space heating with ASHP boilers. Outputs from the simulation runs could be used to quantify the carbon reduction and energy impact of the electrification.

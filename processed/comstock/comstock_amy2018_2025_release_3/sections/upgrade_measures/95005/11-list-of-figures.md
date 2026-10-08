@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95005.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95005.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95005.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/95005.md | section: List of Figures | lines: 267-291 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95005.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95005.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95005.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/95005.md | section: List of Figures | lines: 267-291 -->
 ## List of Figures
 
 | Figure 1. ComStock GHEDesigner workflow ............................................................................................ 14 Figure 2. Applicability for the Comprehensive GHP + High Efficiency Envelope package by upgrade combination ............................................................................................................................ 18   |                                                        |

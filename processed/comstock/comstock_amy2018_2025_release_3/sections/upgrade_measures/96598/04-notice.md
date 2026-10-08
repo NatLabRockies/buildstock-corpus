@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/96598.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/96598.md | section: NOTICE | lines: 38-49 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/96598.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96598.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/96598.md | section: NOTICE | lines: 38-49 -->
 ## NOTICE
 
 This  work  was  authored  by  the  National  Laboratory  of  the  Rockies  for  the  U.S.  Department  of  Energy  (DOE), operated under Contract No. DE-AC36-08GO28308. Funding provided by U.S. Department of Energy Office of Critical  Minerals  and  Energy  Innovation  Building  Technologies  Office.  The  views  expressed  herein  do  not necessarily represent the views of the DOE or the U.S. Government.

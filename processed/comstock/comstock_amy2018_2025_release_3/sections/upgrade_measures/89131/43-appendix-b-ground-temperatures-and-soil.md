@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89131.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89131.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89131.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/89131.md | section: Appendix B. Ground Temperatures and Soil Conductivity Assumptions | lines: 611-669 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89131.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89131.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89131.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/89131.md | section: Appendix B. Ground Temperatures and Soil Conductivity Assumptions | lines: 611-669 -->
 ## Appendix B. Ground Temperatures and Soil Conductivity Assumptions
 
 Table B-1. Summary of GHEDesigner Input Assumptions

@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89341.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89341.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89341.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/89341.md | section: 5.1  Single Building Measure Tests | lines: 364-391 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89341.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89341.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89341.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/89341.md | section: 5.1  Single Building Measure Tests | lines: 364-391 -->
 ## 5.1  Single Building Measure Tests
 
 Several single building measure tests are performed to demonstrate the implementation of the developed measure, as shown in the following sections. Specifically, a large office building model with electric cooling HVAC systems is applied as the baseline sample model, with multiple weather files that represent different climate characteristics to evaluate performances.

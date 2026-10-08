@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86103.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86103.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86103.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/86103.md | section: 4.2  Technology Specifics, Such as Sizing, Performance, and Configuration | lines: 391-405 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86103.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86103.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86103.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/86103.md | section: 4.2  Technology Specifics, Such as Sizing, Performance, and Configuration | lines: 391-405 -->
 ## 4.2  Technology Specifics, Such as Sizing, Performance, and Configuration
 
 Figure 7 shows a high-level configuration that represents the VRF DOAS 'model' considered in this upgrade implementation. Details of each decoupled system are described in the following subsections.

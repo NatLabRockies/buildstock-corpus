@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86602.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86602.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86602.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/86602.md | section: 5.1 Realized Applicability | lines: 795-809 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86602.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86602.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86602.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/86602.md | section: 5.1 Realized Applicability | lines: 795-809 -->
 ## 5.1 Realized Applicability
 
 Figure 2 provides a breakdown of the applicability of the High Efficiency Envelope, Interior Lighting and Heat Pump package by individual measure. The individual component measures were applicable to between 33% and 99% of the stock floor area, and the package was applicable to 100% of the stock floor area.

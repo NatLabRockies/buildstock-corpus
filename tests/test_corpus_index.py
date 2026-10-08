@@ -103,6 +103,7 @@ def test_index_lists_every_document_and_measure_and_validates(built):
     assert a["sections"] == 4  # H1 + two H2 + one H3
     assert a["bytes"] == (proot / "technical_reference/doc/a.md").stat().st_size
     assert a["publication_url"] == f"{SITE}/ref.pdf"
+    assert a["chunks"] == 0 and a["chunks_file"] == "chunks/technical_reference/a.jsonl"  # no chunks.jsonl here
     by_id = {m["measure_id"]: m for m in index["measures"]}
     assert by_id["dr_0001"]["corpus_path"] == "upgrade_measures/measure_pdfs/89340.md"
     assert by_id["dr_0001"]["upgrade_id"] == "32"

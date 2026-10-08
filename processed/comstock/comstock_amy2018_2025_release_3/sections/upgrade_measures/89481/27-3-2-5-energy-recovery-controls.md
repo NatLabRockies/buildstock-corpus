@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89481.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89481.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89481.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/89481.md | section: 3.2.5  Energy Recovery Controls | lines: 408-413 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89481.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89481.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89481.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/89481.md | section: 3.2.5  Energy Recovery Controls | lines: 408-413 -->
 ## 3.2.5  Energy Recovery Controls
 
 The energy recovery system is modeled with a bypass for economizer lockout operation. The system also includes wheel speed modulation for increased discharge temperature control.

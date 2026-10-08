@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95004.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | corpus_version: 267e3ea | corpus_path: upgrade_measures/measure_pdfs/95004.md | section: References | lines: 598-619 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95004.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/95004.md | section: References | lines: 598-619 -->
 ## References
 
 | [1]     | 'Average U.S. construction costs drop for solar, rise for wind and natural gas generators U.S. Energy Information Administration (EIA).' Accessed: Apr. 28, 2024. [Online]. Available: https://www.eia.gov/todayinenergy/detail.php?id=54519                                                               |
