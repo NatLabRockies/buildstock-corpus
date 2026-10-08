@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95002.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95002.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95002.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/95002.md | section: Suggested Citation | lines: 28-39 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95002.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95002.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95002.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/95002.md | section: Suggested Citation | lines: 28-39 -->
 ## Suggested Citation
 
 Allen, Amy. 2025. ComStock Measure Scenario Documentation: Reduced Thermostat Setbacks for Heat Pumps . Golden, CO: National Renewable Energy Laboratory. NREL/TP-5500-95002. https://www.nrel.gov/docs/fy25osti/95002.pdf.

@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89128.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89128.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89128.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/89128.md | section: 2.3 Economizers | lines: 398-427 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89128.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89128.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89128.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/89128.md | section: 2.3 Economizers | lines: 398-427 -->
 ## 2.3 Economizers
 
 ComStock baseline building models include HVAC systems with or without economizers, and configurations (e.g., control type and high limit) of economizers vary depending on different building parameters (e.g., climate zone). These decisions related to economizer configurations are determined by the requirements of the energy code that was in force when the HVAC system was last updated.

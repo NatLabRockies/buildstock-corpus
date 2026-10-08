@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_2_meta.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_2_meta.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: fadc83e -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_2_meta.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_2_meta.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: 43ae2d4 -->
 # Location, Type, Age, Space Programming, Energy Code, and Change Over Time
 
 ## Location
@@ -7,7 +7,7 @@ ComStock has four levels of location granularity for its building models: ASHRAE
 
 Additional location metadata is joined to the *buildstock.csv* for use in parsing ComStock results. This includes data such as [Public Use Microdata Area](https://www.census.gov/programs-surveys/geography/guidance/geo-areas/pumas.html) (PUMA), [Building America climate zone](https://www.energy.gov/eere/buildings/building-america-climate-specific-guidance), [independent system operator (ISO) region](https://isorto.org/), and [ReEDS balancing area](https://www.nrel.gov/analysis/reeds). This location metadata is joined on the [census tract](https://www2.census.gov/geo/pdfs/education/CensusTracts.pdf) level. Census tracts are assigned to the *buildstock.csv* using the CoStar and HSIP data. These location fields also include building cluster ID and name. Developed by DOE and NREL, these 88 geographic clusters allow for localized building stock analyses and are the basis for the U.S. Building Stock Segmentation Series. For more details about these clusters and their development, reference the [Building Stock Segmentation Cluster Development](https://www.nrel.gov/docs/fy23osti/84648.pdf) technical report.
 
-<div id="tab:census_division_models_table">
+<div id="tab:census_division_models_table" data-source="tables/census_division_models_table.tex">
 
 | **Census Division** | **Count** | **Percentage** |
 |:-------------------:|:---------:|:--------------:|
@@ -66,7 +66,7 @@ We assume that all major building systems are installed when the building is con
 
 For ComStock, the primary source of EULs is the California Public Utilities Commission (CPUC) Database of Energy Efficiency Resources (DEER) (California Public Utilities Commission 2021). Previous work on EULs indicates that there is wide variation in the quality of national EUL data, but it also indicates that the studies performed in DEER are generally the best available (Skumatz 2012). The values in DEER were cross-referenced against the lifetimes used in the EIA NEMS Commercial Demand Module (U.S. Energy Information Administration 2017a) and the ASHRAE Service Life and Maintenance Cost Database (ASHRAE 2021). Table <a href="#tab:effective_useful_life" data-reference-type="ref" data-reference="tab:effective_useful_life">2</a> shows the EULs assumed for different building systems in ComStock.
 
-<div id="tab:effective_useful_life">
+<div id="tab:effective_useful_life" data-source="tables/effective_useful_life.tex">
 
 | **Major Building System** | **EUL (Years**) | **Notes** |
 |:---|:---|:---|
@@ -113,7 +113,7 @@ The simplest approach would be to use a normal distribution centered on the EUL.
 
 As shown in Figure <a href="#fig:hvac_survival_curves" data-reference-type="ref" data-reference="fig:hvac_survival_curves">3</a>, Weibull distributions are a good fit for several categories of HVAC equipment failure data. Although the ASHRAE database includes data for many different types of HVAC equipment, it was not selected as the primary source for deriving EULs for ComStock due to the limitations and biases in the database described by its creators (Abramson et al. 2006). Instead, we decided to use the EUL sources described in Table <a href="#tab:effective_useful_life" data-reference-type="ref" data-reference="tab:effective_useful_life">2</a> and develop Weibull curve parameters around these EULs. The selected parameters are shown in Table <a href="#tab:eul_distributions" data-reference-type="ref" data-reference="tab:eul_distributions">3</a>. For the 70-year EUL, the parameters came from the window reliability analysis. For the 10-, 15-, and 20-year EULs, the only constraint was to match the EUL definition: 50% of the equipment would still be operable at the EUL. A minimum lifespan of 60% of the EUL was selected with the assumption that although individual components of a system might fail, it is unlikely that products on the market routinely fail at a whole-building scale in only a few years. The 200-year EUL parameters were selected to represent no failure for the life of the building.
 
-<div id="tab:eul_distributions">
+<div id="tab:eul_distributions" data-source="tables/eul_distributions.tex">
 
 | **EUL** | **Shape (beta)** | **Scale (alpha)** | **Shift (gamma)** |
 |:-------:|:----------------:|:------------------|:------------------|
@@ -140,7 +140,7 @@ For large groceries, we assume earlier replacement decisions driven by risk mana
 
 We parameterize shifted-Weibull survival functions such that (i) 50% survival occurs at the EUL (our operational definition of EUL), and (ii) a minimum lifespan threshold of roughly 60% of the EUL avoids unrealistic early whole-system failures. The resulting parameters are listed in Table <a href="#tab:refrigeration_eul_distributions" data-reference-type="ref" data-reference="tab:refrigeration_eul_distributions">4</a>. These distributions produce the combined survival curves shown in Figure <a href="#fig:refrigeration_survival_curves" data-reference-type="ref" data-reference="fig:refrigeration_survival_curves">4</a> and are used to schedule replacements and retirements in ComStock’s stock-turnover logic.
 
-<div id="tab:refrigeration_eul_distributions">
+<div id="tab:refrigeration_eul_distributions" data-source="tables/eul_refrigeration_dist.tex">
 
 | **EUL** | **Shape (beta)** | **Scale (alpha)** | **Shift (gamma)** |
 |:-------:|:----------------:|:------------------|:------------------|
@@ -155,7 +155,7 @@ Commercial Refrigeration Equipment Weibull Distribution Parameters
 
 A space type refers to a portion of a building that has a distinct usage, purpose, occupancy schedule, thermostat set point, etc. Most buildings have multiple space types. For example, schools typically have classrooms, hallways, restrooms, cafeterias, etc. In ComStock, each building type is assumed to have a fixed ratio of various space types relative to the total building floor area. For buildings outside of California, the space type ratios were largely taken from the DOE commercial reference building models (Deru et al. 2011b). For buildings in California, the space type ratios were largely taken from the DEER prototype models (California Public Utilities Commission 2021). There are certain building types that have altered ratios or are a mix of building types. For example in ComStock, warehouses include both unconditioned storage facilities and light manufacturing. Warehouse building subtypes alter the ratio of bulk storage. Retail strip mall buildings have different ratios of restaurant space types, with the default being 20%. Two examples of space type ratios are shown in Table <a href="#tab:space_type_ratios" data-reference-type="ref" data-reference="tab:space_type_ratios">5</a>. See Table <a href="#tab:space_type_ratios_all" data-reference-type="ref" data-reference="tab:space_type_ratios_all">[tab:space_type_ratios_all]</a> for the space type ratios for all building types.
 
-<div id="tab:space_type_ratios">
+<div id="tab:space_type_ratios" data-source="tables/space_type_ratios.tex">
 
 | **Building Type** | **Building Subtype**    | **Space Type**      | **Ratio** |
 |:------------------|:------------------------|:--------------------|:---------:|

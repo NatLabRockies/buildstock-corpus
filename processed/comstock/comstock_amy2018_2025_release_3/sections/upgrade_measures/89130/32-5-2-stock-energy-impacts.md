@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89130.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89130.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89130.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/89130.md | section: 5.2  Stock Energy Impacts | lines: 770-797 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89130.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89130.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89130.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/89130.md | section: 5.2  Stock Energy Impacts | lines: 770-797 -->
 ## 5.2  Stock Energy Impacts
 
 This measure was applicable to 37.5% of the ComStock floor area. This measure demonstrates 2.0% total site energy savings (86 TBtu) for the U.S. commercial building stock modeled in ComStock (Figure 10). The savings are primarily attributed to:

@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/3_sampling.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/3_sampling.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: fadc83e | corpus_path: technical_reference/documentation/reference_doc/3_sampling.md | section: Stock Estimation | lines: 6-272 -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/3_sampling.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/3_sampling.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: 43ae2d4 | corpus_path: technical_reference/documentation/reference_doc/3_sampling.md | section: Stock Estimation | lines: 6-272 -->
 ## Stock Estimation
 
 Any estimate of the energy consumption of the U.S. commercial building stock relies heavily on an estimate of how much floor area of each type of building exists in each part of the country. As shown by CBECS (U.S. Energy Information Administration 2018) and others, energy consumption of commercial buildings predominantly scales with floor area, not with building count. An accurate estimate of building floor area is therefore a critical input into any stock modeling tool focused on energy or energy-related metrics.
@@ -23,7 +23,7 @@ Building type definitions frequently do not match across data sources. This is p
 
 ComStock maps the building type definitions from each data source to a specific building type from the DOE prototype buildings to maximize consistency. While these mappings are imperfect, they represent the best efforts of the ComStock team to capture the unique energy-related characteristics of different building types within the modeling framework created and used by DOE over the last 15 years. Table <a href="#tab:building_types" data-reference-type="ref" data-reference="tab:building_types">1.1</a> shows the mapping from the CoStar building types and HIFLD tables to the DOE prototype buildings, and from the DOE prototype buildings to CBECS’ Principal Building Activity Plus.
 
-<div id="tab:building_types">
+<div id="tab:building_types" data-source="tables/building_type_cross_datasets.tex">
 
 <table>
 <caption>Building Type Mapping Across Data Sources</caption>

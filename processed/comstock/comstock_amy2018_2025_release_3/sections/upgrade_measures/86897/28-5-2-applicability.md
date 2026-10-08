@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86897.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86897.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86897.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/86897.md | section: 5.2  Applicability | lines: 463-477 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86897.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86897.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86897.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/86897.md | section: 5.2  Applicability | lines: 463-477 -->
 ## 5.2  Applicability
 
 Figure 2 shows the DCV measure applicability by building type and total stock weighted floor area. This measure is applicable to 72.7% of the stock floor area. As expected, the measure is not being applied to restaurants or hotels.

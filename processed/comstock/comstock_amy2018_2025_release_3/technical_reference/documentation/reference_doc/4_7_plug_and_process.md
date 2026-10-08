@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_7_plug_and_process.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_7_plug_and_process.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: fadc83e -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_7_plug_and_process.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_7_plug_and_process.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: 43ae2d4 -->
 # Plug and Process Loads
 
 Plug and process loads (PPLs) are all electrical or gas building loads that do not fall under lighting, heating, cooling, ventilation, or water heating. As lighting and HVAC equipment becomes more efficient, PPLs represent an increasing percentage of commercial building energy consumption—up to 50% in high-performance buildings. This section describes how electric equipment, gas equipment, data centers, elevators, and kitchen equipment are modeled in ComStock.
@@ -17,7 +17,7 @@ The EPDs in the ComStock model for each combination of building type, space type
 
 Gas equipment refers to any natural gas-powered interior equipment that is not used for space heating or water heating. Similar to electric equipment, there are many different types of gas equipment, so ComStock does not model each technology individually, but rather uses a gas intensity in BTU per hour per square foot. Gas kitchen equipment makes up the majority of the gas equipment modeled in ComStock. Kitchen equipment will be discussed separately in Section 4.6.5. There are only three non-kitchen space types in our models that contain non-zero gas equipment values, and the values used are shown in Table <a href="#tab:gas_equip" data-reference-type="ref" data-reference="tab:gas_equip">1</a>.
 
-<div id="tab:gas_equip">
+<div id="tab:gas_equip" data-source="tables/gas_equip.tex">
 
 <table>
 <caption>Gas Equipment Power Density (Btu/hr*ft<sup>2</sup>)</caption>
@@ -110,7 +110,7 @@ The final aspect of modeling elevators is accounting for lighting and fans insid
 
 Kitchens are one of the most energy-intensive space types. In ComStock, kitchen space types are modeled in six building types—FullServiceRestaurant, Hospital, LargeHotel, PrimarySchool, QuickServiceRestaurant, and SecondarySchool. In some building types, namely restaurants, the kitchen space type represents a significant proportion of the floor area. In these cases, kitchen loads have a major impact on the total building EUI. In hotels, hospitals, and schools, the kitchen space type only represents a small fraction of the total floor area. Table <a href="#tab:kitchen_floor_area" data-reference-type="ref" data-reference="tab:kitchen_floor_area">2</a> shows the percent of the total floor area represented by the kitchen space type for each building type. Note that some of the strip malls in ComStock contain some fraction of the "QuickServiceRestaurant" building type to account for food service that is often found in strip malls.
 
-<div id="tab:kitchen_floor_area">
+<div id="tab:kitchen_floor_area" data-source="tables/kitchen_floor_area.tex">
 
 | **Building Type**      | **Space Type** | **Percentage of Total Floor Area** |
 |:-----------------------|:---------------|:-----------------------------------|
@@ -131,7 +131,7 @@ ComStock uses published data to create representative probability distributions 
 
 Commercial kitchens can contain electric or gas cooking equipment, or a mix of both. The prevalence of gas and electric fuel types for each equipment type used in ComStock are derived from a DOE study ((Goetzler et al. 2016)). ComStock requires rated input power values and fractions of radiant, latent, and lost heat for gas and electric kitchen equipment. These values are primarily derived from the ASHRAE Fundamentals Handbook ((American Society of Heating and Air-Conditioning Engineers 2017)) after comparisons with other kitchen equipment studies and commercially available products. More details about how these values were determined can be found in the End Use Savings Shapes documentation ((Praprost 2024)).The assumptions used in ComStock for prevalence, rated input power, and fractions radiant, latent, and lost for gas and electric appliances are shown in Table <a href="#tab:kitchen_prev_and_power" data-reference-type="ref" data-reference="tab:kitchen_prev_and_power">3</a>.
 
-<div id="tab:kitchen_prev_and_power">
+<div id="tab:kitchen_prev_and_power" data-source="tables/kitchen_prev_and_power.tex">
 
 <table>
 <caption>Cooking Equipment Fuel Type Prevelance and Rater Power</caption>

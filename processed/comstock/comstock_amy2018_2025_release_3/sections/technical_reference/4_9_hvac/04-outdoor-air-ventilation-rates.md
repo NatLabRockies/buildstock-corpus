@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_9_hvac.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_9_hvac.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: fadc83e | corpus_path: technical_reference/documentation/reference_doc/4_9_hvac.md | section: Outdoor Air Ventilation Rates | lines: 172-225 -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_9_hvac.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_9_hvac.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: 43ae2d4 | corpus_path: technical_reference/documentation/reference_doc/4_9_hvac.md | section: Outdoor Air Ventilation Rates | lines: 172-225 -->
 ## Outdoor Air Ventilation Rates
 
 Commercial buildings require outdoor ventilation air when the building is occupied. The design outdoor air rate for a system is the minimum amount of outdoor air the system must supply while the building is occupied. The amount of outdoor air required for an HVAC system is calculated by the combined needs of the space type(s) served by a system.
@@ -7,7 +7,7 @@ ComStock design outdoor air ventilation rates follow the requirements set forth 
 
 Some ComStock HVAC system types are residential style systems (denoted “residential” in Table <a href="#tab:hvac_system_heating_fuel_categories" data-reference-type="ref" data-reference="tab:hvac_system_heating_fuel_categories">1</a>). These systems do not include ventilation air and are an exception to the aforementioned ASHRAE-62.1 outdoor air methodology. Although commercial buildings all require outdoor ventilation air per code, some commercial buildings in the stock use residential systems without outdoor air. This is reflected in ComStock through the use of these residential system types. ComStock’s HVAC system selection methodology is described further in Section <a href="#sec:HVAC_System_Type" data-reference-type="ref" data-reference="sec:HVAC_System_Type">1.2</a>.
 
-<div id="tab:outdoor_air_table">
+<div id="tab:outdoor_air_table" data-source="tables/design_outdoor_air_rates.tex">
 
 | **Building Type** | **Pre-1980 (cfm/sf)** | **1980-2004 (cfm/sf)** | **90.1-2004 (cfm/sf)** | **90.1-2007 (cfm/sf)** | **90.1-2010 (cfm/sf)** | **90.1-2013 (cfm/sf)** |
 |:---|:---|:---|:---|:---|:---|:---|
@@ -30,7 +30,7 @@ Design Outdoor Air Rates by Building Type and HVAC Code Template for Buildings O
 
 </div>
 
-<div id="tab:outdoor_air_table_deer">
+<div id="tab:outdoor_air_table_deer" data-source="tables/design_outdoor_air_rates_deer.tex">
 
 | **Building Type** | **DEER Pre-1975 (cfm/sf)** | **DEER 1985 (cfm/sf)** | **DEER 1996 (cfm/sf)** | **DEER 2003 (cfm/sf)** | **DEER 2007 (cfm/sf)** | **DEER 2011 (cfm/sf)** | **DEER 2014 (cfm/sf)** | **DEER 2015 (cfm/sf)** | **DEER 2017 (cfm/sf)** |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|

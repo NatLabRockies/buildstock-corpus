@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89131.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89131.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89131.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/89131.md | section: 3.2.1 Sizing | lines: 288-295 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89131.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89131.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89131.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/89131.md | section: 3.2.1 Sizing | lines: 288-295 -->
 ## 3.2.1 Sizing
 
 While the EnergyPlus model of the system uses two separate coils to represent heating and cooling operation, in reality, a water-to-air heat pump has a single refrigerant-to-air coil that performs either heating or cooling, depending on the mode. Because water-to-air heat pump coils often require relatively high minimum entering air temperatures of 50°F-55°F [4], [5], an electric preheat coil to temper outdoor air is modeled in the packaged unit.

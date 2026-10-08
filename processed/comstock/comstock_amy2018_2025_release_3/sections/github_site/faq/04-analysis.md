@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/faq.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/faq.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/faq.html | corpus_version: fadc83e | corpus_path: github_site/docs/faq.md | section: Analysis | lines: 279-297 -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/faq.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/faq.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/faq.html | corpus_version: 43ae2d4 | corpus_path: github_site/docs/faq.md | section: Analysis | lines: 279-297 -->
 ## Analysis
 <ul class="jk_accordion">
   <li class="acc" id="faq-run-models-section"><input id="faq-run-models" type="checkbox" /><label for="faq-run-models">Can I run ComStock or ResStock myself?</label>

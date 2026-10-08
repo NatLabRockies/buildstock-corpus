@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89128.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89128.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89128.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/89128.md | section: 5.2 Stock Energy Impacts | lines: 807-838 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89128.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89128.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89128.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/89128.md | section: 5.2 Stock Energy Impacts | lines: 807-838 -->
 ## 5.2 Stock Energy Impacts
 
 The HP-RTU + ASHP Boiler + DCV + HR + Economizers package demonstrates 19.8% total site energy savings (857 trillion British thermal units [TBtu]) for the U.S. commercial building stock modeled in ComStock (Figure 9). The savings are a result of electrification of gas-furnace and boiler systems, which are then combined with efficiency upgrades like DCV, Heat/Energy Recovery, and Economizers:

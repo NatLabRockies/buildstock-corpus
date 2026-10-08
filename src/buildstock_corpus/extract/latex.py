@@ -20,6 +20,11 @@ from ..normalize import Document, collapse_blank_lines, first_heading
 
 _INCLUDE_RE = re.compile(r"\\include\{([^}]+)\}")
 _INPUT_RE = re.compile(r"\\input\{([^}]+)\}")
+# A table's LaTeX label, and the <div> wrapper pandoc emits for it. The label matches the
+# table's file name in only 46 of 78 cases, so the wrapper is stamped with the file it came
+# from (`data-source="tables/<file>.tex"`) for readers who know the LaTeX layout.
+_TAB_LABEL_RE = re.compile(r"\\label\{(tab:[^}]+)\}")
+_TAB_DIV_RE = re.compile(r'<div id="(tab:[^"]+)"(?![^>]*data-source=)')
 # \includegraphics with its options split across lines can trip pandoc's LaTeX reader —
 # strip as a last-resort fallback so the chapter still converts (captions survive as text).
 _INCLUDEGRAPHICS_RE = re.compile(r"\\includegraphics\s*(?:\[[^\]]*\])?\s*\{[^}]*\}", re.DOTALL)
@@ -96,20 +101,31 @@ def _normalize_longtable(block: str) -> str:
     return "\n".join(out)
 
 
-def _expand_inputs(text: str, proj_dir: Path, _depth: int = 0) -> str:
+def _expand_inputs(
+    text: str, proj_dir: Path, _depth: int = 0, labels: dict[str, str] | None = None
+) -> str:
     """Inline \\input{...} files (recursively) so we can normalize their table content
     before pandoc sees it. Missing files are dropped. Longtable and center normalization runs
-    once at the top level, after all inputs are inlined."""
+    once at the top level, after all inputs are inlined.
+
+    `labels`, if given, collects which inlined file defined each table label
+    (`tab:<label>` -> `tables/<file>.tex`, relative to the project dir), so the markdown's
+    table wrappers can say which LaTeX file they came from (see _stamp_table_sources).
+    """
     if _depth > 10:
         return text
 
     def repl(m: re.Match) -> str:
         rel = m.group(1).strip()
-        fp = proj_dir / (rel if rel.endswith(".tex") else f"{rel}.tex")
+        rel = rel if rel.endswith(".tex") else f"{rel}.tex"
+        fp = proj_dir / rel
         if not fp.is_file():
             return ""
         inner = fp.read_text(encoding="utf-8", errors="replace")
-        return _expand_inputs(inner, proj_dir, _depth + 1)
+        if labels is not None:
+            for lab in _TAB_LABEL_RE.findall(inner):
+                labels.setdefault(lab, Path(rel).as_posix())
+        return _expand_inputs(inner, proj_dir, _depth + 1, labels)
 
     text = _INPUT_RE.sub(repl, text)
     if _depth == 0:
@@ -178,17 +194,32 @@ def _pandoc(text: str, cwd: Path, citeproc: bool):
     )
 
 
+def _stamp_table_sources(md: str, labels: dict[str, str], chapter_file: str) -> str:
+    """Add `data-source="<file>.tex"` to every table wrapper pandoc emitted.
+
+    A table whose label an inlined file defined names that file; a table written in the
+    chapter itself names the chapter. Wrappers that already carry the attribute are left
+    alone, so the stamp is idempotent.
+    """
+    return _TAB_DIV_RE.sub(
+        lambda m: f'{m.group(0)} data-source="{labels.get(m.group(1), chapter_file)}"', md
+    )
+
+
 def _convert(tex_path: Path, cwd: Path) -> tuple[str, str]:
     """Convert one chapter to gfm, degrading gracefully: try the input-expanded source
-    first, then a figure-stripped copy; resolve citations when a bibliography is present."""
-    raw = _expand_inputs(tex_path.read_text(encoding="utf-8", errors="replace"), cwd)
+    first, then a figure-stripped copy; resolve citations when a bibliography is present.
+    Table wrappers in the result name the LaTeX file each table came from."""
+    labels: dict[str, str] = {}
+    raw = _expand_inputs(tex_path.read_text(encoding="utf-8", errors="replace"), cwd, labels=labels)
+    chapter_file = tex_path.relative_to(cwd).as_posix() if tex_path.is_relative_to(cwd) else tex_path.name
     citeproc_opts = [True, False] if (cwd / "bibliography.bib").exists() else [False]
     last = ""
     for text in (raw, _INCLUDEGRAPHICS_RE.sub("", raw)):
         for citeproc in citeproc_opts:
             proc = _pandoc(text, cwd, citeproc)
             if proc.returncode == 0:
-                return proc.stdout, proc.stderr
+                return _stamp_table_sources(proc.stdout, labels, chapter_file), proc.stderr
             last = proc.stderr
     raise RuntimeError(f"pandoc failed on {tex_path.name}: {last[:300]}")
 

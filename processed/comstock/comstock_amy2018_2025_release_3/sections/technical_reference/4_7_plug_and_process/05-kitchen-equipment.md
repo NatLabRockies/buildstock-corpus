@@ -1,9 +1,9 @@
-<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_7_plug_and_process.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_7_plug_and_process.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: fadc83e | corpus_path: technical_reference/documentation/reference_doc/4_7_plug_and_process.md | section: Kitchen Equipment | lines: 109-300 -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_7_plug_and_process.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_7_plug_and_process.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: 43ae2d4 | corpus_path: technical_reference/documentation/reference_doc/4_7_plug_and_process.md | section: Kitchen Equipment | lines: 109-300 -->
 ## Kitchen Equipment
 
 Kitchens are one of the most energy-intensive space types. In ComStock, kitchen space types are modeled in six building types—FullServiceRestaurant, Hospital, LargeHotel, PrimarySchool, QuickServiceRestaurant, and SecondarySchool. In some building types, namely restaurants, the kitchen space type represents a significant proportion of the floor area. In these cases, kitchen loads have a major impact on the total building EUI. In hotels, hospitals, and schools, the kitchen space type only represents a small fraction of the total floor area. Table <a href="#tab:kitchen_floor_area" data-reference-type="ref" data-reference="tab:kitchen_floor_area">2</a> shows the percent of the total floor area represented by the kitchen space type for each building type. Note that some of the strip malls in ComStock contain some fraction of the "QuickServiceRestaurant" building type to account for food service that is often found in strip malls.
 
-<div id="tab:kitchen_floor_area">
+<div id="tab:kitchen_floor_area" data-source="tables/kitchen_floor_area.tex">
 
 | **Building Type**      | **Space Type** | **Percentage of Total Floor Area** |
 |:-----------------------|:---------------|:-----------------------------------|
@@ -24,7 +24,7 @@ ComStock uses published data to create representative probability distributions 
 
 Commercial kitchens can contain electric or gas cooking equipment, or a mix of both. The prevalence of gas and electric fuel types for each equipment type used in ComStock are derived from a DOE study ((Goetzler et al. 2016)). ComStock requires rated input power values and fractions of radiant, latent, and lost heat for gas and electric kitchen equipment. These values are primarily derived from the ASHRAE Fundamentals Handbook ((American Society of Heating and Air-Conditioning Engineers 2017)) after comparisons with other kitchen equipment studies and commercially available products. More details about how these values were determined can be found in the End Use Savings Shapes documentation ((Praprost 2024)).The assumptions used in ComStock for prevalence, rated input power, and fractions radiant, latent, and lost for gas and electric appliances are shown in Table <a href="#tab:kitchen_prev_and_power" data-reference-type="ref" data-reference="tab:kitchen_prev_and_power">3</a>.
 
-<div id="tab:kitchen_prev_and_power">
+<div id="tab:kitchen_prev_and_power" data-source="tables/kitchen_prev_and_power.tex">
 
 <table>
 <caption>Cooking Equipment Fuel Type Prevelance and Rater Power</caption>

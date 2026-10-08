@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89340.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89340.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89340.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/89340.md | section: 4  Output Variables | lines: 300-406 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89340.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89340.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89340.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/89340.md | section: 4  Output Variables | lines: 300-406 -->
 ## 4  Output Variables
 
 Table 2 includes a list of output variables that are calculated in ComStock. These variables are important in terms of understanding the differences between buildings with and without the thermostat control for load shedding measure applied.

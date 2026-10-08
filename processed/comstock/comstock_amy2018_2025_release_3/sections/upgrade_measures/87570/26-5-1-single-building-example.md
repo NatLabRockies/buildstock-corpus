@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/87570.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/87570.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/87570.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/87570.md | section: 5.1  Single Building Example | lines: 400-435 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/87570.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/87570.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/87570.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/87570.md | section: 5.1  Single Building Example | lines: 400-435 -->
 ## 5.1  Single Building Example
 
 In this section, we analyze the operation behavior of an example small office building in Gunnison, Colorado, with the HP-RTU measure applied. The model was simulated with both gas and electric supplemental heat to compare the differences.

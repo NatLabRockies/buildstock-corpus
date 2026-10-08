@@ -1,9 +1,9 @@
-<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/6_AppendixA.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/6_AppendixA.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: fadc83e | corpus_path: technical_reference/documentation/reference_doc/6_AppendixA.md | section: 6_AppendixA | lines: 2-11481 -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/6_AppendixA.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/6_AppendixA.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: 43ae2d4 | corpus_path: technical_reference/documentation/reference_doc/6_AppendixA.md | section: 6_AppendixA | lines: 2-11481 -->
 # 6_AppendixA
 
 <span id="appendix:a" label="appendix:a"></span>
 
-<div id="tab:food_service_occupancy_density">
+<div id="tab:food_service_occupancy_density" data-source="tables/occupancy_density_food_service.tex">
 
 |   **Building Type**    | **DOE Space Type** |     | **DEER Space Type** |      |
 |:----------------------:|:------------------:|:---:|:-------------------:|:----:|
@@ -26,7 +26,7 @@ Food Service (Full Service Restaurant and Quick Service Restaurant) Occupant Den
 
 </div>
 
-<div id="tab:healthcare_occupancy_density">
+<div id="tab:healthcare_occupancy_density" data-source="tables/occupancy_density_healthcare.tex">
 
 <table>
 <caption>Healthcare (Hospital and Outpatient) Occupant Density Values by Space Type</caption>
@@ -480,7 +480,7 @@ Food Service (Full Service Restaurant and Quick Service Restaurant) Occupant Den
 
 </div>
 
-<div id="tab:hotel_occupancy_density">
+<div id="tab:hotel_occupancy_density" data-source="tables/occupancy_density_hotels.tex">
 
 <table>
 <caption>Hotel (Large Hotel and Small Hotel) Occupant Density Values by Space Type</caption>
@@ -768,7 +768,7 @@ Food Service (Full Service Restaurant and Quick Service Restaurant) Occupant Den
 
 </div>
 
-<div id="tab:office_occupancy_density">
+<div id="tab:office_occupancy_density" data-source="tables/occupancy_density_office.tex">
 
 <table>
 <caption>Office (Small Office, Medium Office, and Large Office) Occupant Density Values by Space Type</caption>
@@ -1096,7 +1096,7 @@ Food Service (Full Service Restaurant and Quick Service Restaurant) Occupant Den
 
 </div>
 
-<div id="tab:school_occupancy_density">
+<div id="tab:school_occupancy_density" data-source="tables/occupancy_density_school.tex">
 
 | **Building Type** | **DOE Space Type** |       | **DEER Space Type** |      |
 |:-----------------:|:------------------:|:-----:|:-------------------:|:----:|
@@ -1130,7 +1130,7 @@ School (Primary School and Secondary School) Occupant Density Values by Space Ty
 
 </div>
 
-<div id="tab:retail_occupancy_density">
+<div id="tab:retail_occupancy_density" data-source="tables/occupancy_density_retail.tex">
 
 <table>
 <caption>Retail (Retail and Strip Mall) Occupant Density Values by Space Type</caption>
@@ -1276,7 +1276,7 @@ School (Primary School and Secondary School) Occupant Density Values by Space Ty
 
 </div>
 
-<div id="tab:warehouse_occupancy_density">
+<div id="tab:warehouse_occupancy_density" data-source="tables/occupancy_density_warehouse.tex">
 
 <table>
 <caption>Warehouse Occupant Density Values by Space Type</caption>
@@ -1321,7 +1321,7 @@ School (Primary School and Secondary School) Occupant Density Values by Space Ty
 
 </div>
 
-<div id="tab:occupancy_schedule_source">
+<div id="tab:occupancy_schedule_source" data-source="tables/occupancy_schedule_sources.tex">
 
 | **Building Type** | **DOE Data Source** | **DEER Data Source** |
 |:---|:---|:---|
@@ -1344,7 +1344,7 @@ Occupancy Schedule Data Sources
 
 </div>
 
-<div id="tab:activity_schedule">
+<div id="tab:activity_schedule" data-source="tables/activity_schedules.tex">
 
 | **Schedule Name** | **Outside CA Activity Level (W/person)** | **Inside CA Activity Level (W/person)** |
 |:---|:--:|:--:|
@@ -1590,7 +1590,7 @@ Occupant Activity Schedules by Building Type
 | DEER Grocery | NA | RefFoodPrep | 0.073 |  |
 | DEER Grocery | NA | IndLoadDock | 0.057 |  |
 
-<div id="tab:wall_construction_mapping">
+<div id="tab:wall_construction_mapping" data-source="tables/lightbox_wall_construction_types.tex">
 
 | **Database Type** | **Percent of Entries** | **ComStock Type** | **Note** |
 |:---|:---|:---|:---|
@@ -1617,7 +1617,7 @@ Mapping of Wall Construction Types from Database to ComStock
 
 </div>
 
-<div id="tab:wall_constuction_types">
+<div id="tab:wall_constuction_types" data-source="tables/wall_construction_types.tex">
 
 | **Climate** | **Mass** | **Metal Building** | **Steel Framed** | **Wood Framed** |
 |:---|---:|---:|---:|---:|
@@ -1648,7 +1648,7 @@ Input Distribution of Wall Construction Types by Climate Zone and Number of Stor
 
 </div>
 
-<div id="tab:wall_r_values">
+<div id="tab:wall_r_values" data-source="tables/wall_r_values.tex">
 
 <table>
 <caption>Wall Assembly Thermal Performance (Outside California)</caption>
@@ -2120,7 +2120,7 @@ Input Distribution of Wall Construction Types by Climate Zone and Number of Stor
 
 </div>
 
-<div id="tab:wall_r_values_deer">
+<div id="tab:wall_r_values_deer" data-source="tables/wall_r_values_deer.tex">
 
 <table>
 <caption>Wall Assembly Thermal Performance (Inside California)</caption>
@@ -2703,7 +2703,7 @@ Input Distribution of Wall Construction Types by Climate Zone and Number of Stor
 
 </div>
 
-<div id="tab:wall_r_value_averages">
+<div id="tab:wall_r_value_averages" data-source="tables/wall_r_value_averages.tex">
 
 <table>
 <caption>Summary of Average Wall R-Value by ASHRAE Climate Zone and Wall Type</caption>
@@ -3709,7 +3709,7 @@ Input Distribution of Wall Construction Types by Climate Zone and Number of Stor
 
 </div>
 
-<div id="tab:window_data_sources">
+<div id="tab:window_data_sources" data-source="tables/window_data_sources.tex">
 
 <table>
 <caption>Window Property Data Sources</caption>
@@ -3904,7 +3904,7 @@ Input Distribution of Wall Construction Types by Climate Zone and Number of Stor
 
 </div>
 
-<div id="tab:window_thermal_performance">
+<div id="tab:window_thermal_performance" data-source="tables/window_thermal_performance.tex">
 
 | **Number of Panes** | **Glazing Type** | **Frame Material** | **Low-E Coating** | **Frame ID** | **WINDOW ID** | **U-Factor IP (Btu/h-ft$`^2`$-F)** | **SHGC** | **VLT** |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|
@@ -3925,7 +3925,7 @@ Window Thermal Performance
 
 </div>
 
-<div id="tab:roof_r_values">
+<div id="tab:roof_r_values" data-source="tables/roof_r_values.tex">
 
 <table>
 <caption>Roof Assembly Thermal Performance (Outside California)</caption>
@@ -4305,7 +4305,7 @@ Window Thermal Performance
 
 </div>
 
-<div id="tab:roof_r_values_deer">
+<div id="tab:roof_r_values_deer" data-source="tables/roof_r_values_deer.tex">
 
 <table>
 <caption>Roof Assembly Thermal Performance (Inside California)</caption>
@@ -4885,7 +4885,7 @@ Window Thermal Performance
 
 </div>
 
-<div id="tab:roof_construction_types">
+<div id="tab:roof_construction_types" data-source="tables/roof_construction_types.tex">
 
 <table>
 <caption>Roof Construction Types</caption>
@@ -5010,7 +5010,7 @@ Window Thermal Performance
 
 </div>
 
-<div id="tab:floor_f_factors">
+<div id="tab:floor_f_factors" data-source="tables/floor_f_factors.tex">
 
 <table>
 <caption>Ground Contact Floor Thermal Performance</caption>
@@ -9208,7 +9208,7 @@ Window Thermal Performance
 
 </div>
 
-<div id="tab:ltg_gen_year">
+<div id="tab:ltg_gen_year" data-source="tables/lighting_gen_years.tex">
 
 | **Generation**        | **Start Year** | **End Year** |
 |:----------------------|:---------------|:-------------|
@@ -9225,7 +9225,7 @@ Interior Lighting Generation Start and End Years Used To Generate Gaussian Distr
 
 </div>
 
-<div id="tab:ltg_gen_tsv">
+<div id="tab:ltg_gen_tsv" data-source="tables/lighting_gen_tsv.tex">
 
 | **Energy Code** | **Yea**r | **gen1_t12_incandescent** | **gen2_t8_halogen** | **gen3_t5_cfl** | **gen4_led** | **gen5_led** | **gen6_led** | **gen7_led** | **gen8_led** |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
@@ -9301,7 +9301,7 @@ Interior Lighting Generation Distributions for ComStock 90.1-2013 Code Year
 
 </div>
 
-<div id="tab:parking">
+<div id="tab:parking" data-source="tables/parking.tex">
 
 | **Building Type** | **Building Area Per Spot (ft$`^2`$)** | **Units Per Spot** | **Students Per Spot** | **Beds Per Spot** | **Parking Area Per Spot (ft$`^2`$)** |  |
 |:---|:---|:---|:---|:---|:---|:---|
@@ -9324,7 +9324,7 @@ Parking; Values From (Thornton et al. 2011) Table 4.17
 
 </div>
 
-<div id="tab:exterior_lighting_power">
+<div id="tab:exterior_lighting_power" data-source="tables/exterior_lighting_power.tex">
 
 | **Template** | **Building Facade and Landscape Automatic Shutoff** | **Occupancy Setback Reduction** | **Base Site Allowance Power (W)** | **Base Site Allowance Fraction** | **Parking Areas and Drives (W/ft<sup>2</sup>)** | **Main Entries (W/ft)** | **Other Doors (W/ft)** | **Entry Canopies (W/ft<sup>2</sup>)** | **Building Facades (W/ft<sup>2</sup>)** | **Loading Areas For Emergency Vehicles (W/ft<sup>2</sup>)** | **Drive Through Windows and Doors (W)** |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
@@ -9349,7 +9349,7 @@ Exterior Lighting Power
 
 </div>
 
-<div id="tab:entryways">
+<div id="tab:entryways" data-source="tables/entryways.tex">
 
 | **Building Type** | **Rollup Doors (per 10,000 ft$`^2`$)** | **Entrance Doors (per 10,000 ft$`^2`$)** | **Other Doors (per 10,000 ft$`^2`$)** | **Entrance Canopies** | **Emergency Canopies** | **Canopy Size (ft$`^2`$)** | **Floor Area Per Drive Through Window (ft$`^2`$)** |
 |:---|:---|:---|:---|:---|:---|:---|:---|
@@ -9544,7 +9544,7 @@ Entryways; Values From (Thornton et al. 2011) Table 4.18
 |  | Fine | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
 | Warehouse | Office | 2.6 | 2.6 | 2.6 | 2.6 | 2.6 | 2.6 |
 
-<div id="tab:passenger_elevators">
+<div id="tab:passenger_elevators" data-source="tables/passenger_elevators.tex">
 
 | **Building Type** | **Avg. Area Per Passenger Elevator (ft<sup>2</sup>)** | **Avg. Beds Per Passenger Elevator** | **Avg. Units Per Passenger Elevator** |
 |:---|:---|:---|:---|
@@ -9567,7 +9567,7 @@ Passenger Elevators
 
 </div>
 
-<div id="tab:freight_elevators">
+<div id="tab:freight_elevators" data-source="tables/freight_elevators.tex">
 
 | **Building Type** | **Avg. Area Per Freight Elevator (ft<sup>2</sup>)** | **Avg. Beds Per Freight Elevator** | **Avg. Units Per Freight Elevator** |
 |:---|:---|:---|:---|
@@ -9580,7 +9580,7 @@ Freight Elevators
 
 </div>
 
-<div id="tab:water_heater_eff">
+<div id="tab:water_heater_eff" data-source="tables/water_heater_eff.tex">
 
 <table>
 <caption>Water Heating Efficiency by HVAC Template, Heater Capacity, and Fuel Type</caption>
@@ -9813,7 +9813,7 @@ Freight Elevators
 
 </div>
 
-<div id="tab:swh_flow_rates_p1">
+<div id="tab:swh_flow_rates_p1" data-source="tables/swh_flow_rates_p1.tex">
 
 | **Template** | **Building Type** | **Space Type** | **Service Water Heating Peak Flow per Area (gal/h\*ft$`^2`$)** | **Service Water Heating Schedule** |
 |:---|:---|:---|:---|:---|
@@ -9845,7 +9845,7 @@ Service Water Heating Flow Rate and Schedule Assignments Based on Template, Buil
 
 </div>
 
-<div id="tab:swh_flow_rates_p2">
+<div id="tab:swh_flow_rates_p2" data-source="tables/swh_flow_rates_p2.tex">
 
 | **Template** | **Building Type** | **Space Type** | **Service Water Heating Peak Flow per Area (gal/h\*ft$`^2`$)** | **Service Water Heating Schedule** |
 |:---|:---|:---|:---|:---|
@@ -9880,7 +9880,7 @@ Service Water Heating Flow Rate and Schedule Assignments Based on Template, Buil
 
 </div>
 
-<div id="tab:swh_flow_rates_p3">
+<div id="tab:swh_flow_rates_p3" data-source="tables/swh_flow_rates_p3.tex">
 
 | **Template** | **Building Type** | **Space Type** | **Service Water Heating Peak Flow per Area (gal/h\*ft$`^2`$)** | **Service Water Heating Schedule** |
 |:---|:---|:---|:---|:---|
@@ -9911,7 +9911,7 @@ Service Water Heating Flow Rate and Schedule Assignments Based on Template, Buil
 
 </div>
 
-<div id="tab:unitary_dx_efficiencies">
+<div id="tab:unitary_dx_efficiencies" data-source="tables/unitary_dx_eff.tex">
 
 <table>
 <caption>Unitary DX Cooling Efficiency and Performance Curve Assignment</caption>
@@ -10394,7 +10394,7 @@ Service Water Heating Flow Rate and Schedule Assignments Based on Template, Buil
 
 </div>
 
-<div id="tab:ptac_efficiencies">
+<div id="tab:ptac_efficiencies" data-source="tables/ptac_dx_eff.tex">
 
 <table>
 <caption>PTAC DX Cooling Efficiency and Performance Curve Assignment</caption>
@@ -10509,7 +10509,7 @@ Service Water Heating Flow Rate and Schedule Assignments Based on Template, Buil
 
 </div>
 
-<div id="tab:fan_motor_efficiencies">
+<div id="tab:fan_motor_efficiencies" data-source="tables/motors.tex">
 
 <table>
 <caption>Motor Efficiency for Fans and Pumps</caption>
@@ -10784,7 +10784,7 @@ Service Water Heating Flow Rate and Schedule Assignments Based on Template, Buil
 
 </div>
 
-<div id="tab:unnoc_ahu_scheme_prev">
+<div id="tab:unnoc_ahu_scheme_prev" data-source="tables/unnoc_ahu_scheme_prev.tex">
 
 | **Building Type**            | **Scheme1** | **Scheme2** | **Scheme3** |
 |:-----------------------------|:------------|:------------|:------------|
@@ -10805,7 +10805,7 @@ AHU Unoccupied Operation Mode Percentages by Building Type Informed by BAS Data 
 
 </div>
 
-<div id="tab:dcv_prev">
+<div id="tab:dcv_prev" data-source="tables/dcv_prevalence.tex">
 
 | **Building Type** | **DOE Ref Pre-1980** | **DOE Ref 1980-2004** | **90.1-2004** | **90.1-2007** | **90.1-2010** | **90.1-2013** | **DEER: All Years** |
 |:---|:---|:---|:---|:---|:---|:---|:---|
@@ -10828,7 +10828,7 @@ Fraction of Floor Area Controlled by HVAC System With DCV by Building Type and C
 
 </div>
 
-<div id="tab:boiler_plr_curve_table">
+<div id="tab:boiler_plr_curve_table" data-source="tables/boiler_plr_curve_table.tex">
 
 <table>
 <caption>Boiler Performance Curves</caption>
@@ -10878,7 +10878,7 @@ Fraction of Floor Area Controlled by HVAC System With DCV by Building Type and C
 
 </div>
 
-<div id="tab:ashp_curves">
+<div id="tab:ashp_curves" data-source="tables/ashp_curve_assignments.tex">
 
 <table>
 <caption>Air-Source Heat Pump Performance Curves</caption>
@@ -10953,7 +10953,7 @@ Fraction of Floor Area Controlled by HVAC System With DCV by Building Type and C
 
 </div>
 
-<div id="tab:acc_perf_curves">
+<div id="tab:acc_perf_curves" data-source="tables/air_cooled_chiller_performance_curves_table.tex">
 
 <table>
 <caption>Air-Cooled Chiller Performance Curves</caption>
@@ -11098,7 +11098,7 @@ Fraction of Floor Area Controlled by HVAC System With DCV by Building Type and C
 
 </div>
 
-<div id="tab:wcc_perf_curves">
+<div id="tab:wcc_perf_curves" data-source="tables/wcc_curves.tex">
 
 <table>
 <caption>Water-Cooled Chiller Performance Curves</caption>
@@ -11191,7 +11191,7 @@ Fraction of Floor Area Controlled by HVAC System With DCV by Building Type and C
 
 </div>
 
-<div id="tab:refrigeration_data">
+<div id="tab:refrigeration_data" data-source="tables/refrigeration_data.tex">
 
 | **Walk-in Type** | **Vintage** | **Rated Cooling Capacity (BTU/h)** | **Defrost Power (W)** | **Floor Surface Area (ft^2)** | **Fan Power (W)** | **Lighting Power (W)** |
 |:---|:---|:---|:---|:---|:---|:---|
@@ -11216,7 +11216,7 @@ Walk-In Refrigeration Data
 
 </div>
 
-<div id="tab:refrigeration_compressor_data">
+<div id="tab:refrigeration_compressor_data" data-source="tables/refrigeration_compressor_data.tex">
 
 | **Template** | **Compressor Type** | **Power Curve** | **Capacity Curve** | **Rated capacity (BTU/h)** |
 |:---|:---|:---|:---|:---|
@@ -11341,7 +11341,7 @@ Refrigeration Compressor Data
 | stat.zone_hvac_fan_static_pressure | Fan static pressure for zone HVAC equipment |
 | stat.zone_hvac_fan_total_efficiency | Fan total efficiency for zone HVAC equipment |
 
-<div id="tab:kitchen_cook_counts">
+<div id="tab:kitchen_cook_counts" data-source="tables/kitchen_cook_counts.tex">
 
 | **Restaurant Type** | **ComStock Building Type** | **Fraction of Building Type** | **Griddle** | **Fryer** | **Broiler** | **Oven** | **Range** | **Steamer** |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|
@@ -11408,7 +11408,7 @@ Cooking equipment quantities by food service type and comstock building type
 
 </div>
 
-<div id="tab:undisturbed_ground_temp">
+<div id="tab:undisturbed_ground_temp" data-source="tables/undisturbed_ground_temp.tex">
 
 | 2012 IECC Climate zone | Annual average undisturbed ground temperature (C) |
 |:-----------------------|:--------------------------------------------------|

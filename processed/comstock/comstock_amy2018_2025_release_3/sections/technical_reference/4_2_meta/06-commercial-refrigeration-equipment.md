@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_2_meta.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_2_meta.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: fadc83e | corpus_path: technical_reference/documentation/reference_doc/4_2_meta.md | section: Commercial Refrigeration Equipment | lines: 130-153 -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_2_meta.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_2_meta.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: 43ae2d4 | corpus_path: technical_reference/documentation/reference_doc/4_2_meta.md | section: Commercial Refrigeration Equipment | lines: 130-153 -->
 ## Commercial Refrigeration Equipment
 
 <figure id="fig:refrigeration_survival_curves" data-latex-placement="ht!">
@@ -12,7 +12,7 @@ For large groceries, we assume earlier replacement decisions driven by risk mana
 
 We parameterize shifted-Weibull survival functions such that (i) 50% survival occurs at the EUL (our operational definition of EUL), and (ii) a minimum lifespan threshold of roughly 60% of the EUL avoids unrealistic early whole-system failures. The resulting parameters are listed in Table <a href="#tab:refrigeration_eul_distributions" data-reference-type="ref" data-reference="tab:refrigeration_eul_distributions">4</a>. These distributions produce the combined survival curves shown in Figure <a href="#fig:refrigeration_survival_curves" data-reference-type="ref" data-reference="fig:refrigeration_survival_curves">4</a> and are used to schedule replacements and retirements in ComStock’s stock-turnover logic.
 
-<div id="tab:refrigeration_eul_distributions">
+<div id="tab:refrigeration_eul_distributions" data-source="tables/eul_refrigeration_dist.tex">
 
 | **EUL** | **Shape (beta)** | **Scale (alpha)** | **Shift (gamma)** |
 |:-------:|:----------------:|:------------------|:------------------|

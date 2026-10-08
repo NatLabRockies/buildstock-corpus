@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89042.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/89042.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/89042.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/89042.md | section: 5.1  Single Building Measure Tests | lines: 593-658 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89042.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/89042.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/89042.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/89042.md | section: 5.1  Single Building Measure Tests | lines: 593-658 -->
 ## 5.1  Single Building Measure Tests
 
 In this section, the standard performance implementation described in this document is compared against the original 'advanced performance' HP-RTU measure ('Heat Pump RTUs,' released in March 2023) using a sample model represented with typical meteorological year 3 weather for New York City (ASHRAE climate zone 4A).

@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89481.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89481.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89481.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/89481.md | section: 1  Technology Summary | lines: 227-253 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89481.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89481.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89481.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/89481.md | section: 1  Technology Summary | lines: 227-253 -->
 ## 1  Technology Summary
 
 Many technologies are used to provide space heating in commercial building heating, ventilating, and air conditioning (HVAC) systems. Packaged rooftop units (RTUs) are one of the most prominent HVAC system types in the United States [1]. Heat pumps currently provide space heating for only approximately 11% of commercial buildings (representing 15% of the total floor area) [1].

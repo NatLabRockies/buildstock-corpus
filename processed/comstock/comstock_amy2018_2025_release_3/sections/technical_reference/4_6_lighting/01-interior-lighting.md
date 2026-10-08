@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_6_lighting.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_6_lighting.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: fadc83e | corpus_path: technical_reference/documentation/reference_doc/4_6_lighting.md | section: Interior Lighting | lines: 4-185 -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_6_lighting.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_6_lighting.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: 43ae2d4 | corpus_path: technical_reference/documentation/reference_doc/4_6_lighting.md | section: Interior Lighting | lines: 4-185 -->
 ## Interior Lighting
 
 Interior lighting follows a technology baseline approach, meaning that energy consumed by lighting is set by an assumed distribution of a particular lighting technology (e.g., T8 or linear LEDs), rather than following a lighting power density (LPD) allowance defined in a specific energy code version. The technology baseline approach recognizes that buildings typically do not use their full lighting power allowance. It also explicitly labels lighting technology and subsystems in the energy model for granular energy efficiency measure analysis.
@@ -66,7 +66,7 @@ where:\
 
 The resulting LPDs are shown in Figure <a href="#fig:interior_lighting_lpd" data-reference-type="ref" data-reference="fig:interior_lighting_lpd">1</a>.
 
-<div id="tab:int_light_gens">
+<div id="tab:int_light_gens" data-source="tables/interior_lighting_generations.tex">
 
 | **Lighting Generation** | **General Lighting Technology** | **General Lighting (High Bay) Technology** | **Task Lighting Technology** | **Supplemental Lighting Technology** | **Wall Wash Lighting Technology** |
 |:---|:---|:---|:---|:---|:---|
@@ -89,7 +89,7 @@ Interior Lighting Generations and Technologies
 
 Lighting generations were assigned to each building model during sampling based on the year of, and energy code in force during, the last interior lighting replacement. Probability distributions were generated first by using an approximate start and end year for when each technology generation was being installed in commercial buildings (Table <a href="#tab:ltg_gen_year" data-reference-type="ref" data-reference="tab:ltg_gen_year">[tab:ltg_gen_year]</a>). A Gaussian distribution was generated for each lighting generation using these start and end years, and the resulting distribution for each year of last interior lighting replacement was normalized to create 0-1 probabilities. The probability distributions were duplicated for each energy code in force and were further modified to ensure they were realistic (i.e., generation 1 was not installed in a ComStock 90.1-2013 building). This was done using a cutoff generation for each energy code in force (Table <a href="#tab:ltg_cutoff_gen" data-reference-type="ref" data-reference="tab:ltg_cutoff_gen">2</a>). Each of the lighting generations were also assigned an arbitrary weight to scale the distributions. This was done to represent realistic installation trends. For example, although the installation years of generation 2 (T8s) and generation 3 (T5s) overlapped, generation 2 (T8s) was more popular. T5s were not that much more efficient than T8s compared to the difference between T8s and T12s, and T5s cost more. Furthermore, T5s have different bi-pin geometry compared to T8s and T12s, meaning replacing T8s or T12s with T5s requires changing fixtures in addition to lamp costs. For those reasons, generation 2 (T8s) are a greater portion of the stock than generation 3 (T5s).
 
-<div id="tab:ltg_cutoff_gen">
+<div id="tab:ltg_cutoff_gen" data-source="tables/lighting_cutoff_gen.tex">
 
 | **Energy Code in Force**   | **Cutoff Generation** |
 |:---------------------------|:----------------------|

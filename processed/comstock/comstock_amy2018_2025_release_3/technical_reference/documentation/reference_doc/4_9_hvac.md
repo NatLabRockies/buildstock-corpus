@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_9_hvac.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_9_hvac.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: fadc83e -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_9_hvac.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_9_hvac.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: 43ae2d4 -->
 # Heating, Ventilating, Air Conditioning, and Refrigeration
 
 ## HVAC System Heating Fuel Type
@@ -49,7 +49,7 @@ The county-level prevalences of different heating fuel types are shown in Figure
 
 Each ComStock model is assigned a comprehensive HVAC system type. The full list of ComStock HVAC system types is shown in Table <a href="#tab:hvac_system_heating_fuel_categories" data-reference-type="ref" data-reference="tab:hvac_system_heating_fuel_categories">1</a>. HVAC system types are assigned to ComStock models through sampling informed by representative probability distributions. These probability distributions depend on building type, census division, and heating fuel type. For example, the distributions provide the fraction of gas-heated retail buildings in the West North Central Census Division that use each HVAC system type from Table <a href="#tab:hvac_system_heating_fuel_categories" data-reference-type="ref" data-reference="tab:hvac_system_heating_fuel_categories">1</a>. The probability distributions are derived from CBECS 2012 microdata, which include data on building type, census division, heating fuel type, and HVAC system type.
 
-<div id="tab:hvac_system_heating_fuel_categories">
+<div id="tab:hvac_system_heating_fuel_categories" data-source="tables/hvac_system_heating_fuel_categories.tex">
 
 | **HVAC System Type** | **Heating Fuel Category** |
 |:---|:---|
@@ -177,7 +177,7 @@ ComStock design outdoor air ventilation rates follow the requirements set forth 
 
 Some ComStock HVAC system types are residential style systems (denoted “residential” in Table <a href="#tab:hvac_system_heating_fuel_categories" data-reference-type="ref" data-reference="tab:hvac_system_heating_fuel_categories">1</a>). These systems do not include ventilation air and are an exception to the aforementioned ASHRAE-62.1 outdoor air methodology. Although commercial buildings all require outdoor ventilation air per code, some commercial buildings in the stock use residential systems without outdoor air. This is reflected in ComStock through the use of these residential system types. ComStock’s HVAC system selection methodology is described further in Section <a href="#sec:HVAC_System_Type" data-reference-type="ref" data-reference="sec:HVAC_System_Type">1.2</a>.
 
-<div id="tab:outdoor_air_table">
+<div id="tab:outdoor_air_table" data-source="tables/design_outdoor_air_rates.tex">
 
 | **Building Type** | **Pre-1980 (cfm/sf)** | **1980-2004 (cfm/sf)** | **90.1-2004 (cfm/sf)** | **90.1-2007 (cfm/sf)** | **90.1-2010 (cfm/sf)** | **90.1-2013 (cfm/sf)** |
 |:---|:---|:---|:---|:---|:---|:---|
@@ -200,7 +200,7 @@ Design Outdoor Air Rates by Building Type and HVAC Code Template for Buildings O
 
 </div>
 
-<div id="tab:outdoor_air_table_deer">
+<div id="tab:outdoor_air_table_deer" data-source="tables/design_outdoor_air_rates_deer.tex">
 
 | **Building Type** | **DEER Pre-1975 (cfm/sf)** | **DEER 1985 (cfm/sf)** | **DEER 1996 (cfm/sf)** | **DEER 2003 (cfm/sf)** | **DEER 2007 (cfm/sf)** | **DEER 2011 (cfm/sf)** | **DEER 2014 (cfm/sf)** | **DEER 2015 (cfm/sf)** | **DEER 2017 (cfm/sf)** |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
@@ -237,7 +237,7 @@ For implementation in ComStock, fan power is determined based on the static pres
 
 The addition of energy recovery ventilators (ERVs) in HVAC air loops can add additional static pressure to the air system and therefore result in a higher fan power requirement. ComStock accounts for this additional fan power in the ERV wheel power rather than the fan itself; this allows for improved accuracy during ERV bypass modes (where the airflow bypasses the additional static pressure of the ERV system). See Section <a href="#sec:erv" data-reference-type="ref" data-reference="sec:erv">1.10</a> for more information on ComStock ERV systems.
 
-<div id="tab:fan_power">
+<div id="tab:fan_power" data-source="tables/fan_power.tex">
 
 <table>
 <caption>Fan Pressure Rise and Efficiency</caption>
@@ -334,7 +334,7 @@ Pump power is a function of the pressure head of the hydronic loop and the pump 
 
 All pumps in ComStock are set to use intermittent controls, meaning that they can cycle off when there is no load present in the loop. Constant volume pumps are controlled to ride the pump curve, as specified by ASHRAE-90.1, whereas variable speed pumps can adjust their speed to modulate flow as needed. Variable speed pumps all have a minimum flow ratio of 0% in ComStock. This value is likely too low and underestimates pumping energy, as most pump systems can only reduce flow as low as 30%–50% in order to maintain proper operation of chillers, boilers, etc. The assignment methodology for variable speed pumps is specified in Table <a href="#tab:pumps" data-reference-type="ref" data-reference="tab:pumps">5</a>.
 
-<div id="tab:pumps">
+<div id="tab:pumps" data-source="tables/pumps.tex">
 
 <table>
 <caption>Pump Configuration and Pressure Rise for Hydronic Loops</caption>
@@ -408,7 +408,7 @@ All ComStock building types, excluding hospitals, outpatient, warehouses, and ho
 
 Building automation data from three industry-provided private data sources with over 3,700 buildings were used to derive the distributions of thermostat set points that are used to assign set points to the applicable ComStock models. Table <a href="#tab:bas_thermostat_count_by_btype" data-reference-type="ref" data-reference="tab:bas_thermostat_count_by_btype">6</a> shows the counts of buildings with thermostat data available in the data set by building type. The data set includes the time series heating and cooling set points that were used to determine the occupied heating and cooling set points for each building. In turn, these were used to create probability distributions of thermostat set points by building type when aggregating across the data set. For building types with less than 25 samples in the data set, the distribution for all building types was used, as smaller sample sizes cannot reliably be extrapolated to represent a population. The resulting heating and cooling probability distributions, per applicable building type, are shown in Figure <a href="#fig:htg_therm_setpoints" data-reference-type="ref" data-reference="fig:htg_therm_setpoints">7</a> and Figure <a href="#fig:clg_therm_setpoints" data-reference-type="ref" data-reference="fig:clg_therm_setpoints">8</a>, respectively. Note that some outliers exist in the data set at very low prevalence, such as offices with heating set points of 61°F. These outliers are incorporated into ComStock models at a similar low prevalence to reflect the wide diversity of commercial buildings.
 
-<div id="tab:bas_thermostat_count_by_btype">
+<div id="tab:bas_thermostat_count_by_btype" data-source="tables/thermostat_bas_count.tex">
 
 | **Building Type**       | **Building Count** |
 |:------------------------|:-------------------|
@@ -442,7 +442,7 @@ An unoccupied thermostat setback defines the difference in the temperature set p
 
 The prevalence of thermostat setbacks in ComStock models is determined by building type using CBECS 2012. Each building type has some fraction of buildings with a thermostat setback, and some fraction without. The CBECS survey does not provide details on thermostat set point and setback temperatures, but it does provide survey responses as to whether heating and cooling setbacks are used, and whether these setbacks are manual. The survey responses are summarized by building type in Figure <a href="#fig:cbecs_therm_setback_summary" data-reference-type="ref" data-reference="fig:cbecs_therm_setback_summary">[fig:cbecs_therm_setback_summary]</a>. However, it seems likely that many respondents who claim to implement manual setbacks do not reliably do so; we made a conservative assumption that only 20% of manual setbacks would be counted as reliably practicing thermostat setbacks (manually adjusting the thermostat every night before leaving and every morning upon entering). The fraction of ComStock models that include thermostat setbacks is shown in Table <a href="#tab:thermostat_setback_prev" data-reference-type="ref" data-reference="tab:thermostat_setback_prev">7</a>. Note that the timing of the thermostat setbacks coincides with the assigned hours of operation for a specific model, the methodology for which is described in Section <a href="#sec:hoo" data-reference-type="ref" data-reference="sec:hoo">[sec:hoo]</a>.
 
-<div id="tab:thermostat_setback_prev">
+<div id="tab:thermostat_setback_prev" data-source="tables/thermostat_setback_prev.tex">
 
 | **Building Type**      | **Fraction of Models With Thermostat Setback** |
 |:-----------------------|:-----------------------------------------------|
@@ -496,7 +496,7 @@ The data set suggests that 27% of AHUs use scheme 1 (least efficient), 50% of AH
 
 The following building types are not included in the unnocupied air handling unit operation workflow, and utilize default scheduling only: small hotels, large hotels, outpatient, hospitals, primary schools, and secondary schools. The building types may be integrated into this workflow in the future as more data becomes available.
 
-<div id="tab:unnoc_ahu_data_counts">
+<div id="tab:unnoc_ahu_data_counts" data-source="tables/unnoc_ahu_data_counts.tex">
 
 | **Building Type** | **Site Count** | **AHU Count** |
 |:------------------|:---------------|:--------------|
@@ -515,7 +515,7 @@ Site and AHU Counts of Time Series BAS Data per Building Type
 
 </div>
 
-<div id="tab:unnoc_ahu_schemes">
+<div id="tab:unnoc_ahu_schemes" data-source="tables/unnoc_ahu_schemes.tex">
 
 | **Scheme Name** | **Unoccupied Control Scheme Description** | **Expected Efficiency** | **Occupied Status** | **Fan Status** | **Ventilation Status** |
 |:---|:---|:---|:---|:---|:---|
@@ -539,7 +539,7 @@ Energy recovery ventilators (ERVs) in AHUs reduce energy consumption by pre-cond
 
 ERVs are included in ComStock model HVAC systems only when required by the governing energy code for the specific system. This determination is made using OpenStudio-Standards, where the necessary ComStock model properties are gathered to determine whether an ERV is required for each system. These properties include the climate zone, percent outdoor air, and design supply airflow rate, aligning with ASHRAE-90.1 Table 6.5.6.1 for the respective energy code year followed. A summary of the floor area served by systems with energy recovery is shown in Table <a href="#tab:energy_recovery_prev" data-reference-type="ref" data-reference="tab:energy_recovery_prev">10</a>.
 
-<div id="tab:energy_recovery_prev">
+<div id="tab:energy_recovery_prev" data-source="tables/energy_recovery_prevalence.tex">
 
 | **Building Type** | **Pre-1980** | **1980-2004** | **90.1-2004** | **90.1-2007** | **90.1-2010** | **90.1-2013** | **DEER All Years** |
 |:---|:---|:---|:---|:---|:---|:---|:---|
@@ -570,7 +570,7 @@ Air-side economizers reduce HVAC cooling energy by increasing the amount of outd
 
 As described in Section <a href="#sec:system_turnover_and_eul" data-reference-type="ref" data-reference="sec:system_turnover_and_eul">[sec:system_turnover_and_eul]</a>, we assume that some building systems, including the HVAC system, are replaced over the lifespan of the building. We re-evaluate the requirement for an air-side economizer based on the energy code in force at the time of the latest HVAC system replacement. For buildings outside of CA, energy code requirements were taken from ASHRAE 90.1. For buildings inside CA, the CA energy code requirements were evaluated taken from the CA DEER MASControl3 models (Hirsch 2021), where the economizer limits and applicability were found as shown in Table <a href="#tab:econ_lims_mascontrol3" data-reference-type="ref" data-reference="tab:econ_lims_mascontrol3">11</a> and Table <a href="#tab:econ_applic_mascontrol3" data-reference-type="ref" data-reference="tab:econ_applic_mascontrol3">12</a>.
 
-<div id="tab:econ_lims_mascontrol3">
+<div id="tab:econ_lims_mascontrol3" data-source="tables/econ_lims_mascontrol3.tex">
 
 | **Climate Zone** | **Drybulb Limit (°F)** | **Enthalpy Limit (Btu/lb)** |
 |:-----------------|:-----------------------|:----------------------------|
@@ -595,7 +595,7 @@ Economizer limits from MASControl3
 
 </div>
 
-<div id="tab:econ_applic_mascontrol3">
+<div id="tab:econ_applic_mascontrol3" data-source="tables/econ_applic_mascontrol3.tex">
 
 | **Vintage** | **Packaged DX** | **Chilled Water** | **Water Loop HP** |
 |:------------|:----------------|:------------------|:------------------|
@@ -676,7 +676,7 @@ Furnaces in ComStock are all assumed to be standard, non-condensing types at thi
 
 Furnaces in ComStock do not use any performance curves, so there is no change in efficiency or capacity as a function of temperature or part load ratio, and therefore no cycling losses. Furthermore, no parasitic fuel losses are included in ComStock furnace models.
 
-<div id="tab:furnace_eff_assignments">
+<div id="tab:furnace_eff_assignments" data-source="tables/furnace_eff_table.tex">
 
 <table>
 <caption>Furnace Efficiency by Capacity and Code Year</caption>
@@ -858,7 +858,7 @@ Table <a href="#tab:boiler_eff_table" data-reference-type="ref" data-reference="
 
 ComStock boilers use 180°F hot water loops with flow that leaves the set point modulated, meaning the boiler model internally varies the flow rate so that the temperature leaving the boiler matches a set point. The delta T of the loop is 20°F.
 
-<div id="tab:boiler_eff_table">
+<div id="tab:boiler_eff_table" data-source="tables/boiler_efficiency_table.tex">
 
 <table>
 <caption>Boiler Efficiency and Performance Curve Assignment</caption>
@@ -1120,7 +1120,7 @@ Air-source heat pumps (ASHPs) provide electric heating using a reverse vapor com
 
 ASHP sizing is often based on the design cooling requirements. Because the DX cooling and heating use the same compressor system, the capacities for each are coupled. ASHPs generally have a minimum operating temperature, below which the DX heating is disabled due to lack of capacity and efficiency. To remedy this, backup heating is often included in colder climates, and for any system where the design heating load is higher than the design cooling load. ComStock ASHP sizing follows this methodology: ASHPs are sized to meet the design cooling load, and backup electric heating is added to the system to meet the design heating load when the available DX heating capacity is unavailable or insufficient. The minimum temperature for compressor operation for ComStock heat pump systems is 17°F PTHP and 10°F for PSZ-HP.
 
-<div id="tab:ashp_eff">
+<div id="tab:ashp_eff" data-source="tables/ashp_eff.tex">
 
 <table>
 <caption>Air-Source Heat Pump Efficiency and Performance Curve Assignment</caption>
@@ -1576,7 +1576,7 @@ Air-cooled chillers (ACCs) provide chilled water for building cooling systems an
 
 ACCs are assigned full load and part load efficiencies based on the HVAC code template for the model and the capacity. These assignments are summarized in Table <a href="#tab:acc_efficiencies" data-reference-type="ref" data-reference="tab:acc_efficiencies">16</a>. These values mirror those found in ASHRAE-90.1 (or those used in the DOE reference buildings for the pre-1980 template).
 
-<div id="tab:acc_efficiencies">
+<div id="tab:acc_efficiencies" data-source="tables/air_cooled_chiller_eff_table.tex">
 
 <table>
 <caption>Air-Cooled Chiller Efficiency and Performance Curve Assignment</caption>
@@ -1736,7 +1736,7 @@ Water-cooled chillers (WCCs) provide chilled water for building cooling systems 
 
 WCCs are assigned full load and part load efficiencies based on the HVAC code template for the model and the capacity. These assignments are summarized in Table <a href="#tab:wcc_eff" data-reference-type="ref" data-reference="tab:wcc_eff">17</a>. These values mirror those found in ASHRAE-90.1 (or those used in the DOE reference buildings for the pre-1980 template).
 
-<div id="tab:wcc_eff">
+<div id="tab:wcc_eff" data-source="tables/wcc_eff.tex">
 
 <table>
 <caption>Water-Cooled Chiller Efficiency and Performance Curve Assignment</caption>
@@ -2007,7 +2007,7 @@ Cooling towers are an HVAC component used to reject heat from a condenser water 
 
 The cooling tower assumptions used in ComStock are primarily code-driven and are summarized in Table <a href="#tab:cooling_towers_table" data-reference-type="ref" data-reference="tab:cooling_towers_table">18</a>.
 
-<div id="tab:cooling_towers_table">
+<div id="tab:cooling_towers_table" data-source="tables/cooling_towers_table.tex">
 
 <table>
 <caption>Cooling Tower Efficiency</caption>
@@ -2120,7 +2120,7 @@ These historical shipment distributions were mapped to *old*, *new*, and *advanc
 
 <div class="threeparttable">
 
-<div id="tab:refrigeration_efficiency_levels">
+<div id="tab:refrigeration_efficiency_levels" data-source="4_9_hvac.tex">
 
 | **Equipment Category** | **Old (Legacy / Pre-Standard)** | **New (Standard-Era Baseline)** | **Advanced (High Efficiency / ENERGY STAR)** |
 |:---|:---|:---|:---|

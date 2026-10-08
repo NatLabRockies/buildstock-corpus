@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_5_envelope.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_5_envelope.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: fadc83e -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_5_envelope.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_5_envelope.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: 43ae2d4 -->
 # Envelope
 
 ## Walls
@@ -70,7 +70,7 @@ Modeling every combination of these four properties would result in 36 different
 
 The 12 remaining window configurations are shown in Table <a href="#tab:window_configurations" data-reference-type="ref" data-reference="tab:window_configurations">1</a>.
 
-<div id="tab:window_configurations">
+<div id="tab:window_configurations" data-source="tables/window_configurations.tex">
 
 | **Number of Panes** | **Glazing Type** | **Frame Material** | **Low-E Coating** |
 |:---|:---|:---|:---|
@@ -103,7 +103,7 @@ To generate these sampling distributions, we used the maximum U-values specified
 
 Each combination of climate zone and energy code included 2-12 window configurations that met the criteria. After limiting the distributions to these configurations, we renormalized the percentages from the national distribution to 100%. This kept the percentages from the national distribution while also incorporating intelligent assumptions based on climate zone and energy code. Table  <a href="#tab:window_distribution_4A" data-reference-type="ref" data-reference="tab:window_distribution_4A">2</a> provides an example of the window configurations that were sampled for each code year in climate zone 4A.
 
-<div id="tab:window_distribution_4A">
+<div id="tab:window_distribution_4A" data-source="tables/window_distribution_4A.tex">
 
 <table>
 <caption>Window Distribution Assumptions Example from Climate Zone 4A</caption>

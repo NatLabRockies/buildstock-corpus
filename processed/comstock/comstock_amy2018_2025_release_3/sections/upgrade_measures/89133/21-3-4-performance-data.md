@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89133.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89133.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89133.pdf | corpus_version: fadc83e | corpus_path: upgrade_measures/measure_pdfs/89133.md | section: 3.4 Performance Data | lines: 248-259 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89133.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89133.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89133.pdf | corpus_version: 43ae2d4 | corpus_path: upgrade_measures/measure_pdfs/89133.md | section: 3.4 Performance Data | lines: 248-259 -->
 ## 3.4 Performance Data
 
 Real performance data were used to model each of the three GHP configurations. Table 2 summarizes the properties of the performance data used for each measure, but more details can be found in the individual measure documentation.

@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_9_hvac.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_9_hvac.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: fadc83e | corpus_path: technical_reference/documentation/reference_doc/4_9_hvac.md | section: Pump Systems | lines: 325-396 -->
+<!-- comstock comstock_amy2018_2025_release_3 | technical_reference | documentation/reference_doc/4_9_hvac.tex | status: site_page | source_url: https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_9_hvac.tex | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf | corpus_version: 43ae2d4 | corpus_path: technical_reference/documentation/reference_doc/4_9_hvac.md | section: Pump Systems | lines: 325-396 -->
 ## Pump Systems
 
 Pumps are used to induce flow in building hydronic loops. This includes heating water loops, cooling water loops, condenser water loops, and ground-source heat pump water loops.
@@ -11,7 +11,7 @@ Pump power is a function of the pressure head of the hydronic loop and the pump 
 
 All pumps in ComStock are set to use intermittent controls, meaning that they can cycle off when there is no load present in the loop. Constant volume pumps are controlled to ride the pump curve, as specified by ASHRAE-90.1, whereas variable speed pumps can adjust their speed to modulate flow as needed. Variable speed pumps all have a minimum flow ratio of 0% in ComStock. This value is likely too low and underestimates pumping energy, as most pump systems can only reduce flow as low as 30%–50% in order to maintain proper operation of chillers, boilers, etc. The assignment methodology for variable speed pumps is specified in Table <a href="#tab:pumps" data-reference-type="ref" data-reference="tab:pumps">5</a>.
 
-<div id="tab:pumps">
+<div id="tab:pumps" data-source="tables/pumps.tex">
 
 <table>
 <caption>Pump Configuration and Pressure Rise for Hydronic Loops</caption>
