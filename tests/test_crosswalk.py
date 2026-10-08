@@ -20,7 +20,7 @@ INDEX_MD = """\
 | Measure ID | Documentation | Initial Release |
 |---|---|---|
 | ltg_0003 | [LED Lighting]({{site.baseurl}}{% link docs/upgrade_measures/ltg_led.md %}) | 2024-1 |
-| hvac_0001 | [Heat Pump](https://docs.nlr.gov/measures/hvac_0001.pdf) | 2025-1 |
+| hvac_0001 | [Heat Pump](https://docs.nlr.gov/docs/fy25osti/95002.pdf) | 2025-1 |
 | env_0002 | [Roof Insulation][8] | 2025-2 |
 | dr_0005 / dr_0006 | Coming Soon** | 2025-3 |
 
@@ -45,7 +45,7 @@ def test_parse_index_all_link_forms():
     assert by_id["ltg_0003"].initial_release == "2024-1"
 
     assert by_id["hvac_0001"].kind == "external_pdf"
-    assert by_id["hvac_0001"].target == "https://docs.nlr.gov/measures/hvac_0001.pdf"
+    assert by_id["hvac_0001"].target == "https://docs.nlr.gov/docs/fy25osti/95002.pdf"
 
     # reference-style relative link resolved against the index dir (.. collapsed)
     assert by_id["env_0002"].kind == "local_pdf"
@@ -91,6 +91,14 @@ def test_build_crosswalk_join_counts_and_gaps(tmp_path):
     # index-only measure with no CSV row is still tracked
     assert by_id["ltg_0003"]["doc_kind"] == "internal_md"
 
+    # publication status: OSTI by URL, site-served page or PDF alike, gaps are missing
+    assert by_id["hvac_0001"]["status"] == "osti_pdf"
+    assert by_id["ltg_0003"]["status"] == "site_page"
+    assert by_id["env_0002"]["status"] == "site_page"
+    assert by_id["dr_0005"]["status"] == "missing"  # listed, no link
+    assert by_id["dr_0006"]["status"] == "missing"  # index-only, no link
+    assert by_id["xyz_0009"]["status"] == "missing"  # CSV-only, never in the index
+
     gap_ids = {g["measure_id"] for g in cw["gaps"]}
     assert gap_ids == {"dr_0005", "dr_0006", "xyz_0009"}
     # a CSV measure absent from the index is a distinct gap reason
@@ -104,7 +112,7 @@ def test_measures_carry_their_documents_date_and_its_source(tmp_path):
     csv_path.write_text(CSV, encoding="utf-8")
     refs = parse_index(INDEX_MD, INDEX_PATH)
     dates = {
-        "https://docs.nlr.gov/measures/hvac_0001.pdf": DocDate("2025-09-09", "pdf_moddate"),
+        "https://docs.nlr.gov/docs/fy25osti/95002.pdf": DocDate("2025-09-09", "pdf_moddate"),
         "assets/files/env_roof.pdf": DocDate("2026-01-21", "pdf_moddate"),
         "docs/upgrade_measures/ltg_led.md": DocDate("2026-03-09", "git_commit"),
     }
@@ -166,3 +174,35 @@ def test_release_id_without_a_year_and_number_matches_no_column():
     """No silent wrong column: an id that encodes neither yields nothing to join on."""
     fields = list(CSV.split("\n")[0].split(","))
     assert _release_columns(fields, "comstock_amy2018_latest") == (None, None)
+
+
+def test_rows_locate_their_document_in_the_corpus(tmp_path):
+    """corpus_path and doc_url let a consumer with the crosswalk alone open the file or send
+    a reader to the publication; any URL spelling the index uses resolves to the one doc."""
+    csv_path = tmp_path / "crosswalk.csv"
+    csv_path.write_text(CSV, encoding="utf-8")
+    refs = parse_index(INDEX_MD, INDEX_PATH)
+    osti = {"corpus_path": "upgrade_measures/measure_pdfs/95002.md",
+            "doc_url": "https://docs.nlr.gov/docs/fy25osti/95002.pdf"}
+    docs = {
+        "https://docs.nlr.gov/docs/fy25osti/95002.pdf": osti,
+        "https://www.nlr.gov/docs/fy25osti/95002.pdf": osti,  # alias spelling, same doc
+        "assets/files/env_roof.pdf": {
+            "corpus_path": "upgrade_measures/unpublished_docs/upgrade_measures/env_roof.md",
+            "doc_url": "https://natlabrockies.github.io/ComStock.github.io/assets/files/env_roof.pdf"},
+        "docs/upgrade_measures/ltg_led.md": {
+            "corpus_path": "upgrade_measures/unpublished_docs/upgrade_measures/ltg_led.md",
+            "doc_url": "https://natlabrockies.github.io/ComStock.github.io/docs/upgrade_measures/ltg_led.html"},
+    }
+
+    cw = build_crosswalk(csv_path, refs, RELEASE, docs=docs)
+    by_id = {m["measure_id"]: m for m in cw["measures"]}
+
+    assert by_id["hvac_0001"]["corpus_path"] == "upgrade_measures/measure_pdfs/95002.md"
+    assert by_id["hvac_0001"]["doc_url"] == "https://docs.nlr.gov/docs/fy25osti/95002.pdf"
+    assert by_id["env_0002"]["corpus_path"].endswith("/env_roof.md")
+    assert by_id["ltg_0003"]["doc_url"].endswith("/ltg_led.html")  # index-only row located too
+    for gap in ("dr_0005", "dr_0006", "xyz_0009"):
+        assert by_id[gap]["corpus_path"] is None and by_id[gap]["doc_url"] is None
+    assert all("corpus_path" in m and "doc_url" in m for m in cw["measures"])
+    assert "doc_target" in cw["deprecated"]  # kept this release, flagged

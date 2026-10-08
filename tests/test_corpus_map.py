@@ -23,6 +23,7 @@ def _write_manifest(artifacts: list[dict], **extra) -> dict:
     manifest = {
         "product": "comstock",
         "release": RELEASE,
+        "corpus_version": "test-v1",
         "generated_utc": "2026-01-01T00:00:00+00:00",
         "counts": {"documents": len(artifacts), "chunks": 0, "by_type": {}},
         "crosswalk": {"file": "crosswalk.json", "counts": None},
@@ -41,6 +42,8 @@ def _artifact(source_path: str, title: str, output_path: str, **extra) -> dict:
     return {
         "source_path": source_path,
         "source_type": "latex",
+        "status": "site_page",
+        "publication_url": f"https://natlabrockies.github.io/ComStock.github.io/{source_path.rsplit('.', 1)[0]}.html",
         "title": title,
         "input_sha256": "a" * 64,
         "output_path": output_path,
@@ -100,6 +103,19 @@ def test_map_lists_every_document(workspace):
     assert "2025-09-04" in text
 
 
+def test_map_names_the_corpus_version(workspace):
+    """The map is the first thing an agent reads, so it has to say which build it describes."""
+    _write_manifest(
+        [_artifact("doc/a.tex", "Envelope", "technical_reference/doc/a.md")],
+        corpus_version=f"{RELEASE}-v1",
+    )
+    _write_chunk_rows([_meta("doc/a.tex", "Envelope", "Envelope > Windows")])
+
+    M.build_map("comstock", RELEASE)
+
+    assert f"- `corpus_version`: `{RELEASE}-v1`" in _map_text()
+
+
 def test_sections_skip_the_documents_own_title(workspace):
     """A LaTeX chapter's breadcrumbs all start with its title; repeating it says nothing."""
     _write_manifest([_artifact("doc/a.tex", "Envelope", "technical_reference/doc/a.md")])
@@ -155,7 +171,7 @@ def test_pipe_in_a_title_does_not_break_the_table(workspace):
     row = next(ln for ln in _map_text().splitlines() if "doc/a.md" in ln)
     assert "Cooling \\| Heating" in row
     # Count delimiters only: the escaped pipe inside the cell must not be one of them.
-    assert row.replace("\\|", "").count("|") == 6, f"escaping changed the column count: {row}"
+    assert row.replace("\\|", "").count("|") == 7, f"escaping changed the column count: {row}"
 
 
 def test_sample_build_is_marked_as_partial(workspace):
@@ -193,8 +209,9 @@ def _write_crosswalk(measures: list[dict], gaps: list[dict] | None = None) -> No
     (proot / "crosswalk.json").write_text(json.dumps(cw, indent=2), encoding="utf-8", newline="\n")
 
 
-def test_external_pdf_measure_joins_on_filename(workspace):
-    """A crosswalk target is a URL; the artifact records where fetch put the file."""
+def test_measure_row_links_the_crosswalks_own_corpus_path(workspace):
+    """The map takes the document from the crosswalk row rather than joining filenames
+    itself, so it cannot disagree with the crosswalk about which file documents a measure."""
     _write_manifest(
         [_artifact("measure_pdfs/89340.pdf", "Load Shed", "upgrade_measures/measure_pdfs/89340.md")]
     )
@@ -206,6 +223,8 @@ def test_external_pdf_measure_joins_on_filename(workspace):
                 "documentation_name": "Thermostat Control for Load Shed",
                 "doc_kind": "external_pdf",
                 "doc_target": "https://www.nlr.gov/docs/fy24osti/89340.pdf",
+                "corpus_path": "upgrade_measures/measure_pdfs/89340.md",
+                "doc_url": "https://www.nlr.gov/docs/fy24osti/89340.pdf",
                 "upgrade_id": "32",
                 "upgrade_name": "Demand Flexibility",
             }
@@ -214,27 +233,25 @@ def test_external_pdf_measure_joins_on_filename(workspace):
 
     M.build_map("comstock", RELEASE)
 
-    row = next(ln for ln in _map_text().splitlines() if "dr_0001" in ln or "| 32 |" in ln)
+    row = next(ln for ln in _map_text().splitlines() if "| 32 |" in ln)
     assert "upgrade_measures/measure_pdfs/89340.md" in row
     assert "not in corpus" not in row
 
 
-def test_ambiguous_filename_is_not_linked(workspace):
-    """Two upstream files sharing a name must not route a reader to an arbitrary one."""
-    _write_manifest(
-        [
-            _artifact("a/report.pdf", "One", "upgrade_measures/a/report.md"),
-            _artifact("b/report.pdf", "Two", "upgrade_measures/b/report.md"),
-        ]
-    )
-    _write_chunk_rows([_meta("a/report.pdf", "One", "One > S")])
+def test_documented_measure_absent_from_the_corpus_links_upstream_instead(workspace):
+    """Documented upstream but not extracted here: say so and link the publication, rather
+    than linking a local file that does not exist."""
+    _write_manifest([_artifact("doc/a.tex", "Envelope", "technical_reference/doc/a.md")])
+    _write_chunk_rows([_meta("doc/a.tex", "Envelope", "Envelope > S")])
     _write_crosswalk(
         [
             {
                 "measure_id": "dr_0002",
-                "documentation_name": "Ambiguous",
+                "documentation_name": "Elsewhere",
                 "doc_kind": "external_pdf",
-                "doc_target": "https://example.gov/docs/report.pdf",
+                "doc_target": "https://www.example.gov/docs/report.pdf",
+                "corpus_path": None,
+                "doc_url": "https://docs.example.gov/docs/report.pdf",  # canonical spelling
                 "upgrade_id": "40",
                 "upgrade_name": "Whatever",
             }
@@ -243,9 +260,26 @@ def test_ambiguous_filename_is_not_linked(workspace):
 
     M.build_map("comstock", RELEASE)
 
-    row = next(ln for ln in _map_text().splitlines() if "Ambiguous" in ln)
+    row = next(ln for ln in _map_text().splitlines() if "Elsewhere" in ln)
     assert "not in corpus" in row
-    assert "upgrade_measures/a/report.md" not in row
+    assert "https://docs.example.gov/docs/report.pdf" in row  # doc_url, not the raw target
+
+
+def test_registry_excluded_pdfs_are_listed_as_a_known_gap(workspace):
+    _write_manifest(
+        [_artifact("doc/a.tex", "Envelope", "technical_reference/doc/a.md")],
+        gaps={"measures": [], "unreachable_pdfs": [], "excluded_unpublished": {},
+              "excluded_by_registry": [{"source_id": "upgrade_measures", "path": "measure_pdfs/85853.pdf",
+                                        "url": "https://www.nlr.gov/docs/fy23osti/85853.pdf",
+                                        "reason": "excluded by source registry"}]},
+    )
+    _write_chunk_rows([_meta("doc/a.tex", "Envelope", "Envelope > S")])
+
+    M.build_map("comstock", RELEASE)
+
+    text = _map_text()
+    assert "1 upstream PDF(s) excluded by the source registry" in text
+    assert "[85853.pdf](https://www.nlr.gov/docs/fy23osti/85853.pdf)" in text
 
 
 def test_undocumented_measure_is_shown_as_a_gap(workspace):
@@ -335,3 +369,45 @@ def test_recorded_stamp_round_trips(workspace):
     result = M.build_map("comstock", RELEASE)
 
     assert M.recorded_manifest_sha256("comstock", RELEASE) == result["manifest_sha256"]
+
+
+# --- the Published column ----------------------------------------------------------------------
+
+
+def test_document_rows_link_their_publication_under_a_short_label(workspace):
+    """A full URL per row would double the table's width; the status word carries the kind
+    of publication and the URL sits behind it."""
+    _write_manifest([_artifact("doc/a.tex", "Envelope", "technical_reference/doc/a.md")])
+    _write_chunk_rows([_meta("doc/a.tex", "Envelope", "Envelope > Windows")])
+
+    M.build_map("comstock", RELEASE)
+
+    text = _map_text()
+    assert "| Published |" in text
+    row = next(ln for ln in text.splitlines() if "technical_reference/doc/a.md" in ln)
+    assert row.rstrip().endswith("| [site_page](https://natlabrockies.github.io/ComStock.github.io/doc/a.html) |")
+
+
+def test_measure_rows_link_doc_url_and_gaps_show_a_dash(workspace):
+    _write_manifest([_artifact("measure_pdfs/89340.pdf", "Load Shed", "upgrade_measures/measure_pdfs/89340.md")])
+    _write_chunk_rows([_meta("measure_pdfs/89340.pdf", "Load Shed", "Load Shed > S")])
+    _write_crosswalk(
+        [
+            {"measure_id": "dr_0001", "documentation_name": "Load Shed", "doc_kind": "external_pdf",
+             "corpus_path": "upgrade_measures/measure_pdfs/89340.md",
+             "doc_url": "https://www.nlr.gov/docs/fy24osti/89340.pdf", "status": "osti_pdf",
+             "upgrade_id": "32", "upgrade_name": "Demand Flexibility"},
+            {"measure_id": "dr_0004", "documentation_name": "Undocumented", "doc_kind": "none",
+             "corpus_path": None, "doc_url": None, "status": "missing",
+             "upgrade_id": "35", "upgrade_name": "Lighting Control"},
+        ],
+        gaps=[{"measure_id": "dr_0004"}],
+    )
+
+    M.build_map("comstock", RELEASE)
+
+    lines = _map_text().splitlines()
+    documented = next(ln for ln in lines if "| 32 |" in ln)
+    assert documented.rstrip().endswith("| [osti_pdf](https://www.nlr.gov/docs/fy24osti/89340.pdf) |")
+    gap = next(ln for ln in lines if "| 35 |" in ln)
+    assert gap.rstrip().endswith("| — |")

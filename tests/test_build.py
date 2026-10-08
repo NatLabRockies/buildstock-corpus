@@ -7,13 +7,130 @@ from __future__ import annotations
 import os
 import subprocess
 
+import pytest
+
+import buildstock_corpus.build as B
 import buildstock_corpus.extract.latex as L
-from buildstock_corpus.build import _cap, _date_docs, _measure_extra
+from buildstock_corpus.build import (
+    _assign_status,
+    _cap,
+    _date_docs,
+    _measure_extra,
+    _write_processed,
+)
 from buildstock_corpus.extract.doc_dates import DocDate, git_doc_date
 from buildstock_corpus.extract.measures_index import MeasureRef
 from buildstock_corpus.normalize import Document
+from buildstock_corpus.provenance import parse_header
+from buildstock_corpus.registry import Source
 
 RELEASE = "comstock_amy2018_2025_release_3"
+
+
+def _doc(source_id: str, source_type: str, source_path: str) -> Document:
+    return Document(
+        product="comstock", release=RELEASE, source_id=source_id, source_type=source_type,
+        source_path=source_path, title=source_path, body="# t\n\nbody\n",
+    )
+
+
+def test_declared_source_status_is_stamped_on_every_document():
+    src = Source(id="github_site", type="markdown", repo="r", git_ref="x",
+                 doc_glob="docs/**/*.md", status="site_page")
+    docs = [_doc("github_site", "markdown", "docs/a.md"), _doc("github_site", "markdown", "docs/b.md")]
+
+    _assign_status(docs, src, {})
+
+    assert [d.status for d in docs] == ["site_page", "site_page"]
+
+
+MEASURES_SRC = Source(
+    id="upgrade_measures", type="measures", repo="r", git_ref="x",
+    index_page="docs/upgrade_measures/upgrade_measures.md",
+    internal_dir="docs/upgrade_measures", crosswalk_csv="assets/files/c.csv",
+)
+MEASURES_STATE = {
+    "internal_pages": [{"path": "docs/upgrade_measures/env_window_film.md", "sha256": "a"}],
+    "local_pdfs": [{"path": "assets/files/ComStock Measure Doc_PV.pdf", "sha256": "b"}],
+    "external_pdfs": [
+        {"url": "https://docs.nlr.gov/docs/fy25osti/95002.pdf", "path": "measure_pdfs/95002.pdf",
+         "sha256": "c", "status": "ok"},
+    ],
+}
+
+
+def test_measure_documents_are_classified_by_how_the_site_links_them():
+    """A page and a PDF the site serves itself are one class; an OSTI report is another."""
+    docs = [
+        _doc("upgrade_measures", "measures", "docs/upgrade_measures/env_window_film.md"),
+        _doc("upgrade_measures", "pdf", "assets/files/ComStock Measure Doc_PV.pdf"),
+        _doc("upgrade_measures", "pdf", "measure_pdfs/95002.pdf"),
+    ]
+
+    _assign_status(docs, MEASURES_SRC, MEASURES_STATE)
+
+    assert [d.status for d in docs] == ["site_page", "site_page", "osti_pdf"]
+
+
+def test_measure_document_outside_the_fetch_state_is_an_error():
+    docs = [_doc("upgrade_measures", "pdf", "measure_pdfs/00000.pdf")]
+    with pytest.raises(ValueError, match="no publication status for measure_pdfs/00000.pdf"):
+        _assign_status(docs, MEASURES_SRC, MEASURES_STATE)
+
+
+def test_written_file_opens_with_the_full_provenance_header(tmp_path, monkeypatch):
+    """Line 1 is all a consumer who fetched one file has; it must carry everything a
+    citation needs, taken from the same Document fields the manifest row is built from."""
+    monkeypatch.setattr(B, "processed_root", lambda p, r: tmp_path)
+    doc = Document(
+        product="comstock",
+        release=RELEASE,
+        source_id="technical_reference",
+        source_type="latex",
+        source_path="documentation/reference_doc/4_9_hvac.tex",
+        title="HVAC Systems",
+        body="# HVAC Systems\n\nbody\n",
+        status="site_page",
+        source_url="https://github.com/NatLabRockies/ComStock/blob/b77c60d/documentation/reference_doc/4_9_hvac.tex",
+        publication_url="https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf",
+    )
+
+    _write_processed("comstock", RELEASE, [doc], {}, f"{RELEASE}-v1")
+
+    out = tmp_path / "technical_reference/documentation/reference_doc/4_9_hvac.md"
+    first, second, *_ = out.read_text(encoding="utf-8").splitlines()
+    assert parse_header(first) == {
+        "product": "comstock",
+        "release": RELEASE,
+        "source_id": "technical_reference",
+        "source_path": "documentation/reference_doc/4_9_hvac.tex",
+        "status": "site_page",
+        "source_url": doc.source_url,
+        "publication_url": doc.publication_url,
+        "corpus_version": f"{RELEASE}-v1",
+    }
+    assert second == "# HVAC Systems"
+    assert b"\r\n" not in out.read_bytes()
+
+
+def test_assign_provenance_resolves_status_and_both_links_once():
+    """One resolution feeds both the header and the manifest row."""
+    clones = [{"repo": "https://github.com/NatLabRockies/ComStock.github.io.git", "sha": "bacf551",
+               "dest": "repos/ComStock.github.io@2025_3"}]
+    state = {**MEASURES_STATE, "clone": "ComStock.github.io@2025_3"}
+    src = Source(id="upgrade_measures", type="measures", repo=clones[0]["repo"], git_ref="2025_3",
+                 index_page="i.md", internal_dir="d", crosswalk_csv="c.csv",
+                 site_url="https://natlabrockies.github.io/ComStock.github.io")
+    page = _doc("upgrade_measures", "measures", "docs/upgrade_measures/env_window_film.md")
+    osti = _doc("upgrade_measures", "pdf", "measure_pdfs/95002.pdf")
+
+    B._assign_provenance([page, osti], src, state, clones)
+
+    assert page.status == "site_page"
+    assert page.source_url == "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551/docs/upgrade_measures/env_window_film.md"
+    assert page.publication_url == "https://natlabrockies.github.io/ComStock.github.io/docs/upgrade_measures/env_window_film.html"
+    assert osti.status == "osti_pdf"
+    assert osti.source_url == osti.publication_url == "https://docs.nlr.gov/docs/fy25osti/95002.pdf"
 
 
 def test_cap_none_keeps_everything():
@@ -152,8 +269,8 @@ def _ref(measure_id, target, kind="external_pdf"):
 
 
 def test_measure_extra_carries_the_documents_date(tmp_path):
-    ref = _ref("env_roof", "https://docs.example.gov/roof.pdf")
-    dates = {"https://docs.example.gov/roof.pdf": DocDate("2025-09-09", "pdf_moddate")}
+    ref = _ref("env_roof", "https://docs.nlr.gov/docs/fy25osti/95002.pdf")
+    dates = {"https://docs.nlr.gov/docs/fy25osti/95002.pdf": DocDate("2025-09-09", "pdf_moddate")}
 
     extra = _measure_extra([ref], dates)
 
@@ -163,7 +280,7 @@ def test_measure_extra_carries_the_documents_date(tmp_path):
 
 def test_measure_extra_omits_date_keys_when_undated(tmp_path):
     """No date is a missing key, not None: Chroma cannot hold None and chunks drop it."""
-    ref = _ref("env_roof", "https://docs.example.gov/roof.pdf")
+    ref = _ref("env_roof", "https://docs.nlr.gov/docs/fy25osti/95002.pdf")
 
     extra_no_dates = _measure_extra([ref], None)
     extra_unknown_target = _measure_extra([ref], {"other": DocDate("2025-01-01", "git_commit")})
@@ -178,8 +295,8 @@ def test_measure_extra_and_crosswalk_agree_on_the_same_measure(tmp_path):
     """The invariant the hoist protects: one date resolution feeds both, so they cannot drift."""
     from buildstock_corpus.extract.crosswalk import build_crosswalk
 
-    ref = _ref("env_roof", "https://docs.example.gov/roof.pdf")
-    dates = {"https://docs.example.gov/roof.pdf": DocDate("2025-09-09", "pdf_moddate")}
+    ref = _ref("env_roof", "https://docs.nlr.gov/docs/fy25osti/95002.pdf")
+    dates = {"https://docs.nlr.gov/docs/fy25osti/95002.pdf": DocDate("2025-09-09", "pdf_moddate")}
 
     csv_path = tmp_path / "cw.csv"
     csv_path.write_text(
@@ -194,3 +311,47 @@ def test_measure_extra_and_crosswalk_agree_on_the_same_measure(tmp_path):
 
     assert extra["date_last_updated"] == cw_measure["date_last_updated"] == "2025-09-09"
     assert extra["date_last_updated_source"] == cw_measure["date_last_updated_source"]
+
+
+def test_registry_excluded_pdfs_are_skipped_and_recorded(tmp_path):
+    """A fetched PDF the registry excludes yields no spec, and the skip is recorded so the
+    manifest can say it was left out on purpose."""
+    state = {
+        "external_pdfs": [
+            {"url": "https://www.nlr.gov/docs/fy23osti/85853.pdf", "path": "measure_pdfs/85853.pdf", "sha256": "a", "status": "ok"},
+            {"url": "https://docs.nlr.gov/docs/fy25osti/95002.pdf", "path": "measure_pdfs/95002.pdf", "sha256": "b", "status": "ok"},
+        ],
+        "local_pdfs": [],
+    }
+    specs, skipped = B._pdf_specs(
+        "comstock", RELEASE, tmp_path, state, [],
+        exclude_urls=frozenset({"https://www.nlr.gov/docs/fy23osti/85853.pdf"}),
+    )
+    assert [s.source_path for s in specs] == ["measure_pdfs/95002.pdf"]
+    assert skipped == [{"path": "measure_pdfs/85853.pdf", "url": "https://www.nlr.gov/docs/fy23osti/85853.pdf",
+                        "reason": "excluded by source registry"}]
+
+
+def test_measure_doc_index_keys_every_url_spelling_to_one_document():
+    src = Source(id="upgrade_measures", type="measures", repo="r", git_ref="x",
+                 index_page="i.md", internal_dir="d", crosswalk_csv="c.csv",
+                 output_remap={"docs/upgrade_measures": "unpublished_docs/upgrade_measures"})
+    state = {"external_pdfs": [
+        {"url": "https://www.nlr.gov/docs/fy26osti/92504.pdf", "path": "measure_pdfs/92504.pdf", "sha256": "x"},
+        {"url": "https://docs.nlr.gov/docs/fy26osti/92504.pdf", "path": "measure_pdfs/92504.pdf", "sha256": "x"},
+    ]}
+    pdf = _doc("upgrade_measures", "pdf", "measure_pdfs/92504.pdf")
+    pdf.publication_url = "https://docs.nlr.gov/docs/fy26osti/92504.pdf"
+    page = _doc("upgrade_measures", "measures", "docs/upgrade_measures/env_window_film.md")
+    page.publication_url = "https://natlabrockies.github.io/ComStock.github.io/docs/upgrade_measures/env_window_film.html"
+
+    index = B._measure_doc_index([pdf, page], src, state)
+
+    one = {"corpus_path": "upgrade_measures/measure_pdfs/92504.md", "doc_url": pdf.publication_url}
+    assert index["https://www.nlr.gov/docs/fy26osti/92504.pdf"] == one
+    assert index["https://docs.nlr.gov/docs/fy26osti/92504.pdf"] == one
+    assert index["measure_pdfs/92504.pdf"] == one
+    assert index["docs/upgrade_measures/env_window_film.md"] == {
+        "corpus_path": "upgrade_measures/unpublished_docs/upgrade_measures/env_window_film.md",
+        "doc_url": page.publication_url,
+    }

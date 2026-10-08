@@ -691,13 +691,25 @@ def apply_overlays(
             warnings.append(f"{overlay_rel}: unreadable overlay: {str(exc)[:200]}")
             continue
 
+        # The sidecar must name the same build and the same document as the one it is about
+        # to patch. product/release default to this build when absent (older sidecars);
+        # the two links do not: a transcription is only trustworthy for the file it was made
+        # from, and the links are how a reader with only the sidecar can check that.
+        mismatch = None
         for field, expect in (("product", product), ("release", release)):
             if str(data.get(field, expect)) != expect:
-                warnings.append(
-                    f"{overlay_rel}: overlay is tagged {field}={data.get(field)!r}, "
-                    f"but this build is {expect!r}; skipped"
-                )
+                mismatch = f"overlay is tagged {field}={data.get(field)!r}, but this build is {expect!r}"
                 break
+        else:
+            for field, expect in (("source_url", doc.source_url), ("publication_url", doc.publication_url)):
+                if expect and data.get(field) != expect:
+                    mismatch = (
+                        f"overlay names {field}={data.get(field)!r}, but this document's is "
+                        f"{expect!r}"
+                    )
+                    break
+        if mismatch:
+            warnings.append(f"{overlay_rel}: {mismatch}; skipped")
         else:
             entries = data.get("tables") or []
             repairs = data.get("text_repairs") or []

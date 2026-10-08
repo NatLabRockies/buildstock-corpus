@@ -13,6 +13,8 @@ product: comstock
 release: comstock_amy2018_2025_release_3
 source_id: upgrade_measures
 source_path: measure_pdfs/89126.pdf
+source_url: https://www.nlr.gov/docs/fy25osti/89126.pdf
+publication_url: https://www.nlr.gov/docs/fy25osti/89126.pdf
 figures:
 - source_image: 89126_images/image_000002_1245f7ee4ca34ab09ef9ec75a8aa3ccf27c534dc168902fdfb9f647b1a8314f5.png
   source_image_sha256: 7edd6fdd16a0ded2c1c66ad4636a8951727ce7eb670ba9edce49eecf4656f420

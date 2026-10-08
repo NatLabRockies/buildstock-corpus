@@ -14,6 +14,7 @@ from collections import defaultdict
 from pathlib import Path
 
 from .chunk import chunk_documents
+from .corpus_index import build_index
 from .corpus_map import build_map
 from .extract.crosswalk import build_crosswalk
 from .extract.doc_dates import (
@@ -39,7 +40,10 @@ from .paths import (
     raw_root,
     remap_dir,
 )
+from .links import artifact_urls, clone_for
+from .provenance import default_corpus_version, render_header
 from .registry import Source, load_registry
+from .status import SITE_PAGE, status_for_url
 
 
 def _load_fetch_state(product: str, release: str) -> dict:
@@ -109,8 +113,14 @@ def _pdf_specs(
     src_state: dict,
     refs: list[MeasureRef],
     dates: dict[str, DocDate] | None = None,
-) -> list[PdfSpec]:
-    """Build one PdfSpec per physical PDF, aggregating every measure that cites it."""
+    exclude_urls: frozenset[str] = frozenset(),
+) -> tuple[list[PdfSpec], list[dict]]:
+    """Build one PdfSpec per physical PDF, aggregating every measure that cites it.
+
+    Returns (specs, skipped): `skipped` records each fetched external PDF left out because
+    one of its URLs is in the registry's `exclude_urls`, so the manifest can say what was
+    excluded on purpose and why nothing was built from it.
+    """
     url_refs: dict[str, list[MeasureRef]] = defaultdict(list)
     local_refs: dict[str, list[MeasureRef]] = defaultdict(list)
     for r in refs:
@@ -120,6 +130,7 @@ def _pdf_specs(
             local_refs[r.target].append(r)
 
     specs: list[PdfSpec] = []
+    skipped: list[dict] = []
 
     # External PDFs: several mirror URLs may resolve to one deduped file -> group by path.
     path_urls: dict[str, list[str]] = defaultdict(list)
@@ -128,6 +139,9 @@ def _pdf_specs(
         path_urls[e["path"]].append(e["url"])
         path_sha[e["path"]] = e["sha256"]
     for path, urls in path_urls.items():
+        if any(u in exclude_urls for u in urls):
+            skipped.append({"path": path, "url": urls[0], "reason": "excluded by source registry"})
+            continue
         here = [r for u in urls for r in url_refs.get(u, [])]
         specs.append(
             PdfSpec(
@@ -151,7 +165,30 @@ def _pdf_specs(
                 extra=_measure_extra(here, dates),
             )
         )
-    return specs
+    return specs, skipped
+
+
+def _measure_doc_index(docs: list[Document], src: Source, src_state: dict) -> dict[str, dict]:
+    """Crosswalk target -> {"corpus_path", "doc_url"} for every document of a measures source.
+
+    A target is the index page's literal link: a repo path for a page or site-served PDF,
+    a URL for an OSTI report. Every URL spelling the fetch saw for a file is keyed, so a
+    row linking the www.nlr.gov alias still lands on the one document, whose doc_url is the
+    canonical publication_url build already resolved onto it.
+    """
+    urls_by_path: dict[str, list[str]] = defaultdict(list)
+    for e in src_state.get("external_pdfs", []):
+        urls_by_path[e["path"]].append(e["url"])
+    index: dict[str, dict] = {}
+    for doc in docs:
+        rec = {
+            "corpus_path": output_rel(doc.source_id, doc.source_path, src.output_remap),
+            "doc_url": doc.publication_url,
+        }
+        index[doc.source_path] = rec
+        for u in urls_by_path.get(doc.source_path, []):
+            index[u] = rec
+    return index
 
 
 def _cap(items: list, sample: int | None) -> list:
@@ -161,6 +198,55 @@ def _cap(items: list, sample: int | None) -> list:
     never random, so a smoke test is reproducible and its manifest is comparable run to run.
     """
     return items if sample is None else items[:sample]
+
+
+def _measure_statuses(src_state: dict) -> dict[str, str]:
+    """source_path -> publication status for every document of a measures source.
+
+    The index page's internal pages and the PDFs committed beside them are both things
+    the ComStock site serves, so both are site_page; a PDF fetched from elsewhere is judged
+    by its URL (see status.status_for_url). Keyed by the same source_path the extractors
+    stamp on each Document, so build can assign without re-deriving link kinds.
+    """
+    statuses: dict[str, str] = {}
+    for page in src_state.get("internal_pages", []):
+        statuses[page["path"]] = SITE_PAGE
+    for lp in src_state.get("local_pdfs", []):
+        statuses[lp["path"]] = SITE_PAGE
+    for e in src_state.get("external_pdfs", []):
+        statuses[e["path"]] = status_for_url(e["url"])
+    return statuses
+
+
+def _assign_provenance(
+    docs: list[Document], src: Source, src_state: dict, clones: list[dict]
+) -> None:
+    """Resolve status, source_url and publication_url onto every document of one source.
+
+    Done once, here, after extraction: the header writer and the manifest both read these
+    fields from the Document, so a file and its manifest row cannot disagree.
+    """
+    _assign_status(docs, src, src_state)
+    clone = clone_for(src_state, clones)
+    for doc in docs:
+        doc.source_url, doc.publication_url = artifact_urls(doc.source_path, src, src_state, clone)
+
+
+def _assign_status(docs: list[Document], src: Source, src_state: dict) -> None:
+    """Stamp every document of one source with its publication status."""
+    if src.type == "measures":
+        by_path = _measure_statuses(src_state)
+        for doc in docs:
+            try:
+                doc.status = by_path[doc.source_path]
+            except KeyError:
+                raise ValueError(
+                    f"{src.id}: no publication status for {doc.source_path}; it is not "
+                    f"among the fetched internal pages, local PDFs or external PDFs"
+                ) from None
+    else:
+        for doc in docs:
+            doc.status = src.status
 
 
 def _attach_internal_measure_identity(
@@ -203,8 +289,10 @@ def _extract_documents(
     reg = load_registry(product, release)
     docs: list[Document] = []
     excluded: dict[str, list[str]] = {}
+    excluded_urls: list[dict] = []
     warnings: list[str] = []
     crosswalk: dict | None = None
+    crosswalk_spec: tuple = (None, None, None, None)
     pdf_images: dict[str, Path] = {}
     image_dirs: dict[tuple[str, str], Path] = {}
 
@@ -249,10 +337,17 @@ def _extract_documents(
             docs += _cap(page_docs, sample)
             if page_excl:
                 excluded[src.id] = page_excl
-            # external + local measure PDFs
-            specs = _cap(
-                _pdf_specs(product, release, clone_dir, src_state, refs, doc_dates), sample
+            # external + local measure PDFs, minus the ones the registry excludes
+            specs, skipped = _pdf_specs(
+                product, release, clone_dir, src_state, refs, doc_dates,
+                exclude_urls=frozenset(src.exclude_urls),
             )
+            excluded_urls += [{"source_id": src.id, **s} for s in skipped]
+            seen_urls = {e["url"] for e in src_state.get("external_pdfs", [])}
+            for u in src.exclude_urls:
+                if u not in seen_urls:
+                    warnings.append(f"{src.id}: exclude_urls entry matched no fetched PDF: {u}")
+            specs = _cap(specs, sample)
             pdf_docs, pdf_warn, pdf_imgs = load_pdf_docs(specs, product, release, src.id)
             docs += pdf_docs
             warnings += [f"{src.id}: {w}" for w in pdf_warn]
@@ -261,10 +356,18 @@ def _extract_documents(
                 pdf_images[f"{src.id}/{remap_dir(rel_dir, src.output_remap)}"] = cache_dir
                 # a PDF's bitmaps are only in the cache until _copy_source_images runs
                 image_dirs[(src.id, source_path)] = cache_dir
-            # crosswalk join (CSV + index), each measure dated by its own documentation
-            cw = src_state.get("crosswalk")
-            if cw:
-                crosswalk = build_crosswalk(clone_dir / cw["path"], refs, release, doc_dates)
+            crosswalk_spec = (clone_dir, src_state.get("crosswalk"), refs, doc_dates)
+
+        _assign_provenance(docs[first:], src, src_state, state.get("clones", []))
+
+        if src.type == "measures" and crosswalk_spec[1]:
+            # The crosswalk join (CSV + index) runs after provenance so each row can carry
+            # its document's corpus_path and canonical doc_url, dated by its own document.
+            cdir, cw, refs, doc_dates = crosswalk_spec
+            crosswalk = build_crosswalk(
+                cdir / cw["path"], refs, release, doc_dates,
+                docs=_measure_doc_index(docs[first:], src, src_state),
+            )
 
         # Everything not filled in above is a clone-sourced page, whose images sit beside it
         # at the same relative depth they keep in processed/.
@@ -273,7 +376,7 @@ def _extract_documents(
                 (doc.source_id, doc.source_path), (clone_dir / doc.source_path).parent
             )
 
-    return docs, excluded, warnings, crosswalk, pdf_images, image_dirs
+    return docs, excluded, excluded_urls, warnings, crosswalk, pdf_images, image_dirs
 
 
 def _strip_leading_heading(title: str, body: str) -> str:
@@ -287,9 +390,18 @@ def _strip_leading_heading(title: str, body: str) -> str:
 
 
 def _write_processed(
-    product: str, release: str, docs: list[Document], remaps: dict[str, tuple[str, str]]
+    product: str,
+    release: str,
+    docs: list[Document],
+    remaps: dict[str, tuple[str, str]],
+    corpus_version: str,
 ) -> None:
-    """Write one .md per document.
+    """Write one .md per document, each opening with its provenance header.
+
+    The header carries the document's status, source_url, publication_url and the
+    corpus_version, so a file fetched on its own, with no clone and no manifest, can still
+    be cited (see provenance.py). The values are the ones _assign_provenance resolved onto
+    the Document, which the manifest row is also built from.
 
     newline="\\n" is load-bearing, not style: manifest.json records the sha256 of these
     bytes, so letting the platform pick the line ending would make the same inputs hash
@@ -300,7 +412,11 @@ def _write_processed(
     for doc in docs:
         out = root / output_rel(doc.source_id, doc.source_path, remaps.get(doc.source_id))
         out.parent.mkdir(parents=True, exist_ok=True)
-        front = f"<!-- {doc.product} {doc.release} | {doc.source_id} | {doc.source_path} -->\n"
+        front = render_header(
+            doc.product, doc.release, doc.source_id, doc.source_path,
+            status=doc.status, source_url=doc.source_url,
+            publication_url=doc.publication_url, corpus_version=corpus_version,
+        )
         body = _strip_leading_heading(doc.title, doc.body)
         out.write_text(front + f"# {doc.title}\n\n{body}", encoding="utf-8", newline="\n")
 
@@ -364,7 +480,11 @@ def _copy_source_images(product: str, release: str, pdf_images: dict[str, Path])
 
 
 def build_release(
-    product: str, release: str, sample: int | None = None, overlays: bool = True
+    product: str,
+    release: str,
+    sample: int | None = None,
+    overlays: bool = True,
+    corpus_version: str | None = None,
 ) -> dict:
     """Build processed artifacts for a release; `sample` caps documents per category.
 
@@ -374,10 +494,15 @@ def build_release(
     `overlays=False` skips the sidecar transcriptions (see overlay.apply_overlays), which
     is how you reproduce the pre-overlay output for a before/after comparison. A release
     build should leave them on — without them the affected tables exist only as bitmaps.
+
+    `corpus_version` names this build in every artifact (file headers, manifest, map). A
+    release build passes the tag it will be published under; otherwise it defaults to the
+    current commit's short hash (see provenance.default_corpus_version).
     """
+    corpus_version = corpus_version or default_corpus_version()
     state = _load_fetch_state(product, release)
-    docs, excluded, warnings, crosswalk, pdf_images, image_dirs = _extract_documents(
-        product, release, state, sample
+    docs, excluded, excluded_urls, warnings, crosswalk, pdf_images, image_dirs = (
+        _extract_documents(product, release, state, sample)
     )
     reg = load_registry(product, release)
 
@@ -392,7 +517,7 @@ def build_release(
         warnings += overlay_warnings
 
     remaps = reg.output_remaps()
-    _write_processed(product, release, docs, remaps)
+    _write_processed(product, release, docs, remaps, corpus_version)
     n_images = _copy_source_images(product, release, pdf_images)
 
     chunks = chunk_documents(docs)
@@ -409,12 +534,13 @@ def build_release(
 
     manifest = build_manifest(
         product, release, docs, crosswalk, warnings, excluded, state, len(chunks), remaps,
-        sample, applied,
+        sample, applied, corpus_version=corpus_version, excluded_urls=excluded_urls,
     )
 
-    # After the manifest, never before: the map stamps the manifest's hash so `bsc validate`
-    # can catch a stale one, and the manifest has to exist to be hashed.
+    # After the manifest, never before: the map and the index stamp the manifest's hash so
+    # `bsc validate` can catch a stale one, and the manifest has to exist to be hashed.
     corpus_map = build_map(product, release)
+    corpus_index = build_index(product, release)
 
     by_type: dict[str, int] = defaultdict(int)
     for d in docs:
@@ -430,6 +556,7 @@ def build_release(
         for rec in docs_.values()
     )
     summary = {
+        "corpus_version": corpus_version,
         "sample": sample,
         "documents": len(docs),
         "chunks": len(chunks),
@@ -443,9 +570,12 @@ def build_release(
         "chunks_file": str(cf),
         "manifest_file": str(manifest_file(product, release)),
         "corpus_map_file": corpus_map["file"],
+        "index_file": corpus_index["index_file"],
+        "sections_file": corpus_index["sections_file"],
     }
     if sample is not None:
         print(f"build: SAMPLE - at most {sample} document(s) per category; partial corpus")
+    print(f"build: corpus_version {corpus_version}")
     print(f"build: {len(docs)} docs -> {len(chunks)} chunks (by type: {dict(by_type)}) -> {cf}")
     print(f"  copied {n_images} image file(s) into processed/")
     if not overlays:
@@ -466,6 +596,9 @@ def build_release(
     if n_excluded:
         print(f"  excluded {n_excluded} unpublished page(s): "
               + ", ".join(f"{k}={len(v)}" for k, v in excluded.items()))
+    if excluded_urls:
+        print(f"  excluded {len(excluded_urls)} upstream PDF(s) by source registry: "
+              + ", ".join(e["path"].rsplit("/", 1)[-1] for e in excluded_urls))
     if warnings:
         print(f"  {len(warnings)} extraction warning(s); first few:")
         for w in warnings[:3]:
@@ -473,4 +606,5 @@ def build_release(
     print(f"  manifest -> {manifest_file(product, release)} "
           f"({len(manifest['gaps']['measures'])} measure gaps recorded)")
     print(f"  corpus map -> {corpus_map['file']} (read this first)")
+    print(f"  index -> {corpus_index['index_file']} (+ sections.json) for consumers without a clone")
     return summary

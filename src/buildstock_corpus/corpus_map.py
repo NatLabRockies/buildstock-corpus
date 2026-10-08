@@ -109,12 +109,24 @@ def _overlay_note(artifact: dict) -> str:
     return ", ".join(parts)
 
 
+def _published(status: str | None, url: str | None) -> str:
+    """The Published cell: the status word linking to the publication, or a dash.
+
+    A short label rather than the URL itself keeps the tables readable -- the map is the
+    first thing an agent reads -- while the status says what kind of publication the link
+    is (an OSTI report, a page or file on the ComStock site) before it is followed.
+    """
+    if not url:
+        return "—"
+    return f"[{status or 'link'}]({url})"
+
+
 def _source_section(src: dict, facts: dict[tuple[str, str], dict]) -> list[str]:
     lines = [
         f"### `{src['id']}` — {len(src.get('artifacts', []))} document(s)",
         "",
-        "| Document | Path | Top-level sections | Updated | Hand-authored |",
-        "| --- | --- | --- | --- | --- |",
+        "| Document | Path | Top-level sections | Updated | Hand-authored | Published |",
+        "| --- | --- | --- | --- | --- | --- |",
     ]
     for a in src.get("artifacts", []):
         rec = facts.get((src["id"], a["source_path"]), {})
@@ -128,39 +140,24 @@ def _source_section(src: dict, facts: dict[tuple[str, str], dict]) -> list[str]:
             f"| [`{a['output_path']}`]({a['output_path']}) "
             f"| {_cell('; '.join(shown))}{more} "
             f"| {rec.get('date') or '—'} "
-            f"| {_overlay_note(a) or '—'} |"
+            f"| {_overlay_note(a) or '—'} "
+            f"| {_published(a.get('status'), a.get('publication_url'))} |"
         )
     lines.append("")
     return lines
 
 
-def _resolve_doc(target: str, by_source_path: dict[str, str], by_basename: dict[str, list[str]]) -> str | None:
-    """The processed markdown for a crosswalk target, or None if nothing in the corpus matches.
-
-    Internal pages name a repo-relative path, which is the artifact's source_path verbatim.
-    External PDFs name a URL, and the artifact records where fetch put the file
-    (`measure_pdfs/89340.pdf` for `https://.../89340.pdf`) -- so those join on the filename.
-    Only a basename that resolves to exactly one artifact is accepted: two upstream files
-    sharing a name would otherwise route readers to an arbitrary one of them, which is worse
-    than declining to link and is the kind of thing nobody would notice in a 65-row table.
-    """
-    if not target:
-        return None
-    if target in by_source_path:
-        return by_source_path[target]
-    candidates = by_basename.get(target.rsplit("/", 1)[-1], [])
-    return candidates[0] if len(candidates) == 1 else None
-
-
-def _measures_section(
-    crosswalk: dict, by_source_path: dict[str, str], by_basename: dict[str, list[str]]
-) -> list[str]:
+def _measures_section(crosswalk: dict) -> list[str]:
     """Measure -> upgrade id -> document. The highest-value routing table in the map.
 
     upgrade_id is how a measure is named in the published data lake, so a question that
     starts from a results column ("what is upgrade 32?") lands here first. Measures with no
     documentation are listed too, marked as gaps, because knowing a doc is absent is a real
     answer -- otherwise an agent keeps searching for a file that was never written.
+
+    The document column is the crosswalk row's own `corpus_path`, which build resolved from
+    the manifest; the map no longer joins on filenames itself, so it cannot disagree with
+    the crosswalk about which file documents a measure.
     """
     measures = crosswalk.get("measures") or []
     if not measures:
@@ -172,28 +169,29 @@ def _measures_section(
         f"{len(measures)} measure(s) in this release; "
         f"{crosswalk.get('counts', {}).get('covered', 0)} documented, {len(gaps)} tracked gap(s).",
         "",
-        "| Upgrade id | Measure | Upgrade name | Document |",
-        "| --- | --- | --- | --- |",
+        "| Upgrade id | Measure | Upgrade name | Document | Published |",
+        "| --- | --- | --- | --- | --- |",
     ]
     for m in measures:
         mid = m.get("measure_id", "")
-        target = m.get("doc_target") or ""
-        out = _resolve_doc(target, by_source_path, by_basename)
+        out = m.get("corpus_path")
+        url = m.get("doc_url") or (m.get("doc_target") or "")
         if out:
             doc = f"[`{out}`]({out})"
         elif mid in gaps:
             doc = "**gap** — no documentation in this release"
-        elif target.startswith("http"):
+        elif url.startswith("http"):
             # Documented upstream but not extracted into this corpus -- say so rather than
             # linking silently, or a reader takes the URL for a local file it can read.
-            doc = f"not in corpus — [upstream PDF]({target})"
+            doc = f"not in corpus — [upstream PDF]({url})"
         else:
             doc = "—"
         lines.append(
             f"| {_cell(m.get('upgrade_id') or '—')} "
             f"| {_cell(m.get('documentation_name') or mid)} "
             f"| {_cell(m.get('upgrade_name') or '—')} "
-            f"| {doc} |"
+            f"| {doc} "
+            f"| {_published(m.get('status'), m.get('doc_url'))} |"
         )
     lines.append("")
     return lines
@@ -203,9 +201,10 @@ def _gaps_section(manifest: dict) -> list[str]:
     """What the corpus does not contain. Stated so absence is never inferred as coverage."""
     gaps = manifest.get("gaps") or {}
     excluded = gaps.get("excluded_unpublished") or {}
+    by_registry = gaps.get("excluded_by_registry") or []
     unreachable = gaps.get("unreachable_pdfs") or []
     measures = gaps.get("measures") or []
-    if not (excluded or unreachable or measures):
+    if not (excluded or by_registry or unreachable or measures):
         return []
     lines = ["## Known gaps", ""]
     if measures:
@@ -220,6 +219,12 @@ def _gaps_section(manifest: dict) -> list[str]:
             f"- **{len(paths)} unpublished `{src_id}` page(s)** excluded upstream "
             f"(`published: false`), so they are absent by intent, not by failure."
         ]
+    if by_registry:
+        lines += [
+            f"- **{len(by_registry)} upstream PDF(s) excluded by the source registry** "
+            f"(linked from the index page but not measure documentation): "
+            + ", ".join(f"[{e.get('url', '').rsplit('/', 1)[-1]}]({e.get('url', '')})" for e in by_registry)
+        ]
     lines.append("")
     return lines
 
@@ -227,14 +232,6 @@ def _gaps_section(manifest: dict) -> list[str]:
 def _render(product: str, release: str, manifest: dict, manifest_sha: str, facts: dict) -> str:
     counts = manifest.get("counts") or {}
     sources = manifest.get("sources") or []
-    # source_path -> output_path, so the measures table can link a crosswalk target (which
-    # names the upstream file) to the processed markdown a reader should actually open.
-    by_source_path = {
-        a["source_path"]: a["output_path"] for s in sources for a in s.get("artifacts", [])
-    }
-    by_basename: dict[str, list[str]] = defaultdict(list)
-    for src_path, out_path in by_source_path.items():
-        by_basename[src_path.rsplit("/", 1)[-1]].append(out_path)
 
     lines = [
         f"# {product} {release} — corpus map",
@@ -245,6 +242,7 @@ def _render(product: str, release: str, manifest: dict, manifest_sha: str, facts
         "",
         f"- `product`: `{product}`",
         f"- `release`: `{release}`",
+        f"- `corpus_version`: `{manifest.get('corpus_version')}`",
         f"- `manifest_sha256`: `{manifest_sha}`",
         f"- `map_generated_utc`: `{datetime.now(timezone.utc).isoformat()}`",
         f"- `build_generated_utc`: `{manifest.get('generated_utc')}`",
@@ -264,8 +262,19 @@ def _render(product: str, release: str, manifest: dict, manifest_sha: str, facts
         "- **No vector index needed.** These are plain markdown files — read and grep them. "
         "`bsc query` exists for consumers *without* filesystem access and needs a ~1 hour "
         "`bsc index` build first.",
-        "- **Cite as `source_id/source_path`.** Every document opens with an HTML comment "
-        "recording the product, release, source id and upstream path it came from.",
+        "- **Cite as `source_id/source_path`.** Every document opens with a one-line HTML "
+        "comment recording the product, release, source id and upstream path it came from, "
+        "plus its publication `status`, the `source_url` of the upstream file at its pinned "
+        "commit, the `publication_url` a reader should be sent to, and the `corpus_version` "
+        "of the build. Line 1 alone is enough to cite the file.",
+        "- **No clone? Fetch `index.json`, then `sections.json`.** Beside this map: the index "
+        "lists every document and measure with its paths, links and status (~60 KB); the "
+        "sections file lists every heading with its line range (~200 KB). Both stamp the "
+        "manifest they describe and validate against `schemas/` in the repo.",
+        "- **The Published column links the human-readable publication.** Its label is the "
+        "document's status: `osti_pdf` for a report with an OSTI number, `site_page` for a page "
+        "or file the ComStock site serves without one. Send a reader there, not to the "
+        "markdown.",
         "- **Images are not in the clone.** `processed/**/*.png` is gitignored (~250 MB, "
         "regenerable), so image references resolve to absent files. Tables and figure "
         "descriptions marked *hand-authored* were transcribed from those images, so the "
@@ -295,7 +304,7 @@ def _render(product: str, release: str, manifest: dict, manifest_sha: str, facts
     cw_file = proot / (manifest.get("crosswalk", {}) or {}).get("file", "crosswalk.json")
     if cw_file.is_file():
         crosswalk = json.loads(cw_file.read_text(encoding="utf-8"))
-        lines += _measures_section(crosswalk, by_source_path, dict(by_basename))
+        lines += _measures_section(crosswalk)
 
     lines += _gaps_section(manifest)
     return "\n".join(lines).rstrip() + "\n"

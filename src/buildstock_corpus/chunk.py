@@ -114,6 +114,8 @@ def chunk_document(doc: Document, max_chars: int = 1400, overlap_chars: int = 20
                 "doc_title": doc.title,
                 "section": breadcrumb,
             }
+            if doc.status is not None:  # Chroma metadata cannot hold None
+                metadata["status"] = doc.status
             metadata.update({k: v for k, v in doc.extra.items() if v is not None})
             chunks.append(
                 Chunk(

@@ -3,6 +3,7 @@ name = "buildstock-corpus"
 version = "0.1.0"
 description = "Level 1 AI-ready content pipeline for the BuildStock domain-knowledge corpus (release-tagged, provenance-tracked)."
 readme = "README.md"
+license = { file = "LICENSE" }
 authors = [
     { name = "Lauren Klun", email = "60903520+laurenklun@users.noreply.github.com" }
 ]
@@ -11,6 +12,7 @@ dependencies = [
     "chromadb>=1.5.9",
     "fastembed>=0.8.0",
     "httpx>=0.28.1",
+    "jsonschema>=4.0",
     "pyyaml>=6.0.3",
     "typer>=0.24.2",
 ]
@@ -43,4 +45,7 @@ dev = ["pytest>=8.0"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-q"
+# Network-marked tests fetch real URLs and are deselected by default; run them with
+# `pytest -m network` once the links in a rebuilt manifest should be proven live.
+addopts = "-q -m 'not network'"
+markers = ["network: fetches real URLs (deselected by default)"]

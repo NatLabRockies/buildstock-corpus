@@ -1,0 +1,31 @@
+# buildstock-corpus
+
+> The AI-ready BuildStock corpus: ComStock's documentation (technical reference, site pages,
+> upgrade-measure reports) extracted to clean, release-tagged markdown, with a provenance
+> manifest, a human-readable map, and a machine index. One dataset release per folder;
+> currently ComStock 2025 release 3 (`comstock_amy2018_2025_release_3`): 114 documents,
+> 65 measures.
+
+Every file is served raw by GitHub, unauthenticated. The links below use `main`, the newest
+build. To pin a citation, replace `main` with a release tag of the form
+`<release id>-v<N>`; tags never move. Current: `comstock_amy2018_2025_release_3-v1`.
+
+## Start here
+
+- [AGENTS.md](https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/main/AGENTS.md): how to read and cite the corpus, for agents
+- [index.json](https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/main/processed/comstock/comstock_amy2018_2025_release_3/index.json): every document and measure with its path, status, links and size (fetch this first; ~6 KB over the wire)
+- [sections.json](https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/main/processed/comstock/comstock_amy2018_2025_release_3/sections.json): every heading with its line range in the document (only when you need to land on a heading)
+- [CORPUS_MAP.md](https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/main/processed/comstock/comstock_amy2018_2025_release_3/CORPUS_MAP.md): the same contents as a readable map, with the measure → upgrade-id → document table
+
+## Documents
+
+- Pattern: `https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/<ref>/processed/comstock/comstock_amy2018_2025_release_3/<corpus_path>`, where `corpus_path` comes from index.json
+- Line 1 of every document is a provenance header: release, upstream path, publication status, source and publication URLs, corpus version. It alone is enough to cite the file.
+- 40 of 114 documents are over 100 KB; check `bytes` in index.json before fetching and read a line range from sections.json.
+
+## Optional
+
+- [README.md](https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/main/README.md): the authoring pipeline, layout, and smoke tests
+- [manifest.json](https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/main/processed/comstock/comstock_amy2018_2025_release_3/manifest.json): sha256 of every input and output, clone commits, overlays, gaps
+- [crosswalk.json](https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/main/processed/comstock/comstock_amy2018_2025_release_3/crosswalk.json): measure → upgrade id → document, with dates
+- [schemas/](https://github.com/NatLabRockies/buildstock-corpus/tree/main/schemas): JSON Schemas for index.json and sections.json

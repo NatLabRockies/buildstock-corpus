@@ -19,8 +19,10 @@ from pathlib import Path
 
 import yaml
 
+from .corpus_index import validate_index_files
 from .corpus_map import MAP_FILENAME, recorded_manifest_sha256
 from .index import EMBED_MODEL
+from .links import is_absolute_https
 from .overlay import entry_kind
 from .paths import (
     OVERLAYS_DIR,
@@ -29,6 +31,8 @@ from .paths import (
     processed_root,
     sha256_file,
 )
+from .provenance import HEADER_FIELDS, default_corpus_version, read_header
+from .status import STATUSES
 
 PIPELINE_VERSION = "0.1.0"
 _COVERED_KINDS = {"internal_md", "external_pdf", "local_pdf"}
@@ -99,8 +103,23 @@ def build_manifest(
     remaps: dict[str, tuple[str, str]] | None = None,
     sample: int | None = None,
     overlays: dict[str, dict] | None = None,
+    corpus_version: str | None = None,
+    excluded_urls: list[dict] | None = None,
 ) -> dict:
     """Assemble and write manifest.json from the just-built documents + fetch state.
+
+    `excluded_urls` lists fetched upstream PDFs the source registry told build to leave out
+    (see Source.exclude_urls); recorded under gaps.excluded_by_registry so their absence
+    reads as a decision, not a failure.
+
+    `corpus_version` names the build (see provenance.py) and must be the same value the
+    file headers were written with: validate_manifest checks them against each other.
+    None falls back to the current commit's hash, as build does.
+
+    Each document's status, source_url and publication_url are read from the Document,
+    where build resolved them before writing the file (see build._assign_provenance), so
+    the row and the file header come from one value. A document without them is an error
+    here, not a row with blanks.
 
     `remaps` mirrors the output-dir remapping build applied when writing the files, so
     recorded output_paths point at where the artifacts actually landed. source_path
@@ -118,24 +137,35 @@ def build_manifest(
     proot = processed_root(product, release)
     remaps = remaps or {}
     overlays = overlays or {}
+    corpus_version = corpus_version or default_corpus_version()
     src_hashes = input_hashes(state)
 
     sources_out: dict[str, dict] = {}
     for doc in docs:
         out_rel = output_rel(doc.source_id, doc.source_path, remaps.get(doc.source_id))
         out_abs = proot / out_rel
+        src_state = state.get("sources", {}).get(doc.source_id, {})
         grp = sources_out.setdefault(
             doc.source_id,
             {
                 "id": doc.source_id,
-                "type": state.get("sources", {}).get(doc.source_id, {}).get("type"),
-                "clone": state.get("sources", {}).get(doc.source_id, {}).get("clone"),
+                "type": src_state.get("type"),
+                "clone": src_state.get("clone"),
                 "artifacts": [],
             },
         )
+        if not (doc.source_url and doc.publication_url):
+            raise ValueError(
+                f"{doc.source_id}: {doc.source_path} has no source_url/publication_url; "
+                f"build must resolve them before the manifest is written"
+            )
         artifact = {
             "source_path": doc.source_path,
             "source_type": doc.source_type,
+            "status": doc.status,
+            "source_url": doc.source_url,
+            "publication_url": doc.publication_url,
+            "corpus_version": corpus_version,
             "title": doc.title,
             "input_sha256": src_hashes.get(doc.source_id, {}).get(doc.source_path),
             "output_path": out_rel,
@@ -155,6 +185,7 @@ def build_manifest(
     manifest = {
         "product": product,
         "release": release,
+        "corpus_version": corpus_version,
         "generated_utc": datetime.now(timezone.utc).isoformat(),
         "tooling": _tooling(),
         "clones": state.get("clones", []),
@@ -186,6 +217,7 @@ def build_manifest(
             "measures": [g["measure_id"] for g in crosswalk["gaps"]] if crosswalk else [],
             "unreachable_pdfs": unreachable_pdfs,
             "excluded_unpublished": excluded,
+            "excluded_by_registry": excluded_urls or [],
         },
         "warnings": warnings,
     }
@@ -247,6 +279,14 @@ def _validate_overlay(proot: Path, artifact: dict, where: str) -> tuple[list[str
         data = yaml.safe_load(ov_abs.read_text(encoding="utf-8")) or {}
     except yaml.YAMLError as exc:
         return [f"{where}: overlay is not readable YAML: {str(exc)[:120]}"], 0, 0, 0
+
+    # The sidecar names the document it transcribes by its two links; they must be the ones
+    # this artifact carries, or the transcription was made from something else.
+    for field in ("source_url", "publication_url"):
+        if data.get(field) != artifact.get(field):
+            errors.append(
+                f"{where}: overlay {field} {data.get(field)!r} != artifact {artifact.get(field)!r}"
+            )
 
     applied = set(ov.get("tables_applied") or [])
     page_dir = (proot / artifact.get("output_path", "")).parent
@@ -316,6 +356,13 @@ def validate_manifest(
             f"release tag mismatch: manifest is "
             f"{manifest.get('product')}/{manifest.get('release')}, expected {product}/{release}"
         )
+    # The corpus version is what a fetched file cites, so the manifest must name one and
+    # every artifact's header must name the same one. A hash match alone would not catch a
+    # header written by a different build: the hash only proves the file is unchanged since
+    # *this* manifest recorded it, not that its header agrees with this manifest's version.
+    corpus_version = manifest.get("corpus_version")
+    if not corpus_version:
+        errors.append("manifest has no corpus_version")
 
     n_art = 0
     for src in manifest.get("sources", []):
@@ -324,6 +371,23 @@ def validate_manifest(
             where = f"{src.get('id')}: {a.get('output_path')}"
             if not a.get("input_sha256"):
                 errors.append(f"{where}: output has no hashed source input")
+            # Status is what citation guidance keys on, so an artifact without one, or with
+            # a value outside the vocabulary, cannot be cited correctly.
+            if a.get("status") not in STATUSES:
+                errors.append(
+                    f"{where}: status {a.get('status')!r} is not one of {sorted(STATUSES)}"
+                )
+            # The two links are what a citation is built from; a row without them, or with
+            # a relative one, sends a reader nowhere. The per-row version must agree with the
+            # manifest's own, or a row copied out of it would name the wrong build.
+            for field in ("source_url", "publication_url"):
+                if not is_absolute_https(a.get(field)):
+                    errors.append(f"{where}: {field} is not an absolute https URL: {a.get(field)!r}")
+            if corpus_version and a.get("corpus_version") != corpus_version:
+                errors.append(
+                    f"{where}: row corpus_version {a.get('corpus_version')!r} != manifest "
+                    f"{corpus_version}"
+                )
             recorded = a.get("output_sha256")
             out_abs = proot / a.get("output_path", "")
             if not recorded:
@@ -332,6 +396,25 @@ def validate_manifest(
                 errors.append(f"{where}: output file missing on disk")
             elif _sha256_file(out_abs) != recorded:
                 errors.append(f"{where}: output hash mismatch (file changed since build)")
+            else:
+                # The header is all a consumer who fetched this one file has, so it must
+                # say exactly what the manifest row says, field by field. The manifest's own
+                # corpus_version is the reference for that field (a row's copy is checked
+                # against it below).
+                header = read_header(out_abs)
+                expected = {**{k: a.get(k) for k in HEADER_FIELDS}, "corpus_version": corpus_version}
+                if header is None:
+                    errors.append(f"{where}: line 1 is not a provenance header")
+                else:
+                    for k in HEADER_FIELDS:
+                        if expected[k] is None:
+                            continue  # the row's own problem, reported elsewhere
+                        if header.get(k) is None:
+                            errors.append(f"{where}: header names no {k}")
+                        elif header[k] != expected[k]:
+                            errors.append(
+                                f"{where}: header {k} {header[k]!r} != manifest {expected[k]!r}"
+                            )
             if a.get("overlay"):
                 ov_errors, n_ok, n_ok_pdf, n_skip = _validate_overlay(proot, a, where)
                 errors += ov_errors
@@ -349,11 +432,30 @@ def validate_manifest(
     if cw_file.is_file():
         cw = json.loads(cw_file.read_text(encoding="utf-8"))
         gap_ids = {g["measure_id"] for g in cw.get("gaps", [])}
+        # output_path -> publication_url, so a crosswalk row's location can be checked
+        # against the document it claims to point at.
+        pub_by_output = {
+            a.get("output_path"): a.get("publication_url")
+            for s in manifest.get("sources", [])
+            for a in s.get("artifacts", [])
+        }
         for m in cw.get("measures", []):
-            if m["doc_kind"] not in _COVERED_KINDS and m["measure_id"] not in gap_ids:
-                errors.append(
-                    f"crosswalk: measure {m['measure_id']} is neither covered nor a tracked gap"
-                )
+            mid = m["measure_id"]
+            if m["doc_kind"] not in _COVERED_KINDS and mid not in gap_ids:
+                errors.append(f"crosswalk: measure {mid} is neither covered nor a tracked gap")
+            # A covered row must point at a document in this manifest, and send readers to
+            # that document's own publication; a gap must point nowhere.
+            if m["doc_kind"] in _COVERED_KINDS:
+                cp = m.get("corpus_path")
+                if cp not in pub_by_output:
+                    errors.append(f"crosswalk: measure {mid} corpus_path {cp!r} is not a manifest artifact")
+                elif m.get("doc_url") != pub_by_output[cp]:
+                    errors.append(
+                        f"crosswalk: measure {mid} doc_url {m.get('doc_url')!r} != its document's "
+                        f"publication_url {pub_by_output[cp]!r}"
+                    )
+            elif m.get("corpus_path") or m.get("doc_url"):
+                errors.append(f"crosswalk: gap {mid} must not carry a corpus_path or doc_url")
 
     # CORPUS_MAP.md is the entry point an agent reads instead of the corpus, so a stale one
     # misroutes every question it answers -- and unlike a mismatched artifact hash, nothing
@@ -378,6 +480,12 @@ def validate_manifest(
                 f"than the one on disk; run `bsc map` to regenerate it"
             )
 
+    # index.json / sections.json are the map's equivalent for a consumer without a clone,
+    # and stale ones misroute in the same way; they are also held to their JSON Schemas.
+    mf = manifest_file(product, release)
+    if mf.is_file():
+        errors += validate_index_files(proot, sha256_file(mf))
+
     return errors
 
 
@@ -400,7 +508,7 @@ def validate_release(product: str, release: str) -> bool:
             print(f"  ... and {len(errors) - 25} more")
         return False
 
-    print(f"validate: OK - {product} {release}")
+    print(f"validate: OK - {product} {release} (corpus_version {manifest.get('corpus_version')})")
     sample = manifest.get("sample")
     if sample:
         print(
