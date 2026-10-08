@@ -11,10 +11,10 @@ published without provenance.
 ## Requirements
 
 - [`uv`](https://docs.astral.sh/uv/) (manages Python 3.12 and all deps)
-- `git` (sources are fetched by cloning tagged repos). **On Windows, enable long paths
-  before cloning**: `git config --global core.longpaths true`. The per-section files under
-  `processed/.../sections/` reach 290 characters, past the 260-character default limit,
-  and a checkout without the setting fails on them.
+- `git` (sources are fetched by cloning tagged repos). On Windows, keep the checkout
+  near the drive root or set `git config --global core.longpaths true`: the deepest paths
+  under `processed/` are about 235 characters, and the 260-character default limit
+  leaves little room for a long parent directory.
 
 ## Usage
 
@@ -97,7 +97,7 @@ The recipe is two fetches, three when you need headings:
 2. **`sections.json`** (~194 KB raw, ~25 KB over the wire), only if you need to land on a
    heading: every heading of every document with `line_start` and `line_end` in the file.
 3. **The document**, at `<corpus_path>` — or **one section of it**: every H2 entry in
-   `sections.json` carries a `file`, `sections/<corpus_path minus .md>/<NN>-<slug>.md`,
+   `sections.json` carries a `file`, `sections/<source_id>/<document stem>/<NN>-<slug>.md`,
    holding that heading and everything beneath it down to the next H2, usually a few KB.
    Line 1 of either is a provenance header carrying the release, upstream path, `status`,
    both URLs and the `corpus_version` (a section file's also names its parent
@@ -140,7 +140,7 @@ uv sync --extra extract
 - `sources/<product>_<release>.yaml` — source registry (repos, tag, measure URLs)
 - `raw/<product>/<release>/` — downloaded originals (gitignored)
 - `processed/<product>/<release>/` — clean markdown, referenced image assets, `CORPUS_MAP.md`, `index.json`, `sections.json`, `sections/`, `crosswalk.json`, `chunks.jsonl`, `manifest.json`
-  - `sections/<corpus_path minus .md>/<NN>-<slug>.md` — every H2 of every document as its
+  - `sections/<source_id>/<document stem>/<NN>-<slug>.md` — every H2 of every document as its
     own file (plus `00-` for the text before the first H2), each with a citable line-1
     header naming its parent and line range. A pure function of the document: `bsc
     validate` regenerates them and compares, so they are not hashed into the manifest.

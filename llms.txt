@@ -21,7 +21,7 @@ build. To pin a citation, replace `main` with a release tag of the form
 
 - Pattern: `https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/<ref>/processed/comstock/comstock_amy2018_2025_release_3/<corpus_path>`, where `corpus_path` comes from index.json
 - Line 1 of every document is a provenance header: release, upstream path, publication status, source and publication URLs, corpus version. It alone is enough to cite the file.
-- 40 of 114 documents are over 100 KB; check `bytes` in index.json before fetching a whole document. Every H2 is also its own file: `sections/<corpus_path minus .md>/<NN>-<slug>.md`, named per heading in sections.json, a few KB each with a citable line-1 header.
+- 40 of 114 documents are over 100 KB; check `bytes` in index.json before fetching a whole document. Every H2 is also its own file: `sections/<source_id>/<document stem>/<NN>-<slug>.md`, named per heading in sections.json, a few KB each with a citable line-1 header.
 
 ## Optional
 

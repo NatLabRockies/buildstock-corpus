@@ -6,7 +6,7 @@ fetch returns just that section with everything a citation needs on its line 1.
 
 Layout, beside the documents under processed/<product>/<release>/:
 
-    sections/<corpus_path minus .md>/<NN>-<slug>.md
+    sections/<source_id>/<document stem>/<NN>-<slug>.md
 
 `00-<title slug>` holds what sits between the H1 and the first H2 (a document with no H2 at
 all gets only that file, which is the document again under a predictable path); `NN-<slug>`
@@ -78,9 +78,31 @@ class SectionPlan:
 
 
 def sections_dir(corpus_path: str) -> str:
-    """processed/-relative directory a document's section files live in."""
+    """processed/-relative directory a document's section files live in.
+
+    Flat by source: `sections/<source_id>/<document stem>/`, not a mirror of the document's
+    directory tree. The mirror reached 268-character absolute paths on a typical Windows
+    checkout, where git refuses to add them and plain file access fails without long-path
+    opt-in; this form stays under the 260 limit. `sections.json` names the exact file for
+    every heading, so no consumer derives the path by hand.
+    """
     base = corpus_path[:-3] if corpus_path.endswith(".md") else corpus_path
-    return f"{SECTIONS_DIRNAME}/{base}"
+    source_id, _, rest = base.partition("/")
+    stem = rest.rsplit("/", 1)[-1] if rest else source_id
+    return f"{SECTIONS_DIRNAME}/{source_id}/{stem}"
+
+
+def check_unique_section_dirs(corpus_paths: list[str]) -> None:
+    """Refuse two documents that would share a section dir (same source id and stem)."""
+    seen: dict[str, str] = {}
+    for cp in corpus_paths:
+        d = sections_dir(cp)
+        if d in seen:
+            raise ValueError(
+                f"section dir collision: {cp!r} and {seen[d]!r} both map to {d}; "
+                f"rename one upstream or extend sections_dir"
+            )
+        seen[d] = cp
 
 
 def plan_sections(corpus_path: str, text: str) -> list[SectionPlan]:
@@ -202,6 +224,7 @@ def write_all_sections(proot: Path, corpus_paths: list[str]) -> int:
     """
     import shutil
 
+    check_unique_section_dirs(corpus_paths)
     tree = proot / SECTIONS_DIRNAME
     if tree.exists():
         shutil.rmtree(long_path(tree))

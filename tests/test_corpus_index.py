@@ -131,7 +131,7 @@ def test_section_line_ranges_slice_back_to_the_heading_and_tile_the_file(built):
     assert "Floor-to-floor height is 4 m." in "\n".join(lines[floor["line_start"] - 1:floor["line_end"]])
     assert sections["documents"]["upgrade_measures/measure_pdfs/89340.md"] == [
         {"heading": "Load Shed", "level": 1, "line_start": 2, "line_end": 4,
-         "file": "sections/upgrade_measures/measure_pdfs/89340/00-load-shed.md"}]
+         "file": "sections/upgrade_measures/89340/00-load-shed.md"}]
 
 
 def test_index_is_compact_and_lf(built):
@@ -191,10 +191,10 @@ def test_sections_json_names_a_file_for_every_h2_and_the_preamble(built):
     assert X.check_schema(sections, X.SECTIONS_SCHEMA) == []
     secs = sections["documents"]["technical_reference/doc/a.md"]
     files = {s["heading"]: s.get("file") for s in secs}
-    assert files["Geometry"] == "sections/technical_reference/doc/a/00-geometry.md"  # preamble: "Intro."
-    assert files["Floor Height"] == "sections/technical_reference/doc/a/01-floor-height.md"
-    assert files["Rotation"] == "sections/technical_reference/doc/a/02-rotation.md"
+    assert files["Geometry"] == "sections/technical_reference/a/00-geometry.md"  # preamble: "Intro."
+    assert files["Floor Height"] == "sections/technical_reference/a/01-floor-height.md"
+    assert files["Rotation"] == "sections/technical_reference/a/02-rotation.md"
     assert files["Detail"] is None  # an H3 is read inside its H2's file
     # a document with no H2 gets only the preamble file, which is the whole document
     only = sections["documents"]["upgrade_measures/measure_pdfs/89340.md"]
-    assert [s.get("file") for s in only] == ["sections/upgrade_measures/measure_pdfs/89340/00-load-shed.md"]
+    assert [s.get("file") for s in only] == ["sections/upgrade_measures/89340/00-load-shed.md"]

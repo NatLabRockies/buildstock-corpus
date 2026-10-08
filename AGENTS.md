@@ -26,7 +26,7 @@ https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/<ref>/processe
 - **Fetch `index.json` first** (~6 KB over the wire): every document and measure with its
   `corpus_path`, `status`, `source_url`, `publication_url` and `bytes`. Then the one
   document you need, or one section of it: `sections.json` names a file for every H2
-  (`sections/<corpus_path minus .md>/<NN>-<slug>.md`), each a few KB with its own
+  (`sections/<source_id>/<document stem>/<NN>-<slug>.md`), each a few KB with its own
   citable line-1 header that also names the parent `corpus_path` and `lines`.
 - **Check `bytes` before fetching a whole document.** 40 documents are over 100 KB;
   Appendix A is 437 KB. Fetch the section file instead, or read a line range.
