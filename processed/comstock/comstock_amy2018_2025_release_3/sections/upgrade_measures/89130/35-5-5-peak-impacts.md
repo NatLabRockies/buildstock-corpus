@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89130.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89130.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89130.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/89130.md | section: 5.5  Peak Impacts | lines: 840-869 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89130.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89130.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89130.pdf | corpus_version: 0396270 | corpus_path: upgrade_measures/measure_pdfs/89130.md | section: 5.5  Peak Impacts | lines: 840-869 -->
 ## 5.5  Peak Impacts
 
 Figure 13 shows the impact of the Electric Cooking Equipment upgrade on seasonal peak hours. The seasonal peak times had very little change from the baseline to the upgrade, which is to be expected, as this measure only altered cooking equipment power, not schedules.

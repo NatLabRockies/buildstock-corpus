@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95009.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95009.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95009.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/95009.md | section: Suggested Citation | lines: 22-33 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95009.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95009.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95009.pdf | corpus_version: 0396270 | corpus_path: upgrade_measures/measure_pdfs/95009.md | section: Suggested Citation | lines: 22-33 -->
 ## Suggested Citation
 
 Praprost, Marlena. 2025. ComStock Measure Documentation: Geothermal Heat Pumps + High Efficiency Envelope + LED Lighting Package. Golden, CO: National Renewable Energy Laboratory. NREL/TP-5500-95009. https://www.nrel.gov/docs/fy25osti/95009.pdf.

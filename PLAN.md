@@ -60,8 +60,9 @@ PR #24 (branches `corpus-version` + `status-field`, 21 commits), annotated, push
 Release cut from it with the CHANGELOG entry. Check passed: the raw URL at the tag serves
 `index.json`, which names the tag as its `corpus_version`. Release step as run: finalize
 CHANGELOG/CITATION/llms.txt → `bsc build --corpus-version <tag>` → validate + network link
-test → commit → PR → merge commit → `git tag -a` on the merge commit → push tag →
-`gh release create --verify-tag`. *Size:* S.
+test → `bsc changelog --from <previous tag> --append` and add the hand-written tooling
+bullets (W1.3) → commit → PR → merge commit → `git tag -a` on the merge commit → push tag →
+`gh release create --verify-tag --notes-file` with that entry. *Size:* S.
 
 **W1.2 · Mid-release updates get a new build and a new tag.** *Operating rule from 2026-10-08.*
 When a known-issues document is added or a measure PDF is revised inside a data release,
@@ -70,12 +71,20 @@ they pinned until they choose to move. Never edit a tagged snapshot in place. `m
 the moving pointer for people who want the newest build and accept drift. README states the
 policy ("Reading without a clone"). *Size:* S.
 
-**W1.3 · Release notes generated from the manifest.** The manifest already hashes every input
-and output and records `date_last_updated` per document, so the difference between two builds
-is computable: documents added, removed, or changed (input hash moved), and overlays changed.
-Add `bsc changelog --from <tag>` that prints that list, paste it into the GitHub Release, and
-append it to `CHANGELOG.md`. *Where:* `cli.py`, new `changelog.py` reading two manifests.
-*Check:* the release body lists the added known-issues document by path. *Size:* M.
+**W1.3 · Release notes generated from the manifest.** *Done 2026-10-08.* The manifest hashes
+every input and output, so the difference between two builds is computable: documents added,
+removed, revised upstream (input hash moved), with a changed overlay, or re-rendered from an
+unchanged source, plus measure gaps opened or closed, registry exclusions and tooling
+versions. `bsc changelog --from <tag> [--to <ref>] [--append]` prints that list in the
+CHANGELOG's shape; `--append` inserts it at the top of `CHANGELOG.md`. Two things the plan
+assumed turned out otherwise: `date_last_updated` is not in the manifest (it is document
+metadata the map reads), and `output_sha256` moves on every build because line 1 names the
+corpus version. So each row now also records `body_sha256` (the file without line 1), which
+`bsc validate` checks; for a manifest that predates it (v1) the bodies are read out of git at
+the ref. First run against v1: 65 documents re-rendered (steps 21 and 22), 49 unchanged.
+*Where:* `changelog.py`, `cli.py`, `provenance.body_sha256`, `manifest.py`. *Check:* the
+rendered entry lists an added document by `source_id/source_path` with its publication URL
+(pinned in `tests/test_changelog.py`). *Size:* M.
 
 **W1.4 · Record the corpus version inside the artifacts.** Write `corpus_version` into
 `manifest.json`, the `CORPUS_MAP.md` provenance block, the index (W4), and each file's header

@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89130.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89130.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89130.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/89130.md | section: 1.1.1.6  Steamers | lines: 498-550 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89130.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89130.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89130.pdf | corpus_version: 0396270 | corpus_path: upgrade_measures/measure_pdfs/89130.md | section: 1.1.1.6  Steamers | lines: 498-550 -->
 ## 1.1.1.6  Steamers
 
 The last type of cooking equipment modeled in ComStock is commercial steamers. There are two main types of steamers: atmospheric (pressure-less) steamers and pressure steamers.

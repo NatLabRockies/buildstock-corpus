@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92618.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/92618.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/92618.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/92618.md | section: 5.3  Stock Greenhouse Gas Emissions Impact | lines: 430-448 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92618.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/92618.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/92618.pdf | corpus_version: 0396270 | corpus_path: upgrade_measures/measure_pdfs/92618.md | section: 5.3  Stock Greenhouse Gas Emissions Impact | lines: 430-448 -->
 ## 5.3  Stock Greenhouse Gas Emissions Impact
 
 The measure scenario package shows between 4% and 7% GHG emissions avoided for the U.S. commercial building stock compared to the ComStock baseline depending on the electricity grid scenario (Figure 3). The HP-RTU scenario with roof insulation (Std Perf w Roof) shows slightly higher emissions avoided compared to the HP-RTU scenario alone (HP RTU Std Perf).

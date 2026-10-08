@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86103.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86103.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86103.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/86103.md | section: 2.4  VRF Recommendations | lines: 338-346 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86103.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86103.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86103.pdf | corpus_version: 0396270 | corpus_path: upgrade_measures/measure_pdfs/86103.md | section: 2.4  VRF Recommendations | lines: 338-346 -->
 ## 2.4  VRF Recommendations
 
 This section discusses some strategies to overcome prior challenges with VRF systems and to realize the intent of the modeled VRF system performance from this report.

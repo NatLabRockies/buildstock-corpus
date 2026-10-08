@@ -34,7 +34,7 @@ from .paths import (
     processed_root,
     sha256_file,
 )
-from .provenance import HEADER_FIELDS, default_corpus_version, read_header
+from .provenance import HEADER_FIELDS, body_sha256_file, default_corpus_version, read_header
 from .sections import check_sections, orphan_section_files
 from .status import STATUSES
 
@@ -176,6 +176,8 @@ def build_manifest(
             "input_sha256": src_hashes.get(doc.source_id, {}).get(doc.source_path),
             "output_path": out_rel,
             "output_sha256": _sha256_file(out_abs) if out_abs.is_file() else None,
+            # Content hash without line 1, so two builds can be compared (provenance.py).
+            "body_sha256": body_sha256_file(out_abs) if out_abs.is_file() else None,
         }
         ov = overlays.get(doc.source_id, {}).get(doc.source_path)
         if ov:
@@ -404,6 +406,12 @@ def validate_manifest(
                 errors.append(f"{where}: output file missing on disk")
             elif _sha256_file(out_abs) != recorded:
                 errors.append(f"{where}: output hash mismatch (file changed since build)")
+            elif not a.get("body_sha256"):
+                # The body hash is what `bsc changelog` diffs two builds by; a row without
+                # one would make the next release's notes list this document as changed.
+                errors.append(f"{where}: no recorded body hash")
+            elif body_sha256_file(out_abs) != a["body_sha256"]:
+                errors.append(f"{where}: body hash does not match the file (manifest row altered)")
             else:
                 # The header is all a consumer who fetched this one file has, so it must
                 # say exactly what the manifest row says, field by field. The manifest's own

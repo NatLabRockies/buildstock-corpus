@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92546.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/92546.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/92546.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/92546.md | section: 5.2  Stock Energy Impacts | lines: 304-328 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92546.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/92546.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/92546.pdf | corpus_version: 0396270 | corpus_path: upgrade_measures/measure_pdfs/92546.md | section: 5.2  Stock Energy Impacts | lines: 304-328 -->
 ## 5.2  Stock Energy Impacts
 
 The annual stock site energy savings by end use and fuel type are presented in Figure 3. Again, the Ideal Thermal Air Loads measure scenario does not represent an actual technology that can be implemented in a building. The results presented should only be used to understand how the measure is applied and therefore how to best utilize the results for understanding building thermal loads.

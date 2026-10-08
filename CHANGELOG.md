@@ -2,9 +2,11 @@
 
 One entry per corpus build that is tagged. Tags are named `<release id>-v<N>` after the
 dataset release the build documents, and never move. Entries list documents added, removed
-or changed (by input hash), overlays changed, and tooling changes that alter output; the
-intent is for `bsc changelog --from <tag>` to compute the document-level part from two
-manifests once two tags exist.
+or changed (by input hash), overlays changed, and tooling changes that alter output.
+`bsc changelog --from <tag>` computes the document-level part from two manifests, telling a
+document re-rendered by a tooling change (body hash moved) from one merely re-stamped with
+the new version, and `--append` inserts it here; the bullets saying *why* documents were
+re-rendered are written by hand above it.
 
 ## comstock_amy2018_2025_release_3-v1 — 2026-10-08
 

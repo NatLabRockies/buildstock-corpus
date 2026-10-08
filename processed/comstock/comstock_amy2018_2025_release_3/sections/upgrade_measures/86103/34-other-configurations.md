@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86103.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86103.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86103.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/86103.md | section: Other Configurations | lines: 567-585 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86103.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86103.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86103.pdf | corpus_version: 0396270 | corpus_path: upgrade_measures/measure_pdfs/86103.md | section: Other Configurations | lines: 567-585 -->
 ## Other Configurations
 
 Rated COPs for heating and cooling are specified based on linear regressions of actual products' specifications [31] as shown in Figure 12. When capacity determined by the sizing algorithm passes beyond the capacity range shown in the figure, minimum or maximum COP datapoints shown in the figure are used. Pipe configurations such as piping length are also necessary as inputs to the VRF object.

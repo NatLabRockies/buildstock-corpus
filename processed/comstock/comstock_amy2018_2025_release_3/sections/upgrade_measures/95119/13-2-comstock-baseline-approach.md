@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95119.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/95119.md | section: 2  ComStock Baseline Approach | lines: 267-272 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95119.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | corpus_version: 0396270 | corpus_path: upgrade_measures/measure_pdfs/95119.md | section: 2  ComStock Baseline Approach | lines: 267-272 -->
 ## 2  ComStock Baseline Approach
 
 This measure replaces gas or electric resistance RTUs in the baseline ComStock models with a HP-RTU, as specified in this report. The prevalence of RTUs in the ComStock baseline is interpreted from the 2012 CBECS microdata [5]. The stock prevalence of HVAC system types in ComStock is shown in Figure 1.

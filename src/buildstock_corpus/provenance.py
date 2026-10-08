@@ -26,8 +26,10 @@ manifest row field by field.
 
 from __future__ import annotations
 
+import hashlib
 import re
 import subprocess
+from pathlib import Path
 
 from .paths import PROJECT_ROOT
 
@@ -121,3 +123,21 @@ def read_header(path) -> dict[str, str | None] | None:
     """parse_header applied to the first line of a file on disk."""
     with open(path, encoding="utf-8") as f:
         return parse_header(f.readline())
+
+
+def body_sha256(data: bytes) -> str:
+    """sha256 of a processed file's bytes after its line-1 header.
+
+    `output_sha256` covers the whole file, and line 1 names the corpus version, so every
+    build moves every output hash: comparing two builds by it says only that they are two
+    builds. The body hash leaves the header out, so it moves only when the extracted
+    content did -- which is what `bsc changelog` needs to tell a re-rendered document from
+    one merely re-stamped. A file with no newline is all header and has an empty body.
+    """
+    nl = data.find(b"\n")
+    return hashlib.sha256(data[nl + 1 :] if nl >= 0 else b"").hexdigest()
+
+
+def body_sha256_file(path) -> str:
+    """body_sha256 of a file on disk."""
+    return body_sha256(Path(path).read_bytes())

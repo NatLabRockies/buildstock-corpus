@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95004.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/95004.md | section: Executive Summary | lines: 132-188 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95004.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95004.pdf | corpus_version: 0396270 | corpus_path: upgrade_measures/measure_pdfs/95004.md | section: Executive Summary | lines: 132-188 -->
 ## Executive Summary
 
 Building on the 3-year effort to calibrate and validate the U.S. Department of Energy's ResStock™ and ComStock™ models, this work produces national datasets that empower analysts working for federal, state, utility, city, and manufacturer stakeholders to answer a broad range of questions regarding the U.S. commercial building stock, such as the mass adoption of rooftop solar photovoltaics (PV), the focus of this report.

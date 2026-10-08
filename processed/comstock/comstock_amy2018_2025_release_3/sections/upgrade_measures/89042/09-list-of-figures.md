@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89042.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/89042.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/89042.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/89042.md | section: List of Figures | lines: 216-251 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89042.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/89042.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/89042.pdf | corpus_version: 0396270 | corpus_path: upgrade_measures/measure_pdfs/89042.md | section: List of Figures | lines: 216-251 -->
 ## List of Figures
 
 | Figure 1. ComStock baseline in-force energy code followed as a percentage of applicable floor area                                                                                                                                                          | ........ 3                                                        |

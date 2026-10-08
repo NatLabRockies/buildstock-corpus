@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95119.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/95119.md | section: 3.2.1  Heat Pump Sizing | lines: 296-303 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95119.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95119.pdf | corpus_version: 0396270 | corpus_path: upgrade_measures/measure_pdfs/95119.md | section: 3.2.1  Heat Pump Sizing | lines: 296-303 -->
 ## 3.2.1  Heat Pump Sizing
 
 The HP-RTUs in this study are sized to meet the design cooling load, following the same methodology as [4]. Sizing to the design cooling load is not necessarily optimal, but it is common practice [1].

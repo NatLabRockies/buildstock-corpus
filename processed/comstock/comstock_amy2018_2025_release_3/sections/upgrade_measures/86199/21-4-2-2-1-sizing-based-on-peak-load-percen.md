@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86199.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86199.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86199.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/86199.md | section: 4.2.2.1  Sizing Based on Peak Load Percentage | lines: 506-528 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86199.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86199.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86199.pdf | corpus_version: 0396270 | corpus_path: upgrade_measures/measure_pdfs/86199.md | section: 4.2.2.1  Sizing Based on Peak Load Percentage | lines: 506-528 -->
 ## 4.2.2.1  Sizing Based on Peak Load Percentage
 
 In this approach, the target capacity is estimated as a percentage of the DHL. The corresponding outdoor air temperature (target OAT) that results in a heating demand equal to the target capacity is determined using the heating load line, as shown in Figure 5.

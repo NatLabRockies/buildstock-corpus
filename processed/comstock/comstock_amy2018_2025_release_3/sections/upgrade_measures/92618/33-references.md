@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92618.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/92618.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/92618.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/92618.md | section: References | lines: 525-540 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92618.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/92618.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/92618.pdf | corpus_version: 0396270 | corpus_path: upgrade_measures/measure_pdfs/92618.md | section: References | lines: 525-540 -->
 ## References
 
 - [1] J. Kim, C. CaraDonna, and A. Parker, 'ComStock Measure Documentation: Heat Pump Rooftop Units With Standard Performance,' 2025. Accessed: Jan. 23, 2025. [Online]. Available: https://www.nrel.gov/docs/fy25osti/92115.pdf

@@ -66,7 +66,7 @@ Two places this list departs from the order in PLAN.md:
 
 | # | Task | What it does | Size | Status |
 |---|------|--------------|------|--------|
-| 23 | W1.3 | `bsc changelog --from <tag>` once two tagged manifests exist to diff | M | |
+| 23 | W1.3 | `bsc changelog --from <tag>` once two tagged manifests exist to diff | M | Done 2026-10-08 on `changelog` (rebuild commit follows). Rows gain `body_sha256`; v1 is diffed by reading bodies from git. Against v1: 65 re-rendered, 49 unchanged. |
 | 24 | W7.2 | CI: validate and tests on every push, block a tag unless both pass | — | |
 
 Not scheduled: W6.2 (data-dense figure descriptions, marked maybe) and W8 (ResStock, to be
