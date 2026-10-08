@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89042.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/89042.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/89042.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/89042.md | section: 5.2  Stock Energy Impacts | lines: 657-692 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89042.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/89042.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/89042.pdf | corpus_version: 0396270 | corpus_path: upgrade_measures/measure_pdfs/89042.md | section: 5.2  Stock Energy Impacts | lines: 657-692 -->
 ## 5.2  Stock Energy Impacts
 
 Figure 10 and Figure 11 show the comparison of annual site energy consumption between the baseline and upgrade scenarios for the entire building stock and buildings that are only applicable to the upgrade, respectively. As expected, the standard performance HP-RTU demonstrates lower performance than the advanced performance HP-RTU.

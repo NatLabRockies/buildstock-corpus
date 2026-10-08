@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86897.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86897.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86897.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/86897.md | section: 5.3  Stock Energy Impacts | lines: 476-497 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86897.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86897.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86897.pdf | corpus_version: 0396270 | corpus_path: upgrade_measures/measure_pdfs/86897.md | section: 5.3  Stock Energy Impacts | lines: 476-497 -->
 ## 5.3  Stock Energy Impacts
 
 The DCV measure demonstrates 2.6% total site energy savings (119 trillion British thermal units [TBtu]) for the U.S. commercial building stock modeled in ComStock (Figure 3). The savings are primarily attributed to:

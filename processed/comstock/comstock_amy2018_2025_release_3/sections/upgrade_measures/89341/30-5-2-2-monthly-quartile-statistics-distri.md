@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89341.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89341.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89341.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/89341.md | section: 5.2.2 Monthly Quartile Statistics Distribution of Daily Peak Reduction | lines: 415-444 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89341.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89341.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89341.pdf | corpus_version: 0396270 | corpus_path: upgrade_measures/measure_pdfs/89341.md | section: 5.2.2 Monthly Quartile Statistics Distribution of Daily Peak Reduction | lines: 415-444 -->
 ## 5.2.2 Monthly Quartile Statistics Distribution of Daily Peak Reduction
 
 Figure 4 and Figure 5 show the percentage distributions of median and maximum daily peak load reductions, respectively, by month for the default scenario compared to the baseline model.

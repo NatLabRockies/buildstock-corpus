@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86103.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86103.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86103.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/86103.md | section: 1.1  VRF Technology Details | lines: 213-271 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86103.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86103.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86103.pdf | corpus_version: 0396270 | corpus_path: upgrade_measures/measure_pdfs/86103.md | section: 1.1  VRF Technology Details | lines: 213-271 -->
 ## 1.1  VRF Technology Details
 
 The upgrade described in this document is about replacing the existing heating, ventilation, and air-conditioning (HVAC) system. The upgraded system decouples ventilation from space conditioning, with ventilation being handled by the dedicated outdoor air system (DOAS), and the remaining space conditioning handled by a variable refrigerant flow (VRF) air-source heat pump system.

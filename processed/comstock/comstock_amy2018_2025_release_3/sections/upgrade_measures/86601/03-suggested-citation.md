@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86601.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86601.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86601.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/86601.md | section: Suggested Citation | lines: 24-37 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86601.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86601.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86601.pdf | corpus_version: 0396270 | corpus_path: upgrade_measures/measure_pdfs/86601.md | section: Suggested Citation | lines: 24-37 -->
 ## Suggested Citation
 
 Van Sant, Amy and Marlena Praprost. 2024. End-Use Savings Shapes Upgrade Package Documentation: LED Lighting, HP-RTU and ASHP-Boiler . Golden, CO: National Renewable Energy Laboratory. NREL/TP-5500-86601.

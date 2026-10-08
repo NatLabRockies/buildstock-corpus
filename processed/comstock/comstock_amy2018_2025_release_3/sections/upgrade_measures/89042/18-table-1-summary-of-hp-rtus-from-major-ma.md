@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89042.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/89042.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/89042.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/89042.md | section: Table 1. Summary of HP-RTUs From Major Manufacturers in the Market (as of October 2023) | lines: 356-381 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89042.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/89042.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/89042.pdf | corpus_version: 0396270 | corpus_path: upgrade_measures/measure_pdfs/89042.md | section: Table 1. Summary of HP-RTUs From Major Manufacturers in the Market (as of October 2023) | lines: 356-381 -->
 ## Table 1. Summary of HP-RTUs From Major Manufacturers in the Market (as of October 2023)
 
 Data from [5], [6], [7], [8], [9], [10], [11], [12], [13], [14], [15], [16], [17], [18], [19], [20], [21], [22], [23], [24]

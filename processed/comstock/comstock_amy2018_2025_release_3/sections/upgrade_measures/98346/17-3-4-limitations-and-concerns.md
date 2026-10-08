@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/98346.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/98346.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/98346.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/98346.md | section: 3.4  Limitations and Concerns | lines: 291-298 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/98346.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/98346.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/98346.pdf | corpus_version: 0396270 | corpus_path: upgrade_measures/measure_pdfs/98346.md | section: 3.4  Limitations and Concerns | lines: 291-298 -->
 ## 3.4  Limitations and Concerns
 
 As discussed previously, thermostat setbacks can lead to spikes in electrical demand, especially for electric heating equipment [7]. This measure seeks to explore the effects of thermostat setbacks across all HVAC equipment types. A separate measure investigates the effects of reduced heating setbacks for heat pumps [7].

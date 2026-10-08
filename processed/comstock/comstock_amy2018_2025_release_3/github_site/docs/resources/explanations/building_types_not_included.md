@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/building_types_not_included.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/explanations/building_types_not_included.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/building_types_not_included.html | corpus_version: b5faf42 -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/building_types_not_included.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/explanations/building_types_not_included.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/building_types_not_included.html | corpus_version: 0396270 -->
 # Building Types Not Included in ComStock
 
 *This resource incorporates updates in ComStock 2025 Release 3, including the addition of a new building type, and applies to all subsequent releases.*

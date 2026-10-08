@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89117.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89117.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89117.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/89117.md | section: 3.2  Technology Specifics | lines: 339-363 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/89117.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/89117.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/89117.pdf | corpus_version: 0396270 | corpus_path: upgrade_measures/measure_pdfs/89117.md | section: 3.2  Technology Specifics | lines: 339-363 -->
 ## 3.2  Technology Specifics
 
 ARC retrofit kits do not typically involve replacement of the heating or cooling coils in the unit, and in this measure, it will be assumed that a single-zone VAV retrofit does not involve coil replacement (Weissert &amp; Smith, 2018). ARC kits often contain controls and sensors for implementation of DCV and improved air-side economizing, and these features are included in this measure.

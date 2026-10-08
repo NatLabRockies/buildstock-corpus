@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86585.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86585.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86585.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/86585.md | section: 5.2  Stock Energy Impacts | lines: 565-590 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86585.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86585.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86585.pdf | corpus_version: 0396270 | corpus_path: upgrade_measures/measure_pdfs/86585.md | section: 5.2  Stock Energy Impacts | lines: 565-590 -->
 ## 5.2  Stock Energy Impacts
 
 The HP-RTU measure demonstrates 10.3% total site energy savings (449 trillion British thermal units [TBtu]) for the U.S. commercial building stock modeled in ComStock (Figure 10). The savings are primarily attributed to:

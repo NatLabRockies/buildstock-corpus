@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86601.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86601.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86601.pdf | corpus_version: b5faf42 | corpus_path: upgrade_measures/measure_pdfs/86601.md | section: 5.2 Stock Energy Impacts | lines: 639-676 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/86601.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy24osti/86601.pdf | publication_url: https://www.nlr.gov/docs/fy24osti/86601.pdf | corpus_version: 0396270 | corpus_path: upgrade_measures/measure_pdfs/86601.md | section: 5.2 Stock Energy Impacts | lines: 639-676 -->
 ## 5.2 Stock Energy Impacts
 
 The Interior Lighting and Heat Pump package demonstrates 19.9% total site energy savings (922 trillion British thermal units [TBtu]) for the U.S. commercial building stock modeled in ComStock (Figure 3). The savings are primarily attributed to electrification of gas-furnace and boiler systems, and LED installation:
