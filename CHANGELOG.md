@@ -6,10 +6,11 @@ or changed (by input hash), overlays changed, and tooling changes that alter out
 intent is for `bsc changelog --from <tag>` to compute the document-level part from two
 manifests once two tags exist.
 
-## Unreleased
+## comstock_amy2018_2025_release_3-v1 — 2026-10-08
 
-Branches `corpus-version` and `status-field`, stacked on `main` at `887025c`, toward the
-first tag `comstock_amy2018_2025_release_3-v1`.
+First tagged build. Branches `corpus-version` and `status-field`, stacked on `main` at
+`887025c`. Documents ComStock dataset release `comstock_amy2018_2025_release_3`: 114
+documents, 65 measures (57 documented, 8 tracked gaps), 7,731 chunks.
 
 ### Added
 

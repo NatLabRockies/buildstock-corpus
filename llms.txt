@@ -8,7 +8,7 @@
 
 Every file is served raw by GitHub, unauthenticated. The links below use `main`, the newest
 build. To pin a citation, replace `main` with a release tag of the form
-`<release id>-v<N>` (the first will be `comstock_amy2018_2025_release_3-v1`); tags never move.
+`<release id>-v<N>`; tags never move. Current: `comstock_amy2018_2025_release_3-v1`.
 
 ## Start here
 

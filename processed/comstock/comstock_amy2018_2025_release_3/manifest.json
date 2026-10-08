@@ -1,8 +1,8 @@
 {
   "product": "comstock",
   "release": "comstock_amy2018_2025_release_3",
-  "corpus_version": "8785426",
-  "generated_utc": "2026-10-07T23:24:07.250440+00:00",
+  "corpus_version": "comstock_amy2018_2025_release_3-v1",
+  "generated_utc": "2026-10-08T15:07:16.679538+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -44,11 +44,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/0_1_exec_summary.tex",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Executive Summary",
           "input_sha256": "9ff08296feb33f76d465cecb447914fbb9d345e553847e46a17c1a7765deacd4",
           "output_path": "technical_reference/documentation/reference_doc/0_1_exec_summary.md",
-          "output_sha256": "45f3174e87e752c753d20da66b0ccebb58e6a9fde52d9e787b41561b23cd0aa3"
+          "output_sha256": "46200939c6e3734201ab22da2982e4be273b385b792af043bb4f4165bd24f6da"
         },
         {
           "source_path": "documentation/reference_doc/0_2_acknowledgements.tex",
@@ -56,11 +56,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/0_2_acknowledgements.tex",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Acknowledgments",
           "input_sha256": "5bd6de114ba9bee946782c1863ffda3f85d4f0cd37099b20ff3c0325b9c1ffca",
           "output_path": "technical_reference/documentation/reference_doc/0_2_acknowledgements.md",
-          "output_sha256": "3cd6ec3b4c42e85bba1adbe7f7a90e6dc2298eecda40dde250865b59e8684b46"
+          "output_sha256": "5dc151fd92d488416d8fb71b7f01d75583655de35944ab0cf7e84e5e3e9d318a"
         },
         {
           "source_path": "documentation/reference_doc/0_3_acronyms.tex",
@@ -68,11 +68,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/0_3_acronyms.tex",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "List of Acronyms",
           "input_sha256": "9873e2b3aeaa253d0f0451b511a8b0637c8771cb9f5f0672b748a6268a292323",
           "output_path": "technical_reference/documentation/reference_doc/0_3_acronyms.md",
-          "output_sha256": "9385a40f7d7d8cb6d15fa82a084b3716d1fc5876d9d84c69245c341b762bd665"
+          "output_sha256": "ee55d05c187e1531a139d7f874fb04b98d73a9386269b478f272dd99273ac9ca"
         },
         {
           "source_path": "documentation/reference_doc/1_introduction.tex",
@@ -80,11 +80,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/1_introduction.tex",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Introduction",
           "input_sha256": "18c08d5f729c3f48ccdac686e44b121138d32761ccd2e76e67a2e30acdf445f0",
           "output_path": "technical_reference/documentation/reference_doc/1_introduction.md",
-          "output_sha256": "81cfa0d52914a96e3194bcf85767109362e83aeebaa4d5f9c02784a2ba55772d"
+          "output_sha256": "46be52ed715840cf2f6ca030ca6ce8772191e693d7993864902a96ddbcde1481"
         },
         {
           "source_path": "documentation/reference_doc/2_workflow.tex",
@@ -92,11 +92,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/2_workflow.tex",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "ComStock Workflow",
           "input_sha256": "02df0eb5ecad175e558dd1728c88826772debbed70afef472fd588a9ca9fd903",
           "output_path": "technical_reference/documentation/reference_doc/2_workflow.md",
-          "output_sha256": "1a501563e45d0e98e623bfc1ee49c5b393ffeb9e9e44169116b557a21260c186"
+          "output_sha256": "e96771e0c0054c33220856807ecbb2683e969f175f5fd489d6d05f21a5e409bf"
         },
         {
           "source_path": "documentation/reference_doc/3_sampling.tex",
@@ -104,11 +104,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/3_sampling.tex",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Building Characteristic Sampling",
           "input_sha256": "9386d8ea1f6a44a0640d36466950fdc1b7709b9b869845a9ddb3c7581f0de0e0",
           "output_path": "technical_reference/documentation/reference_doc/3_sampling.md",
-          "output_sha256": "4542900f8a2cbc7bd4479e5bd84cca8cc83966721ad7e04d3e9a58ba726ff495"
+          "output_sha256": "3799deeb5e09aedfe3909365ecd28ee1a18b188d07588af7a1179cb929e2b0af"
         },
         {
           "source_path": "documentation/reference_doc/4_1_introduction.tex",
@@ -116,11 +116,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_1_introduction.tex",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "ComStock Building Models",
           "input_sha256": "6cbfcb541d1357ec81469ea316ec2417f5886b5fb6df7e9be11eb4dd05a8a600",
           "output_path": "technical_reference/documentation/reference_doc/4_1_introduction.md",
-          "output_sha256": "9e00753185020f26da93d7f395c4b96a9e99720cb9f219559e42df6c0a34bbdb"
+          "output_sha256": "92d09526f95adde53622f2bd0af1271cf6ebe73a12960657769999fe436eb066"
         },
         {
           "source_path": "documentation/reference_doc/4_2_meta.tex",
@@ -128,11 +128,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_2_meta.tex",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Location, Type, Age, Space Programming, Energy Code, and Change Over Time",
           "input_sha256": "a01de853a3139ef0239b8045eed470220c07a96be321207f75e316fc86e8eb44",
           "output_path": "technical_reference/documentation/reference_doc/4_2_meta.md",
-          "output_sha256": "c85903a5b25365625e6852ca00ecfcc4291052fbcbbcb668fd36204d5ab9f53a"
+          "output_sha256": "67ce396ff9c1bedd1ca9d3cf5b64bf2abfce8831b0456e963976ed401a6569cf"
         },
         {
           "source_path": "documentation/reference_doc/4_3_occupancy.tex",
@@ -140,11 +140,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_3_occupancy.tex",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Hours of Operation and Occupancy",
           "input_sha256": "8e7100ddf2307411dc4f5cbb4a7a2b6a04ca002eb43d02ef32ce766d08b67cdc",
           "output_path": "technical_reference/documentation/reference_doc/4_3_occupancy.md",
-          "output_sha256": "dd7143ea2406cd18bb3e70d2412361a47421531761cf0e042a1589c8b8c0e8a9"
+          "output_sha256": "10fb0ac6903b30c8353ca1628dcc515c81a4c65b903fe2d8db09f3e7c89e54c1"
         },
         {
           "source_path": "documentation/reference_doc/4_4_geometry.tex",
@@ -152,11 +152,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_4_geometry.tex",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Geometry",
           "input_sha256": "0f65d439ae800d24b91d3178aa6aca7a3665267b3f7d6bdaa2dffcecf4f1466b",
           "output_path": "technical_reference/documentation/reference_doc/4_4_geometry.md",
-          "output_sha256": "8fd831b86fa1c6e1cc1ee959751b803d697b4d7a52334490d57219d8fb2c85cc"
+          "output_sha256": "f1c51ef8194e7659de5033913c9a3887c5580e0a513ced7c19baedd21fbefe0b"
         },
         {
           "source_path": "documentation/reference_doc/4_5_envelope.tex",
@@ -164,11 +164,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_5_envelope.tex",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Envelope",
           "input_sha256": "b68cc9ffc4c00af3f664b5a65a1adfd5c5fabd1ca1148e591c81baf08d11e327",
           "output_path": "technical_reference/documentation/reference_doc/4_5_envelope.md",
-          "output_sha256": "4f603c3b9a776909aa73e5b3a1ef8bffeb2d5c3168ce7f41e4afe31757c7ecf9"
+          "output_sha256": "b8eccf100bd9effcf2aa52c5b35449211f35ed914068f3b46cc030c4d0ca4ad3"
         },
         {
           "source_path": "documentation/reference_doc/4_6_lighting.tex",
@@ -176,11 +176,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_6_lighting.tex",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Lighting",
           "input_sha256": "da554c08c16238d31467a546badf4d0b13c4cc177e3baac2cc7a9cd09f654c1c",
           "output_path": "technical_reference/documentation/reference_doc/4_6_lighting.md",
-          "output_sha256": "7b5318cf54b679810757b91fedf61399a5372e75060ed69413856b4104a5fb4d"
+          "output_sha256": "2b27fa26637c7826aed985debe9d21106b061a3e5ef707991878e427c22457f0"
         },
         {
           "source_path": "documentation/reference_doc/4_7_plug_and_process.tex",
@@ -188,11 +188,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_7_plug_and_process.tex",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Plug and Process Loads",
           "input_sha256": "f1134b58c14e786ec6f8e0cbf75c9c2cd76f97151616e8b21b6740c9148a7ae8",
           "output_path": "technical_reference/documentation/reference_doc/4_7_plug_and_process.md",
-          "output_sha256": "95c47bb29f800a7dbb2e10572bbf0ea3201ed9f58be799d76352413c0e0ed2c8"
+          "output_sha256": "238373a36f74f4f27c934595a8454b90c1a281b143a94e36e3b1223e857e670a"
         },
         {
           "source_path": "documentation/reference_doc/4_8_service_water_heating.tex",
@@ -200,11 +200,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_8_service_water_heating.tex",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Service Water Heating",
           "input_sha256": "9d23275e41232044ad6cbfa954b0594c56384794e6b3e2fe40e9040e1a75f7cd",
           "output_path": "technical_reference/documentation/reference_doc/4_8_service_water_heating.md",
-          "output_sha256": "7907e2ac1c5b0b4ece75934ce3257e9622e83ba1711c31460e644048a88e2c45"
+          "output_sha256": "7f8c7ac260fc62fd640b2da94b86dd613e70475560641b41b593140024f797db"
         },
         {
           "source_path": "documentation/reference_doc/4_9_hvac.tex",
@@ -212,11 +212,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_9_hvac.tex",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Heating, Ventilating, Air Conditioning, and Refrigeration",
           "input_sha256": "b21f5fc7c2c008d355cc13e9d2eb6445ba6ce53c6079cb2f10d953b29cbbd485",
           "output_path": "technical_reference/documentation/reference_doc/4_9_hvac.md",
-          "output_sha256": "b8ea817ffdd347c54408f3d058527300a98faa169c6f3438bcabc9c677eaafb0"
+          "output_sha256": "524864002947a34f7db6b9f1a96bdec32539b276bfa281aaa9ff76766257f410"
         },
         {
           "source_path": "documentation/reference_doc/4_10_simulation_settings.tex",
@@ -224,11 +224,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/4_10_simulation_settings.tex",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Simulation Settings",
           "input_sha256": "b5f739794ed359bf8da4ae73bdf9223333fa5bc7ef12fef0fc36a43a36bac9b5",
           "output_path": "technical_reference/documentation/reference_doc/4_10_simulation_settings.md",
-          "output_sha256": "b0859802fac039b6f83d7482d2796ceef0c57e8c13859df8abc3dc40309edacd"
+          "output_sha256": "1c73045955cc179adcf7d14e418bb237cd8d310199753b36b590de8d2c7a42df"
         },
         {
           "source_path": "documentation/reference_doc/5_outputs.tex",
@@ -236,11 +236,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/5_outputs.tex",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "ComStock Outputs",
           "input_sha256": "7c31ecba9445664d8dab1fe9b3f7b36a1cbd7f1b1a71479fe54ba5ff74f98f30",
           "output_path": "technical_reference/documentation/reference_doc/5_outputs.md",
-          "output_sha256": "6eeab28d5cbe06b0fb424697abcd930f0ea32906ff4e435f0b58373951477fa3"
+          "output_sha256": "2eba7abcb4405a4054c844d9430ef01b65e4cc3eaa30f6e92616790adb782f7c"
         },
         {
           "source_path": "documentation/reference_doc/6_AppendixA.tex",
@@ -248,11 +248,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/6_AppendixA.tex",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "6_AppendixA",
           "input_sha256": "8544772829f7a2626d9607e13bdf01165044707425c05067569fc6d872a36eaa",
           "output_path": "technical_reference/documentation/reference_doc/6_AppendixA.md",
-          "output_sha256": "f6708268fede40ae756a77edba30a1af93d5cbd3946bfe674ec3e4a5b788bbbd"
+          "output_sha256": "710e7c1f189bdfcec1075ddc871103441dbe4f8e840b9e394523fbc16a26f652"
         },
         {
           "source_path": "documentation/reference_doc/7_AppendixB.tex",
@@ -260,11 +260,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock/blob/b77c60d341c9b68c58c5d51e51b06f08f293d3cb/documentation/reference_doc/7_AppendixB.tex",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/assets/files/comstock_reference_documentation_2025_3.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "7_AppendixB",
           "input_sha256": "8b6b0a42ca0c4d0b1eb999bc926e29ef934286aa78069e69ca8c906577df16ae",
           "output_path": "technical_reference/documentation/reference_doc/7_AppendixB.md",
-          "output_sha256": "670554398f78764d0da60360f80472fbcc640599accae582b4d81cf4981dcf08"
+          "output_sha256": "eadbfd75db17014db24ea85d97ed04381b3c409765e77aabaa35bc74236a9a92"
         }
       ]
     },
@@ -279,11 +279,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/citation.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/citation.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Citation and Data Attribution",
           "input_sha256": "c9af953c488389651966ffe6fb1925064de30753c173727fb7408b0d4e39fa38",
           "output_path": "github_site/docs/citation.md",
-          "output_sha256": "a8d5bc7b3c2ca664e762a77cd39b0380a8a9a30c954ff4888e975c9d23ace6e0"
+          "output_sha256": "7ee11a0df8f27a3738e5b3175e20db6c78d0d9774017d654c0503fa1f58109e0"
         },
         {
           "source_path": "docs/contact.md",
@@ -291,11 +291,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/contact.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/contact.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Contact",
           "input_sha256": "1645542c159c927ea65188d4ea1121388414cfd5c1940a459042b2158ade98da",
           "output_path": "github_site/docs/contact.md",
-          "output_sha256": "76c29159fbbf91caa128311da169f1a3f5fc789a29bad6336d611ccc3f067604"
+          "output_sha256": "cf8884b7978e37e17a9d6aa1728bbe60f8f8eddcf0b8b2bdbe751f670617f0c0"
         },
         {
           "source_path": "docs/data.md",
@@ -303,11 +303,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/data.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/data.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Data",
           "input_sha256": "60f0971e0c67feb8faaaf38b63bcab7f14c2119168199113c4c9dd7d1b5b9a4a",
           "output_path": "github_site/docs/data.md",
-          "output_sha256": "a56068bbe8ea91e82f9b613b2df15f588b63e6bfd0f784509ffde8a6cecb19c1"
+          "output_sha256": "c7945f41cf7b1274d0714ab643ad7075b19fc064fbeb7b97653c9ccadd201495"
         },
         {
           "source_path": "docs/faq.md",
@@ -315,11 +315,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/faq.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/faq.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "FAQ",
           "input_sha256": "7248142d9cdce044f6c1d6feef7900e3b466b53eb88c2b426b432ce500fceb4f",
           "output_path": "github_site/docs/faq.md",
-          "output_sha256": "b587fb8262dd0fd22e78b587e69b277f6937e4708e9796245a7849d6bae8e79c"
+          "output_sha256": "3258fa0564618b08051d4fdfbf3970428c94564ce41a05cc8968e800af38f577"
         },
         {
           "source_path": "docs/for_developers/for_developers.md",
@@ -327,11 +327,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/for_developers/for_developers.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/for_developers/for_developers.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "For Developers",
           "input_sha256": "5c11d961c4d7008844bbc6148a77623b7c006e76c8d7f10a4200a7e5c1e267b4",
           "output_path": "github_site/docs/for_developers/for_developers.md",
-          "output_sha256": "af3a3b1d60a85eae01a0b3bcd5a8f2ad822b30e77fbdb4ec5bba9cf000d48469"
+          "output_sha256": "afafc86ce886b69952be55bf23a67971e101fb9bae082067ba1b49abaf16aa55"
         },
         {
           "source_path": "docs/for_state_local/for_state_local.md",
@@ -339,11 +339,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/for_state_local/for_state_local.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/for_state_local/for_state_local.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "For State and Local Government Users",
           "input_sha256": "e7c52c237659172fe632f6124a22774ce1c8f70d11c63fcf8eff46b9c6aad81b",
           "output_path": "github_site/docs/for_state_local/for_state_local.md",
-          "output_sha256": "1019364a0f3b1d9745da09430cc42e0776bbb47e62d78d7c0093bba0b49d1964"
+          "output_sha256": "1e91e941002fc4b0891698a0e5c5cb2a65f77c5ce7f73ca04643f8554ec93dfa"
         },
         {
           "source_path": "docs/for_state_local/segmentation.md",
@@ -351,11 +351,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/for_state_local/segmentation.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/for_state_local/segmentation.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Building Segmentation Analysis",
           "input_sha256": "950e365e49998956c485944732ad1dcf83e5bee86a84007901393c660b81a5ae",
           "output_path": "github_site/docs/for_state_local/segmentation.md",
-          "output_sha256": "ef04d50c30a9963319d40070fb869f05b37acb86dd2294dd34a1354242583732"
+          "output_sha256": "f4a063c02c6214880254ab8faebfedef7da3771afdac6233f9c38a7e8f822e14"
         },
         {
           "source_path": "docs/projects/euss/euss.md",
@@ -363,11 +363,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/projects/euss/euss.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/projects/euss/euss.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "End-Use Savings Shapes (EUSS)",
           "input_sha256": "9e1f92a7618be67363c25725b16229ca6ca6cd173fb65c147d4fb721ddcf0f9f",
           "output_path": "github_site/docs/projects/euss/euss.md",
-          "output_sha256": "eaffb76b8ceff97e4826fad417a623b7ecd2732f9f3842a604df13c2daaf5d44"
+          "output_sha256": "26fbdab91d41cb5c9d181877c120068f98267d7ff61378d899db455d836c8c3c"
         },
         {
           "source_path": "docs/projects/euss/euss_rnd1.md",
@@ -375,11 +375,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/projects/euss/euss_rnd1.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/projects/euss/euss_rnd1.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "EUSS Round 1",
           "input_sha256": "acb6bc0e3ab57065bcc144927b355c1c2550184b400801c3345fc29f124ff130",
           "output_path": "github_site/docs/projects/euss/euss_rnd1.md",
-          "output_sha256": "5ab3067b3a7ade82c4213872096c466bbca54b816e4194380a79591b50bbaab5"
+          "output_sha256": "11c6619125a8e1f1edad29b57eae5843393ddad58d21b553cb405d1a9f2252cc"
         },
         {
           "source_path": "docs/projects/euss/euss_rnd2.md",
@@ -387,11 +387,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/projects/euss/euss_rnd2.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/projects/euss/euss_rnd2.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "EUSS Round 2",
           "input_sha256": "fede8d9b957f98c9ca53f8ecf4355c2e2036efb106d15626b64578b3b137ad95",
           "output_path": "github_site/docs/projects/euss/euss_rnd2.md",
-          "output_sha256": "777f82807fab1e0d1257499fa3c9d5b40809ef59dcb2c5f1c376e2baadfad4ad"
+          "output_sha256": "f00d216f8faf4d3e9b2b1bc9cef62ebe0c8b1f55c863ec482213d5fd6d33b490"
         },
         {
           "source_path": "docs/publications.md",
@@ -399,11 +399,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/publications.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/publications.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Publications",
           "input_sha256": "6e2ebe52a91abb696eeb6e0473d682b8b562411f334ef6e2eb55bef339d1e952",
           "output_path": "github_site/docs/publications.md",
-          "output_sha256": "5b0195e19251fcd551ca6a73cba2618cc20d50e0f92d6dee5260aa779b73c9cc"
+          "output_sha256": "58976a0bf4a332cb55654c5f76bb3cc54cc5d5291fc366646bf92210f1a6ff02"
         },
         {
           "source_path": "docs/resources/explanations/2025_release_2_hi_known_issue.md",
@@ -411,11 +411,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/explanations/2025_release_2_hi_known_issue.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/2025_release_2_hi_known_issue.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Hawaii AMY2012 Weather Files in ComStock 2025 Release 2",
           "input_sha256": "709791b92488065a6471962d1a12db575a6866ba5ff6d58dfe0cdbb28e60b87c",
           "output_path": "github_site/docs/resources/explanations/2025_release_2_hi_known_issue.md",
-          "output_sha256": "c2019c5273efd78a61e6542f4b5823afedfde1a7459e91f29ebffdc0595a7b8f"
+          "output_sha256": "240485eec2c351489122637c83e921f5fd7dba374881d5d57fdd3be4e46ef86f"
         },
         {
           "source_path": "docs/resources/explanations/2025_release_2_packages_known_issue.md",
@@ -423,11 +423,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/explanations/2025_release_2_packages_known_issue.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/2025_release_2_packages_known_issue.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Geothermal Heat Pump and Demand Flexibility Package Naming in ComStock 2025 Release 2",
           "input_sha256": "8b1fe1935ec0d5ad233a23ff36eda430621703f2472a7a044018a6c9861b1a09",
           "output_path": "github_site/docs/resources/explanations/2025_release_2_packages_known_issue.md",
-          "output_sha256": "0bfb140c136eab91f7190a14a54217f4445c1c58228d33188cfb6efb21835d6b"
+          "output_sha256": "031a94d4b81fae27450c7e936309784f7a046aaea5be4fb5830536a85cd69ad3"
         },
         {
           "source_path": "docs/resources/explanations/2025_release_3_ca_swh_known_issue.md",
@@ -435,11 +435,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/explanations/2025_release_3_ca_swh_known_issue.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/2025_release_3_ca_swh_known_issue.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "California Service Water Heating in ComStock 2025 Release 3",
           "input_sha256": "1e9351c795325d2216fd65e9a425b8efc32a2af6f1f7f17c79694924731b6733",
           "output_path": "github_site/docs/resources/explanations/2025_release_3_ca_swh_known_issue.md",
-          "output_sha256": "519f00fa67643c20713f659af283f3c314ac446019d74e5938d38f008c021baa"
+          "output_sha256": "c071338274cedd2483da2f61f9a66d123542257924caf3524afcbd8e16b1e016"
         },
         {
           "source_path": "docs/resources/explanations/2025_release_3_packages_known_issue.md",
@@ -447,11 +447,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/explanations/2025_release_3_packages_known_issue.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/2025_release_3_packages_known_issue.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Heat Pump and Envelope Package Naming in ComStock 2025 Release 3",
           "input_sha256": "133d3121a3e9b12d6c3ce8776f12e6005b9dc1db910fd083261bfa26467d625a",
           "output_path": "github_site/docs/resources/explanations/2025_release_3_packages_known_issue.md",
-          "output_sha256": "203b08c5548aa54708af7a1a0a747f670a88566e0e5af2deab2ac3abac6ce0e8"
+          "output_sha256": "b637c7a0d7b3049bb05f0d15708ffe5c8959b6d988a257759f68a50b7277e11b"
         },
         {
           "source_path": "docs/resources/explanations/aggregate_file_discrepancy_known_issue.md",
@@ -459,11 +459,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/explanations/aggregate_file_discrepancy_known_issue.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/aggregate_file_discrepancy_known_issue.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Metadata and Annual Results Aggregate File Discrepancy in 2024 Release 2",
           "input_sha256": "0262972b34cf3f5b8c8e62f38199f68c0da19ab9113b49c311929fcd04970666",
           "output_path": "github_site/docs/resources/explanations/aggregate_file_discrepancy_known_issue.md",
-          "output_sha256": "c9fa89b09dd01ca7afa4b46a193853831587e400b8e71667b92b02af6b5faa86"
+          "output_sha256": "39231294570231a0e62e6b9d39a5278d1edaaff3b8fe9d6ad70a5423a88445a7"
         },
         {
           "source_path": "docs/resources/explanations/building_type_crosswalks.md",
@@ -471,11 +471,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/explanations/building_type_crosswalks.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/building_type_crosswalks.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Building Type Crosswalks",
           "input_sha256": "5cb745756131c38f36cab8b75caf3d1c88589ebd2e1c980b72be5dd673fc784a",
           "output_path": "github_site/docs/resources/explanations/building_type_crosswalks.md",
-          "output_sha256": "4c9dbc2f70c896d7de804b9ec2a0d3879d4f370cd688b7cceda37a098252592e"
+          "output_sha256": "3e8b7283be999601e6c59c7a5361d063c55dbdac072e991ecc4eb0549baff9e6"
         },
         {
           "source_path": "docs/resources/explanations/building_types_not_included.md",
@@ -483,11 +483,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/explanations/building_types_not_included.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/building_types_not_included.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Building Types Not Included in ComStock",
           "input_sha256": "426f51ca01d6c1515f5a555651479ba9df3652e9f9b8c0672e0109570805d764",
           "output_path": "github_site/docs/resources/explanations/building_types_not_included.md",
-          "output_sha256": "b72e6f391c0a5d33eb31cb67f2377dae6d72f80a7b674f23e409cda59ba09a22"
+          "output_sha256": "c1465da2200eef486ba277f1c5cb6e7d51f4e78b1fcc7f3e5da188c31d726904"
         },
         {
           "source_path": "docs/resources/explanations/california_known_issues.md",
@@ -495,11 +495,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/explanations/california_known_issues.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/california_known_issues.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "California Model Known Issues",
           "input_sha256": "fc91db8b7ebc7b79706aaf133b67427bdf61bc2ea6e01760f65a710cec7ee332",
           "output_path": "github_site/docs/resources/explanations/california_known_issues.md",
-          "output_sha256": "48a0599a736b209d9b05e924350580dd5847f25708f5a84d9f14e4f0c5c2ba7b"
+          "output_sha256": "fc08f8a4c73c5a381806c8deeb4838d8e0e5e81ddaab1ec76e25f61aec3d9fc7"
         },
         {
           "source_path": "docs/resources/explanations/combining_measure_results.md",
@@ -507,11 +507,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/explanations/combining_measure_results.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/combining_measure_results.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Combining Measure Results",
           "input_sha256": "63d5f3737f9522aa64dbf61e6b673aa49a13de5325d2d56827fa4ee7267c2123",
           "output_path": "github_site/docs/resources/explanations/combining_measure_results.md",
-          "output_sha256": "0149f5267a8228621088d88a692da1774351b6018052fac99929785fde84051f"
+          "output_sha256": "514498993f28bc63d70a05890d656594b89bcb435815ab6fd965929e91d295c9"
         },
         {
           "source_path": "docs/resources/explanations/component_loads.md",
@@ -519,11 +519,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/explanations/component_loads.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/component_loads.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Component Loads Data and Analysis",
           "input_sha256": "a9d06c333046ca2d50248ad53c056ae3d0ff80cb8c6800bcc9d9cc7e19a9c238",
           "output_path": "github_site/docs/resources/explanations/component_loads.md",
-          "output_sha256": "ba340e7a7112df9d05475bf1c45b23d26088f994c329f491abfd1d85e50f4971"
+          "output_sha256": "fb609bb8bb71ab943a28f60538ca1d5c09f604ff503eb9b5dc90ebb38dd10a18"
         },
         {
           "source_path": "docs/resources/explanations/comstock_calibration.md",
@@ -531,11 +531,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/explanations/comstock_calibration.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/comstock_calibration.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "ComStock Calibration, Validation, and Uncertainty",
           "input_sha256": "5663fa9ebdd5a0fc9413b053178a70594ee15d38d832fb0123a5e49888d59fda",
           "output_path": "github_site/docs/resources/explanations/comstock_calibration.md",
-          "output_sha256": "db2f6501edb9206e9603570ffad5b0527c22cb5c212bbe2a6bda663104205e79"
+          "output_sha256": "bc3d795365c3bd261d903024ceb0d56dc17fa6b1fd4d7de0542f579378563fc0"
         },
         {
           "source_path": "docs/resources/explanations/costing_analysis.md",
@@ -543,11 +543,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/explanations/costing_analysis.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/costing_analysis.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Cost Analysis",
           "input_sha256": "55fd583015b1edc85446bcf6275fd070473a5d8bffce2c36d2e923929dfa3ab3",
           "output_path": "github_site/docs/resources/explanations/costing_analysis.md",
-          "output_sha256": "57b40e23fa8f2c856c046e7a4109a758aa99b9f003111919ab3c42d2e78c668f"
+          "output_sha256": "c7a1a0d74e66c3d9abac878041125291046a90af6fcc29fdaea77328f49b2961"
         },
         {
           "source_path": "docs/resources/explanations/gas_consumption_underrepresented.md",
@@ -555,11 +555,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/explanations/gas_consumption_underrepresented.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/gas_consumption_underrepresented.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Gas Consumption Underrepresented",
           "input_sha256": "16136167dcf5287780682d9d4f9ece48124652b9a312ce41b62bad2a3712f93a",
           "output_path": "github_site/docs/resources/explanations/gas_consumption_underrepresented.md",
-          "output_sha256": "979e8257af981ed7165e66519e168d190f58682104ea1e298e3d13d0581bcd85"
+          "output_sha256": "19fa2673274ea7f0b7a19f77a7a7c3953853cbc24c6ab13ff8c4bfbb3c4c67fb"
         },
         {
           "source_path": "docs/resources/explanations/hospital_modeling.md",
@@ -567,11 +567,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/explanations/hospital_modeling.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/hospital_modeling.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "ComStock Hospital Modeling",
           "input_sha256": "6f5243270210b80a6c336c807a9ca2730bce658cf6e05cf14f80ff4acd65ed15",
           "output_path": "github_site/docs/resources/explanations/hospital_modeling.md",
-          "output_sha256": "0a46445b565269d412ca9ccca2995e9f966482d7d5f71fe72925c6b912a07a2f"
+          "output_sha256": "bf17402e09ad9ad6b7d91f9302ae7555e3a7748c23a98d531af46311f8224122"
         },
         {
           "source_path": "docs/resources/explanations/new_sampling_method.md",
@@ -579,11 +579,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/explanations/new_sampling_method.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/new_sampling_method.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "New ComStock Sampling Method",
           "input_sha256": "483f810493b0fff8badbadc83c9d454f30ee130f51e3145a1cb64f1c001c042b",
           "output_path": "github_site/docs/resources/explanations/new_sampling_method.md",
-          "output_sha256": "a8bb70b22efa4ed9c6d3f94a636b7b4d5e16fcbc25844c1e88400542d225afbf"
+          "output_sha256": "32899cbc3dc0be9c95c2ba630d086e6cdd928c5f4f76c1fb3ac132539619222a"
         },
         {
           "source_path": "docs/resources/explanations/reference_geographic_codes.md",
@@ -591,11 +591,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/explanations/reference_geographic_codes.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/reference_geographic_codes.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Geographic Fields and Codes",
           "input_sha256": "1022851afeae32283779f88ea21d26031637a0e70ddf08c45c45a1d5f0663c3d",
           "output_path": "github_site/docs/resources/explanations/reference_geographic_codes.md",
-          "output_sha256": "01ffa92827f41e097f6c8af0ad0a424e30f7ab176bb52c216dc9ab570cf560e7"
+          "output_sha256": "5dc89011087aa4ed796bf50cf8ee13e8e103bfd3425843f0ec712f4bff5b71bf"
         },
         {
           "source_path": "docs/resources/explanations/sample_size_considerations.md",
@@ -603,11 +603,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/explanations/sample_size_considerations.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/sample_size_considerations.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Sample Size Considerations",
           "input_sha256": "3f0a881048e02a2c51e043c79b903343b1afa5963c32e15536d16d371bdcde76",
           "output_path": "github_site/docs/resources/explanations/sample_size_considerations.md",
-          "output_sha256": "9e8a515fe463dfed8307f79f0f355601230d32e15bbbff45d30f1255c8267eca"
+          "output_sha256": "c6c47fe1ce7c06269db52c4d7d660faf64315cf78e700ae356009a017b2b6b9b"
         },
         {
           "source_path": "docs/resources/explanations/sampling_and_weighting.md",
@@ -615,11 +615,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/explanations/sampling_and_weighting.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/sampling_and_weighting.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Sampling and Weighting in ComStock",
           "input_sha256": "61038701a1fd673df3921678b0dd4110254b8e517038a059f89ef2d17365538f",
           "output_path": "github_site/docs/resources/explanations/sampling_and_weighting.md",
-          "output_sha256": "2104ec07727f994dc9bde3d787d9a027fb27bd2ee841dd66d0d7ce668aeb65fd"
+          "output_sha256": "ab6cef7af77702a37d7fb4ef9456e035bc63bf9e451accf0391b2d4c6fbbde8e"
         },
         {
           "source_path": "docs/resources/explanations/utility_bills_emissions_known_issue.md",
@@ -627,11 +627,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/explanations/utility_bills_emissions_known_issue.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/utility_bills_emissions_known_issue.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Utility Bills and Emissions in ComStock 2024 Release 2",
           "input_sha256": "5d8ed1e603d57fccff97c28c5595417d1f9c47c5c7c3b7cb5ceb857cdb1c7f3f",
           "output_path": "github_site/docs/resources/explanations/utility_bills_emissions_known_issue.md",
-          "output_sha256": "c676201b05e19e8f9f38d3fcfec28c0e31ee0872287d0f75ae2544f967b2c384"
+          "output_sha256": "bbb8d6df6f06c815dda6b186a547b5e52735e42b5c7612b1a144f664809b0c2f"
         },
         {
           "source_path": "docs/resources/how_to_guides/aws_athena_queries.md",
@@ -639,11 +639,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/how_to_guides/aws_athena_queries.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/resources/how_to_guides/aws_athena_queries.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "AWS Athena Queries",
           "input_sha256": "eba72e6b99893aaad23e27b4f2cb8596c5d4c27bc5288917c7e52ed4752894c8",
           "output_path": "github_site/docs/resources/how_to_guides/aws_athena_queries.md",
-          "output_sha256": "20647335851200083095b56aed11144068bbf5953f09ce70fc12d02b36eb30ac"
+          "output_sha256": "3e5cbe3e127d24d405c1ca4bb97ade4350d0631ccc3393cac8d2e6d2e1115f22"
         },
         {
           "source_path": "docs/resources/how_to_guides/basic_stock_characterization_workbook.md",
@@ -651,11 +651,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/how_to_guides/basic_stock_characterization_workbook.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/resources/how_to_guides/basic_stock_characterization_workbook.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Basic Stock Characterization Workbook",
           "input_sha256": "a3feeeaf416b52bf7cc9d55c82ace7b60240da8f9749f42499b7952c14a80860",
           "output_path": "github_site/docs/resources/how_to_guides/basic_stock_characterization_workbook.md",
-          "output_sha256": "482af40635e69f5e1b76c5ebe0c2eb08da58b365c1990046a23ef11f9512717d"
+          "output_sha256": "e3d9b9530dad59668083da4c61754a1e341d208e84636b5d290554db849d4110"
         },
         {
           "source_path": "docs/resources/how_to_guides/characteristics_dashboard.md",
@@ -663,11 +663,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/how_to_guides/characteristics_dashboard.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/resources/how_to_guides/characteristics_dashboard.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Building Characterization Dashboard",
           "input_sha256": "94b8c6693236e6c5c670084b40318d6103923a25b49ff295bf46a9f99f943f30",
           "output_path": "github_site/docs/resources/how_to_guides/characteristics_dashboard.md",
-          "output_sha256": "506a89b81fc85192977ef213d9252e1ed5715ff1b7e576a75d126322cdd40956"
+          "output_sha256": "5043a4ddfe2a948adc453988683124288f52c44764508e94594f4bd1d67ff710"
         },
         {
           "source_path": "docs/resources/how_to_guides/example_scripts.md",
@@ -675,11 +675,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/how_to_guides/example_scripts.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/resources/how_to_guides/example_scripts.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Access the ComStock Datasets Programmatically",
           "input_sha256": "9abb0c858a809896fc6cc127194bf07ed316fad8ea832a667050d96ae21f3f12",
           "output_path": "github_site/docs/resources/how_to_guides/example_scripts.md",
-          "output_sha256": "634cf554c080b0aabc222a7c13611b1e6f59ebff42648358db8a606cf7f7cad8"
+          "output_sha256": "1139a94499418fd069144d6b3f66379499480cf966aeec990b237a2da915d3c1"
         },
         {
           "source_path": "docs/resources/how_to_guides/impact_workbook.md",
@@ -687,11 +687,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/how_to_guides/impact_workbook.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/resources/how_to_guides/impact_workbook.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Building Stock Characterization and Upgrades Impact Workbook",
           "input_sha256": "cc9c83c3273717771fc483aa60a94888083ce8bded61d34cb760da472f1b509f",
           "output_path": "github_site/docs/resources/how_to_guides/impact_workbook.md",
-          "output_sha256": "2d2d041e3011be0f060b089f32e48b316b8aa9109c8e214fe872f2fcb5725ef1"
+          "output_sha256": "819b60fd12b0b0fe37734fe6aa874cb05b75921b9479d7915bc3e518205c0487"
         },
         {
           "source_path": "docs/resources/how_to_guides/puma_level_analysis.md",
@@ -699,11 +699,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/how_to_guides/puma_level_analysis.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/resources/how_to_guides/puma_level_analysis.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "City-level Analysis",
           "input_sha256": "38a6bb2cd524bd98362af450c1c046cde0f96b64c902e1e50218e22ab45ee9f6",
           "output_path": "github_site/docs/resources/how_to_guides/puma_level_analysis.md",
-          "output_sha256": "eb3152bc5dc56f9d9e252ef6134b152dd94b553b5ac5669afdf1ab6a2c08130a"
+          "output_sha256": "c948b9066d7586284e89edaf670924c7ebeeee5c8561cf9f300e0e6fc16028e2"
         },
         {
           "source_path": "docs/resources/references/comstock.md",
@@ -711,11 +711,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/references/comstock.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/resources/references/comstock.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "ComStock",
           "input_sha256": "e1fc902917a7a3f3e6c52dd775626bc4ff29b67c3d7c216e440c8b5eb9f75b48",
           "output_path": "github_site/docs/resources/references/comstock.md",
-          "output_sha256": "1db3ddf8ba15b86bd25a4477ed41f59d8c14484593d95c1706781ad97e1e130e"
+          "output_sha256": "47e693db8fed7c6952ef73cb592981c9784716f4ef799a0772f83cb39c31f6e9"
         },
         {
           "source_path": "docs/resources/resources.md",
@@ -723,11 +723,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/resources.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/resources/resources.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Resources",
           "input_sha256": "52f4a9edea39b8646db7d08470f198f8e2e14fa365eb2f63a72a86d796aedb9e",
           "output_path": "github_site/docs/resources/resources.md",
-          "output_sha256": "337b8540c9d27c75a4f5b8976bcc3edf5fe53f81e69d64d4cb3d7bb75bead4ff"
+          "output_sha256": "12623a4bbfb635cf22dea3067362b049c602ee54f88f282fb3ea00d387621f6d"
         },
         {
           "source_path": "docs/resources/tutorials/join_geospatial_data.md",
@@ -735,11 +735,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/tutorials/join_geospatial_data.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/resources/tutorials/join_geospatial_data.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Joining External Geospatial Data",
           "input_sha256": "c468f11cae7010ef0612e5b3fd170382076067f5b27dfe9a783f592d6d62d7b9",
           "output_path": "github_site/docs/resources/tutorials/join_geospatial_data.md",
-          "output_sha256": "2701ba4cc5b475ac2cbff2a7c2bd009cdf1bbd800f5ffad6216389b8670b61f4"
+          "output_sha256": "5949f1505ba0113541db19cb872f3de932cc1087b8e2a85d2cfcf335c0def11a"
         },
         {
           "source_path": "docs/resources/tutorials/local_segmentation_study.md",
@@ -747,11 +747,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/tutorials/local_segmentation_study.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/resources/tutorials/local_segmentation_study.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Using Local Data in a ComStock Analysis",
           "input_sha256": "048128f5f1f6589c60ccd2f071da6bebda78c5b0cc793f7b0496fcba70aa6755",
           "output_path": "github_site/docs/resources/tutorials/local_segmentation_study.md",
-          "output_sha256": "44eb30dfbc845c265a19e32786d3af9507e2cc8f2892622ddb0da158e5e580a4"
+          "output_sha256": "2dcb8abdf77acedf7b7d88527198b5c9f845581b1fa9e7dd11208e8fcb79535d"
         }
       ]
     },
@@ -766,11 +766,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/upgrade_measures/env_ext_secondary_window.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/upgrade_measures/env_ext_secondary_window.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Secondary Window System",
           "input_sha256": "91d7f8e5b641c4072d96dfaf6f4cde4a0c367d69b15eba943e1248254ff2d74e",
           "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/env_ext_secondary_window.md",
-          "output_sha256": "a392bfdd212eaf42976e2b669a290c71086c9f3c3cda8c327263bae6c1b74970",
+          "output_sha256": "acc0edd4705aecb02f29923b6b67e6639a9885b4f050cccf042dd65373d47ac9",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_ext_secondary_window.yaml",
             "sha256": "eadb61abf249c74de4a1ae7160661783803c82a15b4f461fe5719b9854ff6375",
@@ -790,11 +790,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/upgrade_measures/env_ext_wall_insulation.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/upgrade_measures/env_ext_wall_insulation.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Exterior Wall Insulation",
           "input_sha256": "fc7967438ace1780461253dbd100b5473293bfc2857f360c48db0b6c8da69427",
           "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/env_ext_wall_insulation.md",
-          "output_sha256": "8063a8203ff5af5bfe63cd345b5af248472baea57fcfbeebc75eede069f63c0a",
+          "output_sha256": "ade58b222bd4e0cfa41450717417500f9314d4724973e42728aac1c04dfb05b2",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_ext_wall_insulation.yaml",
             "sha256": "99fdfa4e618263eb28ebb8f4711caf7e96deea9004184d985236331dc8e39445",
@@ -814,11 +814,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/upgrade_measures/env_ext_window_replacement.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/upgrade_measures/env_ext_window_replacement.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Window Replacement",
           "input_sha256": "497dd2df0b3e05a8fac4584a654433cbcded2a4740038109d86d9adfc8bc450c",
           "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/env_ext_window_replacement.md",
-          "output_sha256": "4f94027ac11a79241d868ebeb84534912cc67183f61bc833e99252153475d1fb",
+          "output_sha256": "67b14fb7a430b813f83ef9710df554d6eb886f1fe00716fa85f83c29a410a0dc",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_ext_window_replacement.yaml",
             "sha256": "800008ab63eba01848d25c188f242180fd06884c01c4fd120a9669b681130d71",
@@ -833,11 +833,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/upgrade_measures/env_roof_insulation.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/upgrade_measures/env_roof_insulation.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Roof Insulation",
           "input_sha256": "ff64c90258e39d1cbd56d7edb587ed698ec411ccc384b990f2362b856a3e6d5a",
           "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/env_roof_insulation.md",
-          "output_sha256": "6456bc1c40a4fd07c08b6b143b7564e3212cf365568d465bf1162850804b4d32",
+          "output_sha256": "2711c626071fafe2f90adf94efd4867341df511e220652e97c3239d332f70639",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_roof_insulation.yaml",
             "sha256": "44d989d410a68bb50ed355ed263b2e1a2b5ef214c819efae6e938decc5b6b540",
@@ -858,11 +858,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/upgrade_measures/env_window_film.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/upgrade_measures/env_window_film.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Window Film",
           "input_sha256": "9aecf35790f36883b35a5cd81346b82124b8d244bace87048e5867810b4480fb",
           "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/env_window_film.md",
-          "output_sha256": "4cc45fa09fdd8affe6cae420e3ddfe809c4bec80502c9f94da08c013b6c9fbd1",
+          "output_sha256": "ed0827e5608a978961d8c8dea696452fc8f2c60baf71c2711f8027486fb3653d",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/docs/upgrade_measures/env_window_film.yaml",
             "sha256": "0bd6338f230d10f5eef7c0590fc0d61f7a7c7b2e97f297c551388e7e272c32e9",
@@ -878,11 +878,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/upgrade_measures/hvac_doas_mshp.md",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/docs/upgrade_measures/hvac_doas_mshp.html",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "DOAS with Mini Split Heat Pumps",
           "input_sha256": "2d76398f21c560da3ee0972360659d7a47d114736d2df7ca36603f8df1cf37b0",
           "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/hvac_doas_mshp.md",
-          "output_sha256": "dece727579a2a3aa2cfb4b53d1836c6d39de432a0cd9014f332f510b0ba893bd"
+          "output_sha256": "b356826fa736a14718fc0d75ea2a8aed590a56b82258c881d0ce3b04788d725c"
         },
         {
           "source_path": "measure_pdfs/95002.pdf",
@@ -890,11 +890,11 @@
           "status": "osti_pdf",
           "source_url": "https://docs.nlr.gov/docs/fy25osti/95002.pdf",
           "publication_url": "https://docs.nlr.gov/docs/fy25osti/95002.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Reduced Thermostat Setbacks for Heat Pumps",
           "input_sha256": "1b84b12cbe3c61950f6f9047c630d639e4878bde459a240c05a9f3f2f58330cd",
           "output_path": "upgrade_measures/measure_pdfs/95002.md",
-          "output_sha256": "91bc71b2287cfe8c3da5eeffae15623cb3f2646c84095acf653821660f2318e1",
+          "output_sha256": "40e228231e132a88eab180fdf88e2c8d8c838bee5e79b37773ff62550c455a38",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95002.yaml",
             "sha256": "8b47cf28896d4b979686aa467e0b8b3b0c8793f78a6018072a6249fc711fa181",
@@ -947,11 +947,11 @@
           "status": "osti_pdf",
           "source_url": "https://docs.nlr.gov/docs/fy25osti/95003.pdf",
           "publication_url": "https://docs.nlr.gov/docs/fy25osti/95003.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Chiller Replacement",
           "input_sha256": "1e577fd68f96349c9cd5ad8b2092b8a4c1b343a15c7a33ba7d2095cc6c6917e2",
           "output_path": "upgrade_measures/measure_pdfs/95003.md",
-          "output_sha256": "5444b1ef37e08fe0cb7ba40f81c9625fd5d507515315c373e94d8f9488ee9397",
+          "output_sha256": "a32be129d3695ee5e64e6e908a96e09ebeed1ccf2fd56c7144022f445646010f",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95003.yaml",
             "sha256": "3c249901f91c8040e49606c604842a887c55f67e88f3f16eec1548202b6631e8",
@@ -997,11 +997,11 @@
           "status": "osti_pdf",
           "source_url": "https://docs.nlr.gov/docs/fy25osti/95004.pdf",
           "publication_url": "https://docs.nlr.gov/docs/fy25osti/95004.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Photovoltaics With 40% Rooftop Coverage",
           "input_sha256": "8326dfa0d203237aae92fca1555f1ed3a3d80410ff7f12553bfee7b5e3105c07",
           "output_path": "upgrade_measures/measure_pdfs/95004.md",
-          "output_sha256": "7b4761bb308f21bbe6d525df06ed79ad571887a779f27f08191dad809609ecaa",
+          "output_sha256": "c2fd2778820c9ac676546bc887501fc514186d6e980392446b6caaf404294eac",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95004.yaml",
             "sha256": "8463fb49ce88b66115f0c85f6cf0ba7c0c1c7ff9c7d8498f5c063d6d66b6f4ff",
@@ -1025,11 +1025,11 @@
           "status": "osti_pdf",
           "source_url": "https://docs.nlr.gov/docs/fy25osti/95005.pdf",
           "publication_url": "https://docs.nlr.gov/docs/fy25osti/95005.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Geothermal Heat Pumps + High-Efficiency Envelope Package",
           "input_sha256": "594820f09b44e2d762e7092bfe1a951e9fcbae67fd94c0596f3b25e0b2b4e847",
           "output_path": "upgrade_measures/measure_pdfs/95005.md",
-          "output_sha256": "ff9681242268b34f6e4207dc53ca7b38c0c3b885aa25acb2811388b885010c7d",
+          "output_sha256": "5944208db768593cd200da66c443562288038dc56102f3e1e039a17b2843173f",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95005.yaml",
             "sha256": "a260ad934875bbdafaba6ba250ac7e219153e4b3ed65530582720cb4f9f7478e",
@@ -1063,11 +1063,11 @@
           "status": "osti_pdf",
           "source_url": "https://docs.nlr.gov/docs/fy25osti/95006.pdf",
           "publication_url": "https://docs.nlr.gov/docs/fy25osti/95006.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Standard Performance Heat Pump Rooftop Unit with New Windows",
           "input_sha256": "f02e60fcaf6ecbef3197fb29feeb3e8e36dadabcc3b9a59ac8032e77bf78fde9",
           "output_path": "upgrade_measures/measure_pdfs/95006.md",
-          "output_sha256": "d21b5907c2e97480f4f397b26ffc8ed1072e36e77ffa187d7367a6f9ff9a2e2f",
+          "output_sha256": "067e2edda29c171b47d4085f929ca0aacbbdd60936702f6f91976c0141cfc704",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95006.yaml",
             "sha256": "2bccf19aba3978b18b773881de687484e0276e499de2b595d5599cdd30082287",
@@ -1094,11 +1094,11 @@
           "status": "osti_pdf",
           "source_url": "https://docs.nlr.gov/docs/fy25osti/95009.pdf",
           "publication_url": "https://docs.nlr.gov/docs/fy25osti/95009.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Geothermal Heat Pumps + High-Efficiency Envelope + LED Lighting Package",
           "input_sha256": "548deff66240e93c7f371db672e7322a5078aaff46d9867bfe7664393992c918",
           "output_path": "upgrade_measures/measure_pdfs/95009.md",
-          "output_sha256": "898065c658e2080d5b73eecaca49c5d1b243514f7158cdd25d45ba5fa6083fbd",
+          "output_sha256": "856ee4ede77c2cfdc8182b3216e88b06732c5df4a4d5e36f76b11ef3e01df770",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95009.yaml",
             "sha256": "f0b3714b3cc5fc9a89e987d065ef6f2f75e8428aef6725da7408e556162bc7d2",
@@ -1127,11 +1127,11 @@
           "status": "osti_pdf",
           "source_url": "https://docs.nlr.gov/docs/fy25osti/95014.pdf",
           "publication_url": "https://docs.nlr.gov/docs/fy25osti/95014.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Condensing Gas Boilers",
           "input_sha256": "fa8a71456204914597a0f5e9cb580b0b11f71de24c3450974b192946210aeb85",
           "output_path": "upgrade_measures/measure_pdfs/95014.md",
-          "output_sha256": "8964c0199229d306623e967740fd0d8677d338281d328d4f3601b2f33265fc60",
+          "output_sha256": "d258e33767af82bdc2cc15be6fe1d783021ab3fe2e8e22330219f114e5051f96",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95014.yaml",
             "sha256": "377d877d230199ce83b5d7470573cf4b8beed80753684476bd16ab2b61d26912",
@@ -1164,11 +1164,11 @@
           "status": "osti_pdf",
           "source_url": "https://docs.nlr.gov/docs/fy25osti/95015.pdf",
           "publication_url": "https://docs.nlr.gov/docs/fy25osti/95015.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Electric Resistance Boilers",
           "input_sha256": "3cf5bd438e5c25856135f92adb02530aaf6ba678bef52c02133e33bad4eba4a4",
           "output_path": "upgrade_measures/measure_pdfs/95015.md",
-          "output_sha256": "4a9430c85f092b2d10f2b2347502acd3fc65959a46e3dca68ccc274e376b87b9",
+          "output_sha256": "a69b20b34644316534683d8ffac82484298f415ce2747900a2aabdf4880dcf97",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95015.yaml",
             "sha256": "a7b6934bade9c7e956f11aaa24a9b038bbb241dd3a5b17177427595a305f7730",
@@ -1197,11 +1197,11 @@
           "status": "osti_pdf",
           "source_url": "https://docs.nlr.gov/docs/fy25osti/95119.pdf",
           "publication_url": "https://docs.nlr.gov/docs/fy25osti/95119.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Laboratory-Informed Modeling of Standard Performance Heat Pump Rooftop Units",
           "input_sha256": "0f7ce74e4adb36870055269cc2b4bdb922b439ad0234a55ae009136ffe766d61",
           "output_path": "upgrade_measures/measure_pdfs/95119.md",
-          "output_sha256": "8728a948b95b5d3c751540b869968e2bd967cd591030dee53d4ef86a6d3d7307",
+          "output_sha256": "df552ad9fa69537d89ac599b2546c07e390c3bd17083cbea062e65d472c61077",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95119.yaml",
             "sha256": "5f5522182c81f05b9384b35278c0a0cfd8cb3d277b17a8334369233173a2fd92",
@@ -1230,11 +1230,11 @@
           "status": "osti_pdf",
           "source_url": "https://docs.nlr.gov/docs/fy26osti/92504.pdf",
           "publication_url": "https://docs.nlr.gov/docs/fy26osti/92504.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Thermostat and Lighting Control for Load Shedding",
           "input_sha256": "d5da891d0fcd4e44ee2038713085551b9c9d6d1b4af401be40ccab9fafa350d2",
           "output_path": "upgrade_measures/measure_pdfs/92504.md",
-          "output_sha256": "5896eda3bc31125652e3077c5ce17c6f902541e1af3b3a7c55a8c68fbc8cebb5",
+          "output_sha256": "063746db357e2ba0faf87fd992e615639373ed5d665aaa7d4218d8e7cad9a3ff",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/92504.yaml",
             "sha256": "6d0182e98fb36d1aa246766a5a5af709e69a2e47683a80bc22032bfec3cc71b8",
@@ -1270,11 +1270,11 @@
           "status": "osti_pdf",
           "source_url": "https://docs.nlr.gov/docs/fy26osti/95013.pdf",
           "publication_url": "https://docs.nlr.gov/docs/fy26osti/95013.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Thermostat and Lighting Control for Load Shedding + Photovoltaics With 40% Rooftop Coverage",
           "input_sha256": "193c08aa84b24626b1b4cb10eb54da76d52b9757f3ec32d1d027a6b7bba534bf",
           "output_path": "upgrade_measures/measure_pdfs/95013.md",
-          "output_sha256": "892b36268d3e5e836d38e4f5377dda80740442b503b442b0996ff2734288feb6",
+          "output_sha256": "e8231fdc1e7843f63fb69ff5ae4d5b48ab8d92e401310e28612e53b646f17a7c",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/95013.yaml",
             "sha256": "ce1f138f03951085e83082ff70f640360459a9190cbcb2c51eff248ef7e5b2e6",
@@ -1302,11 +1302,11 @@
           "status": "osti_pdf",
           "source_url": "https://docs.nlr.gov/docs/fy26osti/96597.pdf",
           "publication_url": "https://docs.nlr.gov/docs/fy26osti/96597.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Lighting Controls",
           "input_sha256": "d03a71362184f273b80c106b8c8ec9ce6f38a64119855526d2ad9bc87755f6a9",
           "output_path": "upgrade_measures/measure_pdfs/96597.md",
-          "output_sha256": "d360d39356407319624d198afb29c798039b69fa0ae6d710fddb0c7b45c7d803",
+          "output_sha256": "bf6bd44b555a953b49bd891a29fd0167b55e052cc8a83fd77b02304230ae2aa9",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/96597.yaml",
             "sha256": "03254438b6ea03447fb940ec17166818738e09bf317cd8f736f884c1968f524f",
@@ -1330,11 +1330,11 @@
           "status": "osti_pdf",
           "source_url": "https://docs.nlr.gov/docs/fy26osti/96598.pdf",
           "publication_url": "https://docs.nlr.gov/docs/fy26osti/96598.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Upgrade Envelope to Latest Code",
           "input_sha256": "612945456f16d2907f426ae300cf0df50373c5ebe29e217b84c7160ae0f10ce4",
           "output_path": "upgrade_measures/measure_pdfs/96598.md",
-          "output_sha256": "5dbb05cfdb2804e2b486053ab69c0eb9a1c2db91f7489a1ee4767d70cbb2aa7c",
+          "output_sha256": "7067f274f36ed31d944971990c15b9276b0a958de0cfb81b2807e78799558469",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/96598.yaml",
             "sha256": "47032018517210098af5877b5f4345efe670963e19048edcbf35b9199bc35c97",
@@ -1373,11 +1373,11 @@
           "status": "osti_pdf",
           "source_url": "https://docs.nlr.gov/docs/fy26osti/98223.pdf",
           "publication_url": "https://docs.nlr.gov/docs/fy26osti/98223.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Variable Speed Pumps",
           "input_sha256": "390e50e2cae9fbbac6635e6a529b5ae26b8cc9531e8d4106101e0a87147aa251",
           "output_path": "upgrade_measures/measure_pdfs/98223.md",
-          "output_sha256": "c6e51a6ef9c25630944202de82533a63c263d0b731be90e889614593dcb774c4",
+          "output_sha256": "088e4aa89f07d20bd408b9f264604537a8ffc495241559e48facee93444df6ac",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/98223.yaml",
             "sha256": "7333231780b5013d87374076433766f2de14eecddcfa0b49ced7ba355bcf1e70",
@@ -1412,11 +1412,11 @@
           "status": "osti_pdf",
           "source_url": "https://docs.nlr.gov/docs/fy26osti/98224.pdf",
           "publication_url": "https://docs.nlr.gov/docs/fy26osti/98224.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "High-Efficiency Rooftop Unit",
           "input_sha256": "3d1422392c2bbfbefc9763156db9583c5bd65f2447fb75651dccf15c4c134691",
           "output_path": "upgrade_measures/measure_pdfs/98224.md",
-          "output_sha256": "ea830f7bd9b2d53cadb116c2955bd6d4f35fc1fdd6d7e81015bbe9ecd74339dd",
+          "output_sha256": "6688d9233deccab7dcca0b54a78d5e78fbbf8f604a24f7cc923586b40ea009b1",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/98224.yaml",
             "sha256": "5b628250458c8e5c816a134eee8d8f20f85e6a4fac09dab535a5359c53347be1",
@@ -1461,11 +1461,11 @@
           "status": "osti_pdf",
           "source_url": "https://docs.nlr.gov/docs/fy26osti/98345.pdf",
           "publication_url": "https://docs.nlr.gov/docs/fy26osti/98345.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Fan Static Pressure Reset for Multizone VAV Systems",
           "input_sha256": "75f23306d2e62efe1a8a0b7ed76ff98bb62801424068b4a1bd5e5f06860bbade",
           "output_path": "upgrade_measures/measure_pdfs/98345.md",
-          "output_sha256": "b488b5bcfa9cca0e9e709f6279b14da213225ecc2594afb65847b09185019f00",
+          "output_sha256": "e0800a9a6956a849fa9ecba630cc349a85cde09d355abb6f0e2d111612fc769a",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/98345.yaml",
             "sha256": "828b28879c6445c8a635a6b3530aa49dcd7be5439cb59a41b4f7bc06a3c8c49f",
@@ -1503,11 +1503,11 @@
           "status": "osti_pdf",
           "source_url": "https://docs.nlr.gov/docs/fy26osti/98346.pdf",
           "publication_url": "https://docs.nlr.gov/docs/fy26osti/98346.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Thermostat Setbacks During Unoccupied Periods",
           "input_sha256": "49eb99ad293cd46cdbd5e4ae7b037386a495721e163d607878ac846a39d2ecf6",
           "output_path": "upgrade_measures/measure_pdfs/98346.md",
-          "output_sha256": "a6ff0101c5739e48ba1eaee7b0ad15eaf45e75cd803e2a475ccbc2cb63631cab",
+          "output_sha256": "7a72ce2ec8dd93c2030dacff36e43f07e53b183701fde3a1abf257ddd4d672ba",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/98346.yaml",
             "sha256": "f795049035e26473df204f888bbae1da72b790c2e0059f5132661b574e75b2b7",
@@ -1545,11 +1545,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy24osti/86100.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy24osti/86100.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "LED Lighting",
           "input_sha256": "8571300be9139a57b75768d87cdcf942a7295de9419011f858f11f7526fd4e5c",
           "output_path": "upgrade_measures/measure_pdfs/86100.md",
-          "output_sha256": "38e29b1e98f3b90427af1b8916f5e937bd525e0602a8a8ab4dfc64717b8aa451",
+          "output_sha256": "cbbf4e7546a0b46f83be5a546b28eed3a66c54f9fbef568e27e11fcce863389c",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86100.yaml",
             "sha256": "a3c3e1160bdfbb6e5aca379d52476f77879a1d4deef2847a8747ad8a8c338e1c",
@@ -1574,11 +1574,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy24osti/86103.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy24osti/86103.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "VRF Heat Recovery with DOAS",
           "input_sha256": "6e6d96010400f6b37978b8e930a630d81d2d4b1497f4d8081c278f9a59dce99c",
           "output_path": "upgrade_measures/measure_pdfs/86103.md",
-          "output_sha256": "04e23b0ec8a70a3890d575e17355ba2a3301dea22f48dbb3d4b7221bb7b129ef",
+          "output_sha256": "728c1d8f4adb85472e91d625f18d258f0a0bb10a23de5734e865be49aa2b3b39",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86103.yaml",
             "sha256": "5266967bbaa9f832807481ec7aba961655ca88c649fc47d5601356d086962f80",
@@ -1627,11 +1627,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy24osti/86105.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy24osti/86105.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Economizers",
           "input_sha256": "ac239093593f300240a55b0a2ff74a876916772a05d1eb85a6a8264375ea105d",
           "output_path": "upgrade_measures/measure_pdfs/86105.md",
-          "output_sha256": "d4a1aa314dc0e0a6b84cb192a22d579d1da3808ba292668e9efd2c6bfc7d175a",
+          "output_sha256": "7b4331cb7e4c97233611e44389fc7ceb7d5a99358d4e57b026d810b49864512c",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86105.yaml",
             "sha256": "1c55b44da4b1d49f03d76385468da712118f3fbdef702145dc994b4dd5655284",
@@ -1667,11 +1667,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy24osti/86199.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy24osti/86199.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Air-Source Heat Pump Boiler",
           "input_sha256": "be173f2dbe730146ceb402874c867c9be75438d2ecb00b4e1d93dde4f3b87270",
           "output_path": "upgrade_measures/measure_pdfs/86199.md",
-          "output_sha256": "873566daf1b402e0ecef8c3309a44f351b50132cec95e03d38b4790710437f9a",
+          "output_sha256": "d0e8967f15c9936925f5f161c1c19858b293d75c7e76e5e5d55a98755330ed1f",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86199.yaml",
             "sha256": "3e006ae2b03fd79d58fc5a15fd68ebd7cfc8ef8fc1ad68923b3b28d18f6aea26",
@@ -1712,11 +1712,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy24osti/86585.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy24osti/86585.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Heat Pump RTU",
           "input_sha256": "cde16361012f00876e5fe99c8810dc936d9bab46ad8b5af478403ff533da47d2",
           "output_path": "upgrade_measures/measure_pdfs/86585.md",
-          "output_sha256": "4fed8efaadd675f9494b8bdd69d06d2f129cd41a619431720ca405b3d73b216d",
+          "output_sha256": "3048bb1304d739682b0786e27a267210cf333b0f5676d91c2927395af9252867",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86585.yaml",
             "sha256": "94607080dbd1418cc88788035528625ded5a9c2a8424f5a317d8a2d1482a1d61",
@@ -1752,11 +1752,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy24osti/86599.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy24osti/86599.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Wall and Roof Insulation and New Windows",
           "input_sha256": "c8c286e4939049366b50b203a8f6cac0f4201ca4d3aed2219a2089fefa45f2f3",
           "output_path": "upgrade_measures/measure_pdfs/86599.md",
-          "output_sha256": "f7286e44cb02809b7ac63c9ca5781a336a9b1abb6a6b06015ac95add04066ed3",
+          "output_sha256": "ed2cdaec0c9f856d300127932f9f0a9560f450bb222e903cff0d37cccebbe95c",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86599.yaml",
             "sha256": "b73c6e0614b6482fa7d67b9da10f86904dc20ebd87054f563952b5bb05869dfe",
@@ -1786,11 +1786,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy24osti/86601.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy24osti/86601.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "LED Lighting, HP-RTU and ASHP-Boiler",
           "input_sha256": "edee583b88290066a942c92d99f64f6a859058bf63f201cb005cf2b63098ac66",
           "output_path": "upgrade_measures/measure_pdfs/86601.md",
-          "output_sha256": "a8ecc1876847a09459ba7072315c4819a2485c1fa849a26d12d9da2cfcd8ad9f",
+          "output_sha256": "45b301ba9886ad4522bd5f1ec80bfaf7ce2b053715efe283ad3a5446226dcebd",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86601.yaml",
             "sha256": "6f695eac5822f3ae6ae3c13595c5a6f2549097470bcfe9c5a9573eb4bbf4447c",
@@ -1822,11 +1822,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy24osti/86602.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy24osti/86602.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Wall and Roof Insulation, New Windows, LED Lighting, HP-RTU and ASHP-Boiler",
           "input_sha256": "cc5b290f302c11bf0a218b86e98c4300d616d094d0f5b20764c167e21bf38a73",
           "output_path": "upgrade_measures/measure_pdfs/86602.md",
-          "output_sha256": "ae227ddb97a818aea97a5b00720258312199aa2b219bebbaf85ed4102768be79",
+          "output_sha256": "98cbed0770a1aed1fec1a6b4e57e67d212b24210fca7cd8c23798d2ddaf0b092",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86602.yaml",
             "sha256": "04e1e4c4c63fc7eab496c16e1e499e2ca26de346f68fa1d2500ca40ce00040b7",
@@ -1859,11 +1859,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy24osti/86897.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy24osti/86897.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Demand Control Ventilation",
           "input_sha256": "adabde599ab070779032d2b992f75cf3cb5273aca6142cae447153b532321d9e",
           "output_path": "upgrade_measures/measure_pdfs/86897.md",
-          "output_sha256": "d95cf36f9dd22819cd91e9de54322f194eb80f30fe2eab27faafde4e247a3a52",
+          "output_sha256": "537ae11f6e4477a0bfb60959f0051eb21b1ff2b736c257e24037e510dc6389aa",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/86897.yaml",
             "sha256": "1302d68f8786d456bfb14397e2cfde1dc8afcfd68d7d53983f142ced1cbbe2ef",
@@ -1897,11 +1897,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy24osti/87536.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy24osti/87536.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Air-Source Heat Pump Boiler and Natural Gas Boiler Backup",
           "input_sha256": "337aee5d46a0849ba0ecec47df7248341bcf7bbecf64048baf7155ba8552ea84",
           "output_path": "upgrade_measures/measure_pdfs/87536.md",
-          "output_sha256": "c777f0c6150e852c2437c51d55bdaafe959fa4e56d9cb7d7cd3393b12d692c05",
+          "output_sha256": "a55bf90853eaae0f9b7a0fb7a2f3640f4cbe7a74f6b0eed2ad2556330cf5ddef",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/87536.yaml",
             "sha256": "33b68a354591488f093ed8e6b679a60840f876ca753f209b8142563336e754cf",
@@ -1941,11 +1941,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy24osti/87542.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy24osti/87542.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Exhaust Air Heat/Energy Recovery",
           "input_sha256": "f9b51313bf2435991d52fc5695a7858c8fd87a0422e9310e6d66d8f539f9635e",
           "output_path": "upgrade_measures/measure_pdfs/87542.md",
-          "output_sha256": "c05f7a50b34be85cbcd4c9262d7817a37766046be0cfc7c9bfef10f2b042f7f8",
+          "output_sha256": "aa67a3c83ac3bde49cb47d251826f76d3bdbc1bceb74c189fd0bc8cc47665282",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/87542.yaml",
             "sha256": "901090d1595f89354847792f0409ed6b6873f0642aae88dfa40b5d60a7ce1d2c",
@@ -1978,11 +1978,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy24osti/87570.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy24osti/87570.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Heat Pump RTU with Original Fuel Backup",
           "input_sha256": "b0a451118921cbe20f24ac62bd785dc2927de3e9dfafd7f5d663c0e78fb4e5c4",
           "output_path": "upgrade_measures/measure_pdfs/87570.md",
-          "output_sha256": "3ae91904afb15b3e72cf9aabedbdb366e1437d95c203e055566942026d724eac",
+          "output_sha256": "b9819263da290cf7889e802ad2eff1ab834475c502895fb954466c2149a56258",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/87570.yaml",
             "sha256": "74e9750ef4e81fe46a2c1214174c479b3da91b62336232c1dca34e608b55f203",
@@ -2010,11 +2010,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy24osti/89040.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy24osti/89040.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Variable Refrigerant Flow With 25% Upsizing Allowance for Heating",
           "input_sha256": "28cea1febfd6bdabb0fc0635f0c89efd44a183c80158b7f5562f83e969698762",
           "output_path": "upgrade_measures/measure_pdfs/89040.md",
-          "output_sha256": "1f9777d1685daa9cb9cf06719ba87f698dfd07b35e4e32c047cdfb99defe5581",
+          "output_sha256": "364801669cea1b8274f6b277ed3ff0c8424352b8c530cb73598e5cf94a1d404b",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89040.yaml",
             "sha256": "2423a1586f41f9d2c16b5a45f05b43af069b541c4c5f6c69cdc86b6ff00d755d",
@@ -2054,11 +2054,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy24osti/89117.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy24osti/89117.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Advanced Rooftop Unit Control",
           "input_sha256": "427acb6d738f013bc3cdef41b8bdbffd61a943b9e8fa4cf76ee961df3386a474",
           "output_path": "upgrade_measures/measure_pdfs/89117.md",
-          "output_sha256": "fb1138313c59fba4fb096853b69e860b4935eb02336e0167d0b3a71fbc65a017",
+          "output_sha256": "83dfa626031727ab944bc79205bb1dc502caaea38f77a9f163f9f7e7f2201461",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89117.yaml",
             "sha256": "5fcad1754d0aba90a07f71205c57c2a987b79d45f213a2eb4ac25ff7bfc58ac7",
@@ -2094,11 +2094,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy24osti/89120.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy24osti/89120.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Improved Fan Scheduling and Control of Outdoor Air During Unoccupied Periods",
           "input_sha256": "a57db276a7037c4f8eaae4d5c52972e5fcda52d9a2de50875099bae3455bf275",
           "output_path": "upgrade_measures/measure_pdfs/89120.md",
-          "output_sha256": "06f01b4d91c660e8498e24f73cc7ba22fdb84b0dc38345371d2022572947bd2d",
+          "output_sha256": "1d834bfb6fbc26fb265f08a5abacd04864ab76f9482b190fea8cd5b519b1126b",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89120.yaml",
             "sha256": "b1fba240a9bed96572de8d2edc930017ec1dcb5471930aedc4eb91dde6a14f3f",
@@ -2130,11 +2130,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy24osti/89128.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy24osti/89128.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "HP-RTU + ASHP Boiler + Demand Control Ventilation + Heat/Energy Recovery + Economizers",
           "input_sha256": "68cc557325046095d37ac589ab50a713377945180193b43154422f5a981046f8",
           "output_path": "upgrade_measures/measure_pdfs/89128.md",
-          "output_sha256": "b5fbf7f7f91a953249448992da0928b0ffd7e7e7dc5d61df32de08b02d737a30",
+          "output_sha256": "89ea8ca9f14bebfb9ad3e12e14b433bc845ade845a0fd937a84935ec32a3b712",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89128.yaml",
             "sha256": "b868be4829db31979cff721b0fc35424e6f4ee071b901b8e8ea89e28ca603a4d",
@@ -2170,11 +2170,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy24osti/89130.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy24osti/89130.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Electric Cooking Equipment",
           "input_sha256": "917d4d390ae5079df21c37db82e6bf09c55af54f642c1b574b903d592fcd134e",
           "output_path": "upgrade_measures/measure_pdfs/89130.md",
-          "output_sha256": "8bdcc9373f504707e9f11a51f37fb192cd7310578002e07f6f34f0f9e18d0990",
+          "output_sha256": "c322e475d9e97037bf969d7db34f7db3c8843f3dc92c478997e78a771a9f0277",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89130.yaml",
             "sha256": "cf5353c40e5a05cc6f7ed351663ac1d3bec0fbe07cb53fbf909663d21e4eb639",
@@ -2212,11 +2212,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy24osti/89131.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy24osti/89131.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Packaged Water-to-Air Geothermal Heat Pump",
           "input_sha256": "85880d4c853a58d9d7fd9b0968d231eb067b7290f557423b95412f4dc75326b1",
           "output_path": "upgrade_measures/measure_pdfs/89131.md",
-          "output_sha256": "c5f854963825c20a8255f67c113cfd2cf12ae38c1f4535987b10f2d6b5c9329b",
+          "output_sha256": "e4eb08128054bd44365ef7c7deae6984d03b544e3e16a8c2b2e3a3f7845db5ef",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89131.yaml",
             "sha256": "208612912770650c9fe0d03e45873994a4afb2688c42f954086d47057061fd37",
@@ -2244,11 +2244,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy24osti/89132.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy24osti/89132.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Ground-Coupled Console Water-to-Air Heat Pump",
           "input_sha256": "d27965b6024345d0e5cbc9b992a860ade04061b1a852737a9d0147ddd4acea75",
           "output_path": "upgrade_measures/measure_pdfs/89132.md",
-          "output_sha256": "0b27f3cb8056828e35408201ea55e95ebed5319cb07b1909697e6aea3d0dc4f6",
+          "output_sha256": "70098863568a352056354bd963cff6ca0dfa60f397849d61dec2525ded1cd69d",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89132.yaml",
             "sha256": "f93698738054327ccfa8b5a5346c562b567c92ccf4a0057c095e5e6dff938330",
@@ -2273,11 +2273,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy24osti/89133.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy24osti/89133.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Comprehensive Geothermal Heat Pump Package, Hydronic GHP, Packaged GHP, or Console GHP",
           "input_sha256": "4a0bd34653edc9575fe758a285e562e617c5068f1dddfb58a008541a0e7044d7",
           "output_path": "upgrade_measures/measure_pdfs/89133.md",
-          "output_sha256": "c73281b529ec681e603ac9929939b6a6604191f2c5096c140a8fb56430b2d296",
+          "output_sha256": "19efddac1594598c5420046d775f775f29c13693a121fa71ac388c06f5aa8232",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89133.yaml",
             "sha256": "22d18ff3e5339c1b3b2ce91de6c541d991048f1c4b86fbe3c46025d110e8559f",
@@ -2301,11 +2301,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy24osti/89239.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy24osti/89239.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Central Ground-Source Water-to-Water Heat Pump",
           "input_sha256": "14a5392a8c27b99ffb63774e045b5c0184fade4bf2f841845e7fedc012865d34",
           "output_path": "upgrade_measures/measure_pdfs/89239.md",
-          "output_sha256": "5d84a96d7564f58482923e6bde996ffe35e3b4e8b0e07932c3c852fc1963fd6d",
+          "output_sha256": "ea4e58143811d35c7348f76ffc3a2f0006e690b2516e6c51ce9779bb2692aa80",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89239.yaml",
             "sha256": "684c6fccf7cb1411ae8c98cf1cc8bdff6a403662506b06c9399f65efabdd992c",
@@ -2344,11 +2344,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy24osti/89340.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy24osti/89340.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Thermostat Control for Load Shedding",
           "input_sha256": "6f332db13bcc769e23398c1671f8f8accf98103f00a28872e827596d1fa31e20",
           "output_path": "upgrade_measures/measure_pdfs/89340.md",
-          "output_sha256": "ac550957c46a7705d030d3bd3810942bb84dd60aecab700c9879c700caa91fa9",
+          "output_sha256": "ed37988a1adba4342b446d19c7ab4db18e6f648ab334fe0117e2313a970a0cd8",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89340.yaml",
             "sha256": "8560c47a2f5dd0b2872faa61c3d5d35e182d591599a261d00ca978c545a82219",
@@ -2381,11 +2381,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy24osti/89341.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy24osti/89341.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Thermostat Control for Load Shifting",
           "input_sha256": "42458a537dad6d4ed7e8d64fbdc0fde8d13dac6f40ffb61ba225c7f48c4b0e3e",
           "output_path": "upgrade_measures/measure_pdfs/89341.md",
-          "output_sha256": "5ffbc3465fefec7bbe527e69ccc10f8eac288f0b2cfde3b4799bc8b00e5efaf4",
+          "output_sha256": "39287bbfb3fad9f3ad977b26d0047c8591524b8ca64b9ce1ecff7cd31c215737",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89341.yaml",
             "sha256": "1f0f6fce834594298c4cd7c24c062a5745f27166bbc08bde20d54b2a54cda188",
@@ -2415,11 +2415,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy24osti/89343.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy24osti/89343.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "End-Use Savings Shapes Measure Documentation:",
           "input_sha256": "0181a0a3c8a946eee048ce240c43310938149931702f93c081626624c575b95a",
           "output_path": "upgrade_measures/measure_pdfs/89343.md",
-          "output_sha256": "9f6a5adc068b4848f3d12269baeeadd770f9c5f5c8a745653196721cf0c936c5",
+          "output_sha256": "605c6682995ab4f26a8689b1fcd88ff3b143528e8e22e0e0226479b16fdcf1bf",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89343.yaml",
             "sha256": "7ef8d15d894385ae6845626b86cbefd8dc2a3804facf3ff38c8a201ceb3a7584",
@@ -2439,11 +2439,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy24osti/89481.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy24osti/89481.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Heat Pump RTU with Exhaust Air Energy Recovery",
           "input_sha256": "e42a2d212760f7fecf76ed67e1e1b9b1fe55258b70d85b5f794bfdf89b13a37b",
           "output_path": "upgrade_measures/measure_pdfs/89481.md",
-          "output_sha256": "a6d26389164b31516fa2dedf5de42700a21120f3b7eed5898ba50d72004e3d2f",
+          "output_sha256": "cb48cfdba9dd0adfab8944674d27003daadd2122eda905a99de86483179ca5bd",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89481.yaml",
             "sha256": "61ea0c71b74162ac0237c3a0be82b40e54c912ca5db1c91a98025e84772bdcb3",
@@ -2476,11 +2476,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy25osti/89042.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy25osti/89042.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Heat Pump Rooftop Units With Standard Performance",
           "input_sha256": "73340f4db3973580c0244e6d44c4b730832c495437270fd26baa9dbfba8543c0",
           "output_path": "upgrade_measures/measure_pdfs/89042.md",
-          "output_sha256": "1f4f8e0e3e52f74b27d90a52b255ade0273d0c47047d94aa4e8d4f96ad81fb77",
+          "output_sha256": "fa91719f23eec7cb9805ef1bc0e0aa832534f4812db44e3972066a8aa62257b0",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89042.yaml",
             "sha256": "5fde792e32942caacedf29849891745fd12a05037fc3c57f7d3c097c8fc3e552",
@@ -2525,11 +2525,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy25osti/89126.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy25osti/89126.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "LED Lighting, Standard Performance HP-RTU and ASHP-Boiler",
           "input_sha256": "75a157ce3e645e97f06a1d52fdfe22cc252ba28bd261a6d7088dde8c59fdd947",
           "output_path": "upgrade_measures/measure_pdfs/89126.md",
-          "output_sha256": "bbb0e546e5e41d978b1189fa40b47ecb7361a2912d0b67b449f747b329a2c86d",
+          "output_sha256": "6a73e9c7bdaf248b76fbb0e61d8e35fcdb0c5f1ecf78dbd0d5f87a003b338082",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/89126.yaml",
             "sha256": "32a356bb949a14010b2df9e915e0437c13f14ac6c770e453c0f07738a8e82e49",
@@ -2558,11 +2558,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy25osti/92546.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy25osti/92546.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Ideal Thermal Air Loads",
           "input_sha256": "8e39bddcc97c54c144610cdb214b535989f9dc8bc33aa020dbaedfe8db24a239",
           "output_path": "upgrade_measures/measure_pdfs/92546.md",
-          "output_sha256": "a5f309160a5d64cc2d5ce59cd889e05a08b09cf4df682b47ef5f663c2e8d0f49",
+          "output_sha256": "f09c7f2e7ff6da9bcfc72222b15921910fab531964cf19e7a21cbb9b629c8b67",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/92546.yaml",
             "sha256": "e0006b21b76b1f08053b948bffe96d07885f10fcaedc982df276af8f3e71872f",
@@ -2583,11 +2583,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy25osti/92618.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy25osti/92618.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Standard Performance Heat Pump Rooftop Unit with New Roof",
           "input_sha256": "f03bdb09b5fc391cf99eeb27596086db1f499279a7e1a5009a9532b81fe2823a",
           "output_path": "upgrade_measures/measure_pdfs/92618.md",
-          "output_sha256": "5e56687e7da63c11abec9b50b585df260fe9d7707863f9f3abadf8e9202608c3",
+          "output_sha256": "df5fcad25f383a88cc685851c80f0c11fc4a995d9fced2a0275cb47ef2904305",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/92618.yaml",
             "sha256": "582504175d9a04316d8fadec9362ae1a39b3f8c04db3a14c0d057959b00a5ef0",
@@ -2616,11 +2616,11 @@
           "status": "osti_pdf",
           "source_url": "https://www.nlr.gov/docs/fy26osti/92502.pdf",
           "publication_url": "https://www.nlr.gov/docs/fy26osti/92502.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Lighting Control for Load Shedding",
           "input_sha256": "62f9c11c6d3e6d9c35700a7dc9c74f204b3196e476e1fb9e97ee528e74b6085e",
           "output_path": "upgrade_measures/measure_pdfs/92502.md",
-          "output_sha256": "04acda5702fdfada20e06c0dd805ae7ec7d657ce77c2fb1d5b29892aea93529d",
+          "output_sha256": "c22c247d4a078454f50f9f4eff80cb4022bd94f56ee9bcd3c1b8760071e34fa5",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/measure_pdfs/92502.yaml",
             "sha256": "faaf4789e486f44d13762e0b46e88845b4c7f4fa44cd319283a55e35815af3f2",
@@ -2651,11 +2651,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/assets/files/ComStock%20Measure%20Doc_HP%20RTU%20Higher%20Compressor%20Lockout.pdf",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/assets/files/ComStock%20Measure%20Doc_HP%20RTU%20Higher%20Compressor%20Lockout.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Heat Pump Rooftop Units With Higher Compressor Lockout Temperature for Heating",
           "input_sha256": "4a9ec2da0c73739e62864378fde4a9d2ebfc7c7872aeaa4c338564c588c69973",
           "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/ComStock Measure Doc_HP RTU Higher Compressor Lockout.md",
-          "output_sha256": "75e820d9956b15360106b41e3e49365778b1c45b39825adf55d5ed30e45ca252",
+          "output_sha256": "e1d039e928da6683ef0a6190b0e5f781ad392387cf8a10bdb4303c075fb919d7",
           "overlay": {
             "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/assets/files/ComStock Measure Doc_HP RTU Higher Compressor Lockout.yaml",
             "sha256": "95d668295c84ae2d3546176c1f5b033e3d2faeae7c7c32cd2629bc87b5ecafe9",
@@ -2670,11 +2670,11 @@
           "status": "site_page",
           "source_url": "https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/assets/files/ComStock%20Measure%20Doc_PV%20with%20Battery%20Storage.pdf",
           "publication_url": "https://natlabrockies.github.io/ComStock.github.io/assets/files/ComStock%20Measure%20Doc_PV%20with%20Battery%20Storage.pdf",
-          "corpus_version": "8785426",
+          "corpus_version": "comstock_amy2018_2025_release_3-v1",
           "title": "Photovoltaics With 40% Rooftop Coverage and Battery Storage",
           "input_sha256": "8d88850523d4a3a0223bdba0b370575ab9642272b0ca0c825c1d65df81b532bf",
           "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/ComStock Measure Doc_PV with Battery Storage.md",
-          "output_sha256": "08f99d1383c1af581002e15d9df1865a0f91cb1c08af3780e8928a6260c175b2"
+          "output_sha256": "a2fbedd32cee9ebd20f5b813b91cc7912986e4eac36becb459ef0a5d5b4b7002"
         }
       ]
     }
