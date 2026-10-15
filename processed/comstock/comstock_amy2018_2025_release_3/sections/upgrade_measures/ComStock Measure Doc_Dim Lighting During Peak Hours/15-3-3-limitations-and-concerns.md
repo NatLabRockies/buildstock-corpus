@@ -1,0 +1,11 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | assets/files/ComStock Measure Doc_Dim Lighting During Peak Hours.pdf | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/3b69decb4e5f7bb3d6cc24f6224b318c921fd45f/assets/files/ComStock%20Measure%20Doc_Dim%20Lighting%20During%20Peak%20Hours.pdf | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/ComStock%20Measure%20Doc_Dim%20Lighting%20During%20Peak%20Hours.pdf | corpus_version: e7ffee7a | corpus_path: upgrade_measures/unpublished_docs/upgrade_measures/ComStock Measure Doc_Dim Lighting During Peak Hours.md | section: 3.3. Limitations and Concerns | lines: 259-268 -->
+## 3.3. Limitations and Concerns
+
+Several limitations and concerns of the measure are identified as follows.
+
+- The percentage reduction of the lighting load is universal among different commercial building types, without identifying the detailed space types. The assumption is made based on the judgment of what might be possible, because the aim of the study is to show the load shedding potential, but not necessarily the real-world operations.
+- The measure also assumes that the lighting fixtures are controllable (either via deviceintegrated controls or via communication with BAS), which is idealistic and might not be true for older buildings.
+- The measure can only be applicable to those lighting schedules in scheduleRuleSet format, but this is likely to cover all models in ComStock.
+- The lighting load reduction event is applied for every day throughout the year. In reality, demand response programs are structured to limit events to a small number of days and total hours, but the DR event dispatch strategy is not part of this study but a task in postprocessing by another tool.
+- The start of the peak period is defined by the seasonal peak hour of the aggregated statelevel load profile from Cambium dataset, which does not necessarily align with the peak hour of a particular electricity system or individual building. Besides, any demand-side improvements on building energy consumption is not reflected in the Cambium loads. If these improvements are significa nt enough to alter the peak timings, it's not captured in the dispatch assumptions.
+

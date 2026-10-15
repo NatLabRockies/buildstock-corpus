@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/how_to_guides/impact_workbook.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/how_to_guides/impact_workbook.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/resources/how_to_guides/impact_workbook.html | corpus_version: 0396270 -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/how_to_guides/impact_workbook.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/3b69decb4e5f7bb3d6cc24f6224b318c921fd45f/docs/resources/how_to_guides/impact_workbook.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/resources/how_to_guides/impact_workbook.html | corpus_version: e7ffee7a -->
 # Building Stock Characterization and Upgrades Impact Workbook
 
 # How-to: Perform a commercial building stock characterization and upgrades impact analysis in Excel.

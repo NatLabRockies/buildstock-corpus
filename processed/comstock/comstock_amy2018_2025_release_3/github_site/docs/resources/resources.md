@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/resources.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/bacf551bc5d2f595d2b3c41a57de0beea23ec6be/docs/resources/resources.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/resources/resources.html | corpus_version: 0396270 -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/resources.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/3b69decb4e5f7bb3d6cc24f6224b318c921fd45f/docs/resources/resources.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/resources/resources.html | corpus_version: e7ffee7a -->
 # Resources
 
 This section provides tutorials, how-to guides, explanations and reference material designed to aid users in answering questions about the ComStock dataset.
@@ -59,6 +59,7 @@ These documents provide explanations focusing on the *how* and *why* of various 
 Webinars, presentations, and guidance on the ComStock and ResStock datasets—including training videos on accessing the datasets, using the Data Viewer, and more—are available on [NLR’s Building Stock Analysis YouTube channel](https://www.youtube.com/playlist?list=PLmIn8Hncs7bEYCZiHaoPSovoBrRGR-tRS). See below for a sample of available videos. For the full collection, visit the YouTube channel.
 -   [End-Use Load Profiles Dataset Access Demonstration](https://www.youtube.com/watch?v=iS7KeVQ0Bvs)
 -   [Loading End-Use Saving Shapes Data into AWS Athena](https://www.youtube.com/watch?v=qSR1MFpSiro&list=PLmIn8Hncs7bEYCZiHaoPSovoBrRGR-tRS&index=4&t=2s)
+-   [Overview and Guide to Geothermal Heat Pump Resources](https://www.youtube.com/watch?v=D32UNZPPoCQ)
 
 ## Tableau Dashboards
 The [ComStock Tableau Public page](https://public.tableau.com/app/profile/comstock.nrel/vizzes) offers interactive visualizations derived from the public ComStock datasets. These visualizations provide insights into building characteristics, energy consumption patterns, and the potential impacts of energy efficiency measures across various building types and geographic regions. See below for a sample of available dashboards. Additional dashboards will be posted to the ComStock Tableau Public page as they become available.

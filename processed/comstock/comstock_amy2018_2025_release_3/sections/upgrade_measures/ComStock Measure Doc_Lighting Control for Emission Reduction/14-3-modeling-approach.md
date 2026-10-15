@@ -1,0 +1,3 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | assets/files/ComStock Measure Doc_Lighting Control for Emission Reduction.pdf | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/3b69decb4e5f7bb3d6cc24f6224b318c921fd45f/assets/files/ComStock%20Measure%20Doc_Lighting%20Control%20for%20Emission%20Reduction.pdf | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/ComStock%20Measure%20Doc_Lighting%20Control%20for%20Emission%20Reduction.pdf | corpus_version: e7ffee7a | corpus_path: upgrade_measures/unpublished_docs/upgrade_measures/ComStock Measure Doc_Lighting Control for Emission Reduction.md | section: 3 Modeling Approach | lines: 242-243 -->
+## 3 Modeling Approach
+
