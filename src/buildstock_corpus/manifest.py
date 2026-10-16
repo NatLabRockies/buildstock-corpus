@@ -13,7 +13,9 @@ the clone commit SHAs, the version of every tool in the chain, and the tracked g
 
 from __future__ import annotations
 
+import hashlib
 import json
+import os
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -29,6 +31,7 @@ from .links import is_absolute_https
 from .overlay import entry_kind
 from .paths import (
     OVERLAYS_DIR,
+    long_path,
     manifest_file,
     output_rel,
     processed_root,
@@ -47,6 +50,26 @@ _DECORATIVE_REF_RE = re.compile(r"^!\[Image\]\([^)\s]*image_00000[01]_[0-9a-f]+\
 # Shared with corpus_map (see paths.sha256_file); aliased rather than re-implemented so the
 # manifest's recorded hashes and the map's manifest stamp can never be computed differently.
 _sha256_file = sha256_file
+
+
+def _image_present(img: Path) -> bool:
+    """Whether an overlay's source bitmap is on disk, past Windows' MAX_PATH if need be.
+
+    docling's 81-character image names under a long document directory put a few bitmaps
+    past 260 characters as absolute paths. Path.is_file() then reports them absent on a
+    Windows checkout without LongPathsEnabled, and validate would count a bitmap that is
+    really there as unverifiable: the pin goes unchecked and nobody is told. Both calls go
+    through long_path(), which build already uses to copy the same files.
+    """
+    return os.path.isfile(long_path(img))
+
+
+def _image_sha256(img: Path) -> str:
+    h = hashlib.sha256()
+    with open(long_path(img), "rb") as f:
+        for block in iter(lambda: f.read(1 << 20), b""):
+            h.update(block)
+    return h.hexdigest()
 
 
 def _tooling() -> dict:
@@ -315,9 +338,9 @@ def _validate_overlay(proot: Path, artifact: dict, where: str) -> tuple[list[str
             continue
 
         img = page_dir / str(entry.get("source_image", ""))
-        if not img.is_file():
+        if not _image_present(img):
             unverifiable += 1
-        elif _sha256_file(img) != entry.get("source_image_sha256"):
+        elif _image_sha256(img) != entry.get("source_image_sha256"):
             checked += 1
             errors.append(
                 f"{where}: {label}: source image changed since transcription "
@@ -332,9 +355,9 @@ def _validate_overlay(proot: Path, artifact: dict, where: str) -> tuple[list[str
         if src not in applied_figs:
             continue  # recorded as not applied; nothing was injected to back up
         img = page_dir / src
-        if not img.is_file():
+        if not _image_present(img):
             unverifiable += 1
-        elif _sha256_file(img) != fig.get("source_image_sha256"):
+        elif _image_sha256(img) != fig.get("source_image_sha256"):
             checked += 1
             errors.append(
                 f"{where}: figure {img.name}: source image changed since description; the "

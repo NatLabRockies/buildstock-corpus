@@ -1,0 +1,117 @@
+# Hand-authored figure descriptions for assets/files/ComStock Measure Doc_Low Priority Device Switching During Peak Hours.pdf
+#
+# NREL ComStock measure documentation for dr_0007 (Low Priority Device Switching During Peak Hours), served by the ComStock site without an OSTI number. docling extracts each figure as a bare ![Image](...) ref: the caption
+# survives above or below it, but the chart itself is invisible to retrieval. Each entry
+# is image-anchored (figures: schema, overlays/README.md): the ref is rewritten with a
+# hand-written alt and a description paragraph is injected below for retrieval.
+#
+# Scope: figures only (9 entries). image_000000 is the ComStock wordmark and is
+# deliberately not described. Unlike the OSTI measure reports, these site PDFs carry no
+# cover grid, so image_000001 is Figure 1 (a real diagram), not decorative: describing it
+# here keeps the ref visible, since build omits only undescribed 00000[01] refs (W6.1).
+#
+# Authoring notes:
+#   * method is vision-description: these interpret a chart rather than copy legible
+#     cells. Headline numbers were read off the figures and should get a human QA pass.
+#   * Depth follows the 2026-08-21 standard (FIGURE_DESCRIPTIONS_ROLLOUT.md section 2.1).
+#   * Every entry pins the on-disk PNG sha256; a repointed bitmap drops the injection.
+
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: assets/files/ComStock Measure Doc_Low Priority Device Switching During Peak Hours.pdf
+source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/3b69decb4e5f7bb3d6cc24f6224b318c921fd45f/assets/files/ComStock%20Measure%20Doc_Low%20Priority%20Device%20Switching%20During%20Peak%20Hours.pdf
+publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/ComStock%20Measure%20Doc_Low%20Priority%20Device%20Switching%20During%20Peak%20Hours.pdf
+figures:
+- source_image: ComStock_Measure_Doc_Low_Priority_Device_Switching_During_Peak_Hours_images/image_000001_088bd75f7bea12775ad8a2afad0938802c3563c1cfbe66bd94b5bb75c722e55e.png
+  source_image_sha256: eaf2d8094c1bf7004dd4bd365aceb1e020e9cf7a668903538623c018e425845e
+  method: vision-description
+  described_utc: '2026-10-15'
+  alt: "Figure 1: workflow diagram of the Building Standard Scenarios demand flexibility project and its data sources"
+  description: |-
+    Figure 1: flow diagram of the Building Standard Scenarios (BSS) demand flexibility workflow.
+    Three input rows (disaggregated building end-use load; end-use fraction capable of load shedding
+    or shifting; grid need and dispatch of demand response) feed boxes naming the data sources and
+    steps: BuildStock, Scout, DR-Path, updated DF fractions from EnergyPlus modeling, exogenous
+    dispatch (Cambium, aggregated BSS demand) and endogenous dispatch (ReEDS).
+- source_image: ComStock_Measure_Doc_Low_Priority_Device_Switching_During_Peak_Hours_images/image_000002_382887ed6903a5baa80f0789b84475869a21429c0169aee857df426f858c2244.png
+  source_image_sha256: dae56570f0d72022b9745ac275208c3f2e57f6220005d11e2ace40c9acfda0cd
+  method: vision-description
+  described_utc: '2026-10-15'
+  alt: "Figure 2: grid of 48 state panels marking the default 4-hour peak period by season and hour of day"
+  description: |-
+    Figure 2: small-multiples grid, one panel per state (48 panels), x-axis hour of day 0 to 24.
+    Colored bars mark the default 4-hour load-shedding window for winter (blue), summer (red) and
+    intermediate season (green). Most windows fall in the late afternoon and evening, roughly hours
+    16 to 21, with the season-to-season shift differing by state.
+- source_image: ComStock_Measure_Doc_Low_Priority_Device_Switching_During_Peak_Hours_images/image_000003_8b97c75a880632690b40690a716a51404cd3e5339a8d4030930f2268efe029ea.png
+  source_image_sha256: 0857e38bfb851a2bb390a0e536d98b1c1c41b03aff9418314b729d2f6ed372c5
+  method: vision-description
+  described_utc: '2026-10-15'
+  alt: "Figure 3: electric equipment power for applicable and non-applicable space types of a California large office"
+  description: |-
+    Figure 3: two line panels of electric equipment electricity rate in W over 08/01 to 08/03 for a
+    large office in California. Top panel: applicable space types OfficeOpen and OfficeSmall,
+    baseline versus measure, with the measure dropping during the green-shaded evening shed windows.
+    Bottom panel: non-applicable LobbyWaiting and MechElecRoom, where baseline and measure coincide.
+- source_image: ComStock_Measure_Doc_Low_Priority_Device_Switching_During_Peak_Hours_images/image_000004_bb896f2b1288aee3ac43dcbfcb12d97541c24af4207383dd8de7c62bbf8fb15a.png
+  source_image_sha256: 9d29f15978cb049b965227d76a4cf118d48bd5e699a40e458f13fd34b5c30395
+  method: vision-description
+  described_utc: '2026-10-15'
+  alt: "Figure 4: whole-building net electricity of a California large office on three days, baseline versus DF plug measure"
+  description: |-
+    Figure 4: three stacked line charts of whole-building net electricity consumption in W for a
+    large office in California on 01/01, 08/01 and 05/01. Baseline (blue) and DF plug measure
+    (orange) overlap except in the green-shaded shed period in the late afternoon and evening, where
+    the measure line runs slightly below the baseline.
+- source_image: ComStock_Measure_Doc_Low_Priority_Device_Switching_During_Peak_Hours_images/image_000005_ff5640d3cdb2a11560ac1a261cee2d531995d43c99841e5ad0e7745fb2bda408.png
+  source_image_sha256: b55cf7f5b50a8ff275c793401089f4668d6ba038f8960e2bffb9b17cc44db1a4
+  method: vision-description
+  described_utc: '2026-10-15'
+  alt: "Figure 5: aggregated California electric equipment load profiles for three seasons, baseline versus post-measure"
+  description: |-
+    Figure 5: three stacked line panels (winter, summer, intermediate) of aggregated electric
+    equipment electricity in MWh (y, about 250,000 to 950,000) over one example day for California.
+    Baseline (blue) and post-measure (orange) overlap until about hour 17, where the post-measure
+    profile steps down for the 4-hour shed window and rejoins the baseline at about hour 21.
+- source_image: ComStock_Measure_Doc_Low_Priority_Device_Switching_During_Peak_Hours_images/image_000006_33b521abd4e24c3577da3b586d71e7778662affc58577e64cab2e7163cb75198.png
+  source_image_sha256: 62f3c92ebb6476c372aa8d4721221a4350d26b8a6cd674e809a64d1a3d2014a8
+  method: vision-description
+  described_utc: '2026-10-15'
+  alt: "Figure 6: box plot by state of daily percentage electric equipment load reduction during the peak period"
+  description: |-
+    Figure 6: box plot of daily percentage electric equipment load reduction during the peak period
+    (y, 0 to 14%) for each state (x), median as a dashed line and 75th percentile in red. DC is
+    highest near 14%, MA and NJ near 10%; most states fall between about 4 and 9%, declining toward
+    WV at the right.
+- source_image: ComStock_Measure_Doc_Low_Priority_Device_Switching_During_Peak_Hours_images/image_000007_45c2152641edc489e26734e8b9e159f3fe668db4fd8626238212bf0a724a5700.png
+  source_image_sha256: 355a9f5a1a08b3155f586b24a159740ecc894d685255b6a248a17a97c67fd7e0
+  method: vision-description
+  described_utc: '2026-10-15'
+  alt: "Figure 7: stock annual energy by end use and fuel, baseline versus GEB_DF_Plug, applicable buildings and all buildings"
+  description: |-
+    Figure 7: two stacked bar panels of annual energy consumption in TBtu, left for applicable
+    buildings (Baseline 2965 vs GEB_DF_Plug 2959) and right for all buildings (4865 vs 4859),
+    segmented by end use and fuel per the legend. The interior equipment electricity segment shrinks
+    slightly while heating segments grow. See Table 1.
+- source_image: ComStock_Measure_Doc_Low_Priority_Device_Switching_During_Peak_Hours_images/image_000008_4e9f710f61b340d29d76c756b01ffda85f2a3f87d04d483f7d06c0794c931304.png
+  source_image_sha256: ac01e68c10e11bfbf1bc80593c0879a322911254a44036915615c36ed95f62a5
+  method: vision-description
+  described_utc: '2026-10-15'
+  alt: "Figure 8: distributions of percent site energy savings by end use for the GEB_DF_Plug upgrade"
+  description: |-
+    Figure 8: horizontal distribution plot of percent site energy savings by end use (x, -100 to
+    40%), one row per end use and fuel with its model count n, for Upgrade 34.0 GEB_DF_Plug
+    (unweighted). Electricity interior equipment sits slightly positive, natural gas heating and
+    electricity heating spread widest around zero, and the remaining end uses center on zero. See
+    Table 1.
+- source_image: ComStock_Measure_Doc_Low_Priority_Device_Switching_During_Peak_Hours_images/image_000009_88c43c8d1abbf2dac265a7beb61f0d0c10e651a234fef91eb463d38e246f621e.png
+  source_image_sha256: a680e9aaafec334aa4a662ef87584b3796f0d3595dbcf73cb1eb46125f6fe3a0
+  method: vision-description
+  described_utc: '2026-10-15'
+  alt: "Figure 9: distributions of percent site energy savings by ASHRAE climate zone for the GEB_DF_Plug upgrade"
+  description: |-
+    Figure 9: horizontal violin plot of percent site energy savings (x, -3 to 6%) by climate zone 1A
+    through 8 with the model count n per zone, for Upgrade 34.0 GEB_DF_Plug (unweighted). Every zone
+    centers a few tenths of a percent above zero with long thin tails; there is no visible trend
+    with climate zone.

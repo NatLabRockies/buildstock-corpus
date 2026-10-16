@@ -1,0 +1,197 @@
+# Hand-authored figure descriptions for assets/files/ComStock Measure Doc_Lighting Control for Emission Reduction.pdf
+#
+# NREL ComStock measure documentation for dr_0004 (Lighting Control for Emissions Reduction), served by the ComStock site without an OSTI number. docling extracts each figure as a bare ![Image](...) ref: the caption
+# survives above or below it, but the chart itself is invisible to retrieval. Each entry
+# is image-anchored (figures: schema, overlays/README.md): the ref is rewritten with a
+# hand-written alt and a description paragraph is injected below for retrieval.
+#
+# Scope: figures only (17 entries). image_000000 is the ComStock wordmark and is
+# deliberately not described. Unlike the OSTI measure reports, these site PDFs carry no
+# cover grid, so image_000001 is Figure 1 (a real diagram), not decorative: describing it
+# here keeps the ref visible, since build omits only undescribed 00000[01] refs (W6.1).
+#
+# Authoring notes:
+#   * method is vision-description: these interpret a chart rather than copy legible
+#     cells. Headline numbers were read off the figures and should get a human QA pass.
+#   * Depth follows the 2026-08-21 standard (FIGURE_DESCRIPTIONS_ROLLOUT.md section 2.1).
+#   * Every entry pins the on-disk PNG sha256; a repointed bitmap drops the injection.
+
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: assets/files/ComStock Measure Doc_Lighting Control for Emission Reduction.pdf
+source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/3b69decb4e5f7bb3d6cc24f6224b318c921fd45f/assets/files/ComStock%20Measure%20Doc_Lighting%20Control%20for%20Emission%20Reduction.pdf
+publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/ComStock%20Measure%20Doc_Lighting%20Control%20for%20Emission%20Reduction.pdf
+figures:
+- source_image: ComStock_Measure_Doc_Lighting_Control_for_Emission_Reduction_images/image_000001_11b29adf94dffe70c8cf60330cee58e62344ca70a3e892540ca3ebf7bae80b96.png
+  source_image_sha256: ce1fdb32874d9ef3122ba507df35b1826e7fc62f05fc2d61f3e43dd11b14d968
+  method: vision-description
+  described_utc: '2026-10-15'
+  alt: "Figure 1: stacked bars of lighting generation shares, truth versus ComStock sampling, 2015 to 2035"
+  description: |-
+    Figure 1: stacked bar chart of lighting generation shares (y, 0 to 1) with bars for Truth 2015,
+    Truth and Sampling 2017, Truth and Sampling 2020 (boxed), and Truth 2025, 2030 and 2035; legend
+    gen1_t12_incandescent through gen8_led. The 2017 and 2020 sampled shares track their truth bars
+    within a few hundredths (gen2 0.488 vs 0.480 in 2017); LED generations dominate by 2035. See
+    Table 1 and Table 2.
+- source_image: ComStock_Measure_Doc_Lighting_Control_for_Emission_Reduction_images/image_000002_25cd7e09da1026abe7306b1a8552789d163dfc0564fe156756e58921ac1aad75.png
+  source_image_sha256: e0c648cc4fe1cdd13cb71702ea6980fad6e5b882df3884128f3e850e17e1e185
+  method: vision-description
+  described_utc: '2026-10-15'
+  alt: "Figure 2: example weekday lighting schedules, default versus base-to-peak-ratio adjusted, large and small office"
+  description: |-
+    Figure 2: line chart of weekday lighting schedule fraction (y, 0 to 1) against hour of day (x,
+    0:00 to 24:00). Large office default (dashed orange) and BPR adjusted (solid orange) rise from
+    about 0.05 at night to about 0.85 midday; small office default (dashed blue) spans a wider
+    daytime plateau, and its BPR-adjusted schedule (solid blue) is nearly flat near 0.8 to 0.85 all
+    day.
+- source_image: ComStock_Measure_Doc_Lighting_Control_for_Emission_Reduction_images/image_000003_5a0a6d739eb0ce550005ded6a2447d50ecb515b2542596f8ab0890f72dd417ae.png
+  source_image_sha256: 60b473794f2833d551507889cfd5fd8c3385e025c72774253dbd0a32b5faf4c3
+  method: vision-description
+  described_utc: '2026-10-15'
+  alt: "Figure 3: bar chart of percent of stock floor area by building type, shaded by applicability"
+  description: |-
+    Figure 3: horizontal bar chart of percent of stock floor area (x, 0 to 30%) by ComStock building
+    type, green for applicable types (large, medium and small office, primary and secondary school,
+    warehouse) and gray for not applicable. Warehouse is largest at 28.71%; applicable types
+    together cover about 68% of floor area.
+- source_image: ComStock_Measure_Doc_Lighting_Control_for_Emission_Reduction_images/image_000004_5e66fb7ddaf8934a8d60b5b60d0b5208cea8c9afcf240afbf841726dcc6a6d5d.png
+  source_image_sha256: d574dfee7f2de1e9d9b2ddc8ae97444da38e237abe02931aef0f2b84fec2666e
+  method: vision-description
+  described_utc: '2026-10-15'
+  alt: "Figure 4: bar chart of percent of stock building count by building type, shaded by applicability"
+  description: |-
+    Figure 4: horizontal bar chart of percent of stock building count (x, 0 to 30%) by ComStock
+    building type, green for applicable and gray for not applicable. Warehouse (25.49%) and small
+    office (19.61%) are the largest applicable shares; retail stripmall (14.27%) and retail
+    standalone (11.73%) are the largest non-applicable ones.
+- source_image: ComStock_Measure_Doc_Lighting_Control_for_Emission_Reduction_images/image_000005_a886586cb0440bdc89e6c53d80e171a3de92eba7a1015ae8383dda103848d3c6.png
+  source_image_sha256: 750fc47a68f30236b0363763466614cd25b1ba7362c064ff6e80b52ff2c6f734
+  method: vision-description
+  described_utc: '2026-10-15'
+  alt: "Figure 5: test small office load, hourly emissions and lighting dimming schedule over five July days"
+  description: |-
+    Figure 5: three stacked time-series panels for the test small office over 7/16 to 7/20: building
+    load in kW (10 to 35), hourly emissions in kg CO2e with the grid emission factor in kg/MWh on
+    the right axis, and lighting schedule dimming level (40 to 100%). Baseline (dashed orange) and
+    lighting emission reduction (blue) differ only in the daily emission-peak windows, where
+    lighting dims to about 50%.
+- source_image: ComStock_Measure_Doc_Lighting_Control_for_Emission_Reduction_images/image_000006_8d1e45b8e387577afaee2705bf328bccf146460d92a7a20fe6dc974620c590af.png
+  source_image_sha256: 1d2355791d50db64b52be8ee1043db5e0f69e47f97f673fa079a19278a1ba5e8
+  method: vision-description
+  described_utc: '2026-10-15'
+  alt: "Figure 6: stock annual greenhouse gas emissions by fuel, baseline versus measure, under three grid scenarios"
+  description: |-
+    Figure 6: grouped stacked bar chart of annual GHG emissions in MMT CO2e (y, 0 to 500) for
+    Baseline and light_emission under eGRID 2021, Cambium LRMER High RE Cost 15 and LRMER Low RE
+    Cost 15, stacked by electricity, natural gas, fuel oil and propane. Totals move from 443 to 441,
+    343 to 342 and 246 to 245, each labeled -0%. See Table ES-3.
+- source_image: ComStock_Measure_Doc_Lighting_Control_for_Emission_Reduction_images/image_000007_3323fd991b17787cdb825a8516a9a210454323b8382b792653c2f765e9aba2a7.png
+  source_image_sha256: d6d1a3c0c5344850719c69882bf3aeadeb8940a523da81f1ccd508b4c4b64784
+  method: vision-description
+  described_utc: '2026-10-15'
+  alt: "Figure 7: box plot of daily percent emissions savings by season under the Cambium LRMER Mid Case scenario"
+  description: |-
+    Figure 7: horizontal box plot of daily emissions savings in percent (x, -2 to 6%) under the
+    Cambium LRMER Mid Case 15-Year scenario, one row each for winter, shoulder and summer daily
+    averages. Medians sit near 1.5 to 2%, boxes span roughly 1 to 3%, and whiskers reach about -1%
+    and 5 to 6%.
+- source_image: ComStock_Measure_Doc_Lighting_Control_for_Emission_Reduction_images/image_000008_e7f3734c2da3414c8e0a4efb92d0e4ce2486d89950470c8f722d5ed6c101bc4c.png
+  source_image_sha256: 273107e61814bbb834f3fbd4b1fb8f655386ebe95b5033820c1e2d1d324da08d
+  method: vision-description
+  described_utc: '2026-10-15'
+  alt: "Figure 8: stock annual energy by end use and fuel, baseline versus measure, all buildings and applicable buildings"
+  description: |-
+    Figure 8: two stacked bar panels of annual energy consumption in TBtu, left for all buildings
+    (Baseline 4838 vs light_emission 4822) and right for applicable buildings only (2335 vs 2319),
+    segmented by end use and fuel per the legend. The interior lighting electricity segment shrinks
+    while the heating segments grow slightly. See Table 7.
+- source_image: ComStock_Measure_Doc_Lighting_Control_for_Emission_Reduction_images/image_000009_3936badc6c8da179aff524ebc88a9ee0e6dabe3019142acfdfaf7b023afb4a09.png
+  source_image_sha256: 88777bd062657c95186fbf6776a2447ad4af4bab41e32280f6f672d6d4b38ba5
+  method: vision-description
+  described_utc: '2026-10-15'
+  alt: "Figure 9: stock annual utility bills by fuel, baseline versus measure, under maximum, mean and minimum electricity rates"
+  description: |-
+    Figure 9: grouped stacked bar chart of annual utility bill in billion USD (2022) (y, 0 to 160)
+    for Baseline and light_emission with the maximum, mean and minimum electricity rate, stacked by
+    electricity, natural gas, fuel oil and propane. Totals are 145 vs 144, 125 vs 125 and 111 vs
+    111, each labeled -0%. See Table ES-4.
+- source_image: ComStock_Measure_Doc_Lighting_Control_for_Emission_Reduction_images/image_000010_6aefad8c537419e7f88bf7f5883b2a2b925790e4dbe14392297fe4bcd9bae050.png
+  source_image_sha256: 44de2a29704393c42d74673732408f61ccd8e24fead58613b857476a5f38db99
+  method: vision-description
+  described_utc: '2026-10-15'
+  alt: "Figure 10: box plot of percent electricity bill savings for applicable buildings with maximum, mean and median bills"
+  description: |-
+    Figure 10: horizontal box plot of electricity utility bill cost savings in percent (x, -2 to 5%)
+    for applicable buildings, one row each for the maximum, mean and median bill. Medians sit near
+    1.2%, boxes span about 0.8 to 2%, and whiskers run from about -1% to 4%.
+- source_image: ComStock_Measure_Doc_Lighting_Control_for_Emission_Reduction_images/image_000011_a47e47dd4376bcee975f7a2ea7f0c177eb94072b2b21936eb00d5e63511f9e95.png
+  source_image_sha256: 1242c7a0b4b8deb6fb6caa89cb377068976fb3b4aadac6c7168fcfd1577a1334
+  method: vision-description
+  described_utc: '2026-10-15'
+  alt: "Figure 11: distributions of utility bill savings intensity by fuel for the light_emission upgrade"
+  description: |-
+    Figure 11: horizontal violin plot of utility bill savings intensity in USD per ft2 per year
+    (2022) (x, -0.4 to 1.8) for propane, fuel oil, natural gas, electricity with mean rate and total
+    with mean electricity rate, each with its model count n, for Upgrade 26.0 light_emission
+    (unweighted). All distributions are tight around zero, electricity slightly positive.
+- source_image: ComStock_Measure_Doc_Lighting_Control_for_Emission_Reduction_images/image_000012_b14612a4e1f7a1244615d69559b0bc624ad5c7866eab15f571756e7f950e27dc.png
+  source_image_sha256: 0421c8675bd6db24863e6dac6200d54b09d196d58ea7cdc22084814359cd7ede
+  method: vision-description
+  described_utc: '2026-10-15'
+  alt: "Figure 12: distributions of percent site energy savings by end use and fuel for the light_emission upgrade"
+  description: |-
+    Figure 12: horizontal violin plot of percent site energy savings by end use (x, -100 to 100%),
+    one row per end use and fuel with its model count n, for Upgrade 26.0 light_emission
+    (unweighted). Electricity interior lighting centers near 10% savings; natural gas heating and
+    electricity heating spread slightly negative; the rest sit on zero. See Table 7.
+- source_image: ComStock_Measure_Doc_Lighting_Control_for_Emission_Reduction_images/image_000013_8c8352a30ab6d7c933eb5b6f77e268a9d508c7f70824c0a560438a550d252067.png
+  source_image_sha256: fcab309048dce86680b41fdb98fdb96724e10819db136b0d6ceb5ee0f31d826b
+  method: vision-description
+  described_utc: '2026-10-15'
+  alt: "Figure 13: distributions of site energy use intensity savings by end use and fuel for the light_emission upgrade"
+  description: |-
+    Figure 13: horizontal violin plot of site EUI savings in kBtu/ft2 (x, -1 to 0.6) by end use and
+    fuel with model counts n, for Upgrade 26.0 light_emission (unweighted). Electricity interior
+    lighting centers near 0.2 kBtu/ft2 of savings; natural gas heating and electricity heating sit
+    slightly below zero; all other end uses are at zero.
+- source_image: ComStock_Measure_Doc_Lighting_Control_for_Emission_Reduction_images/image_000014_c555074060cd8fb30f84708a6ad250078babb8e2c55bb7b1f8a70dc1a7dea785.png
+  source_image_sha256: e9fedc86c033de97699a9b85144db8494e663eb4f4e290a117de59833a40aecc
+  method: vision-description
+  described_utc: '2026-10-15'
+  alt: "Figure A-1: stock natural gas consumption by census division, baseline versus light_emission"
+  description: |-
+    Figure A-1: grouped bar chart of natural gas total energy consumption in TBtu (y, 0 to 400) by
+    census division, Baseline (dark blue) beside light_emission (light blue). East North Central is
+    highest near 385 TBtu and New England lowest near 60; the paired bars are visually identical in
+    every division.
+- source_image: ComStock_Measure_Doc_Lighting_Control_for_Emission_Reduction_images/image_000015_e2627fa021c49a5be85b2da6a466486418d54ca4a4a76de792ff7093097b6247.png
+  source_image_sha256: b5d66514dc6c9439bb049348bb321340db689025fbfd72c417ebd9fd52bbc3a0
+  method: vision-description
+  described_utc: '2026-10-15'
+  alt: "Figure A-2: stock natural gas consumption by building type, baseline versus light_emission"
+  description: |-
+    Figure A-2: grouped bar chart of natural gas total energy consumption in TBtu (y, 0 to 250) by
+    ComStock building type, Baseline beside light_emission. Secondary school is highest near 270
+    TBtu, followed by retail stripmall near 220 and full service restaurant near 195; the measure
+    bars match the baseline in every type.
+- source_image: ComStock_Measure_Doc_Lighting_Control_for_Emission_Reduction_images/image_000016_54c91df81e763f7a567c9f405d6dbb5343e9e91cef576facc6581ca060b4d118.png
+  source_image_sha256: a58e6032bebb0404fdd5662a756b42fe59da9d7c9b90e77bdf48304872571563
+  method: vision-description
+  described_utc: '2026-10-15'
+  alt: "Figure A-3: stock electricity consumption by building type, baseline versus light_emission"
+  description: |-
+    Figure A-3: grouped bar chart of electricity total energy consumption in TBtu (y, 0 to 400) by
+    ComStock building type, Baseline beside light_emission. Retail stripmall is highest near 430
+    TBtu and warehouse near 385; warehouse, the office types and the schools show a slightly shorter
+    measure bar, the other types none.
+- source_image: ComStock_Measure_Doc_Lighting_Control_for_Emission_Reduction_images/image_000017_dc50ad28c2b3d348868717357caa033750212a1ebf81436063bd739e36f953c5.png
+  source_image_sha256: 8d1a127b7cd4f35e190be3e82c4bd9ba4bdfd536674d804dd5dcff8ca4c68a22
+  method: vision-description
+  described_utc: '2026-10-15'
+  alt: "Figure A-4: stock electricity consumption by census division, baseline versus light_emission"
+  description: |-
+    Figure A-4: grouped bar chart of electricity total energy consumption in TBtu (y, 0 to 700) by
+    census division, Baseline beside light_emission. South Atlantic is highest near 690 TBtu,
+    Pacific and West South Central near 480, New England lowest near 100; the measure bar is
+    marginally shorter in each division.

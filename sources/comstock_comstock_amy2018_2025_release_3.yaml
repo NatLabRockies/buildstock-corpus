@@ -5,9 +5,11 @@
 # corpus artifact names the same release the published data does.
 #
 # Upstream refs do not use that convention and are pinned verbatim below: the ComStock
-# code repo tags this release with a dash (2025-3), the github.io site branches it with
-# an underscore (2025_3), and the crosswalk CSV filename uses its own form again. Each
-# source pins its own git_ref so artifacts stay aligned to this dataset release.
+# code repo tags this release with a dash (2025-3), and the crosswalk CSV filename uses
+# its own form again. The github.io site is read at `main` (owner decision 2026-10-15):
+# its 2025_3 branch froze in July 2026 and the measure documentation posted since then
+# lands only on main. The commit actually fetched is recorded in fetch_state.json and in
+# every artifact's source_url, so the pin is exact per build even though the ref moves.
 product: comstock
 release: "comstock_amy2018_2025_release_3"
 
@@ -37,7 +39,7 @@ sources:
   - id: github_site
     type: markdown
     repo: https://github.com/NatLabRockies/ComStock.github.io.git
-    git_ref: "2025_3"
+    git_ref: "main"
     status: site_page
     # Live site that renders these pages: docs/a/b.md is served at <site_url>/docs/a/b.html.
     site_url: https://natlabrockies.github.io/ComStock.github.io
@@ -53,7 +55,7 @@ sources:
   - id: upgrade_measures
     type: measures
     repo: https://github.com/NatLabRockies/ComStock.github.io.git
-    git_ref: "2025_3"
+    git_ref: "main"
     sparse: ["docs/upgrade_measures", "assets/files"]
     # Same live site: measure pages render at <site_url>/docs/upgrade_measures/<page>.html and
     # the site-served measure PDFs are at <site_url>/assets/files/<file>.pdf.
