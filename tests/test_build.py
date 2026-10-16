@@ -437,3 +437,37 @@ def test_a_site_served_pdf_loses_only_its_wordmark_and_keeps_figure_1():
     assert "cover art" not in site.body
     assert "![Image](ComStock_Measure_Doc_X_images/image_000001_bbbb.png)" in site.body  # Figure 1 kept
     assert site.body.count("![") == 1
+
+
+def test_a_site_served_pdfs_prepublication_stamp_is_decorative_in_either_slot():
+    """The PRE-PUBLICATION stamp is one bitmap docling sometimes extracts on its own, named
+    by its content hash: it is omitted whether it lands in slot 0 (HP RTU Higher Compressor
+    Lockout, whose Figure 1 is then image_000001) or slot 1 (PV with Battery Storage, after
+    the wordmark). An OSTI report's rule does not look at the hash at all."""
+    from buildstock_corpus.decorative import PREPUB_WATERMARK_HASH as STAMP
+
+    hp = _doc("upgrade_measures", "pdf", "assets/files/ComStock Measure Doc_HP.pdf")
+    hp.body = (
+        "# Doc\n\n"
+        f"![Image](HP_images/image_000000_{STAMP}.png)\n\n"
+        "![Image](HP_images/image_000001_bbbb.png)\n\n"
+        "Figure 1. In-force energy code.\n"
+    )
+    pv = _doc("upgrade_measures", "pdf", "assets/files/ComStock Measure Doc_PV.pdf")
+    pv.body = (
+        "# Doc\n\n"
+        "![Image](PV_images/image_000000_aaaa.png)\n\n"
+        f"![Image](PV_images/image_000001_{STAMP}.png)\n\n"
+        "![Image](PV_images/image_000002_cccc.png)\n"
+    )
+    osti = _doc("upgrade_measures", "pdf", "measure_pdfs/90000.pdf")
+    osti.body = f"# R\n\n![Image](90000_images/image_000001_{STAMP}.png)\n"
+
+    assert B._omit_decorative_images([hp, pv, osti]) == 4
+
+    assert "image_000000 (pre-publication watermark; no description by the figure standard)" in hp.body
+    assert "![Image](HP_images/image_000001_bbbb.png)" in hp.body  # Figure 1 kept
+    assert "image_000000 (wordmark; no description by the figure standard)" in pv.body
+    assert "image_000001 (pre-publication watermark; no description by the figure standard)" in pv.body
+    assert "![Image](PV_images/image_000002_cccc.png)" in pv.body  # the third slot is never touched
+    assert "image_000001 (wordmark; no description by the figure standard)" in osti.body

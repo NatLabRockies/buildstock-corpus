@@ -18,7 +18,7 @@ from .chunk import chunk_documents
 from .chunk_files import CHUNKS_DIRNAME, write_chunk_files
 from .corpus_index import build_index
 from .corpus_map import build_map
-from .decorative import DECORATIVE_REF_RE, decorative_indices, omission_comment
+from .decorative import DECORATIVE_REF_RE, decorative_label, omission_comment
 from .extract.crosswalk import build_crosswalk
 from .extract.doc_dates import (
     DocDate,
@@ -387,18 +387,17 @@ def _omit_decorative_images(docs: list[Document]) -> int:
     """Replace a measure PDF's undescribed decorative leading image refs with a comment.
 
     Which of the first two bitmaps are decorative depends on where the PDF came from (an
-    OSTI report's cover grid and wordmark; a site-served doc's wordmark only, its
-    image_000001 being Figure 1): see decorative.py, which validate shares.
+    OSTI report's cover grid and wordmark; a site-served doc's wordmark and pre-publication
+    stamp, its other leading bitmap being Figure 1): see decorative.py, which validate shares.
     """
     n = 0
     for doc in docs:
         if doc.source_type != "pdf":
             continue
-        decorative = decorative_indices(doc.source_path)
 
-        def repl(m: re.Match) -> str:
+        def repl(m: re.Match, source_path: str = doc.source_path) -> str:
             nonlocal n
-            label = decorative.get(m.group("idx"))
+            label = decorative_label(source_path, m.group("idx"), m.group("hash"))
             if label is None:
                 return m.group(0)  # a real figure (a site doc's Figure 1): left as it was
             n += 1

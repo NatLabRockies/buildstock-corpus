@@ -640,3 +640,10 @@ def test_validate_keeps_figure_1_of_a_site_served_pdf_but_not_its_wordmark(tmp_p
     manifest = M.build_manifest("comstock", RELEASE, [site_doc()], None, [], {}, _state(input_path=site_path), 1)
     errors = M.validate_manifest("comstock", RELEASE, manifest)
     assert len(errors) == 1 and "decorative image ref survives" in errors[0]
+
+    # the PRE-PUBLICATION stamp is known by its bitmap hash, so it is a violation in slot 1 too
+    from buildstock_corpus.decorative import PREPUB_WATERMARK_HASH as STAMP
+    out.write_text(content + f"![Image](ComStock_Measure_Doc_X_images/image_000001_{STAMP}.png)\n", encoding="utf-8")
+    manifest = M.build_manifest("comstock", RELEASE, [site_doc()], None, [], {}, _state(input_path=site_path), 1)
+    errors = M.validate_manifest("comstock", RELEASE, manifest)
+    assert len(errors) == 1 and STAMP in errors[0]
