@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95014.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95014.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95014.pdf | corpus_version: e7ffee7a | corpus_path: upgrade_measures/measure_pdfs/95014.md | section: List of Acronyms | lines: 42-163 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/95014.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy25osti/95014.pdf | publication_url: https://docs.nlr.gov/docs/fy25osti/95014.pdf | corpus_version: f6dcd301 | corpus_path: upgrade_measures/measure_pdfs/95014.md | section: List of Acronyms | lines: 42-163 -->
 ## List of Acronyms
 
 AFUE

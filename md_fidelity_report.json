@@ -11,8 +11,8 @@
       "md_tables": 889,
       "html_tables": 37,
       "html_imgs": 118,
-      "md_images": 1055,
-      "dangling_refs": 1176,
+      "md_images": 1056,
+      "dangling_refs": 1177,
       "duplicate_h1": 0,
       "overlay_desc_warnings": 0,
       "soft_hyphens": 0,
@@ -62,7 +62,7 @@
       "md_tables": 727,
       "html_tables": 0,
       "html_imgs": 0,
-      "md_images": 947,
+      "md_images": 948,
       "dangling_refs": 0,
       "duplicate_h1": 0,
       "overlay_desc_warnings": 0,
@@ -11748,12 +11748,17 @@
       "orphan_tables": [],
       "orphan_figures": [
         {
-          "line": 9,
+          "line": 10,
           "label": "Figure 1",
           "caption": "Figure 1. ComStock baseline in-force energy code followed as a percentage of applicable floor area."
         }
       ],
-      "dangling_refs": [],
+      "dangling_refs": [
+        {
+          "line": 6,
+          "target": "ComStock_Measure_Doc_HP_RTU_Higher_Compressor_Lockout_images/image_000001_62d180636fe5419bb13e3a02349126b86c2dd99c9b00c7"
+        }
+      ],
       "duplicate_h1": [],
       "overlay_desc_warnings": [],
       "unconverted_html_tables": [],
@@ -13214,12 +13219,12 @@
       "orphan_tables": [],
       "orphan_figures": [
         {
-          "line": 188,
+          "line": 189,
           "label": "Figure 1",
           "caption": "Figure 1. ComStock baseline in-force energy code followed as a percentage of applicable floor area."
         },
         {
-          "line": 395,
+          "line": 396,
           "label": "Figure 8",
           "caption": "Figure 8. Lockout temperature sensitivity results: stock-level utility bills"
         }
