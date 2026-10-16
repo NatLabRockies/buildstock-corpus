@@ -82,16 +82,16 @@ Every file under `processed/` is served raw by GitHub, unauthenticated:
 https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/<ref>/processed/<product>/<release>/<path>
 ```
 
-**Pin `<ref>` to a release tag**, `<release id>-v<N>` (the first will be
-`comstock_amy2018_2025_release_3-v1`). A tag never moves, so a citation made against it
+**Pin `<ref>` to a release tag**, `<release id>-v<N>` (currently
+`comstock_amy2018_2025_release_3-v2`; the newest is the top entry of `CHANGELOG.md`). A tag
+never moves, so a citation made against it
 resolves to the same bytes next year. `main` is rewritten on every rebuild; use it only when
-you want the newest build and accept that paths and content drift. Until the first tag
-exists, pin a commit hash — the one in every file's `corpus_version` is the commit of the
-tooling that built it.
+you want the newest build and accept that paths and content drift. Every file's line-1
+`corpus_version` names the tag (or, for an untagged build, the commit) it came from.
 
 The recipe is two fetches, three when you need headings:
 
-1. **`index.json`** (~67 KB raw, ~6 KB over the wire). Every document with its `title`,
+1. **`index.json`** (~80 KB raw, ~8 KB gzip-compressed over the wire). Every document with its `title`,
    `corpus_path`, `status`, `source_url`, `publication_url` and `bytes`, and every measure
    with its `upgrade_id`, `corpus_path` and `doc_url`. Pick the document; for a measure,
    start from its `upgrade_id` or `measure_id`.

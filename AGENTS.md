@@ -20,10 +20,10 @@ If you can fetch URLs but have no checkout, every file under `processed/` is ser
 https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/<ref>/processed/<product>/<release>/<path>
 ```
 
-- **Pin `<ref>` to a release tag** (`<release id>-v<N>`, first one
-  `comstock_amy2018_2025_release_3-v1`); until tags exist, to a commit hash. `main` moves
-  on every rebuild.
-- **Fetch `index.json` first** (~6 KB over the wire): every document and measure with its
+- **Pin `<ref>` to a release tag** (`<release id>-v<N>`). The current tag is
+  `comstock_amy2018_2025_release_3-v2`; the newest is always the top entry of `CHANGELOG.md`
+  and the "Current" line of `llms.txt`. `main` moves on every rebuild.
+- **Fetch `index.json` first** (~80 KB raw, ~8 KB gzip-compressed over the wire): every document and measure with its
   `corpus_path`, `status`, `source_url`, `publication_url` and `bytes`. Then the one
   document you need, or one section of it: `sections.json` names a file for every H2
   (`sections/<source_id>/<document stem>/<NN>-<slug>.md`), each a few KB with its own

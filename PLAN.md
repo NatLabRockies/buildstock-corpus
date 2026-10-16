@@ -59,7 +59,7 @@ agent finds, pins, and cites it.
 PR #24 (branches `corpus-version` + `status-field`, 21 commits), annotated, pushed; GitHub
 Release cut from it with the CHANGELOG entry. Check passed: the raw URL at the tag serves
 `index.json`, which names the tag as its `corpus_version`. Release step as run: finalize
-CHANGELOG/CITATION/llms.txt → `bsc build --corpus-version <tag>` → validate + network link
+CHANGELOG/CITATION/llms.txt and the current tag named in AGENTS.md and README → `bsc build --corpus-version <tag>` → validate + network link
 test → `bsc changelog --from <previous tag> --append` and add the hand-written tooling
 bullets (W1.3) → commit → PR → merge commit → `git tag -a` on the merge commit → push tag.
 The tag push runs `release.yml` (W7.2), which repeats the checks and cuts the GitHub Release
@@ -316,3 +316,18 @@ README, then `index.json`, then one section file, and answer with the value, the
 upstream file at its tag, the publication URL, and the corpus version, in three fetches and
 under 40 KB transferred. Every one of those facts should have come from the fetched files, not
 from the agent's memory.
+
+**Result, 2026-10-16 (PLAN-staging.md step 34), against the v2 tag: pass, with two findings.**
+A fresh agent given only the repository URL answered 13 feet, citing the Floor Height section
+of `technical_reference/documentation/reference_doc/4_4_geometry.tex`, the upstream file at
+commit `b77c60d`, the reference-documentation publication URL, status `site_page` with "no OSTI
+number", and a corpus version; it declared that no fact came from memory, and none did. Route:
+`AGENTS.md` (2.4 KB gzip), `index.json` (8.4 KB), the whole Geometry chapter (5.0 KB gzip,
+15.9 KB raw), about 16 KB on the wire in three successful fetches, plus one cached re-read and
+one 404. Findings: (1) it cited `-v1`, not the current `-v2`, because `AGENTS.md` named only the
+first tag as its example and nothing else it fetched names the current one; fixed the same day
+by naming the current tag in `AGENTS.md` and `README.md`, to be bumped with every release (W1.1).
+(2) It fetched the 16 KB chapter rather than the 2 KB section file: `sections.json` is 370 KB,
+so the section path can only be guessed. Its guess (`06-floor-height.md`) was exactly right and
+404'd only because section files did not exist at v1. Letting `index.json` list each document's
+section files would make the three-fetch route real; proposed, not scheduled.
