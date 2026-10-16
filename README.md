@@ -83,7 +83,7 @@ https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/<ref>/processe
 ```
 
 **Pin `<ref>` to a release tag**, `<release id>-v<N>` (currently
-`comstock_amy2018_2025_release_3-v2`; the newest is the top entry of `CHANGELOG.md`). A tag
+`comstock_amy2018_2025_release_3-v3`; the newest is the top entry of `CHANGELOG.md`). A tag
 never moves, so a citation made against it
 resolves to the same bytes next year. `main` is rewritten on every rebuild; use it only when
 you want the newest build and accept that paths and content drift. Every file's line-1
@@ -108,7 +108,7 @@ The recipe is two fetches:
 **`sections.json`** (~360 KB raw, ~46 KB over the wire) adds every heading's level and
 `line_start`/`line_end`, including H3 and below; fetch it only when you need those.
 
-**Mind the size.** 40 of the 117 documents are over 100 KB and four are over 200 KB; the
+**Mind the size.** 41 of the 118 documents are over 100 KB and four are over 200 KB; the
 largest, the reference documentation's Appendix A, is 437 KB. Check `bytes` in the index
 before fetching a whole document; fetch the section file instead, or use the line range
 from `sections.json`.

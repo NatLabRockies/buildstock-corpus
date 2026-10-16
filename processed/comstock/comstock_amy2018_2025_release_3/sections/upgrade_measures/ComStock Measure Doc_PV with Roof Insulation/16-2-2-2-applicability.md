@@ -1,0 +1,5 @@
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | assets/files/ComStock Measure Doc_PV with Roof Insulation.pdf | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/2036a73dc9b7a5dccb8b62fe835cdcbc777175fa/assets/files/ComStock%20Measure%20Doc_PV%20with%20Roof%20Insulation.pdf | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/ComStock%20Measure%20Doc_PV%20with%20Roof%20Insulation.pdf | corpus_version: comstock_amy2018_2025_release_3-v3 | corpus_path: upgrade_measures/unpublished_docs/upgrade_measures/ComStock Measure Doc_PV with Roof Insulation.md | section: 2.2.2 Applicability | lines: 232-235 -->
+## 2.2.2 Applicability
+
+The roof insulation upgrade applies to all roof assemblies with R-values below the target AEDG R-values. For ComStock, only roofs that follow ComStock 90.1-2013 or newer energy code during the last roof replacement (or installation) have R-values that meet or exceed the AEDG recommendation.
+

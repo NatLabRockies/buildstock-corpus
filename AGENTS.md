@@ -5,12 +5,16 @@ extracted from ComStock's documentation, with a provenance manifest.
 
 ## Start here
 
-**Read `processed/<product>/<release>/CORPUS_MAP.md` first**, currently
-[processed/comstock/comstock_amy2018_2025_release_3/CORPUS_MAP.md](processed/comstock/comstock_amy2018_2025_release_3/CORPUS_MAP.md).
+Two start orders, one per kind of reader:
 
-It lists every document with its title, path, sections and last-updated date, plus a
+- **With a clone, read `processed/<product>/<release>/CORPUS_MAP.md` first**, currently
+  [processed/comstock/comstock_amy2018_2025_release_3/CORPUS_MAP.md](processed/comstock/comstock_amy2018_2025_release_3/CORPUS_MAP.md).
+- **Fetching URLs without a clone, fetch `index.json` first**, at a release tag; see
+  "Reading without a clone" below. `CORPUS_MAP.md` is the same contents as readable prose.
+
+The map lists every document with its title, path, sections and last-updated date, plus a
 measure → upgrade-id → document routing table and the corpus's known gaps. One read there
-tells you which file to open; without it you are grepping 114 files blind.
+tells you which file to open; without it you are grepping 118 files blind.
 
 ## Reading without a clone
 
@@ -21,7 +25,7 @@ https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/<ref>/processe
 ```
 
 - **Pin `<ref>` to a release tag** (`<release id>-v<N>`). The current tag is
-  `comstock_amy2018_2025_release_3-v2`; the newest is always the top entry of `CHANGELOG.md`
+  `comstock_amy2018_2025_release_3-v3`; the newest is always the top entry of `CHANGELOG.md`
   and the "Current" line of `llms.txt`. `main` moves on every rebuild.
 - **Fetch `index.json` first** (~155 KB raw, ~20 KB gzip-compressed over the wire): every
   document and measure with its `corpus_path`, `status`, `source_url`, `publication_url`,
@@ -30,7 +34,7 @@ https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/<ref>/processe
   `<sections_dir>/<name>`, a few KB with its own citable line-1 header that also names the
   parent `corpus_path` and `lines`; or the whole document. `sections.json` adds every
   heading's level and line range, and is only needed for those.
-- **Check `bytes` before fetching a whole document.** 40 documents are over 100 KB;
+- **Check `bytes` before fetching a whole document.** 41 documents are over 100 KB;
   Appendix A is 437 KB. Fetch the section file instead, or read a line range.
 - Both JSON files validate against `schemas/` in this repo.
 

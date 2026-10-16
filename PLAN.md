@@ -331,3 +331,21 @@ by naming the current tag in `AGENTS.md` and `README.md`, to be bumped with ever
 so the section path can only be guessed. Its guess (`06-floor-height.md`) was exactly right and
 404'd only because section files did not exist at v1. Letting `index.json` list each document's
 section files would make the three-fetch route real; proposed, not scheduled.
+
+**Result, 2026-10-16 (run 2, from the ComStock website), against the v2 tag: pass, with two
+findings.** A fresh agent given only the site URL `https://natlabrockies.github.io/ComStock.github.io/`
+answered 13 feet from the "Floor-to-Floor Heights by Building Type" table under "Floor Height",
+citing `documentation/reference_doc/4_4_geometry.tex` at `b77c60d`, status `site_page` with no
+OSTI number, the reference-documentation PDF as publication URL, and the current tag
+`comstock_amy2018_2025_release_3-v2`, as `AGENTS.md` asks. Route, six fetches: the site home
+page, the site's `llms.txt`, the corpus `llms.txt` and `AGENTS.md` at `main`, `index.json` at the
+v2 tag (~6 KB on the wire), the whole Geometry chapter at the tag (16 KB raw). Findings: (1) the
+corpus `llms.txt` promised `sections_dir` and `section_files` in every `index.json` row, but at
+the v2 tag those fields did not exist (added on `main` by PR #40 after v2 was tagged), so the
+three-fetch route was true on `main` and false at the tag the agent was told to pin; (2)
+`AGENTS.md` said start at `CORPUS_MAP.md` while both `llms.txt` files said `index.json`, two
+orders for one reader. Fix: the `-v3` release (PLAN-buildstock-corpus-handoff.md), which rebuilds
+so the section fields are present at a tag, states one start order per reader type in the same
+words in `AGENTS.md` and `llms.txt`, and picks up the pkg_0012 draft the site posted after v2's
+pin. A third report, that the provenance header was not on line 1, was the agent's fetch tool
+rendering a `---` line first; the raw file at v2 starts with the header. Not a bug.
