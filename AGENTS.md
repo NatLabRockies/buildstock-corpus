@@ -78,9 +78,11 @@ in `section` and its `corpus_version`).
 
 ## Do not run `bsc fetch`
 
-It re-downloads every source PDF and can invalidate the hand-authored overlay hash pins in
-`overlays/`, which is how transcribed tables prove they match their source. Everything
-under `processed/` is already committed — you do not need to fetch or build to read it.
+It re-downloads every source PDF, moves every source clone to its ref (a branch ref such
+as the site's `main` to the remote tip), and can invalidate the hand-authored overlay hash
+pins in `overlays/`, which is how transcribed tables prove they match their source.
+Everything under `processed/` is already committed — you do not need to fetch or build to
+read it.
 
 If you changed something and need to regenerate:
 

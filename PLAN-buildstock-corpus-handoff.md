@@ -45,7 +45,9 @@ without hitting a field or file that does not exist at that tag.
   For v3 the site clone was brought forward by hand with `git pull --ff-only` in
   `raw/.../repos/ComStock.github.io@main` (`3b69dec` to `2036a73`, site PR #208) before
   running `bsc fetch`. A fetch that updates a branch-ref clone to its remote tip is owed as a
-  separate change; not part of this release PR.
+  separate change; not part of this release PR. Done after v3 (branch `fetch-follow-ref`):
+  `_ensure_clone` now fetches the ref and checks out `FETCH_HEAD` detached for an existing
+  clone, with tests in `tests/test_fetch.py`.
 - Not a bug. The agent reported the provenance header was not on line 1. The raw file at v2
   begins with the HTML comment on line 1; its fetch tool rendered a `---` line first. Do not
   change the header.
@@ -58,11 +60,14 @@ without hitting a field or file that does not exist at that tag.
   `corpus_version`, which only `bsc build` writes, and `CHANGELOG.md` must carry an entry for
   it before `release.yml` will create the GitHub Release.
 - The "never run `bsc fetch`" rule in `AGENTS.md` and `README.md` is for readers; cutting a
-  release does fetch, because the site is read at `main` and only a fetch moves the pin. The
-  cost it warns of is real: overlay sidecars pin the sha256 of their source image or PDF, so
-  unchanged files keep their pins, but any sidecar whose `source_url` names the old commit is
-  re-stamped (seven were at v2) and a changed source file makes its overlay stale, which the
-  build reports. Never hand-edit anything under `processed/`.
+  release does fetch, because the site is read at `main` and only a fetch moves the pin.
+  `bsc fetch` brings an existing clone to its ref before reading its SHA, so a branch ref
+  lands on the remote tip and a tag ref stays on its commit (added after v3; before it the
+  clone had to be pulled by hand, see Finding 4). The cost it warns of is real: overlay
+  sidecars pin the sha256 of their source image or PDF, so unchanged files keep their pins,
+  but any sidecar whose `source_url` names the old commit is re-stamped (seven were at v2)
+  and a changed source file makes its overlay stale, which the build reports. Never
+  hand-edit anything under `processed/`.
 - Work on a branch, PR to `main`.
 
 ## Decision to make first: a v3 tag, or wording only
