@@ -1,9 +1,9 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | assets/files/ComStock Measure Doc_PV with Battery Storage.pdf | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/3b69decb4e5f7bb3d6cc24f6224b318c921fd45f/assets/files/ComStock%20Measure%20Doc_PV%20with%20Battery%20Storage.pdf | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/ComStock%20Measure%20Doc_PV%20with%20Battery%20Storage.pdf | corpus_version: e7ffee7a -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | assets/files/ComStock Measure Doc_PV with Battery Storage.pdf | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/3b69decb4e5f7bb3d6cc24f6224b318c921fd45f/assets/files/ComStock%20Measure%20Doc_PV%20with%20Battery%20Storage.pdf | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/ComStock%20Measure%20Doc_PV%20with%20Battery%20Storage.pdf | corpus_version: f6dcd301 -->
 # Photovoltaics With 40% Rooftop Coverage and Battery Storage
 
 ComStock Measure Documentation: Photovoltaics With 40% Rooftop Coverage and Battery Storage Chris CaraDonna PRE-PUBLICATIO
 
-<!-- decorative image omitted: image_000000 (cover art; no description by the figure standard) -->
+<!-- decorative image omitted: image_000000 (wordmark; no description by the figure standard) -->
 ## List of Acronyms
 
 AC
@@ -105,7 +105,7 @@ Release 2025 Release 2: 2025/comstock\_amy2018\_release\_2/ National annual resu
 
 The authors would like to acknowledge the valuable guidance and input provided by Eric Bonnema and Eric Ringold (National Renewable Energy Laboratory).
 
-<!-- decorative image omitted: image_000001 (wordmark; no description by the figure standard) -->
+<!-- decorative image omitted: image_000001 (pre-publication watermark; no description by the figure standard) -->
 ## Table of Contents
 
 | iii                                                                                                                                                          | iii                                                                                                                                                                                                                                                                                              | iii                                                                                                                                                          |

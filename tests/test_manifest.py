@@ -608,7 +608,8 @@ def test_validate_flags_a_surviving_cover_image_ref_in_a_pdf(tmp_path, monkeypat
     manifest = M.build_manifest("comstock", RELEASE, [doc], None, [], {}, _state(), 1)
 
     errors = M.validate_manifest("comstock", RELEASE, manifest)
-    assert len(errors) == 1 and "cover/wordmark image ref survives" in errors[0]
+    assert len(errors) == 1 and "decorative image ref survives" in errors[0]
+    assert "image_000000_abcd.png" in errors[0]
 
     # the same line in a non-PDF document is not the build's to omit
     _write_output(proot, OUT_CONTENT + "![Image](media/image_000000_abcd.png)\n")
@@ -690,3 +691,33 @@ def test_index_staleness_reports_an_unreadable_store_rather_than_raising(tmp_pat
     _write_chunks(chunks, 1)
     warnings = M.index_staleness(idx, chunks)
     assert any("could not read its record count" in w for w in warnings)
+def test_validate_keeps_figure_1_of_a_site_served_pdf_but_not_its_wordmark(tmp_path, monkeypatch):
+    """Under assets/files/ only image_000000 (the ComStock wordmark) is decorative; a bare
+    image_000001 ref there is Figure 1 and is not a violation."""
+    proot = _patch(tmp_path, monkeypatch)
+    site_path = "assets/files/ComStock Measure Doc_X.pdf"
+    content = OUT_CONTENT.replace(" | documentation/reference_doc/4_9_hvac.tex | ", f" | {site_path} | ")
+    out = proot / "technical_reference/assets/files/ComStock Measure Doc_X.md"
+    out.parent.mkdir(parents=True)
+
+    def site_doc() -> Document:
+        doc = _doc()
+        doc.source_type = "pdf"
+        doc.source_path = site_path
+        return doc
+
+    out.write_text(content + "![Image](ComStock_Measure_Doc_X_images/image_000001_abcd.png)\n", encoding="utf-8")
+    manifest = M.build_manifest("comstock", RELEASE, [site_doc()], None, [], {}, _state(input_path=site_path), 1)
+    assert M.validate_manifest("comstock", RELEASE, manifest) == []
+
+    out.write_text(content + "![Image](ComStock_Measure_Doc_X_images/image_000000_abcd.png)\n", encoding="utf-8")
+    manifest = M.build_manifest("comstock", RELEASE, [site_doc()], None, [], {}, _state(input_path=site_path), 1)
+    errors = M.validate_manifest("comstock", RELEASE, manifest)
+    assert len(errors) == 1 and "decorative image ref survives" in errors[0]
+
+    # the PRE-PUBLICATION stamp is known by its bitmap hash, so it is a violation in slot 1 too
+    from buildstock_corpus.decorative import PREPUB_WATERMARK_HASH as STAMP
+    out.write_text(content + f"![Image](ComStock_Measure_Doc_X_images/image_000001_{STAMP}.png)\n", encoding="utf-8")
+    manifest = M.build_manifest("comstock", RELEASE, [site_doc()], None, [], {}, _state(input_path=site_path), 1)
+    errors = M.validate_manifest("comstock", RELEASE, manifest)
+    assert len(errors) == 1 and STAMP in errors[0]

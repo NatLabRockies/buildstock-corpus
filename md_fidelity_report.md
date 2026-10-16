@@ -19,10 +19,10 @@ tables use rowspan/colspan, which GFM cannot express, so those stay as HTML by d
 | latex | 19 | 0 | **0** | 0 | **0** | 50 | 113 | **0** | **0** | 36 | 113 |
 | markdown | 40 | 4 | **0** | 11 | **0** | 19 | 39 | **0** | **0** | 1 | 5 |
 | measures | 6 | 39 | **0** | 58 | **0** | 89 | 74 | **0** | **0** | 0 | 0 |
-| pdf | 52 | 312 | **0** | 727 | **7** | 727 | 947 | **0** | **0** | 0 | 0 |
-| unknown | 2155 | 355 | **0** | 796 | **7** | 889 | 1173 | **1176** | **0** | 37 | 118 |
+| pdf | 52 | 312 | **0** | 727 | **7** | 727 | 948 | **0** | **0** | 0 | 0 |
+| unknown | 2155 | 355 | **0** | 796 | **7** | 889 | 1174 | **1177** | **0** | 37 | 118 |
 
-**Totals.** 0/710 table captions orphaned; 14/1592 figure captions orphaned; 1774 tables converted to markdown; 2346 image refs present with 1176 dangling; 0 duplicated H1 heading(s); 0 unmatched figure description(s).
+**Totals.** 0/710 table captions orphaned; 14/1592 figure captions orphaned; 1774 tables converted to markdown; 2348 image refs present with 1177 dangling; 0 duplicated H1 heading(s); 0 unmatched figure description(s).
 
 ## Character hygiene by extractor
 
@@ -2059,6 +2059,13 @@ extractor: **unknown** — 2 issue(s)
 - L13 **DANGLING REF** — ComStock_Measure_Doc_Dim_Lighting_During_Peak_Hours_images/image_000005_df7a4d58b8966e560bbfe77ca83d0a1930ae4c2962a4ff30
 - L29 **DANGLING REF** — ComStock_Measure_Doc_Dim_Lighting_During_Peak_Hours_images/image_000006_12d0d4c8f67c44866e01f09e41a0d3fea74af9eee4716197
 
+### `sections/upgrade_measures/ComStock Measure Doc_HP RTU Higher Compressor Lockout/07-2-comstock-baseline-approach.md`
+
+extractor: **unknown** — 2 issue(s)
+
+- L10 **ORPHANED FIGURE** — Figure 1. ComStock baseline in-force energy code followed as a percentage of applicable floor area.
+- L6 **DANGLING REF** — ComStock_Measure_Doc_HP_RTU_Higher_Compressor_Lockout_images/image_000001_62d180636fe5419bb13e3a02349126b86c2dd99c9b00c7
+
 ### `sections/upgrade_measures/ComStock Measure Doc_Lighting Control for Emission Reduction/13-2-comstock-baseline-approach.md`
 
 extractor: **unknown** — 2 issue(s)
@@ -2140,8 +2147,8 @@ extractor: **unknown** — 2 issue(s)
 
 extractor: **pdf** — 2 issue(s)
 
-- L188 **ORPHANED FIGURE** — Figure 1. ComStock baseline in-force energy code followed as a percentage of applicable floor area.
-- L395 **ORPHANED FIGURE** — Figure 8. Lockout temperature sensitivity results: stock-level utility bills
+- L189 **ORPHANED FIGURE** — Figure 1. ComStock baseline in-force energy code followed as a percentage of applicable floor area.
+- L396 **ORPHANED FIGURE** — Figure 8. Lockout temperature sensitivity results: stock-level utility bills
 
 ### `upgrade_measures/unpublished_docs/upgrade_measures/ComStock Measure Doc_PV with Battery Storage.md`
 
@@ -4053,12 +4060,6 @@ extractor: **unknown** — 1 issue(s)
 extractor: **unknown** — 1 issue(s)
 
 - L13 **DANGLING REF** — ComStock_Measure_Doc_Dim_Lighting_During_Peak_Hours_images/image_000004_9d3039df5515e761d809b2b31dfd4835110c635d3049eca2
-
-### `sections/upgrade_measures/ComStock Measure Doc_HP RTU Higher Compressor Lockout/07-2-comstock-baseline-approach.md`
-
-extractor: **unknown** — 1 issue(s)
-
-- L9 **ORPHANED FIGURE** — Figure 1. ComStock baseline in-force energy code followed as a percentage of applicable floor area.
 
 ### `sections/upgrade_measures/ComStock Measure Doc_HP RTU Higher Compressor Lockout/09-3-1-applicability.md`
 

@@ -21,11 +21,10 @@ from pathlib import Path
 
 import yaml
 
-import re
-
 from .chunk_files import check_chunk_files
 from .corpus_index import validate_index_files
 from .corpus_map import MAP_FILENAME, recorded_manifest_sha256
+from .decorative import surviving_decorative_refs
 from .index import EMBED_MODEL
 from .links import is_absolute_https
 from .overlay import entry_kind
@@ -45,8 +44,6 @@ from .status import STATUSES
 
 PIPELINE_VERSION = "0.1.0"
 _COVERED_KINDS = {"internal_md", "external_pdf", "local_pdf"}
-# Mirrors build._DECORATIVE_REF_RE (kept here to avoid importing build into validate).
-_DECORATIVE_REF_RE = re.compile(r"^!\[Image\]\([^)\s]*image_00000[01]_[0-9a-f]+\.png\)\s*$", re.M)
 
 
 # Shared with corpus_map (see paths.sha256_file); aliased rather than re-implemented so the
@@ -462,10 +459,12 @@ def validate_manifest(
                     # step was skipped and a reader sees a dead link in place of a name.
                     if 'data-reference-type="' in text:
                         errors.append(f"{where}: pandoc cross-reference anchor survives (data-reference-type)")
-                    # A measure PDF's cover art and wordmark are decorative by the figure
+                    # A measure PDF's leading decorative bitmaps (an OSTI report's cover art
+                    # and wordmark, a site doc's wordmark) have no description by the figure
                     # standard; build replaces their bare refs with a comment (W6.1).
-                    if a.get("source_type") == "pdf" and _DECORATIVE_REF_RE.search(text):
-                        errors.append(f"{where}: undescribed cover/wordmark image ref survives")
+                    if a.get("source_type") == "pdf":
+                        for ref in surviving_decorative_refs(a.get("source_path") or "", text):
+                            errors.append(f"{where}: undescribed decorative image ref survives: {ref}")
                     # Section files are committed output a consumer fetches on their own,
                     # and a pure function of the document: regenerate and compare.
                     sec_errors, n_sec, present = check_sections(proot, a["output_path"], text, where)

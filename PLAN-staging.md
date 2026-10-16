@@ -60,7 +60,7 @@ Two places this list departs from the order in PLAN.md:
 | 19 | W5.3 | Per-document chunk files beside the single `chunks.jsonl` | S | Done 2026-10-08 on `chunk-files` (code `fadc83e`, rebuild commit follows). 114 files. |
 | 20 | W5.4 | Table wrappers carry `data-source` naming the LaTeX table file | S | Done 2026-10-08 on `table-source` (code `43ae2d4`, rebuild committed). 78 wrappers stamped. |
 | 21 | W5.5 | Pandoc cleanup: cross-references as quoted titles, heading levels normalized | S | Done 2026-10-08 on `cleanup` (code `0a2f61f`, rebuild commit follows). Shares the branch with step 22. |
-| 22 | W6.1 | Omit the undescribed cover-art and wordmark refs of every measure PDF (98); other undescribed figures left visible | S | Done 2026-10-08 on `cleanup` (code `b5faf42`, rebuild commit follows). Narrowed by owner, option 1. |
+| 22 | W6.1 | Omit the undescribed cover-art and wordmark refs of every measure PDF (98); other undescribed figures left visible | S | Done 2026-10-08 on `cleanup` (code `b5faf42`, rebuild commit follows). Narrowed by owner, option 1. Note 2026-10-15 on `site-pdf-wordmark` (code `ea39ec8f` + `f6dcd301`, rebuild commit follows): the index rule assumed every PDF opens with cover grid + wordmark, which hid Figure 1 of the site-served PDFs (`assets/files/`). The rule now lives in `decorative.py`, shared by build and validate: under `assets/files/` slot 0 is the ComStock wordmark, the PRE-PUBLICATION stamp is known by its bitmap hash in either slot, anything else in the first two slots is Figure 1 and kept; `measure_pdfs/` output is byte-identical. 100 refs omitted across 52 PDFs. |
 
 ## Stage 6 · Release tooling
 

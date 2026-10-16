@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/how_to_guides/basic_stock_characterization_workbook.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/3b69decb4e5f7bb3d6cc24f6224b318c921fd45f/docs/resources/how_to_guides/basic_stock_characterization_workbook.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/resources/how_to_guides/basic_stock_characterization_workbook.html | corpus_version: e7ffee7a -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/how_to_guides/basic_stock_characterization_workbook.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/3b69decb4e5f7bb3d6cc24f6224b318c921fd45f/docs/resources/how_to_guides/basic_stock_characterization_workbook.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/resources/how_to_guides/basic_stock_characterization_workbook.html | corpus_version: f6dcd301 -->
 # Basic Stock Characterization Workbook
 
 # How-to: Perform a basic commercial building stock segmentation analysis in Excel.

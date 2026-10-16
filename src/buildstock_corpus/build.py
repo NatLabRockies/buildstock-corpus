@@ -18,6 +18,7 @@ from .chunk import chunk_documents
 from .chunk_files import CHUNKS_DIRNAME, write_chunk_files
 from .corpus_index import build_index
 from .corpus_map import build_map
+from .decorative import DECORATIVE_REF_RE, decorative_label, omission_comment
 from .extract.crosswalk import build_crosswalk
 from .extract.doc_dates import (
     DocDate,
@@ -382,32 +383,27 @@ def _extract_documents(
     return docs, excluded, excluded_urls, warnings, crosswalk, pdf_images, image_dirs
 
 
-# docling names a PDF's extracted bitmaps image_000000, image_000001, ... in page order. In
-# every ComStock measure report the first two are the cover photo grid and the NREL wordmark,
-# and the figure-description standard skipped them on purpose (no overlay entry), so they
-# reach the markdown as bare `![Image](...)` refs to files a clone does not even have. They
-# are replaced with a comment naming the omission, so a report's first screen is text.
-# Only an *undescribed* ref is touched: a described figure's alt text is its description.
-_DECORATIVE_REF_RE = re.compile(
-    r"^!\[Image\]\((?P<path>[^)\s]*image_(?P<idx>00000[01])_[0-9a-f]+\.png)\)\s*$", re.M
-)
-_DECORATIVE_NAMES = {"000000": "cover art", "000001": "wordmark"}
-
-
 def _omit_decorative_images(docs: list[Document]) -> int:
-    """Replace a measure PDF's undescribed cover and wordmark image refs with a comment."""
+    """Replace a measure PDF's undescribed decorative leading image refs with a comment.
+
+    Which of the first two bitmaps are decorative depends on where the PDF came from (an
+    OSTI report's cover grid and wordmark; a site-served doc's wordmark and pre-publication
+    stamp, its other leading bitmap being Figure 1): see decorative.py, which validate shares.
+    """
     n = 0
     for doc in docs:
         if doc.source_type != "pdf":
             continue
 
-        def repl(m: re.Match) -> str:
+        def repl(m: re.Match, source_path: str = doc.source_path) -> str:
             nonlocal n
+            label = decorative_label(source_path, m.group("idx"), m.group("hash"))
+            if label is None:
+                return m.group(0)  # a real figure (a site doc's Figure 1): left as it was
             n += 1
-            name = _DECORATIVE_NAMES[m.group("idx")]
-            return f"<!-- decorative image omitted: image_{m.group('idx')} ({name}; no description by the figure standard) -->"
+            return omission_comment(m.group("idx"), label)
 
-        doc.body = _DECORATIVE_REF_RE.sub(repl, doc.body)
+        doc.body = DECORATIVE_REF_RE.sub(repl, doc.body)
     return n
 
 

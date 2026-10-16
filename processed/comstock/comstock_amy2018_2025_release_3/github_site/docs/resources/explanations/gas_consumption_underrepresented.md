@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/gas_consumption_underrepresented.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/3b69decb4e5f7bb3d6cc24f6224b318c921fd45f/docs/resources/explanations/gas_consumption_underrepresented.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/gas_consumption_underrepresented.html | corpus_version: e7ffee7a -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/explanations/gas_consumption_underrepresented.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/3b69decb4e5f7bb3d6cc24f6224b318c921fd45f/docs/resources/explanations/gas_consumption_underrepresented.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/resources/explanations/gas_consumption_underrepresented.html | corpus_version: f6dcd301 -->
 # Gas Consumption Underrepresented
 
 ### ComStock’s annual gas consumption results are about 30% lower nationally as compared to the Commercial Building Energy Consumption Survey.
