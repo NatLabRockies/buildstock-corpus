@@ -3,12 +3,12 @@
 > The AI-ready BuildStock corpus: ComStock's documentation (technical reference, site pages,
 > upgrade-measure reports) extracted to clean, release-tagged markdown, with a provenance
 > manifest, a human-readable map, and a machine index. One dataset release per folder;
-> currently ComStock 2025 release 3 (`comstock_amy2018_2025_release_3`): 114 documents,
+> currently ComStock 2025 release 3 (`comstock_amy2018_2025_release_3`): 117 documents,
 > 65 measures.
 
 Every file is served raw by GitHub, unauthenticated. The links below use `main`, the newest
 build. To pin a citation, replace `main` with a release tag of the form
-`<release id>-v<N>`; tags never move. Current: `comstock_amy2018_2025_release_3-v1`.
+`<release id>-v<N>`; tags never move. Current: `comstock_amy2018_2025_release_3-v2`.
 
 ## Start here
 
