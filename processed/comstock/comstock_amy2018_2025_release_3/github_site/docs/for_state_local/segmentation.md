@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/for_state_local/segmentation.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/3b69decb4e5f7bb3d6cc24f6224b318c921fd45f/docs/for_state_local/segmentation.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/for_state_local/segmentation.html | corpus_version: comstock_amy2018_2025_release_3-v2 -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/for_state_local/segmentation.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/2036a73dc9b7a5dccb8b62fe835cdcbc777175fa/docs/for_state_local/segmentation.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/for_state_local/segmentation.html | corpus_version: comstock_amy2018_2025_release_3-v3 -->
 # Building Segmentation Analysis
 
 ## Understanding Commercial Buildings in the U.S.

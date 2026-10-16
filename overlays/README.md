@@ -145,6 +145,14 @@ so the extractor may have fixed it" from "the extracted body changed" — the fi
 retire the entry, the second a reason to re-derive it. Either way a better extraction is never
 silently thrown away.
 
+When the fingerprint matches **more than one** table, the entry may add
+`replaces.under_caption: "Table 3"`, naming the caption the misplaced grid sits under; the first
+table block below that caption must then be one of the matches, and that one is removed. This is
+the shape every measure report has: an executive summary that repeats a results table value for
+value (pkg_0012's Table 2 is Table 8), so a shifted summary grid is indistinguishable from the
+results grid by values alone. An `under_caption` that is not a caption in the document, or whose
+first table below is not a match, replaces nothing and warns.
+
 `why` is **required**, and lands in the artifact next to the table it justifies rather than only
 in this sidecar. The redundancy refusal is skipped for these entries: a table under the caption
 is the premise, not a reason to back off.

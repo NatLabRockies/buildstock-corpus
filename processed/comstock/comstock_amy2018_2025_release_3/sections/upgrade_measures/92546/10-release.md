@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92546.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/92546.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/92546.pdf | corpus_version: comstock_amy2018_2025_release_3-v2 | corpus_path: upgrade_measures/measure_pdfs/92546.md | section: Release | lines: 75-99 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/92546.pdf | status: osti_pdf | source_url: https://www.nlr.gov/docs/fy25osti/92546.pdf | publication_url: https://www.nlr.gov/docs/fy25osti/92546.pdf | corpus_version: comstock_amy2018_2025_release_3-v3 | corpus_path: upgrade_measures/measure_pdfs/92546.md | section: Release | lines: 75-99 -->
 ## Release
 
 - Heating and cooling loads are met by air conditioned at 100% efficiency and supplied directly to the zone.

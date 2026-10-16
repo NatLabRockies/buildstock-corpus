@@ -3,17 +3,20 @@
 > The AI-ready BuildStock corpus: ComStock's documentation (technical reference, site pages,
 > upgrade-measure reports) extracted to clean, release-tagged markdown, with a provenance
 > manifest, a human-readable map, and a machine index. One dataset release per folder;
-> currently ComStock 2025 release 3 (`comstock_amy2018_2025_release_3`): 117 documents,
+> currently ComStock 2025 release 3 (`comstock_amy2018_2025_release_3`): 118 documents,
 > 65 measures.
 
 Every file is served raw by GitHub, unauthenticated. The links below use `main`, the newest
 build. To pin a citation, replace `main` with a release tag of the form
-`<release id>-v<N>`; tags never move. Current: `comstock_amy2018_2025_release_3-v2`.
+`<release id>-v<N>`; tags never move. Current: `comstock_amy2018_2025_release_3-v3`.
 
 ## Start here
 
+Two start orders, one per kind of reader: with a clone, read `CORPUS_MAP.md` first; fetching
+URLs without a clone, fetch `index.json` first, at a release tag. Then:
+
 - [AGENTS.md](https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/main/AGENTS.md): how to read and cite the corpus, for agents
-- [index.json](https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/main/processed/comstock/comstock_amy2018_2025_release_3/index.json): every document and measure with its path, status, links and size (fetch this first; ~6 KB over the wire)
+- [index.json](https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/main/processed/comstock/comstock_amy2018_2025_release_3/index.json): every document and measure with its path, status, links and size (fetch this first; ~155 KB raw, ~20 KB gzip-compressed over the wire now that each row names its section files)
 - [sections.json](https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/main/processed/comstock/comstock_amy2018_2025_release_3/sections.json): every heading with its line range in the document (only when you need to land on a heading)
 - [CORPUS_MAP.md](https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/main/processed/comstock/comstock_amy2018_2025_release_3/CORPUS_MAP.md): the same contents as a readable map, with the measure → upgrade-id → document table
 
@@ -21,7 +24,7 @@ build. To pin a citation, replace `main` with a release tag of the form
 
 - Pattern: `https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/<ref>/processed/comstock/comstock_amy2018_2025_release_3/<corpus_path>`, where `corpus_path` comes from index.json
 - Line 1 of every document is a provenance header: release, upstream path, publication status, source and publication URLs, corpus version. It alone is enough to cite the file.
-- 40 of 117 documents are over 100 KB; check `bytes` in index.json before fetching a whole document. Every H2 is also its own file, named in the document's index.json row (`sections_dir` + `section_files`): fetch `<sections_dir>/<name>` instead of the document.
+- 41 of 118 documents are over 100 KB; check `bytes` in index.json before fetching a whole document. Every H2 is also its own file, named in the document's index.json row (`sections_dir` + `section_files`): fetch `<sections_dir>/<name>` instead of the document.
 
 ## Optional
 

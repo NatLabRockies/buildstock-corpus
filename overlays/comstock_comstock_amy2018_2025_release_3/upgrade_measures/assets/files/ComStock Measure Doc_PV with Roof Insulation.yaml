@@ -1,0 +1,180 @@
+# Hand-authored figure descriptions for assets/files/ComStock Measure Doc_PV with Roof Insulation.pdf
+#
+# NREL ComStock measure documentation for pkg_0012 (Photovoltaics With 40% Rooftop Coverage With
+# Roof Insulation), served by the ComStock site without an OSTI number as a pre-publication
+# draft (site PRs #205, #206). docling extracts each figure as a bare ![Image](...) ref: the
+# caption survives above it, but the chart itself is invisible to retrieval. Each entry is
+# image-anchored (figures: schema, overlays/README.md): the ref is rewritten with a hand-written
+# alt and a description paragraph is injected below for retrieval.
+#
+# Scope: 6 figure descriptions, 3 table replacements and 1 text repair. image_000000 is the
+# ComStock wordmark and is deliberately not described; like the other site PDFs this one has no
+# cover grid, so image_000001 is Figure 1 (a real chart), not decorative.
+#
+# Tables, checked cell for cell against 1.5x page renders and the PDF text layer on 2026-10-16:
+#   * Tables 4, 6, 7, 8 and 9 extracted correctly and are left alone. Table 4's "Title and
+#     Azimuth" is as printed (source typo, not corrected). Table 7's merged "40% PV Rooftop
+#     Coverage" cell wraps across two extracted rows; left as is.
+#   * Table 1 (page break iv/v): three rows emitted with shifted text, two rows lost to loose
+#     lines; replaced. The loose lines below it are left in place, and the "## Applicability"
+#     heading docling made of one of them is demoted by the text repair.
+#   * Table 2: grid emitted under the Table 3 caption; replaced via replaces.under_caption,
+#     because its values equal Table 8's and the fingerprint alone matches both.
+#   * Table 5: zone 1 / R-21 column dropped; replaced from the text layer.
+#
+# Authoring notes:
+#   * method is vision-description: these interpret a chart rather than copy legible cells.
+#     Headline numbers were read off the figures and should get a human QA pass.
+#   * Depth follows the 2026-08-21 standard (FIGURE_DESCRIPTIONS_ROLLOUT.md section 2.1).
+#   * Every entry pins the on-disk PNG sha256; a repointed bitmap drops the injection.
+
+product: comstock
+release: comstock_amy2018_2025_release_3
+source_id: upgrade_measures
+source_path: assets/files/ComStock Measure Doc_PV with Roof Insulation.pdf
+source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/2036a73dc9b7a5dccb8b62fe835cdcbc777175fa/assets/files/ComStock%20Measure%20Doc_PV%20with%20Roof%20Insulation.pdf
+publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/ComStock%20Measure%20Doc_PV%20with%20Roof%20Insulation.pdf
+figures:
+- source_image: ComStock_Measure_Doc_PV_with_Roof_Insulation_images/image_000001_7a6ab579800d3a7e4b9f7bf9ed3ef30cf0282cd6d2a2a0959ca2cba4ce6c570e.png
+  source_image_sha256: 570ae627ddf0dc03ebf4f704862d93a535a3c26fffccc5e2aba7a9fd385f428f
+  method: vision-description
+  described_utc: '2026-10-16'
+  alt: "Figure 1: stacked bar chart of annual site energy by end use and fuel for Baseline, Add_PV_40pct and Package_12"
+  description: |-
+    Figure 1: stacked bar chart of annual energy consumption in TBtu (y, -2000 to 5000) for three
+    scenarios: Baseline, Add_PV_40pct and Package_12. Stacks above zero are end use by fuel (heating,
+    cooling, interior equipment, lighting, fans, water systems); below zero, photovoltaics used on
+    site and excess exported. Totals above zero fall from 4,987 to 4,833 TBtu with the package. See
+    Table 8 for savings by fuel.
+- source_image: ComStock_Measure_Doc_PV_with_Roof_Insulation_images/image_000002_5cde5663cc81c26927b3e86f9f152bfb32eb59eaaf1b8777e55a692108d6d96f.png
+  source_image_sha256: e09af8121af429297689f6615980e529995760786d59461e8db1e86341d482d6
+  method: vision-description
+  described_utc: '2026-10-16'
+  alt: "Figure 2: three-panel stacked bars of annual utility bills under max, mean and min electricity rates, three scenarios"
+  description: |-
+    Figure 2: three stacked bar panels (max, mean and min electricity rate) of annual utility bill in
+    billion USD 2022 (y, 0 to about 150), bars for Baseline, Add_PV_40pct and Package_12, stacked by
+    electricity, natural gas, propane and fuel oil. Under the mean rate the bill falls from 129 to 97
+    (-25%) with PV alone and to 94 (-27%) with the package. See Table 9.
+- source_image: ComStock_Measure_Doc_PV_with_Roof_Insulation_images/image_000003_0a2ec7227f3aa826ca6cd6b6d8f2ccce053c74c83d8d179c45bd6bd5da648586.png
+  source_image_sha256: 6e344f87a43ed2c83398da614bedc5cbb3757659657dd9dda8ed6884d2376708
+  method: vision-description
+  described_utc: '2026-10-16'
+  alt: "Figure 3: choropleth map of median percent total site energy savings by state, Package_12"
+  description: |-
+    Figure 3: choropleth map of the contiguous United States shading each state by median percent
+    total site energy savings for the PV plus roof insulation package, darker green for higher. Values
+    run from about 1.3% (Florida, California) to about 3.9% in the central and upper Midwest; most
+    northern states sit between 3% and 4%, Gulf and Southwest states between 1% and 3%.
+- source_image: ComStock_Measure_Doc_PV_with_Roof_Insulation_images/image_000004_87e5a988403848531ea1aec554317ef7036ff5946342da09fde4c9fa866bab50.png
+  source_image_sha256: 6c02d22b0277a13e49736b98d5be8aa4e34dc5af58efd28317f18c90836e0121
+  method: vision-description
+  described_utc: '2026-10-16'
+  alt: "Figure 4: choropleth map of median percent net site energy savings by state, Package_12"
+  description: |-
+    Figure 4: choropleth map of the contiguous United States shading each state by median percent
+    net site energy savings (purchased electricity after on-site PV), darker green for higher. The
+    Southwest leads, roughly 50% to 60% in New Mexico, California and Arizona; the Northeast and
+    upper Midwest are lowest at roughly 24% to 31%. Net savings exceed total site savings (Figure 3)
+    because exported PV counts against purchases.
+- source_image: ComStock_Measure_Doc_PV_with_Roof_Insulation_images/image_000005_cce74eced9d2a6d3283836452852af2824b503d0ab1ab99b55efe490e7dbd9bc.png
+  source_image_sha256: 00060687153c18c46df0d209a4b3735205ee3fde2a74bb7cea51b643d93ea807
+  method: vision-description
+  described_utc: '2026-10-16'
+  alt: "Figure 5: violin and box plots of percent annual utility bill savings by fuel type for Package_12 (unweighted)"
+  description: |-
+    Figure 5: horizontal violin plots with inset box plots of percent annual utility bill savings
+    (x, -160 to 100) for the package, one row per bill: propane state average (n=3,383), fuel oil state
+    average (n=1,486), natural gas state average (n=60,495), electricity with mean rate (n=124,410)
+    and bill mean (n=124,424). Electricity and total-bill medians sit near 30% to 35%; fuel bills near
+    5% to 10%, with long negative tails. See Table 9.
+- source_image: ComStock_Measure_Doc_PV_with_Roof_Insulation_images/image_000006_3d8c581165937f1795693d8820fab71f381c9e386b2d2fea60f998a806a81610.png
+  source_image_sha256: 0554b4f8f57fc5f6d466f5835fe228aa906e8d74d63b877da4f37706df75ac17
+  method: vision-description
+  described_utc: '2026-10-16'
+  alt: "Figure 6: violin and box plots of percent annual utility bill savings by ASHRAE climate zone for Package_12"
+  description: |-
+    Figure 6: horizontal violin plots with inset box plots of percent annual utility bill savings
+    (x, -100 to 80) for the package, one row per ASHRAE climate zone from 1A to 8 with model counts
+    (n=669 in zone 8 to n=19,709 in 4A). Medians fall between about 20% and 40%, highest in the hot
+    zones 2A, 2B and 3B and lowest in the cold zones 6A, 7 and 8. Distributions skew negative.
+tables:
+- label: "Table 1"
+  caption: "Summary of Key Modeling Specifications"
+  source_pdf: assets/files/ComStock Measure Doc_PV with Roof Insulation.pdf
+  source_pdf_sha256: 8f370eeaa9a6860ae052844a4345a5f0812faa5cf231d1d47e65f46f2dd2e06b
+  page: 3
+  method: pdf-text-layer (cell text, pages iv-v) + vision (row layout from the page renders)
+  transcribed_utc: '2026-10-16'
+  replaces:
+    table_sha256: 6462c26d005b45fe535a03f219422b8043efa74b473d6e19750e45b337faa37b
+    why: |
+      The table spans the page break between pages iv and v. docling emitted only the three
+      rows on page iv and shifted their text: the Technology Description cell stops mid-bullet
+      and the Performance Assumptions cell opens with the tail of that bullet, then stops after
+      its second bullet. The Applicability and Release rows, and the last two Performance
+      Assumptions bullets, fell out of the grid as loose lines below it. This entry restores
+      the five-row table as printed; the loose lines are left in place. The table is
+      decomposed into three blank-line-separated groups, each repeating the Package Title
+      header row, so no single paragraph exceeds the chunker's 1400-character limit.
+  markdown: |
+    | Package Title: | Photovoltaics With 40% Rooftop Coverage With Roof Insulation |
+    |---|---|
+    | Technology Description | • This study investigates the impact of adding 40% rooftop PV coverage to the U.S. commercial building stock and improves rooftop insulation. • The purpose is to couple 40% rooftop PV coverage with improved roof insulation to investigate the combined effect. • Net metering impacts on calculated utility bills are not included in this study. For these metrics, the PV panels simply reduce the electricity demand on the building meter at the time of generation with no resale back to the utility. However, the ComStock public dataset includes excess PV generation, enabling users to estimate these impacts as needed. |
+
+    | Package Title: | Photovoltaics With 40% Rooftop Coverage With Roof Insulation |
+    |---|---|
+    | Performance Assumptions | • This scenario package combines two existing ComStock measures: PV with 40% rooftop coverage and improved rooftop insulation. See these documents for a more comprehensive overview of assumptions and interpretations. This document highlights some key points. • Panels are modeled as higher performance with 21% rated efficiency, 96% inverter efficiency, 1.10 direct current/alternating current (DC/AC) ratio, 14% system losses, and azimuth/tilt angles that vary by location. • Total panel area is modeled at 40% of the roof area for each model. Total rated PV power for a building is based on the calculated total panel area and the assumed efficiency of 21%. • The roof insulation measure increases the R-value of the existing building to align with the recommended values from the Advanced Energy Design Guide (AEDG) for Small to Medium Office Buildings: 50% Energy Savings [1]. Target R-values range between R-21 and R-38 for climate zones 1-8, respectively. |
+
+    | Package Title: | Photovoltaics With 40% Rooftop Coverage With Roof Insulation |
+    |---|---|
+    | Applicability | • The addition of 40% rooftop coverage is applied to all ComStock models. • The rooftop insulation measure is applied only to models where the existing roof insulation is less than the values recommended in the Advanced Energy Design Guide. |
+    | Release | • 2025 Release 2: 2025/comstock_amy2018_release_2/ |
+- label: "Table 2"
+  caption: "Summary of Key Results for Annual Site Energy Savings"
+  source_pdf: assets/files/ComStock Measure Doc_PV with Roof Insulation.pdf
+  source_pdf_sha256: 8f370eeaa9a6860ae052844a4345a5f0812faa5cf231d1d47e65f46f2dd2e06b
+  page: 4
+  method: pdf-text-layer
+  transcribed_utc: '2026-10-16'
+  replaces:
+    table_sha256: e08b1d1611d497058289b193a617e6faa7544445b843b3c86e9c68615172d8d6
+    under_caption: "Table 3"
+    why: |
+      docling emitted this grid below the Table 3 caption instead of its own, so a reader
+      sees "Summary of Key Results for Annual Utility Bill Savings" followed by TBtu figures.
+      The values are correct and identical to Table 8 in the Results chapter, which is why
+      the fingerprint alone matches two tables and the entry also names the caption the
+      misplaced grid sits under. Table 3's own grid follows its note and is left alone.
+  markdown: |
+    | Fuel Type | Percent Savings (All Buildings) | Percent Savings (Applicable Buildings Only) | Absolute Savings (TBtu) |
+    |---|---|---|---|
+    | Natural Gas | 5.7% | 5.7% | 81.6 |
+    | Electricity (Purchased) | 33.8% | 33.8% | 1,123.5 |
+    | Propane | 7.7% | 7.7% | 3.2 |
+    | Fuel Oil | 8.6% | 8.6% | 4.5 |
+    | Total | 24.9% | 24.9% | 1,212.9 |
+- label: "Table 5"
+  caption: "AEDG Overall Target Roof Assembly Performance Characteristics by Climate Zone"
+  source_pdf: assets/files/ComStock Measure Doc_PV with Roof Insulation.pdf
+  source_pdf_sha256: 8f370eeaa9a6860ae052844a4345a5f0812faa5cf231d1d47e65f46f2dd2e06b
+  page: 12
+  method: pdf-text-layer
+  transcribed_utc: '2026-10-16'
+  replaces:
+    table_sha256: 1192c29776d5d0152d77a19c681a2372ddd4fd986da91634f97cab36658f8245
+    why: |
+      docling dropped the first data column: the extracted grid runs climate zones 2 to 8 and
+      omits zone 1 and its R-21 target. The text layer and the page render both carry eight
+      zones, 1 to 8, with R-values 21, 26, 26, 33, 33, 33, 37, 37.
+  markdown: |
+    | ASHRAE Climate Zone | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+    |---|---|---|---|---|---|---|---|---|
+    | R-Value (hr ft² F/British thermal unit) | 21 | 26 | 26 | 33 | 33 | 33 | 37 | 37 |
+text_repairs:
+- find: "## Applicability"
+  replace: "Applicability"
+  why: |
+    docling promoted the Applicability row label of Table 1, which fell out of the grid at
+    the page break, to a level-2 heading. The chunker is heading-aware, so the rest of the
+    executive summary (Tables 2 and 3) was filed under a section named "Applicability".

@@ -658,6 +658,73 @@ def test_an_ambiguous_fingerprint_replaces_nothing(pdf_env):
     assert "matches 2 extracted tables" in warnings[0]
 
 
+def _replacer_under(pdf_env, label, markdown, table_sha, under):
+    return pdf_env.pdf_entry(
+        label=label,
+        markdown=markdown,
+        method="pdf-text-layer",
+        replaces={"table_sha256": table_sha, "under_caption": under, "why": "exec summary copy"},
+    )
+
+
+def test_under_caption_picks_the_misplaced_copy_of_a_repeated_table(pdf_env):
+    """pkg_0012's shape: the executive summary repeats a results table value for value, and
+    docling put the summary's grid under the next caption. The fingerprint matches both copies;
+    naming the caption the stray grid sits under picks it, and the results copy is untouched."""
+    pdf_env.write(
+        [_replacer_under(pdf_env, "Table 1", FIXED_A, _fp(GRID_A), under="Table 2")],
+        source_path=PDF_PATH,
+    )
+    twice = SHIFTED_BODY.replace(GRID_B, GRID_A)
+    doc = _pdf_doc(twice)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert warnings == []
+    assert applied["upgrade_measures"][PDF_PATH]["tables_applied"] == ["Table 1"]
+    assert doc.body.count(GRID_A) == 1  # the copy under Table 2 is gone, the later one stays
+    lines = doc.body.split("\n")
+    assert (
+        lines.index("Table 1. Roof R-Value for Non-California Buildings")
+        < lines.index("| Roof Type | Energy Code | 1A | 2A |")
+        < lines.index("Table 2. Roof R-Value for California Buildings")
+        < lines.index("Table from [23]")
+        < lines.index("| Energy Code | 1A | 2A |")
+    )
+
+
+def test_under_caption_must_sit_directly_above_a_matching_table(pdf_env):
+    """If the first table under the named caption is some other table, the pin is wrong, not
+    the document, and nothing is removed."""
+    pdf_env.write(
+        [_replacer_under(pdf_env, "Table 1", FIXED_A, _fp(GRID_A), under="Table 1")],
+        source_path=PDF_PATH,
+    )
+    twice = SHIFTED_BODY.replace(GRID_B, GRID_A)
+    # Table 1's caption is followed by GRID_B-free prose and then the Table 2 caption, so the
+    # first table below it is the copy under Table 2 -- which does match. Make it not match:
+    body = twice.replace("Table from [11]", f"Table from [11]\n\n{GRID_B}")
+    doc = _pdf_doc(body)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {}
+    assert doc.body == body
+    assert "first table below the 'Table 1' caption is not one of them" in warnings[0]
+
+
+def test_under_caption_naming_an_absent_caption_is_refused(pdf_env):
+    pdf_env.write(
+        [_replacer_under(pdf_env, "Table 1", FIXED_A, _fp(GRID_A), under="Table 9")],
+        source_path=PDF_PATH,
+    )
+    twice = SHIFTED_BODY.replace(GRID_B, GRID_A)
+    doc = _pdf_doc(twice)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {}
+    assert doc.body == twice
+    assert "'Table 9', which is not a caption" in warnings[0]
+
+
 def test_replacement_requires_a_stated_reason(pdf_env):
     entry = _replacer(pdf_env, "Table 1", FIXED_A, _fp(GRID_A))
     del entry["replaces"]["why"]

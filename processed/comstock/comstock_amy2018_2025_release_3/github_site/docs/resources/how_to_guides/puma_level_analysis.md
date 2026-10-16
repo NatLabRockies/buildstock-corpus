@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/how_to_guides/puma_level_analysis.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/3b69decb4e5f7bb3d6cc24f6224b318c921fd45f/docs/resources/how_to_guides/puma_level_analysis.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/resources/how_to_guides/puma_level_analysis.html | corpus_version: comstock_amy2018_2025_release_3-v2 -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/resources/how_to_guides/puma_level_analysis.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/2036a73dc9b7a5dccb8b62fe835cdcbc777175fa/docs/resources/how_to_guides/puma_level_analysis.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/resources/how_to_guides/puma_level_analysis.html | corpus_version: comstock_amy2018_2025_release_3-v3 -->
 # City-level Analysis
 
 # How-to: Understand the annual energy use by building type for a city.

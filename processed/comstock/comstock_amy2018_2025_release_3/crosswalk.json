@@ -2,8 +2,8 @@
   "release": "comstock_amy2018_2025_release_3",
   "counts": {
     "measures": 65,
-    "covered": 60,
-    "gaps": 5
+    "covered": 61,
+    "gaps": 4
   },
   "measures": [
     {
@@ -956,12 +956,12 @@
       "documentation_name": "Photovoltaics With 40% Rooftop Coverage with new roof",
       "repo_folder": "upgrade_add_pvwatts; upgrade_env_roof_insulation_aedg",
       "initial_release": "2025 Release 2",
-      "doc_kind": "none",
-      "corpus_path": null,
-      "doc_url": null,
-      "status": "missing",
-      "date_last_updated": null,
-      "date_last_updated_source": null,
+      "doc_kind": "local_pdf",
+      "corpus_path": "upgrade_measures/unpublished_docs/upgrade_measures/ComStock Measure Doc_PV with Roof Insulation.md",
+      "doc_url": "https://natlabrockies.github.io/ComStock.github.io/assets/files/ComStock%20Measure%20Doc_PV%20with%20Roof%20Insulation.pdf",
+      "status": "site_page",
+      "date_last_updated": "2026-10-16",
+      "date_last_updated_source": "pdf_moddate",
       "in_release": true,
       "upgrade_id": "65",
       "upgrade_name": "Package 12, Photovoltaics with 40pct Roof Coverage + Roof Insulation"
@@ -997,10 +997,6 @@
     },
     {
       "measure_id": "hvac_0021",
-      "reason": "documentation expected soon"
-    },
-    {
-      "measure_id": "pkg_0012",
       "reason": "documentation expected soon"
     }
   ]

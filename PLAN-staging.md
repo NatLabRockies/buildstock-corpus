@@ -95,8 +95,20 @@ while the drafts are being posted; 26, 27, 30, 31, 32 run in order once they are
 | 34 | Acceptance | The whole-plan test at the end of PLAN.md: a fresh agent, the repo URL only, the medium-office floor-to-floor question. Pass is three fetches, under 40 KB, every fact from the fetched files. Record the result in PLAN.md. | S | Done 2026-10-16 on `acceptance-34`: **pass with two findings** (cited v1 because the guidance named only the first tag, fixed in AGENTS.md/README; fetched the 16 KB chapter instead of the 2 KB section because the section path is not discoverable without the 370 KB sections.json). Full record at the end of PLAN.md. |
 | 35 | Validate | Warn (not fail) when the Chroma index under `index/` is older than `chunks.jsonl` or holds a different chunk count; AGENTS.md notes the gap today. | S | Done 2026-10-15 on `stage-7-finish`. `index_staleness()` reads mtime and the `embeddings` row count from `chroma.sqlite3` via stdlib sqlite3 (no chromadb import); printed after the report, exit status unchanged; AGENTS.md updated. |
 
-Not scheduled, owner decisions pending: the five remaining gaps (dr_0009–dr_0011, hvac_0021,
-pkg_0012) wait on upstream documentation; W6.2 (data-dense figure descriptions, marked maybe);
+## Stage 9 · The `-v3` release
+
+Written 2026-10-16 from PLAN-buildstock-corpus-handoff.md, after acceptance run 2 (from the
+ComStock website) found that `index.json` at the v2 tag lacks the `section_files` that
+`llms.txt` promises, and that the site posted the pkg_0012 draft (site PRs #205, #206) after
+v2's pin at `3b69dec`.
+
+| # | Task | What it does | Size | Status |
+|---|------|--------------|------|--------|
+| 36 | Fetch + build v3 | Pull the site clone forward (`bsc fetch` does not move an existing clone; see the handoff plan's Finding 4), `bsc fetch`, `bsc build --corpus-version comstock_amy2018_2025_release_3-v3`, validate. Expect +1 document (pkg_0012), gaps 5 → 4, every header re-stamped. | S | Done 2026-10-16 on `release-v3` (PR #41). 118 docs, 8,022 chunks, 4 gaps; 9 sidecars re-stamped (`stamp_overlay_links.py`); pkg_0012 got its own sidecar: 6 figure descriptions, 3 table replacements (Tables 1, 2, 5), 1 text repair, and `replaces.under_caption` added to the overlay engine for the Table 2 case. Validate OK. |
+| 37 | Release files | `bsc changelog --from comstock_amy2018_2025_release_3-v2 --append` plus hand bullets (why v3: section files at a tag, acceptance run 2, site pin moved); the four files naming the current tag → v3; one start order per reader type in `AGENTS.md` and `llms.txt`. | S | Done 2026-10-16 on `release-v3`. |
+| 38 | Tag v3 | PR, merge, `git tag -a` on the merge commit, push, `release.yml`. Step 33's open item applies: the tag ruleset needs a bypass actor first. Then prove the three-fetch route at the tag and run the site's `Sync corpus index` workflow. | S | |
+
+Not scheduled, owner decisions pending: the four remaining gaps (dr_0009–dr_0011, hvac_0021) wait on upstream documentation; W6.2 (data-dense figure descriptions, marked maybe);
 W8 (ResStock, to be determined); onboarding the next ComStock dataset release (new `sources/`
 entry, registry, fetch, crosswalk, overlays for its PDFs, first tag `<new release>-v1`), a stage
 of its own and not yet sized.

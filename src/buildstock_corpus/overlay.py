@@ -351,9 +351,32 @@ def _resolve_replacement(
         return None
 
     want = str(replaces["table_sha256"]).strip().lower()
-    hits = [(s, e) for s, e in _table_blocks(lines) if _table_fingerprint(lines[s:e]) == want]
+    blocks = _table_blocks(lines)
+    hits = [(s, e) for s, e in blocks if _table_fingerprint(lines[s:e]) == want]
     if len(hits) == 1:
         return hits[0]
+    if len(hits) > 1 and replaces.get("under_caption"):
+        # Two tables with the same values: an executive summary that repeats a results table,
+        # as every measure report does. The fingerprint alone cannot say which copy is the
+        # misplaced one, so the entry also names the caption the stray grid sits under, and
+        # the first table block below that caption must be one of the matches.
+        under = str(replaces["under_caption"]).strip()
+        j = _find_caption(lines, under)
+        if j is None:
+            out.append(
+                f"pinned fingerprint {want[:12]}… matches {len(hits)} extracted tables and "
+                f"'replaces.under_caption' names {under!r}, which is not a caption in this "
+                f"document; nothing was replaced"
+            )
+            return None
+        first_below = next(((s, e) for s, e in blocks if s > j), None)
+        if first_below in hits:
+            return first_below
+        out.append(
+            f"pinned fingerprint {want[:12]}… matches {len(hits)} extracted tables, but the "
+            f"first table below the {under!r} caption is not one of them; nothing was replaced"
+        )
+        return None
     if not hits:
         # Two very different situations, and the difference decides what a maintainer does next.
         out.append(
@@ -367,7 +390,8 @@ def _resolve_replacement(
     else:
         out.append(
             f"pinned fingerprint {want[:12]}… matches {len(hits)} extracted tables; it does not "
-            f"identify one table, so nothing was replaced"
+            f"identify one table, so nothing was replaced (name the caption the stray grid "
+            f"sits under in 'replaces.under_caption' to pick one)"
         )
     return None
 
