@@ -205,4 +205,5 @@ def test_rows_locate_their_document_in_the_corpus(tmp_path):
     for gap in ("dr_0005", "dr_0006", "xyz_0009"):
         assert by_id[gap]["corpus_path"] is None and by_id[gap]["doc_url"] is None
     assert all("corpus_path" in m and "doc_url" in m for m in cw["measures"])
-    assert "doc_target" in cw["deprecated"]  # kept this release, flagged
+    assert "deprecated" not in cw  # doc_target was dropped at -v2
+    assert all("doc_target" not in m for m in cw["measures"])

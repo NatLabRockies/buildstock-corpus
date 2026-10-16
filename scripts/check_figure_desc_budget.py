@@ -40,8 +40,10 @@ SINGLE_CEILING = 130    # an individual description this long gets listed for tr
 ALT_CEILING = 120
 
 # Authored before the 2026-08-21 rollback; deliberately left as-is (see the rollout doc).
+# 85853 (the first prototype) is gone: the four webinar-deck sidecars were deleted on
+# 2026-10-15 once the registry had excluded those decks from the corpus.
 GRANDFATHERED = {
-    "85853", "86100",
+    "86100",
     # Batch A
     "89343", "92546", "95004", "96597", "95006", "87570", "95013", "89126", "89133", "92618",
     # Batch B

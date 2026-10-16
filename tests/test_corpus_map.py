@@ -222,7 +222,6 @@ def test_measure_row_links_the_crosswalks_own_corpus_path(workspace):
                 "measure_id": "dr_0001",
                 "documentation_name": "Thermostat Control for Load Shed",
                 "doc_kind": "external_pdf",
-                "doc_target": "https://www.nlr.gov/docs/fy24osti/89340.pdf",
                 "corpus_path": "upgrade_measures/measure_pdfs/89340.md",
                 "doc_url": "https://www.nlr.gov/docs/fy24osti/89340.pdf",
                 "upgrade_id": "32",
@@ -249,7 +248,6 @@ def test_documented_measure_absent_from_the_corpus_links_upstream_instead(worksp
                 "measure_id": "dr_0002",
                 "documentation_name": "Elsewhere",
                 "doc_kind": "external_pdf",
-                "doc_target": "https://www.example.gov/docs/report.pdf",
                 "corpus_path": None,
                 "doc_url": "https://docs.example.gov/docs/report.pdf",  # canonical spelling
                 "upgrade_id": "40",
@@ -292,7 +290,6 @@ def test_undocumented_measure_is_shown_as_a_gap(workspace):
                 "measure_id": "dr_0004",
                 "documentation_name": "Undocumented Measure",
                 "doc_kind": "none",
-                "doc_target": None,
                 "upgrade_id": "35",
                 "upgrade_name": "Lighting Control",
             }

@@ -92,6 +92,7 @@ are build output. Change the extractor or an overlay in `overlays/`, then rebuil
 `CORPUS_MAP.md` is likewise generated — it stamps the manifest hash it came from, and
 `bsc validate` reports it stale if the manifest has moved on. Regenerate with `bsc map`.
 
-One thing validation does **not** cover: the Chroma index under `index/` (gitignored) is
-never opened by `bsc validate`, so it can be silently out of date. Re-run `bsc index` after
-any build that changed `chunks.jsonl`.
+The Chroma index under `index/` (gitignored) is not part of the release record, so a stale
+one is a **warning**, not a failure: `bsc validate` says so when the store is older than
+`chunks.jsonl` or holds a different number of records. Re-run `bsc index` after any build
+that changed `chunks.jsonl`.

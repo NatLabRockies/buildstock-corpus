@@ -4,6 +4,11 @@
 and `86100`) across the rest of the ComStock 2025-3 corpus. This file is written to be opened
 cold in a fresh session — everything you need to start is here.
 
+> **2026-10-15:** the four release-webinar slide decks (OSTI 85853, 87746, 89653, 92766) were
+> excluded from the corpus by the registry on 2026-10-07 and their sidecars deleted on
+> 2026-10-15 (owner decision, PLAN-staging.md step 29). References to `85853` below are
+> history: the file is in git before that commit, and `86100` is the surviving length model.
+
 **Read this first, then pick up the next unfinished batch.** Do not try to do the whole corpus
 in one pass.
 

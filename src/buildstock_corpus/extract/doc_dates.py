@@ -123,9 +123,9 @@ def _git_date(repo: Path, rel_path: str) -> str | None:
 def resolve_doc_dates(src_state: dict, raw_root: Path, clone_dir: Path) -> dict[str, DocDate]:
     """Map each measure document (by the target the index page links to) to its date.
 
-    Keys match `MeasureRef.target`, so the crosswalk can look a measure's date up by the
-    same string it already records as `doc_target`: an absolute URL for an external PDF, a
-    repo-relative path for a local PDF or an internal markdown page.
+    Keys match `MeasureRef.target`, the string the index page links a measure with: an
+    absolute URL for an external PDF, a repo-relative path for a local PDF or an internal
+    markdown page. The crosswalk looks each measure's date up by the same string.
     """
     dates: dict[str, DocDate] = {}
 
