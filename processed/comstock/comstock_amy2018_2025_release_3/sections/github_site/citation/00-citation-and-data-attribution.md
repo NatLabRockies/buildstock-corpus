@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/citation.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/3b69decb4e5f7bb3d6cc24f6224b318c921fd45f/docs/citation.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/citation.html | corpus_version: f6dcd301 | corpus_path: github_site/docs/citation.md | section: Citation and Data Attribution | lines: 2-11 -->
+<!-- comstock comstock_amy2018_2025_release_3 | github_site | docs/citation.md | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/3b69decb4e5f7bb3d6cc24f6224b318c921fd45f/docs/citation.md | publication_url: https://natlabrockies.github.io/ComStock.github.io/docs/citation.html | corpus_version: comstock_amy2018_2025_release_3-v2 | corpus_path: github_site/docs/citation.md | section: Citation and Data Attribution | lines: 2-11 -->
 # Citation and Data Attribution
 
 # Suggested Citation
