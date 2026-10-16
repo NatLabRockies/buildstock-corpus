@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/98345.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/98345.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/98345.pdf | corpus_version: f6dcd301 | corpus_path: upgrade_measures/measure_pdfs/98345.md | section: List of Tables | lines: 215-227 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/98345.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/98345.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/98345.pdf | corpus_version: comstock_amy2018_2025_release_3-v2 | corpus_path: upgrade_measures/measure_pdfs/98345.md | section: List of Tables | lines: 215-227 -->
 ## List of Tables
 
 | Table ES-1. Summary of Key Modeling Specifications .............................................................................. vi                                                                                                  |    |

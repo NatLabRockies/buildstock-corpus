@@ -72,8 +72,9 @@ def build_crosswalk(
     corpus document it became: {"corpus_path": <processed/-relative .md>, "doc_url":
     <its publication_url>}. Each row carries both, so a consumer with the crosswalk alone
     can open the file or send a reader to the publication; a gap carries None for both.
-    `doc_target` -- the index page's literal link -- is kept for this release and is
-    deprecated in favour of them.
+    (`doc_target`, the index page's literal link, was carried alongside them through the
+    -v1 build and dropped at -v2: `doc_url` is absolute and canonical, `doc_target` was
+    neither.)
     """
     ref_by_id = {r.measure_id: r for r in refs}
     docs = docs or {}
@@ -107,7 +108,6 @@ def build_crosswalk(
                 "repo_folder": (row.get("public_repo_measure_folder_name") or "").strip(),
                 "initial_release": ref.initial_release if ref else None,
                 "doc_kind": ref.kind if ref else "unknown",
-                "doc_target": ref.target if ref else None,
                 "corpus_path": corpus_path,
                 "doc_url": doc_url,
                 "status": status_for_kind(ref.kind, ref.target) if ref else MISSING,
@@ -135,7 +135,6 @@ def build_crosswalk(
                 "repo_folder": None,
                 "initial_release": r.initial_release,
                 "doc_kind": r.kind,
-                "doc_target": r.target,
                 "corpus_path": corpus_path,
                 "doc_url": doc_url,
                 "status": status_for_kind(r.kind, r.target),
@@ -151,10 +150,6 @@ def build_crosswalk(
     covered = sum(1 for m in measures if m["doc_kind"] in _COVERED_KINDS)
     return {
         "release": release,
-        "deprecated": {
-            "doc_target": "the index page's literal link; use doc_url (absolute, canonical) "
-            "and corpus_path instead. Kept for this release only.",
-        },
         "counts": {"measures": len(measures), "covered": covered, "gaps": len(gaps)},
         "measures": sorted(measures, key=lambda m: m["measure_id"]),
         "gaps": sorted(gaps, key=lambda g: g["measure_id"]),

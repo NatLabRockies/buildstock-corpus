@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/96597.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96597.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96597.pdf | corpus_version: f6dcd301 | corpus_path: upgrade_measures/measure_pdfs/96597.md | section: References | lines: 721-739 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | measure_pdfs/96597.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96597.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96597.pdf | corpus_version: comstock_amy2018_2025_release_3-v2 | corpus_path: upgrade_measures/measure_pdfs/96597.md | section: References | lines: 721-739 -->
 ## References
 
 - [1]   U.S. Department of Energy, "Lighting Controls," [Online]. Available: https://www.energy.gov/energysaver/lighting-controls.

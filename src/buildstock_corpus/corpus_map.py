@@ -175,7 +175,7 @@ def _measures_section(crosswalk: dict) -> list[str]:
     for m in measures:
         mid = m.get("measure_id", "")
         out = m.get("corpus_path")
-        url = m.get("doc_url") or (m.get("doc_target") or "")
+        url = m.get("doc_url") or ""
         if out:
             doc = f"[`{out}`]({out})"
         elif mid in gaps:

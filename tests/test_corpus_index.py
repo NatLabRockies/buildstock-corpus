@@ -71,12 +71,10 @@ def built(workspace):
         "release": RELEASE, "counts": {"measures": 2, "covered": 1, "gaps": 1},
         "measures": [
             {"measure_id": "dr_0001", "documentation_name": "Load Shed", "doc_kind": "external_pdf",
-             "doc_target": "https://www.nlr.gov/docs/fy24osti/89340.pdf",
              "corpus_path": "upgrade_measures/measure_pdfs/89340.md",
              "doc_url": "https://www.nlr.gov/docs/fy24osti/89340.pdf", "status": "osti_pdf",
              "upgrade_id": "32", "upgrade_name": "Demand Flexibility", "in_release": True},
-            {"measure_id": "dr_0004", "documentation_name": "Undocumented", "doc_kind": "none",
-             "doc_target": None, "corpus_path": None, "doc_url": None, "status": "missing",
+            {"measure_id": "dr_0004", "documentation_name": "Undocumented", "doc_kind": "none", "corpus_path": None, "doc_url": None, "status": "missing",
              "upgrade_id": "35", "upgrade_name": "Lighting Control", "in_release": True},
         ],
         "gaps": [{"measure_id": "dr_0004", "reason": "documentation expected soon"}],

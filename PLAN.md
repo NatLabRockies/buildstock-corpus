@@ -131,7 +131,8 @@ as absolute https and the row version to match. `tests/test_links_network.py` fe
 **W2.3 · Crosswalk rows carry the corpus path and an absolute URL.** *Done 2026-10-07, branch
 `status-field`.* Every measure row has `corpus_path` (the processed Markdown, null for a gap)
 and `doc_url` (the document's own `publication_url`, so row and document agree). `doc_target`
-is kept this release and flagged deprecated in the crosswalk's top level. `bsc validate`
+was kept through the -v1 build, flagged deprecated in the crosswalk's top level, and dropped
+on 2026-10-15 for -v2 (PLAN-staging.md step 28). `bsc validate`
 checks a covered row points at a manifest artifact and at that artifact's publication; the
 map's measures table reads `corpus_path` from the row instead of joining filenames. Two
 owner decisions landed with it: OSTI report 92504, which documents dr_0005, dr_0006, pkg_0007

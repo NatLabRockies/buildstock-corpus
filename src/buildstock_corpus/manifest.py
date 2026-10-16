@@ -30,6 +30,8 @@ from .links import is_absolute_https
 from .overlay import entry_kind
 from .paths import (
     OVERLAYS_DIR,
+    chunks_file,
+    index_root,
     long_path,
     manifest_file,
     output_rel,
@@ -560,6 +562,55 @@ def validate_manifest(
     return errors
 
 
+def index_staleness(idx_dir: Path, chunks_path: Path) -> list[str]:
+    """Warnings, never violations, about the Chroma index under index/ (W8 step 35).
+
+    The index is gitignored and never an input to anything validate checks, so it can sit
+    silently behind chunks.jsonl for months: the one built on 2026-08-24 predated every
+    rebuild since. Two cheap signals catch that without importing chromadb (a fresh clone
+    or CI has no index at all, and says nothing): the store's mtime against chunks.jsonl,
+    and its record count against the chunk count, read straight from chroma.sqlite3's
+    `embeddings` table. A violation would be wrong here -- the index is a consumer
+    convenience, not part of the release record -- so these are printed and the exit
+    status is unchanged.
+    """
+    if not idx_dir.is_dir():
+        return []
+    where = f"index/{idx_dir.name}"
+    store = idx_dir / "chroma.sqlite3"
+    if not store.is_file():
+        return [f"{where}: exists but holds no chroma.sqlite3; run `bsc index` to rebuild it"]
+    out: list[str] = []
+    if chunks_path.is_file() and store.stat().st_mtime < chunks_path.stat().st_mtime:
+        built = datetime.fromtimestamp(store.stat().st_mtime).date()
+        chunked = datetime.fromtimestamp(chunks_path.stat().st_mtime).date()
+        out.append(
+            f"{where}: older than chunks.jsonl (index {built}, chunks {chunked}); "
+            f"run `bsc index` so retrieval sees this build"
+        )
+    try:
+        import sqlite3
+
+        with sqlite3.connect(f"file:{store.as_posix()}?mode=ro", uri=True) as con:
+            (n_index,) = con.execute("SELECT count(*) FROM embeddings").fetchone()
+        if chunks_path.is_file():
+            with open(long_path(chunks_path), encoding="utf-8") as f:
+                n_chunks = sum(1 for line in f if line.strip())
+            if n_index != n_chunks:
+                out.append(
+                    f"{where}: holds {n_index} records but chunks.jsonl has {n_chunks} chunks; "
+                    f"run `bsc index`"
+                )
+    except Exception as exc:  # a store we cannot read is reported, not fatal
+        out.append(f"{where}: could not read its record count ({str(exc)[:80]})")
+    return out
+
+
+def _print_index_warnings(product: str, release: str) -> None:
+    for w in index_staleness(index_root(product, release), chunks_file(product, release)):
+        print(f"  warning: {w}")
+
+
 def validate_release(product: str, release: str) -> bool:
     """Load manifest.json, check invariants, print a report; return True if valid."""
     mf = manifest_file(product, release)
@@ -577,6 +628,7 @@ def validate_release(product: str, release: str) -> bool:
             print(f"  - {e}")
         if len(errors) > 25:
             print(f"  ... and {len(errors) - 25} more")
+        _print_index_warnings(product, release)
         return False
 
     print(f"validate: OK - {product} {release} (corpus_version {manifest.get('corpus_version')})")
@@ -646,4 +698,5 @@ def validate_release(product: str, release: str) -> bool:
     up = gaps.get("unreachable_pdfs", [])
     if up:
         print(f"  {len(up)} unreachable PDF(s) recorded as gaps")
+    _print_index_warnings(product, release)
     return True

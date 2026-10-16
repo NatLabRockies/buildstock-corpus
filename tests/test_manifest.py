@@ -617,6 +617,80 @@ def test_validate_flags_a_surviving_cover_image_ref_in_a_pdf(tmp_path, monkeypat
     assert M.validate_manifest("comstock", RELEASE, manifest) == []
 
 
+# --- index staleness (step 35): warnings about the gitignored Chroma index ------------------
+
+
+def _write_store(idx_dir, n_records: int):
+    """A chroma.sqlite3 stand-in with the one table index_staleness() reads."""
+    import sqlite3
+
+    idx_dir.mkdir(parents=True, exist_ok=True)
+    store = idx_dir / "chroma.sqlite3"
+    with sqlite3.connect(store) as con:
+        con.execute("CREATE TABLE embeddings (id INTEGER PRIMARY KEY, embedding_id TEXT)")
+        con.executemany("INSERT INTO embeddings (embedding_id) VALUES (?)", [(f"c{i}",) for i in range(n_records)])
+    return store
+
+
+def _write_chunks(path, n: int):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("".join(json.dumps({"id": f"c{i}", "text": "x"}) + "\n" for i in range(n)), encoding="utf-8")
+
+
+def test_index_staleness_is_silent_without_an_index(tmp_path):
+    chunks = tmp_path / "chunks.jsonl"
+    _write_chunks(chunks, 3)
+    assert M.index_staleness(tmp_path / "index" / "comstock-rel", chunks) == []
+
+
+def test_index_staleness_warns_when_the_store_predates_the_chunks(tmp_path):
+    import os
+
+    idx = tmp_path / "index" / "comstock-rel"
+    store = _write_store(idx, 3)
+    chunks = tmp_path / "chunks.jsonl"
+    _write_chunks(chunks, 3)
+    old = chunks.stat().st_mtime - 86400 * 30
+    os.utime(store, (old, old))
+    warnings = M.index_staleness(idx, chunks)
+    assert len(warnings) == 1 and "older than chunks.jsonl" in warnings[0] and "bsc index" in warnings[0]
+
+
+def test_index_staleness_warns_on_a_record_count_mismatch_only(tmp_path):
+    import os
+
+    idx = tmp_path / "index" / "comstock-rel"
+    store = _write_store(idx, 2)
+    chunks = tmp_path / "chunks.jsonl"
+    _write_chunks(chunks, 3)
+    new = chunks.stat().st_mtime + 60  # index newer than chunks: only the count can complain
+    os.utime(store, (new, new))
+    warnings = M.index_staleness(idx, chunks)
+    assert warnings == [
+        f"index/{idx.name}: holds 2 records but chunks.jsonl has 3 chunks; run `bsc index`"
+    ]
+
+
+def test_index_staleness_is_quiet_for_a_fresh_matching_index(tmp_path):
+    import os
+
+    idx = tmp_path / "index" / "comstock-rel"
+    store = _write_store(idx, 3)
+    chunks = tmp_path / "chunks.jsonl"
+    _write_chunks(chunks, 3)
+    new = chunks.stat().st_mtime + 60
+    os.utime(store, (new, new))
+    assert M.index_staleness(idx, chunks) == []
+
+
+def test_index_staleness_reports_an_unreadable_store_rather_than_raising(tmp_path):
+    idx = tmp_path / "index" / "comstock-rel"
+    idx.mkdir(parents=True)
+    (idx / "chroma.sqlite3").write_bytes(b"not a database")
+    chunks = tmp_path / "chunks.jsonl"
+    _write_chunks(chunks, 1)
+    warnings = M.index_staleness(idx, chunks)
+    assert any("could not read its record count" in w for w in warnings)
 def test_validate_keeps_figure_1_of_a_site_served_pdf_but_not_its_wordmark(tmp_path, monkeypatch):
     """Under assets/files/ only image_000000 (the ComStock wordmark) is decorative; a bare
     image_000001 ref there is Figure 1 and is not a violation."""
