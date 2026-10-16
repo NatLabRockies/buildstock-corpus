@@ -37,7 +37,7 @@
     "document": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["title", "source_id", "corpus_path", "source_path", "source_url", "publication_url", "status", "bytes", "sections", "chunks", "chunks_file"],
+      "required": ["title", "source_id", "corpus_path", "source_path", "source_url", "publication_url", "status", "bytes", "sections", "sections_dir", "section_files", "chunks", "chunks_file"],
       "properties": {
         "title": { "type": "string" },
         "source_id": { "type": "string", "minLength": 1 },
@@ -47,7 +47,9 @@
         "publication_url": { "$ref": "#/$defs/https_url", "description": "Where a reader is sent for the human-readable form." },
         "status": { "type": "string", "enum": ["osti_pdf", "site_page"] },
         "bytes": { "type": "integer", "minimum": 1, "description": "Size of the processed markdown file." },
-        "sections": { "type": "integer", "minimum": 0, "description": "Number of headings; the headings themselves are in sections.json." },
+        "sections": { "type": "integer", "minimum": 0, "description": "Number of headings; the headings themselves, with levels and line ranges, are in sections.json." },
+        "sections_dir": { "type": ["string", "null"], "pattern": "^sections/.+[^/]$", "description": "Directory of this document's section files, relative to processed/<product>/<release>/; null only for a document with none." },
+        "section_files": { "type": "array", "items": { "type": "string", "pattern": "^[0-9]{2,}-.*\\.md$" }, "description": "Basenames of this document's section files in document order, one per H2 plus a 00- preamble when the document has text before its first H2. Fetch <sections_dir>/<name>; the slug is the heading." },
         "chunks": { "type": "integer", "minimum": 0, "description": "Number of retrieval chunks cut from this document." },
         "chunks_file": { "type": "string", "pattern": "^chunks/.+\\.jsonl$", "description": "This document's rows of chunks.jsonl as their own JSON Lines file, byte for byte; relative to processed/<product>/<release>/." }
       }

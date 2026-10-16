@@ -110,6 +110,25 @@ def test_index_lists_every_document_and_measure_and_validates(built):
     assert set(by_id["dr_0001"]) == set(X._MEASURE_FIELDS)  # nothing extra leaks in
 
 
+def test_index_rows_name_their_section_files(built):
+    """The three-fetch route: index.json alone must say which section file to fetch next."""
+    proot, _ = built
+    result = X.build_index("comstock", RELEASE)
+    index = _load(proot, X.INDEX_FILENAME)
+    by_path = {d["corpus_path"]: d for d in index["documents"]}
+    a = by_path["technical_reference/doc/a.md"]
+    assert a["sections_dir"] == "sections/technical_reference/a"
+    assert a["section_files"] == ["00-geometry.md", "01-floor-height.md", "02-rotation.md"]
+    only = by_path["upgrade_measures/measure_pdfs/89340.md"]
+    assert only["sections_dir"] == "sections/upgrade_measures/89340"
+    assert only["section_files"] == ["00-load-shed.md"]
+    # and they are exactly the files sections.json names, in the same order
+    sections = _load(proot, X.SECTIONS_FILENAME)
+    for row in index["documents"]:
+        named = [s["file"] for s in sections["documents"][row["corpus_path"]] if "file" in s]
+        assert [f"{row['sections_dir']}/{b}" for b in row["section_files"]] == named
+
+
 def test_section_line_ranges_slice_back_to_the_heading_and_tile_the_file(built):
     proot, _ = built
     X.build_index("comstock", RELEASE)

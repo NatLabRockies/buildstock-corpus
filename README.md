@@ -89,24 +89,26 @@ resolves to the same bytes next year. `main` is rewritten on every rebuild; use 
 you want the newest build and accept that paths and content drift. Every file's line-1
 `corpus_version` names the tag (or, for an untagged build, the commit) it came from.
 
-The recipe is two fetches, three when you need headings:
+The recipe is two fetches:
 
-1. **`index.json`** (~80 KB raw, ~8 KB gzip-compressed over the wire). Every document with its `title`,
-   `corpus_path`, `status`, `source_url`, `publication_url` and `bytes`, and every measure
-   with its `upgrade_id`, `corpus_path` and `doc_url`. Pick the document; for a measure,
-   start from its `upgrade_id` or `measure_id`.
-2. **`sections.json`** (~194 KB raw, ~25 KB over the wire), only if you need to land on a
-   heading: every heading of every document with `line_start` and `line_end` in the file.
-3. **The document**, at `<corpus_path>` — or **one section of it**: every H2 entry in
-   `sections.json` carries a `file`, `sections/<source_id>/<document stem>/<NN>-<slug>.md`,
-   holding that heading and everything beneath it down to the next H2, usually a few KB.
+1. **`index.json`** (~155 KB raw, ~20 KB gzip-compressed over the wire). Every document
+   with its `title`, `corpus_path`, `status`, `source_url`, `publication_url`, `bytes`, and
+   its section files: `sections_dir` plus `section_files`, one `<NN>-<slug>.md` per H2 (and
+   a `00-` preamble when text precedes the first H2), the slug being the heading. Every
+   measure with its `upgrade_id`, `corpus_path` and `doc_url`. Pick the document; for a
+   measure, start from its `upgrade_id` or `measure_id`.
+2. **One section of it**, at `<sections_dir>/<name>`: the heading and everything beneath it
+   down to the next H2, usually a few KB. Or **the whole document**, at `<corpus_path>`.
    Line 1 of either is a provenance header carrying the release, upstream path, `status`,
    both URLs and the `corpus_version` (a section file's also names its parent
    `corpus_path`, its `section` and the `lines` it spans), so the file alone is enough to
    cite. Quote `source_id/source_path` and the `corpus_version`, and send a reader to the
    `publication_url`, not to the markdown.
 
-**Mind the size.** 40 of the 114 documents are over 100 KB and four are over 200 KB; the
+**`sections.json`** (~360 KB raw, ~46 KB over the wire) adds every heading's level and
+`line_start`/`line_end`, including H3 and below; fetch it only when you need those.
+
+**Mind the size.** 40 of the 117 documents are over 100 KB and four are over 200 KB; the
 largest, the reference documentation's Appendix A, is 437 KB. Check `bytes` in the index
 before fetching a whole document; fetch the section file instead, or use the line range
 from `sections.json`.
