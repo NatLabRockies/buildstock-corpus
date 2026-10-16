@@ -288,8 +288,9 @@ What a workflow cannot do is reject the tag push itself. That is a ruleset, and 
 has none; the owner's account has push but not admin, so it is an **org admin request**:
 (1) a branch ruleset on `main` requiring the `ci` status checks (`ubuntu-latest`,
 `windows-latest`) before merge, and (2) a tag ruleset on `*_release_*-v*` restricting
-creation and deletion to maintainers. Until then the release step is the recipe in W1.1,
-with the Release cut by the workflow rather than by hand. *Size:* S.
+creation and deletion to maintainers. *Both rulesets active 2026-10-16* (PLAN-staging.md step
+33); the tag ruleset still needs a bypass actor before the next tag can be pushed. The release
+step is the recipe in W1.1, with the Release cut by the workflow rather than by hand. *Size:* S.
 
 ## W8 · ResStock
 
