@@ -69,5 +69,34 @@ Two places this list departs from the order in PLAN.md:
 | 23 | W1.3 | `bsc changelog --from <tag>` once two tagged manifests exist to diff | M | Done 2026-10-08 on `changelog` (rebuild commit follows). Rows gain `body_sha256`; v1 is diffed by reading bodies from git. Against v1: 65 re-rendered, 49 unchanged. |
 | 24 | W7.2 | CI: validate and tests on every push, block a tag unless both pass | — | Done 2026-10-08 on `ci`. `ci.yml` (Ubuntu + Windows) and `release.yml` (tag → checks → GitHub Release from the CHANGELOG entry). Rejecting the tag push itself needs a ruleset: org admin request recorded in PLAN.md. |
 
-Not scheduled: W6.2 (data-dense figure descriptions, marked maybe) and W8 (ResStock, to be
-determined).
+## Stage 7 · The `-v2` release
+
+Written 2026-10-08, after steps 1–24 merged (main `e487c6e`, eight merges past the v1 tag).
+W1.2 is the operating rule: every change to this dataset release's corpus lands in a new
+build and a new tag. Steps 28, 29 and 35 need nothing upstream and can go first, in one PR,
+while the drafts are being posted; 26, 27, 30, 31, 32 run in order once they are live.
+
+| # | Task | What it does | Size | Status |
+|---|------|--------------|------|--------|
+| 25 | Owner | Post the DR_0004, DR_0007 and DR_0008 drafts to the ComStock site so the upgrade-measures index links them. Outside the repo. | — | |
+| 26 | Fetch + build | The one sanctioned `bsc fetch` (AGENTS.md says not to, for this reason: it can move overlay hash pins), then `bsc build`. Gaps 8 → 5. `bsc validate` says whether any refetched PDF moved under a pin. | S | |
+| 27 | Overlays | If the three new reports embed tables or figures as bitmaps, transcribe them to the W6 standard. Unknown until 26: nothing, or up to three M items. | ? | |
+| 28 | Crosswalk | Drop the deprecated `doc_target` field and the crosswalk's `deprecated` block ("kept for this release only"), and `corpus_map.py`'s fallback to it. | S | |
+| 29 | Owner decision | The four webinar-deck overlays (85853, 87746, 89653, 92766; 187 figure descriptions) sit unused in `overlays/`. Delete, or keep with a note saying why. Not deleted without the owner's word. | S | |
+| 30 | Index | `bsc index` (~1 h, local, gitignored). The current index is from 2026-08-24 and predates every rebuild since. | S | |
+| 31 | Release files | `bsc changelog --from comstock_amy2018_2025_release_3-v1 --append`, then the hand-written tooling bullets for steps 17–24 (section files, chunk files, `data-source`, cross-refs as titles, decorative refs, body hash, changelog, CI). `CITATION.cff` `version` and the `llms.txt` "Current" line → v2. | S | |
+| 32 | Tag v2 | W1.1 recipe: `bsc build --corpus-version comstock_amy2018_2025_release_3-v2`, validate, `pytest -m network`, PR, merge commit, `git tag -a` on it, push the tag. First real run of `release.yml`: watch it. Check the raw URL at the tag serves `index.json` naming v2. | S | |
+
+## Stage 8 · Governance and acceptance
+
+| # | Task | What it does | Size | Status |
+|---|------|--------------|------|--------|
+| 33 | Owner | Org admin request from PLAN.md W7.2: branch ruleset on `main` requiring both `ci` checks (`ubuntu-latest`, `windows-latest`); tag ruleset on `*_release_*-v*` restricting creation and deletion. Outside the repo. | — | |
+| 34 | Acceptance | The whole-plan test at the end of PLAN.md: a fresh agent, the repo URL only, the medium-office floor-to-floor question. Pass is three fetches, under 40 KB, every fact from the fetched files. Record the result in PLAN.md. | S | after 32 |
+| 35 | Validate | Warn (not fail) when the Chroma index under `index/` is older than `chunks.jsonl` or holds a different chunk count; AGENTS.md notes the gap today. | S | |
+
+Not scheduled, owner decisions pending: the five remaining gaps (dr_0009–dr_0011, hvac_0021,
+pkg_0012) wait on upstream documentation; W6.2 (data-dense figure descriptions, marked maybe);
+W8 (ResStock, to be determined); onboarding the next ComStock dataset release (new `sources/`
+entry, registry, fetch, crosswalk, overlays for its PDFs, first tag `<new release>-v1`), a stage
+of its own and not yet sized.
