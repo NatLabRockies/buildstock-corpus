@@ -26,7 +26,7 @@ not follow it (`2025-3`, `2025_3`) and are pinned separately in the source regis
 ```bash
 REL=comstock_amy2018_2025_release_3
 
-uv run bsc fetch     --release $REL   # download + hash raw sources -> raw/
+uv run bsc fetch     --release $REL   # download + hash raw sources -> raw/ (moves an existing clone to its ref; a branch ref lands on its tip)
 uv run bsc build     --release $REL   # extract -> normalize -> chunks + manifest + map -> processed/
 uv run bsc map       --release $REL   # regenerate CORPUS_MAP.md on its own (seconds)
 uv run bsc index     --release $REL   # embed chunks -> index/
