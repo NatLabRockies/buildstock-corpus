@@ -104,8 +104,8 @@ v2's pin at `3b69dec`.
 
 | # | Task | What it does | Size | Status |
 |---|------|--------------|------|--------|
-| 36 | Fetch + build v3 | Pull the site clone forward (`bsc fetch` does not move an existing clone; see the handoff plan's Finding 4), `bsc fetch`, `bsc build --corpus-version comstock_amy2018_2025_release_3-v3`, validate. Expect +1 document (pkg_0012), gaps 5 → 4, every header re-stamped. | S | |
-| 37 | Release files | `bsc changelog --from comstock_amy2018_2025_release_3-v2 --append` plus hand bullets (why v3: section files at a tag, acceptance run 2, site pin moved); the four files naming the current tag → v3; one start order per reader type in `AGENTS.md` and `llms.txt`. | S | |
+| 36 | Fetch + build v3 | Pull the site clone forward (`bsc fetch` does not move an existing clone; see the handoff plan's Finding 4), `bsc fetch`, `bsc build --corpus-version comstock_amy2018_2025_release_3-v3`, validate. Expect +1 document (pkg_0012), gaps 5 → 4, every header re-stamped. | S | Done 2026-10-16 on `release-v3` (PR #41). 118 docs, 8,022 chunks, 4 gaps; 9 sidecars re-stamped (`stamp_overlay_links.py`); pkg_0012 got its own sidecar: 6 figure descriptions, 3 table replacements (Tables 1, 2, 5), 1 text repair, and `replaces.under_caption` added to the overlay engine for the Table 2 case. Validate OK. |
+| 37 | Release files | `bsc changelog --from comstock_amy2018_2025_release_3-v2 --append` plus hand bullets (why v3: section files at a tag, acceptance run 2, site pin moved); the four files naming the current tag → v3; one start order per reader type in `AGENTS.md` and `llms.txt`. | S | Done 2026-10-16 on `release-v3`. |
 | 38 | Tag v3 | PR, merge, `git tag -a` on the merge commit, push, `release.yml`. Step 33's open item applies: the tag ruleset needs a bypass actor first. Then prove the three-fetch route at the tag and run the site's `Sync corpus index` workflow. | S | |
 
 Not scheduled, owner decisions pending: the four remaining gaps (dr_0009–dr_0011, hvac_0021) wait on upstream documentation; W6.2 (data-dense figure descriptions, marked maybe);

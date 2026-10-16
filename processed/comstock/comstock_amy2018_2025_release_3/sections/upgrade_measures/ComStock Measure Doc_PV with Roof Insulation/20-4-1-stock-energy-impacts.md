@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | assets/files/ComStock Measure Doc_PV with Roof Insulation.pdf | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/2036a73dc9b7a5dccb8b62fe835cdcbc777175fa/assets/files/ComStock%20Measure%20Doc_PV%20with%20Roof%20Insulation.pdf | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/ComStock%20Measure%20Doc_PV%20with%20Roof%20Insulation.pdf | corpus_version: comstock_amy2018_2025_release_3-v3 | corpus_path: upgrade_measures/unpublished_docs/upgrade_measures/ComStock Measure Doc_PV with Roof Insulation.md | section: 4.1  Stock Energy Impacts | lines: 297-312 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | assets/files/ComStock Measure Doc_PV with Roof Insulation.pdf | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/2036a73dc9b7a5dccb8b62fe835cdcbc777175fa/assets/files/ComStock%20Measure%20Doc_PV%20with%20Roof%20Insulation.pdf | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/ComStock%20Measure%20Doc_PV%20with%20Roof%20Insulation.pdf | corpus_version: comstock_amy2018_2025_release_3-v3 | corpus_path: upgrade_measures/unpublished_docs/upgrade_measures/ComStock Measure Doc_PV with Roof Insulation.md | section: 4.1  Stock Energy Impacts | lines: 341-367 -->
 ## 4.1  Stock Energy Impacts
 
 The PV 40% + Roof Insulation measure results in 1,043 trillion British thermal units (TBtu) of PV electricity used on-site annually across the modeled U.S. commercial building stock, with an additional 883 TBtu of excess generation exported to the grid (Figure 1). This corresponds to a total PV production of 1,925 TBtu nationally. PV electricity used on-site accounts for approximately 33% of the annual electricity usage modeled in ComStock. In the ComStock public dataset, PV generation is represented as negative electricity consumption.
@@ -11,7 +11,18 @@ Table 8 summarizes the absolute and percent energy savings by fuel for the PV 40
 
 Figure 1. Comparison of annual site energy consumption between the ComStock baseline, PV 40%, and the PV 40% + Roof Insulation (Package\_12) measure scenarios
 
-![Image](ComStock_Measure_Doc_PV_with_Roof_Insulation_images/image_000001_7a6ab579800d3a7e4b9f7bf9ed3ef30cf0282cd6d2a2a0959ca2cba4ce6c570e.png)
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/assets/files/ComStock Measure Doc_PV with Roof Insulation.yaml
+     source: ComStock_Measure_Doc_PV_with_Roof_Insulation_images/image_000001_7a6ab579800d3a7e4b9f7bf9ed3ef30cf0282cd6d2a2a0959ca2cba4ce6c570e.png
+     method: vision-description
+     described: 2026-10-16 -->
+
+![Figure 1: stacked bar chart of annual site energy by end use and fuel for Baseline, Add_PV_40pct and Package_12](ComStock_Measure_Doc_PV_with_Roof_Insulation_images/image_000001_7a6ab579800d3a7e4b9f7bf9ed3ef30cf0282cd6d2a2a0959ca2cba4ce6c570e.png)
+
+Figure 1: stacked bar chart of annual energy consumption in TBtu (y, -2000 to 5000) for three
+scenarios: Baseline, Add_PV_40pct and Package_12. Stacks above zero are end use by fuel (heating,
+cooling, interior equipment, lighting, fans, water systems); below zero, photovoltaics used on
+site and excess exported. Totals above zero fall from 4,987 to 4,833 TBtu with the package. See
+Table 8 for savings by fuel.
 
 Energy consumption is categorized both by fuel type and end use.
 

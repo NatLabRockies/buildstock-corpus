@@ -10,11 +10,11 @@ re-rendered are written by hand above it.
 
 ## comstock_amy2018_2025_release_3-v3 — 2026-10-16
 
-Changes since `comstock_amy2018_2025_release_3-v2` (corpus_version `comstock_amy2018_2025_release_3-v2`): 118 documents (+1), 65 measures (61 documented, 4 tracked gaps), 8,016 chunks (+68). 11 documents changed, 107 unchanged in content.
+Changes since `comstock_amy2018_2025_release_3-v2` (corpus_version `comstock_amy2018_2025_release_3-v2`): 118 documents (+1), 65 measures (61 documented, 4 tracked gaps), 8,022 chunks (+74). 11 documents changed, 107 unchanged in content.
 
 Branch `release-v3` (the release PR), after PRs #39 and #40 merged past the v2 tag. Documents
 ComStock dataset release `comstock_amy2018_2025_release_3`: 118 documents, 65 measures
-(61 documented, 4 tracked gaps), 8,016 chunks.
+(61 documented, 4 tracked gaps), 8,022 chunks.
 
 ### Tooling and corpus changes, by hand
 
@@ -26,8 +26,17 @@ ComStock dataset release `comstock_amy2018_2025_release_3`: 118 documents, 65 me
   build puts `sections_dir` and `section_files` in `index.json` at a tag.
 - **One new measure document.** pkg_0012 (Photovoltaics With 40% Rooftop Coverage With Roof
   Insulation), posted to the ComStock site as a pre-publication PDF (status `site_page`,
-  site PRs #205 and #206). Every table extracted as text; its six figures are bare image refs
-  with captions and no hand-written descriptions yet.
+  site PRs #205 and #206), with a new overlay sidecar: its six figures described to the W6
+  standard, and its tables checked cell for cell against the PDF. Tables 4, 6, 7, 8 and 9
+  extracted correctly; three did not and are superseded by transcriptions: Table 1 was split
+  at a page break (rows lost, cell text shifted), Table 2's grid was emitted under the Table 3
+  caption, and Table 5 lost its climate-zone-1 column (R-21). One text repair demotes the
+  `## Applicability` heading docling made of a Table 1 row label.
+- **`replaces.under_caption`** in overlay sidecars: when a pinned table fingerprint matches
+  more than one extracted table (an executive summary repeating a results table value for
+  value, as every measure report does; pkg_0012's Table 2 equals Table 8), the entry names the
+  caption the misplaced grid sits under and the first table below it is the one replaced.
+  Three tests; documented in `overlays/README.md`.
 - **The site pin moved** from `3b69dec` to `2036a73` (site PR #208), which is why every
   github.io document's header and manifest row names the new commit, and why the nine
   overlay sidecars under `upgrade_measures/` were re-stamped with the new `source_url`

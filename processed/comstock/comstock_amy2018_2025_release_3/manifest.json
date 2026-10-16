@@ -2,7 +2,7 @@
   "product": "comstock",
   "release": "comstock_amy2018_2025_release_3",
   "corpus_version": "comstock_amy2018_2025_release_3-v3",
-  "generated_utc": "2026-10-16T17:55:08.072833+00:00",
+  "generated_utc": "2026-10-16T18:19:02.619916+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -2895,25 +2895,43 @@
           "title": "Photovoltaics With 40% Rooftop Coverage With Roof Insulation",
           "input_sha256": "8f370eeaa9a6860ae052844a4345a5f0812faa5cf231d1d47e65f46f2dd2e06b",
           "output_path": "upgrade_measures/unpublished_docs/upgrade_measures/ComStock Measure Doc_PV with Roof Insulation.md",
-          "output_sha256": "2f209cc9a94f165d81902c0804a29865463c21021772fc99124c4f4b5c7f7693",
-          "body_sha256": "ecb9d458971c52f318ca21ce86c8cf4c6fc973cea0081ec51f48b82229642089"
+          "output_sha256": "531928e47734a8f4cd4144b9c4746db2691c3343814b314ef2d3a9bea71a179c",
+          "body_sha256": "aed5964ef1d99dbf3d77e6257a0de689e8d0ef6e8c0eb417544584f9fabcee7f",
+          "overlay": {
+            "path": "comstock_comstock_amy2018_2025_release_3/upgrade_measures/assets/files/ComStock Measure Doc_PV with Roof Insulation.yaml",
+            "sha256": "56d8ef7de270fe7e2bd097cd10a9e2a93bafb9aac4ffbe57889678dcfd76cade",
+            "tables_applied": [
+              "Table 1",
+              "Table 2",
+              "Table 5"
+            ],
+            "text_repairs_applied": 1,
+            "figures_applied": [
+              "ComStock_Measure_Doc_PV_with_Roof_Insulation_images/image_000001_7a6ab579800d3a7e4b9f7bf9ed3ef30cf0282cd6d2a2a0959ca2cba4ce6c570e.png",
+              "ComStock_Measure_Doc_PV_with_Roof_Insulation_images/image_000002_5cde5663cc81c26927b3e86f9f152bfb32eb59eaaf1b8777e55a692108d6d96f.png",
+              "ComStock_Measure_Doc_PV_with_Roof_Insulation_images/image_000003_0a2ec7227f3aa826ca6cd6b6d8f2ccce053c74c83d8d179c45bd6bd5da648586.png",
+              "ComStock_Measure_Doc_PV_with_Roof_Insulation_images/image_000004_87e5a988403848531ea1aec554317ef7036ff5946342da09fde4c9fa866bab50.png",
+              "ComStock_Measure_Doc_PV_with_Roof_Insulation_images/image_000005_cce74eced9d2a6d3283836452852af2824b503d0ab1ab99b55efe490e7dbd9bc.png",
+              "ComStock_Measure_Doc_PV_with_Roof_Insulation_images/image_000006_3d8c581165937f1795693d8820fab71f381c9e386b2d2fea60f998a806a81610.png"
+            ]
+          }
         }
       ]
     }
   ],
   "counts": {
     "documents": 118,
-    "chunks": 8016,
+    "chunks": 8022,
     "by_type": {
       "latex": 19,
       "markdown": 40,
       "measures": 6,
       "pdf": 53
     },
-    "overlay_documents": 56,
-    "overlay_tables": 57,
-    "overlay_figures": 855,
-    "overlay_text_repairs": 1
+    "overlay_documents": 57,
+    "overlay_tables": 60,
+    "overlay_figures": 861,
+    "overlay_text_repairs": 2
   },
   "crosswalk": {
     "file": "crosswalk.json",

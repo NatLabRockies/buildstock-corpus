@@ -1,4 +1,4 @@
-<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | assets/files/ComStock Measure Doc_PV with Roof Insulation.pdf | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/2036a73dc9b7a5dccb8b62fe835cdcbc777175fa/assets/files/ComStock%20Measure%20Doc_PV%20with%20Roof%20Insulation.pdf | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/ComStock%20Measure%20Doc_PV%20with%20Roof%20Insulation.pdf | corpus_version: comstock_amy2018_2025_release_3-v3 | corpus_path: upgrade_measures/unpublished_docs/upgrade_measures/ComStock Measure Doc_PV with Roof Insulation.md | section: 4.2  Stock Utility Bill Impacts | lines: 325-342 -->
+<!-- comstock comstock_amy2018_2025_release_3 | upgrade_measures | assets/files/ComStock Measure Doc_PV with Roof Insulation.pdf | status: site_page | source_url: https://github.com/NatLabRockies/ComStock.github.io/blob/2036a73dc9b7a5dccb8b62fe835cdcbc777175fa/assets/files/ComStock%20Measure%20Doc_PV%20with%20Roof%20Insulation.pdf | publication_url: https://natlabrockies.github.io/ComStock.github.io/assets/files/ComStock%20Measure%20Doc_PV%20with%20Roof%20Insulation.pdf | corpus_version: comstock_amy2018_2025_release_3-v3 | corpus_path: upgrade_measures/unpublished_docs/upgrade_measures/ComStock Measure Doc_PV with Roof Insulation.md | section: 4.2  Stock Utility Bill Impacts | lines: 380-407 -->
 ## 4.2  Stock Utility Bill Impacts
 
 The PV 40% + Roof Insulation measure scenario demonstrates 26% -28% ($29 -$41 billion USD, 2022) in utility bill savings for the U.S. commercial building stock modeled in ComStock, depending on the electricity rate structure (Figure 2). This report reviews utility bill results for the maximum, mean, and minimum electricity rate structures available for each building.
@@ -13,7 +13,17 @@ Table 9 summarizes the absolute and percent utility bill savings by fuel for the
 
 Figure 2. Annual utility bill impacts using the max, mean, and minimum bills across available rate structures for buildings for both the PV 40 % and PV 40% + Roof Insulation measure scenarios
 
-![Image](ComStock_Measure_Doc_PV_with_Roof_Insulation_images/image_000002_5cde5663cc81c26927b3e86f9f152bfb32eb59eaaf1b8777e55a692108d6d96f.png)
+<!-- figure described by overlay: comstock_comstock_amy2018_2025_release_3/upgrade_measures/assets/files/ComStock Measure Doc_PV with Roof Insulation.yaml
+     source: ComStock_Measure_Doc_PV_with_Roof_Insulation_images/image_000002_5cde5663cc81c26927b3e86f9f152bfb32eb59eaaf1b8777e55a692108d6d96f.png
+     method: vision-description
+     described: 2026-10-16 -->
+
+![Figure 2: three-panel stacked bars of annual utility bills under max, mean and min electricity rates, three scenarios](ComStock_Measure_Doc_PV_with_Roof_Insulation_images/image_000002_5cde5663cc81c26927b3e86f9f152bfb32eb59eaaf1b8777e55a692108d6d96f.png)
+
+Figure 2: three stacked bar panels (max, mean and min electricity rate) of annual utility bill in
+billion USD 2022 (y, 0 to about 150), bars for Baseline, Add_PV_40pct and Package_12, stacked by
+electricity, natural gas, propane and fuel oil. Under the mean rate the bill falls from 129 to 97
+(-25%) with PV alone and to 94 (-27%) with the package. See Table 9.
 
 Includes buildings not applicable to the heat pump rooftop unit (HP-RTU) measure scenarios.
 
