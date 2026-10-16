@@ -91,7 +91,7 @@ while the drafts are being posted; 26, 27, 30, 31, 32 run in order once they are
 
 | # | Task | What it does | Size | Status |
 |---|------|--------------|------|--------|
-| 33 | Owner | Org admin request from PLAN.md W7.2: branch ruleset on `main` requiring both `ci` checks (`ubuntu-latest`, `windows-latest`); tag ruleset on `*_release_*-v*` restricting creation and deletion. Outside the repo. | — | |
+| 33 | Owner | Org admin request from PLAN.md W7.2: branch ruleset on `main` requiring both `ci` checks (`ubuntu-latest`, `windows-latest`); tag ruleset on `*_release_*-v*` restricting creation and deletion. Outside the repo. | — | Done 2026-10-16. Two active rulesets: "CI before merging to main" (default branch: pull request required, both `ci` checks required, no deletion, no force push) and "Release tags" (`refs/tags/*_release_*-v*`: creation, update and deletion all restricted). **Open item:** the tag ruleset has no bypass actors, so no one can push the next release tag until the admin adds the owner (or the Maintain/Admin role) to its bypass list. |
 | 34 | Acceptance | The whole-plan test at the end of PLAN.md: a fresh agent, the repo URL only, the medium-office floor-to-floor question. Pass is three fetches, under 40 KB, every fact from the fetched files. Record the result in PLAN.md. | S | after 32 |
 | 35 | Validate | Warn (not fail) when the Chroma index under `index/` is older than `chunks.jsonl` or holds a different chunk count; AGENTS.md notes the gap today. | S | Done 2026-10-15 on `stage-7-finish`. `index_staleness()` reads mtime and the `embeddings` row count from `chroma.sqlite3` via stdlib sqlite3 (no chromadb import); printed after the report, exit status unchanged; AGENTS.md updated. |
 
