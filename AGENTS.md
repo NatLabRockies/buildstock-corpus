@@ -23,11 +23,13 @@ https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/<ref>/processe
 - **Pin `<ref>` to a release tag** (`<release id>-v<N>`). The current tag is
   `comstock_amy2018_2025_release_3-v2`; the newest is always the top entry of `CHANGELOG.md`
   and the "Current" line of `llms.txt`. `main` moves on every rebuild.
-- **Fetch `index.json` first** (~80 KB raw, ~8 KB gzip-compressed over the wire): every document and measure with its
-  `corpus_path`, `status`, `source_url`, `publication_url` and `bytes`. Then the one
-  document you need, or one section of it: `sections.json` names a file for every H2
-  (`sections/<source_id>/<document stem>/<NN>-<slug>.md`), each a few KB with its own
-  citable line-1 header that also names the parent `corpus_path` and `lines`.
+- **Fetch `index.json` first** (~155 KB raw, ~20 KB gzip-compressed over the wire): every
+  document and measure with its `corpus_path`, `status`, `source_url`, `publication_url`,
+  `bytes`, and the document's section files (`sections_dir` + `section_files`, one per H2,
+  the slug being the heading). Then fetch the one section you need,
+  `<sections_dir>/<name>`, a few KB with its own citable line-1 header that also names the
+  parent `corpus_path` and `lines`; or the whole document. `sections.json` adds every
+  heading's level and line range, and is only needed for those.
 - **Check `bytes` before fetching a whole document.** 40 documents are over 100 KB;
   Appendix A is 437 KB. Fetch the section file instead, or read a line range.
 - Both JSON files validate against `schemas/` in this repo.

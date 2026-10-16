@@ -5,12 +5,16 @@ at a time. CORPUS_MAP.md is written for a reader; these two files are written fo
 program, and are the first thing such a consumer fetches:
 
   index.json     every document (title, corpus path, upstream path, both links, status,
-                 size, how many sections) and every measure (ids, names, corpus path,
+                 size, its section files) and every measure (ids, names, corpus path,
                  doc_url, status), plus the corpus_version and the manifest hash they
-                 describe. ~60 KB raw, ~7 KB over the wire; fetched first.
+                 describe. ~155 KB raw, ~20 KB gzip-compressed over the wire; fetched
+                 first. The section file names are what make the three-fetch route real
+                 (guidance -> index.json -> one section file): without them a consumer
+                 had to fetch sections.json, several times this size, or guess a path.
+                 The whole-plan acceptance test of 2026-10-16 (PLAN.md) did the latter.
   sections.json  every heading of every document with its level and the line range it
-                 spans in the processed file, keyed by corpus path. ~200 KB raw, ~26 KB
-                 over the wire; fetched only when a question needs headings. Line ranges
+                 spans in the processed file, keyed by corpus path. ~360 KB raw, ~46 KB
+                 over the wire; fetched only when a question needs levels or line ranges. Line ranges
                  are 1-based and count line 1, the provenance header, so a hit can be
                  cited as "<corpus_path> lines a-b" and re-read with `sed -n`.
 
@@ -102,6 +106,11 @@ def build_index(product: str, release: str) -> dict:
             text = path.read_text(encoding="utf-8")
             secs = sections_with_files(a["output_path"], text)
             sections[a["output_path"]] = secs
+            files = [s["file"] for s in secs if "file" in s]
+            # Every document has at least the `00-` preamble file (see sections.py), and all
+            # of a document's files share one directory: name it once, then the basenames,
+            # which keeps ~2,000 entries at ~20 KB on the wire instead of ~25 KB.
+            sections_dir = files[0].rsplit("/", 1)[0] if files else None
             documents.append({
                 "title": a.get("title") or "",
                 "source_id": src["id"],
@@ -112,6 +121,8 @@ def build_index(product: str, release: str) -> dict:
                 "status": a.get("status"),
                 "bytes": path.stat().st_size,
                 "sections": len(secs),
+                "sections_dir": sections_dir,
+                "section_files": [f.rsplit("/", 1)[1] for f in files],
                 "chunks": counts.get((src["id"], a["source_path"]), 0),
                 "chunks_file": chunks_file_for(a["output_path"]),
             })
