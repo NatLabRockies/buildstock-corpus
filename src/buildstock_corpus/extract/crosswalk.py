@@ -1,15 +1,20 @@
-"""Crosswalk CSV + index map -> crosswalk.json (the per-measure versioning anchor).
+"""Per-release upgrade map + index map -> crosswalk.json (the per-measure versioning anchor).
 
-The CSV maps each universal measure id to its per-release upgrade id/name; the index
-page maps it to its documentation and the release it first appeared in. Joined by
-measure id, this yields, for every measure: its doc (or a tracked gap), its initial
-release, and its upgrade id within *this* dataset release — so a downstream answer can
-say which measure a passage documents and whether it is even present in this release.
+The upgrade map says which measures are in *this* dataset release and under what upgrade
+id and name. It comes in one of two forms: ComStock's crosswalk CSV, committed in the site
+repo, which maps each universal measure id to its per-release upgrade id/name; or
+ResStock's `upgrades_lookup.json`, published on OEDI beside the dataset, which maps each
+upgrade number to its name (0 is the baseline, not a measure). The index page maps a
+measure to its documentation and the release it first appeared in. Joined by measure id,
+this yields, for every measure: its doc (or a tracked gap), its initial release, and its
+upgrade id within this release — so a downstream answer can say which measure a passage
+documents and whether it is even present in this release.
 """
 
 from __future__ import annotations
 
 import csv
+import json
 import re
 from pathlib import Path
 
@@ -56,13 +61,18 @@ def _release_columns(fieldnames: list[str], release: str) -> tuple[str | None, s
 
 
 def build_crosswalk(
-    csv_path: Path,
+    csv_path: Path | None,
     refs: list[MeasureRef],
     release: str,
     dates: dict[str, DocDate] | None = None,
     docs: dict[str, dict] | None = None,
+    lookup_path: Path | None = None,
 ) -> dict:
-    """Join the crosswalk CSV with the parsed index refs into a crosswalk document.
+    """Join the upgrade map (CSV, JSON lookup, or both) with the parsed index refs.
+
+    `csv_path` is ComStock's crosswalk CSV; `lookup_path` is a JSON object of upgrade
+    number -> upgrade name as OEDI publishes it for ResStock. At least one is required. A
+    measure in both is taken from the CSV.
 
     `dates` maps a doc target to when that document was last updated at its source (see
     doc_dates.resolve_doc_dates). Measures sharing one document share its date; a measure
@@ -76,6 +86,8 @@ def build_crosswalk(
     -v1 build and dropped at -v2: `doc_url` is absolute and canonical, `doc_target` was
     neither.)
     """
+    if csv_path is None and lookup_path is None:
+        raise ValueError("build_crosswalk needs a crosswalk CSV or an upgrades lookup JSON")
     ref_by_id = {r.measure_id: r for r in refs}
     docs = docs or {}
     measures: list[dict] = []
@@ -91,61 +103,91 @@ def build_crosswalk(
         d = docs.get(ref.target) if (ref and ref.target) else None
         return (d["corpus_path"], d["doc_url"]) if d else (None, None)
 
-    with csv_path.open(encoding="utf-8-sig", newline="") as f:
-        reader = csv.DictReader(f)
-        id_col, name_col = _release_columns(reader.fieldnames or [], release)
-        for row in reader:
-            mid = (row.get("measure_id") or "").strip()
-            if not mid:
-                continue
-            ref = ref_by_id.get(mid)
-            upgrade_id = (row.get(id_col) or "").strip() if id_col else ""
-            date, date_source = dated(ref)
-            corpus_path, doc_url = located(ref)
-            entry = {
-                "measure_id": mid,
-                "documentation_name": (row.get("measure_documentation_name") or "").strip(),
-                "repo_folder": (row.get("public_repo_measure_folder_name") or "").strip(),
-                "initial_release": ref.initial_release if ref else None,
-                "doc_kind": ref.kind if ref else "unknown",
-                "corpus_path": corpus_path,
-                "doc_url": doc_url,
-                "status": status_for_kind(ref.kind, ref.target) if ref else MISSING,
-                "date_last_updated": date,
-                "date_last_updated_source": date_source,
-                "in_release": bool(upgrade_id),
-                "upgrade_id": upgrade_id or None,
-                "upgrade_name": ((row.get(name_col) or "").strip() or None) if name_col else None,
-            }
-            measures.append(entry)
-            if ref is None:
-                gaps.append({"measure_id": mid, "reason": "not listed in index page"})
-            elif ref.kind not in _COVERED_KINDS:
-                gaps.append({"measure_id": mid, "reason": "documentation expected soon"})
+    def add(
+        mid: str,
+        ref: MeasureRef | None,
+        *,
+        documentation_name: str | None,
+        repo_folder: str | None,
+        in_release: bool | None,
+        upgrade_id: str | None,
+        upgrade_name: str | None,
+    ) -> None:
+        """One crosswalk row, plus its gap entry when the measure has no documentation."""
+        date, date_source = dated(ref)
+        corpus_path, doc_url = located(ref)
+        measures.append({
+            "measure_id": mid,
+            "documentation_name": documentation_name,
+            "repo_folder": repo_folder,
+            "initial_release": ref.initial_release if ref else None,
+            "doc_kind": ref.kind if ref else "unknown",
+            "corpus_path": corpus_path,
+            "doc_url": doc_url,
+            "status": status_for_kind(ref.kind, ref.target) if ref else MISSING,
+            "date_last_updated": date,
+            "date_last_updated_source": date_source,
+            "in_release": in_release,
+            "upgrade_id": upgrade_id,
+            "upgrade_name": upgrade_name,
+        })
+        if ref is None:
+            gaps.append({"measure_id": mid, "reason": "not listed in index page"})
+        elif ref.kind not in _COVERED_KINDS:
+            gaps.append({"measure_id": mid, "reason": "documentation expected soon"})
 
-    # Index measures with no CSV row (rare, but track it rather than lose it).
-    csv_ids = {m["measure_id"] for m in measures}
+    seen: set[str] = set()
+
+    if csv_path is not None:
+        with csv_path.open(encoding="utf-8-sig", newline="") as f:
+            reader = csv.DictReader(f)
+            id_col, name_col = _release_columns(reader.fieldnames or [], release)
+            for row in reader:
+                mid = (row.get("measure_id") or "").strip()
+                if not mid or mid in seen:
+                    continue
+                seen.add(mid)
+                upgrade_id = (row.get(id_col) or "").strip() if id_col else ""
+                add(
+                    mid, ref_by_id.get(mid),
+                    documentation_name=(row.get("measure_documentation_name") or "").strip(),
+                    repo_folder=(row.get("public_repo_measure_folder_name") or "").strip(),
+                    in_release=bool(upgrade_id),
+                    upgrade_id=upgrade_id or None,
+                    upgrade_name=((row.get(name_col) or "").strip() or None) if name_col else None,
+                )
+
+    if lookup_path is not None:
+        lookup = json.loads(lookup_path.read_text(encoding="utf-8"))
+        if not isinstance(lookup, dict):
+            raise ValueError(f"{lookup_path}: upgrades lookup must be a JSON object")
+        for key, name in lookup.items():
+            mid = str(key).strip()
+            if mid in seen or mid == "0":  # upgrade 0 is the baseline stock, not a measure
+                continue
+            seen.add(mid)
+            ref = ref_by_id.get(mid)
+            # Every measure the lookup names was run in this release under that number; the
+            # index page's name is the documentation's title, the lookup's the upgrade's.
+            add(
+                mid, ref,
+                documentation_name=ref.name if ref else None,
+                repo_folder=None,
+                in_release=True,
+                upgrade_id=mid,
+                upgrade_name=str(name).strip() or None,
+            )
+
+    # Index measures the upgrade map does not list (rare, but track it rather than lose it).
     for r in refs:
-        if r.measure_id not in csv_ids:
-            date, date_source = dated(r)
-            corpus_path, doc_url = located(r)
-            measures.append({
-                "measure_id": r.measure_id,
-                "documentation_name": r.name,
-                "repo_folder": None,
-                "initial_release": r.initial_release,
-                "doc_kind": r.kind,
-                "corpus_path": corpus_path,
-                "doc_url": doc_url,
-                "status": status_for_kind(r.kind, r.target),
-                "date_last_updated": date,
-                "date_last_updated_source": date_source,
-                "in_release": None,
-                "upgrade_id": None,
-                "upgrade_name": None,
-            })
-            if r.kind not in _COVERED_KINDS:
-                gaps.append({"measure_id": r.measure_id, "reason": "documentation expected soon"})
+        if r.measure_id in seen:
+            continue
+        seen.add(r.measure_id)
+        add(
+            r.measure_id, r,
+            documentation_name=r.name, repo_folder=None,
+            in_release=None, upgrade_id=None, upgrade_name=None,
+        )
 
     covered = sum(1 for m in measures if m["doc_kind"] in _COVERED_KINDS)
     return {

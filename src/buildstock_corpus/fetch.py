@@ -188,7 +188,9 @@ def _fetch_docs(src: Source, clone: Clone, clone_dir: Path) -> dict:
 
 
 def _fetch_measures(src: Source, clone: Clone, clone_dir: Path, root: Path) -> dict:
-    """Collect internal measure pages + crosswalk, and download external measure PDFs."""
+    """Collect internal measure pages and the upgrade map (crosswalk CSV in the clone, or
+    the upgrades lookup JSON downloaded from the dataset's host), and download external
+    measure PDFs."""
     result: dict = {"type": src.type, "clone": clone.name}
 
     # Internal measure markdown pages (source of the on-site HTML measure docs).
@@ -215,6 +217,14 @@ def _fetch_measures(src: Source, clone: Clone, clone_dir: Path, root: Path) -> d
     else:
         result["crosswalk"] = None
 
+    # Upgrades lookup JSON (ResStock's per-release upgrade map, published with the data).
+    lookup_gap: dict | None = None
+    result["upgrades_lookup"] = None
+    if src.upgrades_lookup_url:
+        result["upgrades_lookup"], lookup_gap = _download_lookup(
+            src.upgrades_lookup_url, root / f"{src.id}_upgrades_lookup.json", root
+        )
+
     # Index page: the authoritative measure -> doc map. Hash it (it drives the build),
     # then use it to find external URLs to download and local PDFs to hash in place.
     index_path = clone_dir / (src.index_page or "")
@@ -227,7 +237,7 @@ def _fetch_measures(src: Source, clone: Clone, clone_dir: Path, root: Path) -> d
         }
         text = index_path.read_text(encoding="utf-8", errors="replace")
         urls = sorted(set(PDF_URL_RE.findall(text)))
-        refs = parse_index(text, result["index_page"]["path"])
+        refs = parse_index(text, result["index_page"]["path"], src.measure_id_pattern)
         for rel in local_pdf_paths(refs):
             fp = clone_dir / rel
             if fp.is_file():
@@ -238,15 +248,46 @@ def _fetch_measures(src: Source, clone: Clone, clone_dir: Path, root: Path) -> d
 
     pdf_dir = root / "measure_pdfs"
     downloaded, gaps = _download_pdfs(urls, pdf_dir, root)
+    if lookup_gap:
+        gaps.append(lookup_gap)
     result["external_pdfs"] = downloaded
     result["local_pdfs"] = local_pdfs
     result["missing"] = gaps
+    lookup_note = (
+        "" if not src.upgrades_lookup_url
+        else ", upgrades lookup fetched" if result["upgrades_lookup"] else ", upgrades lookup UNREACHABLE"
+    )
     print(
         f"  {src.id}: {len(internal_pages)} internal pages, "
         f"{len(downloaded)} PDFs downloaded, {len(local_pdfs)} local PDFs, "
-        f"{len(gaps)} unreachable"
+        f"{len(gaps)} unreachable{lookup_note}"
     )
     return result
+
+
+def _download_lookup(url: str, dest: Path, root: Path) -> tuple[dict | None, dict | None]:
+    """Download the upgrades lookup JSON to `dest`, hashed like every other input.
+
+    Returns (state entry, gap): the entry {url, path, sha256} on success and no gap, or
+    no entry and a gap record when the host cannot be reached or the body is not a JSON
+    object. A missing lookup is a fetch gap the build then reports, not a crash here.
+    """
+    try:
+        with httpx.Client(follow_redirects=True, timeout=60.0) as client:
+            resp = client.get(url)
+            resp.raise_for_status()
+            data = resp.content
+        if not isinstance(json.loads(data.decode("utf-8")), dict):
+            raise ValueError("body is not a JSON object")
+    except Exception as exc:  # unreachable or malformed: a gap, not fatal
+        return None, {"url": url, "status": "error", "note": str(exc)[:200]}
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_bytes(data)
+    return {
+        "url": url,
+        "path": dest.relative_to(root).as_posix(),
+        "sha256": hashlib.sha256(data).hexdigest(),
+    }, None
 
 
 def _download_pdfs(urls: list[str], pdf_dir: Path, root: Path) -> tuple[list[dict], list[dict]]:
