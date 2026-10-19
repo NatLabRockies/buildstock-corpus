@@ -95,7 +95,7 @@ def _input_hashes(src_state: dict) -> dict[str, str]:
     for key in ("inputs", "internal_pages", "external_pdfs", "local_pdfs"):
         for item in src_state.get(key) or []:
             hashes[item["path"]] = item["sha256"]
-    for key in ("crosswalk", "index_page"):
+    for key in ("crosswalk", "upgrades_lookup", "index_page"):
         item = src_state.get(key)
         if item:
             hashes[item["path"]] = item["sha256"]
