@@ -13,6 +13,14 @@ from .status import STATUSES
 
 SOURCE_TYPES = {"latex", "markdown", "measures"}
 
+# How each product spells its own name in prose (the map, the query prompt). A product
+# not listed here is title-cased, which is wrong for CamelCase names: add it.
+PRODUCT_NAMES = {"comstock": "ComStock", "resstock": "ResStock"}
+
+
+def product_name(product: str) -> str:
+    return PRODUCT_NAMES.get(product, product.title())
+
 # Defaults for the per-product knobs below. They are the ComStock values, so a registry
 # written before the fields existed keeps meaning exactly what it did.
 DEFAULT_MEASURE_ID_PATTERN = r"[a-z]+_\d+"  # hvac_0001, env_0003, pkg_0012
