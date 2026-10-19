@@ -276,6 +276,7 @@ def _extract_documents(
     dict | None,
     dict[str, Path],
     dict[tuple[str, str], Path],
+    dict[str, Path],
 ]:
     """Extract every fetched source into Documents.
 
@@ -288,7 +289,9 @@ def _extract_documents(
     Returns the two image maps separately because they answer different questions:
     `pdf_images` says where a PDF's bitmaps are copied *to* under processed/, while
     `image_dirs` says where any document's bitmaps can be read *from* right now, which is
-    what overlay.apply_overlays needs to hash one it has pinned.
+    what overlay.apply_overlays needs to hash one it has pinned. `rasters` is the third
+    map: single PNG files the LaTeX loader rendered from PDF figures, keyed by their
+    processed/-relative path (see extract.latex._rasterize_pdf_figures).
     """
     reg = load_registry(product, release)
     docs: list[Document] = []
@@ -299,6 +302,7 @@ def _extract_documents(
     crosswalk_spec: tuple = (None, None, None, None)
     pdf_images: dict[str, Path] = {}
     image_dirs: dict[tuple[str, str], Path] = {}
+    rasters: dict[str, Path] = {}
 
     for src in reg.sources:
         src_state = state["sources"][src.id]
@@ -306,9 +310,15 @@ def _extract_documents(
         first = len(docs)  # so this source's own docs can be post-processed below
 
         if src.type == "latex":
+            latex_rasters: dict[str, Path] = {}
             latex_docs, latex_warn = load_latex_docs(
-                clone_dir, src.latex_main or "", product, release, src.id, limit=sample
+                clone_dir, src.latex_main or "", product, release, src.id, limit=sample,
+                bibliography=src.bibliography, rasters=latex_rasters,
             )
+            # a PDF figure's PNG lands beside the chapter, where its rewritten ref points
+            proj_rel = (clone_dir / (src.latex_main or "")).parent.relative_to(clone_dir).as_posix()
+            for ref, cached in latex_rasters.items():
+                rasters[f"{src.id}/{proj_rel}/{ref}"] = cached
             # Date each chapter by its \input closure, not the chapter file alone.
             warnings += _date_docs(latex_docs, clone_dir, src.id, latex_doc_date)
             docs += latex_docs
@@ -380,7 +390,7 @@ def _extract_documents(
                 (doc.source_id, doc.source_path), (clone_dir / doc.source_path).parent
             )
 
-    return docs, excluded, excluded_urls, warnings, crosswalk, pdf_images, image_dirs
+    return docs, excluded, excluded_urls, warnings, crosswalk, pdf_images, image_dirs, rasters
 
 
 def _omit_decorative_images(docs: list[Document]) -> int:
@@ -492,11 +502,15 @@ def _replace_dir(src_dir: Path, dst: Path) -> int:
     return sum(1 for p in Path(long_path(dst)).rglob("*") if p.is_file())
 
 
-def _copy_source_images(product: str, release: str, pdf_images: dict[str, Path]) -> int:
+def _copy_source_images(
+    product: str, release: str, pdf_images: dict[str, Path], rasters: dict[str, Path] | None = None
+) -> int:
     """Copy image assets into processed/ so the relative refs in the .md files resolve.
 
-    Clone-sourced images (measures media/, LaTeX figures/) are copied to the same relative
-    depth as the .md files that reference them; PDF images come from the docling cache.
+    Clone-sourced images (measures media/, the LaTeX project's images dir) are copied to the
+    same relative depth as the .md files that reference them; PDF images come from the
+    docling cache; `rasters` are single PNGs rendered from PDF figures, copied last so they
+    land inside the images dir the directory copy just replaced.
     """
     reg = load_registry(product, release)
     root = processed_root(product, release)
@@ -524,13 +538,19 @@ def _copy_source_images(product: str, release: str, pdf_images: dict[str, Path])
                 dst = root / src.id / "assets" / "images"
                 copied += _replace_dir(src_assets, dst)
         elif src.type == "latex":
-            # pandoc emits <img src="figures/..."> relative to the chapter .tex files
+            # pandoc emits <img src="<images_dir>/..."> relative to the chapter .tex files
             latex_main = clone_dir / (src.latex_main or "")
-            src_figures = latex_main.parent / "figures"
+            src_figures = latex_main.parent / src.images_dir
             if src_figures.is_dir():
                 rel = latex_main.parent.relative_to(clone_dir).as_posix()
-                dst = root / src.id / rel / "figures"
+                dst = root / src.id / rel / src.images_dir
                 copied += _replace_dir(src_figures, dst)
+
+    for rel_path, cached in (rasters or {}).items():
+        dst = root / rel_path
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(long_path(cached), long_path(dst))
+        copied += 1
     return copied
 
 
@@ -556,7 +576,7 @@ def build_release(
     """
     corpus_version = corpus_version or default_corpus_version()
     state = _load_fetch_state(product, release)
-    docs, excluded, excluded_urls, warnings, crosswalk, pdf_images, image_dirs = (
+    docs, excluded, excluded_urls, warnings, crosswalk, pdf_images, image_dirs, rasters = (
         _extract_documents(product, release, state, sample)
     )
     reg = load_registry(product, release)
@@ -577,7 +597,7 @@ def build_release(
 
     remaps = reg.output_remaps()
     _write_processed(product, release, docs, remaps, corpus_version)
-    n_images = _copy_source_images(product, release, pdf_images)
+    n_images = _copy_source_images(product, release, pdf_images, rasters)
     n_sections = _write_section_files(product, release, docs, remaps)
 
     # Chunk line ranges are lines of the files just written, so a hit can be re-read with
