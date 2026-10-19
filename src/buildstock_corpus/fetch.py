@@ -192,10 +192,12 @@ def _fetch_measures(src: Source, clone: Clone, clone_dir: Path, root: Path) -> d
     result: dict = {"type": src.type, "clone": clone.name}
 
     # Internal measure markdown pages (source of the on-site HTML measure docs).
-    internal_dir = clone_dir / (src.internal_dir or "")
     internal_pages = []
     index_name = Path(src.index_page).name if src.index_page else None
-    for path in sorted(internal_dir.glob("*.md")):
+    internal_md = (
+        sorted((clone_dir / src.internal_dir).glob("*.md")) if src.internal_dir else []
+    )
+    for path in internal_md:
         if path.name == index_name:
             continue  # the index page itself is not a measure doc
         internal_pages.append(

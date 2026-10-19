@@ -162,3 +162,106 @@ def test_the_real_registry_excludes_the_four_webinar_decks_and_canonicalises_925
     assert um.canonical_urls == {
         "https://www.nlr.gov/docs/fy26osti/92504.pdf": "https://docs.nlr.gov/docs/fy26osti/92504.pdf"
     }
+
+
+# --- per-product knobs (R1.1 of PLAN-resstock.md) --------------------------------------------
+#
+# ResStock's measures are all external OSTI reports (no site-rendered pages, no crosswalk
+# CSV; the upgrade map is OEDI's upgrades_lookup.json) and its ids are plain numbers; its
+# LaTeX project keeps the bibliography and figures under other names. The registry has to
+# accept that shape without the ComStock one changing meaning.
+
+RESSTOCK_RELEASE = "resstock_amy2018_2025_release_1"
+
+RESSTOCK = textwrap.dedent(
+    f"""\
+    product: resstock
+    release: "{RESSTOCK_RELEASE}"
+    sources:
+      - id: technical_reference
+        type: latex
+        repo: https://example.org/resstock.git
+        git_ref: "2025_Release_1_upgrades_29_to_32"
+        doc_glob: "docs/technical_reference_guide/**/*.tex"
+        latex_main: "docs/technical_reference_guide/ResStockTechnicalReferenceGuide.tex"
+        {{latex_extra}}
+        status: site_page
+        publication_url: https://example.org/site/assets/trd/trg_2025_1.pdf
+      - id: upgrade_measures
+        type: measures
+        repo: https://example.org/ResStock.github.io.git
+        git_ref: "main"
+        index_page: "docs/upgrade_measures.md"
+        {{measures_extra}}
+        site_url: https://example.org/site
+    """
+)
+
+
+def _resstock_registry(
+    tmp_path, monkeypatch,
+    latex_extra='bibliography: "files/refs.bib"\n    images_dir: images',
+    measures_extra=(
+        "upgrades_lookup_url: https://example.org/oedi/upgrades_lookup.json\n"
+        r"    measure_id_pattern: '^\d+$'  # single-quoted: YAML double quotes eat \d"
+    ),
+):
+    path = tmp_path / "sources.yaml"
+    path.write_text(
+        RESSTOCK.format(latex_extra=latex_extra, measures_extra=measures_extra), encoding="utf-8"
+    )
+    monkeypatch.setattr(R, "sources_file", lambda p, r: path)
+    return R.load_registry("resstock", RESSTOCK_RELEASE)
+
+
+def test_resstock_shaped_registry_loads(tmp_path, monkeypatch):
+    reg = _resstock_registry(tmp_path, monkeypatch)
+    um = reg.by_id("upgrade_measures")
+    assert um.internal_dir is None and um.crosswalk_csv is None
+    assert um.upgrades_lookup_url == "https://example.org/oedi/upgrades_lookup.json"
+    assert um.measure_id_pattern == r"^\d+$"
+    tr = reg.by_id("technical_reference")
+    assert (tr.bibliography, tr.images_dir) == ("files/refs.bib", "images")
+
+
+def test_defaults_are_the_comstock_values(tmp_path, monkeypatch):
+    """A registry that never heard of the new fields keeps meaning what it did."""
+    reg = _registry(tmp_path, monkeypatch)
+    um = reg.by_id("upgrade_measures")
+    assert um.measure_id_pattern == R.DEFAULT_MEASURE_ID_PATTERN == r"[a-z]+_\d+"
+    assert um.upgrades_lookup_url is None
+    tr = reg.by_id("technical_reference")
+    assert (tr.bibliography, tr.images_dir) == ("bibliography.bib", "figures")
+    real = R.load_registry("comstock", RELEASE)
+    assert real.by_id("upgrade_measures").crosswalk_csv  # the CSV route, unchanged
+    assert real.by_id("technical_reference").images_dir == "figures"
+
+
+def test_measures_source_needs_one_upgrade_map(tmp_path, monkeypatch):
+    with pytest.raises(ValueError, match="crosswalk_csv.*or upgrades_lookup_url"):
+        _resstock_registry(tmp_path, monkeypatch, measures_extra="")
+
+
+def test_upgrades_lookup_url_must_be_absolute_https(tmp_path, monkeypatch):
+    with pytest.raises(ValueError, match="upgrades_lookup_url must be an absolute https"):
+        _resstock_registry(
+            tmp_path, monkeypatch, measures_extra="upgrades_lookup_url: oedi/upgrades_lookup.json"
+        )
+
+
+def test_measure_id_pattern_must_be_a_valid_regex(tmp_path, monkeypatch):
+    with pytest.raises(ValueError, match="measure_id_pattern.*not a valid regex"):
+        _resstock_registry(
+            tmp_path, monkeypatch,
+            measures_extra=(
+                "upgrades_lookup_url: https://example.org/oedi/upgrades_lookup.json\n"
+                '    measure_id_pattern: "[0-9"'
+            ),
+        )
+
+
+def test_latex_bibliography_and_images_dir_stay_inside_the_project(tmp_path, monkeypatch):
+    with pytest.raises(ValueError, match="images_dir must be a relative path"):
+        _resstock_registry(tmp_path, monkeypatch, latex_extra="images_dir: /images")
+    with pytest.raises(ValueError, match="bibliography must be a relative path"):
+        _resstock_registry(tmp_path, monkeypatch, latex_extra='bibliography: "../refs.bib"')
