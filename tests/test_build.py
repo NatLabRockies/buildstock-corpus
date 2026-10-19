@@ -165,7 +165,7 @@ def _count_conversions(monkeypatch) -> list[str]:
     """Replace the pandoc call with a counter, so we can assert it stops early."""
     converted: list[str] = []
 
-    def fake_convert(tex_path, cwd):
+    def fake_convert(tex_path, cwd, *args, **kwargs):
         converted.append(tex_path.name)
         return f"# {tex_path.stem}\n\nbody\n", ""
 
