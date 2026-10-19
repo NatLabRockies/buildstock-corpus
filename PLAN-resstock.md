@@ -66,9 +66,9 @@ prompt say "ComStock" in prose.
 
 | # | Decision | Options | Recommendation |
 |---|----------|---------|----------------|
-| D1 | Which ref of the TRG documents dataset 2025 Release 1 | (a) `develop` pinned at the commit fetched, as the ComStock site is (`git_ref: develop`, sha recorded in `fetch_state.json` and every `source_url`); (b) tag `2025_Release_1_upgrades_29_to_32`, the code the dataset's last upgrades were run from; (c) the `develop` commit nearest the PDF's 2025-10-22 posting | **(a)**. It is the source the owner pointed at, it carries the NLR branding and the refactored chapter 3, and the published PDF calls itself the active-development version. Record in the registry comment that the tag was considered and why it was not used. Revisit when the next dataset release has its own tag. |
+| D1 | Which ref of the TRG documents dataset 2025 Release 1 | (a) `develop` pinned at the commit fetched, as the ComStock site is (`git_ref: develop`, sha recorded in `fetch_state.json` and every `source_url`); (b) tag `2025_Release_1_upgrades_29_to_32`, the code the dataset's last upgrades were run from; (c) the `develop` commit nearest the PDF's 2025-10-22 posting | **Decided 2026-10-19: (b), the ResStock repo's release tag.** The owner chose the frozen code snapshot the dataset was run from over the moving branch: the tag never changes, so a rebuild reproduces the same guide, and the ComStock precedent (code repo at `2025-3`) holds. Record in the registry comment that `develop` was considered (NLR branding, refactored chapter 3, closer to the published PDF) and why it was not used. When the next dataset release has its own tag, that tag's guide is the next corpus release's source. |
 | D2 | Release id and measure id spelling | Release id `resstock_amy2018_2025_release_1` (OEDI convention, same as ComStock; the AMY2012 dataset shares this documentation and is named in the map, not built twice). Measure ids: the table's number as a string (`"1"` to `"32"`), with `upgrade_id` the same number in this release | As stated. ResStock reuses numbering across releases from 2025 R1 on ("the same set of measures will be run with each dataset release"), so the number is the stable id. |
-| D3 | Chapters commented out of the main file (4 Running ResStock, 7, 8, 9, the 917 KB appendix of option/saturation tables) | (a) follow the main file, convert only what the PDF contains; (b) also convert the appendix as unpublished material with its own status | **(a)** for v1. Under D1(a) the appendix's content is largely what `characteristics/options/*` now inlines into chapter 3, so little is lost. Statuses stay the three in the vocabulary. |
+| D3 | Chapters commented out of the main file (4 Running ResStock, 7, 8, 9, the 917 KB appendix of option/saturation tables) | (a) follow the main file, convert only what the PDF contains; (b) also convert the appendix as unpublished material with its own status | **(a)** for v1. At the tag, chapter 3 already inlines each characteristic's option and saturation tables, so the appendix mostly duplicates them. Statuses stay the three in the vocabulary. |
 | D4 | The two `.ipynb` how-to notebooks | (a) skip, list in the map's known gaps; (b) add a notebook extractor (markdown cells + code cells as fenced blocks, outputs dropped) | **(a)** for v1; (b) is a small, separable follow-up. |
 | D5 | docling table mode for a fresh cache | FAST (what ComStock used, to keep a 52-PDF warm-up to tens of minutes) or ACCURATE (slower, better cell structure) | **ACCURATE**. 27 PDFs, one-time cost, and the owner's stated priority is correct tables. The cache key includes the options, so ComStock's cache is unaffected. |
 | D6 | Link host | Record the eight `www.nlr.gov` links as fetched, or canonicalize to `docs.nlr.gov` via `canonical_urls` | Canonicalize, as ComStock did for 92504, so every OSTI URL in the corpus has one spelling. |
@@ -163,12 +163,13 @@ Sizes: S under an hour, M a few hours, L a day or more. "Files" are the main one
 
 ## Open risks
 
-- **D1 moves.** `develop` advances daily; the fetched sha is exact per build, but a rebuild
-  months later will see a different TRG. That is the same situation as the ComStock site at
-  `main` and is handled the same way: the changelog's computed diff says what moved.
-- **Chapter 3 size.** 3a, 3b and 3c at `develop` expand to several hundred KB each once their
-  `characteristics/` inputs are inlined; the section-file layout keeps each H2 small, but the
-  `bytes` warning in `AGENTS.md` ("check before fetching a whole document") matters more here.
+- **The tag's guide is older than the published PDF.** The site's PDF (October 2025) carries
+  edits the tag (August 2025 code, March 2026 tag) does not. A reader comparing the corpus to
+  the PDF will find differences; the registry comment and the map's source note say which
+  commit the text comes from, and the `publication_url` still sends them to the PDF.
+- **Chapter 3 size.** 3a, 3b and 3c are 173, 169 and 234 KB of LaTeX at the tag; the section-file
+  layout keeps each H2 small, but the `bytes` warning in `AGENTS.md` ("check before fetching a
+  whole document") matters more here.
 - **Rasterized tables in the OSTI PDFs.** ComStock's measure reports had a minority of tables as
   pixels; the ResStock reports come from the same report template, so expect some. The audit
   in R3.2 counts them; each is an insert in R4.
