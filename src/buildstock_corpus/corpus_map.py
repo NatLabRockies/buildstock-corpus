@@ -27,6 +27,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from .paths import chunks_file, manifest_file, processed_root, sha256_file
+from .registry import product_name
 
 MAP_FILENAME = "CORPUS_MAP.md"
 
@@ -114,7 +115,7 @@ def _published(status: str | None, url: str | None) -> str:
 
     A short label rather than the URL itself keeps the tables readable -- the map is the
     first thing an agent reads -- while the status says what kind of publication the link
-    is (an OSTI report, a page or file on the ComStock site) before it is followed.
+    is (an OSTI report, a page or file on the product's site) before it is followed.
     """
     if not url:
         return "—"
@@ -273,7 +274,7 @@ def _render(product: str, release: str, manifest: dict, manifest_sha: str, facts
         "manifest they describe and validate against `schemas/` in the repo.",
         "- **The Published column links the human-readable publication.** Its label is the "
         "document's status: `osti_pdf` for a report with an OSTI number, `site_page` for a page "
-        "or file the ComStock site serves without one. Send a reader there, not to the "
+        f"or file the {product_name(product)} site serves without one. Send a reader there, not to the "
         "markdown.",
         "- **Images are not in the clone.** `processed/**/*.png` is gitignored (~250 MB, "
         "regenerable), so image references resolve to absent files. Tables and figure "

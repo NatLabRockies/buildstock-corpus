@@ -463,7 +463,7 @@ def validate_manifest(
                     # and wordmark, a site doc's wordmark) have no description by the figure
                     # standard; build replaces their bare refs with a comment (W6.1).
                     if a.get("source_type") == "pdf":
-                        for ref in surviving_decorative_refs(a.get("source_path") or "", text):
+                        for ref in surviving_decorative_refs(product, a.get("source_path") or "", text):
                             errors.append(f"{where}: undescribed decorative image ref survives: {ref}")
                     # Section files are committed output a consumer fetches on their own,
                     # and a pure function of the document: regenerate and compare.
