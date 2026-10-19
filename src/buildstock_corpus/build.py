@@ -512,7 +512,7 @@ def _copy_source_images(product: str, release: str, pdf_images: dict[str, Path])
             # measures pages reference media/*.png relative to the page's directory,
             # so media follows the pages when that directory is remapped
             src_media = clone_dir / (src.internal_dir or "") / "media"
-            if src_media.is_dir():
+            if src.internal_dir and src_media.is_dir():
                 rel_media = f"{(src.internal_dir or '').strip('/')}/media"
                 dst = root / src.id / remap_dir(rel_media, src.output_remap)
                 copied += _replace_dir(src_media, dst)
