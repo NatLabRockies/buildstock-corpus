@@ -116,8 +116,8 @@ but only when the owner says so; PRs still merge in this order.
 | 2 | R1.2 | LaTeX loader | done 2026-10-19 | `r1-latex` (main) | #47 | yes |
 | 3 | R1.3 | Measures id pattern, OEDI lookup | done 2026-10-19 | `r1-measures` (main) | #48 | yes |
 | 4 | R1.4 | Product-neutral CLI and prose | done 2026-10-19 | `r1-neutral` (main) | #49 | yes, 2026-11-10 |
-| 5 | R2.1 | ResStock registry | done 2026-11-10 | `r2-registry` (main) | #50 | no: waiting on CI (Windows job queued for a runner) |
-| 6 | R2.2 | Fetch | done 2026-11-10 | `r2-fetch` (`r2-registry`) | to open once #50 merges | no |
+| 5 | R2.1 | ResStock registry | done 2026-11-10 | `r2-registry` (main) | #50 | yes, 2026-11-10 |
+| 6 | R2.2 | Fetch | done 2026-11-10 | `r2-fetch` (`r2-registry`) | #51 | no: waiting on CI |
 | 7 | R3.0 | docling table mode per source (D5) | done 2026-11-10 | `r3-build` (`r2-fetch`) | with R3.1 | no |
 | 8 | R3.1 | Smoke build, then full sandbox build | not started | `r3-build` (`r2-fetch`) | to open | no |
 | 9 | R3.2 | Fidelity audit, systematic extractor fixes, decorative rule | not started | | | |
