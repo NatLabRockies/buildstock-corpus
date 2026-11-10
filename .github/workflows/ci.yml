@@ -56,6 +56,12 @@ jobs:
             name=$(basename "$f" .yaml)            # <product>_<release id>
             product=${name%%_*}
             release=${name#*_}
+            # A release registered but not built yet has no folder under processed/ and
+            # nothing to validate. A folder without a manifest still fails below.
+            if [ ! -d "processed/$product/$release" ]; then
+              echo "::notice::$product $release is registered but not built yet; validate skipped"
+              continue
+            fi
             echo "::group::bsc validate --product $product --release $release"
             uv run bsc validate --product "$product" --release "$release"
             echo "::endgroup::"

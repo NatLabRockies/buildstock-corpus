@@ -265,3 +265,31 @@ def test_latex_bibliography_and_images_dir_stay_inside_the_project(tmp_path, mon
         _resstock_registry(tmp_path, monkeypatch, latex_extra="images_dir: /images")
     with pytest.raises(ValueError, match="bibliography must be a relative path"):
         _resstock_registry(tmp_path, monkeypatch, latex_extra='bibliography: "../refs.bib"')
+
+
+# --- the checked-in ResStock registry (R2.1 of PLAN-resstock.md) ---------------------------
+
+
+def test_checked_in_resstock_registry_records_the_plan_decisions():
+    """The real sources/ file loads and says what D1, D2 and D6 decided."""
+    reg = R.load_registry("resstock", RESSTOCK_RELEASE)
+    assert [s.id for s in reg.sources] == ["technical_reference", "github_site", "upgrade_measures"]
+
+    tr = reg.by_id("technical_reference")
+    assert tr.git_ref == "2025_Release_1_upgrades_29_to_32"  # D1: the frozen release tag
+    assert (tr.bibliography, tr.images_dir) == ("files/refs.bib", "images")
+    assert tr.status == "site_page"
+
+    site = reg.by_id("github_site")
+    assert site.exclude_globs == ["docs/upgrade_measures.md"]
+
+    um = reg.by_id("upgrade_measures")
+    assert um.index_page == "docs/upgrade_measures.md"
+    assert (um.internal_dir, um.crosswalk_csv) == (None, None)  # every measure is an OSTI report
+    assert um.upgrades_lookup_url.endswith("/2025/resstock_amy2018_release_1/upgrades_lookup.json")
+    assert um.measure_id_pattern == r"^\d+$"  # D2: the table's numbers
+    # D6: every www.nlr.gov link maps to the same path on docs.nlr.gov
+    assert len(um.canonical_urls) == 7
+    for alias, canonical in um.canonical_urls.items():
+        assert alias.startswith("https://www.nlr.gov/docs/")
+        assert canonical == alias.replace("://www.nlr.gov/", "://docs.nlr.gov/")
