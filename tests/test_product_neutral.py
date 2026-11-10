@@ -60,10 +60,15 @@ def test_ambiguous_or_unknown_targets_exit_2_naming_the_registries(tmp_path, mon
     assert "no registry in sources/ matches" in capsys.readouterr().err
 
 
-def test_the_checked_in_registry_set_resolves_as_expected():
-    """Today sources/ holds ComStock alone, so a bare `bsc validate` still means ComStock.
-    When the ResStock registry lands (R2.1) this test changes to the two-registry case."""
-    assert C._target(None, None) == COM
+def test_the_checked_in_registry_set_resolves_as_expected(capsys):
+    """Since R2.1 sources/ holds one registry per product, so a bare `bsc validate` no
+    longer means ComStock: it exits 2, and --product (or --release) picks one."""
+    with pytest.raises(typer.Exit) as exc:
+        C._target(None, None)
+    assert exc.value.exit_code == 2
+    assert "several registries match" in capsys.readouterr().err
+    assert C._target("comstock", None) == COM
+    assert C._target("resstock", None) == RES
 
 
 def test_product_names_are_spelled_as_the_products_spell_them():

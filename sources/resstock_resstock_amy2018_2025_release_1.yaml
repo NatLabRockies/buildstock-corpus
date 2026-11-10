@@ -1,0 +1,97 @@
+# Source registry for ResStock dataset release resstock_amy2018_2025_release_1.
+#
+# The release id follows the OEDI data lake convention, as ComStock's does
+# (2025/resstock_amy2018_release_1 on OEDI). The AMY2012 dataset of the same release shares
+# this documentation; it is named in the map, not built twice (decision D2, 2026-10-19).
+#
+# Decisions behind this file (PLAN-resstock.md, all taken 2026-10-19):
+#   D1  The technical reference guide is read at the ResStock repo's release tag
+#       2025_Release_1_upgrades_29_to_32, the code the dataset's last upgrades were run
+#       from. `develop` was considered -- it carries the NLR branding (nlr.cls), splits
+#       chapter 3 into 1,065 per-characteristic files and is closer to the PDF the site
+#       posted on 2025-10-22 -- and was not used: it moves, so a rebuild would not
+#       reproduce the same guide, and the ComStock precedent pins its code repo at a tag
+#       (2025-3). The tag's guide is older than the published PDF; publication_url still
+#       sends readers to the PDF. The next dataset release's tag is that release's source.
+#   D2  Measure ids are the index table's numbers ("1" to "32"); upgrade_id is the same
+#       number in this release. ResStock reuses its numbering across releases.
+#   D3  Only what the main file \inputs is converted. Chapters 4, 7, 8, 9 and the appendix
+#       are commented out of it, so the published PDF does not contain them either.
+#   D4  The two .ipynb how-to notebooks are not converted (doc_glob reads *.md only); the
+#       map lists them as a known gap.
+#   D5  docling runs its ACCURATE table mode for these PDFs (a build option, not set here).
+#   D6  The seven reports the index page links on www.nlr.gov (which 301-redirects to
+#       docs.nlr.gov) are recorded under docs.nlr.gov, as ComStock's 92504 is.
+#
+# The github.io site is read at `main`, as ComStock's is: the commit actually fetched is
+# recorded in fetch_state.json and in every artifact's source_url, so each build is pinned
+# exactly even though the ref moves.
+product: resstock
+release: "resstock_amy2018_2025_release_1"
+
+# Publication status (see src/buildstock_corpus/status.py): osti_pdf for reports with an
+# OSTI number, site_page for anything the ResStock site publishes without one. latex/markdown
+# sources declare one status for all their documents here; the measures source derives it
+# per document from the index page's links.
+
+sources:
+  # ResStock technical reference guide -- LaTeX source, converted with pandoc. Published as
+  # a PDF on the ResStock site, without an OSTI number.
+  - id: technical_reference
+    type: latex
+    repo: https://github.com/NatLabRockies/resstock.git
+    git_ref: "2025_Release_1_upgrades_29_to_32"
+    sparse: ["docs/technical_reference_guide"]
+    root_hint: docs/technical_reference_guide   # LaTeX project root within the repo
+    doc_glob: "docs/technical_reference_guide/**/*.tex"
+    latex_main: "docs/technical_reference_guide/ResStockTechnicalReferenceGuide.tex"  # \input list drives chapter conversion
+    # Both relative to latex_main's directory (ComStock's defaults are bibliography.bib and figures/).
+    bibliography: "files/refs.bib"
+    images_dir: "images"
+    status: site_page
+    # The human-readable form of the guide: the PDF the ResStock site posted on 2025-10-22
+    # ("Draft, ResStock 2025 Release 1, October 2025"). See D1 above for how it differs
+    # from the tag's source.
+    publication_url: https://natlabrockies.github.io/ResStock.github.io/assets/trd/ResStockTechnicalReferenceGuide_2025_1.pdf
+
+  # Public site -- Jekyll markdown, read directly. The upgrade-measures index page is
+  # excluded here and handled by the measures source.
+  - id: github_site
+    type: markdown
+    repo: https://github.com/NatLabRockies/ResStock.github.io.git
+    git_ref: "main"
+    status: site_page
+    # Live site that renders these pages: docs/a/b.md is served at <site_url>/docs/a/b.html.
+    site_url: https://natlabrockies.github.io/ResStock.github.io
+    # assets/images is checked out for the figures the docs pages reference, not for
+    # doc_glob -- it holds no markdown.
+    sparse: ["docs", "assets/images"]
+    doc_glob: "docs/**/*.md"
+    exclude_globs:
+      - "docs/upgrade_measures.md"
+
+  # Upgrade measures -- every documented measure is an external OSTI report; the site
+  # renders no measure page of its own (so no internal_dir) and commits no crosswalk CSV.
+  # The per-release upgrade map is OEDI's upgrades_lookup.json, downloaded and hashed by
+  # `bsc fetch` like the PDFs. All 32 measures are documented (28 reports; measures 24-28
+  # share 93846); measure 11 gained its report on 2026-11-10.
+  - id: upgrade_measures
+    type: measures
+    repo: https://github.com/NatLabRockies/ResStock.github.io.git
+    git_ref: "main"
+    sparse: ["docs"]
+    site_url: https://natlabrockies.github.io/ResStock.github.io
+    index_page: "docs/upgrade_measures.md"
+    upgrades_lookup_url: https://oedi-data-lake.s3.amazonaws.com/nrel-pds-building-stock/end-use-load-profiles-for-us-building-stock/2025/resstock_amy2018_release_1/upgrades_lookup.json
+    measure_id_pattern: '^\d+$'   # single-quoted: YAML double quotes eat \d
+    # D6: the reports for measures 6-8 and 29-32 are linked on www.nlr.gov, which
+    # 301-redirects to docs.nlr.gov (checked 2026-11-10). Every link to them is recorded
+    # under the docs.nlr.gov spelling the other 21 reports already use.
+    canonical_urls:
+      "https://www.nlr.gov/docs/fy26osti/95032.pdf": "https://docs.nlr.gov/docs/fy26osti/95032.pdf"
+      "https://www.nlr.gov/docs/fy26osti/95034.pdf": "https://docs.nlr.gov/docs/fy26osti/95034.pdf"
+      "https://www.nlr.gov/docs/fy26osti/95036.pdf": "https://docs.nlr.gov/docs/fy26osti/95036.pdf"
+      "https://www.nlr.gov/docs/fy26osti/99816.pdf": "https://docs.nlr.gov/docs/fy26osti/99816.pdf"
+      "https://www.nlr.gov/docs/fy26osti/99818.pdf": "https://docs.nlr.gov/docs/fy26osti/99818.pdf"
+      "https://www.nlr.gov/docs/fy26osti/99819.pdf": "https://docs.nlr.gov/docs/fy26osti/99819.pdf"
+      "https://www.nlr.gov/docs/fy26osti/99820.pdf": "https://docs.nlr.gov/docs/fy26osti/99820.pdf"
