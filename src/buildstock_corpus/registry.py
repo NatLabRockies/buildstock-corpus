@@ -60,8 +60,8 @@ class Source:
     # numbers its measures 1 to 32.
     measure_id_pattern: str = DEFAULT_MEASURE_ID_PATTERN
     # measures only: docling's table-structure mode for this source's PDFs. "fast" keeps a
-    # large cache warm-up short (ComStock); "accurate" spends more time per table on cell
-    # structure (ResStock). Part of the conversion-cache fingerprint.
+    # large cache warm-up short; "accurate" spends more time per table on cell structure
+    # (both registries choose it). Part of the conversion-cache fingerprint.
     pdf_table_mode: str = DEFAULT_PDF_TABLE_MODE
     # source dir -> output dir, for dirs the corpus must not name the way upstream does.
     # Output-side only: source_path, input hashes, and the fetch/sparse config are never

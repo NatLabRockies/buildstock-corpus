@@ -74,6 +74,13 @@ sources:
       "docs/upgrade_measures": "unpublished_docs/upgrade_measures"
       "assets/files": "unpublished_docs/upgrade_measures"
     crosswalk_csv: "assets/files/measure_name_crosswalk_2025_3.csv"
+    # docling's table-structure mode for the measure PDFs (owner decision 2026-11-10): accurate,
+    # as ResStock uses, from the next build on. Tags -v1 to -v3 were built with fast. The mode
+    # is part of the conversion-cache fingerprint, so the next `bsc build` re-converts every
+    # measure PDF once (hours, not minutes), and any table it renders differently shows up as
+    # a changed body hash; the six `replaces:` overlays pin the fast-mode table they remove and
+    # will report a mismatch wherever accurate mode emits a different grid.
+    pdf_table_mode: accurate
     # One OSTI report the index page links under two hosts. Every link to it -- the file's
     # header and manifest row, and the crosswalk rows of all four measures it documents
     # (dr_0005, dr_0006, pkg_0007, pkg_0009) -- is recorded under the canonical spelling

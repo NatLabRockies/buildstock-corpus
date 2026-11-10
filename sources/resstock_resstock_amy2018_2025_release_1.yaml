@@ -85,7 +85,7 @@ sources:
     index_page: "docs/upgrade_measures.md"
     upgrades_lookup_url: https://oedi-data-lake.s3.amazonaws.com/nrel-pds-building-stock/end-use-load-profiles-for-us-building-stock/2025/resstock_amy2018_release_1/upgrades_lookup.json
     measure_id_pattern: '^\d+$'   # single-quoted: YAML double quotes eat \d
-    pdf_table_mode: accurate      # D5; the default (ComStock's) is fast
+    pdf_table_mode: accurate      # D5; the default is fast
     # D6: the reports for measures 6-8 and 29-32 are linked on www.nlr.gov, which
     # 301-redirects to docs.nlr.gov (checked 2026-11-10). Every link to them is recorded
     # under the docs.nlr.gov spelling the other 21 reports already use.

@@ -83,8 +83,9 @@ def _pipeline_options():
     # keep the layout + table-structure models, which are the point of a layout-aware reader.
     # TableFormer FAST (vs ACCURATE) and more CPU threads keep the one-time cache warm to
     # tens of minutes instead of hours; tables still get real structure, just less refinement.
-    # FAST is the default (ComStock's 52 PDFs); a source whose priority is cell structure over
-    # warm-up time sets `pdf_table_mode: accurate` in the registry (ResStock, decision D5).
+    # FAST is the default; a source whose priority is cell structure over warm-up time sets
+    # `pdf_table_mode: accurate` in the registry (ResStock from its first build; ComStock from
+    # the build after -v3).
     opts = PdfPipelineOptions()
     opts.do_ocr = False
     opts.do_table_structure = True
