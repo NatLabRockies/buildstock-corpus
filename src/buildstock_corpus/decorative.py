@@ -20,6 +20,11 @@ ever considered, and which of them are decorative depends on where the PDF came 
 Only an *undescribed* ref is ever touched: a described figure's alt text is its description.
 Shared by build and manifest so the omission and the check cannot drift apart, and decided
 from the ref alone (index, origin, bitmap hash) so validate needs no image files.
+
+The rule is per product (``_RULES``). The one above is ComStock's, written from its
+reports; a product with no rule hides nothing, which is the safe side: a real Figure 1
+stays visible until the product's first conversion has been looked at and a rule for it
+written here (PLAN-resstock.md R3.2 does that for ResStock).
 """
 
 from __future__ import annotations
@@ -44,11 +49,9 @@ PREPUB_WATERMARK_HASH = "a27ad8a4f51fb12164031d26c2a57ee089a2c899a7847e204fd3180
 _OSTI_REPORT = {"000000": "cover art", "000001": "wordmark"}
 
 
-def decorative_label(source_path: str, idx: str, name_hash: str) -> str | None:
-    """What a PDF's leading bitmap `idx` (named with `name_hash`) is, if it is decorative.
-
-    None means it is a figure the build must leave alone.
-    """
+def _comstock_label(source_path: str, idx: str, name_hash: str) -> str | None:
+    """ComStock's rule: OSTI reports open with cover art then wordmark; site-served docs
+    with the wordmark, plus the pre-publication stamp wherever it falls."""
     if not source_path.startswith(SITE_PDF_PREFIX):
         return _OSTI_REPORT.get(idx)
     if name_hash == PREPUB_WATERMARK_HASH:
@@ -58,15 +61,28 @@ def decorative_label(source_path: str, idx: str, name_hash: str) -> str | None:
     return None
 
 
+_RULES = {"comstock": _comstock_label}
+
+
+def decorative_label(product: str, source_path: str, idx: str, name_hash: str) -> str | None:
+    """What a PDF's leading bitmap `idx` (named with `name_hash`) is, if it is decorative.
+
+    None means it is a figure the build must leave alone, which is also the answer for a
+    product that has no rule yet.
+    """
+    rule = _RULES.get(product)
+    return rule(source_path, idx, name_hash) if rule else None
+
+
 def omission_comment(idx: str, label: str) -> str:
     """The line build writes in place of an omitted decorative image ref."""
     return f"<!-- decorative image omitted: image_{idx} ({label}; no description by the figure standard) -->"
 
 
-def surviving_decorative_refs(source_path: str, text: str) -> list[str]:
+def surviving_decorative_refs(product: str, source_path: str, text: str) -> list[str]:
     """The undescribed decorative refs still present in a built PDF document (for validate)."""
     return [
         m.group(0).strip()
         for m in DECORATIVE_REF_RE.finditer(text)
-        if decorative_label(source_path, m.group("idx"), m.group("hash")) is not None
+        if decorative_label(product, source_path, m.group("idx"), m.group("hash")) is not None
     ]

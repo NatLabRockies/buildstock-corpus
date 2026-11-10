@@ -208,7 +208,7 @@ def _measure_statuses(src_state: dict) -> dict[str, str]:
     """source_path -> publication status for every document of a measures source.
 
     The index page's internal pages and the PDFs committed beside them are both things
-    the ComStock site serves, so both are site_page; a PDF fetched from elsewhere is judged
+    the product's site serves, so both are site_page; a PDF fetched from elsewhere is judged
     by its URL (see status.status_for_url). Keyed by the same source_path the extractors
     stamp on each Document, so build can assign without re-deriving link kinds.
     """
@@ -413,9 +413,9 @@ def _omit_decorative_images(docs: list[Document]) -> int:
         if doc.source_type != "pdf":
             continue
 
-        def repl(m: re.Match, source_path: str = doc.source_path) -> str:
+        def repl(m: re.Match, source_path: str = doc.source_path, product: str = doc.product) -> str:
             nonlocal n
-            label = decorative_label(source_path, m.group("idx"), m.group("hash"))
+            label = decorative_label(product, source_path, m.group("idx"), m.group("hash"))
             if label is None:
                 return m.group(0)  # a real figure (a site doc's Figure 1): left as it was
             n += 1

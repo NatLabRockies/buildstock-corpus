@@ -6,7 +6,7 @@ a file fetched over HTTPS; a field does. The three values, decided by the corpus
 
   osti_pdf   A report with an OSTI number -- citable as a publication in its own right.
              Detected from the publication URL (nlr.gov/docs/fyNNosti/NNNNN.pdf).
-  site_page  Published on the ComStock site without an OSTI number. Whether the site
+  site_page  Published on the product's own site without an OSTI number. Whether the site
              serves it as a rendered page or as a PDF file does not matter: both are one
              class of document, and both may later be superseded by an OSTI publication.
   missing    Documented nowhere. Only crosswalk rows carry this -- a document that exists
@@ -44,7 +44,7 @@ def status_for_url(url: str) -> str:
     Every external measure document the corpus holds today is an OSTI report. A URL that
     is not one has no value in the vocabulary yet, so it is an error for the owner to
     rule on rather than a guess: silently calling it `site_page` would misname a document
-    that is not on the ComStock site.
+    that is not on the product's site.
     """
     if is_osti_url(url):
         return OSTI_PDF
@@ -57,7 +57,7 @@ def status_for_url(url: str) -> str:
 def status_for_kind(kind: str, target: str | None = None) -> str:
     """Status for a measures-index link kind (measures_index.MeasureRef.kind).
 
-    internal_md and local_pdf are both things the ComStock site serves; external_pdf is
+    internal_md and local_pdf are both things the product's site serves; external_pdf is
     judged by its URL; everything else (no link, a non-PDF external link, a measure the
     index never lists) is documentation that does not exist yet.
     """
