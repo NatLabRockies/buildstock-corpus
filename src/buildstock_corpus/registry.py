@@ -26,6 +26,8 @@ def product_name(product: str) -> str:
 DEFAULT_MEASURE_ID_PATTERN = r"[a-z]+_\d+"  # hvac_0001, env_0003, pkg_0012
 DEFAULT_BIBLIOGRAPHY = "bibliography.bib"  # relative to the LaTeX project dir
 DEFAULT_IMAGES_DIR = "figures"  # likewise; where \includegraphics targets live
+DEFAULT_PDF_TABLE_MODE = "fast"  # docling TableFormer mode for a measures source's PDFs
+PDF_TABLE_MODES = ("fast", "accurate")
 
 
 @dataclass
@@ -57,6 +59,10 @@ class Source:
     # one measure (a combined row names several). ComStock ids look like hvac_0001; ResStock
     # numbers its measures 1 to 32.
     measure_id_pattern: str = DEFAULT_MEASURE_ID_PATTERN
+    # measures only: docling's table-structure mode for this source's PDFs. "fast" keeps a
+    # large cache warm-up short (ComStock); "accurate" spends more time per table on cell
+    # structure (ResStock). Part of the conversion-cache fingerprint.
+    pdf_table_mode: str = DEFAULT_PDF_TABLE_MODE
     # source dir -> output dir, for dirs the corpus must not name the way upstream does.
     # Output-side only: source_path, input hashes, and the fetch/sparse config are never
     # rewritten.
@@ -129,6 +135,7 @@ def load_registry(product: str, release: str) -> Registry:
             crosswalk_csv=raw.get("crosswalk_csv"),
             upgrades_lookup_url=raw.get("upgrades_lookup_url"),
             measure_id_pattern=str(raw.get("measure_id_pattern") or DEFAULT_MEASURE_ID_PATTERN),
+            pdf_table_mode=str(raw.get("pdf_table_mode") or DEFAULT_PDF_TABLE_MODE),
             output_remap=dict(raw.get("output_remap") or {}),
             status=raw.get("status"),
             site_url=raw.get("site_url"),
@@ -185,6 +192,11 @@ def _validate_source(src: Source, path) -> None:
                 f"source '{src.id}' (measures): measure_id_pattern {src.measure_id_pattern!r} "
                 f"is not a valid regex: {exc}"
             ) from None
+        if src.pdf_table_mode not in PDF_TABLE_MODES:
+            raise ValueError(
+                f"source '{src.id}' (measures): pdf_table_mode must be one of "
+                f"{list(PDF_TABLE_MODES)}, got {src.pdf_table_mode!r}"
+            )
         if src.status is not None:
             raise ValueError(
                 f"source '{src.id}' (measures) must not set status: it is derived per "

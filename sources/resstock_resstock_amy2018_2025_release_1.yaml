@@ -19,7 +19,8 @@
 #       are commented out of it, so the published PDF does not contain them either.
 #   D4  The two .ipynb how-to notebooks are not converted (doc_glob reads *.md only); the
 #       map lists them as a known gap.
-#   D5  docling runs its ACCURATE table mode for these PDFs (a build option, not set here).
+#   D5  docling runs its ACCURATE table mode for the measure PDFs (pdf_table_mode below):
+#       28 PDFs, a one-time cost, and the priority is correct tables.
 #   D6  The seven reports the index page links on www.nlr.gov (which 301-redirects to
 #       docs.nlr.gov) are recorded under docs.nlr.gov, as ComStock's 92504 is.
 #
@@ -84,6 +85,7 @@ sources:
     index_page: "docs/upgrade_measures.md"
     upgrades_lookup_url: https://oedi-data-lake.s3.amazonaws.com/nrel-pds-building-stock/end-use-load-profiles-for-us-building-stock/2025/resstock_amy2018_release_1/upgrades_lookup.json
     measure_id_pattern: '^\d+$'   # single-quoted: YAML double quotes eat \d
+    pdf_table_mode: accurate      # D5; the default (ComStock's) is fast
     # D6: the reports for measures 6-8 and 29-32 are linked on www.nlr.gov, which
     # 301-redirects to docs.nlr.gov (checked 2026-11-10). Every link to them is recorded
     # under the docs.nlr.gov spelling the other 21 reports already use.

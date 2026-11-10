@@ -149,3 +149,17 @@ def test_legacy_single_file_cache_is_replaced(cache):
     assert not legacy.exists()
     assert cache.converted == [str(cache.spec.abs_path)]
     assert (d / PDF.CACHE_OPTS_NAME).is_file()
+
+
+def test_table_mode_switch_drops_the_converter_and_fingerprint(monkeypatch):
+    """A source asking for ACCURATE must not reuse the converter or fingerprint built for
+    FAST: the fingerprint is what makes a cache dir converted under the other mode a miss."""
+    monkeypatch.setattr(PDF, "_table_mode", "fast")
+    monkeypatch.setattr(PDF, "_converter", object())
+    monkeypatch.setattr(PDF, "_fingerprint", dict(FINGERPRINT))
+    PDF._set_table_mode("fast")  # unchanged: nothing is rebuilt
+    assert PDF._converter is not None and PDF._fingerprint == FINGERPRINT
+    PDF._set_table_mode("accurate")
+    assert (PDF._table_mode, PDF._converter, PDF._fingerprint) == ("accurate", None, None)
+    with pytest.raises(ValueError, match="pdf table mode"):
+        PDF._set_table_mode("thorough")

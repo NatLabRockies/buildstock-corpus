@@ -2,7 +2,7 @@
 
 Written 2026-10-19 from a survey of the two ResStock sources and of how the ComStock corpus
 was built (PLAN.md, PLAN-staging.md, PLAN-buildstock-corpus-handoff.md). Owner: Lauren Klun.
-Status: decisions D1 to D6 taken 2026-10-19; stage R1 merged (PRs #46 to #49); R2.1 and R2.2 done 2026-11-10; R3.0 (docling table mode, added 2026-11-10) next. The order every step runs in, with its branch, PR and merge state, is the "Order of work" table below; that table is the one to read for where things stand. Steps run one at a time, each asked for before it starts, one
+Status: decisions D1 to D6 taken 2026-10-19; stage R1 merged (PRs #46 to #49); R2.1 and R2.2 done 2026-11-10; R3.0 (docling table mode, added 2026-11-10) done the same day; R3.1 (smoke build) next. The order every step runs in, with its branch, PR and merge state, is the "Order of work" table below; that table is the one to read for where things stand. Steps run one at a time, each asked for before it starts, one
 branch and PR per step unless a row says otherwise (the ComStock convention).
 
 ## Goal
@@ -118,8 +118,8 @@ but only when the owner says so; PRs still merge in this order.
 | 4 | R1.4 | Product-neutral CLI and prose | done 2026-10-19 | `r1-neutral` (main) | #49 | yes, 2026-11-10 |
 | 5 | R2.1 | ResStock registry | done 2026-11-10 | `r2-registry` (main) | #50 | no: waiting on CI (Windows job queued for a runner) |
 | 6 | R2.2 | Fetch | done 2026-11-10 | `r2-fetch` (`r2-registry`) | to open once #50 merges | no |
-| 7 | R3.0 | docling table mode per source (D5) | not started | `r3-build` (`r2-fetch`) | with R3.1 | no |
-| 8 | R3.1 | Smoke build, then full sandbox build | not started; needs R3.0 | `r3-build` (`r2-fetch`) | to open | no |
+| 7 | R3.0 | docling table mode per source (D5) | done 2026-11-10 | `r3-build` (`r2-fetch`) | with R3.1 | no |
+| 8 | R3.1 | Smoke build, then full sandbox build | not started | `r3-build` (`r2-fetch`) | to open | no |
 | 9 | R3.2 | Fidelity audit, systematic extractor fixes, decorative rule | not started | | | |
 | 10 | R3.3 | Commit the first real build | not started | | | |
 | 11 | R4.1 | Overlay method and `checked:` entries | not started | | | |
@@ -168,7 +168,7 @@ Sizes: S under an hour, M a few hours, L a day or more. "Files" are the main one
 
 | # | Step | Files | Done when | Size |
 |---|------|-------|-----------|------|
-| R3.0 | Added 2026-11-10. Let a `measures` source choose docling's table-structure mode: registry field `pdf_table_mode` (`fast` or `accurate`, default `fast`, so ComStock is unchanged), threaded from the build into the PDF extractor, where it is part of the conversion-cache fingerprint. The ResStock registry sets `accurate` (D5). | `registry.py`, `extract/pdf.py`, `build.py`, the ResStock registry, tests | ComStock's registry still loads as `fast` and its cached conversions still hit; the ResStock registry loads as `accurate`; a mode other than the two is refused; tests pass. | S |
+| R3.0 | Added 2026-11-10. Let a `measures` source choose docling's table-structure mode: registry field `pdf_table_mode` (`fast` or `accurate`, default `fast`, so ComStock is unchanged), threaded from the build into the PDF extractor, where it is part of the conversion-cache fingerprint. The ResStock registry sets `accurate` (D5). | `registry.py`, `extract/pdf.py`, `build.py`, the ResStock registry, tests | ComStock's registry still loads as `fast` and its cached conversions still hit; the ResStock registry loads as `accurate`; a mode other than the two is refused; tests pass. **Done 2026-11-10, branch `r3-build`.** `pdf_table_mode` on the registry's `Source`; `load_pdf_docs(..., table_mode=)` sets the extractor's mode for its batch and drops the converter and fingerprint built for the other mode. Checked with docling itself: the two fingerprints differ only in `table_mode` (`fast` / `accurate`), all 57 conversion-cache dirs on this machine still match the `fast` fingerprint (so ComStock re-converts nothing), and `bsc validate --product comstock` is green. 2 new tests (`test_registry.py`, `test_pdf_cache.py`). | S |
 | R3.1 | Smoke build in a sandbox: `uv run bsc build --product resstock --release … --work-dir <scratch> --sample 2`, then the full build with `--no-overlays`. Expect ~7 TRG chapters (1, 2, 3a, 3b, 3c, 5, 6), ~26 site pages, 27 PDFs. The docling warm-up at ACCURATE is a one-time cost of roughly an hour. Read every build warning. | none committed | Build completes; warnings list recorded here. | M |
 | R3.2 | Run `scripts/audit_md_fidelity.py` on the sandbox output and fix the extractor for every class of defect that is systematic rather than per-document: longtables that lost their header or caption, `customLongTable` captions, heading levels, cross-references (`\ref{table:…}` to quoted titles), soft hyphens and NBSPs, dangling image refs. Inspect the first two docling images of three ResStock PDFs and set the product's decorative rule (R1.4). | `extract/latex.py`, `decorative.py`, tests | latex: 0 orphaned table or figure captions, 0 dangling refs; pdf: orphaned count known and every one traced to a rasterized table (overlay work for R4), not an extractor bug; character hygiene zero in latex and markdown. | M |
 | R3.3 | Commit the first real build to `processed/resstock/…` with `--corpus-version resstock_amy2018_2025_release_1-v1-pre` or no version (the manifest's `corpus_version` only has to equal the tag at release time); `bsc map`, `bsc validate`. | `processed/resstock/**` | Validate green; `CORPUS_MAP.md` lists every document, the 32-measure routing table and the gap (measure 11, two notebooks). | S |

@@ -288,8 +288,21 @@ def test_checked_in_resstock_registry_records_the_plan_decisions():
     assert (um.internal_dir, um.crosswalk_csv) == (None, None)  # every measure is an OSTI report
     assert um.upgrades_lookup_url.endswith("/2025/resstock_amy2018_release_1/upgrades_lookup.json")
     assert um.measure_id_pattern == r"^\d+$"  # D2: the table's numbers
+    assert um.pdf_table_mode == "accurate"  # D5
+    assert R.load_registry("comstock", RELEASE).by_id("upgrade_measures").pdf_table_mode == "fast"
     # D6: every www.nlr.gov link maps to the same path on docs.nlr.gov
     assert len(um.canonical_urls) == 7
     for alias, canonical in um.canonical_urls.items():
         assert alias.startswith("https://www.nlr.gov/docs/")
         assert canonical == alias.replace("://www.nlr.gov/", "://docs.nlr.gov/")
+
+
+def test_pdf_table_mode_must_be_fast_or_accurate(tmp_path, monkeypatch):
+    with pytest.raises(ValueError, match="pdf_table_mode must be one of"):
+        _resstock_registry(
+            tmp_path, monkeypatch,
+            measures_extra=(
+                "upgrades_lookup_url: https://example.org/oedi/upgrades_lookup.json\n"
+                "    pdf_table_mode: thorough"
+            ),
+        )
