@@ -12,8 +12,11 @@
 #     the page break; Table 7 with superscript markers flattened into the values), and the
 #     rows are reused from the extraction, not retyped. The footnote text is from the PDF
 #     text layer and appears nowhere else in the document.
-#   * Tables 4, 8, 9 and 10, the List of Acronyms and the two grids of the Upgrade Summary
-#     table (pp.9-10) are recorded under `checked:` as correct.
+#   * The second grid of the Upgrade Summary table (p.10, no caption) is superseded: the
+#     project configuration URL carried a line-wrap space and the quoted word "none" was
+#     broken. It is the extractor's own grid with those two corrected.
+#   * Tables 4, 8, 9 and 10, the List of Acronyms and the first grid of the Upgrade
+#     Summary table (p.9) are recorded under `checked:` as correct.
 #   * The Table of Contents and the List of Figures / List of Tables grids are contents
 #     pages, not tables of the report, and have no entry.
 #
@@ -224,6 +227,34 @@ tables:
 
     ³EER is used rather than CEER as the default rated efficiency units for room AC in ResStock. One can
     convert between units using: CEER = EER / 1.01.ResStock may move to CEER for future releases.'
+- label: 'Upgrade Summary (page 10: Not Applicable, Original Release, Project Configuration File)'
+  uncaptioned: true
+  source_pdf: measure_pdfs/96636.pdf
+  source_pdf_sha256: f7d3ed849fdae6e20111670a617bbc4c227c5f0f914bdaa0fb99343acebef475
+  page: 10
+  method: extracted grid, with the cells named in `why` corrected from the PDF text layer
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: af1b3ffdd9bbf04310d8b0dae7b0a89f7e1a1902d5dc1d43e571595889776cfe
+    why: 'Second grid of the Upgrade Summary (page 10). Two cells are wrong: the project configuration
+      URL carries a space where the PDF wraps the line (''project_n ational''), so a search for the real
+      path misses it, and the quoted word “none” was extracted as ''n one ''. The cell text is the extractor''s
+      own with those two corrected from the PDF text layer.'
+  markdown: '| Measure Title | Reference Space Heating and Air Conditioning Upgrade Circa 2025 |
+
+    |---|---|
+
+    | Not Applicable | This upgrade does not apply to: • Homes that do not have existing ductwork, including
+    homes heated with electric resistance baseboard, boilers/radiators, ductless heat pumps, and wall/floor
+    furnaces that do not have ducted air conditioning. • Heating systems sourced from wood and homes without
+    heating (i.e., “none”). • Systems already meeting or exceeding the specified minimum efficiency thresholds
+    (modeled as like-for-like replacements). These constraints exclude 24.8% of the dwelling units from
+    receiving this measure upgrade. |
+
+    | Original Release | 2025/resstock_amy2018_release_1; 2025/resstock_amy2012_release_1 |
+
+    | Project Configuration File | https://github.com/NatLabRockies/resstock/blob/sdr_2025_Release_1/project_national/sdr_upgrades_amy2018.yml
+    |'
 checked:
 - label: List of Acronyms
   uncaptioned: true
@@ -246,18 +277,6 @@ checked:
   note: The table runs over pages 9 and 10 and is extracted as one grid per page, each under the repeated
     'Measure Title' header row. The bullet lists inside the cells are run together with their bullets
     kept, and the en dash in '80%–83%' is rendered ' - '; the cell text is otherwise the page's.
-- label: 'Upgrade Summary (page 10: Not Applicable, Original Release, Project Configuration File)'
-  uncaptioned: true
-  source_pdf: measure_pdfs/96636.pdf
-  source_pdf_sha256: f7d3ed849fdae6e20111670a617bbc4c227c5f0f914bdaa0fb99343acebef475
-  page: 10
-  table_sha256: af1b3ffdd9bbf04310d8b0dae7b0a89f7e1a1902d5dc1d43e571595889776cfe
-  verdict: correct
-  method: page-render-and-text-layer
-  checked_utc: '2026-11-11'
-  note: Second grid of the Upgrade Summary table. The quoted word “none” is extracted as 'n one ' and
-    the project configuration URL carries a space where the PDF wraps the line ('project_n ational');
-    the cell text is otherwise the page's.
 - label: Table 4
   caption: ResStock Argument Values for Electric Furnace Upgrades in this Measure
   source_pdf: measure_pdfs/96636.pdf
