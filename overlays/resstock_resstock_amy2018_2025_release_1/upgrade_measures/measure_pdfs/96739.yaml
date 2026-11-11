@@ -1,0 +1,413 @@
+# Hand-authored overlay for measure_pdfs/96739.pdf
+#
+# 96739 is the ResStock measure documentation for the attic floor insulation upgrade (measure
+# 12). Every table and figure in the report was compared with the PDF on 2026-11-11,
+# following "Checking every table and figure: the ResStock method" in overlays/README.md.
+#
+# Tables (page numbers are PDF pages, 1-based):
+#   * Table 3 (p.12) is superseded: part of one study's Methods text was attached to the row
+#     of the study above. See its `why`.
+#   * Table 4 (p.13) is superseded: every cell was right, but the option value R-13 carried
+#     a line-wrap space. It is the extractor's own grid with that value joined.
+#   * The Measure Summary table (p.9, no caption) is superseded: it was right except for a
+#     line-wrap space inside the project configuration URL, two row labels and one term.
+#   * Tables 1, 2, 5 and 6 and the List of Acronyms (p.5) are recorded under `checked:` as
+#     correct.
+#   * The Table of Contents and List of Figures / List of Tables grids are contents pages and
+#     have no entry. The References list was extracted as a two-column grid; it is not a table
+#     of the report and has no entry.
+#   * No table in this report has a footnote, and no number grid is shown as a picture.
+#
+# Figures: Figures 1-21 are described (40-70 words each, vision-description); every figure
+# caption has its image. The legends of Figures 15 and 16 were extracted as separate small
+# bitmaps (image_000016, image_000018) and have a one-sentence description each. The cover
+# art and wordmark (image_000000, image_000001) are decorative and omitted by the build.
+# Values read off an axis, not a data label, are worded "about".
+#
+# Flattening notes: Table 3 and the Measure Summary are split into bold-labelled parts to
+# stay under the chunk limit, each repeating the header row; the labels are not in the PDF.
+# Bulleted lists inside cells are run into the cell text, as extracted. Row shading in the
+# PDF is alternating bands and carries no meaning.
+
+product: resstock
+release: resstock_amy2018_2025_release_1
+source_id: upgrade_measures
+source_path: measure_pdfs/96739.pdf
+source_url: https://docs.nlr.gov/docs/fy26osti/96739.pdf
+publication_url: https://docs.nlr.gov/docs/fy26osti/96739.pdf
+tables:
+- label: Measure Summary
+  uncaptioned: true
+  source_pdf: measure_pdfs/96739.pdf
+  source_pdf_sha256: a77485f90ebb3506ea12f2c7871e112fd96d80246110112291ba96cd22434e42
+  page: 9
+  method: extracted grid, with the cells named in `why` corrected from the PDF text layer
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 8cb50fa035c53e707fb08ae32349630be1d38b0521a90fad8529575180bb2a9c
+    why: The table is right cell for cell except the project configuration URL, which carries a space
+      where the PDF wraps the line ('project_national/s dr_upgrades_amy2018.yml'). A search for the real
+      path, or a click on the link, misses it. Two row labels ('Applica- bility', 'Project Configurat
+      ion File(s)') and the term 'R-value' were broken the same way and are joined too. The cell text
+      is otherwise the extractor's own; the bullet before 'This measure package will not apply to:' is
+      where the PDF prints it.
+  markdown: '**Measure Summary, part 1 of 2**
+
+
+    | Measure Title | Attic Floor Insulation |
+
+    |---|---|
+
+    | Measure Definition | This measure upgrades attic floor insulation in unfinished attics where the
+    existing R-value falls at least R-10 value below the maximum level recommended by the IECC for each
+    unit''s climate zone. The post-retrofit R-value is set to reflect the maximum value recommended by
+    code, while still aligning with outcomes observed in empirical studies. For example, while the IECC
+    recommends an R-value range of R-49 to R-60 for climate zone 2, dwelling units in this zone are upgraded
+    to R-60 to represent the upper bound of achievable performance. This approach ensures that the modeled
+    retrofit captures both the energy savings potential of code-compliant upgrades and the levels typically
+    achieved in field implementations. |
+
+    | Applicability | This measure applied to all units that meet the following conditions: • The unit
+    has an existing unconditioned and accessible attic • The existing attic floor insulation R-value is
+    below the IECC-recommended level for the corresponding climate zone. With these applicability constraints,
+    the measure upgrade applies to 42.9% of existing dwelling units. |
+
+
+    **Measure Summary, part 2 of 2**
+
+
+    | Measure Title | Attic Floor Insulation |
+
+    |---|---|
+
+    | Not Applicable | • This measure package will not apply to: Dwellings without existing attics • Dwellings
+    with floor insulation R-value at the code requirement. These constraints exclude 57.1% of dwelling
+    units from receiving this measure upgrade. |
+
+    | Original Release | 2025 Release 1: 2025/resstock_amy2018_release_1; 2025/resstock_amy2012_release_1;
+    2025/resstock_tmy3_release_1 |
+
+    | Project Configuration File(s) | https://github.com/NatLabRockies/resstock/blob/sdr_2025_Release_1/project_national/sdr_upgrades_amy2018.yml
+    |'
+- label: Table 3
+  caption: Summary of Attic Floor Insulation Empirical Studies Across Climate Zones, Showing Preand Post-Retrofit
+    R-Values Used to Inform Measure Assumptions
+  source_pdf: measure_pdfs/96739.pdf
+  source_pdf_sha256: a77485f90ebb3506ea12f2c7871e112fd96d80246110112291ba96cd22434e42
+  page: 12
+  method: extracted grid, with the Methods text put back in its row (compared with the page render and
+    text layer)
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 8e37d985241ab0ce5c72a4e0fc133627a04e1f5cbadeacbc8386e6e897dedeab
+    why: 'The Methods cell of the Meriden, CT study was split: its first sentences (''A gut renovation
+      of 126 residential units ... comprises 36'') were attached to the end of the St. Petersburg, FL
+      row above, and only the rest (''buildings in duplex and quad configurations ...'') stayed on the
+      Meriden row. A reader would attribute the Chamberlain Heights renovation to the Florida study. Every
+      other cell was right. The text is the extractor''s own, moved back to its row; line-break spaces
+      in the ''Pre-Retrofits'' and ''Post-Retrofits'' headers are removed.'
+  markdown: '| Location (s) | Climate Zone | Methods | Pre-Retrofits | Post-Retrofits | References |
+
+    |---|---|---|---|---|---|
+
+    | St. Petersburg, FL | 3C | 1 multi-use facility / transitional housing. Insulated at ceiling. | R-7
+    | R-34 | [9] |
+
+    | Meriden, CT | 5 | A gut renovation of 126 residential units in the Chamberlain Heights retrofit
+    project. The affordable housing community comprises 36 buildings in duplex and quad configurations
+    located on 22 acres within two miles of downtown Meriden, CT. Blown-in fiberglass (R-44) was achieved
+    in mudroom addition attics. | R-19 | R-44 | [10] |
+
+    | MA | 5 | 350 homes |  | Up to R-50. Majority are R-40. | [11] |'
+- label: Table 4
+  caption: Summarized application logic for attic floor insulation for unfinished attics
+  source_pdf: measure_pdfs/96739.pdf
+  source_pdf_sha256: a77485f90ebb3506ea12f2c7871e112fd96d80246110112291ba96cd22434e42
+  page: 13
+  method: extracted grid, with the cells named in `why` corrected from the PDF text layer
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: ada91f8ffd4fcb137c0df48e970a644592db512e45e12eef1161b0d8c5fd2231
+    why: Every cell is right, but the option value 'R-13' carries a space where the PDF breaks the line
+      ('R- 13') in both rows that list it, so a search for the value misses it. The cell text is the extractor's
+      own with that space removed.
+  markdown: '| Attic Type | Climate Zone | Insulation Ceiling | Target Insulation Ceiling | Stock Saturation
+    |
+
+    |---|---|---|---|---|
+
+    | Vented Attic, unvented attic | 1 | Uninsulated, R-7, R-13, R-19, R-30, R-38 | R-49 | 0.6% |
+
+    | Vented Attic, unvented attic | 2, 3, 4, 5, 6, 7, 8 | Uninsulated, R-7, R-13, R-19, R-30, R-38, R-49
+    | R-60 | 42.3% |
+
+    | None, finished attic, or cathedral ceilings | All | All | N/A | 57.1% |'
+checked:
+- label: List of Acronyms
+  uncaptioned: true
+  source_pdf: measure_pdfs/96739.pdf
+  source_pdf_sha256: a77485f90ebb3506ea12f2c7871e112fd96d80246110112291ba96cd22434e42
+  page: 5
+  table_sha256: 641d47c9e2a804b7e4f26a5cf1975bf1bc826481802c47fea1b05945f0f13fa0
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: Twelve entries, Btu to USD, each with its expansion; the first entry sits in the header row.
+- label: Table 1
+  caption: Insulations Materials, Applicability, Methods, and Advantages by Insultation Type Table recreated
+    from [5]
+  source_pdf: measure_pdfs/96739.pdf
+  source_pdf_sha256: a77485f90ebb3506ea12f2c7871e112fd96d80246110112291ba96cd22434e42
+  page: 11
+  table_sha256: e564f48ce9bdb73bd8a9406374c47a563067b16bdfb902a40a61682c27af4c67
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The three rows match the page; bulleted lists inside cells are run into the cell text. Three hyphenated
+    words carry a space where the PDF breaks the line ('hard-to- reach', 'foamed-in- place', '(foamed-
+    in-place)').
+- label: Table 2
+  caption: Details of Recommended R-Value for Attic Insulation by Climate Zone
+  source_pdf: measure_pdfs/96739.pdf
+  source_pdf_sha256: a77485f90ebb3506ea12f2c7871e112fd96d80246110112291ba96cd22434e42
+  page: 12
+  table_sha256: 459f00687ff0338c0fcb0a8d91534a02cb569343fa854505080e60cd44552749
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The seven rows match the page. The line 'Table recreated from [8]' between the caption and the
+    grid is the table's printed source note.
+- label: Table 5
+  caption: ResStock Argument Values for Ceiling Insulation (Attic Floor Insulation for Unfinished Attics)
+    Option
+  source_pdf: measure_pdfs/96739.pdf
+  source_pdf_sha256: a77485f90ebb3506ea12f2c7871e112fd96d80246110112291ba96cd22434e42
+  page: 16
+  table_sha256: a9a4fdf0cdc9f853841b410ed6575fec8e80d2ed3e58adb59abf499003f48082
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The six rows match the page.
+- label: Table 6
+  caption: Heating and Cooling Unmet Hours Before and After Attic Floor Insulation Upgrade
+  source_pdf: measure_pdfs/96739.pdf
+  source_pdf_sha256: a77485f90ebb3506ea12f2c7871e112fd96d80246110112291ba96cd22434e42
+  page: 19
+  table_sha256: 2ef587c9a7f5285583e5b1a859539894199f433193f35fe38f163acf444afe5e
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The two-row header (Unmet Hours Before Upgrade and After Upgrade over Heating and Cooling) is
+    a header row plus a first data row; the three unit rows match the page.
+figures:
+- source_image: 96739_images/image_000002_91c9a8ed13074cbecc7e1794b4a545230145c12e70a8f9a795e36ff99dd8d55e.png
+  source_image_sha256: 3bdb1d8d25259d1efbb1baa05be2a3bfcafd1609885e3699ae56662cd16941a5
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Box plot of baseline attic insulation level by vintage
+  description: 'Figure 1: box plot. X-axis is vintage in nine bins from before 1940 to the 2010s; y-axis
+    is insulation level in seven steps from Uninsulated to R-49. Older homes have less insulation: the
+    boxes for most vintages before 1980 span R-13 to R-30 or R-38 with a median near R-19, the 1980s box
+    spans R-19 to R-30, and the boxes for the 1990s to 2010s span R-30 to R-38.'
+- source_image: 96739_images/image_000003_aaeebb418e9862b88f53b8bbc2353ecf9cf2df5fc24331b8982a244442912a27.png
+  source_image_sha256: 9659a8eadb688f50d9a4bdaf18aef8846370c87e92e273d0776b875d372dfef6
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Box plot of baseline attic insulation level by ASHRAE IECC climate zone
+  description: 'Figure 2: box plot. X-axis is ASHRAE IECC climate zone 2004, seventeen zones from 1A to
+    8AK; y-axis is insulation level in seven steps from Uninsulated to R-49. Insulation rises with colder
+    climate: boxes in zones 1A to 3C mostly span R-13 or R-19 to R-30, those in zones 4 and 5 reach R-38,
+    and those in 6A, 7A, 7AK and 8AK span R-30 to R-49.'
+- source_image: 96739_images/image_000004_ab69992a7903ef9832984b80c376832f07dda8068b660de07174be3d94189b67.png
+  source_image_sha256: a00f8e1ef9bfac8b64ae61ad495bd4c1d7be3f1bc399d9b393a0592cb54d67d5
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar chart of annual energy use for an example Florida dwelling, baseline against attic
+    insulation upgrade
+  description: 'Figure 3: horizontal stacked bar chart for an example dwelling unit in Florida (climate
+    zone 1A). X-axis is annual energy consumption in MBtu, 0 to 80; the two bars are Attic Floor Insulation
+    Upgrade and Baseline, segmented by end use. Cooling falls from 27.1 to 26.1, cooling fans and pumps
+    from 5.4 to 5.2 and other end uses from 42.0 to 41.9; heating is 0.0.'
+- source_image: 96739_images/image_000005_139a90a23797320281f12888fdb67656c737c644fb8c8fb12cae73bdb131d4d7.png
+  source_image_sha256: c5532667771e0f9283aa0c2b75442da4e96acb522daf2c9800e89baf14c4cb60
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar chart of annual energy use for an example Texas dwelling, baseline against attic insulation
+    upgrade
+  description: 'Figure 4: horizontal stacked bar chart for an example dwelling unit in Texas (climate
+    zone 3A). X-axis is annual energy consumption in MBtu, 0 to 100; the two bars are Attic Floor Insulation
+    Upgrade and Baseline, segmented by end use. Electric heating falls from 14.3 to 11.1, cooling from
+    30.4 to 27.6 and cooling fans and pumps from 6.1 to 5.6; other end uses stay at 37.7.'
+- source_image: 96739_images/image_000006_6eda026027b566485c9a6c4f2cfc87a69b20cf097d46d7bb5a7a6f21bdafc9ed.png
+  source_image_sha256: 5dd11b801ca6476112d8bfe89adff3253fc2dab872ad15cfa752ed8847ef373c
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar chart of annual energy use for an example Alaska dwelling, baseline against attic insulation
+    upgrade
+  description: 'Figure 5: horizontal stacked bar chart for an example dwelling unit in Alaska (climate
+    zone 8AK). X-axis is annual energy consumption in MBtu, 0 to about 75; the two bars are Attic Floor
+    Insulation Upgrade and Baseline, segmented by end use. The ''Others - All Fuels'' segment falls from
+    72.4 to 70.1; heating fans and pumps are 1.1 in both bars, and no other segment is visible.'
+- source_image: 96739_images/image_000007_7d6d0b6064ac4e1cc0e91d539f3a3a9f75020f0c18dee68db58ca9a635d93e25.png
+  source_image_sha256: 8e91b3232a0cf5fedcd14ca5a7511dc2fd73119b24b2db7613a220ea60f62c22
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of 15-minute cooling energy on July 2 for an example Florida dwelling, with thermostat
+    setpoint
+  description: 'Figure 6: line chart for an example dwelling unit in Florida (climate zone 1A) on July
+    2. Left axis is cooling energy consumption in kWh, 0 to 0.9; right axis is setpoint in °F, raised
+    from 73 to 75 between about 5 AM and 8 PM. Series are Baseline, Upgrade and Setpoint. The two lines
+    nearly coincide; at the early afternoon peak the baseline is about 0.51 kWh and the upgrade about
+    0.47.'
+- source_image: 96739_images/image_000008_29f1ff1d0dda9ee7db8eb24dd4a93ee762a58562ac13733f12622c09fcd0694b.png
+  source_image_sha256: cfb42b7400e45ef3cca3d37c941b2b01cc92dba91f5fca5059e57904159157c5
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Two line charts of 15-minute cooling and heating energy for an example Texas dwelling, with thermostat
+    setpoint
+  description: 'Figure 7: two line charts for an example dwelling unit in Texas (climate zone 3A), cooling
+    on July 2 above heating on January 2. Left axes are energy consumption in kWh; right axes are setpoint
+    in °F. Series are Baseline, Upgrade and Setpoint. Cooling peaks near 6 PM at about 1.27 kWh for the
+    baseline and 1.02 for the upgrade; daytime heating runs at about 1.4 and 1.2 kWh.'
+- source_image: 96739_images/image_000009_7864852ade963ab0d24bc8137f5e335114513b0f5d696e6496ceadbea6c7d31e.png
+  source_image_sha256: 30c51f4cd6b0f4e4bbf674a67492d20f03f94d06dcea2530d2863200a46763bf
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of total annual energy by end use and fuel, baseline against attic floor insulation
+  description: 'Figure 8: horizontal grouped bar chart. Rows are end uses by fuel, from electric vehicle
+    charging to generation, plus total site energy; x-axis is total annual energy consumption in kWh per
+    year, 0 to above 3T. Series are Baseline and Attic Floor Insulation. The bars differ only slightly:
+    total site energy falls from about 3.45T to about 3.4T kWh, and natural gas heating from about 1.16T
+    to about 1.12T.'
+- source_image: 96739_images/image_000010_faedce3ded33a2e599af11932ea3f009d001e3dd02612307484e871ca716e604.png
+  source_image_sha256: 774b228bfacbf2ff8f0facd8d126a40c74549335d2959f7cfb5e11194994042b
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of average annual energy by end use per dwelling unit, baseline against attic
+    floor insulation
+  description: 'Figure 9: horizontal grouped bar chart with the same rows as Figure 8, as an average per
+    dwelling unit. X-axis is average annual energy consumption in kWh per unit per year, 0 to 25k; series
+    are Baseline and Attic Floor Insulation. Total site energy falls from about 24.8k to about 24.3k kWh,
+    and natural gas heating from about 8.3k to about 8.0k.'
+- source_image: 96739_images/image_000011_7be44784ab5279fd00694b351b6402522aa1cbd33dfcf82cabaf04f28e67452a.png
+  source_image_sha256: 0f4962eacbe0ae8eaae74a3002b9cd632f43967c477c9983d59e6e01c9d7deba
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of average annual energy consumption by baseline attic insulation level, baseline
+    against upgrade
+  description: 'Figure 10: horizontal grouped bar chart. Rows are eight baseline insulation levels: R-7,
+    R-13, R-19, R-30, R-38, R-49, Uninsulated and None; x-axis is average annual energy consumption in
+    kWh per unit per year, 0 to above 35k. Series are Baseline and Attic Floor Insulation. The largest
+    drop is for uninsulated attics, about 36.5k to about 27k; R-7 falls from about 33.7k to about 30.5k,
+    and None is unchanged.'
+- source_image: 96739_images/image_000012_9f4fb597b1f22c4760f1f149aff59e6424e7c3682ec3e8693e5c312c8e5357d8.png
+  source_image_sha256: 9135132a6d5cbcc749a0779ce3d9f0fa3f0c6384cc426f1a1dbf1455b030ba0f
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of average annual energy savings from attic floor insulation by baseline insulation level
+  description: 'Figure 11: horizontal bar chart. Rows are eight baseline insulation levels from R-7 to
+    R-49, Uninsulated and None; x-axis is average annual energy savings in kWh per unit per year, 0 to
+    10k. Uninsulated attics save about 9,600 kWh, far more than any insulated level: about 3,250 at R-7,
+    about 1,800 at R-13, about 1,300 at R-19, about 650 at R-30 and about 250 at R-49.'
+- source_image: 96739_images/image_000013_2b87be43349c38b73385e33e75e9f8d4e14d6ed64735ce16e3be2c9c6f00d002.png
+  source_image_sha256: 8df4a791d76db3cfaab99374a46298ecb8ee4ecc5673a5322d893299e2b7de74
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of average annual energy consumption by vintage, baseline against attic floor
+    insulation
+  description: 'Figure 12: horizontal grouped bar chart. Rows are nine vintage bins from before 1940 to
+    the 2010s; x-axis is average annual energy consumption in kWh per unit per year, 0 to 35k. Series
+    are Baseline and Attic Floor Insulation. The two bars are close in every bin: about 33.3k against
+    32.4k for homes built before 1940, and about 19k against 18.7k for the 2010s.'
+- source_image: 96739_images/image_000014_7080ba901122aea4f6721b094cd31f4b0b4264207a324569d0b705fa1e5a17fe.png
+  source_image_sha256: 30c63a590ab13523832c6a68bcf086616f5998568ad2a746a040ce21500b2704
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of average annual energy savings from attic floor insulation by vintage
+  description: 'Figure 13: horizontal bar chart. Rows are nine vintage bins from before 1940 to the 2010s;
+    x-axis is average annual energy consumption savings in kWh per unit per year, 0 to 1,000. Savings
+    are largest for the 1940s, about 970 kWh, then before 1940, about 885, and fall to about 440 for the
+    1980s and about 275 to 305 for the 1990s to 2010s.'
+- source_image: 96739_images/image_000015_d74e93a30e41294f2c24bd3fd141b8ccaad10384dc06840a9e7cd51c7519920e.png
+  source_image_sha256: 80c0e8d8463deeaab20fdf13a82c7ced27be77177b253a7d5d3aacade6340f7a
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of percent energy savings from attic floor insulation by vintage
+  description: 'Figure 14: horizontal bar chart. Rows are nine vintage bins from before 1940 to the 2010s;
+    x-axis is percent savings, 0 to above 3. Savings are about 3.2% for the 1940s, about 2.65% before
+    1940, about 2.2% to 2.55% for the 1950s to 1980s, and about 1.4% to 1.45% for the 1990s to 2010s.'
+- source_image: 96739_images/image_000016_7b5f3e9abb8731fe6781ec241845136c8f0ed7f94648d133f0ceacbe959517f5.png
+  source_image_sha256: 61f707743349f513974dc6ae289079639c3810e062393584dcb8dac8cb742dc1
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: 'Legend of Figure 15: Baseline and Attic Floor Insulation'
+  description: 'Legend of Figure 15, extracted as a separate bitmap: the upgrade scenarios Baseline (dark
+    blue) and Attic Floor Insulation (lighter blue).'
+- source_image: 96739_images/image_000017_e2a5570fbdf9eaf198bd47999cef7b05a2afdd6a6efba3acc53c41f68b61df12.png
+  source_image_sha256: bd0b371b56065974c3ce75fc7083305354feeeb5387548eb6609a30c4aa21d18
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of average annual energy consumption by climate zone, baseline against attic
+    floor insulation
+  description: 'Figure 15: horizontal grouped bar chart. Rows are seventeen climate zones from 1A to 8AK;
+    x-axis is average annual energy consumption in kWh per unit per year, 0 to 40k. The two bars, Baseline
+    and Attic Floor Insulation, are close in every zone. Zone 7A is highest, about 39k against 38.6k,
+    followed by 6A and 5A; zone 1A is lowest, about 12k.'
+- source_image: 96739_images/image_000018_d75b63747cb47b51123d3326e93baa6211409af0a5e08f492b733af43f4680ad.png
+  source_image_sha256: 69856778fe3775cfada55f79c838a8dbbc1a23be38e889c609274b49f665a3e4
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: 'Legend of Figure 16: Baseline and Attic Floor Insulation'
+  description: 'Legend of Figure 16, extracted as a separate bitmap: the upgrade scenarios Baseline (dark
+    blue) and Attic Floor Insulation (lighter blue).'
+- source_image: 96739_images/image_000019_5f62bf5e433ecd576be8ad80a0f1bc081cda2ce4c4ee9648edfb682ce1f1494d.png
+  source_image_sha256: 39b65cbc422110c6d3aaf73a9123d74862c616682fd2590b9bce4b2b157b9bd3
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of average annual energy savings from attic floor insulation by climate zone
+  description: 'Figure 16: horizontal bar chart. Rows are seventeen climate zones from 1A to 8AK; x-axis
+    is average annual energy savings in kWh per unit per year, 0 to above 700. Savings are largest in
+    zone 5A, about 735 kWh, then 3A, about 720, and 4B, about 690; zones 6A and 7A save about 570 each,
+    and zone 1A the least, about 125.'
+- source_image: 96739_images/image_000020_ac2470bb42f8a0fa0ce3d16e6bb6e3ed824824b61f29e38efe862c0f4059078f.png
+  source_image_sha256: dd23efff11a7b2c03720d0a48ea4b39f11a1fd8bb5464b4d582c642e74fc517e
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of percent energy savings from attic floor insulation by climate zone
+  description: 'Figure 17: horizontal bar chart. Rows are seventeen climate zones from 1A to 8AK; x-axis
+    is percent savings, 0 to above 3. Savings are largest in zone 3A, about 3.4%, then 4B, about 3.05%,
+    and 3C, about 2.6%; most other zones save about 1.5% to 2.3%, and zones 1A and 7AK about 1%.'
+- source_image: 96739_images/image_000021_f069493905f66c42f1ee44fdf425e336a4732c9dea6770ef040d94ecae6a9d1a.png
+  source_image_sha256: 848e501349917a45d898311f4e6d46362d4ac0e715c889d25f655c13f3b5f566
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of average annual utility bills by fuel, baseline against attic floor insulation
+  description: 'Figure 18: horizontal grouped bar chart. Rows are electricity, natural gas, fuel oil,
+    propane and all fuels; x-axis is average utility bills in US dollars per unit per year, 0 to above
+    2,500. Series are Baseline and Attic Floor Insulation. The all-fuels bill falls from about $2,620
+    to about $2,575, electricity from about $1,870 to about $1,850, and natural gas from about $530 to
+    about $515.'
+- source_image: 96739_images/image_000022_36bc401e96782c2a1798e6f45cba1bbf61d6e17b8c54ba8fd01bf5683db595c2.png
+  source_image_sha256: 9decc93d84c3ac6e212546a72612174cd146e23c6626ad2e2fee19921963753f
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of average annual utility bill savings from attic floor insulation by baseline insulation
+    level
+  description: 'Figure 19: horizontal bar chart. Rows are eight baseline insulation levels from R-7 to
+    R-49, Uninsulated and None; the x-axis runs from 0 to 800 and has no printed title. Uninsulated attics
+    save by far the most, about 815, against about 255 at R-7, about 145 at R-13, about 100 at R-19, about
+    55 at R-30, about 35 at R-38 and about 15 at R-49.'
+- source_image: 96739_images/image_000023_0795a33dd0e7bc7b886b5efa625375f046002bc73fc74586315c308e8b3b7340.png
+  source_image_sha256: 7204561c6799c53bc1657c1bc068a3296f5ef0d10a4b6349bbdcfdbb6a4785ea
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of daily aggregated average energy consumption for baseline homes in Colorado across
+    2018
+  description: 'Figure 20: line chart. X-axis is time, January to December 2018; y-axis is daily aggregated
+    average energy consumption in kBtu, about 100 to 800. A single series, the baseline in Colorado. Consumption
+    is highest and most variable in winter, peaking near 780 kBtu in February, and flat at about 110 to
+    130 kBtu from June to September.'
+- source_image: 96739_images/image_000024_f08fd813e5d365e60f43c061145e3e8797d1d5902f0425451afedc2c7b5b6f7f.png
+  source_image_sha256: 64c8ef1d2b6eccfd65310d343c22fe8dc0301a55c2d6a901a12aae0924c19c2b
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of aggregated average power in Colorado on the peak day, baseline against upgrade
+  description: 'Figure 21: line chart for February 20, 2018. X-axis is time of day, 00:00 to 24:00; y-axis
+    is aggregated average power in kW, about 7 to 13. Series are Baseline and Upgrade. The two lines nearly
+    coincide: the baseline peaks at about 12.9 kW near 07:00 and the upgrade at about 12.7 kW, and both
+    fall to about 7.0 kW near 15:00.'

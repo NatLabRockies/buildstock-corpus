@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96347.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96347.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96347.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96347.md | section: 2  Applicability | lines: 171-204 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96347.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96347.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96347.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96347.md | section: 2  Applicability | lines: 185-227 -->
 ## 2  Applicability
 
 Advanced air sealing upgrades are applied to dwelling units with infiltration rates greater than or equal to 6 ACH50.
@@ -26,10 +26,19 @@ When reviewing results for this measure package, here is a brief example of how 
 
 Table 2. Housing Characteristics That Are Applicable to Individual Measures
 
-Upgrade Measure
+<!-- table recovered from measure_pdfs/96347.pdf p.13
+     overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96347.yaml
+     method: extracted grid, with the header row restored and one value joined (compared with the page render and text layer)
+     supersedes the extractor's own table here (values 53138ebdfc1b…):
+       The table's header row, 'Upgrade Measure | Housing Characteristics', was not in the grid: the first data row (Advanced Air Sealing) stood as the header, 'Upgrade Measure' was left as a line above the grid and 'Housing Characteristics' as a heading further down the page. The option value 'R-30' also carried a space where the PDF breaks the line ('R- 30'), so a search for it missed. The three rows are the extractor's own. -->
 
-| Advanced Air Sealing        | in.infiltration is 6 ACH50, 7 ACH50, 8 ACH50, 10 ACH50, 15 ACH50, 20 ACH50, 25 ACH50, 30 ACH50, 40 ACH50, 50 ACH50                                                                                                                                                                                                                                                                                                   |
-|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Attic Floor Insulation      | in.insulation_ceiling is Uninsulated, R-7, R-13, R-19, R-30, R-38 if the dwelling unit is in climate zone 1. in.insulation_ceiling is Uninsulated, R-7, R-13, R-19, R- 30, R-38, R-49 if the dwelling unit is in climate zones 2 through 8.                                                                                                                                                                          |
+| Upgrade Measure | Housing Characteristics |
+|---|---|
+| Advanced Air Sealing | in.infiltration is 6 ACH50, 7 ACH50, 8 ACH50, 10 ACH50, 15 ACH50, 20 ACH50, 25 ACH50, 30 ACH50, 40 ACH50, 50 ACH50 |
+| Attic Floor Insulation | in.insulation_ceiling is Uninsulated, R-7, R-13, R-19, R-30, R-38 if the dwelling unit is in climate zone 1. in.insulation_ceiling is Uninsulated, R-7, R-13, R-19, R-30, R-38, R-49 if the dwelling unit is in climate zones 2 through 8. |
 | Duct Sealing and Insulation | in.duct_leakage_and_insulation is 10% Leakage to Outside, R-4; 10% Leakage to Outside, R-6; 10% Leakage to Outside, R-8; 10% Leakage to Outside, Uninsulated; 20% Leakage to Outside, R-4; 20% Leakage to Outside, R-6; 20% Leakage to Outside, R-8; 20% Leakage to Outside, Uninsulated; 30% Leakage to Outside, R-4; 30% Leakage to Outside, R-6; 30% Leakage to Outside, R-8; 30% Leakage to Outside, Uninsulated |
+
+<!-- text repaired by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96347.yaml
+     The first header cell of Table 2, left as a line of its own above the grid. The hand-authored Table 2 carries it in its header row.
+     removed line: Upgrade Measure -->
 

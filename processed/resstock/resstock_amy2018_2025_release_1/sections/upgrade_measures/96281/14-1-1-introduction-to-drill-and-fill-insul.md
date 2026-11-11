@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96281.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96281.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96281.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96281.md | section: 1.1  Introduction to Drill-and-Fill Insulation | lines: 154-175 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96281.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96281.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96281.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96281.md | section: 1.1  Introduction to Drill-and-Fill Insulation | lines: 168-196 -->
 ## 1.1  Introduction to Drill-and-Fill Insulation
 
 Drill-and-fill insulation is a method used to insulate existing walls. The most common drill-andfill insulation materials are cellulose, fiberglass, and spray foam. For cellulose and fiberglass, there are two main types of drill-and-fill installation: loose fill (also known as blown-in) and dense pack, which requires professional equipment (North 2012). This measure upgrade models cellulose as the drill-and-fill insulation material.
@@ -7,7 +7,14 @@ Drill-and-fill insulation can be installed from either the inside or outside of 
 
 Figure 1. Drill-and-fill insulation
 
-![Image](96281_images/image_000002_46496dc9dcb6427dbff75f4ddc0358aa8acb60d56420701d57fc4b392b42fde5.png)
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96281.yaml
+     source: 96281_images/image_000002_46496dc9dcb6427dbff75f4ddc0358aa8acb60d56420701d57fc4b392b42fde5.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+![Photograph of a worker in protective gear blowing insulation through a hose into an exterior wall](96281_images/image_000002_46496dc9dcb6427dbff75f4ddc0358aa8acb60d56420701d57fc4b392b42fde5.png)
+
+Figure 1: photograph of drill-and-fill insulation being installed. A worker in a white protective suit and a respirator kneels beside a house and holds a hose against the exterior wall, blowing insulation into the wall cavity through an opening in the siding; plastic sheeting covers the ground and equipment behind. The photograph carries no data.
 
 Photo by Dennis Schroeder, NLR # 28786
 

@@ -1,9 +1,16 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95035.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95035.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95035.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95035.md | section: 3.3 Ground Heat Exchanger Length Impact from Envelope Improvements | lines: 299-306 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95035.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95035.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95035.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95035.md | section: 3.3 Ground Heat Exchanger Length Impact from Envelope Improvements | lines: 369-383 -->
 ## 3.3 Ground Heat Exchanger Length Impact from Envelope Improvements
 
 Figure 8 shows the total average length of the ground heat exchanger for cases with and without envelope improvements. The length here is calculated based on the number of boreholes installed multiplied by the average borehole depth. As envelope improvements reduce both annual energy use and peak loads, the envelope improvements have an additional benefit of reducing the peak loads and the associated size of the heat pump, as well as the amount of drilling required for the ground heat exchanger. Reductions in the length of the ground heat exchanger average 33%, showing that maximum potential benefit can be achieved by installing both GHPs and envelope improvements in tandem. While the cost effectiveness of individual installations will change based on building loads, local utility rates, drilling costs, and other factors, this combined package shows a strong potential for being a more cost-effective path as GHP installation, particularly drilling costs, is much more expensive than installation of the envelope improvements included here.
 
 Figure 8. Average total length of ground heat exchanger for two-stage GHPs with and without envelope improvements and advanced air sealing across the applicable portion of the stock.
 
-![Image](95035_images/image_000010_d5be9534ea596b26d1b24d3891dfdeb87117432a102eedc51c753b156bfe2c43.png)
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95035.yaml
+     source: 95035_images/image_000010_d5be9534ea596b26d1b24d3891dfdeb87117432a102eedc51c753b156bfe2c43.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+![Bar chart of mean bore length for two-stage geothermal heat pumps with and without envelope upgrades](95035_images/image_000010_d5be9534ea596b26d1b24d3891dfdeb87117432a102eedc51c753b156bfe2c43.png)
+
+Figure 8: bar chart. X-axis is GHP scenario, GHP Only and GHP + Env; y-axis is mean bore length in feet, 0 to 1,200. The mean ground heat exchanger length is about 1,200 ft for the heat pump alone and about 745 ft when the envelope improvements and air sealing are added, a reduction of a little under 40%.
 

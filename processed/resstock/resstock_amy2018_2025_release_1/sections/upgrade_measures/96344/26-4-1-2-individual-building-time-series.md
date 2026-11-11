@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96344.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96344.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96344.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96344.md | section: 4.1.2 Individual Building Time Series | lines: 261-276 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96344.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96344.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96344.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96344.md | section: 4.1.2 Individual Building Time Series | lines: 288-310 -->
 ## 4.1.2 Individual Building Time Series
 
 Section 4.1.1 shows that for the example dwelling units, only heating- and cooling-related energy consumption changed as a result of the duct sealing and insulation upgrade. So, this section analyzes 15-minute time-series data for those end uses across the three example units, as shown in Figure 2.  Heating end uses include heating, heating fans/pumps, heating heat pump backup, and associated backup fans/pumps. Cooling end uses include cooling and cooling fans/pumps. January 2 is selected to examine the heating time-series data, while July 2 is selected to examine the cooling time-series data. The duct sealing and insulation upgrade consistently reduce energy use throughout the day in all example dwelling units.
@@ -13,5 +13,12 @@ Overall, the results demonstrate that duct sealing and insulation upgrades are e
 
 Figure 2. Heating and cooling energy consumption 15-minute time-series data before and after the duct sealing and insulation upgrade
 
-![Image](96344_images/image_000003_c46d99a932e7161e98fd4bd53c3baa9e7a234fc147d9685b61c0ebe626ca7651.png)
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96344.yaml
+     source: 96344_images/image_000003_c46d99a932e7161e98fd4bd53c3baa9e7a234fc147d9685b61c0ebe626ca7651.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+![Four line charts of 15-minute heating or cooling energy on one day, baseline against upgrade, with setpoint](96344_images/image_000003_c46d99a932e7161e98fd4bd53c3baa9e7a234fc147d9685b61c0ebe626ca7651.png)
+
+Figure 2: four line charts, (a) to (d), of 15-minute energy consumption in kWh over one day, with the thermostat setpoint in °F on the right axis. Panels are North Carolina cooling on July 2 and heating on January 2, Hawaii cooling, and Alaska heating. Series are Baseline, Upgrade and Setpoint. The upgrade line sits below the baseline all day; North Carolina's afternoon cooling peak falls from about 0.7 to about 0.55 kWh.
 

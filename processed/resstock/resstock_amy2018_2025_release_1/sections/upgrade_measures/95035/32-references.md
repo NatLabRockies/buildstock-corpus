@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95035.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95035.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95035.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95035.md | section: References | lines: 355-385 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95035.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95035.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95035.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95035.md | section: References | lines: 481-511 -->
 ## References
 
 ANSI/ACCA 'Manual S - Residential Equipment Selection (3 rd Edition, Version 1.02)' https://www.acca.org/standards/technical-manuals/manual-s

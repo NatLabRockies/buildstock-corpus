@@ -1,0 +1,264 @@
+# Hand-authored overlay for measure_pdfs/95035.pdf
+#
+# 95035 is the ResStock measure documentation for the two-stage geothermal heat pump with
+# envelope improvements and advanced air sealing (measure 18). Every table and figure in the
+# report was compared with the PDF on 2026-11-11, following "Checking every table and figure:
+# the ResStock method" in overlays/README.md.
+#
+# Tables (page numbers are PDF pages, 1-based):
+#   * Table 1 (p.10), the report's upgrade summary table and its only captioned table, is
+#     superseded: its last two rows were merged into one. See its `why`.
+#   * The List of Acronyms on p.6 is recorded under `checked:` as correct. The report prints
+#     two acronym lists (pp.4 and 6); the first was extracted as a run-on paragraph with its
+#     seven entries present.
+#   * The Table of Contents and List of Figures / List of Tables grids are contents pages and
+#     have no entry.
+#   * No table has a footnote. Unlike the other geothermal reports this one shows no number
+#     grid as a picture.
+#
+# Figures: Figures 1-15 are described (40-70 words each, vision-description); every figure
+# caption has its image. Figure 1 is two bitmaps (image_000002, image_000003): two stacked
+# bar charts with the same axes and legend and different totals; the bitmaps do not say how
+# their populations differ, and the descriptions report the totals as printed. The cover art
+# and wordmark (image_000000, image_000001) are decorative and omitted by the build. Values
+# read off an axis, not a data label, are worded "about"; state percentages on the three
+# maps are too small to read reliably in the bitmaps and are not quoted beyond the legend
+# ranges.
+#
+# Flattening notes: bulleted lists inside Table 1's cells are run into the cell text with
+# their hyphen marks, as extracted. Table 1 is split into bold-labelled parts to stay under
+# the chunk limit, each repeating the first row (Measure Title); the labels are not in the
+# PDF.
+
+product: resstock
+release: resstock_amy2018_2025_release_1
+source_id: upgrade_measures
+source_path: measure_pdfs/95035.pdf
+source_url: https://docs.nlr.gov/docs/fy26osti/95035.pdf
+publication_url: https://docs.nlr.gov/docs/fy26osti/95035.pdf
+tables:
+- label: Table 1
+  caption: Upgrade Measure Overview
+  source_pdf: measure_pdfs/95035.pdf
+  source_pdf_sha256: 920e569b5f8673769c5494edffb5a6fd5163a2db6ad6a089d4aa11fb6e1db25a
+  page: 10
+  method: extracted grid, with the merged last row split in two (compared with the page text layer)
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: e65e74194d43e88003aeab64081abe79f7489efcd6a5783b70b9b1a59ed40c3d
+    why: 'The table''s last two rows were merged into one: the label read ''Original Release Project Configuration
+      File(s)'' and the value ''2025 Release 1: 2025/resstock_amy2018_release_1 ResStock''s 2025 Standard
+      Data Release 1 (SDR) project file.'', so neither field could be read on its own. They are two rows
+      on the page: Original Release, and Project Configuration File(s). Every other cell is the extractor''s
+      own; the spacing in ''(≥8 floors)'' is the page''s.'
+  markdown: '**Table 1, part 1 of 2**
+
+
+    | Measure Title | Residential Two-Stage Geothermal Heat Pump (4.0 COP, 20.5 EER) with Envelope Improvements
+    and Advanced Air Sealing |
+
+    |---|---|
+
+    | Measure Definition | This upgrade measure replaces the HVAC system in any existing dwelling unit
+    in a building less than 8 stories with ducted heating or cooling with a two-stage compressor, water-to-air
+    vertical ground heat exchanger geothermal heat pump (GHP) with a variable speed fan. The measure also
+    adds some improvements to the envelope, including increasing attic insulation, general air sealing
+    of the living space, and duct sealing plus insulation. |
+
+    | Applicability | This measure applies to all dwellings with: - Non-shared (in-unit) HVAC and any
+    of the following heating fuels: electricity, natural gas, fuel oil, or propane - Shared (across multiple
+    units) HVAC and a building height of < 8 stories and any of the following heating fuels: electricity,
+    natural gas, fuel oil, or propane - Dwelling units with air ducts - Dwelling units with soil thermal
+    conductivity greater than 0.8 Btu/h-ft-°F With these applicability constraints, the measure upgrade
+    applies to 71% of the existing residential building stock. 6.4% of the residential units that receive
+    the GHP upgrade lack existing space cooling systems in the baseline. |
+
+
+    **Table 1, part 2 of 2**
+
+
+    | Measure Title | Residential Two-Stage Geothermal Heat Pump (4.0 COP, 20.5 EER) with Envelope Improvements
+    and Advanced Air Sealing |
+
+    |---|---|
+
+    | Not Applicable | This measure does not apply to dwelling units: - Shared HVAC (across multiple units)
+    in high-rise (≥8 floors) buildings. - Dwelling units without air ducts These constraints exclude 25%
+    of the building stock from receiving this measure upgrade. An additional 4% of the dwelling units
+    do not receive this upgrade because of their heating fuel type. |
+
+    | Original Release | 2025 Release 1: 2025/resstock_amy2018_release_1 |
+
+    | Project Configuration File(s) | ResStock''s 2025 Standard Data Release 1 (SDR) project file. |'
+checked:
+- label: List of Acronyms
+  uncaptioned: true
+  source_pdf: measure_pdfs/95035.pdf
+  source_pdf_sha256: 920e569b5f8673769c5494edffb5a6fd5163a2db6ad6a089d4aa11fb6e1db25a
+  page: 6
+  table_sha256: a9e0e7869cd12a1b2541fabba219c577f0b790ed04004eac7a34b0af54caebff
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The eight entries of the acronym list on page 6, ACCA to IECC; the first entry sits in the header
+    row. The report prints a second, shorter acronym list on page 4, which was extracted as a run-on paragraph
+    with all seven of its entries present.
+figures:
+- source_image: 95035_images/image_000002_2c0ff093bd5981b71c0905a3039201fcf95ec7002eb988692707ee448e9b71a9.png
+  source_image_sha256: b3d730f89f626abdd235a6b57f9dd566a0684b9edfe15d702bbb4751683bc6ae
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar chart of annual energy consumption by end use for baseline, two-stage GHP, and GHP
+    plus envelope
+  description: 'Figure 1, first bitmap: stacked bar chart. X-axis is three scenarios, Baseline, Two-Stage
+    GHP and Two-Stage GHP + Env; y-axis is annual energy consumption in TBtu, 0 to 12k, segmented by end
+    use and fuel as listed in the legend. The bar totals are 11,784 for the baseline, 8,171 with the two-stage
+    GHP and 7,398 with the envelope upgrades added; the heating segments shrink most.'
+- source_image: 95035_images/image_000003_bdbf82e421598ee700513a75863bc3d2a7f7b776252d7db44146467f341e7582.png
+  source_image_sha256: 97bf36d8d593c8a24a6dfc818556b957fa86d51c1dee0d380eb6c5a52f73f810
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Second stacked bar chart of annual energy consumption by end use for the same three scenarios
+  description: 'Figure 1, second bitmap: a stacked bar chart laid out like the first, with the same three
+    scenarios, the same y-axis (annual energy consumption in TBtu, 0 to 12k) and the same end-use legend,
+    but smaller totals: 9,154 for the baseline, 5,541 with the two-stage GHP and 4,769 with the envelope
+    upgrades added. The bitmap itself does not say how its population differs from the first.'
+- source_image: 95035_images/image_000004_afad554ac8fc676a4eb5cd0f1f4126db3c6e10689ad6585964286461397a55a1.png
+  source_image_sha256: 5ff8a8341c030761ac504c2de5fd0920ee8986083fa8d9d81cb247443ec71591
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar charts of annual energy consumption by Building America climate zone for three scenarios
+  description: 'Figure 2: eight stacked bar panels, one per climate zone (Cold, Hot-Dry, Hot-Humid, Marine,
+    Mixed-Dry, Mixed-Humid, Subarctic, Very Cold), each with Baseline, Two-Stage GHP and Two-Stage GHP
+    + Env bars. Y-axis is annual energy consumption in TBtu, 0 to 4,000. Cold is largest, 3,947 falling
+    to 2,021 and 1,680, then Mixed-Humid, 2,907 falling to 1,769 and 1,502; Subarctic is about 1 or less.'
+- source_image: 95035_images/image_000005_8cc5f6347b5960f664e16cf500e33f2d7f851ed729080b8cd8edb1416ea74d7c.png
+  source_image_sha256: 0ce099e58218dc16e83e35a8bcbf01af1a21985057a6f03089e45a00f4177d64
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar charts of annual energy consumption by baseline heating fuel for three scenarios
+  description: 'Figure 3: four stacked bar panels, one per baseline heating fuel (Electricity, Fuel Oil,
+    Natural Gas, Propane), each with Baseline, Two-Stage GHP and Two-Stage GHP + Env bars. Y-axis is annual
+    energy consumption in TBtu, 0 to above 5,000. Natural gas homes are largest, 5,618 falling to 3,155
+    and 2,689; electricity falls from 2,397 to 1,817 and 1,608, fuel oil from 567 to 220 and propane from
+    572 to 251.'
+- source_image: 95035_images/image_000006_956bba6a1fa4f50949803b57ac89654e2551ab1c7f7cec2eb51f40ee016264fd.png
+  source_image_sha256: acbc41155c658c0a149475eafb60a8ad3506e2fc29421c1d3245363b2a0b218f
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of average annual energy bills by fuel, baseline against two-stage GHP with envelope
+    upgrades
+  description: 'Figure 4: horizontal grouped bar chart. Rows are electricity, natural gas, fuel oil, propane
+    and all fuels; x-axis is bills in US dollars, 0 to above 2,000. Series are Baseline and ''Two-Stage
+    GHP + Air, Attic, Duct Sealing/Insulation''. The all-fuels bill falls from about $2,800 to about $2,050
+    and the electricity bill from about $2,000 to about $1,850; the natural gas bill falls from about
+    $570 to about $190.'
+- source_image: 95035_images/image_000007_61e10d6b9ac8220b01f7def307381905bc3e6f40df57ffbd91b33e2136cf1f0e.png
+  source_image_sha256: 66fb6eb5063809e49f21bba4d2dd7d7944b7ffc21f7d68fd18d60d18319d586d
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of average annual energy bills by fuel for four geothermal heat pump upgrade
+    scenarios
+  description: 'Figure 5: horizontal grouped bar chart. Rows are electricity, natural gas, fuel oil, propane
+    and all fuels; x-axis is bills in US dollars, 0 to 3,000. Series are Single-Stage, Two-Stage, Variable-Speed
+    GHP and ''Two-Stage GHP + Air, Attic, Duct Sealing/Insulation''. The all-fuels bill steps down across
+    the four, from about $2,650 to about $2,300, about $2,180 and about $2,050; electricity makes up nearly
+    all of it.'
+- source_image: 95035_images/image_000008_2fc59feaede0587c9d34c805bcf2ccf31046438b430873dc96e5e07728168d7c.png
+  source_image_sha256: 710f113092384093f6532f2abc304f8387ee5ac39c2838df69b1e9ecb6584f88
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar chart of average annual energy bills by Building America climate zone, baseline against
+    upgrade
+  description: 'Figure 6: horizontal stacked bar chart. Rows are eight climate zones from Hot-Dry to Subarctic,
+    each with a Baseline bar and a ''Two-Stage GHP + Air, Attic, Duct Sealing/Insulation'' bar; x-axis
+    is bills in US dollars, 0 to above 5,000, segmented into electricity, natural gas, fuel oil and propane.
+    The Subarctic baseline is by far the largest, about $5,200 and mostly fuel oil, falling to about $2,800;
+    other zones fall from about $2,400 to $3,200 to about $1,750 to $2,400.'
+- source_image: 95035_images/image_000009_0d83e331403418b90722046368d9624d3d15f9625dcdb5fb583de5ab93b60a92.png
+  source_image_sha256: d720443d9546dc01f619007165dce00860bf1fc87c62debb559bec6b0656cc6d
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar chart of average annual energy bills by climate zone for four geothermal heat pump
+    upgrade scenarios
+  description: 'Figure 7: horizontal stacked bar chart. Rows are eight climate zones from Hot-Dry to Subarctic,
+    each with four bars: Single-Stage GHP, Two-Stage GHP, Variable-Speed GHP and ''Two-Stage GHP + Air,
+    Attic, Duct Sealing/Insulation''. X-axis is bills in US dollars, 0 to above 3,000, segmented by fuel,
+    mostly electricity. Bills step down across the four scenarios in every zone; Subarctic falls from
+    about $3,500 to about $2,800 and Cold from about $3,350 to about $2,350.'
+- source_image: 95035_images/image_000010_d5be9534ea596b26d1b24d3891dfdeb87117432a102eedc51c753b156bfe2c43.png
+  source_image_sha256: f9f77fd83933370b03a92bf69b4694fdd4f77f7f46f939cb1786adb4d82ca38e
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of mean bore length for two-stage geothermal heat pumps with and without envelope upgrades
+  description: 'Figure 8: bar chart. X-axis is GHP scenario, GHP Only and GHP + Env; y-axis is mean bore
+    length in feet, 0 to 1,200. The mean ground heat exchanger length is about 1,200 ft for the heat pump
+    alone and about 745 ft when the envelope improvements and air sealing are added, a reduction of a
+    little under 40%.'
+- source_image: 95035_images/image_000011_2e47c6b88c542f290cda512aa2144ba8da8df299501c303cc1bc29b2cb40bbbd.png
+  source_image_sha256: 43d961f53f5e22732538900dd1a3e54b948c527fa11ffa71858376ea2623ca17
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of mean heat pump capacity for two-stage geothermal heat pumps with and without envelope
+    upgrades
+  description: 'Figure 9: bar chart. X-axis is GHP scenario, GHP Only and GHP + Env; y-axis is mean capacity
+    in Btu/h, 0 to 80,000. Mean capacity is about 78,000 Btu/h for the heat pump alone and about 48,500
+    Btu/h when the envelope improvements and air sealing are added, a reduction of a little under 40%.'
+- source_image: 95035_images/image_000012_abb8e41cd6dde867c00afad0e3e418678c411ff26839a9d94b28e98ce5bbe835.png
+  source_image_sha256: 2d6360003164339b6cdd9452d4cddf953a0cf3878bd20746a96d328ff16fcccf
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked percentage bars of available electric panel breaker spaces by panel service rating, baseline
+  description: 'Figure 10: dashboard chart titled ''Available Electric Panel Breaker Spaces by Electric
+    Panel Service Rating''. Eight 100% stacked bars, All and seven service ratings from under 100 to over
+    201, are segmented by available breaker spaces (0, 1-2, 2-3, 3-4, 4-5, 5-10, 10+); y-axis is percent
+    of dwelling units. For all dwellings, 25.6% have no spare space, 24.5% have five to ten and 13.5%
+    more than ten.'
+- source_image: 95035_images/image_000013_3335c8077decf782a8b683d254493ee31f847cf0ad3044e667f7ce55999e62eb.png
+  source_image_sha256: 646e1a4baccd6bb4a59ebc3f77dcd9b705800f10c46374f55324c545769f381f
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked percentage bars of electric panel constraint type by panel service rating, baseline
+  description: 'Figure 11: dashboard chart titled ''Electric Panel Constraint Type by Electric Panel Service
+    Rating''. Eight 100% stacked bars, All and seven service ratings, are split into No Constraint and
+    Capacity Constrained Only; y-axis is percent of dwelling units. For all dwellings 97.7% have no constraint.
+    Panels under 100 amps are 32.9% capacity constrained, the 100 and 101-124 groups about 4% to 5%, and
+    larger panels almost none.'
+- source_image: 95035_images/image_000014_91d8c025d46f0c7308ae0437e93bf08995f62e60da743d320b05f214d65da23d.png
+  source_image_sha256: 3091954d09f4a883948771666a40611eda0c45977843ba37d2c3f1c7119f1ad0
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked percentage bars of electric panel constraint type by heating fuel after the upgrade
+  description: 'Figure 12: dashboard chart titled ''Electric Panel Constraint Type by Heating Fuel''.
+    Five 100% stacked bars, All, Electricity, Natural Gas, Fuel Oil and Propane, are split into No Constraint,
+    Capacity Constrained Only, Space Constrained Only, and Capacity and Space Constrained. For all dwellings
+    72.6% have no constraint and 13.7% are space constrained only; electricity-heated homes are 94.8%
+    unconstrained, fuel oil homes 43.5%.'
+- source_image: 95035_images/image_000015_8c77edbffe56feffd23c8667641f8d80d883440b95b4c7d2aa97e7955ca892bc.png
+  source_image_sha256: 163c6e8e7af030db5bcc13ee2ef7f486fb451b0f3fe8aae2d44ce1c64ae7ebc3
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Choropleth map of the percent of dwelling units with an electric panel capacity or space constraint
+    by state
+  description: 'Figure 13: choropleth map of the United States with Alaska and Hawaii insets, titled ''Percent
+    of Dwelling Units with Electric Panel Capacity and/or Space Constraints''. Each state is shaded and
+    labelled with its percentage; the legend runs from 6.4% to 61.0%. Shares are highest in the Northeast,
+    the northern Plains and Alaska and lowest across the South, where most states are between about 13%
+    and 23%.'
+- source_image: 95035_images/image_000016_da28bfc36dbf5d49c3903939378ed4d646868cd604bbdf1e143fca324c801ecf.png
+  source_image_sha256: b693dfa08a7628aaaf2987b9256329c5feaa8175502aa2743c3e77714922d74e
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Choropleth map of the percent of dwelling units with an electric panel space constraint by state
+  description: 'Figure 14: choropleth map of the United States with Alaska and Hawaii insets, titled ''Percent
+    of Dwelling Units with Electric Panel Space Constraints''. Each state is shaded and labelled with
+    its percentage; the legend runs from 2.3% to 47.2%. Shares are highest in the Northeast, the upper
+    Midwest, the northern Plains and Alaska and lowest across the South.'
+- source_image: 95035_images/image_000017_49ce8cb1c3f5a2f5dc84b2ede1f5830220ad910f791764e2d30c5e04150c9454.png
+  source_image_sha256: 09304347d1438df118003f578882a25f1f04f28163bc891f33317358d2e92d0e
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Choropleth map of the percent of dwelling units with an electric panel capacity constraint by state
+  description: 'Figure 15: choropleth map of the United States with Alaska and Hawaii insets, titled ''Percent
+    of Dwelling Units with Electric Panel Capacity Constraints''. Each state is shaded and labelled with
+    its percentage; the legend runs from 2.6% to 38.3%. Shares are highest in the Northeast and the northern
+    Plains and lowest in the South and the Southwest, where most states are under about 12%.'

@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96344.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96344.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96344.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96344.md | section: References | lines: 372-386 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96344.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96344.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96344.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96344.md | section: References | lines: 462-476 -->
 ## References
 
 | Andrews, J. (2001). Better Duct Systems for Home Heating and Cooling. Retrieved from https://docs.nrel.gov/docs/fy05osti/30506.pdf                                                                                                             |

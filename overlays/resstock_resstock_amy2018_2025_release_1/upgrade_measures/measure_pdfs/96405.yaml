@@ -1,0 +1,467 @@
+# Hand-authored overlay for measure_pdfs/96405.pdf
+#
+# 96405 is the ResStock measure documentation for the ENERGY STAR windows upgrade (measure
+# 17). Every table and figure in the report was compared with the PDF on 2026-11-11,
+# following "Checking every table and figure: the ResStock method" in overlays/README.md.
+#
+# Tables (page numbers are PDF pages, 1-based):
+#   * Table 3 (p.14) is superseded: its last row was dropped, twelve merged U-factor cells and
+#     one climate zone were blank. See its `why`.
+#   * Table 1 (p.11) is superseded: the merged Northern* cell was blank on four of its five
+#     rows.
+#   * Table 11 (p.21) is superseded: one cell had lost its first word and a window option
+#     carried a line-wrap space.
+#   * The Measure Summary table (p.9, no caption) is superseded: it was right except for a
+#     line-wrap space inside the project configuration URL and one row label.
+#   * Tables 2, 4, 5, 6, 7, 8, 9, 10 and 12 and the List of Acronyms (p.5) are recorded under
+#     `checked:` as correct.
+#   * The Table of Contents and List of Figures / List of Tables grids are contents pages and
+#     have no entry. The References list was extracted as a one-column grid; it is not a table
+#     of the report and has no entry.
+#   * Table 1's footnote (the Northern compliance pathways) is present as the paragraph below
+#     the table. No number grid is shown as a picture.
+#
+# Figures: Figures 1-13 are described (40-70 words each, vision-description), one bitmap per
+# figure; every figure caption has its image. The cover art and wordmark (image_000000,
+# image_000001) are decorative and omitted by the build. Values read off an axis, not a data
+# label, are worded "about".
+#
+# Flattening notes: in Tables 1 and 3 merged cells (climate zone, U-factor) are repeated on
+# each row they cover. Table 3 and the Measure Summary are split into bold-labelled parts to
+# stay under the chunk limit, each repeating the header row; the labels are not in the PDF.
+# Row shading in the PDF is alternating bands and carries no meaning.
+
+product: resstock
+release: resstock_amy2018_2025_release_1
+source_id: upgrade_measures
+source_path: measure_pdfs/96405.pdf
+source_url: https://docs.nlr.gov/docs/fy26osti/96405.pdf
+publication_url: https://docs.nlr.gov/docs/fy26osti/96405.pdf
+tables:
+- label: Measure Summary
+  uncaptioned: true
+  source_pdf: measure_pdfs/96405.pdf
+  source_pdf_sha256: b1cf02f7e140f9a47a12ac2d163a6db237273ea5966a9bd93dc1ddab999f7cd7
+  page: 9
+  method: extracted grid, with the cells named in `why` corrected from the PDF text layer
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: ca0027c86499954f6646927f2c770918dca37d5f2045fcd184e7fb70cc2a6300
+    why: The table is right cell for cell except the project configuration URL, which carries a space
+      where the PDF wraps the line ('project_national/sdr_u pgrades_tmy3.yml'). A search for the real
+      path, or a click on the link, misses it. The row label 'Project Configuration File(s)' was broken
+      the same way and is joined too. The cell text is otherwise the extractor's own.
+  markdown: '| Measure Title | ENERGY STAR Version 7.0 Window Upgrade |
+
+    |---|---|
+
+    | Measure Definition | This upgrade measure replaces any existing windows with less than the performance
+    level specified by ENERGY STAR Version 7.0 (V7) with windows meeting this performance level. The technology
+    applied in this measure upgrade package is denoted in the ResStock options_lookup.tsv as the following,
+    depending on the climate zone: • Windows ''EnergyStar, Northern'' • Windows ''EnergyStar, North-Central''
+    • Windows ''EnergyStar, South-Central'' • Windows ''EnergyStar, Southern''. |
+
+    | Applicability | This measure applies to all dwellings with: • Windows less than the performance
+    level specified by ENERGY STAR V7. This performance level varies by climate zone. With these applicability
+    constraints, the measure upgrade applies to 100% of the existing dwelling units. |
+
+    | Not Applicable | This measure does not apply to dwelling units with the following: • Windows that
+    already meet or exceed the performance level specified by ENERGY STAR V7. These constraints exclude
+    0% of the dwelling units from receiving this measure upgrade. |
+
+    | Original Release | 2025 Release 1: 2025/resstock_amy2018_release_1; 2025/resstock_amy2012_release_1
+    |
+
+    | Project Configuration File(s) | https://github.com/NatLabRockies/resstock/blob/2025_Release_1/project_national/sdr_upgrades_tmy3.yml
+    |'
+- label: Table 1
+  caption: ENERGY STAR Certification Criteria for Residential Windows, V7
+  source_pdf: measure_pdfs/96405.pdf
+  source_pdf_sha256: b1cf02f7e140f9a47a12ac2d163a6db237273ea5966a9bd93dc1ddab999f7cd7
+  page: 11
+  method: extracted grid, with the merged Climate Zone cell repeated on its rows (compared with the page
+    render and text layer)
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 53ff127aa8a4fef4b7a4705b0c8cee16ea8ad29e287d222f79c1b38cf80f9821
+    why: The Northern* climate zone has five compliance pathways, one per row, and its Climate Zone cell
+      is merged over them. The extractor left the cell blank on the last four, so those rows did not say
+      which zone they belong to. Every value was right. 'Northern*' is repeated on each of its five rows;
+      a stray space inside '0.40' (twice) and the flattened superscripts in the two unit strings (ft²)
+      are corrected. The table's footnote is the extracted paragraph below it.
+  markdown: '| Climate Zone | U-Factor (Btu/h ft²∙˚F) | SHGC | Air Leakage (cfm/ft²) |
+
+    |---|---|---|---|
+
+    | Northern* | ≤ 0.22 | ≥ 0.17 | ≤ 0.30 |
+
+    | Northern* | = 0.23 | ≥ 0.35 | ≤ 0.30 |
+
+    | Northern* | = 0.24 | ≥ 0.40 | ≤ 0.30 |
+
+    | Northern* | = 0.25 | ≥ 0.40 | ≤ 0.30 |
+
+    | Northern* | = 0.26 | ≥ 0.35 | ≤ 0.30 |
+
+    | North-Central | ≤ 0.25 | ≤ 0.40 | ≤ 0.30 |
+
+    | South-Central | ≤ 0.28 | ≤ 0.23 | ≤ 0.30 |
+
+    | Southern | ≤ 0.32 | ≤ 0.23 | ≤ 0.30 |'
+- label: Table 3
+  caption: Estimated Energy Code Minimum Window Performance by Number of Counties, Circa July 2025
+  source_pdf: measure_pdfs/96405.pdf
+  source_pdf_sha256: b1cf02f7e140f9a47a12ac2d163a6db237273ea5966a9bd93dc1ddab999f7cd7
+  page: 14
+  method: pdf-text-layer (row structure and the dropped row) checked against the extracted grid and the
+    page render
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 2714e22a95a35e365944811818ccea45bdc6956644ff96caa24dfb618fee4a7d
+    why: Three defects. The table's last row (Southern, U-factor 0.65, SHGC 0.3, 36 counties, 1,551,150
+      dwelling units, 6.7%) was dropped, and is nowhere else in the document. The Maximum Allowable U-Factor
+      cells are merged over the rows that share a value, and the extractor left twelve of them blank,
+      so those rows did not say which U-factor they are for. One Southern row had lost its climate zone.
+      Every value the extractor did emit was right and agrees with this transcription. The row structure
+      is the text layer's own reading order; the zone and the U-factor are repeated on every row.
+  markdown: '**Table 3, part 1 of 2**
+
+
+    | ENERGY STAR Climate Zone | Maximum Allowable U-Factor | Maximum Allowable SHGC | Counties | Dwelling
+    Units | Percent of Dwellings in Climate Zone |
+
+    |---|---|---|---|---|---|
+
+    | Northern | 0.3 | 0.23 | 2 | 76,447 | 0.2% |
+
+    | Northern | 0.3 | 0.4 | 118 | 9,212,842 | 18.7% |
+
+    | Northern | 0.3 | NR* | 774 | 27,985,427 | 56.7% |
+
+    | Northern | 0.32 | 0.4 | 2 | 396,618 | 0.8% |
+
+    | Northern | 0.32 | NR | 395 | 11,560,966 | 23.4% |
+
+    | Northern | 0.35 | NR | 26 | 134,477 | 0.3% |
+
+    | North-Central | 0.3 | 0.23 | 8 | 366,090 | 1.2% |
+
+    | North-Central | 0.3 | 0.4 | 189 | 6,552,526 | 22.0% |
+
+    | North-Central | 0.3 | NR | 2 | 16,400 | 0.1% |
+
+    | North-Central | 0.32 | 0.4 | 177 | 15,021,283 | 50.4% |
+
+    | North-Central | 0.32 | NR | 5 | 87,044 | 0.3% |
+
+    | North-Central | 0.35 | 0.25 | 1 | 34,313 | 0.1% |
+
+    | North-Central | 0.35 | 0.4 | 290 | 4,804,076 | 16.1% |
+
+    | North-Central | 0.35 | NR | 30 | 490,474 | 1.6% |
+
+    | North-Central | 0.4 | NR | 87 | 2,420,330 | 8.1% |
+
+    | South-Central | 0.3 | 0.23 | 25 | 10,571,943 | 29.3% |
+
+    | South-Central | 0.3 | 0.25 | 77 | 3,472,175 | 9.6% |
+
+    | South-Central | 0.3 | 0.4 | 1 | 23,212 | 0.1% |
+
+    | South-Central | 0.3 | NR | 14 | 3,272,352 | 9.1% |
+
+    | South-Central | 0.32 | 0.25 | 119 | 2,925,185 | 8.1% |
+
+    | South-Central | 0.35 | 0.25 | 371 | 12,680,429 | 35.1% |
+
+    | South-Central | 0.4 | 0.25 | 1 | 2,018 | 0.0% |
+
+
+    **Table 3, part 2 of 2**
+
+
+    | ENERGY STAR Climate Zone | Maximum Allowable U-Factor | Maximum Allowable SHGC | Counties | Dwelling
+    Units | Percent of Dwellings in Climate Zone |
+
+    |---|---|---|---|---|---|
+
+    | South-Central | 0.5 | 0.3 | 149 | 3,162,349 | 8.8% |
+
+    | South-Central | 0.65 | 0.4 | 2 | 23,464 | 0.1% |
+
+    | Southern | 0.3 | 0.23 | 1 | 59,291 | 0.3% |
+
+    | Southern | 0.35 | 0.25 | 1 | 4,289 | 0.0% |
+
+    | Southern | 0.4 | 0.25 | 221 | 18,435,428 | 79.5% |
+
+    | Southern | 0.5 | 0.25 | 4 | 2,655,475 | 11.4% |
+
+    | Southern | 0.5 | 0.3 | 1 | 55,759 | 0.2% |
+
+    | Southern | 0.65 | 0.25 | 8 | 432,440 | 1.9% |
+
+    | Southern | 0.65 | 0.3 | 36 | 1,551,150 | 6.7% |'
+- label: Table 11
+  caption: Characteristics of Four Individual Dwelling Models
+  source_pdf: measure_pdfs/96405.pdf
+  source_pdf_sha256: b1cf02f7e140f9a47a12ac2d163a6db237273ea5966a9bd93dc1ddab999f7cd7
+  page: 21
+  method: extracted grid, with the cells named in `why` corrected from the PDF text layer
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 6c0ed879ac4e0953ac157bd576816645422865b6c95001023e8700ea56943d10
+    why: 'Dwelling 4''s Water Heater Type and Fuel cell lost its first word: it read ''Efficiency Natural
+      Gas with Storage Tank in Living Space'' for ''Standard Efficiency Natural Gas ...''. The window
+      option ''Single, Clear, Non-Metal'' also carried a space where the PDF breaks the line (''Non- Metal''),
+      so a search for the option missed it, and the superscript in ft² was flattened. Every other cell
+      is the extractor''s own; ''Storage Tank I Mechanical Space'' is the source''s wording.'
+  markdown: '| Dwelling ID | 1 | 2 | 3 | 4 |
+
+    |---|---|---|---|---|
+
+    | Building Type | Multi-Family with 5+ Units, 1-3 Stories | Single-Family Detached | Single-Family
+    Detached | Single-Family Detached |
+
+    | Floor Area (ft²) | 1,138 | 5,587 | 1,228 | 2,179 |
+
+    | Building America Climate Zone | Hot-Humid | Hot-Humid | Cold | Hot-Humid |
+
+    | ENERGY STAR Climate Zone | Southern | Southern | Northern | Southern |
+
+    | State | HI | FL | MI | TX |
+
+    | Cooling Type | None | Ducted Heat Pump | Central AC | Central AC |
+
+    | Heating Type and Fuel | None | Electricity Air-Source Heat Pump | Natural Gas Fuel Furnace | Natural
+    Gas Fuel Furnace |
+
+    | Water Heater Type and Fuel | Standard Efficiency Electric Resistance with Storage Tank I Mechanical
+    Space | Premium Efficiency Electric Resistance with Storage Tank in Garage | Standard Efficiency Electric
+    Resistance with Storage Tank in Living Space | Standard Efficiency Natural Gas with Storage Tank in
+    Living Space |
+
+    | Baseline Windows | Single, Clear, Metal | Single, Clear, Metal | Single, Clear, Non-Metal | Single,
+    Clear, Non-Metal |'
+checked:
+- label: List of Acronyms
+  uncaptioned: true
+  source_pdf: measure_pdfs/96405.pdf
+  source_pdf_sha256: b1cf02f7e140f9a47a12ac2d163a6db237273ea5966a9bd93dc1ddab999f7cd7
+  page: 5
+  table_sha256: a052d3185b7f8471ae2157806cd35031944ff69d03a75a9c96e57a9a091080ff
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: Twelve entries, AC to SHGC, each with its expansion; the first entry sits in the header row.
+- label: Table 2
+  caption: Performance Characteristics of a Sample of Certified Window Products
+  source_pdf: measure_pdfs/96405.pdf
+  source_pdf_sha256: b1cf02f7e140f9a47a12ac2d163a6db237273ea5966a9bd93dc1ddab999f7cd7
+  page: 13
+  table_sha256: 986e7a83746555fb753f4f1b875328701bdac6498e856ee48075883c1e00e439
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The two-row header (U-Factor and SHGC over Minimum, Mean, Maximum) is a header row plus a first
+    data row; the four zone rows match the page. The unit reads 'ft 2' for ft².
+- label: Table 4
+  caption: Modeled ENERGY STAR V7 Window Performance Characteristics
+  source_pdf: measure_pdfs/96405.pdf
+  source_pdf_sha256: b1cf02f7e140f9a47a12ac2d163a6db237273ea5966a9bd93dc1ddab999f7cd7
+  page: 15
+  table_sha256: 36f3d87d4e8172e5d37b1da2ddb0d328ca352368ad10f7e5bcfaab0c634abe90
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The four zone rows match the page. The unit reads 'ft 2' for ft².
+- label: Table 5
+  caption: Baseline Infiltration Rate by Window Type
+  source_pdf: measure_pdfs/96405.pdf
+  source_pdf_sha256: b1cf02f7e140f9a47a12ac2d163a6db237273ea5966a9bd93dc1ddab999f7cd7
+  page: 16
+  table_sha256: 7df53dcc5763a0afe12f7b4aa07b683b95c0630c6e5213290014e6193f8e355d
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The ten window types and their rates match the page. The line 'M-Gain stands for medium heat gain;
+    L-Gain stands for low heat gain' between the caption and the grid is the table's printed note.
+- label: Table 6
+  caption: Infiltration Rate Reduction From ENERGY STAR V7 Windows by Baseline Window Type
+  source_pdf: measure_pdfs/96405.pdf
+  source_pdf_sha256: b1cf02f7e140f9a47a12ac2d163a6db237273ea5966a9bd93dc1ddab999f7cd7
+  page: 16
+  table_sha256: 3e2c62e177e2c15fbf95626ed750a92cfd941f6079b5ce6b370e6630638c98f8
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The ten window types and their reductions match the page.
+- label: Table 7
+  caption: ResStock Baseline Window Performance
+  source_pdf: measure_pdfs/96405.pdf
+  source_pdf_sha256: b1cf02f7e140f9a47a12ac2d163a6db237273ea5966a9bd93dc1ddab999f7cd7
+  page: 17
+  table_sha256: c4d31c845534562e07a7221ee3370fd87c9b63f2bd8edbe2602121a327e59849
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The ten rows match the page. The unit reads 'ft 2' for ft².
+- label: Table 8
+  caption: ResStock Baseline Window Type Prevalence by ENERGY STAR Climate Zone
+  source_pdf: measure_pdfs/96405.pdf
+  source_pdf_sha256: b1cf02f7e140f9a47a12ac2d163a6db237273ea5966a9bd93dc1ddab999f7cd7
+  page: 18
+  table_sha256: 81bb4b5939990b781de8b7ee733bcf705fd94dc9623448406450cd92b28bac7a
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The two-row header (ENERGY STAR Climate Zone 2023 over the four zones and Total) is a header row
+    plus a first data row; the ten window types and the Total row match the page. 'South- Central' carries
+    a line-break space.
+- label: Table 9
+  caption: ResStock Argument Values for ENERGY STAR V7 Windows
+  source_pdf: measure_pdfs/96405.pdf
+  source_pdf_sha256: b1cf02f7e140f9a47a12ac2d163a6db237273ea5966a9bd93dc1ddab999f7cd7
+  page: 19
+  table_sha256: aae1bcef1640f649356e00fbbd315d2573e8d7a98280c396715af1244270909a
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The three rows match the page. The air_leakage_percent_reduction value is one cell merged across
+    the four zones in the PDF and is repeated in each. Three headers carry a line-break space ('North-
+    Central', 'South- Central', 'OpenStudio- HPXML?').
+- label: Table 10
+  caption: Visible Transmittance Values Calculated by EnergyPlus Given U-Factor and SHGC
+  source_pdf: measure_pdfs/96405.pdf
+  source_pdf_sha256: b1cf02f7e140f9a47a12ac2d163a6db237273ea5966a9bd93dc1ddab999f7cd7
+  page: 20
+  table_sha256: 99f2e9fec06ec93bd00843558933672bf5898cda6f97caf2f317b95c1c624702
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The four zone rows match the page. The unit reads 'ft 2' for ft².
+- label: Table 12
+  caption: Savings in Annual Energy Consumption and Utility Bills for Four Individual Dwelling Test Models
+  source_pdf: measure_pdfs/96405.pdf
+  source_pdf_sha256: b1cf02f7e140f9a47a12ac2d163a6db237273ea5966a9bd93dc1ddab999f7cd7
+  page: 22
+  table_sha256: 653b7e1271a3802087a981ba48d1c3f3b85f70f7b80bca7da8fe7a65c0786d7e
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The eleven rows match the page; a dash is the PDF's own mark for not applicable.
+figures:
+- source_image: 96405_images/image_000002_e0936df14c9b44914d154af1635a98ceb20af513f78244b04c27059e0dc8b562.png
+  source_image_sha256: b74fc77323eb39d8bcdd7184abd848c0449ed56fd2a6b435b92f7c6b9a4b1ca7
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Illustration of the corner cross sections of single, double and triple pane windows
+  description: 'Figure 1: illustration of three window corner cross sections, labelled Single Pane, Double
+    Pane and Triple Pane. Each shows the frame profile cut away to reveal one, two or three sheets of
+    glass, with the spacers and the gaps between the panes in the double and triple units. The illustration
+    carries no data.'
+- source_image: 96405_images/image_000003_5aca6bdca90914b366befd1d89518959b1023715c16bdc7873cdf37137686d8f.png
+  source_image_sha256: 8561ff0758a5b88de0b8a73750dceb7b0d6872015421ceb364ee2be76f3ff136
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Map of the United States coloured by ENERGY STAR climate zone for residential windows
+  description: 'Figure 2: map of the United States coloured by the four ENERGY STAR climate zones for
+    windows. Northern (blue) covers the northern tier, the Mountain West and Alaska; North-Central (yellow)
+    a band from California through the mid-Atlantic; South-Central (orange) the Southwest and the inland
+    South; and Southern (red) southern California and Arizona, south Texas, the Gulf Coast, Florida and
+    Hawaii.'
+- source_image: 96405_images/image_000004_0ed3f84b39c94f39aa2a304fdf570c3f9d1d90cfde1c23b9b4e70291adf57171.png
+  source_image_sha256: 6ef20572bb6a95bb1c17f30a7299f26f382504ca36ed7be7bbc94796a40b0626
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of January hourly average heating electricity for Dwelling 2, baseline against upgrade
+  description: 'Figure 3: line chart for January. X-axis is hour of day, 0 to 23; y-axis is heating electricity
+    in kWh, 0 to about 0.27. Series are average baseline and average upgrade heating electricity for Dwelling
+    2. Both peak at hour 6, the baseline at about 0.27 kWh and the upgrade at about 0.20, and both fall
+    to near zero from midday to early evening.'
+- source_image: 96405_images/image_000005_2b876596b70033471c296750f156c1ceb0fbc8db53060835ca7f15c70402a841.png
+  source_image_sha256: e9259698a9b186936c196a8134faa95cca31220a606661ca4688d1e0c1c78ccc
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of July hourly average cooling electricity for Dwelling 2, baseline against upgrade
+  description: 'Figure 4: line chart for July. X-axis is hour of day, 0 to 23; y-axis is cooling electricity
+    in kWh, 0 to about 0.9. Series are average baseline and average upgrade cooling electricity for Dwelling
+    2. Both are lowest near hour 5, at about 0.2 kWh, and peak at hour 15, the baseline at about 0.86
+    kWh and the upgrade at about 0.65.'
+- source_image: 96405_images/image_000006_e2c17078e8ea6319a4099902923014105e5c22b2bd88968e3e085ba5c247e7f1.png
+  source_image_sha256: 5b48486d8aa1bb8399e9e81d88881240f18713cb138db25216680a061ab8df35
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of January hourly average infiltration rate for Dwelling 1, baseline against upgrade
+  description: 'Figure 5: line chart for January. X-axis is hour of day, 0 to 23; y-axis is infiltration
+    rate in cfm, 0 to about 140. Series are average baseline and average upgrade infiltration airflow
+    for Dwelling 1. The baseline runs at about 105 to 137 cfm and the upgrade at about 75 to 95 for most
+    of the day; both dip in the evening, to about 83 and about 44.'
+- source_image: 96405_images/image_000007_868897185000e3f28d9ff03d43f6a1499b4d1f5f7055cddaee4676db0c72ddd0.png
+  source_image_sha256: b6bfa5f44c2ed32a96c260e513c7877705dcf0061ed1652ef28b072b0fc60068
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of annual site energy by end use and fuel, baseline against ENERGY STAR windows
+  description: 'Figure 6: horizontal grouped bar chart. Rows are end uses by fuel, from electric vehicle
+    charging to generation, plus total site energy; x-axis is site energy consumption in kWh, 0 to above
+    3T. Series are Baseline and ENERGY STAR Windows. Total site energy falls from about 3.45T to about
+    3.2T kWh; natural gas heating, the largest end use, falls from about 1.16T to about 1.02T.'
+- source_image: 96405_images/image_000008_c4993d38c1bd0b723cc06b715e154eb9842fb1e524b1f17473ededc8a198edba.png
+  source_image_sha256: 78e593e0f97f11271c5157aef94c272cf389b90cadda2bcdfc733e010be00b62
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Small-multiple bar charts of natural gas heating savings by baseline window type and ENERGY STAR
+    climate zone
+  description: 'Figure 7: four bar charts side by side, one per ENERGY STAR climate zone (Northern, North-Central,
+    South-Central, Southern). Rows are ten baseline window types; x-axis is average savings in natural
+    gas heating energy consumption, -20% to 40%. Savings are largest for single, clear, metal windows,
+    about 28% to 33% in every zone, and shrink for better baseline windows; one South-Central bar is negative,
+    about -10%.'
+- source_image: 96405_images/image_000009_21c0798ccdae732924c43f4a3e9e7b17a79ea59fd0c7db882dad454fdcd59569.png
+  source_image_sha256: e45cd2355a74c2ebe986095b25df4aa3aab81a667490466befb01b29aaca141f
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Small-multiple bar charts of heating electricity savings by baseline window type and ENERGY STAR
+    climate zone
+  description: 'Figure 8: four bar charts side by side, one per ENERGY STAR climate zone. Rows are ten
+    baseline window types; x-axis is average savings in electricity heating energy consumption, 0% to
+    30%. Savings are largest for single, clear, metal windows, about 27% to 30% in every zone, and fall
+    to roughly 5% or less for double low-E and triple-pane baseline windows.'
+- source_image: 96405_images/image_000010_ee5a1f887a0322413d9070f70e6be872b57ca796135ce3833bbb7023c94349e5.png
+  source_image_sha256: 207438e92dd03911321b47452bdeba9e74c68dadb1cd6abeb4eb0e174cbfc16c
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Small-multiple bar charts of cooling electricity savings by baseline window type and ENERGY STAR
+    climate zone
+  description: 'Figure 9: four bar charts side by side, one per ENERGY STAR climate zone. Rows are ten
+    baseline window types; x-axis is average savings in electricity cooling energy consumption, 0% to
+    above 15%. Savings are largest for single, clear, metal windows, about 15% to 17%, and are generally
+    larger in the Southern zone; the triple-pane baseline shows a small negative saving in North-Central.'
+- source_image: 96405_images/image_000011_737aa85e302a20c85762b9a5409e3c64a5c0c56f23fa55723371e2a7fe498e87.png
+  source_image_sha256: 69d1bcc05bc92201bb0f1bdfbb16b48e37422b675d7fc8b05c49180c25f9cffd
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Small-multiple bar charts of gas heating savings for single clear metal windows by baseline infiltration
+    and zone
+  description: 'Figure 10: four bar charts side by side, one per ENERGY STAR climate zone, for dwellings
+    whose baseline windows are single, clear, metal. Rows are baseline infiltration levels from 50 down
+    to 1 ACH50; x-axis is average savings in natural gas heating energy consumption, 0% to above 30%.
+    Savings are about 25% to 32% at most infiltration levels in every zone and smaller or absent at 1
+    to 3 ACH50.'
+- source_image: 96405_images/image_000012_8ccd414aa24f295d71ab0b900efaa297f8a736ec831aa1824a2ddfb46d887688.png
+  source_image_sha256: 9805c167f7e367ef33c2a03eda21e9f0de17dcc0675ef1eb9d928b753b5dc510
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Histograms of natural gas heating savings by baseline window type
+  description: 'Figure 11: ten histograms stacked in rows, one per baseline window type. X-axis is savings
+    in natural gas heating energy consumption, -10% to 40%. The distribution for single, clear, metal
+    windows is broad and centred near 20% to 25%; each better baseline window shifts left and narrows,
+    and the triple, low-E distribution is centred near 5%.'
+- source_image: 96405_images/image_000013_a5e935bed476a46232fc3505f516438d37f7d84dba243084e5ab5f4a01cd66c6.png
+  source_image_sha256: 069741466ac53c5608f3e60f76a78f9a67a35ec6c74bf26bcbf3bbc4ffbdfba6
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar chart of annual utility bills by fuel, baseline against ENERGY STAR V7 windows
+  description: 'Figure 12: two stacked bars, Baseline and ENERGY STAR V7 Windows. Y-axis is utility bills,
+    0 to 2,500; segments are electricity, natural gas, fuel oil and propane, and a diamond marks the all-fuels
+    total. The total falls from about 2,330 to about 2,200; electricity is the largest segment in both
+    bars and natural gas the second.'
+- source_image: 96405_images/image_000014_bfcc3a9f1853eb9f93f99e21e4cbd5b3c1bc9b020b18598ac31c6279c3e8af82.png
+  source_image_sha256: 1e52770086cfefbd8b56784ac5cca28cf1b3360633ed1f0542c1b6750ab1b469
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Histograms of total utility bill savings by baseline window type
+  description: 'Figure 13: ten histograms stacked in rows, one per baseline window type. X-axis is savings
+    in total utility bills, -5% to 20%. The distribution for single, clear, metal windows is the broadest,
+    centred near 7% to 8% with a tail past 15%; better baseline windows shift left and narrow, and the
+    triple, low-E distribution is centred near 2%.'

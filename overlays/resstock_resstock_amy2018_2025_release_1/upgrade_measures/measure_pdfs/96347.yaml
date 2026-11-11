@@ -1,0 +1,289 @@
+# Hand-authored overlay for measure_pdfs/96347.pdf
+#
+# 96347 is the ResStock measure documentation for the envelope package of advanced air
+# sealing, attic floor insulation, and duct sealing and insulation (measure 15). Every table
+# and figure in the report was compared with the PDF on 2026-11-11, following "Checking every
+# table and figure: the ResStock method" in overlays/README.md.
+#
+# Tables (page numbers are PDF pages, 1-based):
+#   * Table 2 (p.13) is superseded: its header row was missing from the grid. See its `why`.
+#   * The Measure Summary table (p.9, no caption) is superseded: the Not Applicable cell had
+#     lost its bullets and closing sentence, and the project configuration URL carried a
+#     line-wrap space. See its `why`.
+#   * Tables 1, 3, 4 and 5 are recorded under `checked:` as correct.
+#   * The List of Acronyms (p.5) was extracted as one run-on paragraph, not a grid, so there
+#     is no table to check; its seven entries are all present and in order.
+#   * The Table of Contents and List of Figures / List of Tables grids are contents pages and
+#     have no entry. The References list (p.25) was extracted as a one-column grid; it is not
+#     a table of the report and has no entry.
+#   * No table in this report has a footnote, and no number grid is shown as a picture.
+#
+# Text repairs: the two header cells of Table 2 that the extractor left outside the grid, the
+# line "Upgrade Measure" and the false heading "## Housing Characteristics", are removed.
+#
+# Figures: Figures 1-12 are described (40-70 words each, vision-description), one bitmap per
+# figure; every figure caption has its image. The cover art and wordmark (image_000000,
+# image_000001) are decorative and omitted by the build. Values read off an axis, not a data
+# label, are worded "about". Figure 3 is captioned as heating energy, but the plot's own axis
+# title reads "Cooling Energy Consumption" and its date label "July 2nd"; the description
+# reports the labels as printed.
+#
+# Flattening notes: the Measure Summary and Table 2 are split into bold-labelled parts to stay
+# under the chunk limit, each repeating its first row; the labels are not in the PDF. Bulleted
+# lists inside the Measure Summary's cells are run into the cell text, as extracted. Row
+# shading in the PDF is alternating bands and carries no meaning.
+
+product: resstock
+release: resstock_amy2018_2025_release_1
+source_id: upgrade_measures
+source_path: measure_pdfs/96347.pdf
+source_url: https://docs.nlr.gov/docs/fy26osti/96347.pdf
+publication_url: https://docs.nlr.gov/docs/fy26osti/96347.pdf
+text_repairs:
+- find: Upgrade Measure
+  remove: true
+  why: The first header cell of Table 2, left as a line of its own above the grid. The hand-authored Table
+    2 carries it in its header row.
+- find: '## Housing Characteristics'
+  remove: true
+  why: The second header cell of Table 2, which the extractor turned into a section heading after the
+    '3 Modeling Approach' paragraphs. The page has no such heading; the hand-authored Table 2 carries
+    the words in its header row.
+tables:
+- label: Measure Summary
+  uncaptioned: true
+  source_pdf: measure_pdfs/96347.pdf
+  source_pdf_sha256: 2ffcba94508cff195d23f09ac9ad8de1c693ce64057c8cbeb5131c639354a896
+  page: 9
+  method: extracted grid, with the cells named in `why` corrected from the PDF text layer
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 26982b18b71fdd3cdb80412bffed5df6a4c15e1322c9201c8dbd02fc84d86600
+    why: 'The Not Applicable cell stops after its lead-in (''...none of the following housing characteristics:''):
+      its five bullets and its closing sentence, ''These constraints exclude 2.1% of the dwelling units
+      from receiving this measure upgrade.'', were dropped, and that sentence is nowhere else in the document.
+      The five bullets are the same five the Applicability cell lists and are taken from that extracted
+      cell; the closing sentence is from the text layer of page 9. The project configuration URL also
+      carries a space where the PDF wraps the line (''project_nationa l'') and a space before its final
+      full stop; both are removed.'
+  markdown: '**Measure Summary, part 1 of 2**
+
+
+    | Measure Title | Advanced Air Sealing, Attic Floor Insulation, and Duct Sealing |
+
+    |---|---|
+
+    | Measure Definition | This upgrade measure package applies advanced air sealing, attic floor insulation,
+    and duct sealing and insulation for applicable dwelling units. A dwelling unit may receive none, some,
+    or all three individual measures, depending on its housing characteristics. |
+
+    | Applicability | This measure applies to all dwellings that have one of the following housing characteristics:
+    • Equal or more than 6 ACH50 infiltration rate • Unfinished attic & less than R-49 attic floor insulation
+    & in climate zone 1 • Unfinished attic & less than R-60 attic floor insulation & in climate zones
+    2 through 8 • More than 6% duct leakage to outside • Less than R-6 duct insulation. With these applicability
+    constraints, 97.9% of the existing dwelling units receive at least one of the measures. |
+
+
+    **Measure Summary, part 2 of 2**
+
+
+    | Measure Title | Advanced Air Sealing, Attic Floor Insulation, and Duct Sealing |
+
+    |---|---|
+
+    | Not Applicable | This measure does not apply to dwelling units that have none of the following housing
+    characteristics: • Equal or more than 6 ACH50 infiltration rate • Unfinished attic & less than R-49
+    attic floor insulation & in climate zone 1 • Unfinished attic & less than R-60 attic floor insulation
+    & in climate zones 2 through 8 • More than 6% duct leakage to outside • Less than R-6 duct insulation.
+    These constraints exclude 2.1% of the dwelling units from receiving this measure upgrade. |
+
+    | Original Release | 2025 Release 1: 2025/resstock_amy2018_release_1 |
+
+    | Project Configuration File(s) | https://github.com/NatLabRockies/resstock/blob/sdr_2025_Release_1/project_national/sdr_upgrades_amy2018.yml.
+    |'
+- label: Table 2
+  caption: Housing Characteristics That Are Applicable to Individual Measures
+  source_pdf: measure_pdfs/96347.pdf
+  source_pdf_sha256: 2ffcba94508cff195d23f09ac9ad8de1c693ce64057c8cbeb5131c639354a896
+  page: 13
+  method: extracted grid, with the header row restored and one value joined (compared with the page render
+    and text layer)
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 53138ebdfc1b9378189a70708060cb8b5c19337e66ad1b9e778896ae006d2791
+    why: 'The table''s header row, ''Upgrade Measure | Housing Characteristics'', was not in the grid:
+      the first data row (Advanced Air Sealing) stood as the header, ''Upgrade Measure'' was left as a
+      line above the grid and ''Housing Characteristics'' as a heading further down the page. The option
+      value ''R-30'' also carried a space where the PDF breaks the line (''R- 30''), so a search for it
+      missed. The three rows are the extractor''s own.'
+  markdown: '| Upgrade Measure | Housing Characteristics |
+
+    |---|---|
+
+    | Advanced Air Sealing | in.infiltration is 6 ACH50, 7 ACH50, 8 ACH50, 10 ACH50, 15 ACH50, 20 ACH50,
+    25 ACH50, 30 ACH50, 40 ACH50, 50 ACH50 |
+
+    | Attic Floor Insulation | in.insulation_ceiling is Uninsulated, R-7, R-13, R-19, R-30, R-38 if the
+    dwelling unit is in climate zone 1. in.insulation_ceiling is Uninsulated, R-7, R-13, R-19, R-30, R-38,
+    R-49 if the dwelling unit is in climate zones 2 through 8. |
+
+    | Duct Sealing and Insulation | in.duct_leakage_and_insulation is 10% Leakage to Outside, R-4; 10%
+    Leakage to Outside, R-6; 10% Leakage to Outside, R-8; 10% Leakage to Outside, Uninsulated; 20% Leakage
+    to Outside, R-4; 20% Leakage to Outside, R-6; 20% Leakage to Outside, R-8; 20% Leakage to Outside,
+    Uninsulated; 30% Leakage to Outside, R-4; 30% Leakage to Outside, R-6; 30% Leakage to Outside, R-8;
+    30% Leakage to Outside, Uninsulated |'
+checked:
+- label: Table 1
+  caption: Stock Saturation for the Envelope Package Upgrades (Advanced Air Sealing + Attic Insulation
+    + Duct Sealing and Insulation)
+  source_pdf: measure_pdfs/96347.pdf
+  source_pdf_sha256: 2ffcba94508cff195d23f09ac9ad8de1c693ce64057c8cbeb5131c639354a896
+  page: 12
+  table_sha256: 85f8804f6371794f025f670111948cb871d7b78cd2efaf22fc9283baddc1910c
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: All eight rows and values match the page.
+- label: Table 3
+  caption: Housing Characteristics of the Example Dwelling Unit Before and After the Envelope Package
+    Upgrades (Advanced Air Sealing + Attic Insulation + Duct Sealing and Insulation)
+  source_pdf: measure_pdfs/96347.pdf
+  source_pdf_sha256: 2ffcba94508cff195d23f09ac9ad8de1c693ce64057c8cbeb5131c639354a896
+  page: 14
+  table_sha256: c626e84eace86b48d335f30278e0cbd01ad5be0f01cbafdeb255e8391a344669
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The three rows match the page.
+- label: Table 4
+  caption: Heating and Cooling Unmet Hours Before and After the Envelope Upgrades
+  source_pdf: measure_pdfs/96347.pdf
+  source_pdf_sha256: 2ffcba94508cff195d23f09ac9ad8de1c693ce64057c8cbeb5131c639354a896
+  page: 16
+  table_sha256: 8f7e5042bb9b5df0baa77973c19bd61ceb908a0a83027260dcd7d7751a03de41
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: All five rows and values match the page.
+- label: Table 5
+  caption: Annual Site Energy Consumption Saving Percentage per Upgraded Dwelling Unit After the Envelope
+    Package Upgrades (Advanced Air Sealing + Attic Insulation + Duct Sealing and Insulation)
+  source_pdf: measure_pdfs/96347.pdf
+  source_pdf_sha256: 2ffcba94508cff195d23f09ac9ad8de1c693ce64057c8cbeb5131c639354a896
+  page: 21
+  table_sha256: 88837a90ccf8a932ebee14321efe0d36fd1c32b9137e815a83b6ae20fc162422
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: All 30 end-use rows and values match the page, in order.
+figures:
+- source_image: 96347_images/image_000002_17faec5a5644c7632f09725faacde9f83f888335fc05eee1ff14874f47773022.png
+  source_image_sha256: ab7214d736806c37dd93e01e7c0e30fed44f08d90c71b76fe6e36ee590cba35b
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar chart of annual energy use for an example Colorado dwelling under five upgrade scenarios
+  description: 'Figure 1: horizontal stacked bar chart for an example dwelling unit in Colorado (climate
+    zone 5B). Rows are Baseline, Air Sealing, Attic Floor Insulation, Duct Sealing and Insulation, and
+    all three combined; x-axis is annual energy consumption in MBtu, 0 to 180, segmented by end use. Gas
+    heating falls from 105.5 at baseline to 75.9 with air sealing, 103.3 with attic insulation, 94.1 with
+    duct sealing and 65.3 with the package.'
+- source_image: 96347_images/image_000003_6fae500e2b41a558be104f83e25fdf113ff2e8477911ed1763abcd3da3d1ceca.png
+  source_image_sha256: 7d67a09c3eac526ada9e5ff44fffea732f216a85190b4103b0f81d4be035afca
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Two bars comparing package savings with the sum of individual measure savings for an example dwelling
+  description: 'Figure 2: two horizontal bars for the example Colorado dwelling. X-axis is annual total
+    energy consumption savings in MBtu, 0 to 50. The upper bar, savings from the measure package, is 42.5.
+    The lower bar stacks savings from the individual measures: 30.2 from air sealing, 2.4 from attic floor
+    insulation and 12.8 from duct sealing and insulation, which together exceed the package.'
+- source_image: 96347_images/image_000004_e9fec4a58398a737f6a0396026b3a2590e906aff76945c3b6ec05e447f0b8e0e.png
+  source_image_sha256: bc97e67843a273f0fbc1603c24b2568ebb46c280009ce05e49c958820a286de3
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of 15-minute energy use over one day under five upgrade scenarios, with thermostat setpoint
+  description: 'Figure 3: line chart for the example Colorado dwelling over one day, 0:00 to 24:00. Left
+    axis is 15-minute energy consumption in kWh, 0 to 4.5; right axis is setpoint in °F. Series are Baseline,
+    the three individual measures, the package and Setpoint. The plot''s own axis title reads ''Cooling
+    Energy Consumption'' and its date label ''July 2nd''. The baseline runs at about 2.5 to 3 kWh and
+    the package at about 1.7 to 1.9.'
+- source_image: 96347_images/image_000005_c817dc30b01bc8597b725c5c0627d337065612e2ad9f9917549a0f5c878a6b86.png
+  source_image_sha256: e80181927f1ecf5c1b0b8f5347eb44ce4a27e884ad84f5e26438153757ce0675
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of 15-minute cooling energy on July 2 under five upgrade scenarios, with thermostat
+    setpoint
+  description: 'Figure 4: line chart for the example Colorado dwelling on July 2nd, 0:00 to 24:00. Left
+    axis is cooling energy consumption in kWh, 0 to 0.6; right axis is setpoint in °F, stepping from 70
+    to 72 at about 09:00. Series are Baseline, the three individual measures, the package and Setpoint.
+    Cooling peaks near 18:00, at about 0.50 kWh for the baseline and about 0.36 for the package.'
+- source_image: 96347_images/image_000006_b56a4bdc5da4a977b1c0c77141b04ef357874aa572cda22d93e62d1a266afd6c.png
+  source_image_sha256: 2d2f663d138b19df5d637a92b4cefbcbfd578340f1794203ef707aeb2df0a885
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of annual site energy by end use and fuel for all homes, baseline against package
+  description: 'Figure 5: horizontal grouped bar chart. Rows are end uses by fuel, from electric vehicle
+    charging to generation, plus total site energy; x-axis is all-fuels end uses in kWh, 0 to above 3T.
+    Series are Baseline and ''Air, Attic, Duct Sealing/Insulation''. Total site energy falls from about
+    3.45T to about 2.7T kWh; natural gas heating, the largest end use, falls from about 1.15T to about
+    0.7T.'
+- source_image: 96347_images/image_000007_07d9ed1c8e0684ed9bcd651cc3e418d44654edda3c3759393ae362ae1dedd455.png
+  source_image_sha256: 7ac73dd41165ea815e9446728a5a7a5c0118cd443f6ae2dd7f233904fa7ba0d2
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of annual site energy by end use per upgraded dwelling unit, baseline against
+    package
+  description: 'Figure 6: horizontal grouped bar chart with the same rows as Figure 5, per upgraded dwelling
+    unit. X-axis is all-fuels end uses in kWh, 0 to about 25k; series are Baseline and ''Air, Attic, Duct
+    Sealing/Insulation''. Total site energy falls from about 25k to about 19k kWh, and natural gas heating
+    from about 8.3k to about 5k. Table 5 gives the percentage saving for each end use.'
+- source_image: 96347_images/image_000008_db89e3fa51b8d83f8808dc601507632c894a60c19027297d8bfc36aca87b2f4f.png
+  source_image_sha256: 063b42867ff902e2351a9e7fae2b236da994d64fe3c6201e35e42399a91f6503
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of percentage site energy savings per upgraded dwelling unit by vintage
+  description: 'Figure 7: horizontal bar chart. Rows are nine vintage bins from before 1940 to the 2010s;
+    x-axis is site energy total consumption percentage savings, 0 to 30. Savings fall with newer construction:
+    about 29% for homes built before 1940, about 28% for the 1940s and 1950s, about 21% to 24% for the
+    1960s to 1980s, about 18% for the 1990s and about 13% for the 2000s and 2010s.'
+- source_image: 96347_images/image_000009_7c2a7f57f23c779bdbb47a6217326862e8f0281a25f512b0476065f1a3b0bc51.png
+  source_image_sha256: f992d2bc2e7627425aaca28911f84c3f561363d5e227fdcd8dec637c6ae1306e
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of annual unmet cooling and heating hours, baseline against package
+  description: 'Figure 8: horizontal grouped bar chart of unmet hours per upgraded dwelling unit. Rows
+    are unmet cooling hours and unmet heating hours; x-axis is unmet hours, 0 to above 100; series are
+    Baseline and ''Air, Attic, Duct Sealing/Insulation''. Unmet cooling hours fall from about 132 to about
+    70, and unmet heating hours from about 22 to about 16.'
+- source_image: 96347_images/image_000010_6af402e2a10f38c78167c0ed37e28234adb9ebd75f526606053b34c1a6eca60b.png
+  source_image_sha256: e2c779b7c683f5e239d593ae2279af32380acfb18d0d6b4df14b897dd953ab4f
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Scatter plot of summed individual-measure savings against package savings, with a one-to-one line
+  description: 'Figure 9: scatter plot, one point per dwelling unit. X-axis is annual energy consumption
+    savings from the envelope package in MBtu, -50 to 450; y-axis is the sum of annual savings from the
+    individual measures, on the same scale. A red one-to-one line runs corner to corner. Nearly all points
+    lie on or above the line, and the gap widens with savings, to roughly 30 MBtu near 400.'
+- source_image: 96347_images/image_000011_1f5127fdb2af8ef79dce5da289df33c7d3cc379d33f52a40b1b88158bcc49831.png
+  source_image_sha256: f9f08b0bc895b994bf738088073aae9fbe58cfc8c6e53e1999b9329fd8eb2ed8
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of daily aggregated average energy consumption for baseline homes in Colorado across
+    2018
+  description: 'Figure 10: line chart. X-axis is time, January to December 2018; y-axis is daily aggregated
+    average energy consumption in kBtu, about 100 to 800. A single series, the baseline in Colorado. Consumption
+    is highest and most variable in winter, peaking near 780 kBtu in February, and flat at about 110 to
+    130 kBtu from June to September.'
+- source_image: 96347_images/image_000012_b83e726b78cd6b05140860edb3fea7e980da1daf383d5fd3b30f9fbb3f217b83.png
+  source_image_sha256: 1e74f5773114b6d403a3f63628a8001b0e35ff50eae10ff3e3ca3034eea895bd
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of aggregated average power in Colorado on the peak day, baseline against upgrade
+  description: 'Figure 11: line chart for February 20, 2018. X-axis is time of day, 00:00 to 24:00; y-axis
+    is aggregated average power in kW, 5 to 13. Series are Baseline and Upgrade. The baseline peaks at
+    about 12.9 kW near 07:00 and the upgrade at about 9.2 kW; both reach their minimum near 15:00, at
+    about 7.0 and 5.0 kW.'
+- source_image: 96347_images/image_000013_c924217ff53abc44d5f225ddd36ed749fbb73dbcc5e0b71521c8270b2b99ab01.png
+  source_image_sha256: ac243f6f0889126b8499edde7db3a423c73e9f376a4c8ed48f3946fbe1987428
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of annual utility bills per dwelling unit by fuel, baseline against package
+  description: 'Figure 12: horizontal grouped bar chart. Rows are electricity, natural gas, fuel oil,
+    propane and all fuels; x-axis is bills in US dollars, 0 to about 2,600; series are Baseline and ''Air,
+    Attic, Duct Sealing/Insulation''. The all-fuels bill falls from about $2,620 to about $2,200, electricity
+    from about $1,860 to about $1,650, and natural gas from about $520 to about $380.'
