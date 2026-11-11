@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96634.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96634.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96634.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96634.md | section: 4.5  Electric Panel Impacts | lines: 377-384 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96634.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96634.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96634.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96634.md | section: 4.5  Electric Panel Impacts | lines: 480-487 -->
 ## 4.5  Electric Panel Impacts
 
 Electrical panel constraint modeling was added to ResStock via OpenStudio-HPXML measures in 2025 to assess whether the existing panel has enough capacity or breaker space to accommodate new loads from an energy retrofit. For details on panel constraint modeling, refer to the ResStock Technical Reference Guide (Reyna et al, 2025).

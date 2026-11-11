@@ -2,7 +2,7 @@
   "product": "resstock",
   "release": "resstock_amy2018_2025_release_1",
   "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
-  "generated_utc": "2026-11-11T15:18:47.909292+00:00",
+  "generated_utc": "2026-11-11T16:15:58.776037+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -684,8 +684,35 @@
           "title": "Natural Gas Furnace 95% AFUE",
           "input_sha256": "77c22cdd42f5f8e4159372967c0d03548077bba5e345ccf02e3b4211278900b7",
           "output_path": "upgrade_measures/measure_pdfs/96634.md",
-          "output_sha256": "ed67d41a3fd4254c8dfea0de7a949212aa78ed0914e69825e059ebcde67bd1e2",
-          "body_sha256": "bcff7972ee222057ca173a2130908c9d737b0ef9e8e61ca85b9f1080f552888e"
+          "output_sha256": "57053c03810a45c90405db7995704ed35a5e9f371172e3b52fa2e2c447262c74",
+          "body_sha256": "fabddeedebd79d60498b60b19479fdcced2b0a939dfbf44bc8f067d23037a9c0",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96634.yaml",
+            "sha256": "fb3aef3aa7fc8d8d579f4cbac87fab1ce6a54076c8ff5b2ff13a1911b5a00eb2",
+            "tables_applied": [
+              "Table 1",
+              "Table 3"
+            ],
+            "figures_applied": [
+              "96634_images/image_000002_fc94f6d2961dc20abb2efe868d6d919ddf2c6404c651d8e8b3bac755c71d5934.png",
+              "96634_images/image_000003_0f37c04b570b9d9c2ab1637700aef6547162dfafeaf8c541f4d894e9f2583acd.png",
+              "96634_images/image_000004_2c3b121e9c2ef0367fa54f730d30f013447b6cc26b593c0ce3e2d6ed6880d74c.png",
+              "96634_images/image_000005_2f942984f8e823946083ad7afdd8eb82c8845623b41b889dcf9f600f6740bdf6.png",
+              "96634_images/image_000006_fcc83a9461cbf269da6e1392c33758c97c6f33007914c00b5740457e8115a1d2.png",
+              "96634_images/image_000007_64d1e0add196fd28011977ea29d0d6243c7dca0de53fdae88cc7a2293ab6350d.png",
+              "96634_images/image_000008_4b9a06b1e2a72258941d2544723a9e62992b7a3a903356379f814ed027821d99.png",
+              "96634_images/image_000009_4efe82ee84d13fb9c941435315e74fef712915c2a481212f228817efdffa0ecd.png",
+              "96634_images/image_000010_05cf11f9dd431519ce502f19da7b13dfe5814c0aacd3ac9091f006adefcd999b.png",
+              "96634_images/image_000011_2f335617f989cf24767aec2c7496f85cbbddf6d9101dd6924f94068a0b9bf02a.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms",
+              "Upgrade Summary",
+              "Table 2",
+              "Table 4",
+              "Table 5"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/96635.pdf",
@@ -861,15 +888,16 @@
   ],
   "counts": {
     "documents": 62,
-    "chunks": 3772,
+    "chunks": 3778,
     "by_type": {
       "latex": 7,
       "markdown": 27,
       "pdf": 28
     },
-    "overlay_documents": 0,
-    "overlay_tables": 0,
-    "overlay_figures": 0,
+    "overlay_documents": 1,
+    "overlay_tables": 2,
+    "overlay_figures": 10,
+    "overlay_tables_checked": 5,
     "overlay_text_repairs": 0
   },
   "crosswalk": {

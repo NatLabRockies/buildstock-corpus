@@ -1,0 +1,315 @@
+# Hand-authored overlay for measure_pdfs/96634.pdf
+#
+# 96634 is the ResStock measure documentation for the 95% AFUE natural gas furnace upgrade
+# (measure 1). Every table and figure in the report was compared with the PDF on 2026-11-11,
+# following "Checking every table and figure: the ResStock method" in overlays/README.md.
+#
+# Tables (page numbers are PDF pages, 1-based):
+#   * Table 1 (p.12) and Table 3 (pp.15-16) are superseded: see each entry's `why`.
+#   * Tables 2, 4 and 5, the List of Acronyms and the Upgrade Summary table are recorded
+#     under `checked:` as correct.
+#   * The Table of Contents, List of Figures and List of Tables grids are contents pages,
+#     not tables of the report, and have no entry.
+#
+# Figures: Figures 1-10 are described (40-70 words each, vision-description). The cover
+# art and wordmark (image_000000, image_000001) are decorative and omitted by the build.
+#
+# Flattening notes: Table 1's merged cells (Heating Fuel over three rows, "None" over two)
+# are repeated on each row. Table 3's spanning header "U.S. Census Division" is stated in
+# a sentence above the sub-tables; row shading in the PDF is alternating bands and carries
+# no meaning.
+
+product: resstock
+release: resstock_amy2018_2025_release_1
+source_id: upgrade_measures
+source_path: measure_pdfs/96634.pdf
+source_url: https://docs.nlr.gov/docs/fy26osti/96634.pdf
+publication_url: https://docs.nlr.gov/docs/fy26osti/96634.pdf
+tables:
+- label: Table 1
+  caption: Summarized Apply Logic for 95% AFUE Natural Gas Furnace Upgrade Package
+  source_pdf: measure_pdfs/96634.pdf
+  source_pdf_sha256: 77c22cdd42f5f8e4159372967c0d03548077bba5e345ccf02e3b4211278900b7
+  page: 12
+  method: vision-transcription
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 4bcedaee1217d3e67fb602fe5bf8981eae49dc3183d8eb41526f14bab0db83d5
+    why: 'The extractor merged the first two data rows into one: HVAC Has Ducts read ''Yes No'', the upgrade
+      column ''Yes No'' and Stock Saturation ''74.3% 12.1%'' in single cells. In the PDF they are two
+      rows (ducts Yes: upgraded, 74.3%; ducts No: not upgraded, 12.1%). Merged cells in the first two
+      columns are repeated.'
+  markdown: '| Heating Fuel | HVAC Shared Efficiencies | HVAC Has Ducts | Upgrade to Natural Gas Furnace
+    | Stock Saturation (%) |
+
+    |---|---|---|---|---|
+
+    | Natural Gas, Electricity, Fuel Oil, Propane | None | Yes | Yes | 74.3% |
+
+    | Natural Gas, Electricity, Fuel Oil, Propane | None | No | No | 12.1% |
+
+    | Natural Gas, Electricity, Fuel Oil, Propane | HVAC is shared | All options | No | 10.9% |
+
+    | Other Fuel, Wood, None | All options | All options | No | 2.7% |'
+- label: Table 3
+  caption: Percentage of Households by HVAC Heating Type and Efficiency, and U.S. Census Division
+  source_pdf: measure_pdfs/96634.pdf
+  source_pdf_sha256: 77c22cdd42f5f8e4159372967c0d03548077bba5e345ccf02e3b4211278900b7
+  page: 15
+  method: vision-transcription
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 2c1a043731816a9180419e58fbfbb837d2cfb169eff8e0fb705cfbbd94a66656
+    also_removes:
+    - b2f5bdf4eabea8e7fee68a2c7e4d051db3caccc1e4020983ec5a045a75db56b9
+    why: 'The table runs over pages 15 and 16 and was extracted as two grids. Every value is right, but
+      eight row labels are not: words wrapped onto a label''s last line were dropped or moved to the next
+      row (''Furnace Electricity MSHP'' for ''Electricity MSHP'', ''Heating Propane Fuel Boiler'' for
+      ''Propane Fuel Boiler'', ''Fuel Oil Fuel Wall/Floor'' without ''Furnace''). Labels are restored
+      from the page; the values are the extractor''s own, compared with pages 15 and 16. Split into one
+      sub-table per fuel so no group is cut mid-row.'
+  markdown: 'Columns are U.S. Census Divisions; each value is the share of all U.S. households.
+
+
+    **Electricity**
+
+
+    | HVAC Heating Type & Fuel | East North Central | East South Central | Middle Atlantic | Mountain
+    | New England | Pacific | South Atlantic | West North Central | West South Central |
+
+    |---|---|---|---|---|---|---|---|---|---|
+
+    | Electricity ASHP | 1% | 2% | 1% | 1% | 0% | 1% | 8% | 1% | 3% |
+
+    | Electricity Baseboard | 1% | <1% | 1% | <1% | <1% | 2% | 1% | <1% | 1% |
+
+    | Electricity Electric Boiler | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% |
+
+    | Electricity Electric Furnace | 1% | 1% | <1% | 1% | <1% | 1% | 5% | 1% | 3% |
+
+    | Electricity Electric Wall Furnace | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% |
+
+    | Electricity MSHP | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% |
+
+    | Electricity Shared Heating | 1% | <1% | 1% | <1% | <1% | 1% | 1% | <1% | 1% |
+
+
+    **Fuel oil**
+
+
+    | HVAC Heating Type & Fuel | East North Central | East South Central | Middle Atlantic | Mountain
+    | New England | Pacific | South Atlantic | West North Central | West South Central |
+
+    |---|---|---|---|---|---|---|---|---|---|
+
+    | Fuel Oil Fuel Boiler | <1% | <1% | 1% | <1% | <1% | <1% | <1% | <1% | <1% |
+
+    | Fuel Oil Fuel Furnace | <1% | <1% | 1% | <1% | 1% | <1% | <1% | <1% | <1% |
+
+    | Fuel Oil Fuel Wall/Floor Furnace | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% | - |
+
+    | Fuel Oil Shared Heating | <1% | - | <1% | - | <1% | <1% | <1% | - | <1% |
+
+
+    **Natural gas**
+
+
+    | HVAC Heating Type & Fuel | East North Central | East South Central | Middle Atlantic | Mountain
+    | New England | Pacific | South Atlantic | West North Central | West South Central |
+
+    |---|---|---|---|---|---|---|---|---|---|
+
+    | Natural Gas Fuel Boiler | <1% | <1% | 1% | <1% | <1% | <1% | <1% | <1% | <1% |
+
+    | Natural Gas Fuel Furnace | 9% | 2% | 4% | 4% | 1% | 6% | 4% | 4% | 4% |
+
+    | Natural Gas Fuel Wall/Floor Furnace | <1% | <1% | 1% | <1% | <1% | 1% | <1% | <1% | <1% |
+
+    | Natural Gas Shared Heating | 1% | <1% | 2% | <1% | 1% | 1% | <1% | <1% | <1% |
+
+
+    **Propane**
+
+
+    | HVAC Heating Type & Fuel | East North Central | East South Central | Middle Atlantic | Mountain
+    | New England | Pacific | South Atlantic | West North Central | West South Central |
+
+    |---|---|---|---|---|---|---|---|---|---|
+
+    | Propane Fuel Boiler | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% |
+
+    | Propane Fuel Furnace | 1% | <1% | <1% | <1% | <1% | <1% | 1% | 1% | <1% |
+
+    | Propane Fuel Wall/Floor Furnace | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% |
+
+    | Propane Shared Heating | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% |
+
+
+    **Other fuel, none, and total**
+
+
+    | HVAC Heating Type & Fuel | East North Central | East South Central | Middle Atlantic | Mountain
+    | New England | Pacific | South Atlantic | West North Central | West South Central |
+
+    |---|---|---|---|---|---|---|---|---|---|
+
+    | Other Fuel Boiler | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% |
+
+    | Other Fuel Furnace | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% |
+
+    | Other Fuel Wall/Floor Furnace | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% |
+
+    | Other Fuel Shared Heating | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% |
+
+    | None | <1% | <1% | <1% | <1% | <1% | 1% | <1% | <1% | <1% |
+
+    | Total % of Housing Stock | 15% | 6% | 13% | 7% | 5% | 14% | 20% | 7% | 12% |'
+checked:
+- label: List of Acronyms
+  uncaptioned: true
+  source_pdf: measure_pdfs/96634.pdf
+  source_pdf_sha256: 77c22cdd42f5f8e4159372967c0d03548077bba5e345ccf02e3b4211278900b7
+  page: 5
+  table_sha256: a8795ae2434ff36f332b1ef4a11a945632f5243646fe72ec7d63c16de0ac35c1
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+- label: Upgrade Summary
+  uncaptioned: true
+  source_pdf: measure_pdfs/96634.pdf
+  source_pdf_sha256: 77c22cdd42f5f8e4159372967c0d03548077bba5e345ccf02e3b4211278900b7
+  page: 9
+  table_sha256: 4e3b50c1e5bbf01d364784200767253eb4b26726f4bd121f06f24f2a346901a7
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: The project configuration URL carries a space where the PDF wraps the line ('projec t_national');
+    the cell text is otherwise the page's.
+- label: Table 2
+  caption: ResStock Argument Values for Gas Furnace Upgrade
+  source_pdf: measure_pdfs/96634.pdf
+  source_pdf_sha256: 77c22cdd42f5f8e4159372967c0d03548077bba5e345ccf02e3b4211278900b7
+  page: 14
+  table_sha256: 0e0485c01d8caba9f3ad3d65bdc1eadf0a25dafd13df83bb0c6a64c9cf09a78a
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+- label: Table 4
+  caption: Single Model Types
+  source_pdf: measure_pdfs/96634.pdf
+  source_pdf_sha256: 77c22cdd42f5f8e4159372967c0d03548077bba5e345ccf02e3b4211278900b7
+  page: 17
+  table_sha256: 625f4bb8a62bebf6c0034b4394500d34bed312781ed769f73c1a59c6907b984a
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+- label: Table 5
+  caption: Annual Bill Savings Per Dwelling by HVAC Heating Efficiency
+  source_pdf: measure_pdfs/96634.pdf
+  source_pdf_sha256: 77c22cdd42f5f8e4159372967c0d03548077bba5e345ccf02e3b4211278900b7
+  page: 25
+  table_sha256: a4b65b65256828a3075bf62efe4efa179a49bc5c0a552adbf378b5782ed04a90
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: The two-row header (Annual Bill Savings ($) over Q1, Median, Q3) is flattened into a header row
+    and a first data row; every value matches.
+figures:
+- source_image: 96634_images/image_000002_fc94f6d2961dc20abb2efe868d6d919ddf2c6404c651d8e8b3bac755c71d5934.png
+  source_image_sha256: 6b927e6148269ccac573ad76a4d11b081956e87029472ad00435acb387c4f96e
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar of annual energy use for a Massachusetts example unit, baseline vs natural gas furnace
+  description: 'Figure 1: horizontal stacked bar chart for an example dwelling in Massachusetts (Climate
+    Zone 5A). X-axis is annual energy consumption in MBtu, 0 to 160; bars are Baseline and Natural Gas
+    Furnace, stacked by Others (all fuels), natural gas heating, heating fans and pumps, cooling, and
+    cooling fans and pumps. Baseline is 139.1 MBtu of Others; after the upgrade Others falls to 61.9 and
+    natural gas heating adds 77.5, leaving the total nearly unchanged.'
+- source_image: 96634_images/image_000003_0f37c04b570b9d9c2ab1637700aef6547162dfafeaf8c541f4d894e9f2583acd.png
+  source_image_sha256: 08df1481d41b9dc5e07f66555e2c575ca81895093978a45aa7c3050c8dd014c4
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar of annual energy use for a Georgia example unit, baseline vs natural gas furnace
+  description: 'Figure 2: horizontal stacked bar chart for an example dwelling in Georgia (Climate Zone
+    3A). X-axis is annual energy consumption in MBtu, 0 to 7, with the same end-use series as Figure 1.
+    Baseline shows 3.1 MBtu of Others, 2.6 of cooling and 0.6 of cooling fans; with the natural gas furnace,
+    Others is 2.2 and natural gas heating 1.4, and cooling is gone, so the total falls by roughly 40%.'
+- source_image: 96634_images/image_000004_2c3b121e9c2ef0367fa54f730d30f013447b6cc26b593c0ce3e2d6ed6880d74c.png
+  source_image_sha256: 812c0692d4b5153c2eee2d7fc9436ab1a9543c180d6d6ac207737cb6dfdec8d4
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar of annual energy use for an Illinois example unit, baseline vs natural gas furnace
+  description: 'Figure 3: horizontal stacked bar chart for an example dwelling in Illinois (Climate Zone
+    4A). X-axis is annual energy consumption in MBtu, 0 to 140, with the same end-use series as Figure
+    1. Others is 27.2 MBtu in both bars; natural gas heating is the largest segment and shrinks with the
+    upgrade, taking the total from about 123 to about 94 MBtu. Heating fan energy falls from 1.3 to 1.0.'
+- source_image: 96634_images/image_000005_2f942984f8e823946083ad7afdd8eb82c8845623b41b889dcf9f600f6740bdf6.png
+  source_image_sha256: 75ef8943deaff90025f5c4fad762649f96aca24b900cb6134cb28584257260be
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of daily aggregated average energy consumption across 2018 for the Colorado baseline
+  description: 'Figure 4: line chart of daily aggregated average energy consumption (kBtu, 0 to 800) over
+    January to December 2018 for the baseline in Colorado. Consumption is highest and most variable in
+    winter, peaking near 780 kBtu in late February, falls through spring to a flat summer floor of roughly
+    110 kBtu from June to September, then rises again from October to about 700 kBtu by late December.'
+- source_image: 96634_images/image_000006_fcc83a9461cbf269da6e1392c33758c97c6f33007914c00b5740457e8115a1d2.png
+  source_image_sha256: cd348488da89926f3bd3c9e67138f64c64b4073b12731b919e9f9c5c42975e72
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of aggregated average power on the Colorado peak day, baseline vs upgrade
+  description: 'Figure 5: line chart of aggregated average power (kW, about 6 to 13) over the 24 hours
+    of February 20, 2018, the peak day in Colorado, with one line each for Baseline and Upgrade. Both
+    follow the same shape: a morning peak near 07:00 (about 12.9 kW baseline, 11.9 kW upgrade), a trough
+    near 15:00 (about 7.0 and 6.5 kW) and an evening plateau near 9 kW. The upgrade line stays below the
+    baseline all day.'
+- source_image: 96634_images/image_000007_64d1e0add196fd28011977ea29d0d6243c7dca0de53fdae88cc7a2293ab6350d.png
+  source_image_sha256: 6cf52781ef1587761f2af31509f7d6852f841fe84a18fc2e5254efe725ef5210
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of annual site energy by fuel type, baseline vs natural gas furnace
+  description: 'Figure 6: horizontal grouped bar chart of stock-wide fuel totals (kWh, 0 to 3T) for Baseline
+    and Natural Gas Furnace, with rows for electricity, natural gas, propane, fuel oil, electricity generation
+    and total site energy. Electricity falls from about 1.35T to 1.0T kWh and natural gas rises from about
+    1.25T to 1.63T; propane and fuel oil drop to near zero. Total site energy falls from roughly 2.85T
+    to 2.67T kWh.'
+- source_image: 96634_images/image_000008_4b9a06b1e2a72258941d2544723a9e62992b7a3a903356379f814ed027821d99.png
+  source_image_sha256: 3d9c4807e3dda193389dd6f095452a51c92da2093b2f9f4cd39f7081744a8bda
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar chart of all-fuel end-use savings by HVAC heating type for the natural gas furnace
+    upgrade
+  description: 'Figure 7: horizontal stacked bar chart of all-fuels end-use savings (kWh, about -200B
+    to 330B) for three HVAC heating types: Ducted Heat Pump, Ducted Heating and Non-Ducted Heating. Segments
+    are end use by fuel; heating end uses dominate, and negative segments are added natural gas heating.
+    Ducted Heating is the widest bar, from about -185B to +330B kWh; Ducted Heat Pump also shows cooling
+    electricity savings; Non-Ducted Heating is small.'
+- source_image: 96634_images/image_000009_4efe82ee84d13fb9c941435315e74fef712915c2a481212f228817efdffa0ecd.png
+  source_image_sha256: f6c55c8d03d40fafc046b63494f43bfac2e604dc225a58bdd958057d206ddffe
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Violin and box plots of annual site energy savings per dwelling by HVAC heating efficiency
+  description: 'Figure 8: violin plots with box plots of site energy savings per dwelling (kWh, about
+    -40k to 50k), one row per baseline HVAC heating efficiency, each labelled with its model count (n=4075
+    for ASHP SEER 10 up to n=134906 for Fuel Furnace 80% AFUE). Fuel Furnace 60% AFUE has the highest
+    median, near 10k kWh; Fuel Furnace 92.5% AFUE and the electric resistance systems cluster near zero.
+    Model counts match Table 5.'
+- source_image: 96634_images/image_000010_05cf11f9dd431519ce502f19da7b13dfe5814c0aacd3ac9091f006adefcd999b.png
+  source_image_sha256: 30832493213dc0a48cd2f74ca71188409677ddd8fa03f2a6e88de29f8fe5f5f3
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar chart of average all-fuel end-use savings per dwelling by HVAC heating efficiency
+  description: 'Figure 9: horizontal stacked bar chart of average all-fuels end-use savings per dwelling
+    (kWh, about -22k to 20k) by baseline HVAC heating efficiency, with segments for each end use and fuel.
+    Heating segments dominate every row; negative segments are the natural gas heating added by the upgrade.
+    Fuel Boiler 90% AFUE is the widest bar, from about -22k to +20k kWh. The three ASHP rows also show
+    cooling electricity savings.'
+- source_image: 96634_images/image_000011_2f335617f989cf24767aec2c7496f85cbbddf6d9101dd6924f94068a0b9bf02a.png
+  source_image_sha256: 614a59bc3bf6d93cc8f800ea941e7ee98a92f2f8463e208c6583c4f34e8793d5
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar chart of average annual bill savings by HVAC heating efficiency and fuel
+  description: 'Figure 10: horizontal stacked bar chart of average annual bill savings (USD, about -1,200
+    to 1,900) by baseline HVAC heating efficiency, with segments for electricity, natural gas, fuel oil
+    and propane bills. Negative natural gas segments are the new gas bill. ASHP SEER 10 saves about $1,480
+    on electricity against about $420 of added gas; Fuel Boiler 90% AFUE has the largest swings, mostly
+    fuel oil savings. See Table 5 for the distribution of net savings.'
