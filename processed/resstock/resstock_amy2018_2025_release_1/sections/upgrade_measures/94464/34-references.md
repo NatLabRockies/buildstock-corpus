@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/94464.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/94464.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/94464.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/94464.md | section: References | lines: 501-529 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/94464.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/94464.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/94464.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/94464.md | section: References | lines: 618-646 -->
 ## References
 
 Building Technologies Office (BTO). 2022. EnergyPlus™ Version 22.1.0 Documentation: Application Guide for EMS . U.S. Department of Energy. https://energyplus.net/assets/nrel\_custom/pdfs/pdfs\_v22.1.0/EMSApplicationGuide.pdf.

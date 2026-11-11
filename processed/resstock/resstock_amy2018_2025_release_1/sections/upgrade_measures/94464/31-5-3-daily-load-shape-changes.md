@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/94464.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/94464.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/94464.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/94464.md | section: 5.3  Daily Load Shape Changes | lines: 466-479 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/94464.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/94464.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/94464.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/94464.md | section: 5.3  Daily Load Shape Changes | lines: 569-589 -->
 ## 5.3  Daily Load Shape Changes
 
 Figure 11 shows the daily average electricity demand in Colorado during summer and winter seasons under three scenarios: the baseline, EV adoption with L2 charging, and efficient EV adoption with L2 charging and DF (this measure). The shaded red regions denote the peak demand hours.
@@ -9,7 +9,14 @@ While the total daily electricity consumption with and without DF will remain th
 
 Figure 11. Daily residential electricity load shape for Colorado in winter (left) and summer (right). This measure ('Eff. EV + L2 Charger + DF') and two reference cases ('Baseline' and 'EV + L2 Charger') are represented.
 
-![Image](94464_images/image_000012_dcc9d1ed0f37c66f8f05afc50aa908bdb48d9cd788b163c442ab94f0d45e02a0.png)
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/94464.yaml
+     source: 94464_images/image_000012_dcc9d1ed0f37c66f8f05afc50aa908bdb48d9cd788b163c442ab94f0d45e02a0.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+![Two line charts of the daily Colorado electricity load shape in winter and summer for three scenarios](94464_images/image_000012_dcc9d1ed0f37c66f8f05afc50aa908bdb48d9cd788b163c442ab94f0d45e02a0.png)
+
+Figure 11: two line charts of net electricity usage in kWh by time of day, winter on the left and summer on the right, with the peak period shaded. Series are Baseline (dashed), EV + L2 charger, and Eff. EV + L2 charger + DF. In winter the L2 case peaks at about 1.3M kWh inside the peak period; with DF the load follows the baseline, about 0.95M, during the period and then jumps to about 1.42M once it ends.
 
 kWh = kilowatt-hour
 

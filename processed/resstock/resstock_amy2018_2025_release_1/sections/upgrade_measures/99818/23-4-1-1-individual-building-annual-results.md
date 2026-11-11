@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/99818.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/99818.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/99818.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/99818.md | section: 4.1.1 Individual Building Annual Results | lines: 282-297 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/99818.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/99818.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/99818.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/99818.md | section: 4.1.1 Individual Building Annual Results | lines: 289-304 -->
 ## 4.1.1 Individual Building Annual Results
 
 Table 4 shows the modeled annual energy consumption of the example dwelling unit before and after the upgrade.

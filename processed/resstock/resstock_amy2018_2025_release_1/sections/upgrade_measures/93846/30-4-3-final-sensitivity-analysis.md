@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/93846.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/93846.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/93846.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/93846.md | section: 4.3  Final Sensitivity Analysis | lines: 552-587 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/93846.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/93846.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/93846.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/93846.md | section: 4.3  Final Sensitivity Analysis | lines: 671-720 -->
 ## 4.3  Final Sensitivity Analysis
 
 After further reviewing the real-world demand response programs and reviewing the initial sensitivity analysis results, we narrowed the analysis space. First, we narrowed the offset to only 2 -4°F, and then we limited the precooling windows to 1 hour and 4 hours. More details can be seen in Table 7.
@@ -27,11 +27,25 @@ First, as shown in Figure 13, the impacts of precooling only are the lowest, fol
 
 Figure 13. D3 percentage reduction of the cooling energy consumption during the peak on the day of the year with the highest daily average temperature
 
-![Image](93846_images/image_000016_a50df4318adb1579dae25e91dee8489873e29d12106594e88fbce365042f5d6f.png)
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/93846.yaml
+     source: 93846_images/image_000016_a50df4318adb1579dae25e91dee8489873e29d12106594e88fbce365042f5d6f.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+![Line chart of percent cooling reduction by state on the hottest day for five pre-peak and peak combinations](93846_images/image_000016_a50df4318adb1579dae25e91dee8489873e29d12106594e88fbce365042f5d6f.png)
+
+Figure 13: line chart. X-axis is state, ordered by reduction; y-axis is percent reduction, about -10 to 80. Five series: peak only (4 hours, 4°F), pre-peak only for 1 hour and for 4 hours, and both for 1 hour and for 4 hours. Pre-peak only gives the least, mostly under 15%; peak only runs from about 50% down to about 15%; both together give the most, about 60% down to about 20%.
 
 Figure 14. D3 percentage reduction of the heating energy consumption during the peak on the day of the year with the lowest daily average temperature
 
-![Image](93846_images/image_000017_05cb93c72021777f372119f5a582fda107b0e9b4adaf8974bf75f22ea6f5b5e0.png)
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/93846.yaml
+     source: 93846_images/image_000017_05cb93c72021777f372119f5a582fda107b0e9b4adaf8974bf75f22ea6f5b5e0.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+![Line chart of percent heating reduction by state on the coldest day for five pre-peak and peak combinations](93846_images/image_000017_05cb93c72021777f372119f5a582fda107b0e9b4adaf8974bf75f22ea6f5b5e0.png)
+
+Figure 14: line chart. X-axis is 24 states from NY to SC; y-axis is percent reduction, about -30 to 100. Five series: peak only (4 hours, 4°F), pre-peak only for 1 hour and for 4 hours, and both for 1 hour and for 4 hours. Reductions are near 100% in the first states and fall to about 40% to 50% for peak only; the pre-peak-only lines are lowest and most erratic, and several lines dip below zero for California.
 
 Another notable result, though not shown in the figures, was a minimal difference between a prepeak offset of 2°F and 4°F for pre-peak durations of 1 hour. This makes sense because the rate of the temperature increase possible in a home within 1 hour is limited by physical characteristics, such as the thermal mass of the dwelling and the capacity of the heating equipment.
 

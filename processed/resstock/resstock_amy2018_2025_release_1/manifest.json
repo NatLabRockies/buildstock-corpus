@@ -2,7 +2,7 @@
   "product": "resstock",
   "release": "resstock_amy2018_2025_release_1",
   "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
-  "generated_utc": "2026-11-11T21:42:58.059268+00:00",
+  "generated_utc": "2026-11-11T22:29:28.520412+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -502,8 +502,49 @@
           "title": "HVAC Demand Flexibility with On-Peak Load Shedding of 2F offset",
           "input_sha256": "116beec10a3e99257e74721cdf9cfb152cf0c417cf09f615cd196892c45d7711",
           "output_path": "upgrade_measures/measure_pdfs/93846.md",
-          "output_sha256": "780dadbdb1e293ca55b36695f1c88c56ded13d7665aed255e1923813ee576681",
-          "body_sha256": "d497393dffebd8c9338ff8a36ec61efdbaee264a037f590a9e70d603238d7e7f"
+          "output_sha256": "0b2a99bcde9185397e47e89fd9e41ec4fe7d9f3c91e2b35d9986653368866381",
+          "body_sha256": "9f1ba395d786aaee9ab9dae324c02e68cd07fdeacd148e08343cb8dcfdfb882d",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/93846.yaml",
+            "sha256": "aa484e268897f4b0d761a9c6da64649eccd6f390577839f9e67398934c1676fc",
+            "tables_applied": [
+              "Measure Summary",
+              "Table 3",
+              "Table 8"
+            ],
+            "figures_applied": [
+              "93846_images/image_000002_2bbdeeb898afdcae484f1b9cee7eb972193faaaa298c9490cd1fb5d70b624a8f.png",
+              "93846_images/image_000003_06ad1ce32d34b0a4c47437dc4560d542e3896ac29aeb4ea0e7a85f2e95bb78c7.png",
+              "93846_images/image_000004_9fdc5c56e0145c0c5a74d4625ceb19c412c38ae3247f56420193b3bd7856b5b1.png",
+              "93846_images/image_000005_07961a4f4885bb7ef48a54f29e7f3a97d1eafac235668c2a941a3f5648e1353b.png",
+              "93846_images/image_000006_237219a796170b95c283c7880a902ec35a40297ff8ae71239d18baa8505fdbb9.png",
+              "93846_images/image_000007_10db1b29bf7776feccb0e8319ad0e975528394d7820b2a6d692c2bfcdc91a17f.png",
+              "93846_images/image_000008_3d2bc4c66e1a8bfb1a2e48c59565c0fbeafd4cf84475045a6c45fbd071788c3a.png",
+              "93846_images/image_000009_2495bdaaa88f1d942605d350662dd9d2731318e0bdc82ec792f3a82008fdbf3d.png",
+              "93846_images/image_000010_31a3b6f9472ee7882b0c081baafed934581c4572b394e472da91cc5a4f77dbc6.png",
+              "93846_images/image_000011_65450befe3cba9bb93cad8f3ddf5b0e2f95da7953fad5c8ca7565170ba960923.png",
+              "93846_images/image_000012_129951035cfe5ecb59cd46b0a110748ac65b4708fa12fddfb92ed44233e3173b.png",
+              "93846_images/image_000013_23d53b26aa5e4186935f6d6eac63b188087cda48003e428010de7152ad96512d.png",
+              "93846_images/image_000014_be750ad86d30b61c6abb090759d400be4aeb849dbc0794f50ea6eaa0fa2d29c9.png",
+              "93846_images/image_000015_ef0017f010af5299bca91b9cb7119768ae4d1ffbb283ad5bb3fc89d27212a2fd.png",
+              "93846_images/image_000016_a50df4318adb1579dae25e91dee8489873e29d12106594e88fbce365042f5d6f.png",
+              "93846_images/image_000017_05cb93c72021777f372119f5a582fda107b0e9b4adaf8974bf75f22ea6f5b5e0.png",
+              "93846_images/image_000018_b1277cf5e376d84f28b0a9476c785f23557b32c1cf751e86d6c79b4f672a445c.png",
+              "93846_images/image_000019_32bfa25b4cc07367e7046cdb74ba6f2027878651234ceecf4ecdc64e7bbbf6b1.png",
+              "93846_images/image_000020_40322e352f9234c7d0dd8a0ba791a28c636cd4a72fa58fbdd1c4f00a82390da0.png",
+              "93846_images/image_000021_96c52fcbe82c8d709c440a0c8632b0d2eb75e08c798a0947aed58f821c99e07e.png",
+              "93846_images/image_000022_cc011a5720a274c7a89a7796c1b2d57b07f1460411884ec1845ce7843d85d827.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms",
+              "Table 1",
+              "Table 2",
+              "Table 4",
+              "Table 5",
+              "Table 6",
+              "Table 7"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/94459.pdf",
@@ -515,8 +556,28 @@
           "title": "Electric Vehicle Adoption with Level 1 Charging",
           "input_sha256": "8755835eb63bc39bbf383abf14a0abd03fa9a05bb01d07b8f2ca02e039625c71",
           "output_path": "upgrade_measures/measure_pdfs/94459.md",
-          "output_sha256": "de25b6bd2bfc112a24d1feb38a68ce577839bc8fa9ed272264de8a80bd71f211",
-          "body_sha256": "c197b810eed765f74850eff503243797206d2ab4e124e8590509afe959b85541"
+          "output_sha256": "9c6c25cd8834f82d1ed0da94c0fe8c94e3d33f1cebcc91f1d4533e67782262db",
+          "body_sha256": "8c2ee43dd819d78279297f4bf8f7ba4dbe6a69bc529f76ca7bde0c9b02b7b012",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/94459.yaml",
+            "sha256": "56808891b209b3199e4aa99470e4565de868f92b74c45a608fdca1a1a301bfdb",
+            "tables_applied": [
+              "Table 2"
+            ],
+            "figures_applied": [
+              "94459_images/image_000002_4e902202fc376d07d3bf81aa5d9a59944a6d76021ab831b99b3b027d829373af.png",
+              "94459_images/image_000003_5af19426c3b0534ed711762192ae2c7e2e04ae6e0020d1f31956aff1360a4603.png",
+              "94459_images/image_000004_081d9b6686e8cf141807f9c4cdb8292111a6e7e19aa2f2c962d6dd6754c13cd7.png",
+              "94459_images/image_000005_6aac09b7faf7a4a3a18551a405a4744f00ee946caf0d6165ef9614759e6a04ba.png",
+              "94459_images/image_000006_63b705edcd86dc8c39c047ff338dd95b1f8cf2f68d13057aa57abde569cd6d2c.png",
+              "94459_images/image_000007_2378b50a825df1c84d6e09d6c3483bb8eb788e535a088b2126e248ed732a9b35.png",
+              "94459_images/image_000008_7cb57755deabd3e8df6c3982b5162471864d3feb2fd9b5a0b58ac4d806ae9fe7.png"
+            ],
+            "tables_checked": [
+              "Measure Summary",
+              "Table 1"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/94460.pdf",
@@ -528,8 +589,28 @@
           "title": "Electric Vehicle Adoption with Level 2 Charging",
           "input_sha256": "d63ef7e391b9d0898a8319403e5a4f163dde6f7cbeca55d5e550da7a46a85da3",
           "output_path": "upgrade_measures/measure_pdfs/94460.md",
-          "output_sha256": "7fdb0a56102d324862887428079062d62ecd9b7d19280350d43025d17976b2a8",
-          "body_sha256": "77e6472360ed5d383966968055948036de5669689e20df460cee26456d0b955b"
+          "output_sha256": "c90a789e9cf29a94cb6d89f2410610ad52100a25b9f775f712765e3b6dbc56f1",
+          "body_sha256": "49fc03e094a757e4d12e9d2215c7189464547df89c05ba103c5bd6be898f11ee",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/94460.yaml",
+            "sha256": "518b2a42db1ed6dbedb73d95f3df9e79b054952ae63bd80a3a0fa66ce8a3f987",
+            "tables_applied": [
+              "Table 2"
+            ],
+            "figures_applied": [
+              "94460_images/image_000002_4e902202fc376d07d3bf81aa5d9a59944a6d76021ab831b99b3b027d829373af.png",
+              "94460_images/image_000003_5af19426c3b0534ed711762192ae2c7e2e04ae6e0020d1f31956aff1360a4603.png",
+              "94460_images/image_000004_081d9b6686e8cf141807f9c4cdb8292111a6e7e19aa2f2c962d6dd6754c13cd7.png",
+              "94460_images/image_000005_6f2100c79b99af86d5b316d5fc6869110d10ce41d6ee11ad90acb914060c0e0a.png",
+              "94460_images/image_000006_d71beedf2cd9e09b621c1d1e4c21c58e8ecf0a68d924a44cc0bd42373e8d7ebc.png",
+              "94460_images/image_000007_5c0f8f92c09e82190d2f7c425fc9bf17f9f193f8e5d495ee82b402464b2af1ca.png",
+              "94460_images/image_000008_6d85459c8e9736a1a6d102fd401867e2359088e9d4600cf022bb7f303a4be179.png"
+            ],
+            "tables_checked": [
+              "Measure Summary",
+              "Table 1"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/94461.pdf",
@@ -541,8 +622,28 @@
           "title": "Efficient Electric Vehicle Adoption with Level 2 Charging",
           "input_sha256": "84dab7ab5268988f19dcfe899bc925ef73551a376f24a39ccfcc8c90793fe7c5",
           "output_path": "upgrade_measures/measure_pdfs/94461.md",
-          "output_sha256": "6534ed86f20a1d0a9cc4944f990d2177d9326412372d62f12e165dad5328f79b",
-          "body_sha256": "e7edb0c251bdab9445fe5a42c8ddf0b61da6d25ed50695e30ffac545b2b2fc4f"
+          "output_sha256": "1296ad2bb93e4291cd071f7e54c497d9a614ba02a0609da550db9b31b6f4a951",
+          "body_sha256": "5f0774cf20fb19b4380419ad54a496fd86229f40f14eb285a316f5a24e024197",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/94461.yaml",
+            "sha256": "0a8525a890791322ab2fbfbe1637c3dfba4bd44574321da26018e0c48e16e12d",
+            "tables_applied": [
+              "Table 2"
+            ],
+            "figures_applied": [
+              "94461_images/image_000002_f634ab8d1ab2552562492269600aeb00fea414ac2626a0ae6e7aa982147aea24.png",
+              "94461_images/image_000003_5af19426c3b0534ed711762192ae2c7e2e04ae6e0020d1f31956aff1360a4603.png",
+              "94461_images/image_000004_081d9b6686e8cf141807f9c4cdb8292111a6e7e19aa2f2c962d6dd6754c13cd7.png",
+              "94461_images/image_000005_113f8a9ed3a57b7f25e9c2d44015ccf51705ad24b3f9eae2019b329be047f4d9.png",
+              "94461_images/image_000006_b6b99c593a8ab8f2ef3dc1df584c18c459df365f0ddd0367e3c6ce5ff273752f.png",
+              "94461_images/image_000007_009a2778eb5a24c8c75b07474f838432110ae7ea0571e4607190ea525df52484.png",
+              "94461_images/image_000008_ffe43972d5e37a78001b4ac190b6f5dc4223b7700dcefa54be317207c1d3d8dd.png"
+            ],
+            "tables_checked": [
+              "Measure Summary",
+              "Table 1"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/94463.pdf",
@@ -554,8 +655,37 @@
           "title": "Electric Vehicle Adoption with Level 2 Charging and Demand Flexibility",
           "input_sha256": "28587a09aa7006fce4450d57f9db85cb0874c19d3da323d2cf4b2d592c203f8f",
           "output_path": "upgrade_measures/measure_pdfs/94463.md",
-          "output_sha256": "24d72af1e36beee59e74ed5ef1238a71c0db6fc6e4b61b096252f8e6e37a5d95",
-          "body_sha256": "0648ec650468c3faba83bc8840dd1c5910cbd2758ff8ea0ae388795ac328d84c"
+          "output_sha256": "f91df991d4943cb64b3a7aa62f4d83d48cd6c99acb4196bed55b426c8f219c7b",
+          "body_sha256": "077c5764bb96677d8076a61c2156017084de8fbfa3e4130ed7dc710ead96d32b",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/94463.yaml",
+            "sha256": "9c4c089756a98ddb61545865bd5068fe898c295d37d6a4785968701c9e99c2c2",
+            "tables_applied": [
+              "Table 2",
+              "Table 3",
+              "Table 4"
+            ],
+            "figures_applied": [
+              "94463_images/image_000002_c922764a7518cdd77103698ef6a1175093675f54a763a27ea77e3739f2e3c4fa.png",
+              "94463_images/image_000003_3ea357076c14b5d489fa921bd50c9b1f6e143d4af5ed52e71b646ab95283ec7c.png",
+              "94463_images/image_000004_eba1d3257f229b084ec632e76aa54d4772f78958e4ea0d3621385ca86a7f41a9.png",
+              "94463_images/image_000005_afa7a23e0660cf105bbf1256b614f3e85414163f6443d6924002b8385e5a4ccf.png",
+              "94463_images/image_000006_eca1374fe5b1a4a748b7ac734f70950430394cd53d483b54b3f945287404c39d.png",
+              "94463_images/image_000007_ba076169549c894299e828c2695ef076fdcd7c4158b81a88de5502a11607a01e.png",
+              "94463_images/image_000008_ea7c24ad637f07efa8ee6206a4a461dfc0e1a06c17895602fc4365ee80d1dcd1.png",
+              "94463_images/image_000009_71432c16a9fdb16abde0831f4d9059f9df9beba9349ec60887ab272942635dd6.png",
+              "94463_images/image_000010_44c1b4886634e42cce0f4c31a1e41e3149d47bdc38d46a65dd4ae4e80d810059.png",
+              "94463_images/image_000011_1958c205a817ce294272929c770cbf829fe25b1e7a1a9ebaf311f250b81b2517.png",
+              "94463_images/image_000012_9b4523fb37b5c4e255abae593a7059e8331d5f727e90814b964ad1c09cea5908.png",
+              "94463_images/image_000013_cb588795b543a68e60f7c7fb5e69330d2fb50a53e2d1cc43b91abb8738bef5bd.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms",
+              "Measure Summary",
+              "Table 1",
+              "Table 5"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/94464.pdf",
@@ -567,8 +697,37 @@
           "title": "Efficient Electric Vehicle Adoption with Level 2 Charging and Demand Flexibility",
           "input_sha256": "ef51f277c18d2f3ac380f7cceb90351fdeb792e14d08c86f3538190abddd1847",
           "output_path": "upgrade_measures/measure_pdfs/94464.md",
-          "output_sha256": "6c33de0d4b9c759f8ea889893a9ed31d6a935db568bd8775d9acdc9befc3b00f",
-          "body_sha256": "b445a348a4b2a625088a17149391abfdcc032de4e160806c4f3ad9fd3b793e40"
+          "output_sha256": "a01190210353fdf89e33c61416db95929126953ad514434655e6131a5a42174e",
+          "body_sha256": "95ddfc94fcd8a7f3ad25fc34bc267bcd2ede24c10745f40757a12b4a7538d94c",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/94464.yaml",
+            "sha256": "66d2e06d356ebc274ae87d5737cfed00476a75791aed80916af19fadbd1fb224",
+            "tables_applied": [
+              "Table 2",
+              "Table 3",
+              "Table 4"
+            ],
+            "figures_applied": [
+              "94464_images/image_000002_c922764a7518cdd77103698ef6a1175093675f54a763a27ea77e3739f2e3c4fa.png",
+              "94464_images/image_000003_c8c6ac5596f1c7c64abd87b9466613635a2430ec8d4e2267efdff706c79f8e52.png",
+              "94464_images/image_000004_f562050ad9663df51029ee7a2e51fce21b3b24553a200fba83edb92cd2d63d21.png",
+              "94464_images/image_000005_afa7a23e0660cf105bbf1256b614f3e85414163f6443d6924002b8385e5a4ccf.png",
+              "94464_images/image_000006_eca1374fe5b1a4a748b7ac734f70950430394cd53d483b54b3f945287404c39d.png",
+              "94464_images/image_000007_c17607a0598f289f059e060249ddd25e9aef6aa460e8033507f665b407a51ea5.png",
+              "94464_images/image_000008_04b72de437b779ca8e2fda815d56a875bb086b4c9c8d4048cd7aced46fd8db0d.png",
+              "94464_images/image_000009_a51c42ecde644d0f9dfad2a67ea983d60ff039305cdf2d3f7f484dca322a9d78.png",
+              "94464_images/image_000010_0c00da5fe338811df71a51b73d9f07b25d550ab9d9c58ab9273a0d2147913c6a.png",
+              "94464_images/image_000011_aa0b456d6eeb3b5e9278405bf56e8359f852f9638207f746e22eacb3240fb717.png",
+              "94464_images/image_000012_dcc9d1ed0f37c66f8f05afc50aa908bdb48d9cd788b163c442ab94f0d45e02a0.png",
+              "94464_images/image_000013_a7e4fff8d5e9653ea0389161a4c2857a8ec6847e47540d91e8feb0c00e7a0633.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms",
+              "Measure Summary",
+              "Table 1",
+              "Table 5"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/95035.pdf",
@@ -1520,8 +1679,39 @@
           "title": "Light Air Sealing",
           "input_sha256": "4b4ebdb83ae3a2d8c30539129d4ad1834f786ad7d85f73a6fba6982d997a76f3",
           "output_path": "upgrade_measures/measure_pdfs/99816.md",
-          "output_sha256": "21ecfb8556afc7eeaa21f43520d928fcda269cdb67b927c8fffbb05ff341de0d",
-          "body_sha256": "55d5d49899f75a91e1bf9dafe1c449ffa18c6afad3838d51a7cb4772cd421f9b"
+          "output_sha256": "e233c126a8eea846b6b3a8c7697655c51a16b01d0a585c1bf1248c36327bfb52",
+          "body_sha256": "e663cf0ac0d0ced0949afd43d4e38200d8f226d9f385564e2dcb3ffc9cfe07ff",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/99816.yaml",
+            "sha256": "498f9faa24f20e4405493d365cd16ac7949acdcf96ad0552313bd3edc47708a1",
+            "tables_applied": [
+              "Measure Summary",
+              "Table 5"
+            ],
+            "figures_applied": [
+              "99816_images/image_000002_566355431d63ee68e16c94af53b34929a8e86d5486729fb94b757250fc4adb5e.png",
+              "99816_images/image_000003_e9acb63d329331a667a46cd2bd07dec7786110ac2015104f632df51af56440af.png",
+              "99816_images/image_000004_648f763aedf03fc642530b1337669f30c3f5f6d49898a7351671ad4550ea09b2.png",
+              "99816_images/image_000005_027207fe824047eeff10db4b8fe7e5e6ebec6294cac17b3d4eb2bc663d003f67.png",
+              "99816_images/image_000006_d5a0e70afaace1db870abf4b60782825587c407a691f2638afc320f7bfb73b1c.png",
+              "99816_images/image_000007_49e10fe11f113f0207f59150fe165c7d73ba846c1a8cc8c233acfc295607cfc8.png",
+              "99816_images/image_000008_780bf0fec5b41240815097080429543bab210fd90a06d79b93a9fd8e6d211ff8.png",
+              "99816_images/image_000009_93f06ffed0d8245c23ecf65562812edeece0af1a45278b8e5b0d86787c1643f6.png",
+              "99816_images/image_000010_b1ee856ed28e2bf6f2d30e2413d6227d84c2f0597be9dae7e22ef4717e41a7fb.png",
+              "99816_images/image_000011_9c34dd1d835ae0f03b039b9d9e3d5940b2f905ad6deadf670deadfa71e4fccbc.png",
+              "99816_images/image_000012_413f8bcde9d8ee84ac5e6858b79596a8f866a6891a72777b1610a441335724d3.png",
+              "99816_images/image_000013_a893de690aef2903172d48db1d39fa4500897aa826095568dddaa1da165c4d6c.png",
+              "99816_images/image_000014_a56aff05bf75755ea0dc9776106f806cc96e1be0ac5044dd7fbf89e7c618a3b6.png",
+              "99816_images/image_000015_f26f0ab13eaebad95b34a50ba8bf72a4bc679c4a2039555a6fbaa4467db1a77e.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms",
+              "Table 1",
+              "Table 2",
+              "Table 3",
+              "Table 4"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/99818.pdf",
@@ -1533,8 +1723,35 @@
           "title": "Light Air Sealing, Attic Floor Insulation, and Duct Sealing and Insulation",
           "input_sha256": "2584d1c6995adea0ed156eadcda49606fb0dff075f39afe10918d6eaf1a06e53",
           "output_path": "upgrade_measures/measure_pdfs/99818.md",
-          "output_sha256": "37dc74feeea59c7304aab59047394cf221a04a5206a8f25cebe72c5453c0a890",
-          "body_sha256": "348c2d3dc4bbd05306febf845a6e844ff1225a5f138d8e1bf00a8b18b4880b0e"
+          "output_sha256": "c6ed624f25fba207c3614b72222b61153672308c1baa3ae30c2fab8ec7eaf3bb",
+          "body_sha256": "374d280de4c7df71a5be1417f84c2f3716dbc12b99ace4e62e5e4511f4e62888",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/99818.yaml",
+            "sha256": "dee5ed70ecef1aedb8f20cb339fd7234ed4cb3e23c1d6fc9ae61c43bff147b7e",
+            "tables_applied": [
+              "Measure Summary (second grid: Original Release, Project Configuration File(s))"
+            ],
+            "figures_applied": [
+              "99818_images/image_000002_4d7e81636b291ce740d47e604cf8809f3b81700045b6f6206a4c6bb5dc91da2f.png",
+              "99818_images/image_000003_399736cc038f78c854548212a1ee2fe59abe2fe4f674cb357e6bfac7f2e62da8.png",
+              "99818_images/image_000004_33e9629de1411eb0aa411ed5b81a43a6601ebece358f31b01763bb620121af3d.png",
+              "99818_images/image_000005_5c67dc53470d03a040991a1d59d537a3218decc7dd191cf35338b4845e0ef72a.png",
+              "99818_images/image_000006_f4b1c423a98498dd7dfb915511b1ff1ddec902cc844117e16c6809db2bb194d2.png",
+              "99818_images/image_000007_e2baee4eaa779ed9d080b86a39b83a0091eb7542490304a061497591863c0640.png",
+              "99818_images/image_000008_dcfb2121adb61ac9c9c6b49611f9ca0bb78bc21d7d8f84ed4f3fb34d6dbf017f.png",
+              "99818_images/image_000009_ad41f0a02855532ba1b9fdec2e7c17b93a4e1dcb676ad809fc85d721cbaab3da.png",
+              "99818_images/image_000010_2ec6ff900dc5ed99d7712da4713df36c8a8fecb7d38d289c335007fb77bcdfcd.png",
+              "99818_images/image_000011_4e61da3669b0bfe92ffb114f9495ee1069571fff868bfdb02625477bc5ca7fa7.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms",
+              "Measure Summary (first grid: Measure Definition, Applicable, Not Applicable)",
+              "Table 1",
+              "Table 2",
+              "Table 3",
+              "Table 4"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/99819.pdf",
@@ -1546,8 +1763,36 @@
           "title": "Residential Two-Stage Geothermal Heat Pump (4.0 COP, 20.5 EER) With Light Envelope Improvements",
           "input_sha256": "08c25507eec2b4660a2a799ff3b4e891ef669ae0f54cb50c076e111c66eb280c",
           "output_path": "upgrade_measures/measure_pdfs/99819.md",
-          "output_sha256": "86d6055c33d202c937081c77e8fca521a4b696386da0654fcd39f9a98757c2d2",
-          "body_sha256": "1d1d9eb5d6c4b97b53210863975e601e29f22bebb94cdfca18b035d03b08192d"
+          "output_sha256": "b99b0784c4ec0f9ba3e9b3cbab394e3ec396fb3fe259dac08a828114837dd37b",
+          "body_sha256": "b7ef3fb0505a132f39ccd928f6f1f45b52fb490cec9ba15a411b867010ac5a0d",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/99819.yaml",
+            "sha256": "fc47e17d5df529c0d13b1f7b92eb823fe6ff3b414c39a3518e9faadbee2941b4",
+            "tables_applied": [
+              "Measure Summary (second grid: Not Applicable, Original Release, Project Configuration File(s))"
+            ],
+            "text_repairs_applied": 1,
+            "figures_applied": [
+              "99819_images/image_000002_ef046523c54d1fed1abaed861629c4d673a59dccaae4edc0199f4cc5b23051dc.png",
+              "99819_images/image_000003_28fb09b77a371e4329f0fe31fac13ea08b4fb6dcd32e8cd00049b55c2c225083.png",
+              "99819_images/image_000004_13bce41f2d6d30659491b394f72f304aeb3bff36605403f30b9f4210e5ac76ca.png",
+              "99819_images/image_000005_3974b7a7fbbc8e4d4f75887eccbe3feb61b15e09ca7b618821230660e1ba439a.png",
+              "99819_images/image_000006_97f0d346aaeaa7e50b095357d50d6a2b314f5831154f20fa8621aeff6232a0a7.png",
+              "99819_images/image_000007_3c7856f081b247afaa34f8213f99ed4eca150ee204e2759994ec4009a91f5303.png",
+              "99819_images/image_000008_af20021a06abc45d98debfae73acd7ef322760591f0602271101edc196a9683f.png",
+              "99819_images/image_000009_5c2cfc8e09f667dbfb313469af978b9489bc856e01a18d256d0411a876882a20.png",
+              "99819_images/image_000010_697b4859a49490ca97d8e36d522408596f8585be56a00251af6fc41015d4509d.png",
+              "99819_images/image_000011_1b3e51b022ddcccdfe983f3326fbf84c59d5afddcec5da1c87a8de1832439575.png",
+              "99819_images/image_000012_df18789c1d31fffa7cd6aa3ac1afdbbca1219c5d9d27a9d1b91a6857068567f9.png",
+              "99819_images/image_000013_612766feca8d61c169a7507669c05e619af55dda06df9242d71299788d31f6b2.png",
+              "99819_images/image_000014_3248fce2bef2a663571e3203608997c3e29fbeb0870dce7dc1640c2d7e152652.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms",
+              "Measure Summary (first grid: Measure Title, Measure Definition)",
+              "Table 1"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/99820.pdf",
@@ -1559,25 +1804,52 @@
           "title": "Residential Variable-Speed Geothermal Heat Pump (4.4 COP, 30.9 EER) with Light Envelope Improvements",
           "input_sha256": "64b886cb5cc1cc06d677d6c2d826898e852806e1e3ab576a053cb98ceb3e2b31",
           "output_path": "upgrade_measures/measure_pdfs/99820.md",
-          "output_sha256": "6c939b49db4ca5bf2125ba02d085826fee7dad302b231423792bf3cf70c4c91e",
-          "body_sha256": "b33eaca8a3139ab927d986f359f8e0deb0546e82fc277b985d6a78256297560a"
+          "output_sha256": "e8ce7c7dc4b9e34dd878a00a3b69628636a4bd6577aacfbf170496f404061007",
+          "body_sha256": "6956d4604a96f4b70fbe0c52dfa0f3571f0efda334a99a8cf95a0fa248cb0fc2",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/99820.yaml",
+            "sha256": "331562228aa4e70da97b5e4e2b1b57daec6f22e87fc4908badf857117cf8d15d",
+            "tables_applied": [
+              "Measure Summary (second grid: Not Applicable, Original Release, Project Configuration File(s))"
+            ],
+            "figures_applied": [
+              "99820_images/image_000002_090afc707d5262e890c97f291463092ddd364b1c731f19a2b2546a9c1af52f74.png",
+              "99820_images/image_000003_db3c468ccc7d3035eca7f810c2969364912ea979d605519040050e35f3fc6f79.png",
+              "99820_images/image_000004_d98a2acb2c586256dcafafa146dcfd19b1602efdb1cf8f47a18d44bcd2840e4f.png",
+              "99820_images/image_000005_155e8f64ffb9475ddaba7d7b5d97c6211295b88993c486d5c5d093efc0b3ea7b.png",
+              "99820_images/image_000006_d1e20d47b85ecec8729ed53fd2492c8f66d442b89ae91872607b8d81628aa704.png",
+              "99820_images/image_000007_72cc21ee12a1ebb306098d656ca8f91a3f9f1c59344b0e23f1f3b05857cafe20.png",
+              "99820_images/image_000008_95e2f4ac6f52df809aa62d5f534021a6a90976631922d8c11027b3aea71dbf84.png",
+              "99820_images/image_000009_5c2cfc8e09f667dbfb313469af978b9489bc856e01a18d256d0411a876882a20.png",
+              "99820_images/image_000010_697b4859a49490ca97d8e36d522408596f8585be56a00251af6fc41015d4509d.png",
+              "99820_images/image_000011_8c75411568fd2aa5f6a14a63ea073b9e872705d8f80ea417cb1366cee6b9f3f3.png",
+              "99820_images/image_000012_9fd28767d540367f15401ab5723e94cfaddded5a6ee955ad230808f7c71daf11.png",
+              "99820_images/image_000013_28dbd5b8f4ce2c818f308ea271399ffefbcaa21c47aea03423d16c0cfe01b5d7.png",
+              "99820_images/image_000014_8a5a0b318ea40fe882fb57c3d0e89189ae2e4cfcbcbf0a339a04ce4cacf92e6c.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms",
+              "Measure Summary (first grid: Measure Title, Measure Definition)",
+              "Table 1"
+            ]
+          }
         }
       ]
     }
   ],
   "counts": {
     "documents": 62,
-    "chunks": 4094,
+    "chunks": 4177,
     "by_type": {
       "latex": 7,
       "markdown": 27,
       "pdf": 28
     },
-    "overlay_documents": 18,
-    "overlay_tables": 88,
-    "overlay_figures": 337,
-    "overlay_tables_checked": 98,
-    "overlay_text_repairs": 5
+    "overlay_documents": 28,
+    "overlay_tables": 105,
+    "overlay_figures": 453,
+    "overlay_tables_checked": 136,
+    "overlay_text_repairs": 6
   },
   "crosswalk": {
     "file": "crosswalk.json",
