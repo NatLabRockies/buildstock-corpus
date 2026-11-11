@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/99818.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/99818.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/99818.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/99818.md | section: Measure Summary | lines: 174-186 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/99818.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/99818.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/99818.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/99818.md | section: Measure Summary | lines: 174-193 -->
 ## Measure Summary
 
 | Measure Title      | Light Air Sealing, Attic Floor Insulation, and Duct Sealing and Insulation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
@@ -7,8 +7,15 @@
 | Applicable         | The light envelope measures in this package apply according to the following criteria: • Light air sealing measure applies to dwellings with: o Infiltration rate of 10 ACH50 or more • Attic insulation measure applies to dwellings with: o Unfinished attic & less than R-49 attic floor insulation & in climate zone 1 o Unfinished attic & less than R-60 attic floor insulation & in climate zones 2 through 8 • Duct sealing and insulation measure applies to dwellings with: o More than 6% duct leakage to outside o Less than R-6 duct insulation With these applicability constraints, 92.5% of the existing dwelling units receive at least one of the measures. |
 | Not Applicable     | The light envelope measures in this package do not apply according to the following criteria: • Light air sealing measure does not apply to dwellings with: o Infiltration rate of less than 10 ACH50 • Attic insulation measure does not apply to dwellings with: o Finished attic & R-49 attic floor insulation or more & in climate zone 1 o Finished attic & R-60 attic floor insulation or more & in climate zones 2 through 8 • Duct sealing and insulation measure does not apply to dwellings with: o Less than 6% duct leakage to outside o More than R-6 duct insulation These constraints exclude 7.5% of the dwelling units from receiving this measure upgrade.  |
 
-| Measure Title                 | Light Air Sealing, Attic Floor Insulation, and Duct Sealing and Insulation                 |
-|-------------------------------|--------------------------------------------------------------------------------------------|
-| Original Release              | 2025 Release 1: 2025/resstock_amy2018_release_1                                            |
-| Project Configuration File(s) | https://github.com/NatLabRockies/resstock/commit/5fe1b613db5d8b237b65f9c3f8656 20612250f84 |
+<!-- table recovered from measure_pdfs/99818.pdf p.10
+     overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/99818.yaml
+     method: extracted grid, with the cells named in `why` corrected from the PDF text layer
+     table: Measure Summary (second grid: Original Release, Project Configuration File(s)) (no caption in the source)
+     supersedes the extractor's own table here (values c07fdb00f59d…):
+       Second grid of the Measure Summary. It is right except for the project configuration URL, a link to a commit, whose commit hash carries a space where the PDF wraps the line ('...c3f8656 20612250f84'). The broken hash does not resolve. The cell text is the extractor's own with that space removed; the joined hash is the one in the PDF text layer. The Measure Title row that opens this grid repeats the first grid's, as extracted. -->
+
+| Measure Title | Light Air Sealing, Attic Floor Insulation, and Duct Sealing and Insulation |
+|---|---|
+| Original Release | 2025 Release 1: 2025/resstock_amy2018_release_1 |
+| Project Configuration File(s) | https://github.com/NatLabRockies/resstock/commit/5fe1b613db5d8b237b65f9c3f865620612250f84 |
 

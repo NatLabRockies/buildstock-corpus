@@ -1,0 +1,234 @@
+# Hand-authored overlay for measure_pdfs/99820.pdf
+#
+# 99820 is the ResStock measure documentation for the variable-speed geothermal heat pump with light envelope improvements
+# (measure 32). Every table and figure in the report was compared with the PDF on
+# 2026-11-11, following "Checking every table and figure: the ResStock method" in
+# overlays/README.md.
+#
+# Tables (page numbers are PDF pages, 1-based):
+#   * The Measure Summary table (pp.9-10, no caption) was broken up in extraction: a first
+#     grid with its first two rows, then the whole Applicable row as ordinary paragraphs and
+#     bulleted lists, then a second grid with the last three rows. Nothing is missing and the
+#     order is the page's, so the table is NOT rebuilt as one grid: the first grid is
+#     recorded under `checked:` with a note, and the second is superseded only to join the
+#     commit hash of the project configuration URL, which carried a line-wrap space.
+#   * Table 1 (p.22) and the List of Acronyms (p.5) are recorded under `checked:` as correct.
+#   * The Table of Contents and List of Figures / List of Tables grids are contents pages and
+#     have no entry.
+#   * No table has a footnote, and no number grid is shown as a picture.
+#
+# Figures: Figures 1-13 are described (vision-description), one bitmap per figure; every
+# figure caption has its image. The cover art and wordmark (image_000000, image_000001) are
+# decorative and omitted by the build. Values read off an axis, not a data label, are worded
+# "about"; state percentages on the three maps are read from their printed labels.
+#
+# Flattening notes: nested bulleted lists inside the Measure Summary's Not Applicable cell
+# are run into the cell text, as extracted.
+
+product: resstock
+release: resstock_amy2018_2025_release_1
+source_id: upgrade_measures
+source_path: measure_pdfs/99820.pdf
+source_url: https://docs.nlr.gov/docs/fy26osti/99820.pdf
+publication_url: https://docs.nlr.gov/docs/fy26osti/99820.pdf
+tables:
+- label: 'Measure Summary (second grid: Not Applicable, Original Release, Project Configuration File(s))'
+  uncaptioned: true
+  source_pdf: measure_pdfs/99820.pdf
+  source_pdf_sha256: 64b886cb5cc1cc06d677d6c2d826898e852806e1e3ab576a053cb98ceb3e2b31
+  page: 10
+  method: extracted grid, with the cells named in `why` corrected from the PDF text layer
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 0ae0cfef7c07f99e51992aee19cd43adee5478470e1b209d0bf87de2ed77450f
+    why: Second grid of the Measure Summary. It is right except for the project configuration URL, a link
+      to a commit, whose commit hash carries a space where the PDF wraps the line ('...c3f8656 20612250f84').
+      The broken hash does not resolve. The cell text is the extractor's own with that space removed;
+      the joined hash is the one in the PDF text layer. The Measure Title row that opens this grid repeats
+      the first grid's, as extracted.
+  markdown: '| Measure Title | Residential Variable-Speed Geothermal Heat Pump (4.4 COP, 30.9 EER) With
+    Light Envelope Improvements |
+
+    |---|---|
+
+    | Not Applicable | This GHP measure in this package does not apply to dwelling units with: • Shared
+    HVAC (across multiple units) in high-rise (≥8 floors) buildings. • Dwelling units without air ducts.
+    The light envelope measures in this package do not apply according to the following criteria: • Light
+    air sealing measure does not apply to dwellings with: o Infiltration rate of less than 10 ACH50 •
+    Attic insulation measure does not apply to dwellings with: o Finished attic & R-49 attic floor insulation
+    or more & in climate zone 1 o Finished attic & R-60 attic floor insulation or more & in climate zones
+    2 through 8 • Duct sealing and insulation measure does not apply to dwellings with: o Less than 6%
+    duct leakage to outside o More than R-6 duct insulation These constraints exclude 25% of the building
+    stock from receiving this measure package. An additional 4% of the dwelling units do not receive this
+    upgrade because |
+
+    | Original Release | 2025 Release 1: 2025/resstock_amy2018_release_1 |
+
+    | Project Configuration File(s) | https://github.com/NatLabRockies/resstock/commit/5fe1b613db5d8b237b65f9c3f865620612250f84
+    |'
+checked:
+- label: List of Acronyms
+  uncaptioned: true
+  source_pdf: measure_pdfs/99820.pdf
+  source_pdf_sha256: 64b886cb5cc1cc06d677d6c2d826898e852806e1e3ab576a053cb98ceb3e2b31
+  page: 5
+  table_sha256: a9e0e7869cd12a1b2541fabba219c577f0b790ed04004eac7a34b0af54caebff
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: Eight acronyms, ACCA to IECC, each with its expansion; the first entry sits in the header row.
+- label: 'Measure Summary (first grid: Measure Title, Measure Definition)'
+  uncaptioned: true
+  source_pdf: measure_pdfs/99820.pdf
+  source_pdf_sha256: 64b886cb5cc1cc06d677d6c2d826898e852806e1e3ab576a053cb98ceb3e2b31
+  page: 9
+  table_sha256: 7a14b4e20ad197d42f33603d6884d12825ed24da24e9db89bb89e883857d046b
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: 'The summary table was broken up in extraction. This first grid holds only its first two rows,
+    which match the page. The third row, Applicable, was not kept as a row: its text follows this grid
+    as ordinary paragraphs and bulleted lists, complete and in order. The rest of the table is the second
+    grid, below those paragraphs.'
+- label: Table 1
+  caption: GHP Borehole Length and Heating Capacity for Applicable Dwelling Units Only
+  source_pdf: measure_pdfs/99820.pdf
+  source_pdf_sha256: 64b886cb5cc1cc06d677d6c2d826898e852806e1e3ab576a053cb98ceb3e2b31
+  page: 22
+  table_sha256: b8da1f66392965d356a1f93d94c5ac67f2145638f1298dd9f99c1139417a68c3
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The six rows and their values match the page.
+figures:
+- source_image: 99820_images/image_000002_090afc707d5262e890c97f291463092ddd364b1c731f19a2b2546a9c1af52f74.png
+  source_image_sha256: f25315309ce4cf9b041894f3b048c85530afb2db7300fc262ba59860b0479e40
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of annual site energy by end use for all dwelling units, baseline against the
+    upgrade
+  description: 'Figure 1: horizontal grouped bar chart for all dwelling units. Rows are end uses by fuel,
+    from electric vehicle charging to generation, plus total site energy; x-axis is all-fuels end uses
+    in kWh. Series are Baseline and ''Variable Speed GHP + Envelope''. Total site energy falls from about
+    3.45T to about 2.1T kWh, and natural gas heating, the largest baseline end use, from about 1.15T to
+    about 0.2T.'
+- source_image: 99820_images/image_000003_db3c468ccc7d3035eca7f810c2969364912ea979d605519040050e35f3fc6f79.png
+  source_image_sha256: 55c208cb34813019de64529f5b98186e1ca657ca20fc391cb3f047b0de6ea74e
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of annual site energy by end use for applicable dwelling units, baseline against
+    the upgrade
+  description: 'Figure 2: horizontal grouped bar chart with the same rows as Figure 1, for applicable
+    dwelling units only. X-axis is all-fuels end uses in kWh; series are Baseline and ''Variable Speed
+    GHP + Envelope''. Total site energy falls from about 2.7T to about 1.3T kWh; the natural gas heating
+    bar, about 0.92T kWh at baseline, all but disappears, and heating electricity grows a little.'
+- source_image: 99820_images/image_000004_d98a2acb2c586256dcafafa146dcfd19b1602efdb1cf8f47a18d44bcd2840e4f.png
+  source_image_sha256: 49e1a915a85ea923b6dd2936e9c4617fa663ccd64aecc2d68bc9dfa6d4e8298c
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bars of annual site energy by end use for each Building America climate zone, baseline
+    against the upgrade
+  description: 'Figure 3: horizontal stacked bar chart. Rows are eight climate zones from Hot-Dry to Subarctic,
+    each with a Baseline bar and a ''Variable Speed GHP + Envelope'' bar; x-axis is all-fuels end uses
+    in kWh, segmented by end use and fuel as listed in the legend. The heating segments shrink most. Cold,
+    the largest zone, falls from about 1.15T to about 0.48T kWh, and Mixed-Humid from about 0.85T to about
+    0.4T.'
+- source_image: 99820_images/image_000005_155e8f64ffb9475ddaba7d7b5d97c6211295b88993c486d5c5d093efc0b3ea7b.png
+  source_image_sha256: ba98b4ed0b7606c6ee644418b8d8a4887ccd83c3be4bcfbf6df9bbf2ff507464
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of percent site energy savings for applicable dwelling units by Building America climate
+    zone
+  description: 'Figure 4: horizontal bar chart. Rows are eight climate zones from Hot-Dry to Subarctic;
+    x-axis is site energy total consumption percentage savings, 0 to about 60. The single series is ''Variable
+    Speed GHP + Envelope''. Savings rise with colder climate: about 30% in Hot-Dry, 38% in Hot-Humid,
+    35% in Marine, 48% in Mixed-Dry, 51% in Mixed-Humid, 58% in Cold, 61% in Very Cold and 59% in Subarctic.'
+- source_image: 99820_images/image_000006_d1e20d47b85ecec8729ed53fd2492c8f66d442b89ae91872607b8d81628aa704.png
+  source_image_sha256: cd72990d761e40dbedddc83714a076402cd96b77f366dcfe6bd68116011f7d76
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bars of annual site energy by end use for each baseline heating fuel, baseline against
+    the upgrade
+  description: 'Figure 5: horizontal stacked bar chart. Rows are four baseline heating fuels, Electricity,
+    Natural Gas, Fuel Oil and Propane, each with a Baseline bar and a ''Variable Speed GHP + Envelope''
+    bar; x-axis is all-fuels end uses in kWh, segmented by end use and fuel. Natural gas homes fall from
+    about 1.65T to about 0.75T kWh and electricity-heated homes from about 0.7T to about 0.4T; fuel oil
+    and propane homes fall to well under half.'
+- source_image: 99820_images/image_000007_72cc21ee12a1ebb306098d656ca8f91a3f9f1c59344b0e23f1f3b05857cafe20.png
+  source_image_sha256: 65f250180950c50de46b93a33b050add6549e52a4f5792f14b3540439d16bc48
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of average annual energy bills by fuel for applicable dwelling units, baseline
+    against the upgrade
+  description: 'Figure 6: horizontal grouped bar chart. Rows are electricity, natural gas, fuel oil, propane
+    and all fuels; x-axis is bills in US dollars. Series are Baseline and ''Variable Speed GHP + Envelope''.
+    The all-fuels bill falls from about $2,800 to about $1,950, the natural gas bill from about $570 to
+    about $190, and the electricity bill from about $2,000 to about $1,750; the fuel oil and propane bills,
+    each about $110 at baseline, fall to near zero.'
+- source_image: 99820_images/image_000008_95e2f4ac6f52df809aa62d5f534021a6a90976631922d8c11027b3aea71dbf84.png
+  source_image_sha256: e7d9c296ae8ed7fca92dbf291c40551ea6c2b8b0d13beb54bed8fe832290a07d
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bars of average annual energy bills by fuel for each climate zone, baseline against the
+    upgrade
+  description: 'Figure 7: horizontal stacked bar chart. Rows are eight climate zones from Hot-Dry to Subarctic,
+    each with a Baseline bar and a ''Variable Speed GHP + Envelope'' bar; x-axis is bills in US dollars,
+    0 to above 5,000, segmented into electricity, natural gas, fuel oil and propane. After the upgrade
+    the bars are almost all electricity. The Subarctic bill, mostly fuel oil at baseline, falls from about
+    $5,200 to about $2,700.'
+- source_image: 99820_images/image_000009_5c2cfc8e09f667dbfb313469af978b9489bc856e01a18d256d0411a876882a20.png
+  source_image_sha256: 79bd27a14446068affe18fb433b6a4689297377ed9a505dc717c975ddc10e338
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked percentage bars of available electric panel breaker spaces by panel service rating, baseline
+  description: 'Figure 8: dashboard chart titled ''Available Electric Panel Breaker Spaces by Electric
+    Panel Service Rating''. Eight 100% stacked bars, All and seven service ratings from under 100 to over
+    201, are segmented by available breaker spaces (0, 1-2, 2-3, 3-4, 4-5, 5-10, 10+); y-axis is percent
+    of dwelling units. For all dwellings, 25.6% have no spare space, 24.5% have five to ten and 13.5%
+    more than ten.'
+- source_image: 99820_images/image_000010_697b4859a49490ca97d8e36d522408596f8585be56a00251af6fc41015d4509d.png
+  source_image_sha256: f843968d74516b52ffc9bf591813b7ba7ad98ab2bbcbb0ed6eee6c13a63fc1b9
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked percentage bars of electric panel constraint type by panel service rating, baseline
+  description: 'Figure 9: dashboard chart titled ''Electric Panel Constraint Type by Electric Panel Service
+    Rating''. Eight 100% stacked bars, All and seven service ratings, are split into No Constraint and
+    Capacity Constrained Only; y-axis is percent of dwelling units. For all dwellings 97.7% have no constraint.
+    Panels under 100 amps are 32.9% capacity constrained, the 100 and 101-124 groups about 4% to 5%, and
+    larger panels almost none.'
+- source_image: 99820_images/image_000011_8c75411568fd2aa5f6a14a63ea073b9e872705d8f80ea417cb1366cee6b9f3f3.png
+  source_image_sha256: 2c252d1e38fa47cda88c024032920e08ff6cb70a7f5bb53cacf1ea096711410e
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked percentage bars of electric panel constraint type by heating fuel after the upgrade
+  description: 'Figure 10: 100% stacked bar chart titled ''Electic Panel Constraint Type by Heating Fuel''
+    (the plot''s own spelling). Five bars, All, Electricity, Natural Gas, Fuel Oil and Propane, are split
+    into No Constraint, Capacity Constrained Only, Space Constrained Only, and Capacity and Space Constrained;
+    y-axis is percent of dwelling units. For all dwellings 69.2% have no constraint, 10.5% are capacity
+    constrained only, 13.4% space constrained only and 6.9% both; electricity-heated homes are 93.6% unconstrained
+    and fuel oil homes 37.9%.'
+- source_image: 99820_images/image_000012_9fd28767d540367f15401ab5723e94cfaddded5a6ee955ad230808f7c71daf11.png
+  source_image_sha256: f7108bd52d66f47e10c4a51221b5d1557517141c284fca435977f44c6852720d
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Choropleth map of the percent of dwelling units with an electric panel capacity or space constraint
+    by state
+  description: 'Figure 11: choropleth map of the contiguous United States. Each state is labelled with
+    its percent of dwelling units and shaded in seven bins from 0-10% to 60-70%. Shares are highest in
+    northern New England and the northern Plains and lowest in the South: 64.5% in Vermont, 59.4% in Maine
+    and 52.3% in Montana, against 6.4% in Florida.'
+- source_image: 99820_images/image_000013_28dbd5b8f4ce2c818f308ea271399ffefbcaa21c47aea03423d16c0cfe01b5d7.png
+  source_image_sha256: df5337817066048f74dab1022be811409a92e20c8a744699f5c203ae90ae95b0
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Choropleth map of the percent of dwelling units with an electric panel space constraint by state
+  description: 'Figure 12: choropleth map of the contiguous United States. Each state is labelled with
+    its percent of dwelling units and shaded in bins of ten percentage points. Shares are highest in northern
+    New England and the northern tier and lowest in the South: 50.6% in Vermont and 46.1% in Maine, against
+    2.4% in Florida.'
+- source_image: 99820_images/image_000014_8a5a0b318ea40fe882fb57c3d0e89189ae2e4cfcbcbf0a339a04ce4cacf92e6c.png
+  source_image_sha256: ca6f25dadef41aadaad7c50f2661c92b217a2d1b5817c388881b20897cb63234
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Choropleth map of the percent of dwelling units with an electric panel capacity constraint by state
+  description: 'Figure 13: choropleth map of the contiguous United States. Each state is labelled with
+    its percent of dwelling units and shaded in bins of ten percentage points. Shares are highest in northern
+    New England and the northern Plains and lowest in the South and West: 39.6% in Vermont and 37.3% in
+    North Dakota, against 4.2% in Florida.'

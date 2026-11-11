@@ -1,0 +1,299 @@
+# Hand-authored overlay for measure_pdfs/99816.pdf
+#
+# 99816 is the ResStock measure documentation for the light air sealing upgrade (measure 29).
+# Every table and figure in the report was compared with the PDF on 2026-11-11, following
+# "Checking every table and figure: the ResStock method" in overlays/README.md.
+#
+# Tables (page numbers are PDF pages, 1-based):
+#   * Table 5 (p.17) is superseded: its merged row-group labels were blank or split word by
+#     word over their rows. See its `why`.
+#   * The Measure Summary table (p.9, no caption) is superseded: it was right except for a
+#     line-wrap space inside the commit hash of the project configuration URL.
+#   * Tables 1, 2, 3 and 4 and the List of Acronyms (p.5) are recorded under `checked:` as
+#     correct.
+#   * The Table of Contents and List of Figures / List of Tables grids are contents pages and
+#     have no entry. The References list was extracted partly as a one-column grid; it is not
+#     a table of the report and has no entry.
+#   * The report's numbered page footnote is present. No number grid is shown as a picture.
+#
+# Figures: Figures 1-14 are described (40-70 words each, vision-description), one bitmap per
+# figure; every figure caption has its image. The cover art and wordmark (image_000000,
+# image_000001) are decorative and omitted by the build. Values read off an axis, not a data
+# label, are worded "about".
+#
+# Flattening notes: Table 5's five merged group labels are repeated on each of their three
+# rows, and its two blank header cells are blank in the PDF. The Measure Summary is split
+# into bold-labelled parts to stay under the chunk limit, each repeating the first row; the
+# labels are not in the PDF. Row shading in the PDF is alternating bands and carries no
+# meaning.
+
+product: resstock
+release: resstock_amy2018_2025_release_1
+source_id: upgrade_measures
+source_path: measure_pdfs/99816.pdf
+source_url: https://docs.nlr.gov/docs/fy26osti/99816.pdf
+publication_url: https://docs.nlr.gov/docs/fy26osti/99816.pdf
+tables:
+- label: Measure Summary
+  uncaptioned: true
+  source_pdf: measure_pdfs/99816.pdf
+  source_pdf_sha256: 4b4ebdb83ae3a2d8c30539129d4ad1834f786ad7d85f73a6fba6982d997a76f3
+  page: 9
+  method: extracted grid, with the cells named in `why` corrected from the PDF text layer
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 069fd6f41041df8a67e5b805b13c4ae3c0e7eb7d5ddd74d26c29c66c02f9f584
+    why: The table is right cell for cell except the project configuration URL, a link to a commit, whose
+      commit hash carries a space where the PDF wraps the line ('...c3f8656 20612250f84'). The broken
+      hash does not resolve. The cell text is the extractor's own with that space removed; the joined
+      hash is the one in the PDF text layer.
+  markdown: '| Measure Title | Light Air Sealing |
+
+    |---|---|
+
+    | Measure Definition | This measure reduces infiltration rates by 25% in existing dwelling units with
+    baseline infiltration levels of 10 air changes per hour at 50 pascals (ACH50) or higher. |
+
+    | Applicability | Dwelling units with infiltration rates of ≥10 ACH50 are eligible for an upgrade.
+    With these applicability constraints, the measure upgrade applies to 77.66% of the existing dwelling
+    units. |
+
+    | Not Applicable | This measure does not apply to existing dwelling units with infiltration rates
+    below 10 ACH50. These constraints exclude 22.34% of dwelling units from receiving this measure upgrade.
+    |
+
+    | Original Release | 2025 Release 1: 2025/resstock_amy2018_release_1; 2025/resstock_amy2012_release_1;
+    2025/resstock_tmy3_release_1 |
+
+    | Project Configuration File(s) | https://github.com/NatLabRockies/resstock/commit/5fe1b613db5d8b237b65f9c3f865620612250f84
+    |'
+- label: Table 5
+  caption: Individual Building Model Annual Results
+  source_pdf: measure_pdfs/99816.pdf
+  source_pdf_sha256: 4b4ebdb83ae3a2d8c30539129d4ad1834f786ad7d85f73a6fba6982d997a76f3
+  page: 17
+  method: extracted grid, with the row-group labels put on every row (compared with the page render and
+    text layer)
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: eb6155abe6ef85f48d47a68d93eff0ee39770b052666626982fd477d31f079b2
+    why: The first column holds five merged group labels, each over three model rows. The extractor put
+      each label on one row only and left the other two blank, and split two labels word by word down
+      their rows ('Annual Heating Energy' / 'Consumption' / '[kWh]'), so most rows did not say what they
+      measure. Every value was right. Each label is written whole on its three rows, as the page text
+      layer has it. The space in '17, 960' is the source's.
+  markdown: '|  |  | Before | After | Percent Decrease |
+
+    |---|---|---|---|---|
+
+    | Annual Site Energy for All Fuels [kWh] | Connecticut model | 29,400 | 27,673 | 5.9% |
+
+    | Annual Site Energy for All Fuels [kWh] | Florida model | 31,972 | 29,667 | 7.2% |
+
+    | Annual Site Energy for All Fuels [kWh] | Texas model | 3,060 | 2,834 | 7.4% |
+
+    | Annual Cooling Energy Consumption [kWh] | Connecticut model | 1,411 | 1,188 | 15.8% |
+
+    | Annual Cooling Energy Consumption [kWh] | Florida model | 16,260 | 15,150 | 6.8% |
+
+    | Annual Cooling Energy Consumption [kWh] | Texas model | 1,836 | 1,676 | 8.7% |
+
+    | Annual Heating Energy Consumption [kWh] | Connecticut model | 17, 960 | 16,246 | 9.5% |
+
+    | Annual Heating Energy Consumption [kWh] | Florida model | 7,328 | 6,212 | 15.2% |
+
+    | Annual Heating Energy Consumption [kWh] | Texas model | 174 | 141 | 19.0% |
+
+    | Cooling Hourly Peak Power [kBtu/h] | Connecticut model | 12.54 | 12.36 | 1.4% |
+
+    | Cooling Hourly Peak Power [kBtu/h] | Florida model | 43.44 | 41.50 | 4.5% |
+
+    | Cooling Hourly Peak Power [kBtu/h] | Texas model | 8.78 | 8.70 | 0.9% |
+
+    | Heating Hourly Peak Power [kBtu/h] | Connecticut model | 52.14 | 51.21 | 1.8% |
+
+    | Heating Hourly Peak Power [kBtu/h] | Florida model | 77.98 | 69.93 | 10.3% |
+
+    | Heating Hourly Peak Power [kBtu/h] | Texas model | 4.42 | 3.94 | 10.9% |'
+checked:
+- label: List of Acronyms
+  uncaptioned: true
+  source_pdf: measure_pdfs/99816.pdf
+  source_pdf_sha256: 4b4ebdb83ae3a2d8c30539129d4ad1834f786ad7d85f73a6fba6982d997a76f3
+  page: 5
+  table_sha256: a422ec93d7134168de4c5287704f78ce379ed451e2506f941bf32c95577dfe00
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: Eleven acronyms, ACH50 to TWh, each with its expansion; the first entry sits in the header row.
+- label: Table 1
+  caption: Apply Logic for Light Air Sealing
+  source_pdf: measure_pdfs/99816.pdf
+  source_pdf_sha256: 4b4ebdb83ae3a2d8c30539129d4ad1834f786ad7d85f73a6fba6982d997a76f3
+  page: 11
+  table_sha256: 07d73e5f72b53dc4cbdb9fe50b22f13b6cc83d26b92a93ea51544ab5c34ac55d
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The single row matches the page.
+- label: Table 2
+  caption: Percentage of Dwelling Units by Vintage per Infiltration Rate Group in the Baseline Stock
+  source_pdf: measure_pdfs/99816.pdf
+  source_pdf_sha256: 4b4ebdb83ae3a2d8c30539129d4ad1834f786ad7d85f73a6fba6982d997a76f3
+  page: 11
+  table_sha256: b55a6baf9eac9320a5dc8ee2edabaed2ced09ac69e00a8f0a1aaa60f14e2dfeb
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The four infiltration groups and their shares match the page.
+- label: Table 3
+  caption: ResStock Argument Values for Infiltration Options
+  source_pdf: measure_pdfs/99816.pdf
+  source_pdf_sha256: 4b4ebdb83ae3a2d8c30539129d4ad1834f786ad7d85f73a6fba6982d997a76f3
+  page: 13
+  table_sha256: e97c1ebe624d8b281a0627bc00006227d95617cdde750b4bf4cb124d306e2da6
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The six arguments match the page.
+- label: Table 4
+  caption: Baseline Individual Dwelling Unit Characteristics
+  source_pdf: measure_pdfs/99816.pdf
+  source_pdf_sha256: 4b4ebdb83ae3a2d8c30539129d4ad1834f786ad7d85f73a6fba6982d997a76f3
+  page: 14
+  table_sha256: 2654ca2afd120d8f3772159b2e84c81ac973fe1d958b3be51949ab5f08548f51
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The seven rows match the page; the first header cell is blank in the PDF.
+figures:
+- source_image: 99816_images/image_000002_566355431d63ee68e16c94af53b34929a8e86d5486729fb94b757250fc4adb5e.png
+  source_image_sha256: 53513f8af1a69fce6b7886dc0a076615110183b45873a0c2af8fee51b488b900
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Three line charts of summer cooling energy over one day for three example models, baseline against
+    upgrade
+  description: 'Figure 1: three stacked line charts titled ''Summer Cooling Energy: July 11-12, 2018'',
+    one each for the Connecticut, Florida and Texas models. X-axis is time over one day; y-axis is cooling
+    in kWh. Series are Baseline and Upgrade. The upgrade line runs slightly below the baseline throughout:
+    Florida peaks near 1.6 kWh against about 1.5, and Texas near 0.18 kWh in both, with the upgrade a
+    little lower before and after the peak.'
+- source_image: 99816_images/image_000003_e9acb63d329331a667a46cd2bd07dec7786110ac2015104f632df51af56440af.png
+  source_image_sha256: 3001fd429504acc55eb459b94d65e05d51c045ca7a1cb23121c88d7fae03ed07
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Three line charts of winter heating energy over one day for three example models, baseline against
+    upgrade
+  description: 'Figure 2: three stacked line charts titled ''Winter Heating Energy: January 3-4, 2018'',
+    one each for the Connecticut, Florida and Texas models. X-axis is time over one day; y-axis is heating
+    in kWh. Series are Baseline and Upgrade. The upgrade line runs below the baseline throughout: about
+    2.5 kWh against 2.7 overnight in Connecticut, about 3.7 against 4.2 in Florida, and about 0.29 against
+    0.32 in Texas.'
+- source_image: 99816_images/image_000004_648f763aedf03fc642530b1337669f30c3f5f6d49898a7351671ad4550ea09b2.png
+  source_image_sha256: ea79f1538b658b3c5a4da08487d9d5f2f21a66174921029f0453d4dd5af6ae83
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of total annual site energy by end use and fuel, baseline against light air sealing
+  description: 'Figure 3: horizontal grouped bar chart. Rows are end uses by fuel, from electric vehicle
+    charging to generation, plus total site energy; x-axis is all-fuels end uses in kWh, 0 to above 2.5T.
+    Series are Baseline and Light Air Sealing. Total site energy falls from about 2.65T to about 2.5T
+    kWh; natural gas heating, the largest end use, falls from about 0.93T to about 0.83T.'
+- source_image: 99816_images/image_000005_027207fe824047eeff10db4b8fe7e5e6ebec6294cac17b3d4eb2bc663d003f67.png
+  source_image_sha256: b01f603cc8f7ab2656c572624a1ca6046a21467e6d2f3c25aa5d01de4042ccd4
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of average annual site energy by end use per dwelling unit, baseline against
+    light air sealing
+  description: 'Figure 4: horizontal grouped bar chart with the same rows as Figure 3, as an average per
+    dwelling unit. X-axis is all-fuels end uses in kWh, 0 to 25k; series are Baseline and Light Air Sealing.
+    Total site energy falls from about 24.5k to about 23k kWh, and natural gas heating from about 8.6k
+    to about 7.6k.'
+- source_image: 99816_images/image_000006_d5a0e70afaace1db870abf4b60782825587c407a691f2638afc320f7bfb73b1c.png
+  source_image_sha256: 40261e37456f970c3c8d6a906ba3b94a53e9255e8e4c8596f1f67e06bc4dfc29
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of average annual site energy by starting infiltration rate, baseline against
+    light air sealing
+  description: 'Figure 5: horizontal grouped bar chart. Rows are seven starting infiltration rates from
+    10 to 50 ACH50; x-axis is site energy total consumption in kWh, 0 to above 25k. Series are Baseline
+    and Light Air Sealing. Baseline consumption rises from about 23k at 10 ACH50 to about 27k at 40 and
+    50 ACH50; with light air sealing it is about 22k to 24.5k.'
+- source_image: 99816_images/image_000007_49e10fe11f113f0207f59150fe165c7d73ba846c1a8cc8c233acfc295607cfc8.png
+  source_image_sha256: d73859f75579e8fb0a405a8b31cb53818798dba2b75d7eb6649af1501e22944b
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of average annual site energy savings from light air sealing by starting infiltration
+    rate
+  description: 'Figure 6: horizontal bar chart. Rows are seven starting infiltration rates from 10 to
+    50 ACH50; x-axis is site energy total consumption savings in kWh, 0 to above 2,500. Savings rise steadily
+    with leakiness: about 930 kWh at 10 ACH50, about 1,250 at 15, about 1,500 at 20, about 1,750 at 25,
+    about 1,970 at 30, about 2,420 at 40 and about 2,620 at 50.'
+- source_image: 99816_images/image_000008_780bf0fec5b41240815097080429543bab210fd90a06d79b93a9fd8e6d211ff8.png
+  source_image_sha256: 9f1565bf3c1e3e92e7213ebcfcf81f895e68425f3ea8f080ace3b7a052feb295
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of average annual energy consumption by vintage, baseline against light air sealing
+  description: 'Figure 7: horizontal grouped bar chart. Rows are nine vintage bins from before 1940 to
+    the 2010s; x-axis is site energy total consumption in kWh, 0 to above 30k. Series are Baseline and
+    Light Air Sealing. Consumption falls with newer construction and the gap narrows: about 32.5k against
+    30k for homes built before 1940, and about 16.8k against 16k for the 2010s.'
+- source_image: 99816_images/image_000009_93f06ffed0d8245c23ecf65562812edeece0af1a45278b8e5b0d86787c1643f6.png
+  source_image_sha256: 291594f7134c176197b5faf5eaf02bbf2acb575482572b463f279e6c022a6681
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of average annual energy savings from light air sealing by vintage
+  description: 'Figure 8: horizontal bar chart. Rows are nine vintage bins from before 1940 to the 2010s;
+    x-axis is site energy total consumption savings in kWh, 0 to 2,500. Savings fall with newer construction:
+    about 2,400 kWh before 1940, about 2,030 for the 1940s and 1950s, about 1,580 for the 1960s, about
+    1,270 for the 1970s and about 830 for the 2010s.'
+- source_image: 99816_images/image_000010_b1ee856ed28e2bf6f2d30e2413d6227d84c2f0597be9dae7e22ef4717e41a7fb.png
+  source_image_sha256: c9313bc4ca6ec2ee40b29ce27e8e115f27755ef05d07df991bbd2f22d31677a4
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of average annual energy consumption by climate zone, baseline against light
+    air sealing
+  description: 'Figure 9: horizontal grouped bar chart. Rows are seventeen climate zones from 1A to 8AK;
+    x-axis is site energy total consumption in kWh, 0 to 40k. Series are Baseline and Light Air Sealing.
+    Zone 7A is highest, about 39.5k falling to about 36k, followed by 6A and 5A; zone 1A is lowest, about
+    11.5k in both bars.'
+- source_image: 99816_images/image_000011_9c34dd1d835ae0f03b039b9d9e3d5940b2f905ad6deadf670deadfa71e4fccbc.png
+  source_image_sha256: 4ab589d8039257f2b3964a0b2e457a200c6a5f67991ac2839bfcedd26a77148b
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of average annual energy savings from light air sealing by climate zone
+  description: 'Figure 10: horizontal bar chart. Rows are seventeen climate zones from 1A to 8AK; x-axis
+    is site energy total consumption savings in kWh, 0 to 3,500. Cold, humid zones save most: about 3,500
+    kWh in 7A, about 2,930 in 6A, about 2,530 in 5A and about 2,120 in 6B. Savings are about 200 to 400
+    in zones 1A, 2B, 3B and 3C.'
+- source_image: 99816_images/image_000012_413f8bcde9d8ee84ac5e6858b79596a8f866a6891a72777b1610a441335724d3.png
+  source_image_sha256: 388e2bb92a1faae2ffcf42c45bdf86044f561ce8a4cb26607b2f6bbc5799f4a2
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of percent energy savings from light air sealing by climate zone
+  description: 'Figure 11: horizontal bar chart. Rows are seventeen climate zones from 1A to 8AK; x-axis
+    is site energy total consumption percentage savings, 0 to above 8. Savings are about 8.8% in zone
+    7A, about 8.2% in 6A, about 7.5% in 5A and about 7% in 4A, against about 1.8% in 1A and 2B and about
+    2.2% in 3B.'
+- source_image: 99816_images/image_000013_a893de690aef2903172d48db1d39fa4500897aa826095568dddaa1da165c4d6c.png
+  source_image_sha256: 64a98ba9c2d275997e3779c20dfe103cc5b698ad4cd045a542e8e27a8d7c4272
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar chart of average annual energy savings by climate zone, segmented by end use and fuel
+  description: 'Figure 12: horizontal stacked bar chart. Rows are seventeen climate zones from 1A to 8AK;
+    x-axis is all-fuels end-use savings in kWh, 0 to above 3,000. Each bar is segmented by end use and
+    fuel, listed in the legend. Heating segments make up nearly all the savings in every zone but the
+    hottest, where cooling electricity is the visible share; zone 7A totals about 3,500 kWh.'
+- source_image: 99816_images/image_000014_a56aff05bf75755ea0dc9776106f806cc96e1be0ac5044dd7fbf89e7c618a3b6.png
+  source_image_sha256: 223faafb235af9c753aab3bd127309ca55c45c822814884b67380c9f6607570f
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of percent utility bill savings from light air sealing by fuel
+  description: 'Figure 13: horizontal bar chart. Rows are electricity, natural gas, fuel oil, propane
+    and all fuels; x-axis is bills percentage savings, 0 to 10. Savings are largest for the heating fuels,
+    about 9.9% for fuel oil, about 9.4% for propane and about 7.3% for natural gas, against about 2.5%
+    for electricity and about 4.1% for all fuels together.'
+- source_image: 99816_images/image_000015_f26f0ab13eaebad95b34a50ba8bf72a4bc679c4a2039555a6fbaa4467db1a77e.png
+  source_image_sha256: c6f1bc214bcd12f668cd3db2b83f8cfcde4ebb8a02497639190d98b6e495da4a
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of average annual utility bill savings from light air sealing by starting infiltration
+    rate
+  description: 'Figure 14: horizontal bar chart. Rows are seven starting infiltration rates from 10 to
+    50 ACH50; x-axis is all-fuels bill savings in US dollars, 0 to above 150. Savings rise steadily with
+    leakiness: about $67 at 10 ACH50, about $89 at 15, about $106 at 20, about $123 at 25, about $138
+    at 30, about $170 at 40 and about $186 at 50.'

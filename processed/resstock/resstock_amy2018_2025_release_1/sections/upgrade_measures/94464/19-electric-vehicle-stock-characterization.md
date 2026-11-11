@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/94464.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/94464.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/94464.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/94464.md | section: Electric Vehicle Stock Characterization | lines: 215-244 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/94464.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/94464.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/94464.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/94464.md | section: Electric Vehicle Stock Characterization | lines: 222-258 -->
 ## Electric Vehicle Stock Characterization
 
 Included in the baseline ResStock inputs are probability distributions that describe the likelihood of EV-related attributes being assigned to dwelling units. These EV-related inputs are part of ResStock's broader stock characterization process, which defines detailed building, occupant, and technology characteristics for the U.S. residential building stock (see Section 3 Reyna et al. [2025] for more detail). EV input distributions are sampled to produce EV ownership profiles for each building model. The baseline of ResStock assigns each dwelling unit a value for EV ownership, the at-home charging fraction, the vehicle type that provides the battery capacity and efficiency, and the VMT per year. If a dwelling unit has an EV, an EV charger is applied, and its power draw is determined based on the charger level. Plug-in hybrid electric vehicles are not currently modeled in ResStock.
@@ -25,7 +25,14 @@ Upstream dependencies are important for accurately reflecting the probabilities 
 
 Figure 2. The percentage of EV ownership among households at the 400% FPL for different building types and tenures. Maps are disaggregated by Public Use Microdata Area in California.
 
-![Image](94464_images/image_000003_c8c6ac5596f1c7c64abd87b9466613635a2430ec8d4e2267efdff706c79f8e52.png)
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/94464.yaml
+     source: 94464_images/image_000003_c8c6ac5596f1c7c64abd87b9466613635a2430ec8d4e2267efdff706c79f8e52.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+![Four maps of California shaded by household electric vehicle ownership, by building type and tenure](94464_images/image_000003_c8c6ac5596f1c7c64abd87b9466613635a2430ec8d4e2267efdff706c79f8e52.png)
+
+Figure 2: four maps of California divided into Public Use Microdata Areas, one each for single-family detached owners, single-family detached renters, multifamily 5+ units owners and multifamily 5+ units renters. Areas are shaded by household battery EV share on a scale from 0.23% to 19.24%. The owner map for single-family detached homes is the darkest, mostly in coastal and urban areas; the other three are near the low end throughout.
 
 SFD = single-family detached; MF 5units+ = multi-family 5+ units; BEV = battery electric vehicle
 

@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/94461.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/94461.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/94461.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/94461.md | section: 2.1  Introduction to Electric Vehicles in ResStock | lines: 115-130 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/94461.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/94461.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/94461.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/94461.md | section: 2.1  Introduction to Electric Vehicles in ResStock | lines: 115-137 -->
 ## 2.1  Introduction to Electric Vehicles in ResStock
 
 EVs are an increasingly important component of residential energy demand, with charging behavior often correlated with other household loads due to shared occupancy and behavioral patterns. The current ResStock baseline reflects 2023 EV saturation levels, which corresponds to a small number of representative dwelling unit models with EVs (1.05% of all datapoints). For each EV-owning dwelling unit, ResStock assigns specific vehicle properties, driving behavior, and charging behavior dependent on location, demographics (income and tenure), or occupancy - factors that also influence other household load profiles. While the baseline includes a limited number of EVs, ResStock's EV measures enable scenario analysis of future adoption and charging patterns.
@@ -9,7 +9,14 @@ ResStock leverages physics-based modeling, where high-level EV and driving behav
 
 Figure 1. Steps to transform ResStock inputs into final building energy models OS = OpenStudio
 
-![Image](94461_images/image_000002_f634ab8d1ab2552562492269600aeb00fea414ac2626a0ae6e7aa982147aea24.png)
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/94461.yaml
+     source: 94461_images/image_000002_f634ab8d1ab2552562492269600aeb00fea414ac2626a0ae6e7aa982147aea24.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+![Flow diagram of the five steps from ResStock inputs to an EnergyPlus model](94461_images/image_000002_f634ab8d1ab2552562492269600aeb00fea414ac2626a0ae6e7aa982147aea24.png)
+
+Figure 1: flow diagram of five boxes joined by arrows, left to right: ResStock Inputs (.tsv files), OS-HPXML Arguments, Populate HPXML File, Generate OpenStudio Model, and Translate to EnergyPlus. It shows the order in which ResStock inputs become a building energy model and carries no data.
 
 Baseline EV charging availability schedules indicate when a vehicle is plugged in and available to charge. These schedules are determined by the dwelling unit's occupancy schedule, whereas the periods of active charging are dependent on the availability schedule and the EV's state of charge (SOC). EV charging availability schedules in ResStock are generated stochastically based on the presence of an individual occupant assigned as the driver. During an 'away period' for the driver, the vehicle is assumed to be driven immediately after the occupant leaves and just before they return home. While the baseline charging availability schedule is dependent only upon the driver's occupancy status, the duration and magnitude of charging energy depend on the VMT, the charger power, vehicle properties, and fraction charged at home, as discussed further in Section 4.1. The driving schedules are dependent on stochastic occupant behavior, but do not explicitly capture seasonal variations in travel.
 

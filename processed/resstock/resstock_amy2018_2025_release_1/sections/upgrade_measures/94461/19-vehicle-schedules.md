@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/94461.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/94461.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/94461.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/94461.md | section: Vehicle Schedules | lines: 188-203 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/94461.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/94461.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/94461.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/94461.md | section: Vehicle Schedules | lines: 215-237 -->
 ## Vehicle Schedules
 
 We generate two EV schedules as inputs to the vehicle battery model, (1) a charging availability schedule, which indicates when a vehicle is plugged in and available to charge, and (2) a driving schedule, during which the EV battery is discharging energy. Both schedules are derived from the dwelling unit's occupancy schedule, and the driving schedule also depends on the assigned ev\_hours\_per\_week argument. The durations of charging energy events are dependent on the charging availability schedule and the SOC. Figure 3 shows a snapshot of relevant schedules for a single EV driver. The schedules values represent the fraction of each 15-minute timestep during which the event occurs, and values less than one correspond to events shorter than 15 minutes.
@@ -7,7 +7,14 @@ We generate two EV schedules as inputs to the vehicle battery model, (1) a charg
 
 Figure 3. Illustration of a ResStock EV plugged-in schedule, charging power, driving schedule, and driver occupancy schedule
 
-![Image](94461_images/image_000004_081d9b6686e8cf141807f9c4cdb8292111a6e7e19aa2f2c962d6dd6754c13cd7.png)
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/94461.yaml
+     source: 94461_images/image_000004_081d9b6686e8cf141807f9c4cdb8292111a6e7e19aa2f2c962d6dd6754c13cd7.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+![Four step charts of an EV's charging availability, charging power, driving and occupancy over one day](94461_images/image_000004_081d9b6686e8cf141807f9c4cdb8292111a6e7e19aa2f2c962d6dd6754c13cd7.png)
+
+Figure 3: four step charts sharing a time-of-day axis from 10:00 to 20:00: EV Charging Availability Schedule (0 or 1), EV Charging Power in kW, EV Driving Schedule and Occupancy Schedule. The vehicle is available to charge when it is not being driven; in the example it draws about 5.8 kW from about 14:00 to 15:15 and again from about 17:15 to 18:30, after each trip.
 
 The durations of driving periods scale with the occupant's weekly driving hours and are proportionally adjusted with the duration of the away period. On average, higher-mileage drivers have shorter away periods in which they are not driving. We assume a constant driving speed but scale the discharge power based on the ambient temperature, as discussed in the following subsection. The charging schedule is similarly based on occupancy, where the baseline behavior assumes that the vehicle is plugged in when the occupant arrives home. In the figure, the charging availability schedule overlaps the occupancy schedule except for the time step where occupancy is partial (between 0 and 1). A partial occupancy time step, in which the occupant is home for only part of the 15-minute time step, would ideally reflect both charging and discharging. However, ResStock models these events entirely as discharging, as the underlying EnergyPlus ® battery model can only be charged or discharged in a time step. This limitation may cut short or delay charging by up to 15 minutes; however, that is preferable to underestimating discharging, where events are shorter and changes in the duration would have a much larger impact on the total discharge energy-and, consequently, the charging energy.
 

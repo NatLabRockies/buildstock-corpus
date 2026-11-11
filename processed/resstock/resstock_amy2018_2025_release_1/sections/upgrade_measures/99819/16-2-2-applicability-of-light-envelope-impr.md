@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/99819.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/99819.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/99819.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/99819.md | section: 2.2  Applicability of Light Envelope Improvements Package | lines: 252-263 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/99819.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/99819.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/99819.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/99819.md | section: 2.2  Applicability of Light Envelope Improvements Package | lines: 262-273 -->
 ## 2.2  Applicability of Light Envelope Improvements Package
 
 While envelope improvements are included for any home receiving a dual-stage GHP, the baseline conditions must warrant an improvement for each component of the upgrade to apply.

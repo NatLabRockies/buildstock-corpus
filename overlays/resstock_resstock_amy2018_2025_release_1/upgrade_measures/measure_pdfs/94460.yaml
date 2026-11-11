@@ -1,0 +1,159 @@
+# Hand-authored overlay for measure_pdfs/94460.pdf
+#
+# 94460 is the ResStock measure documentation for electric vehicle adoption with Level 2 charging (measure 20).
+# Every table and figure in the report was compared with the PDF on 2026-11-11, following
+# "Checking every table and figure: the ResStock method" in overlays/README.md.
+#
+# Tables (page numbers are PDF pages, 1-based):
+#   * Table 2 (p.15) is superseded: every cell was right, but the bin value 40-59% carried a
+#     line-wrap space. It is the extractor's own grid with that value joined.
+#   * Table 1 and the Measure Summary table (p.8, no caption) are recorded under `checked:` as
+#     correct.
+#   * The List of Acronyms (p.5) was extracted as one run-on paragraph, not a grid, so there
+#     is no table to check; every entry is present.
+#   * The Table of Contents and List of Figures / List of Tables grids are contents pages and
+#     have no entry.
+#   * The report's numbered page footnotes are all present, including the one Table 2's
+#     caption points to. No number grid is shown as a picture.
+#
+# Figures: Figures 1-7 are described (40-70 words each, vision-description), one bitmap per
+# figure; every figure caption has its image. The cover art and wordmark (image_000000,
+# image_000001) are decorative and omitted by the build. Values read off an axis, not a data
+# label, are worded "about". The Figure 5 bitmap carries the note "MMBtu = million British
+# thermal unit" along its top edge; it is the printed note of Figure 4 above it.
+#
+# Flattening notes: Table 2 is split into bold-labelled parts to stay under the chunk limit,
+# each repeating the header row; the labels are not in the PDF.
+
+product: resstock
+release: resstock_amy2018_2025_release_1
+source_id: upgrade_measures
+source_path: measure_pdfs/94460.pdf
+source_url: https://docs.nlr.gov/docs/fy26osti/94460.pdf
+publication_url: https://docs.nlr.gov/docs/fy26osti/94460.pdf
+tables:
+- label: Table 2
+  caption: Mapping of ResStock Input Files to ResStock and OpenStudio-HPXML Arguments 4
+  source_pdf: measure_pdfs/94460.pdf
+  source_pdf_sha256: d63ef7e391b9d0898a8319403e5a4f163dde6f7cbeca55d5e550da7a46a85da3
+  page: 15
+  method: extracted grid, with the cells named in `why` corrected from the PDF text layer
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 1f3c231e839f197f43940efda0b98cf0f57d0b210d6aa3561faefb27cdea1c56
+    why: Every cell is right, but the home-charging bin '40-59%' carries a space where the PDF breaks
+      the line ('40- 59%'), so a search for the bin misses it; 'kilowatt-hours' was broken the same way.
+      The cell text is the extractor's own with those two joined. Several arguments share one cell in
+      the PDF and are run together, as extracted.
+  markdown: '| ResStock Input File | ResStock Arguments | OpenStudio-HPXML Arguments | Description |
+
+    |---|---|---|---|
+
+    | Electric Vehicle Ownership | Yes, No | ev_present [bool] | Turns on/off the battery EV model. |
+
+    | Electric Vehicle Charger | L1, L2, None | ev_charger_present [bool] ev_charger_power (watts, or
+    W) [float] | Describes presence and charging power of the EV charger. |
+
+    | Electric Vehicle Battery | Compact, Midsize, Pickup, and SUV with 200- and 300-mile ranges | ev_battery_usable_capacity
+    (kilowatt-hours, or kWh) [float] ev_energy_efficiency (kWh/mile) [float] ev_average_mph (miles per
+    hour, or mph) [float] | Physical description of the battery that ultimately informs charging demand;
+    average speed used to calculate hours driven. |
+
+    | Annual Miles Driven | 14 values ranging from 1,000 to 22,500 miles | ev_miles_per_year [integer]
+    ev_hours_per_week [float] (calculated internally from ev_miles_per_year using an assumed default average
+    speed) | Total miles driven per year; an assumed default average speed is used to calculate ev_hours_per_week
+    , which informs the hourly driving schedules. |
+
+    | Home Charging Fraction | 6 bins, 0-19%, 20-39%, 40-59%, 60-79%, 80-99%, 100% | ev_fraction_charged_home
+    [float] | Describes what fraction of energy is provided by an at-home charger; informs the effective
+    annual miles traveled for the generation of schedules. |'
+checked:
+- label: Measure Summary
+  uncaptioned: true
+  source_pdf: measure_pdfs/94460.pdf
+  source_pdf_sha256: d63ef7e391b9d0898a8319403e5a4f163dde6f7cbeca55d5e550da7a46a85da3
+  page: 8
+  table_sha256: 13f2f10850bbdbb0964ebb68b85ff5463f40250de2094a2219080f3140119f0b
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The four rows (Measure Title, Measure Definition, Applicability, Not Applicable) match the page;
+    this report's summary table has no release or project-file rows.
+- label: Table 1
+  caption: Baseline EV ResStock Input Distribution Files and the Dependencies That Inform Option Distributions
+  source_pdf: measure_pdfs/94460.pdf
+  source_pdf_sha256: d63ef7e391b9d0898a8319403e5a4f163dde6f7cbeca55d5e550da7a46a85da3
+  page: 13
+  table_sha256: 5302f0198047f7083ce202f208ae93404d6387343e135afe30f7362f5d8831be
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The five input files and their dependencies match the page.
+figures:
+- source_image: 94460_images/image_000002_4e902202fc376d07d3bf81aa5d9a59944a6d76021ab831b99b3b027d829373af.png
+  source_image_sha256: cfbdd3e926f17f17700516d4b5fa9843bed421879b2a381a87c11c70dbc03365
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Flow diagram of the five steps from ResStock inputs to an EnergyPlus model
+  description: 'Figure 1: flow diagram of five boxes joined by arrows, left to right: ResStock Inputs
+    (.tsv files), OS-HPXML Arguments, Populate HPXML File, Generate OpenStudio Model, and Translate to
+    EnergyPlus. It shows the order in which ResStock inputs become a building energy model and carries
+    no data.'
+- source_image: 94460_images/image_000003_5af19426c3b0534ed711762192ae2c7e2e04ae6e0020d1f31956aff1360a4603.png
+  source_image_sha256: 1f6faaee4cf347a368d8d09bbe04b1d68f4acec206ac91e2a303da67eb921a28
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Four maps of California shaded by household electric vehicle ownership, by building type and tenure
+  description: 'Figure 2: four maps of California divided into Public Use Microdata Areas, one each for
+    single-family detached owners, single-family detached renters, multifamily 5+ units owners and multifamily
+    5+ units renters. Areas are shaded by household battery EV share on a scale from 0.23% to 19.24%.
+    The owner map for single-family detached homes is the darkest, mostly in coastal and urban areas;
+    the other three are near the low end throughout.'
+- source_image: 94460_images/image_000004_081d9b6686e8cf141807f9c4cdb8292111a6e7e19aa2f2c962d6dd6754c13cd7.png
+  source_image_sha256: 0c9f5e1b30bf63c31b310fed0e86d19b5b9ea8f89108790a5422ae0e05e024c2
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Four step charts of an EV's charging availability, charging power, driving and occupancy over one
+    day
+  description: 'Figure 3: four step charts sharing a time-of-day axis from 10:00 to 20:00: EV Charging
+    Availability Schedule (0 or 1), EV Charging Power in kW, EV Driving Schedule and Occupancy Schedule.
+    The vehicle is available to charge when it is not being driven; in the example it draws about 5.8
+    kW from about 14:00 to 15:15 and again from about 17:15 to 18:30, after each trip.'
+- source_image: 94460_images/image_000005_6f2100c79b99af86d5b316d5fc6869110d10ce41d6ee11ad90acb914060c0e0a.png
+  source_image_sha256: 7900c3dc5f69814cf0ec50ec28af4b1fc5621b4219da3dce76c4a6003c0c27e5
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Violin and box plots of total energy use per dwelling, baseline against the measure
+  description: 'Figure 4: two horizontal violin plots with box plots inside, Baseline above Measure. X-axis
+    is energy use in MMBtu, 0 to above 800. Both distributions are concentrated below about 200 MMBtu
+    with a long thin tail to the right; the measure''s distribution sits slightly further right, with
+    medians of about 65 MMBtu for the baseline and about 85 for the measure.'
+- source_image: 94460_images/image_000006_d71beedf2cd9e09b621c1d1e4c21c58e8ecf0a68d924a44cc0bd42373e8d7ebc.png
+  source_image_sha256: 62ef91a583d175868dfc3100a43d6736075f14a3422c22472cbe2fee44ab6771
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bars of total energy by end use for each Building America climate zone, baseline against
+    the measure
+  description: 'Figure 5: horizontal stacked bar chart. Rows are eight Building America climate zones
+    from Hot-Dry to Subarctic, each with a Baseline bar and a bar labelled ''EV with L2 Charging''; x-axis
+    is all-fuels end uses in kWh, 0 to 1.6T, segmented by end use and fuel. The measure bar adds an electric
+    vehicle charging segment to each zone: Cold, the largest, grows from about 1.45T to about 1.55T kWh.'
+- source_image: 94460_images/image_000007_5c0f8f92c09e82190d2f7c425fc9bf17f9f193f8e5d495ee82b402464b2af1ca.png
+  source_image_sha256: 03cdb1ddbe0ea3af442ccb598a346936cf5c8fb3bdbff8584059e959bd90b048
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Two bar charts of average unmet driving hours by annual miles and by share charged at home, measure
+    against baseline
+  description: 'Figure 6: two bar charts with Measure and Baseline bars: average unmet driving hours by
+    annual vehicle miles traveled (1,000 to 22,500) and by percent charged at home (0-19% to 100%). Unmet
+    hours are near zero below about 13,000 miles. With Level 2 charging the measure is far better than
+    the baseline: about 4 hours against 21 at 22,500 miles and about 0.6 against 1.5 for vehicles charged
+    entirely at home.'
+- source_image: 94460_images/image_000008_6d85459c8e9736a1a6d102fd401867e2359088e9d4600cf022bb7f303a4be179.png
+  source_image_sha256: a3fe40361a534de90fb91236cb95ef601b11625e8043cc95cc21f4d2f75e0356
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Two stacked area charts of Colorado electricity demand by end use over three winter and three summer
+    days
+  description: 'Figure 7: two stacked area charts of electricity usage in GW in Colorado by end use, with
+    the baseline total as a dashed line and EV charging as the top layer. Left: January 15 to 17; right:
+    July 15 to 17. EV charging adds to the evening peaks: the winter evening peak reaches about 1.8 GW
+    and the summer peak about 1.27 GW, against baseline peaks of about 1.45 and 1.05 GW.'

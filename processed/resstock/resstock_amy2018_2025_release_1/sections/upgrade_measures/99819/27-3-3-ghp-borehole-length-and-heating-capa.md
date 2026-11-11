@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/99819.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/99819.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/99819.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/99819.md | section: 3.3  GHP Borehole Length and Heating Capacity | lines: 354-372 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/99819.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/99819.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/99819.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/99819.md | section: 3.3  GHP Borehole Length and Heating Capacity | lines: 413-431 -->
 ## 3.3  GHP Borehole Length and Heating Capacity
 
 The total borehole length of the ground heat exchanger and GHP capacity are shown in Table 1 for applicable dwelling units only. The total borehole length is the borehole count of the geothermal loop multiplied by the length of one borehole.
