@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95032.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95032.md | section: 2.4.5 Other Inputs | lines: 1027-1079 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95032.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95032.md | section: 2.4.5 Other Inputs | lines: 1027-1099 -->
 ## 2.4.5 Other Inputs
 
 While some of the key inputs and their values are discussed above, Table 11 summarizes inputs for the GHP measure in ResStock and OpenStudio-HPXML.
@@ -28,6 +28,18 @@ Table 11. Summary of the GHP, Geothermal Loop, and Soil Inputs
 | Ground heat exchanger g-functions                 | Auto-calculated                                                                            | G-Function Library for Modeling Vertical Bore Ground Heat Exchanger    |
 | Heat pump airflow defect ratio                    | 0                                                                                          | OpenStudio-HPXML Ground-to-Air Heat Pump default 33                    |
 
+[28  https://openstudio-hpxml.readthedocs.io/en/v1.9.1/workflow\_inputs.html#hpxml-geothermal-loops](https://openstudio-hpxml.readthedocs.io/en/v1.9.1/workflow_inputs.html#hpxml-geothermal-loops)
+
+[29 https://gdr.openei.org/submissions/1325](https://gdr.openei.org/submissions/1325)
+
+[30  https://www.acca.org/home](https://www.acca.org/home)
+
+[31  Based on a common heat transfer fluid for GHPs: https://www.chempoint.com/products/dow/dowfrost-glycolthermal-fluids/dowfrost-propylene-glycol-thermal-fluids/dowfrost-geo-20](https://www.chempoint.com/products/dow/dowfrost-glycol-thermal-fluids/dowfrost-propylene-glycol-thermal-fluids/dowfrost-geo-20)
+
+32  Recommended from Technical Advisory Group in the Acknowledgements
+
+[33  https://openstudio-hpxml.readthedocs.io/en/v1.9.1/workflow\_inputs.html#ground-to-air-heat-pump](https://openstudio-hpxml.readthedocs.io/en/v1.9.1/workflow_inputs.html#ground-to-air-heat-pump)
+
 | Input                                    | Value                                                              | Source                                             |
 |------------------------------------------|--------------------------------------------------------------------|----------------------------------------------------|
 | Heat pump backup type                    | None                                                               | The measure definition                             |
@@ -51,4 +63,12 @@ Table 11. Summary of the GHP, Geothermal Loop, and Soil Inputs
 | Soil conductivity                        | Distribution that varies by ASHRAE climate and moisture zone       | Southern Methodist University Geothermal Lab, USDA |
 | Soil undisturbed temperature             | Varies by location. Uses a lookup table based on the L. Xing model | L. Xing appendix A-3 (Xing 2014)                   |
 | Soil volumetric heat capacity            | 771,245 (J/K-m 3 )                                                 | OpenStudio-HPXML Site default 37                   |
+
+[34 https://openstudio-hpxml.readthedocs.io/en/v1.9.1/workflow\_inputs.html#id718](https://openstudio-hpxml.readthedocs.io/en/v1.9.1/workflow_inputs.html#id718)
+
+[35 https://openstudio-hpxml.readthedocs.io/en/v1.9.1/workflow\_inputs.html#id720](https://openstudio-hpxml.readthedocs.io/en/v1.9.1/workflow_inputs.html#id720)
+
+[36 https://openstudio-hpxml.readthedocs.io/en/v1.9.1/workflow\_inputs.html#id978](https://openstudio-hpxml.readthedocs.io/en/v1.9.1/workflow_inputs.html#id978)
+
+37 https://openstudio-hpxml.readthedocs.io/en/v1.9.1/workflow\_inputs.html#hpxml-site. Calculated from other values.
 

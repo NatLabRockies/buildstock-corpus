@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96405.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96405.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96405.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96405.md | section: 4.1  Single Dwelling Testing | lines: 413-430 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96405.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96405.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96405.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96405.md | section: 4.1  Single Dwelling Testing | lines: 415-432 -->
 ## 4.1  Single Dwelling Testing
 
 To confirm the modeling behavior, the upgrade was applied to four individual dwelling models, and the results were inspected in detail. Some of the key baseline building characteristics relevant to this upgrade are listed in Table 11.

@@ -2,7 +2,7 @@
   "product": "resstock",
   "release": "resstock_amy2018_2025_release_1",
   "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
-  "generated_utc": "2026-11-11T18:20:02.837402+00:00",
+  "generated_utc": "2026-11-11T19:48:13.935957+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -645,8 +645,8 @@
           "title": "EnergyStar Windows",
           "input_sha256": "b1cf02f7e140f9a47a12ac2d163a6db237273ea5966a9bd93dc1ddab999f7cd7",
           "output_path": "upgrade_measures/measure_pdfs/96405.md",
-          "output_sha256": "554ea356aef100273622994d2cb7ca9840c39cf6fa24faf69aa5f4e7c7a1d9bc",
-          "body_sha256": "b797a5db4d0f29a7ad1d730555e7957e677e7085293254c97661c79c6a26f4b5"
+          "output_sha256": "7efbf13f444a3c5ee20741d41488d9ddb9a5b78f8c275d30c0b1794e6b433613",
+          "body_sha256": "d7fb548706875ebf616b37b7c46d3ae7ab232d7a2c06fd1238695bccd28ecd52"
         },
         {
           "source_path": "measure_pdfs/96413.pdf",
@@ -791,11 +791,11 @@
           "title": "Propane Furnace 95% AFUE and Fuel Oil Furnace 88% AFUE",
           "input_sha256": "9af4cf0249bffa601a9a798305142b0eb92eb5202c0ed5c4f480efed8b8016a7",
           "output_path": "upgrade_measures/measure_pdfs/96635.md",
-          "output_sha256": "2d788e1a0fb12c152409fe8feb405da8a12d74b9ffba1a86fd6e22d412535416",
-          "body_sha256": "f34b1112367be97f8b932f295761e52185171d304dfafb876ce55481116068a9",
+          "output_sha256": "4472f5c304ce614fa9058e837d8521aeb61203044c452aef782c7275c23e584d",
+          "body_sha256": "63fe72f96fad6a040ed67eaf0b8aaaf83f3618186617b99e2de79f5328176e65",
           "overlay": {
             "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96635.yaml",
-            "sha256": "0d92dfb8011928fcbc16cb0e43b1f4b542587c72868993676e99905d5d87d285",
+            "sha256": "e0a2a3842578ddd14a6e66e7c5d17b59c6e7a33e7f4eceb24c4e6adf713c5b47",
             "tables_applied": [
               "Table 1",
               "Table 3",
@@ -831,17 +831,14 @@
           "title": "Reference Space Heating and Air Conditioning Upgrade Circa 2025",
           "input_sha256": "f7d3ed849fdae6e20111670a617bbc4c227c5f0f914bdaa0fb99343acebef475",
           "output_path": "upgrade_measures/measure_pdfs/96636.md",
-          "output_sha256": "7fa4e8737b358bdb2f759e71cd5eb349bd40c7f3de25042a2337c1f63addd65d",
-          "body_sha256": "88825d3c4f4f67f59bedcb645d308406895af79a5b2d4d762083fcf3d9ff671d",
+          "output_sha256": "5596e619371983906bad3f28585c45f60b7ab1bdc20ec1a8f47bb41a952d01ea",
+          "body_sha256": "a655705cf20e1ef43f126781acc64e725d4ceaf8fb6066bb8a87d35425dd09f8",
           "overlay": {
             "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96636.yaml",
-            "sha256": "58b955adf85eb3f5db0b0ce9b7fb03f6f3a7e1fbcfd64db412a6dfbdf42042bb",
+            "sha256": "3d574da903e6eb2347c709178650ab3dddae4404f61735759945f9bc6064b68a",
             "tables_applied": [
               "Table 1",
-              "Table 2",
-              "Table 3",
               "Table 5",
-              "Table 6",
               "Table 7",
               "Upgrade Summary (page 10: Not Applicable, Original Release, Project Configuration File)"
             ],
@@ -863,7 +860,10 @@
             "tables_checked": [
               "List of Acronyms",
               "Upgrade Summary (page 9: Measure Definition, Applicability)",
+              "Table 2",
+              "Table 3",
               "Table 4",
+              "Table 6",
               "Table 8",
               "Table 9",
               "Table 10"
@@ -893,8 +893,8 @@
           "title": "Heat Pump Water Heater",
           "input_sha256": "9b1963bc5ff7300c2d3e99bada6183d68a80c1e785f41b50589eab76f7532e3f",
           "output_path": "upgrade_measures/measure_pdfs/96826.md",
-          "output_sha256": "f337cf8f50e2aa9f8cc1b7f566e3c1aaa3c6e85bc2b33c3faa8a714224db42ea",
-          "body_sha256": "213a626e63fe84c909939f1673ac2b6cf9154f1b186110aa92e1fbf34e84bd30",
+          "output_sha256": "3d87cbea2ac6c500f5556b7e78de2b5ef44520395623302d8c6cb67cad90a8b3",
+          "body_sha256": "931c402b0e9e7fc7bcb05d21f87177a1281a39f2065825ef5955bf84d579e0c0",
           "overlay": {
             "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96826.yaml",
             "sha256": "601ee469798a52f3e75c53fb7611013148d14c4b76cb3934b2564399c966650b",
@@ -1000,8 +1000,8 @@
           "title": "Residential Single-Stage Geothermal Heat Pump (3.8 COP, 18.6 EER)",
           "input_sha256": "e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f",
           "output_path": "upgrade_measures/measure_pdfs/95032.md",
-          "output_sha256": "6f5fc9c749824f841e566f7dcad435e01ea9b8725a4e61f9db7beb3b87777a96",
-          "body_sha256": "b8b19099f1d29bd9ac4d3124c863833dabe1588e8d149dd1a1e3ee6727ce880d",
+          "output_sha256": "242e090b64ff76baa84bed3b1c14966eaf3e4e53469b51ca4dfd2b46f96fc413",
+          "body_sha256": "1797d4201a52bf831e7544e5cb896ef5bcc087fc0420424728d7f64220ddc346",
           "overlay": {
             "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95032.yaml",
             "sha256": "890bec522762b6706be91725548fd04276bd9858f869d9597edf7aeb909ef540",
@@ -1147,8 +1147,8 @@
           "title": "Residential Variable-Speed Geothermal Heat Pump (4.4 COP, 30.9 EER)",
           "input_sha256": "bc57eb7348906dbb1a970fb5b310c3f3e9608d5eb145441bd37b24f14ff0563e",
           "output_path": "upgrade_measures/measure_pdfs/95036.md",
-          "output_sha256": "666e53aa48b4fba08ca211beccf3ef03793112da96132300eced8f908ef01837",
-          "body_sha256": "dcb6db554c73925e1fd9de69252187a76f89e87bf356164927888a1bf83ef3a2",
+          "output_sha256": "fb597c23c9112274bdfd127d4aad2f8a0891e8f7726cb310aa8b8ca5ac3a92f5",
+          "body_sha256": "46e2c954901565dcaac925757a0b831507378153316f4c33a6c6a4cc112985ec",
           "overlay": {
             "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95036.yaml",
             "sha256": "02ec3451751d9b2b9d7b78a726494b1e0ec5403a71fc9b2f327941f9233f8632",
@@ -1258,16 +1258,16 @@
   ],
   "counts": {
     "documents": 62,
-    "chunks": 3912,
+    "chunks": 3913,
     "by_type": {
       "latex": 7,
       "markdown": 27,
       "pdf": 28
     },
     "overlay_documents": 10,
-    "overlay_tables": 29,
+    "overlay_tables": 26,
     "overlay_figures": 212,
-    "overlay_tables_checked": 54,
+    "overlay_tables_checked": 57,
     "overlay_text_repairs": 3
   },
   "crosswalk": {

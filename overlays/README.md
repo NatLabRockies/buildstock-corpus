@@ -401,7 +401,11 @@ For each PDF (`processed/resstock/<release>/upgrade_measures/measure_pdfs/<n>.md
    A table that spans pages or was split into several grids gets one entry per grid.
    Three things count as wrong even when every value is in the right cell:
    * **a dropped table footnote.** A footnote is part of its table; a marker in a cell that
-     points at nothing is a defect. Replace the table and carry the footnote below the grid.
+     points at nothing is a defect. The extractor keeps the footnotes docling attaches to a
+     table (`extract/pdf.py`, `_detach_footnotes`), so they normally arrive as paragraphs
+     below the grid and need nothing. `scripts/count_footnotes.py` lists any that are in the
+     PDF and not in the markdown; if one is still missing, replace the table and carry the
+     footnote below the grid.
    * **an identifier or URL broken by a line-wrap space** (`..._heating_cap acity`,
      `projec t_national`). A search for the real name, or a click on the link, misses it.
      Replace the table with the extractor's own grid and the name joined, and say so in
