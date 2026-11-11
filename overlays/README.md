@@ -392,6 +392,11 @@ For each PDF (`processed/resstock/<release>/upgrade_measures/measure_pdfs/<n>.md
    number of rows and columns, every header, every value, and which caption the grid sits
    under. docling's commonest errors are a grid filed under the next table's caption, a
    merged header flattened onto the wrong columns, and a dropped first column.
+   `scripts/check_grids_against_pdf.py <report number>` runs three checks on every grid
+   against the PDF text layer: each cell's text is on the page; each row appears whole
+   and the rows in order; and no text sits between consecutive rows that the grid does
+   not carry (a dropped word or a dropped row). It does not replace reading the page:
+   a merged cell left blank, or text filed in the wrong row, still has to be seen.
 4. **Record the outcome, one entry per table:**
    * right: a `checked:` entry (above);
    * wrong: a `tables:` entry with `replaces:`, `method: vision-transcription` (or
