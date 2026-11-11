@@ -23,6 +23,7 @@ FINGERPRINT = {
     "table_mode": "fast",
     "do_cell_matching": True,
     "generate_picture_images": True,
+    "table_footnotes": "in_body",
 }
 SHA = "f" * 64
 
@@ -163,3 +164,37 @@ def test_table_mode_switch_drops_the_converter_and_fingerprint(monkeypatch):
     assert (PDF._table_mode, PDF._converter, PDF._fingerprint) == ("accurate", None, None)
     with pytest.raises(ValueError, match="pdf table mode"):
         PDF._set_table_mode("thorough")
+
+
+# --- footnotes docling attaches to a table or figure (R4.2a) ----------------------------------
+
+
+class _Item:
+    def __init__(self, footnotes):
+        self.footnotes = footnotes
+
+
+class _Doc:
+    def __init__(self, tables, pictures):
+        self.tables, self.pictures = tables, pictures
+
+
+def test_footnotes_attached_to_a_table_or_figure_are_released():
+    """The markdown export writes neither a table's footnotes nor, because the table owns
+    them, the same items in the body. Clearing the reference is what gets them exported."""
+    doc = _Doc([_Item(["#/texts/6", "#/texts/7"]), _Item([])], [_Item(["#/texts/9"])])
+
+    assert PDF._detach_footnotes(doc) == 3
+    assert all(not item.footnotes for item in [*doc.tables, *doc.pictures])
+    assert PDF._detach_footnotes(doc) == 0  # nothing left to release
+
+
+def test_a_cache_built_before_footnotes_were_released_is_reconverted(cache):
+    """The footnote step changes the markdown, so it is part of the fingerprint: a cache dir
+    recorded without it is a miss, not a hit that silently keeps the dropped footnotes."""
+    old = {k: v for k, v in FINGERPRINT.items() if k != "table_footnotes"}
+    cache.seed(opts=old)
+
+    PDF._cache_dir_for(cache.spec)
+
+    assert cache.converted == [str(cache.spec.abs_path)]

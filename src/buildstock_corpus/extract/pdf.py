@@ -127,6 +127,10 @@ def _pipeline_fingerprint() -> dict:
             "table_mode": str(getattr(tbl.mode, "value", tbl.mode)),
             "do_cell_matching": bool(tbl.do_cell_matching),
             "generate_picture_images": bool(opts.generate_picture_images),
+            # Not a docling option but a step of ours that changes the markdown the same
+            # way one would (see _detach_footnotes), so it is recorded with them: a cache
+            # built before it lacks the key and is re-converted.
+            "table_footnotes": "in_body",
         }
     return _fingerprint
 
@@ -182,6 +186,28 @@ def _relativize_image_refs(md: str, img_dir: Path) -> str:
     return _MD_IMAGE_RE.sub(repl, md)
 
 
+def _detach_footnotes(document) -> int:
+    """Stop docling's markdown export from dropping footnotes it attached to a table or figure.
+
+    When a page footnote sits under a table (or a figure), docling's layout step records it
+    as that table's footnote. The markdown serializer writes a table's caption but not its
+    footnotes, and it also skips them in the body because the table "owns" them, so the text
+    is in the converted document and in neither place in the markdown. Nothing reports it.
+    In the ResStock measure reports that lost the rating conditions behind 95036's COP and
+    EER tables, among others.
+
+    Clearing the reference leaves the footnote where it already is in reading order, an
+    ordinary body item just below the table, and the export then writes it as a paragraph.
+    Returns how many footnotes were released.
+    """
+    released = 0
+    for item in [*document.tables, *document.pictures]:
+        if getattr(item, "footnotes", None):
+            released += len(item.footnotes)
+            item.footnotes = []
+    return released
+
+
 def _convert_into(abs_path: Path, dest: Path) -> None:
     """Convert one PDF into dest/document.md plus dest/images/ for embedded figures.
 
@@ -191,6 +217,7 @@ def _convert_into(abs_path: Path, dest: Path) -> None:
     from docling_core.types.doc import ImageRefMode
 
     result = _get_converter().convert(str(abs_path))
+    _detach_footnotes(result.document)
     dest.mkdir(parents=True, exist_ok=True)
     md_path = dest / CACHE_MD_NAME
     result.document.save_as_markdown(
