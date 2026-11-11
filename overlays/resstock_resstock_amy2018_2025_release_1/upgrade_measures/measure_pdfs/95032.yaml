@@ -29,14 +29,21 @@
 #     (Figure 15, left and right), image_000016 and image_000017 (Figure 17, table panel
 #     and chart; the caption sits between the two refs), image_000042 (Figure A-9; the
 #     caption follows the ref and a stray line of axis years).
-#   * Figure captions with NO bitmap (the converter kept the caption and dropped the
-#     picture), so nothing can be pinned: Figure 3, Figure 5, Figure 6 (p.24) and
-#     Figures C-1, C-2, C-3, C-4 (pp.86-89). All seven are colour-scaled grids of numbers
-#     pasted in as pictures (EIR and capacity lookups by air and water temperature; the
-#     Appendix C ones are manufacturer / curve-fit / difference grids). They have no text
-#     layer, so their values are absent from the document. image_000004 is Figure 4, the
-#     only one of the Figure 3-6 set that survived; in the .md its ref follows both the
-#     Figure 3 and Figure 4 captions.
+#   * Number grids captioned as figures (R4.2b): Figures 3, 4, 5, 6 (p.24) and C-1, C-2,
+#     C-3, C-4 (pp.86-89) are colour-scaled grids of numbers pasted in as pictures (EIR
+#     and capacity lookups by air and water temperature; the Appendix C ones are
+#     manufacturer / curve-fit / difference grids). They have no text layer, and the
+#     converter kept only Figure 4's bitmap (image_000004). Each is now transcribed as a
+#     table under its caption (`tables:` entries labelled "Figure N").
+#   How they were read: each figure's bitmap was taken from the PDF at its own resolution
+#   and read cell by cell with OCR (RapidOCR), every cell recognised twice. The readings
+#   were then checked without reference to the OCR: in the appendix figures,
+#   Manufacturer minus Curvefit equals Difference in every cell; in the others, every value
+#   lies on a second-order surface fitted to its grid, to within rounding of the last digit.
+#   Row and column labels were checked too (even steps; °F against °C). Cells the two
+#   recognitions disagreed on were settled by eye.
+#     Not transcribed: Figure 2 (p.20), a scanned manufacturer performance sheet, which is
+#     described as a figure only.
 #
 # Flattening notes: Table A-2's merged group cells (Open-Loop over two rows, Closed-Loop
 # over three) are repeated on each row; its "Product Type" header spans the first two
@@ -119,6 +126,458 @@ tables:
     | 9 | **Line**, "U", Rectangle |
 
     | 10 | **Line**, "L2", Open Rectangle, Rectangle |'
+- label: Figure 3
+  caption: Full load heating EIR as a function of indoor return air (°C) and ground exit water temperature
+    (°C)
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 24
+  method: ocr of the figure's embedded bitmap, cell by cell (two recognitions agree); every value lies
+    on a fitted second-order surface to within rounding
+  transcribed_utc: '2026-11-11'
+  markdown: '| Tair↓ Twater→ | 0 | 2.5 | 5 | 7.5 | 10 | 12.5 | 15 | 17.5 | 20 | 22.5 | 25 | 27.5 | 30
+    |
+
+    |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+
+    | 10 | 0.218 | 0.205 | 0.193 | 0.182 | 0.173 | 0.165 | 0.158 | 0.153 | 0.148 | 0.145 | 0.144 | 0.143
+    | 0.144 |
+
+    | 12.5 | 0.244 | 0.229 | 0.216 | 0.205 | 0.194 | 0.185 | 0.177 | 0.170 | 0.165 | 0.161 | 0.158 | 0.157
+    | 0.156 |
+
+    | 15 | 0.273 | 0.258 | 0.244 | 0.231 | 0.219 | 0.209 | 0.200 | 0.192 | 0.185 | 0.180 | 0.176 | 0.174
+    | 0.172 |
+
+    | 17.5 | 0.307 | 0.290 | 0.275 | 0.261 | 0.248 | 0.236 | 0.226 | 0.217 | 0.210 | 0.203 | 0.198 | 0.195
+    | 0.192 |
+
+    | 20 | 0.344 | 0.326 | 0.310 | 0.295 | 0.281 | 0.268 | 0.257 | 0.247 | 0.238 | 0.231 | 0.224 | 0.220
+    | 0.216 |
+
+    | 22.5 | 0.385 | 0.366 | 0.349 | 0.333 | 0.317 | 0.304 | 0.291 | 0.280 | 0.270 | 0.262 | 0.255 | 0.249
+    | 0.244 |
+
+    | 25 | 0.431 | 0.411 | 0.392 | 0.374 | 0.358 | 0.343 | 0.330 | 0.318 | 0.307 | 0.297 | 0.288 | 0.281
+    | 0.276 |
+
+    | 27.5 | 0.480 | 0.459 | 0.439 | 0.420 | 0.403 | 0.387 | 0.372 | 0.359 | 0.347 | 0.336 | 0.326 | 0.318
+    | 0.311 |'
+- label: Figure 4
+  caption: Full load heating capacity as a function of indoor return air temperature (°C) and ground exit
+    water temperature (°C)
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 24
+  method: ocr of the figure's embedded bitmap, cell by cell (two recognitions agree); every value lies
+    on a fitted second-order surface to within rounding
+  transcribed_utc: '2026-11-11'
+  markdown: '| Tair↓ Twater→ | 0 | 2.5 | 5 | 7.5 | 10 | 12.5 | 15 | 17.5 | 20 | 22.5 | 25 | 27.5 | 30
+    |
+
+    |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+
+    | 10 | 5650 | 6037 | 6420 | 6800 | 7176 | 7550 | 7920 | 8287 | 8651 | 9011 | 9368 | 9722 | 10073 |
+
+    | 12.5 | 5559 | 5939 | 6315 | 6688 | 7058 | 7425 | 7789 | 8149 | 8506 | 8859 | 9210 | 9557 | 9901
+    |
+
+    | 15 | 5463 | 5836 | 6206 | 6573 | 6936 | 7296 | 7653 | 8006 | 8356 | 8703 | 9047 | 9388 | 9725 |
+
+    | 17.5 | 5363 | 5729 | 6092 | 6452 | 6809 | 7162 | 7512 | 7859 | 8203 | 8543 | 8880 | 9214 | 9544
+    |
+
+    | 20 | 5258 | 5618 | 5974 | 6328 | 6677 | 7024 | 7367 | 7707 | 8044 | 8378 | 8708 | 9035 | 9359 |
+
+    | 22.5 | 5149 | 5502 | 5852 | 6198 | 6541 | 6881 | 7218 | 7551 | 7881 | 8208 | 8532 | 8852 | 9169
+    |
+
+    | 25 | 5036 | 5382 | 5725 | 6065 | 6401 | 6734 | 7064 | 7391 | 7714 | 8034 | 8351 | 8665 | 8975 |
+
+    | 27.5 | 4918 | 5257 | 5593 | 5926 | 6256 | 6583 | 6906 | 7226 | 7542 | 7856 | 8166 | 8473 | 8777
+    |'
+- label: Figure 5
+  caption: Full load cooling EIR as a function of indoor return air temperature (°C) and ground exit water
+    temperature (°C)
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 24
+  method: ocr of the figure's embedded bitmap, cell by cell (two recognitions agree); every value lies
+    on a fitted second-order surface to within rounding
+  transcribed_utc: '2026-11-11'
+  markdown: '| Tair↓ Twater→ | 10 | 13 | 16 | 19 | 22 | 25 | 28 | 31 | 34 | 37 | 40 | 43 | 46 |
+
+    |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+
+    | 10 | 0.119 | 0.125 | 0.132 | 0.141 | 0.152 | 0.164 | 0.178 | 0.193 | 0.210 | 0.229 | 0.249 | 0.271
+    | 0.295 |
+
+    | 12.5 | 0.109 | 0.113 | 0.120 | 0.128 | 0.138 | 0.149 | 0.162 | 0.177 | 0.193 | 0.211 | 0.231 | 0.252
+    | 0.275 |
+
+    | 15 | 0.099 | 0.104 | 0.109 | 0.117 | 0.126 | 0.136 | 0.149 | 0.163 | 0.178 | 0.196 | 0.214 | 0.235
+    | 0.257 |
+
+    | 17.5 | 0.092 | 0.095 | 0.100 | 0.107 | 0.115 | 0.125 | 0.137 | 0.150 | 0.165 | 0.181 | 0.199 | 0.219
+    | 0.241 |
+
+    | 20 | 0.086 | 0.088 | 0.093 | 0.099 | 0.106 | 0.115 | 0.126 | 0.139 | 0.153 | 0.169 | 0.186 | 0.205
+    | 0.226 |
+
+    | 22.5 | 0.081 | 0.083 | 0.087 | 0.092 | 0.099 | 0.107 | 0.117 | 0.129 | 0.143 | 0.158 | 0.174 | 0.193
+    | 0.213 |
+
+    | 25 | 0.079 | 0.080 | 0.083 | 0.087 | 0.093 | 0.101 | 0.110 | 0.121 | 0.134 | 0.148 | 0.164 | 0.182
+    | 0.201 |'
+- label: Figure 6
+  caption: Full load cooling capacity as a function of indoor return air temperature (°C) and ground exit
+    water temperature (°C)
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 24
+  method: ocr of the figure's embedded bitmap, cell by cell (two recognitions agree); every value lies
+    on a fitted second-order surface to within rounding
+  transcribed_utc: '2026-11-11'
+  markdown: '| Tair↓ Twater→ | 10 | 13 | 16 | 19 | 22 | 25 | 28 | 31 | 34 | 37 | 40 | 43 | 46 |
+
+    |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+
+    | 10 | 6891 | 7008 | 7075 | 7095 | 7066 | 6989 | 6863 | 6689 | 6467 | 6196 | 5877 | 5509 | 5094 |
+
+    | 12.5 | 7531 | 7639 | 7700 | 7712 | 7675 | 7591 | 7458 | 7276 | 7046 | 6768 | 6442 | 6067 | 5644
+    |
+
+    | 15 | 8170 | 8271 | 8324 | 8329 | 8285 | 8193 | 8052 | 7863 | 7626 | 7340 | 7006 | 6624 | 6193 |
+
+    | 17.5 | 8809 | 8903 | 8948 | 8945 | 8894 | 8794 | 8647 | 8450 | 8206 | 7912 | 7571 | 7181 | 6743
+    |
+
+    | 20 | 9448 | 9535 | 9573 | 9562 | 9503 | 9396 | 9241 | 9037 | 8785 | 8485 | 8136 | 7739 | 7293 |
+
+    | 22.5 | 10087 | 10166 | 10197 | 10179 | 10113 | 9998 | 9836 | 9624 | 9365 | 9057 | 8701 | 8296 |
+    7843 |
+
+    | 25 | 10727 | 10798 | 10821 | 10796 | 10722 | 10600 | 10430 | 10211 | 9944 | 9629 | 9265 | 8853 |
+    8393 |'
+- label: Figure C-1
+  caption: Heating curve-fit capacity results verified against manufacturer catalog data
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 86
+  method: ocr of the figure's embedded bitmap, cell by cell (two recognitions agree); Manufacturer minus
+    Curvefit equals Difference in every cell
+  transcribed_utc: '2026-11-11'
+  markdown: 'The figure is a spreadsheet image holding three blocks. The first two columns of each block
+    are the indoor air temperature in °F and in °C; the other columns are water temperatures. Where a
+    block has two header rows (°F over °C) they are joined with '' / ''.
+
+
+    **Manufacturer Data**
+
+
+    | degreeF | degreeF / Tair↓ Twater→ | 30 / -1.11 | 40 / 4.44 | 50 / 10.00 | 60 / 15.56 | 70 / 21.11
+    | 80 / 26.67 | 85 / 29.44 |
+
+    |---|---|---|---|---|---|---|---|---|
+
+    | 50 | 10.00 | 7828.3 | 9041.5 | 10341.4 | 11641.3 | 12883.4 | 14010.0 | 14472.2 |
+
+    | 55 | 12.78 | 7683.3 | 8874.1 | 10149.9 | 11425.7 | 12644.8 | 13750.5 | 14204.2 |
+
+    | 60 | 15.56 | 7527.9 | 8694.6 | 9944.6 | 11194.6 | 12389.1 | 13472.4 | 13916.9 |
+
+    | 65 | 18.33 | 7366.8 | 8508.5 | 9731.7 | 10955.0 | 12123.9 | 13184.1 | 13619.0 |
+
+    | 70 | 21.11 | 7201.6 | 8317.8 | 9513.6 | 10709.4 | 11852.1 | 12888.5 | 13313.7 |
+
+    | 75 | 23.89 | 7034.1 | 8124.3 | 9292.3 | 10460.3 | 11576.4 | 12588.7 | 13004.0 |
+
+    | 80 | 26.67 | 6865.7 | 7929.8 | 9069.9 | 10209.9 | 11299.3 | 12287.4 | 12692.7 |
+
+
+    **Curvefit Data**
+
+
+    |  | Tair↓ Twater→ | -1.11 | 4.44 | 10.00 | 15.56 | 21.11 | 26.67 | 29.44 |
+
+    |---|---|---|---|---|---|---|---|---|
+
+    | 50 | 10.00 | 7995.2 | 9247.0 | 10475.3 | 11680.2 | 12861.6 | 14019.6 | 14589.7 |
+
+    | 55 | 12.78 | 7851.6 | 9079.3 | 10283.4 | 11464.1 | 12621.3 | 13755.1 | 14313.1 |
+
+    | 60 | 15.56 | 7700.1 | 8903.5 | 10083.4 | 11239.9 | 12373.0 | 13482.5 | 14028.5 |
+
+    | 65 | 18.33 | 7540.4 | 8719.7 | 9875.4 | 11007.7 | 12116.6 | 13201.9 | 13735.8 |
+
+    | 70 | 21.11 | 7372.8 | 8527.8 | 9659.4 | 10767.5 | 11852.1 | 12913.3 | 13435.1 |
+
+    | 75 | 23.89 | 7197.1 | 8327.9 | 9435.3 | 10519.2 | 11579.7 | 12616.6 | 13126.3 |
+
+    | 80 | 26.67 | 7013.3 | 8120.0 | 9203.2 | 10262.9 | 11299.1 | 12311.9 | 12809.5 |
+
+
+    **Difference**
+
+
+    |  | Tair↓ Twater→ | -1.11 | 4.44 | 10.00 | 15.56 | 21.11 | 26.67 | 29.44 |
+
+    |---|---|---|---|---|---|---|---|---|
+
+    | 50 | 10.00 | -166.9 | -205.5 | -133.9 | -38.9 | 21.8 | -9.5 | -117.5 |
+
+    | 55 | 12.78 | -168.3 | -205.2 | -133.5 | -38.4 | 23.5 | -4.5 | -109.0 |
+
+    | 60 | 15.56 | -172.2 | -208.9 | -138.9 | -45.3 | 16.1 | -10.1 | -111.6 |
+
+    | 65 | 18.33 | -173.7 | -211.2 | -143.7 | -52.7 | 7.3 | -17.9 | -116.8 |
+
+    | 70 | 21.11 | -171.1 | -210.1 | -145.8 | -58.1 | 0.0 | -24.8 | -121.4 |
+
+    | 75 | 23.89 | -163.0 | -203.7 | -143.0 | -58.9 | -3.2 | -27.9 | -122.3 |
+
+    | 80 | 26.67 | -147.6 | -190.2 | -133.3 | -53.0 | 0.2 | -24.6 | -116.8 |'
+- label: Figure C-2
+  caption: Heating EIR curve-fit capacity results verified against manufacturer catalog data
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 87
+  method: ocr of the figure's embedded bitmap, cell by cell (two recognitions agree); Manufacturer minus
+    Curvefit equals Difference in every cell
+  transcribed_utc: '2026-11-11'
+  markdown: 'The figure is a spreadsheet image holding three blocks. The first two columns of each block
+    are the indoor air temperature in °F and in °C; the other columns are water temperatures. Where a
+    block has two header rows (°F over °C) they are joined with '' / ''.
+
+
+    **Manufacturer Data**
+
+
+    | degreeF | degreeF / Tair↓ Twater→ | 30 / -1.11 | 40 / 4.44 | 50 / 10.00 | 60 / 15.56 | 70 / 21.11
+    | 80 / 26.67 | 85 / 29.44 |
+
+    |---|---|---|---|---|---|---|---|---|
+
+    | 50 | 10.00 | 0.1745 | 0.1546 | 0.1389 | 0.1272 | 0.1184 | 0.1121 | 0.1103 |
+
+    | 55 | 12.78 | 0.1963 | 0.1739 | 0.1562 | 0.1431 | 0.1332 | 0.1261 | 0.124 |
+
+    | 60 | 15.56 | 0.2223 | 0.197 | 0.1769 | 0.1621 | 0.1509 | 0.1428 | 0.1405 |
+
+    | 65 | 18.33 | 0.2528 | 0.224 | 0.2012 | 0.1843 | 0.1715 | 0.1624 | 0.1597 |
+
+    | 70 | 21.11 | 0.2882 | 0.2553 | 0.2293 | 0.2101 | 0.1955 | 0.1851 | 0.1821 |
+
+    | 75 | 23.89 | 0.3287 | 0.2913 | 0.2616 | 0.2397 | 0.2231 | 0.2112 | 0.2077 |
+
+    | 80 | 26.67 | 0.3748 | 0.3321 | 0.2983 | 0.2732 | 0.2543 | 0.2407 | 0.2368 |
+
+
+    **Curvefit Data**
+
+
+    |  | Tair↓ Twater→ | -1.11 | 4.44 | 10.00 | 15.56 | 21.11 | 26.67 | 29.44 |
+
+    |---|---|---|---|---|---|---|---|---|
+
+    | 50 | 10.00 | 0.177 | 0.154 | 0.136 | 0.123 | 0.116 | 0.113 | 0.114 |
+
+    | 55 | 12.78 | 0.200 | 0.175 | 0.155 | 0.140 | 0.130 | 0.125 | 0.124 |
+
+    | 60 | 15.56 | 0.227 | 0.199 | 0.177 | 0.160 | 0.148 | 0.141 | 0.139 |
+
+    | 65 | 18.33 | 0.257 | 0.228 | 0.204 | 0.184 | 0.170 | 0.161 | 0.158 |
+
+    | 70 | 21.11 | 0.292 | 0.260 | 0.234 | 0.212 | 0.196 | 0.184 | 0.180 |
+
+    | 75 | 23.89 | 0.330 | 0.296 | 0.268 | 0.244 | 0.225 | 0.211 | 0.206 |
+
+    | 80 | 26.67 | 0.372 | 0.336 | 0.305 | 0.279 | 0.258 | 0.243 | 0.237 |
+
+
+    **Difference**
+
+
+    |  | Tair↓ Twater→ | -1.11 | 4.44 | 10.00 | 15.56 | 21.11 | 26.67 | 29.44 |
+
+    |---|---|---|---|---|---|---|---|---|
+
+    | 50 | 10.00 | -0.002 | 0.000 | 0.003 | 0.004 | 0.003 | -0.001 | -0.003 |
+
+    | 55 | 12.78 | -0.004 | -0.001 | 0.001 | 0.003 | 0.003 | 0.001 | 0.000 |
+
+    | 60 | 15.56 | -0.004 | -0.003 | 0.000 | 0.002 | 0.003 | 0.002 | 0.001 |
+
+    | 65 | 18.33 | -0.005 | -0.004 | -0.002 | 0.000 | 0.002 | 0.002 | 0.002 |
+
+    | 70 | 21.11 | -0.004 | -0.005 | -0.004 | -0.002 | 0.000 | 0.001 | 0.002 |
+
+    | 75 | 23.89 | -0.001 | -0.005 | -0.006 | -0.004 | -0.002 | 0.000 | 0.001 |
+
+    | 80 | 26.67 | 0.002 | -0.004 | -0.007 | -0.006 | -0.004 | -0.002 | 0.000 |'
+- label: Figure C-3
+  caption: Cooling capacity curve-fit capacity results verified against manufacturer catalog data
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 88
+  method: ocr of the figure's embedded bitmap, cell by cell (two recognitions agree); Manufacturer minus
+    Curvefit equals Difference in every cell
+  transcribed_utc: '2026-11-11'
+  markdown: 'The figure is a spreadsheet image holding three blocks. The first two columns of each block
+    are the indoor air temperature in °F and in °C; the other columns are water temperatures. Where a
+    block has two header rows (°F over °C) they are joined with '' / ''.
+
+
+    **Manufacturer Data**
+
+
+    | degreeF | degreeF / Tair↓ Twater→ | 50 / 10.00 | 60 / 15.56 | 70 / 21.11 | 80 / 26.67 | 85 / 29.44
+    | 90 / 32.22 | 100 / 37.78 | 110 / 43.33 | 120 / 48.89 |
+
+    |---|---|---|---|---|---|---|---|---|---|---|
+
+    | 50 | 10.00 | 7969.9 | 8075.4 | 7927.8 | 7653.7 | 7442.8 | 7232.0 | 6768.1 | 6262.1 | 5756.1 |
+
+    | 55 | 12.78 | 8793.4 | 8909.7 | 8746.9 | 8444.5 | 8211.8 | 7979.2 | 7467.4 | 6909.1 | 6350.8 |
+
+    | 60 | 15.56 | 9618.0 | 9745.2 | 9567.1 | 9236.3 | 8981.9 | 8727.4 | 8167.6 | 7557.0 | 6946.3 |
+
+    | 65 | 18.33 | 10441.5 | 10579.6 | 10386.2 | 10027.1 | 9750.9 | 9474.7 | 8867.0 | 8204.0 | 7541.1
+    |
+
+    | 67 | 19.44 | 10639.3 | 10780.1 | 10583.1 | 10217.2 | 9935.7 | 9654.2 | 9035.0 | 8359.5 | 7684.0
+    |
+
+    | 70 | 21.11 | 11266.0 | 11415.0 | 11206.4 | 10818.9 | 10520.9 | 10222.9 | 9567.2 | 8851.9 | 8136.6
+    |
+
+    | 75 | 23.89 | 12089.5 | 12249.4 | 12025.5 | 11609.8 | 11289.9 | 10970.1 | 10266.5 | 9498.9 | 8731.3
+    |
+
+
+    **Curvefit Data**
+
+
+    |  | Tair↓ Twater→ | 10.00 | 15.56 | 21.11 | 26.67 | 29.44 | 32.22 | 37.78 | 43.33 | 48.89 |
+
+    |---|---|---|---|---|---|---|---|---|---|---|
+
+    | 50 | 10.00 | 7682.6 | 7879.8 | 7892.2 | 7719.7 | 7564.2 | 7362.4 | 6820.2 | 6093.1 | 5181.2 |
+
+    | 55 | 12.78 | 8474.3 | 8654.4 | 8649.8 | 8460.2 | 8296.1 | 8085.8 | 7526.5 | 6782.4 | 5853.3 |
+
+    | 60 | 15.56 | 9266.0 | 9429.1 | 9407.3 | 9200.7 | 9028.1 | 8809.2 | 8232.8 | 7471.6 | 6525.5 |
+
+    | 65 | 18.33 | 10057.7 | 10203.7 | 10164.9 | 9941.2 | 9760.0 | 9532.6 | 8939.2 | 8160.9 | 7197.7 |
+
+    | 67 | 19.44 | 10374.4 | 10513.6 | 10467.9 | 10237.4 | 10052.8 | 9822.0 | 9221.7 | 8436.6 | 7466.6
+    |
+
+    | 70 | 21.11 | 10849.4 | 10978.4 | 10922.5 | 10681.7 | 10492.0 | 10256.0 | 9645.5 | 8850.1 | 7869.9
+    |
+
+    | 75 | 23.89 | 11641.2 | 11753.0 | 11680.1 | 11422.2 | 11224.0 | 10979.5 | 10351.9 | 9539.4 | 8542.1
+    |
+
+
+    **Difference**
+
+
+    |  | Tair↓ Twater→ | 10.00 | 15.56 | 21.11 | 26.67 | 29.44 | 32.22 | 37.78 | 43.33 | 48.89 |
+
+    |---|---|---|---|---|---|---|---|---|---|---|
+
+    | 50 | 10.00 | 287.4 | 195.5 | 35.5 | -66.1 | -121.4 | -130.4 | -52.1 | 169.0 | 574.9 |
+
+    | 55 | 12.78 | 319.2 | 255.3 | 97.1 | -15.7 | -84.3 | -106.6 | -59.1 | 126.8 | 497.5 |
+
+    | 60 | 15.56 | 352.0 | 316.1 | 159.8 | 35.6 | -46.2 | -81.8 | -65.2 | 85.4 | 420.8 |
+
+    | 65 | 18.33 | 383.8 | 375.8 | 221.3 | 85.9 | -9.1 | -58.0 | -72.2 | 43.1 | 343.4 |
+
+    | 67 | 19.44 | 265.0 | 266.5 | 115.1 | -20.2 | -117.1 | -167.8 | -186.7 | -77.1 | 217.4 |
+
+    | 70 | 21.11 | 416.6 | 436.6 | 283.9 | 137.2 | 28.9 | -33.2 | -78.4 | 1.7 | 266.7 |
+
+    | 75 | 23.89 | 448.3 | 496.4 | 345.5 | 187.5 | 66.0 | -9.4 | -85.4 | -40.5 | 189.2 |'
+- label: Figure C-4
+  caption: Cooling EIR curve-fit capacity results verified against manufacturer catalog data
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 89
+  method: ocr of the figure's embedded bitmap, cell by cell (two recognitions agree); Manufacturer minus
+    Curvefit equals Difference in every cell
+  transcribed_utc: '2026-11-11'
+  markdown: 'The figure is a spreadsheet image holding three blocks. The first two columns of each block
+    are the indoor air temperature in °F and in °C; the other columns are water temperatures. Where a
+    block has two header rows (°F over °C) they are joined with '' / ''.
+
+
+    **Manufacturer Data**
+
+
+    | degreeF | degreeF / Tair↓ Twater→ | 50 / 10.00 | 60 / 15.56 | 70 / 21.11 | 80 / 26.67 | 85 / 29.44
+    | 90 / 32.22 | 100 / 37.78 | 110 / 43.33 | 120 / 48.89 |
+
+    |---|---|---|---|---|---|---|---|---|---|---|
+
+    | 50 | 10.00 | 0.194 | 0.21 | 0.237 | 0.272 | 0.296 | 0.32 | 0.378 | 0.454 | 0.547 |
+
+    | 55 | 12.78 | 0.176 | 0.191 | 0.215 | 0.247 | 0.269 | 0.291 | 0.344 | 0.413 | 0.497 |
+
+    | 60 | 15.56 | 0.161 | 0.175 | 0.198 | 0.227 | 0.247 | 0.267 | 0.315 | 0.378 | 0.456 |
+
+    | 65 | 18.33 | 0.149 | 0.162 | 0.183 | 0.21 | 0.228 | 0.247 | 0.291 | 0.35 | 0.421 |
+
+    | 67 | 19.44 | 0.147 | 0.159 | 0.179 | 0.206 | 0.224 | 0.242 | 0.286 | 0.344 | 0.414 |
+
+    | 70 | 21.11 | 0.139 | 0.15 | 0.17 | 0.195 | 0.212 | 0.229 | 0.271 | 0.325 | 0.392 |
+
+    | 75 | 23.89 | 0.13 | 0.141 | 0.159 | 0.182 | 0.198 | 0.214 | 0.253 | 0.304 | 0.366 |
+
+
+    **Curvefit Data**
+
+
+    |  | Tair↓ Twater→ | 10.00 | 15.56 | 21.11 | 26.67 | 29.44 | 32.22 | 37.78 | 43.33 | 48.89 |
+
+    |---|---|---|---|---|---|---|---|---|---|---|
+
+    | 50 | 10.00 | 0.196 | 0.215 | 0.244 | 0.281 | 0.304 | 0.328 | 0.385 | 0.450 | 0.525 |
+
+    | 55 | 12.78 | 0.177 | 0.193 | 0.219 | 0.254 | 0.276 | 0.299 | 0.353 | 0.416 | 0.488 |
+
+    | 60 | 15.56 | 0.160 | 0.175 | 0.198 | 0.231 | 0.251 | 0.273 | 0.324 | 0.384 | 0.454 |
+
+    | 65 | 18.33 | 0.147 | 0.159 | 0.180 | 0.210 | 0.229 | 0.250 | 0.298 | 0.356 | 0.423 |
+
+    | 67 | 19.44 | 0.143 | 0.154 | 0.174 | 0.203 | 0.221 | 0.241 | 0.289 | 0.346 | 0.412 |
+
+    | 70 | 21.11 | 0.138 | 0.147 | 0.165 | 0.193 | 0.210 | 0.230 | 0.276 | 0.331 | 0.396 |
+
+    | 75 | 23.89 | 0.131 | 0.138 | 0.154 | 0.179 | 0.195 | 0.213 | 0.257 | 0.310 | 0.372 |
+
+
+    **Difference**
+
+
+    |  | Tair↓ Twater→ | 10.00 | 15.56 | 21.11 | 26.67 | 29.44 | 32.22 | 37.78 | 43.33 | 48.89 |
+
+    |---|---|---|---|---|---|---|---|---|---|---|
+
+    | 50 | 10.00 | -0.003 | -0.005 | -0.007 | -0.010 | -0.008 | -0.008 | -0.007 | 0.004 | 0.022 |
+
+    | 55 | 12.78 | -0.001 | -0.003 | -0.004 | -0.007 | -0.006 | -0.008 | -0.009 | -0.003 | 0.009 |
+
+    | 60 | 15.56 | 0.001 | 0.000 | -0.001 | -0.004 | -0.004 | -0.006 | -0.009 | -0.006 | 0.002 |
+
+    | 65 | 18.33 | 0.002 | 0.003 | 0.003 | -0.001 | -0.001 | -0.003 | -0.007 | -0.006 | -0.002 |
+
+    | 67 | 19.44 | 0.003 | 0.005 | 0.006 | 0.003 | 0.003 | 0.001 | -0.003 | -0.002 | 0.002 |
+
+    | 70 | 21.11 | 0.001 | 0.004 | 0.005 | 0.002 | 0.002 | 0.000 | -0.005 | -0.006 | -0.004 |
+
+    | 75 | 23.89 | -0.001 | 0.003 | 0.005 | 0.003 | 0.003 | 0.001 | -0.004 | -0.006 | -0.006 |'
 checked:
 - label: Table 1
   caption: Upgrade Measure Overview
