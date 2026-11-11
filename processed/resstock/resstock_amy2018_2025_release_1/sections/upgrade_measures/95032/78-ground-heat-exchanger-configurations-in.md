@@ -1,9 +1,16 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95032.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95032.md | section: Ground Heat Exchanger Configurations in the U.S. Residential Stock | lines: 1321-1328 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95032.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95032.md | section: Ground Heat Exchanger Configurations in the U.S. Residential Stock | lines: 1608-1622 -->
 ## Ground Heat Exchanger Configurations in the U.S. Residential Stock
 
 Across the data sources reviewed, there is general agreement that most of the U.S. residential ground heat exchanger configurations are closed-loop horizontal or closed-loop vertical systems. Horizontal and vertical closed-loop systems make up 84%-93% of the ground heat exchanger installations. Ground heat exchangers that use groundwater or surface water make up 4%-16%. The only source with reporting on direct geo-exchange systems, Battocletti and Glassley, reported that these systems made up about 3% of ground heat exchanger installations (Battocletti and Glassley 2013). There is some disagreement across data sources about the relative prevalence of horizontal and vertical ground heat exchanger systems. Liu et al. 2019 (Liu, et al. 2019) and Battocletti and Glassley (Battocletti and Glassley 2013) state that vertical ground loops are more common, while Lund and Boyd (Lund and Boyd 2016) state that horizontal ground loops are more common. The Lund and Boyd 2016 study focuses on residential systems only, while the other two studies combine residential and commercial. It is possible that the Battocletti and Glassley and Liu et al. sources predict a higher fraction of vertical ground loop configurations because they include commercial ground heat exchanger systems, which are typically vertical installations. Where sufficient land is available, residential horizontal ground loop systems are the most cost-effective ground heat exchanger option (U.S. DOE. 2023).
 
 Figure A-10. Installation percentage of common ground heat exchanger configurations (Liu, et al. 2019) (Battocletti and Glassley 2013) (Lund and Boyd 2016)
 
-![Image](95032_images/image_000043_5d0bea541b2b6d6ccb2cdd6b0b4c7956bd8ded554229045e3cdaa498d8de8023.png)
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95032.yaml
+     source: 95032_images/image_000043_5d0bea541b2b6d6ccb2cdd6b0b4c7956bd8ded554229045e3cdaa498d8de8023.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+![Grouped horizontal bars of ground heat exchanger configuration shares from three studies](95032_images/image_000043_5d0bea541b2b6d6ccb2cdd6b0b4c7956bd8ded554229045e3cdaa498d8de8023.png)
+
+Figure A-10: horizontal grouped bar chart. X-axis is installation percentage, 0 to 80; rows are Direct Exchange, Open Loop and Pond/Lake, Horizontal and Vertical; series are Lund and Boyd 2016, Battocletti and Glassley 2013 and Liu et al. 2019. The sources disagree: Battocletti and Glassley put vertical at 70 and Liu et al. at about 46, while Lund and Boyd put horizontal at about 63.
 

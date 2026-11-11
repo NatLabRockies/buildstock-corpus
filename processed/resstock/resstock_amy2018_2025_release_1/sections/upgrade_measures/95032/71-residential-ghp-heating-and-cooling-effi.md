@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95032.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95032.md | section: Residential GHP Heating and Cooling Efficiencies | lines: 1247-1291 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95032.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95032.md | section: Residential GHP Heating and Cooling Efficiencies | lines: 1513-1578 -->
 ## Residential GHP Heating and Cooling Efficiencies
 
 The efficiency of GHPs has improved over time. Combining historical federal equipment efficiency standards with historical unit shipment data provides insights into the efficiency of the GHP units in the residential building stock. The GeoVision report used an energy efficiency ratio (EER) of 18.2 and coefficient of performance (COP) of 4.0 at 100% load (heating or cooling) to represent typical GHPs installed in the U.S. in 2012 (U.S. DOE 2019).
@@ -7,13 +7,27 @@ ENERGY STAR sets voluntary efficiency criteria for GHPs. Figure A-7 and Figure A
 
 Figure A-7. ENERGY STAR EER criteria for GHPs
 
-![Image](95032_images/image_000040_a873b949f7b0975c3bd0081277e87f3a97614fa022f02cffa25df21ad9abda66.png)
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95032.yaml
+     source: 95032_images/image_000040_a873b949f7b0975c3bd0081277e87f3a97614fa022f02cffa25df21ad9abda66.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+![Line chart of ENERGY STAR EER criteria for six GHP types, 2001-2021](95032_images/image_000040_a873b949f7b0975c3bd0081277e87f3a97614fa022f02cffa25df21ad9abda66.png)
+
+Figure A-7: step line chart. X-axis is year, 2000 to 2022; y-axis is EER, 12 to 22. Six series: closed-loop and open-loop water-to-air (WTA) and water-to-water (WTW), and direct geo-exchange (DGX) WTA and WTW. Criteria are flat until 2010, step up by 2012 and stay flat: closed-loop WTA rises from about 14.1 to 17.1 and open-loop WTA from about 16.2 to 21.1. The WTW series begin in 2009.
 
 WTA = water-to-air; WTW = water-to-water; DGX = direct geo-exchange
 
 Figure A-8. ENERGY STAR COP criteria for GHPs
 
-![Image](95032_images/image_000041_fdb18ae07fd25df40d71c502c2c76635056688cf12346e53d4c6829b91de68a7.png)
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95032.yaml
+     source: 95032_images/image_000041_fdb18ae07fd25df40d71c502c2c76635056688cf12346e53d4c6829b91de68a7.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+![Line chart of ENERGY STAR COP criteria for six GHP types, 2001-2021](95032_images/image_000041_fdb18ae07fd25df40d71c502c2c76635056688cf12346e53d4c6829b91de68a7.png)
+
+Figure A-8: step line chart. X-axis is year, 2000 to 2022; y-axis is COP, 2.9 to 4.3. Series are closed-loop and open-loop water-to-air (WTA), closed-loop and open-loop water-to-water (WTW), and direct geo-exchange (DGX). Criteria step up between 2010 and 2012 and are flat afterwards: closed-loop WTA rises from 3.3 to 3.6, open-loop WTA from 3.6 to 4.1 and closed-loop WTW from 3.0 to 3.1; open-loop WTW ends at 3.5.
 
 WTA = water-to-air; WTW = water-to-water; DGX = direct geo-exchange
 
@@ -36,7 +50,14 @@ ENERGY STAR also provides unit shipment data and an estimate of the ENERGY STAR 
 
 39  ENERGY STAR Certified product list: https://www.energystar.gov/productfinder/download/certified-geothermalheat-pumps/
 
-![Image](95032_images/image_000042_5b09e878d2895f15802a0a7e7832ccbb0656f95c84c0a27c41e3e5d3799619af.png)
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95032.yaml
+     source: 95032_images/image_000042_5b09e878d2895f15802a0a7e7832ccbb0656f95c84c0a27c41e3e5d3799619af.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+![Two bar charts of ENERGY STAR GHP unit shipments and market penetration by year, 2003-2021](95032_images/image_000042_5b09e878d2895f15802a0a7e7832ccbb0656f95c84c0a27c41e3e5d3799619af.png)
+
+Figure A-9: two bar charts by year, 2003 to 2021. Top: ENERGY STAR GHP shipments in thousands (axis 0 to 120), rising from about 14 in 2003 to a peak of about 99 in 2007, then declining to 20-40 from 2013 on. Bottom: GHP ENERGY STAR market penetration (axis 0 to 100, labelled 'thousands'), peaking at about 92 in 2007 and falling to about 16 in 2015; none for 2016-2021.
 
 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021
 

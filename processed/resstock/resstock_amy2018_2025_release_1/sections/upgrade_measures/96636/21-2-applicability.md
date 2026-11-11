@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96636.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96636.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96636.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96636.md | section: 2 Applicability | lines: 218-250 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96636.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96636.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96636.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96636.md | section: 2 Applicability | lines: 218-261 -->
 ## 2 Applicability
 
 This upgrade replaces space heating and cooling equipment in homes with existing ductwork with units that meet minimum efficiency standards reflective of circa-2025 requirements. It includes:
@@ -23,12 +23,23 @@ This upgrade applies to all dwelling units that have existing ductwork and a hea
 
 Table 1. Summarized Apply Logic for Reference Space Heating and Air Conditioning Upgrade Circa 2025
 
-| Heating Fuel                                    | HVAC Has Ducts   | Shared Cooling   | HVAC Heating Type                                  | HVAC Cooling Type                                   | Upgrade Applied?    | Stock Saturation (%)   |
-|-------------------------------------------------|------------------|------------------|----------------------------------------------------|-----------------------------------------------------|---------------------|------------------------|
-| Electricity, Natural Gas, Fuel Oil, and Propane | Yes              | No               | Ducted Heating Ducted Heat Pump Non-Ducted Heating | Central AC Room AC None Ducted Heat Pump Central AC | Yes Yes Yes Yes Yes | 43% 6% 5% 16% 5%       |
-| Electricity, Natural Gas, Fuel Oil, and Propane | No               | Yes All options  | Ducted Heating All options                         | Central AC All options                              | No No               | 1% 21%                 |
-| None, Wood                                      | Yes              | All options      | All options                                        | All options                                         | No                  | 1%                     |
-|                                                 | No               | All options      | All options                                        | All options                                         | No                  | 2%                     |
+<!-- table recovered from measure_pdfs/96636.pdf p.16
+     overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96636.yaml
+     method: vision-transcription
+     supersedes the extractor's own table here (values b0d5d50b0c79…):
+       The table has nine rows in the PDF and was extracted as four. The five upgraded rows were merged into one row whose cells run the values together ('Yes Yes Yes Yes Yes', '43% 6% 5% 16% 5%'), which no longer says which heating type pairs with which cooling type, and the next two rows were merged the same way ('No No', '1% 21%') with their Shared Cooling values ('Yes', 'All options') in one cell and HVAC Has Ducts wrong for the first of them (printed 'Yes', extracted under 'No'). Merged cells in the first three columns are repeated on each row. -->
+
+| Heating Fuel | HVAC Has Ducts | Shared Cooling | HVAC Heating Type | HVAC Cooling Type | Upgrade Applied? | Stock Saturation (%) |
+|---|---|---|---|---|---|---|
+| Electricity, Natural Gas, Fuel Oil, and Propane | Yes | No | Ducted Heating | Central AC | Yes | 43% |
+| Electricity, Natural Gas, Fuel Oil, and Propane | Yes | No | Ducted Heating | Room AC | Yes | 6% |
+| Electricity, Natural Gas, Fuel Oil, and Propane | Yes | No | Ducted Heating | None | Yes | 5% |
+| Electricity, Natural Gas, Fuel Oil, and Propane | Yes | No | Ducted Heat Pump | Ducted Heat Pump | Yes | 16% |
+| Electricity, Natural Gas, Fuel Oil, and Propane | Yes | No | Non-Ducted Heating | Central AC | Yes | 5% |
+| Electricity, Natural Gas, Fuel Oil, and Propane | Yes | Yes | Ducted Heating | Central AC | No | 1% |
+| Electricity, Natural Gas, Fuel Oil, and Propane | No | All options | All options | All options | No | 21% |
+| None, Wood | Yes | All options | All options | All options | No | 1% |
+| None, Wood | No | All options | All options | All options | No | 2% |
 
 Keep in mind that the upgrade improves less efficient efficiencies to meet 2025 minimum heating and cooling efficiencies identified in the following sections. HVAC heating and cooling systems remain constant (i.e., no fuel or system switching).
 

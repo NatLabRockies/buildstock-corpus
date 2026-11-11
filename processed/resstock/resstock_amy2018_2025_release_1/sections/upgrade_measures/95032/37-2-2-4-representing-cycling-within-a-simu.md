@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95032.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95032.md | section: 2.2.4   Representing Cycling Within a Simulation Timestep | lines: 531-558 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95032.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95032.md | section: 2.2.4   Representing Cycling Within a Simulation Timestep | lines: 552-586 -->
 ## 2.2.4   Representing Cycling Within a Simulation Timestep
 
 EnergyPlus allows users to enter a curve that impacts the efficiency of equipment at part load. This curve modifies the efficiency of the unit during times when the equipment only needs to run for a portion of the timestep and generally accounts for any losses that may occur due to cycling of equipment. 17 EnergyPlus uses the part load factor (which is related to the part load ratio by a user defined curve, with the specific curve used for GHPs shown in Figure 7) to determine the impact of cycling on HVAC equipment, with the efficiency directly proportional to the part load factor (which ranges from 0 -1).
@@ -21,7 +21,14 @@ For the GHP model for single-stage systems, this relationship was used with an a
 
 Figure 7. Curve used for the part load factor (PLF) as a function of part load ratio (PLR) for GHPs
 
-![Image](95032_images/image_000005_4dfb61b921b84d56dee7f26c56923efe615391f76fdf44f7bb2b4a1840031c3e.png)
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95032.yaml
+     source: 95032_images/image_000005_4dfb61b921b84d56dee7f26c56923efe615391f76fdf44f7bb2b4a1840031c3e.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+![Scatter plot of part load factor against part load ratio with a cubic fit, Cc = 0.9](95032_images/image_000005_4dfb61b921b84d56dee7f26c56923efe615391f76fdf44f7bb2b4a1840031c3e.png)
+
+Figure 7: scatter plot titled 'Part Load Factor, Cc = 0.9'. X-axis is part load ratio (PLR), 0 to 1; y-axis is part load factor (PLF), -0.2 to 1.2. Points rise steeply from 0 at PLR 0, then flatten toward 1.0. A dotted fitted curve, y = 3.0626x^3 - 6.0299x^2 + 3.8941x + 0.1186 (R^2 = 0.9701), is held at a floor of 0.7 below PLR 0.2.
 
 The implication of using this new method is that GHPs may appear to suffer energy losses during cycling, especially in climates with highly unbalanced thermal loads (e.g., predominantly heating- or cooling-dominated regions) or with long swing seasons or mild climates. In these climates, part-load operation occurs more frequently, and the steeper part-load factor penalty results in a higher modeled energy use. Single-stage GHP systems are impacted more than twostage and variable-speed compressor systems.
 

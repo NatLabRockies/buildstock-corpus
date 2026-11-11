@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96414.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96414.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96414.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96414.md | section: 3.2.1 ResStock Inputs for the Dual Fuel Heating System | lines: 330-358 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96414.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96414.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96414.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96414.md | section: 3.2.1 ResStock Inputs for the Dual Fuel Heating System | lines: 336-364 -->
 ## 3.2.1 ResStock Inputs for the Dual Fuel Heating System
 
 Inputs from ResStock that describe the Dual Fuel Heating System are listed in the table below. Descriptions of each of these arguments can be found in Table 81 of the ResStock Technical Reference Documentation (Reyna, et al. 2025).

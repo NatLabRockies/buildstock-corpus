@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96827.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96827.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96827.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96827.md | section: 4.1.1 Individual Building Annual | lines: 302-336 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96827.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96827.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96827.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96827.md | section: 4.1.1 Individual Building Annual | lines: 302-343 -->
 ## 4.1.1 Individual Building Annual
 
 This section presents selected metrics before and after the gas tankless water heater upgrade and percent change. As expected, the total delivered hot water is higher in colder climates; this is because the mains water is colder, so more energy is needed to deliver the same amount of hot water. The amount of delivered hot water remains the same before and after the upgrade, indicating that both the baseline and the upgrade do not have any unmet water heating demand.
@@ -32,5 +32,12 @@ The Alaska sample is the only dwelling with an atmospheric flue in the baseline 
 
 Figure 1. Modeled annual site energy consumption before and after the high-efficiency natural gas tankless water heater upgrade
 
-![Image](96827_images/image_000002_c55b3e7014c15ef1328135d21914c97aa4fe336a2cfa2a10a7e0b3373e640277.png)
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96827.yaml
+     source: 96827_images/image_000002_c55b3e7014c15ef1328135d21914c97aa4fe336a2cfa2a10a7e0b3373e640277.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+![Stacked bars of annual energy use for three example dwellings, baseline vs gas tankless water heater](96827_images/image_000002_c55b3e7014c15ef1328135d21914c97aa4fe336a2cfa2a10a7e0b3373e640277.png)
+
+Figure 1: three horizontal stacked bar charts, one per example dwelling (Hawaii 1A, California 3B, Alaska 7AK). X-axis is annual energy consumption in MBtu; bars are the baseline 30-gal natural gas water heater and the tankless upgrade, stacked by others, heating, cooling electricity, and hot water gas. Hot water gas falls from 7.6 to 3.0, 8.4 to 3.0, and 23.8 to 14.7 MBtu; other segments barely change. See Table 7.
 

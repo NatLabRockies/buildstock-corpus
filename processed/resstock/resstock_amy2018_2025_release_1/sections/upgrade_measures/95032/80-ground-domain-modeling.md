@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95032.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95032.md | section: Ground Domain Modeling | lines: 1333-1475 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95032.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95032.md | section: Ground Domain Modeling | lines: 1627-1776 -->
 ## Ground Domain Modeling
 
 Based on the cooling load calculated according to ACCA Manual J and ACCA Manual S, a length for the ground heat exchanger is calculated (ACCA 2016) (ACCA 2014). As the first step, the ground heat exchanger length per ton of required heating or cooling is calculated. This calculation uses the pipe, ground and grout R-value to calculate an overall R-value for the borehole:
@@ -45,7 +45,14 @@ Where:
 
 Figure B-1. Borehole spacing types. In OpenStudio-HPXML, the 'B' configuration is used by default.
 
-![Image](95032_images/image_000044_309c78f8214ea20ad7f6b3a11be676b34cfc149b25920517f03386412e7539c4.png)
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95032.yaml
+     source: 95032_images/image_000044_309c78f8214ea20ad7f6b3a11be676b34cfc149b25920517f03386412e7539c4.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+![Schematic of three U-tube spacing configurations A, B and C in a borehole cross-section](95032_images/image_000044_309c78f8214ea20ad7f6b3a11be676b34cfc149b25920517f03386412e7539c4.png)
+
+Figure B-1: schematic of three circular borehole cross-sections, each with two U-tube pipes drawn as smaller circles. In Configuration A the pipes touch at the centre of the borehole, in Configuration B they are moderately spaced, and in Configuration C they sit against opposite walls of the borehole. A black rectangle is drawn around Configuration B, marking it as the one used. There are no dimensions or values.
 
 From (Spitler and Javed 2016) (J. D. Spitler 2016).
 

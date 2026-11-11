@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95032.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95032.md | section: 2.2.6  Ground Thermal Conductivity | lines: 651-672 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95032.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95032.md | section: 2.2.6  Ground Thermal Conductivity | lines: 707-742 -->
 ## 2.2.6  Ground Thermal Conductivity
 
 With the new ability to specify the thermal conductivity of the ground, 20 better guidance is required to help users pick the right properties for their job site. However, substantial variability in ground conductivity exists by location, time of year, and depth due to differences in the local soil makeup and the presence or absence of groundwater. Many GHP manufacturers recommend performing a site-specific conductivity measurement when considering installing a GHP, with details on how to take this measurement often appearing in product manuals. The default assumption at the start of this project for ground thermal conductivity is to use a value of 1.0 Btu/h-ft-°F. However, there are resources available that can help users make an educated guess at the soil type for a location, absent a more thorough site analysis, such as (X. W. Liu 2016) or (U.S. Department of Agriculture (USDA) 2019). The USDA data provides conductivity by soil and moisture type. Liu (2016) provides climate zone 50 th percentile (median), 25 th percentile (lower quartile), and 75 th percentile (upper quartile) estimates based on a natural gas well dataset from Southern Methodist University (Southern Methodist University n.d.). While the Southern Methodist University natural gas well dataset is measurements of deep well data, it was the best identified dataset that provides distributions of measurements within the range of expected values of various soil types from the USDA dataset.
@@ -13,11 +13,25 @@ Figure 13 shows the median ground thermal conductivity by county modeled in ResS
 
 Figure 12. Ground conductivity histograms for each IECC 2012 climate zone based on Southern Methodist University Geothermal Lab data
 
-![Image](95032_images/image_000010_cab8d4f17f3da1d7ece26f7fb6dfa4680ce01ae9d249aca1bbdaca4f9ef3947a.png)
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95032.yaml
+     source: 95032_images/image_000010_cab8d4f17f3da1d7ece26f7fb6dfa4680ce01ae9d249aca1bbdaca4f9ef3947a.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+![Grid of 17 histograms of ground thermal conductivity samples, one per IECC 2012 climate zone](95032_images/image_000010_cab8d4f17f3da1d7ece26f7fb6dfa4680ce01ae9d249aca1bbdaca4f9ef3947a.png)
+
+Figure 12: grid of 17 histograms, one per IECC 2012 climate zone from 1A to 8AK. X-axis is thermal conductivity in W/m-K, 0 to 4; y-axis is number of samples, on a different scale in each panel (a few tens in 1A, 3C, 7B and 8AK; about 6,000 in 5A). Most zones peak between about 2 and 2.5 W/m-K; zone 7B instead has its tallest bar in the lowest bin.
 
 Figure 13: Median ground thermal conductivity (W/m-K) by county as modeled in ResStock based on Southern Methodist University Geothermal Lab data
 
-![Image](95032_images/image_000011_16d71ced2b5c649d540392e444501a31130a216a187653bcc183ecc40c2e9708.png)
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95032.yaml
+     source: 95032_images/image_000011_16d71ced2b5c649d540392e444501a31130a216a187653bcc183ecc40c2e9708.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+![County map of median ground thermal conductivity in W/m-K, with Alaska and Hawaii insets](95032_images/image_000011_16d71ced2b5c649d540392e444501a31130a216a187653bcc183ecc40c2e9708.png)
+
+Figure 13: county choropleth map of the United States with insets for Alaska and Hawaii. The colour scale is median ground thermal conductivity in W/m-K, from 1.385 (dark red) through yellow to 3.461 (green). The lowest values cover much of Washington, Oregon, Idaho, Nevada and the central Rocky Mountains; the upper Midwest, Texas and parts of California are mostly yellow, and the Southeast and Northeast orange.
 
 Dwellings with a thermal conductivity below 1.4 W/m-K are not eligible for the residential GHP measures (7.6% of dwelling units represented in ResStock).
 
