@@ -80,9 +80,13 @@ def test_product_names_are_spelled_as_the_products_spell_them():
 def test_decorative_rule_is_per_product_and_hides_nothing_without_one():
     assert decorative_label("comstock", "measure_pdfs/89040.pdf", "000000", "abc") == "cover art"
     assert decorative_label("comstock", "measure_pdfs/89040.pdf", "000001", "abc") == "wordmark"
-    # ResStock's reports come from the same template, but until R3.2 has looked at one the
-    # rule is "leave every image visible"
-    assert decorative_label("resstock", "measure_pdfs/96634.pdf", "000000", "abc") is None
+    # ResStock's reports come from the same template; R3.2 looked at all six leading bitmaps
+    # its 28 reports use and gave it the OSTI-report rule
+    assert decorative_label("resstock", "measure_pdfs/96634.pdf", "000000", "abc") == "cover art"
+    assert decorative_label("resstock", "measure_pdfs/96634.pdf", "000001", "abc") == "wordmark"
     text = "![Image](96634_images/image_000000_abc.png)\n![Image](96634_images/image_000001_def.png)\n"
     assert len(surviving_decorative_refs("comstock", "measure_pdfs/96634.pdf", text)) == 2
-    assert surviving_decorative_refs("resstock", "measure_pdfs/96634.pdf", text) == []
+    assert len(surviving_decorative_refs("resstock", "measure_pdfs/96634.pdf", text)) == 2
+    # a product with no rule still hides nothing
+    assert decorative_label("otherstock", "measure_pdfs/96634.pdf", "000000", "abc") is None
+    assert surviving_decorative_refs("otherstock", "measure_pdfs/96634.pdf", text) == []

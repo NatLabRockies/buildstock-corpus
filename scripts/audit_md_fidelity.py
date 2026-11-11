@@ -52,6 +52,7 @@ Results are grouped by extractor (latex / markdown / measures / pdf) so it is cl
 which path is losing content.
 
 Usage:  uv run python scripts/audit_md_fidelity.py [--release comstock_amy2018_2025_release_3] [--product comstock]
+            [--work-dir <sandbox root>]   audit a `bsc build --work-dir` sandbox; reports land there
 """
 
 from __future__ import annotations
@@ -831,17 +832,25 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--product", default="comstock")
     ap.add_argument("--release", default="comstock_amy2018_2025_release_3")
+    ap.add_argument(
+        "--work-dir",
+        type=Path,
+        default=None,
+        help="Audit a sandbox build: the root passed to `bsc build --work-dir`. The reports "
+        "are written there too, so the committed report at the repo root is left alone.",
+    )
     args = ap.parse_args()
 
-    processed = REPO / "processed" / args.product / args.release
+    root = args.work_dir or REPO
+    processed = root / "processed" / args.product / args.release
     manifest = json.loads((processed / "manifest.json").read_text(encoding="utf-8"))
     kinds = classify_sources(manifest)
     entry_index = overlay_entry_index(REPO / "overlays", args.product, args.release)
 
     findings, totals = audit(processed, kinds, entry_index)
 
-    out_md = REPO / "md_fidelity_report.md"
-    out_json = REPO / "md_fidelity_report.json"
+    out_md = root / "md_fidelity_report.md"
+    out_json = root / "md_fidelity_report.json"
     write_report(out_md, findings, totals, args.product, args.release)
     out_json.write_text(
         json.dumps(
@@ -875,8 +884,8 @@ def main() -> None:
         )
 
     print(f"\nfiles with gaps: {len(findings)}")
-    print(f"wrote {out_md.relative_to(REPO)}")
-    print(f"wrote {out_json.relative_to(REPO)}")
+    print(f"wrote {out_md}")
+    print(f"wrote {out_json}")
 
 
 if __name__ == "__main__":
