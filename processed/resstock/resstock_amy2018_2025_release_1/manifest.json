@@ -2,7 +2,7 @@
   "product": "resstock",
   "release": "resstock_amy2018_2025_release_1",
   "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
-  "generated_utc": "2026-11-11T19:48:13.935957+00:00",
+  "generated_utc": "2026-11-11T20:53:27.306239+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -893,16 +893,18 @@
           "title": "Heat Pump Water Heater",
           "input_sha256": "9b1963bc5ff7300c2d3e99bada6183d68a80c1e785f41b50589eab76f7532e3f",
           "output_path": "upgrade_measures/measure_pdfs/96826.md",
-          "output_sha256": "3d87cbea2ac6c500f5556b7e78de2b5ef44520395623302d8c6cb67cad90a8b3",
-          "body_sha256": "931c402b0e9e7fc7bcb05d21f87177a1281a39f2065825ef5955bf84d579e0c0",
+          "output_sha256": "b9d02c1d825663f75e2b290221bab54c209f968bb04479555570049f0b329f59",
+          "body_sha256": "ec0a11ac199c500911c14525f19c9bab49ee2a7d37e85e0e2d877a4da1a76820",
           "overlay": {
             "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96826.yaml",
-            "sha256": "601ee469798a52f3e75c53fb7611013148d14c4b76cb3934b2564399c966650b",
+            "sha256": "705d960f847e14e0e77a96e72e2cf4aaf89d489d62b76182223aea21d1e5368b",
             "tables_applied": [
               "Table 6",
               "Table 8",
               "Table 5",
-              "Measure Summary"
+              "Measure Summary",
+              "Figure 2",
+              "Figure 3"
             ],
             "figures_applied": [
               "96826_images/image_000002_179da9a079d3e4ffe66dc3bf6d4f0c348daec624f7d5f4b9b7f54cc0985bcb88.png",
@@ -1000,14 +1002,22 @@
           "title": "Residential Single-Stage Geothermal Heat Pump (3.8 COP, 18.6 EER)",
           "input_sha256": "e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f",
           "output_path": "upgrade_measures/measure_pdfs/95032.md",
-          "output_sha256": "242e090b64ff76baa84bed3b1c14966eaf3e4e53469b51ca4dfd2b46f96fc413",
-          "body_sha256": "1797d4201a52bf831e7544e5cb896ef5bcc087fc0420424728d7f64220ddc346",
+          "output_sha256": "7ea38c05aaeef561f6ac3b1a63b35aa6bcf8368c039712122e567d7b2f21bb7b",
+          "body_sha256": "f26b387038cb0c061ccfaa261067427610ca4fb65a9fb2faacb17ab4268b285a",
           "overlay": {
             "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95032.yaml",
-            "sha256": "890bec522762b6706be91725548fd04276bd9858f869d9597edf7aeb909ef540",
+            "sha256": "1b92b41b5b1857382b7918eb249caaff65b82bfaf650ae845ec57184f669453d",
             "tables_applied": [
               "Table A-2",
-              "Table B-1"
+              "Table B-1",
+              "Figure 3",
+              "Figure 4",
+              "Figure 5",
+              "Figure 6",
+              "Figure C-1",
+              "Figure C-2",
+              "Figure C-3",
+              "Figure C-4"
             ],
             "figures_applied": [
               "95032_images/image_000002_a429cf5d958a67abbdceb0a07ce46f44f0da4be97bfdd1414879ef886218ed5c.png",
@@ -1082,13 +1092,29 @@
           "title": "Residential Two-Stage Geothermal Heat Pump (4.0 COP, 20.5 EER)",
           "input_sha256": "ef959791583e1a0c0f1887275ab29504bd197288d2cd01ee2d8747c0c19291b3",
           "output_path": "upgrade_measures/measure_pdfs/95034.md",
-          "output_sha256": "ad2a13536188c9916abe68449a1c06dc1e115bc475b5f54d5da26350157f5080",
-          "body_sha256": "662714a97cb2399bede0048116a7958449196eae034b6eb558423a0bdb2bfc91",
+          "output_sha256": "29e4cc00a75ee48f65b311be4cd3eba928810d64735b7cca418dedb3ae4d0f50",
+          "body_sha256": "9f0f9e6375ed520b2790ad9cb7c1bce89d5534eada938964a5ca8a252c4a528d",
           "overlay": {
             "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95034.yaml",
-            "sha256": "392618dfb8e5592a51c4ff646b951f94fa260d16528706cbf08a7950070cc6e1",
+            "sha256": "b8f054e2f9a7d6141ae60e074207959772ab8c67bdd59498852ef8af516ac538",
             "tables_applied": [
-              "Table 1"
+              "Table 1",
+              "Figure 1",
+              "Figure 2",
+              "Figure 7",
+              "Figure 8",
+              "Figure 13",
+              "Figure 14",
+              "Figure 19",
+              "Figure 20",
+              "Figure A-1",
+              "Figure A-2",
+              "Figure A-3",
+              "Figure A-4",
+              "Figure A-5",
+              "Figure A-6",
+              "Figure A-7",
+              "Figure A-8"
             ],
             "figures_applied": [
               "95034_images/image_000002_85771d7cb5611ef5d984e14047cda991780707e4edd2e5d6c785d06f60905a52.png",
@@ -1147,13 +1173,29 @@
           "title": "Residential Variable-Speed Geothermal Heat Pump (4.4 COP, 30.9 EER)",
           "input_sha256": "bc57eb7348906dbb1a970fb5b310c3f3e9608d5eb145441bd37b24f14ff0563e",
           "output_path": "upgrade_measures/measure_pdfs/95036.md",
-          "output_sha256": "fb597c23c9112274bdfd127d4aad2f8a0891e8f7726cb310aa8b8ca5ac3a92f5",
-          "body_sha256": "46e2c954901565dcaac925757a0b831507378153316f4c33a6c6a4cc112985ec",
+          "output_sha256": "9e67fda643f1bbcd0e1329df3730833c5fe3ed5ba5de3b1a236717f35b7f2e69",
+          "body_sha256": "11fd92c92351aca48bdacc54a24c4a360aa95b83fdc73cf1b978b1c52767905f",
           "overlay": {
             "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95036.yaml",
-            "sha256": "02ec3451751d9b2b9d7b78a726494b1e0ec5403a71fc9b2f327941f9233f8632",
+            "sha256": "f85ca9cdd1af6da9327fcb3b3146743d86d1f4d830f52b6184da1c30c7249452",
             "tables_applied": [
-              "Table 2"
+              "Table 2",
+              "Figure 1",
+              "Figure 2",
+              "Figure 7",
+              "Figure 8",
+              "Figure 13",
+              "Figure 14",
+              "Figure 19",
+              "Figure 20",
+              "Figure A-1",
+              "Figure A-2",
+              "Figure A-3",
+              "Figure A-4",
+              "Figure A-5",
+              "Figure A-6",
+              "Figure A-7",
+              "Figure A-8"
             ],
             "figures_applied": [
               "95036_images/image_000002_6cbae3a9dd5e340430a489903ff3b57d442fc0e832aa7b6100ad5ce846387fb9.png",
@@ -1258,14 +1300,14 @@
   ],
   "counts": {
     "documents": 62,
-    "chunks": 3913,
+    "chunks": 4025,
     "by_type": {
       "latex": 7,
       "markdown": 27,
       "pdf": 28
     },
     "overlay_documents": 10,
-    "overlay_tables": 26,
+    "overlay_tables": 68,
     "overlay_figures": 212,
     "overlay_tables_checked": 57,
     "overlay_text_repairs": 3

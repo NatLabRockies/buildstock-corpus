@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95036.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95036.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95036.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95036.md | section: 2.2.3  Pump Mass Flow Rate EMS | lines: 566-579 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95036.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95036.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95036.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95036.md | section: 2.2.3  Pump Mass Flow Rate EMS | lines: 682-695 -->
 ## 2.2.3  Pump Mass Flow Rate EMS
 
 As mentioned in the two-stage GHP document EMS section, EnergyPlus models with the variable-speed, water-to-air coil object for two-stage systems and variable-speed, water-to-air GHP systems have some deficiency in pump operations and pump energy calculations.
