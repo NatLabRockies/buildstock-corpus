@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96636.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96636.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96636.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96636.md | section: 3.1.1  ResStock Inputs | lines: 279-428 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96636.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96636.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96636.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96636.md | section: 3.1.1  ResStock Inputs | lines: 279-410 -->
 ## 3.1.1  ResStock Inputs
 
 The upgrade spans heating and cooling systems. This section details the ResStock inputs for each system type included in the upgrade: central furnaces, wall and floor furnace, electric furnaces, fuel boilers, central air conditioners, room air conditioners, and ASHPs. Any features not set in ResStock are defaulted to OpenStudio-HPXML defaults (HPXML 2025).
@@ -9,19 +9,13 @@ In OpenStudio-HPXML, each central furnace is represented under:
 
 Table 2. ResStock Argument Values for Central Furnace Upgrades in this Measure
 
-<!-- table recovered from measure_pdfs/96636.pdf p.18
-     overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96636.yaml
-     method: extracted grid (values, compared with the page) + pdf-text-layer (footnote)
-     supersedes the extractor's own table here (values 27d7b1c2a16d…):
-       Every cell of the extracted grid matches page 18, but the extractor dropped the footnote printed under the table, leaving the asterisk in the grid pointing at nothing. The rows are the extractor's own; the footnote is restored from the page's text layer. -->
-
-| ResStock Argument | Value | Units |
-|---|---|---|
-| Heating System Type | Furnace | - |
-| Heating System Pilot Light Capacity | 0 | Btu/hr |
-| Heating System Fuel | Natural Gas, Propane, Fuel Oil | - |
-| Annual Heating Efficiency | 0.80* for Natural Gas and Propane, 0.83* for Fuel Oil | AFUE |
-| Fraction Heating Load Served | 1 | Fraction |
+| ResStock Argument                   | Value                                                 | Units    |
+|-------------------------------------|-------------------------------------------------------|----------|
+| Heating System Type                 | Furnace                                               | -        |
+| Heating System Pilot Light Capacity | 0                                                     | Btu/hr   |
+| Heating System Fuel                 | Natural Gas, Propane, Fuel Oil                        | -        |
+| Annual Heating Efficiency           | 0.80* for Natural Gas and Propane, 0.83* for Fuel Oil | AFUE     |
+| Fraction Heating Load Served        | 1                                                     | Fraction |
 
 *Or like-for-like AFUE when existing furnace efficiency is greater than the minimum
 
@@ -29,18 +23,12 @@ In OpenStudio-HPXML, each fuel-fired floor or wall furnace is represented under:
 
 Table 3. ResStock Argument Values for Wall/Floor Furnace Upgrades in this Measure
 
-<!-- table recovered from measure_pdfs/96636.pdf p.18
-     overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96636.yaml
-     method: extracted grid (values, compared with the page) + pdf-text-layer (footnote)
-     supersedes the extractor's own table here (values 50ec4825d234…):
-       Every cell of the extracted grid matches page 18, but the extractor dropped the footnote printed under the table, leaving the asterisk in the grid pointing at nothing. The rows are the extractor's own; the footnote is restored from the page's text layer. -->
-
-| ResStock Argument | Wall Furnace | Units |
-|---|---|---|
-| Heating System Type | Wall Furnace | - |
-| Heating System Fuel | Natural Gas, Propane, Fuel Oil | - |
-| Annual Heating Efficiency | Like-for-like* | AFUE |
-| Fraction Heating Load Served | 1 | Fraction |
+| ResStock Argument            | Wall Furnace                   | Units    |
+|------------------------------|--------------------------------|----------|
+| Heating System Type          | Wall Furnace                   | -        |
+| Heating System Fuel          | Natural Gas, Propane, Fuel Oil | -        |
+| Annual Heating Efficiency    | Like-for-like*                 | AFUE     |
+| Fraction Heating Load Served | 1                              | Fraction |
 
 *The package keeps non-ducted wall/floor furnaces at their existing levels for like-for-like replacement.
 
@@ -63,10 +51,10 @@ Table 5. ResStock Argument Values for Boiler Upgrades in this Measure
 
 <!-- table recovered from measure_pdfs/96636.pdf p.18
      overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96636.yaml
-     method: extracted grid (values, compared with the page) + pdf-text-layer (footnote)
+     method: extracted grid (values, compared with the page)
      supersedes the extractor's own table here (values 7e8b3c968f70…):
      and its continuation grid(s) (values 97952f190995…):
-       The table runs over pages 18 and 19 and was extracted as two grids (one row, then three, the header repeated), and the footnote printed under it on page 19 was dropped, leaving the asterisk pointing at nothing. Every cell of both grids matches the pages. The rows are the extractor's own, joined under one header; the footnote is restored from the page's text layer. -->
+       The table runs over pages 18 and 19 and was extracted as two grids (one row, then three, the header repeated). Every cell of both grids matches the pages. The rows are the extractor's own, joined under one header. The table's footnote is the extracted paragraph below it. -->
 
 | ResStock Argument | Boiler | Units |
 |---|---|---|
@@ -83,19 +71,13 @@ In OpenStudio-HPXML, each central air conditioner is represented under: '/HPXML/
 
 Table 6. ResStock Argument Values for Central Air Conditioner Upgrades in this Measure
 
-<!-- table recovered from measure_pdfs/96636.pdf p.19
-     overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96636.yaml
-     method: extracted grid (values, compared with the page) + pdf-text-layer (footnote)
-     supersedes the extractor's own table here (values 633754126e69…):
-       Every cell of the extracted grid matches page 19, but the extractor dropped the footnote printed under the table, leaving the asterisk in the grid pointing at nothing. The rows are the extractor's own; the footnote is restored from the page's text layer. -->
-
-| ResStock Argument | Central Air Conditioner | Units |
-|---|---|---|
-| Cooling System Type | Central Air Conditioner | - |
-| Cooling System Fuel | Electricity | - |
-| Annual Cooling Efficiency | SEER2 14.3 (South); SEER2 13.4 (North); or like-for-like* | SEER2 |
-| Fraction Cooling Load Served | 1 | Fraction |
-| Compressor Type | Single stage | - |
+| ResStock Argument            | Central Air Conditioner                                   | Units    |
+|------------------------------|-----------------------------------------------------------|----------|
+| Cooling System Type          | Central Air Conditioner                                   | -        |
+| Cooling System Fuel          | Electricity                                               | -        |
+| Annual Cooling Efficiency    | SEER2 14.3 (South); SEER2 13.4 (North); or like-for-like* | SEER2    |
+| Fraction Cooling Load Served | 1                                                         | Fraction |
+| Compressor Type              | Single stage                                              | -        |
 
 *Like-for-like retention applies where the existing central AC is greater than minimum efficiency. See section 1.3.3 for a list of states in the South and North regions.
 
@@ -105,9 +87,9 @@ Table 7. ResStock Argument Values for Room Air Conditioner Upgrades in this Meas
 
 <!-- table recovered from measure_pdfs/96636.pdf p.19
      overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96636.yaml
-     method: extracted grid (values, compared with the page) + pdf-text-layer (footnote)
+     method: extracted grid (values, compared with the page)
      supersedes the extractor's own table here (values ee4c93dbcda2…):
-       The extractor flattened the superscript footnote markers into the values ('12.0 1', 'EER 3', 'Varies 2'), so the efficiency read as two numbers, and dropped the three footnotes they refer to. The markers are restored as superscripts and the footnotes from the page's text layer; every other cell is the extractor's own and matches page 19. The missing space in '1.01.ResStock' is the source's. -->
+       The extractor flattened the superscript footnote markers into the values ('12.0 1', 'EER 3', 'Varies 2'), so the efficiency read as two numbers. The markers are restored as superscripts; every other cell is the extractor's own and matches page 19. The three footnotes they refer to are the extracted paragraphs below the table, numbered 1 to 3. The missing space in '1.01.ResStock' is the source's. -->
 
 | ResStock Argument | Room Air Conditioner | Units |
 |---|---|---|
@@ -116,11 +98,11 @@ Table 7. ResStock Argument Values for Room Air Conditioner Upgrades in this Meas
 | Fraction Cooling Load Served | Varies² | Fraction |
 | Compressor Type | Single Stage | - |
 
-¹Like-for-like retention applies where the existing room AC is greater than minimum efficiency
+1 Like-for-like retention applies where the existing room AC is greater than minimum efficiency
 
-²Fraction of load served varies based on dwelling specification
+2 Fraction of load served varies based on dwelling specification
 
-³EER is used rather than CEER as the default rated efficiency units for room AC in ResStock. One can convert between units using: CEER = EER / 1.01.ResStock may move to CEER for future releases.
+3 EER is used rather than CEER as the default rated efficiency units for room AC in ResStock. One can convert between units using: CEER = EER / 1.01.ResStock may move to CEER for future releases.
 
 In OpenStudio-HPXML, each ASHP is represented under: '/HPXML/Building/BuildingDetails/Systems/HVAC/HVACPlant/Heat Pump .'
 
