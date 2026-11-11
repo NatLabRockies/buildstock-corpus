@@ -1,0 +1,318 @@
+# Hand-authored overlay for measure_pdfs/96635.pdf
+#
+# 96635 is the ResStock measure documentation for the propane furnace 95% AFUE and fuel oil
+# furnace 88% AFUE upgrade (measure 2). Every table and figure in the report was compared
+# with the PDF on 2026-11-11, following "Checking every table and figure: the ResStock method"
+# in overlays/README.md.
+#
+# Tables (page numbers are PDF pages, 1-based):
+#   * Table 1 (p.12) and Table 3 (pp.15-16) are superseded: see each entry's `why`.
+#   * Table 2, the List of Acronyms and the Upgrade Summary table are recorded under
+#     `checked:` as correct.
+#   * The Table of Contents and the List of Figures / List of Tables grids are contents
+#     pages, not tables of the report, and have no entry.
+#
+# Figures: Figures 1-11 are described (40-70 words each, vision-description); every figure
+# caption has its image. The cover art and wordmark (image_000000, image_000001) are
+# decorative and omitted by the build.
+#
+# Flattening notes: Table 1's merged cells (Heating Fuel over three rows, "None" over two)
+# are repeated on each row; its footnote, absent from the extracted body, is carried below
+# the table. Table 3's spanning header "U.S. Census Division" is stated in a sentence above
+# the sub-tables; row shading in the PDF is alternating bands and carries no meaning.
+
+product: resstock
+release: resstock_amy2018_2025_release_1
+source_id: upgrade_measures
+source_path: measure_pdfs/96635.pdf
+source_url: https://docs.nlr.gov/docs/fy26osti/96635.pdf
+publication_url: https://docs.nlr.gov/docs/fy26osti/96635.pdf
+tables:
+- label: Table 1
+  caption: Summarized Apply Logic for Fuel Oil or Propane Furnace Upgrade Package
+  source_pdf: measure_pdfs/96635.pdf
+  source_pdf_sha256: 9af4cf0249bffa601a9a798305142b0eb92eb5202c0ed5c4f480efed8b8016a7
+  page: 12
+  method: vision-transcription
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: fddb4d78208e83816a331924b216aa6f60cdde0a1259658c8d621fefb7e9ffc7
+    why: 'The extractor put the merged Heating Fuel cells on the wrong rows: ''Fuel Oil'' on the first
+      two rows only, ''Propane'' only on the sixth, and a blank on rows three to five, so the propane
+      rows (None/Yes, 3.74%; None/No, 0.62%) read as having no fuel or as fuel oil. The merged ''None''
+      cell was also blank on row two, and the footnote explaining ''Yes*'' was dropped from the document.
+      All other cells were right. Merged cells are repeated on each row and the footnote is restored below
+      the table.'
+  markdown: '| Heating Fuel | HVAC Shared Efficiencies | HVAC Has Ducts | Propane Fuel Furnace | Fuel
+    Oil Furnace | Stock Saturation (%) |
+
+    |---|---|---|---|---|---|
+
+    | Fuel Oil | None | Yes | No | Yes* | 3.03% |
+
+    | Fuel Oil | None | No | No | No | 1.15% |
+
+    | Fuel Oil | Fan Coil Cooling Only; Fan Coil Heating and Cooling, Fuel; Fan Coil Heating and Cooling,
+    Electricity; Boiler Baseboards Heating Only, Fuel; Boiler Baseboards Heating Only, Electricity | Any
+    | No | No | 0.50% |
+
+    | Propane | None | Yes | Yes* | No | 3.74% |
+
+    | Propane | None | No | No | No | 0.62% |
+
+    | Propane | Fan Coil Cooling Only; Fan Coil Heating and Cooling, Fuel; Fan Coil Heating and Cooling,
+    Electricity; Boiler Baseboards Heating Only, Fuel; Boiler Baseboards Heating Only, Electricity | Any
+    | No | No | 0.90% |
+
+    | Electric, Natural Gas, Other Fuel, None | Any | Any | No | No | 90.88% |
+
+
+    *The upgrade is not applied when the dwelling’s existing furnace efficiency is greater than the upgrade’s
+    furnace efficiency, accounting for <1% of dwellings.'
+- label: Table 3
+  caption: Percentage of Households by HVAC Heating Type and Efficiency, and U.S. Census Division
+  source_pdf: measure_pdfs/96635.pdf
+  source_pdf_sha256: 9af4cf0249bffa601a9a798305142b0eb92eb5202c0ed5c4f480efed8b8016a7
+  page: 15
+  method: vision-transcription
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: d3d4405b29bcbc893bc1fc84b23a68c03eb4d0a297e4b614c74b7aa0b6faf6f4
+    also_removes:
+    - dee3b87f7d02ddeee2ae20a9b31052a5d274fa755ad7ca64c47cac684d060b0f
+    why: The table runs over pages 15 and 16 and was extracted as two grids, the second with no caption
+      of its own. Every value is right, but the row label 'Fuel Oil Fuel Wall/Floor Furnace' lost its
+      last word and read 'Fuel Oil Fuel Wall/Floor'. The label is restored from the page; the values are
+      the extractor's own, compared with pages 15 and 16. Split into one sub-table per fuel so no group
+      is cut mid-row.
+  markdown: 'Columns are U.S. Census Divisions; each value is the share of all U.S. households.
+
+
+    **Electricity**
+
+
+    | HVAC Heating Type & Fuel | East North Central | East South Central | Middle Atlantic | Mountain
+    | New England | Pacific | South Atlantic | West North Central | West South Central |
+
+    |---|---|---|---|---|---|---|---|---|---|
+
+    | Electricity ASHP | 1% | 2% | 1% | 1% | 0% | 1% | 8% | 1% | 3% |
+
+    | Electricity Baseboard | 1% | <1% | 1% | <1% | <1% | 2% | 1% | <1% | 1% |
+
+    | Electricity Electric Boiler | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% |
+
+    | Electricity Electric Furnace | 1% | 1% | <1% | 1% | <1% | 1% | 5% | 1% | 3% |
+
+    | Electricity Electric Wall Furnace | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% |
+
+    | Electricity MSHP | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% |
+
+    | Electricity Shared Heating | 1% | <1% | 1% | <1% | <1% | 1% | 1% | <1% | 1% |
+
+
+    **Fuel oil**
+
+
+    | HVAC Heating Type & Fuel | East North Central | East South Central | Middle Atlantic | Mountain
+    | New England | Pacific | South Atlantic | West North Central | West South Central |
+
+    |---|---|---|---|---|---|---|---|---|---|
+
+    | Fuel Oil Fuel Boiler | <1% | <1% | 1% | <1% | <1% | <1% | <1% | <1% | <1% |
+
+    | Fuel Oil Fuel Furnace | <1% | <1% | 1% | <1% | 1% | <1% | <1% | <1% | <1% |
+
+    | Fuel Oil Fuel Wall/Floor Furnace | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% | - |
+
+    | Fuel Oil Shared Heating | <1% | - | <1% | - | <1% | <1% | <1% | - | <1% |
+
+
+    **Natural gas**
+
+
+    | HVAC Heating Type & Fuel | East North Central | East South Central | Middle Atlantic | Mountain
+    | New England | Pacific | South Atlantic | West North Central | West South Central |
+
+    |---|---|---|---|---|---|---|---|---|---|
+
+    | Natural Gas Fuel Boiler | <1% | <1% | 1% | <1% | <1% | <1% | <1% | <1% | <1% |
+
+    | Natural Gas Fuel Furnace | 9% | 2% | 4% | 4% | 1% | 6% | 4% | 4% | 4% |
+
+    | Natural Gas Fuel Wall/Floor Furnace | <1% | <1% | 1% | <1% | <1% | 1% | <1% | <1% | <1% |
+
+    | Natural Gas Shared Heating | 1% | <1% | 2% | <1% | 1% | 1% | <1% | <1% | <1% |
+
+
+    **Propane**
+
+
+    | HVAC Heating Type & Fuel | East North Central | East South Central | Middle Atlantic | Mountain
+    | New England | Pacific | South Atlantic | West North Central | West South Central |
+
+    |---|---|---|---|---|---|---|---|---|---|
+
+    | Propane Fuel Boiler | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% |
+
+    | Propane Fuel Furnace | 1% | <1% | <1% | <1% | <1% | <1% | 1% | 1% | <1% |
+
+    | Propane Fuel Wall/Floor Furnace | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% |
+
+    | Propane Shared Heating | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% |
+
+
+    **Other fuel, none, and total**
+
+
+    | HVAC Heating Type & Fuel | East North Central | East South Central | Middle Atlantic | Mountain
+    | New England | Pacific | South Atlantic | West North Central | West South Central |
+
+    |---|---|---|---|---|---|---|---|---|---|
+
+    | Other Fuel Boiler | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% |
+
+    | Other Fuel Furnace | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% |
+
+    | Other Fuel Wall/Floor Furnace | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% |
+
+    | Other Fuel Shared Heating | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% | <1% |
+
+    | None | <1% | <1% | <1% | <1% | <1% | 1% | <1% | <1% | <1% |
+
+    | Total % of Housing Stock | 15% | 6% | 13% | 7% | 5% | 14% | 20% | 7% | 12% |'
+checked:
+- label: List of Acronyms
+  uncaptioned: true
+  source_pdf: measure_pdfs/96635.pdf
+  source_pdf_sha256: 9af4cf0249bffa601a9a798305142b0eb92eb5202c0ed5c4f480efed8b8016a7
+  page: 5
+  table_sha256: 40da195825d85bd1c4309a4f46a244a0bc91c087aba9df12ce064789f76bb40f
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+- label: Upgrade Summary
+  uncaptioned: true
+  source_pdf: measure_pdfs/96635.pdf
+  source_pdf_sha256: 9af4cf0249bffa601a9a798305142b0eb92eb5202c0ed5c4f480efed8b8016a7
+  page: 9
+  table_sha256: c8668c2b98f04b9784d4028220ffa1a6a16a66eae972b49f021a84c1f65d1e10
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: The project configuration URL carries a space where the PDF wraps the line ('project_nationa l'),
+    and the bulleted lists are run into one line per cell; the cell text is otherwise the page's.
+- label: Table 2
+  caption: ResStock Argument Values for Central Furnaces
+  source_pdf: measure_pdfs/96635.pdf
+  source_pdf_sha256: 9af4cf0249bffa601a9a798305142b0eb92eb5202c0ed5c4f480efed8b8016a7
+  page: 14
+  table_sha256: 51cb0aeb613424d9442874fddf102b112701473efb182e4f14d2712da04d740f
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+figures:
+- source_image: 96635_images/image_000002_d47bd62a76126eaf9a628ae98556e9c974d40ee7b1a94516094c99573b2e0539.png
+  source_image_sha256: 6b78d4e0a72deaa4989e2c221bf931deea2d94f23594cf66c594beb1e6c59627
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar of annual energy use for an Alaska example unit, baseline vs furnace upgrade
+  description: 'Figure 1: horizontal stacked bar chart for an example dwelling in Alaska (Climate Zone
+    8AK). X-axis is annual energy consumption in MBtu, 0 to 120; bars are Baseline and Furnace Upgrade,
+    stacked by Others (all fuels), fuel oil heating, heating fans and pumps, cooling, and cooling fans
+    and pumps. Fuel oil heating falls from 81.1 to 73.7 MBtu; Others (30.1) and heating fans and pumps
+    (2.0) are unchanged.'
+- source_image: 96635_images/image_000003_cc847472d85ab4147944b439f571a83215cf0d479fcb161281da3c72a3a3bc8b.png
+  source_image_sha256: 00c1f415d80826957f749339f70684de2d3e43635d253de27120ad73071567ff
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar of annual energy use for a Montana example unit, baseline vs furnace upgrade
+  description: 'Figure 2: horizontal stacked bar chart for an example dwelling in Montana (Climate Zone
+    6B). X-axis is annual energy consumption in MBtu, 0 to 250; bars are Baseline and Furnace Upgrade,
+    with the same end-use series as Figure 1 but propane heating. Propane heating falls from 171.3 to
+    145.4 MBtu and heating fans and pumps from 4.6 to 3.5; Others stays at 35.1.'
+- source_image: 96635_images/image_000004_538d935932dd93a1352854631272445e9b1763786fe028fc53a6c979164cb59b.png
+  source_image_sha256: 3a4bd63d0f35bdc5f1c1b21813719a8fba31afb50c04e461bc2de59064429eff
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of daily aggregated average energy consumption across 2018 for the Colorado baseline
+  description: 'Figure 3: line chart of daily aggregated average energy consumption (kBtu, about 100 to
+    800) over January to December 2018 for the baseline in Colorado. Consumption is highest and most variable
+    in winter, peaking near 780 kBtu in February, falls through spring to a flat summer floor of roughly
+    110 kBtu from June to September, then climbs from October to about 700 kBtu at the end of December.'
+- source_image: 96635_images/image_000005_ced61bb2204e6e95af901b6f8530080acf23441429a7091d455ce356cc34d28c.png
+  source_image_sha256: b778c49e4d6210d51de92298b0dddc6a13d291fe8e00d0ded9912717cabb5205
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of aggregated average power on the Colorado peak day, baseline vs upgrade
+  description: 'Figure 4: line chart of aggregated average power (kW, about 7 to 13) over the 24 hours
+    of February 20, 2018, the peak day in Colorado, with one line each for Baseline and Upgrade. The lines
+    are indistinguishable at this scale: power rises from about 8.6 kW at midnight to a peak near 12.9
+    kW around 07:00, falls to about 7 kW near 15:30, and recovers to roughly 9 kW.'
+- source_image: 96635_images/image_000006_c14ebd65bbad6a624ae0ed8b13e8493c5ebee596ae0676f840ed11ee18cd6988.png
+  source_image_sha256: 2bcf3c42dd4fa46b63ea7d82f5680c894f9f97735235c06d7db14fe8786211d4
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked area load shape of electricity demand for a Minnesota propane-heated house, Jan. 7
+  description: 'Figure 5: stacked area chart for a single-family detached dwelling in Climate Zone 7A,
+    Minnesota, heated with propane, on January 7. Left axis is average electricity demand (kW, 0 to 1)
+    by hour of day, stacked by end use with Total and dotted Baseline lines; right axis is outdoor drybulb
+    temperature (°F). Demand sits near 0.1 kW between short spikes reaching 0.4 to 1 kW; baseline and
+    upgrade nearly coincide.'
+- source_image: 96635_images/image_000007_d49e1338055fcda4dd186927efbd6f68c27987d7d73ceb8d4927ffc8171294b8.png
+  source_image_sha256: 013e9c4aae1ca793c5e15f08937b801749a6fc8f4b826f65641b45d11cb8d57c
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bars of annual all-fuel end-use energy for fuel oil and propane homes, baseline vs upgrade
+  description: 'Figure 6: horizontal stacked bar chart of stock-wide all-fuels end uses (kWh, 0 to about
+    160B), with a Baseline bar and a Propane/Oil Furnace bar for each heating fuel, Fuel Oil and Propane,
+    and segments for each end use and fuel. Heating is by far the largest segment in every bar. Fuel oil
+    homes fall from about 140B to 130B kWh, and propane homes from about 162B to 148B kWh.'
+- source_image: 96635_images/image_000008_4cb8fbcbb8acd5cbcaac182c7ea030523002f77f772e6f253528d2a76c5782b7.png
+  source_image_sha256: 9b3cc134656bbcd2a5d821827f0bbb7b06d15817db314b81e45d3d4a34216155
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bars of average annual all-fuel end-use savings per dwelling for fuel oil and propane homes
+  description: 'Figure 7: horizontal stacked bar chart of average all-fuels end-use savings per dwelling
+    (kWh, 0 to about 3,000) for the Propane/Oil Furnace upgrade, one bar per heating fuel, with segments
+    for each end use and fuel. Nearly all savings are heating: about 2,700 kWh for fuel oil dwellings
+    and about 3,000 kWh for propane dwellings, the latter with small slivers of electricity savings at
+    either end.'
+- source_image: 96635_images/image_000009_6729dc009d95d940c09cd9f9109878adf8eaadc491c6904fdd1b4f689108e95c.png
+  source_image_sha256: cd8c08770c33e231f11271e52c34be1d591583e200b2afd2a6037facaf34aea3
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Violin and box plots of annual site energy savings per dwelling by HVAC heating efficiency
+  description: 'Figure 8: violin plots with box plots of site energy total consumption savings per dwelling
+    (kWh, 0 to 35k), one row per baseline HVAC heating efficiency: Fuel Furnace 60%, 76%, 80% and 92.5%
+    AFUE, each labelled with its model count. Savings shrink as baseline efficiency rises: the median
+    is about 8k kWh at 60% AFUE, about 4k at 76%, about 3k at 80%, and under 1k at 92.5% AFUE.'
+- source_image: 96635_images/image_000010_50dfbf7205ee7ad3ad5bd1913d3db19a12e8a64d234768643cbbdf7b71c87b1e.png
+  source_image_sha256: d0dd12e19976e01d428a6e1885d5b7fea0829aaaaf69469bcb79e9b4f857a3e5
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bars of total annual fuel savings by census division for the propane and fuel oil furnace
+    upgrade
+  description: 'Figure 9: horizontal stacked bar chart of stock-wide fuel totals savings (kWh, 0 to about
+    5.5B) by U.S. census division for the Propane/Oil Furnace upgrade, with segments for electricity,
+    natural gas, propane and fuel oil. East North Central and Middle Atlantic save the most, about 5.3B
+    kWh each, the first almost all propane and the second mostly fuel oil. New England, about 4.4B kWh,
+    is also mostly fuel oil.'
+- source_image: 96635_images/image_000011_9fedc8e6adb6928cb9fe82c08f15554c7205b022d9afba0c6c3a96463f131a0d.png
+  source_image_sha256: 732387cc77a7dd33a3e2300d9abc31aee977647099812b2d5b016b6afcc2f359
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Violin and box plots of annual all-fuel energy bills by heating fuel, baseline and upgrade
+  description: 'Figure 10: violin plots with box plots of annual all-fuels energy bills per dwelling (USD,
+    0 to about 20k), two rows for each heating fuel, Fuel Oil and Propane, each labelled with its model
+    count; the image does not label which row is baseline and which upgrade. Median bills are near $5k
+    for fuel oil dwellings and near $4k for propane dwellings.'
+- source_image: 96635_images/image_000012_0fa7f9e75eda956a4a11774c15d688f309d989b45bb5ce4522413917e7419103.png
+  source_image_sha256: 0f7846c9eee0cfd37d24999c7174d74be53e207189eeaee9ddd6fc29e4ea1b1d
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bars of average annual bill savings by HVAC heating efficiency and fuel
+  description: 'Figure 11: horizontal stacked bar chart of average annual bill savings per dwelling (USD,
+    0 to about 900) by baseline HVAC heating efficiency, with segments for electricity, natural gas, fuel
+    oil and propane bills. Savings fall as baseline efficiency rises: about $900 for Fuel Furnace 60%
+    AFUE, about $460 for 76%, about $310 for 80% and about $50 for 92.5% AFUE.'
