@@ -1,0 +1,7 @@
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/93846.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/93846.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/93846.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/93846.md | section: 1.2.1 Load Shifting | lines: 249-254 -->
+## 1.2.1 Load Shifting
+
+As defined in (Peter Alstone, 2017) , load shifting ' represents DR [demand response] that encourages the movement of energy consumption from times of high demand to times when there is a surplus of renewable generation. Shift could smooth net load ramps associated with daily patterns of solar energy generation.'
+
+For this analysis, load shifting is accomplished by preheating (for heating days) or precooling (for cooling days) the building prior to the on-peak window (during the pre-peak window). The idea is that the preheating or precooling increases the load prior to the on-peak window, conditions the indoor air, and preconditions the thermal mass and air in the building. Then the building requires less heating or cooling energy to maintain the set point during the on-peak window, reducing the overall load profile during this window. The extent of the load reduction will depend on the building 's characteristics, such as the thermal mass, the amount of insulation, the infiltration, the duration of the preconditioning, and the timing of the peak period.
+

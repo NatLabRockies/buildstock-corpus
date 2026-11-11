@@ -1,0 +1,8 @@
+<!-- resstock resstock_amy2018_2025_release_1 | github_site | docs/resources/explanations/Issue_2025_1_Column_Applicability.md | status: site_page | source_url: https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/resources/explanations/Issue_2025_1_Column_Applicability.md | publication_url: https://natlabrockies.github.io/ResStock.github.io/docs/resources/explanations/Issue_2025_1_Column_Applicability.html | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: github_site/docs/resources/explanations/Issue_2025_1_Column_Applicability.md | section: Summary of Issue | lines: 5-11 -->
+## Summary of Issue
+A column is only filled out correctly for one upgrade, when it should be filled out for all upgrades. There are three instances of this. The missing information can be determined through other columns in the dataset.
+
+The first instance is **upgrade.heating_fuel** which only has two potential values, “Natural Gas” and “None”. That means for all heat pump upgrades, even if a heat pump gets applied, the **upgrade.heating_fuel** is marked as “None”. The second instance is for **upgrade.hvac_heating_type_and_fuel** which only has two values of “Natural Gas Fuel Furnace” and “None”. These columns are only correct for the first upgrade, Natural Gas furnace, and are incorrectly filled out for the other upgrades in this dataset.
+
+The third instance is **upgrade.hvac_detailed_performance_data** which only has two potential values, “Cold Climate Heat Pump Ducted” and “None”. These values are only correct for upgrade 4, Cold Climate Ducted Air Source Heat Pump, and are incorrectly filled out for the other upgrades in this dataset.
+

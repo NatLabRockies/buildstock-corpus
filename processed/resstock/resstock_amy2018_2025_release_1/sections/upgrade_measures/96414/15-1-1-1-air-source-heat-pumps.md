@@ -1,0 +1,7 @@
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96414.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96414.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96414.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96414.md | section: 1.1.1  Air-Source Heat Pumps | lines: 167-172 -->
+## 1.1.1  Air-Source Heat Pumps
+
+ASHPs provide space heating and cooling in buildings. According to the 2020 Residential Energy Consumption Survey from the U.S. Energy Information Administration, only ~16.5% of dwellings in the contiguous United States have ASHP systems as their sole source, with most ASHPs located in warmer regions like the southern United States (U.S. Energy Information Administration 2022).
+
+ASHPs transfer heat from outdoor air to indoor air during heating operation and from indoor to outdoor during cooling operation. During heating, an ASHP's compressor powers a vapor compression cycle that delivers heat to the conditioned space of the dwelling. Unlike fossil fuel combustion or electric resistance heating, ASHPs can heat dwellings with efficiency levels above 100%. For example, average heating coefficients of performance (COPs)-the ratio of heating delivered to energy consumed-range from ~2.0 in colder climates to ~3.0 in hotter climates for ducted air-to-air heat pump upgrades (Praprost, et al. 2026). For reference, an electric resistance heater operates at a COP of 1.0.
+

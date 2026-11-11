@@ -630,6 +630,10 @@ def build_release(
     manifest = build_manifest(
         product, release, docs, crosswalk, warnings, excluded, state, len(chunks), remaps,
         sample, applied, corpus_version=corpus_version, excluded_urls=excluded_urls,
+        not_converted=[
+            {"source_id": s.id, **entry} for s in reg.sources for entry in s.not_converted
+        ],
+        notes=reg.notes,
     )
 
     # After the manifest, never before: the map and the index stamp the manifest's hash so

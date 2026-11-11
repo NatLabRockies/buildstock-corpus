@@ -1,0 +1,19 @@
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96635.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96635.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96635.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96635.md | section: 2 Applicability | lines: 155-172 -->
+## 2 Applicability
+
+This measure applies only to homes that currently use fuel oil or propane for space heating and that have existing ducted systems. It upgrades the heating system to a 95% AFUE propane furnace or an 88% AFUE fuel oil furnace (matching the home's existing fuel). When a dwelling's furnace efficiency is greater than the upgrade, the home does not receive the upgrade.
+
+Approximately 5.8% of the U.S. housing stock qualifies. Details in the application logic are in Table 1.
+
+Table 1. Summarized Apply Logic for Fuel Oil or Propane Furnace Upgrade Package
+
+| Heating Fuel                            | HVAC Shared Efficiencies                                                                                                                                                                | HVAC Has Ducts   | Propane Fuel Furnace   | Fuel Oil Furnace   | Stock Saturation (%)   |
+|-----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|------------------------|--------------------|------------------------|
+| Fuel Oil                                | None                                                                                                                                                                                    | Yes              | No                     | Yes*               | 3.03%                  |
+| Fuel Oil                                |                                                                                                                                                                                         | No               | No                     | No                 | 1.15%                  |
+|                                         | Fan Coil Cooling Only; Fan Coil Heating and Cooling, Fuel; Fan Coil Heating and Cooling, Electricity; Boiler Baseboards Heating Only, Fuel; Boiler Baseboards Heating Only, Electricity | Any              | No                     | No                 | 0.50%                  |
+|                                         | None                                                                                                                                                                                    | Yes              | Yes*                   | No                 | 3.74%                  |
+|                                         | None                                                                                                                                                                                    | No               | No                     | No                 | 0.62%                  |
+| Propane                                 | Fan Coil Cooling Only; Fan Coil Heating and Cooling, Fuel; Fan Coil Heating and Cooling, Electricity; Boiler Baseboards Heating Only, Fuel; Boiler Baseboards Heating Only, Electricity | Any              | No                     | No                 | 0.90%                  |
+| Electric, Natural Gas, Other Fuel, None | Any                                                                                                                                                                                     | Any              | No                     | No                 | 90.88%                 |
+

@@ -1,0 +1,5 @@
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96414.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96414.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96414.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96414.md | section: 2.3  Cooling Level Increase for All Applicable Dwellings | lines: 296-299 -->
+## 2.3  Cooling Level Increase for All Applicable Dwellings
+
+Dwellings that are not 100% cooled by their existing AC system (e.g., room AC providing cooling for just one room of a home) will be 100% cooled by this measure upgrade. This will increase cooling energy consumption of those dwellings that were not already 100% cooled. The cooling level increase for all applicable dwellings is implemented because ASHPs in this measure upgrade will be sized to cool the entire dwelling regardless of sizing methodology used. Although this increases energy use associated with cooling, it also increases health and comfort of the home.
+

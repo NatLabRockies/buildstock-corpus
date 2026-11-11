@@ -1,0 +1,46 @@
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95032.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95032.md | section: Residential GHP Heating and Cooling Efficiencies | lines: 1247-1291 -->
+## Residential GHP Heating and Cooling Efficiencies
+
+The efficiency of GHPs has improved over time. Combining historical federal equipment efficiency standards with historical unit shipment data provides insights into the efficiency of the GHP units in the residential building stock. The GeoVision report used an energy efficiency ratio (EER) of 18.2 and coefficient of performance (COP) of 4.0 at 100% load (heating or cooling) to represent typical GHPs installed in the U.S. in 2012 (U.S. DOE 2019).
+
+ENERGY STAR sets voluntary efficiency criteria for GHPs. Figure A-7 and Figure A-8 illustrate the EER and COP criteria, respectively of the ENERGY STAR program for GHPs since 2001. From 2010-2012, there were significant increases to ENERGY STAR GHP performance criteria. Open-loop systems have higher performance criteria than closed-loop systems. Water-to-air systems have higher performance criteria than water-to-water heat pump systems.
+
+Figure A-7. ENERGY STAR EER criteria for GHPs
+
+![Image](95032_images/image_000040_a873b949f7b0975c3bd0081277e87f3a97614fa022f02cffa25df21ad9abda66.png)
+
+WTA = water-to-air; WTW = water-to-water; DGX = direct geo-exchange
+
+Figure A-8. ENERGY STAR COP criteria for GHPs
+
+![Image](95032_images/image_000041_fdb18ae07fd25df40d71c502c2c76635056688cf12346e53d4c6829b91de68a7.png)
+
+WTA = water-to-air; WTW = water-to-water; DGX = direct geo-exchange
+
+Table A-2 lists the COP and EER values for the most efficient GHPs on the market in 2022 rated by ENERGY STAR. 39  Most system types of 2022 ENERGY STAR most efficient products listed are significantly higher than the ENERGY STAR criteria. Direct geo-exchange systems currently have products that met previous ENERGY STAR criteria, but do not meet the current ENERGY STAR criteria.
+
+Table A-2. ENERGY STAR Most Efficient GHPs, 2022
+
+Performance values with * indicate that products have previously met ENERGY STAR criteria, but no products currently meet ENERGY STAR Most Efficient 2022 Criteria.
+
+|              |                      | COP      | COP   | COP   | COP   | EER      | EER   | EER   | EER   |
+|--------------|----------------------|----------|-------|-------|-------|----------|-------|-------|-------|
+|              |                      | Criteria | Min.  | Ave.  | Max.  | Criteria | Min.  | Ave.  | Max.  |
+| Open- Loop   | Water-to-air         | 4.1      | 4.1   | 4.64  | 5.6   | 21.1     | 22.2  | 27.9  | 56.9  |
+| Open- Loop   | Water-to-water       | 3.5      | 3.9   | 3.9   | 3.9   | 20.1     | 20.6  | 20.6  | 20.6  |
+|              | Water-to-air         | 3.6      | 3.6   | 4.06  | 4.6   | 17.1     | 17.3  | 22.4  | 33.7  |
+| Closed- Loop | Water-to-water       | 3.1      | 3.3   | 3.3   | 3.3   | 16.1     | 17.5  | 17.5  | 17.5  |
+| Closed- Loop | Direct geo- exchange | 3.6      | 3.1*  | 3.7*  | 4.1*  | 16.0     | 17.1* | 19.5* | 21.1* |
+
+ENERGY STAR also provides unit shipment data and an estimate of the ENERGY STAR product market penetration (Figure A-9). The ENERGY STAR unit shipments and market penetration peaked in 2007. However, market penetration and shipments have generally decreased after the large increase in ENERGY STAR criteria in 2012.
+
+39  ENERGY STAR Certified product list: https://www.energystar.gov/productfinder/download/certified-geothermalheat-pumps/
+
+![Image](95032_images/image_000042_5b09e878d2895f15802a0a7e7832ccbb0656f95c84c0a27c41e3e5d3799619af.png)
+
+2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021
+
+Figure A-9. Top: ENERGY STAR GHP unit shipments between 2003 and 2021. Bottom: Estimates of ENERGY STAR GHP market penetration between 2003 and 2021.
+
+Market penetration estimates for 2004-2006 are based on total shipments from J. Jaewan et al. 2021 (Jaewan, et al. 2021) and ENERGY STAR unit shipments (ENERGY STAR 2022). ENERGY STAR does not report market penetration data for the years 2016-2021.
+

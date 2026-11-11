@@ -205,7 +205,8 @@ def _gaps_section(manifest: dict) -> list[str]:
     by_registry = gaps.get("excluded_by_registry") or []
     unreachable = gaps.get("unreachable_pdfs") or []
     measures = gaps.get("measures") or []
-    if not (excluded or by_registry or unreachable or measures):
+    not_converted = gaps.get("not_converted") or []
+    if not (excluded or by_registry or unreachable or measures or not_converted):
         return []
     lines = ["## Known gaps", ""]
     if measures:
@@ -219,6 +220,14 @@ def _gaps_section(manifest: dict) -> list[str]:
         lines += [
             f"- **{len(paths)} unpublished `{src_id}` page(s)** excluded upstream "
             f"(`published: false`), so they are absent by intent, not by failure."
+        ]
+    if not_converted:
+        lines += [
+            f"- **{len(not_converted)} upstream file(s) not converted**, by decision of the "
+            f"source registry; read them upstream:"
+        ]
+        lines += [
+            f"  - `{e.get('source_id')}/{e.get('path')}`: {e.get('reason')}" for e in not_converted
         ]
     if by_registry:
         lines += [
@@ -249,6 +258,10 @@ def _render(product: str, release: str, manifest: dict, manifest_sha: str, facts
         f"- `build_generated_utc`: `{manifest.get('generated_utc')}`",
         "",
     ]
+    if manifest.get("notes"):
+        lines += ["## About this release", ""]
+        lines += [f"- {note}" for note in manifest["notes"]]
+        lines += [""]
     if manifest.get("sample"):
         lines += [
             "> **SAMPLE BUILD — partial corpus, not a release record.** This map describes a "

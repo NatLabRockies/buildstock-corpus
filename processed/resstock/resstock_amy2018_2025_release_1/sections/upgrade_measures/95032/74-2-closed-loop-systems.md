@@ -1,0 +1,5 @@
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95032.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95032.md | section: 2. Closed-Loop Systems | lines: 1300-1303 -->
+## 2. Closed-Loop Systems
+
+Closed-loop GHP systems use a constant volume of a working fluid (usually a mixture of water and antifreeze) that circulates in a closed loop (piping that is joined end-to-end), absorbing heat in one segment and rejecting heat through another segment of the closed loop without any exchange of mass of the working fluid between the heat pump system and the surrounding environment as in an open-loop system. Based on how the ground heat exchanger are installed, there are four major types, two horizontal closed loop, one vertical closed loop, and one pond/lake closed loop (U.S. DOE. 2023).
+

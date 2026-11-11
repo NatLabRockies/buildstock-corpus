@@ -1,0 +1,7 @@
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96414.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96414.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96414.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96414.md | section: 1.2.1.2  Efficiency Ratings: SEER2 and HSPF2 | lines: 191-196 -->
+## 1.2.1.2  Efficiency Ratings: SEER2 and HSPF2
+
+This ASHP option has efficiency ratings based on the Seasonal Energy Efficiency Ratio 2 (SEER2) for cooling and the Heating Seasonal Performance Factor 2 (HSPF2) for heating. These ratings are calculated by dividing the system's cooling or heating output (Btu) by the electricity consumed (Wh) over the respective cooling or heating season. SEER2 and HSPF2 became mandatory in 2023,  replacing the energy efficiency metrics of SEER and HSPF. The new metrics are measured with external static pressure increased by up to five times to more accurately reflect field conditions and with an updated building load line for HSPF (Department of Energy 2025).
+
+This measure upgrade's ASHPs have a SEER2 of 15.2 and an HSPF2 of 7.8. These efficiency ratings were selected to reflect the minimum requirements for an ASHP to earn an ENERGY STAR ®  rating. These values represent an average efficiency over a typical cooling or heating season, respectively. The instantaneous efficiency of the ASHP will vary according to outdoor and indoor conditions.
+

@@ -1,0 +1,6 @@
+<!-- resstock resstock_amy2018_2025_release_1 | github_site | docs/resources/explanations/Building_Types.md | status: site_page | source_url: https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/resources/explanations/Building_Types.md | publication_url: https://natlabrockies.github.io/ResStock.github.io/docs/resources/explanations/Building_Types.html | corpus_version: resstock_amy2018_2025_release_1-v1-pre -->
+# Building Types Not Included In ResStock
+
+# Building Types Not Represented in ResStock
+
+ResStock represents all types of housing units, including single-family, multifamily, and manufactured or mobile homes. The definition of the residential sector follows the U.S. Energy Information Administration’s (EIA) definition of housing unit and therefore does not include dormitories, prisons, assisted care facilities, and other congregate housing situations, but does include high-rise multifamily buildings that are sometimes considered commercial buildings for the purpose of building codes.(U.S. Energy Information Administration 2024)

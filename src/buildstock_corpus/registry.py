@@ -83,6 +83,11 @@ class Source:
     # slide decks, for instance). Build skips them; fetch is untouched, so no re-download
     # and no overlay pins move. Recorded in the manifest as excluded_by_registry.
     exclude_urls: list[str] = field(default_factory=list)
+    # Upstream files in this source's tree that the corpus leaves out on purpose, each a
+    # {path, reason} pair (ResStock's two Jupyter notebook how-to guides, which the markdown
+    # extractor cannot read). Declared here so the manifest and the map state the omission:
+    # a reader who cannot find a page should learn it was skipped, not keep looking.
+    not_converted: list[dict[str, str]] = field(default_factory=list)
 
 
 @dataclass
@@ -90,6 +95,10 @@ class Registry:
     product: str
     release: str
     sources: list[Source]
+    # Facts about the release as a whole that a reader of the map needs and no document
+    # states (another dataset that shares this documentation, for instance). Plain
+    # sentences, written into the manifest and listed in the map as they are.
+    notes: list[str] = field(default_factory=list)
 
     def output_remaps(self) -> dict[str, dict[str, str]]:
         """source_id -> {source_dir: output_dir} for sources that rename output dirs."""
@@ -142,7 +151,18 @@ def load_registry(product: str, release: str) -> Registry:
             publication_url=raw.get("publication_url"),
             canonical_urls=dict(raw.get("canonical_urls") or {}),
             exclude_urls=list(raw.get("exclude_urls") or []),
+            not_converted=[
+                {"path": str(e.get("path") or ""), "reason": str(e.get("reason") or "")}
+                for e in (raw.get("not_converted") or [])
+                if isinstance(e, dict)
+            ],
         )
+        if len(src.not_converted) != len(raw.get("not_converted") or []) or any(
+            not e["path"].strip() or not e["reason"].strip() for e in src.not_converted
+        ):
+            raise ValueError(
+                f"source '{src.id}': every not_converted entry needs a path and a reason"
+            )
         if src.type not in SOURCE_TYPES:
             raise ValueError(f"source '{src.id}': unknown type '{src.type}'")
         if src.id in seen_ids:
@@ -153,7 +173,12 @@ def load_registry(product: str, release: str) -> Registry:
 
     if not sources:
         raise ValueError(f"registry {path} has no sources")
-    return Registry(product=reg_product, release=reg_release, sources=sources)
+    notes = data.get("notes") or []
+    if not isinstance(notes, list) or any(not isinstance(n, str) or not n.strip() for n in notes):
+        raise ValueError(f"registry {path}: notes must be a list of non-empty strings")
+    return Registry(
+        product=reg_product, release=reg_release, sources=sources, notes=[n.strip() for n in notes]
+    )
 
 
 def _validate_source(src: Source, path) -> None:

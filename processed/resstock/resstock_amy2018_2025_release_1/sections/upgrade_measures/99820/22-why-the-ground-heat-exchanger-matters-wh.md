@@ -1,0 +1,5 @@
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/99820.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/99820.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/99820.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/99820.md | section: Why the ground heat exchanger matters when adding envelope improvements: | lines: 274-277 -->
+## Why the ground heat exchanger matters when adding envelope improvements:
+
+The ground heat exchanger is one of the largest cost components of a GHP system because drilling and installing the vertical loops is labor- and equipment-intensive. When the building envelope is improved, the heating and cooling loads are reduced, which means the GHP can be smaller. A smaller GHP requires less heat exchange with the ground, allowing for shorter ground heat exchangers. This reduction in drilling length can significantly cut installation costs and make the overall system more affordable. Better insulation and air sealing can not only shrink the equipment size, but also shrink the number of vertical feet of drilling.
+

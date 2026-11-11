@@ -1,0 +1,7 @@
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/99819.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/99819.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/99819.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/99819.md | section: 2.3  OpenStudio-HPXML Overview | lines: 264-269 -->
+## 2.3  OpenStudio-HPXML Overview
+
+The ResStock building stock energy model contains conditional probability distributions of building characteristics that are representative of the U.S. residential building stock (Reyna, et al. 2025). These are sampled to create a synthetic stock where each sample has an assigned option for each characteristic for each dwelling unit to be simulated. ResStock utilizes the OpenStudioHPXML workflow to translate these dwelling characteristics into building models ready to be simulated via OpenStudio ®  and EnergyPlus ®  through an HPXML file. For reference, the state of the OpenStudio-HPXML repository when the ResStock 2025 Release 1 dataset was created can be found here. Assumptions about the GHP upgrades that are not explicitly defined in ResStock are contained in the BuildResidentialHPXML measure.
+
+For information on how OpenStudio-HPXML handles controls in ResStock Dataset 2025 Release 1 see here, and for how it handles HVAC distribution see here. Additional details on applying the two-stage GHP measure are included in the relevant section of that measure document.
+
