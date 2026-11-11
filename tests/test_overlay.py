@@ -1436,3 +1436,73 @@ def test_a_repair_cannot_both_remove_and_replace(pdf_env):
 
     assert applied == {} and doc.body == STRAY_BODY
     assert "not both" in warnings[0]
+
+
+# --- a figure whose ref is an HTML <img> tag (R4.5) -------------------------------------------
+#
+# pandoc writes a LaTeX figure as a <figure> block, so the technical reference guides'
+# pictures are <img src="..."> tags, and a target may hold a space.
+
+HTML_FIG_BODY = """Text before.
+
+<figure id="fig:roof">
+<img src="media/roof.png" style="width:100.0%" />
+<figcaption>Roof R-values by climate zone</figcaption>
+</figure>
+
+Text after.
+"""
+
+
+def test_figure_describes_an_html_img_ref(env):
+    env.write([], figures=[_fig(env, alt='Bar chart of "roof" R-values')])
+    doc = _doc(HTML_FIG_BODY)
+    applied, warnings = _apply([doc], env)
+
+    assert warnings == []
+    # the tag is kept, with the alt as its attribute (quotes escaped) and its style untouched
+    assert '<img alt="Bar chart of &quot;roof&quot; R-values" src="media/roof.png" style="width:100.0%" />' in doc.body
+    # same shape as a markdown ref: comment, ref, description; the caption still follows
+    body = doc.body
+    assert body.index("<!-- figure described by overlay:") < body.index("<img alt=") < body.index(FIG_DESC)
+    assert body.index(FIG_DESC) < body.index("<figcaption>Roof R-values by climate zone</figcaption>")
+    assert applied["upgrade_measures"]["docs/upgrade_measures/env_roof.md"]["figures_applied"] == ["media/roof.png"]
+
+
+def test_html_figure_injection_is_idempotent(env):
+    env.write([], figures=[_fig(env)])
+    doc = _doc(HTML_FIG_BODY)
+    _apply([doc], env)
+    once = doc.body
+    applied, warnings = _apply([doc], env)
+
+    assert doc.body == once and warnings == [] and applied == {}
+
+
+def test_an_html_img_alt_is_replaced_not_duplicated(env):
+    env.write([], figures=[_fig(env)])
+    doc = _doc(HTML_FIG_BODY.replace('<img src="media/roof.png"', '<img alt="old" src="media/roof.png"'))
+    _apply([doc], env)
+
+    assert doc.body.count("alt=") == 1 and f'alt="{FIG_ALT}"' in doc.body
+
+
+def test_a_figure_the_build_rendered_is_verified_against_the_rendered_file(env, tmp_path):
+    """A PDF figure of a LaTeX source is rasterized by the build: the PNG is not in the source
+    tree, so the pin is checked against the file the build says it rendered for that ref."""
+    cached = tmp_path / "cache" / "abc123.png"
+    cached.parent.mkdir()
+    cached.write_bytes(b"rendered-png-bytes")
+    import hashlib
+
+    sha = hashlib.sha256(b"rendered-png-bytes").hexdigest()
+    env.write([], figures=[_fig(env, source_image="media/Figure 1.png", source_image_sha256=sha)])
+    doc = _doc(HTML_FIG_BODY.replace("media/roof.png", "media/Figure 1.png"))
+    from buildstock_corpus import overlay as O
+
+    applied, warnings = O.apply_overlays(
+        [doc], "comstock", RELEASE, image_dirs=env.image_dirs, input_shas=env.input_shas,
+        rendered_images={"upgrade_measures/docs/upgrade_measures/media/Figure 1.png": cached},
+    )
+    assert warnings == [] and FIG_DESC in doc.body
+    assert '<img alt="' in doc.body and 'src="media/Figure 1.png"' in doc.body

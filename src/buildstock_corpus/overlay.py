@@ -80,6 +80,7 @@ should surface the problem, not abort a 118-document run over one sidecar.
 from __future__ import annotations
 
 import hashlib
+import html
 import re
 from pathlib import Path
 
@@ -103,6 +104,10 @@ _CAPTION = re.compile(
     re.IGNORECASE,
 )
 _MD_IMAGE_TARGET = re.compile(r"!\[[^\]]*\]\(\s*([^)\s]+)")
+# Same pattern as HTML_IMG_TARGET in scripts/audit_md_fidelity.py. The target may hold spaces
+# ("images/Figure 1.png"), which a markdown ref cannot.
+_HTML_IMG_TARGET = re.compile(r"<img\b[^>]*?\bsrc\s*=\s*[\"']([^\"']+)[\"']", re.IGNORECASE)
+_HTML_IMG_ALT = re.compile(r"\balt\s*=\s*(\"[^\"]*\"|'[^']*')", re.IGNORECASE)
 _MD_TABLE_DELIM = re.compile(r"^\s*\|[\s:|\-]+\|\s*$")
 _MD_HEADING = re.compile(r"^#{1,6}\s+\S")
 # A table's own printed title, which docling emits between the caption and the table — e.g.
@@ -688,10 +693,21 @@ def _find_image_refs(lines: list[str], source_image: str) -> list[tuple[int, str
     want = Path(source_image).name
     hits: list[tuple[int, str]] = []
     for i, line in enumerate(lines):
-        for m in _MD_IMAGE_TARGET.finditer(line):
-            if Path(m.group(1)).name == want:
-                hits.append((i, m.group(1)))
+        # A markdown ref, or an HTML <img src="...">: pandoc writes a LaTeX figure as a
+        # <figure> block, so the technical reference guides' pictures are HTML tags.
+        for pattern in (_MD_IMAGE_TARGET, _HTML_IMG_TARGET):
+            for m in pattern.finditer(line):
+                if Path(m.group(1)).name == want:
+                    hits.append((i, m.group(1)))
     return hits
+
+
+def _html_img_with_alt(line: str, alt: str) -> str:
+    """The line's <img> tag with its alt attribute set (added, or replaced if one is there)."""
+    quoted = html.escape(alt, quote=True)
+    if _HTML_IMG_ALT.search(line):
+        return _HTML_IMG_ALT.sub(lambda _m: f'alt="{quoted}"', line, count=1)
+    return re.sub(r"<img\b", lambda _m: f'<img alt="{quoted}"', line, count=1, flags=re.IGNORECASE)
 
 
 def _figure_applied_above(lines: list[str], n: int) -> bool:
@@ -712,13 +728,18 @@ def _figure_applied_above(lines: list[str], n: int) -> bool:
     return k >= 0 and lines[k].lstrip().startswith(_FIGURE_MARKER)
 
 
-def _figure_injection(entry: dict, overlay_rel: str, target: str) -> str:
+def _figure_injection(entry: dict, overlay_rel: str, target: str, html_line: str | None = None) -> str:
     """The injected block: provenance comment, the alt-bearing image ref, then the description.
 
     The `alt` is folded into the ref (`![alt](target)`) rather than added as separate text so it
     renders as the picture's alt attribute and travels with the image; the `description` is a
     plain paragraph below it, present only when non-empty and non-decorative, so a
     text-embedding retriever has prose to index for a figure that otherwise contributes nothing.
+
+    `html_line` is the ref's own line when the ref is an HTML <img> tag. The tag is kept as it
+    is, with the alt set as its attribute, and the block has the same shape as for a markdown
+    ref (comment, ref, description), so the description sits inside the <figure>, between
+    the picture and its <figcaption>.
     """
     alt = str(entry["alt"]).strip()
     method = entry.get("method", "unspecified")
@@ -729,15 +750,19 @@ def _figure_injection(entry: dict, overlay_rel: str, target: str) -> str:
     ]
     if entry.get("described_utc"):
         head.append(f"     described: {entry['described_utc']}")
-    block = "\n".join(head) + f" -->\n\n![{alt}]({target})"
+    ref = _html_img_with_alt(html_line, alt) if html_line is not None else f"![{alt}]({target})"
+    block = "\n".join(head) + f" -->\n\n{ref}"
     desc = str(entry.get("description", "")).strip()
     if desc and not entry.get("decorative"):
         block += f"\n\n{desc}"
+        if html_line is not None:
+            block += "\n"  # a blank line before the <figcaption> that follows
     return block
 
 
 def _apply_figure(
-    lines: list[str], entry: dict, image_dir: Path | None, overlay_rel: str, where: str
+    lines: list[str], entry: dict, image_dir: Path | None, overlay_rel: str, where: str,
+    rendered: dict[str, Path] | None = None,
 ) -> tuple[bool, list[str]]:
     """Describe one figure in place: rewrite its image ref with alt + description. (applied, warnings).
 
@@ -772,9 +797,14 @@ def _apply_figure(
     i, target = pending[0]
 
     expect = str(entry["source_image_sha256"])
-    if image_dir is None:
-        return False, warn("source image root unknown; cannot verify source_image_sha256")
-    img = _locate_image(image_dir, target)
+    # A picture the build itself rendered (a PDF figure of a LaTeX source, rasterized to PNG)
+    # is not in the source tree: it sits in a cache until the images are copied, under
+    # another name. `rendered` says where each such ref's file is right now.
+    img = (rendered or {}).get(target)
+    if img is None:
+        if image_dir is None:
+            return False, warn("source image root unknown; cannot verify source_image_sha256")
+        img = _locate_image(image_dir, target)
     if img is None:
         return False, warn(f"source image not found at {image_dir / target}")
     actual = _sha256_file(img)
@@ -784,7 +814,8 @@ def _apply_figure(
             f"{actual[:12]}…); description may be stale"
         )
 
-    lines[i] = _figure_injection(entry, overlay_rel, target)
+    is_html = not any(m.group(1) == target for m in _MD_IMAGE_TARGET.finditer(lines[i]))
+    lines[i] = _figure_injection(entry, overlay_rel, target, html_line=lines[i] if is_html else None)
 
     desc = str(entry.get("description", "")).strip()
     if desc and not entry.get("decorative"):
@@ -877,6 +908,7 @@ def apply_overlays(
     release: str,
     image_dirs: dict[tuple[str, str], Path] | None = None,
     input_shas: dict[str, dict[str, str]] | None = None,
+    rendered_images: dict[str, Path] | None = None,
 ) -> tuple[dict[str, dict], list[str]]:
     """Inject every overlay that matches a document in `docs`.
 
@@ -888,6 +920,11 @@ def apply_overlays(
     `input_shas` maps source_id -> source_path -> sha256 of the input file, taken from the
     same fetch state the manifest's `input_sha256` comes from. Caption-anchored entries are
     verified against it (see _apply_entry).
+
+    `rendered_images` maps a processed/-relative image path (`<source_id>/<dir>/<ref>`) to
+    the file the build rendered for it, for pictures that do not exist in the source tree
+    (PDF figures of a LaTeX source, rasterized to PNG). A figure entry naming such a picture
+    is verified against that file.
 
     Returns ({source_id: {source_path: {...record...}}}, warnings). The record is what the
     manifest stores next to the artifact: the overlay's path, its hash, and the labels
@@ -942,6 +979,11 @@ def apply_overlays(
                 continue
 
             image_dir = image_dirs.get((doc.source_id, doc.source_path))
+            prefix = f"{doc.source_id}/{Path(doc.source_path).parent.as_posix()}/"
+            rendered = {
+                key[len(prefix):]: path for key, path in (rendered_images or {}).items()
+                if key.startswith(prefix)
+            }
             input_sha = input_shas.get(doc.source_id, {}).get(doc.source_path)
 
             lines = doc.body.split("\n")
@@ -968,7 +1010,7 @@ def apply_overlays(
             # artifact no longer shows.
             fig_sources: list[str] = []
             for fig in figures:
-                ok, warns = _apply_figure(lines, fig, image_dir, overlay_rel, overlay_rel)
+                ok, warns = _apply_figure(lines, fig, image_dir, overlay_rel, overlay_rel, rendered)
                 warnings += warns
                 if ok:
                     fig_sources.append(str(fig["source_image"]).strip())
