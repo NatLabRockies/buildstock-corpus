@@ -5,15 +5,12 @@
 # following "Checking every table and figure: the ResStock method" in overlays/README.md.
 #
 # Tables (page numbers are PDF pages, 1-based):
-#   * Table 6 (p.19) and Table 8 (p.22) are superseded: see each entry's `why`.
-#   * Tables 1, 2, 3, 4 (two grids, pp.14-15), 5 and 7 and the List of Acronyms are
+#   * Table 5 (p.18), Table 6 (p.19), Table 8 (p.22) and the Measure Summary table (p.9,
+#     no caption) are superseded: see each entry's `why`. Table 5 and the Measure Summary
+#     are the extractor's own grids with named cells corrected: argument names and a URL
+#     that carried a line-wrap space, and the opening words the Not Applicable cell lost.
+#   * Tables 1, 2, 3, 4 (two grids, pp.14-15) and 7 and the List of Acronyms are
 #     recorded under `checked:` as correct.
-#   * NOT RESOLVED, the Measure Summary (upgrade summary) table on p.9: the extracted
-#     "Not Applicable" row has lost the opening words of its cell, "This measure does not
-#     apply to dwelling units with one of the following water", and starts at "heaters:".
-#     Every other cell matches the page. The grid has no "Table N" caption, so a `tables:`
-#     entry with `replaces:` cannot locate it, and a `checked:` entry would be false. It has
-#     no entry here.
 #   * The Table of Contents, List of Figures and List of Tables grids are contents pages,
 #     not tables of the report, and have no entry.
 #
@@ -177,6 +174,92 @@ tables:
     | Total Site Energy (MBtu) | Upgrade | 28.58 | 81.04 | 105.01 |
 
     | Total Site Energy (MBtu) | Change | -18% | -10% | -6% |'
+- label: Table 5
+  caption: ResStock Argument Values for the Electric HPWH Options
+  source_pdf: measure_pdfs/96826.pdf
+  source_pdf_sha256: 9b1963bc5ff7300c2d3e99bada6183d68a80c1e785f41b50589eab76f7532e3f
+  page: 18
+  method: extracted grid, with the cells named in `why` corrected from the PDF text layer
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 5c9967c96956ffff9984159a87bb77587e5ff6a3c9645739eb9fa698a5360186
+    why: Every value is right, but two argument names and one option value carry a space where the PDF
+      wraps them inside a cell ('water_heater_backup_heating_cap acity', 'water_heater_num_bedrooms_serv
+      ed', 'UniformEn ergyFactor'), so a search for the real name misses them. The header 'OpenStudio-HPXML?'
+      and the two unit strings had the same spacing. The cell text is the extractor's own with those joined
+      as the PDF text layer has them.
+  markdown: '| ResStock Argument | Electric Heat Pump, 50 gal, 3.78 UEF | Electric Heat Pump, 66 gal,
+    3.95 UEF | Electric Heat Pump, 80 gal, 3.98 UEF | Calculated by OpenStudio-HPXML? |
+
+    |---|---|---|---|---|
+
+    | water_heater_type | HPWH | HPWH | HPWH | No |
+
+    | water_heater_fuel_type | Electricity | Electricity | Electricity | No |
+
+    | water_heater_tank_volume [gal] | 50 | 66 | 80 | No |
+
+    | water_heater_efficiency_type | UniformEnergyFactor | UniformEnergyFactor | UniformEnergyFactor |
+    No |
+
+    | water_heater_efficiency | 3.78 | 3.95 | 3.98 | No |
+
+    | water_heater_recovery_efficiency | N/A | N/A | N/A | No |
+
+    | water_heater_standby_loss | Auto | Auto | Auto | Yes |
+
+    | water_heater_jacket_rvalue (add-on) [ft2⋅°F⋅h/btu] | 0 | 0 | 0 | No |
+
+    | water_heater_setpoint_temperature [°F] | 125 | 125 | 125 | No |
+
+    | water_heater_heating_capacity | Auto | Auto | Auto | Yes |
+
+    | water_heater_backup_heating_capacity | Auto | Auto | Auto | Yes |
+
+    | water_heater_has_flue_or_chimney | Auto | Auto | Auto | Yes |
+
+    | water_heater_num_bedrooms_served | Auto | Auto | Auto | Yes |
+
+    | water_heater_operating_mode | Auto | Auto | Auto | Yes |
+
+    | water_heater_tank_model_type | Auto | Auto | Auto | Yes |
+
+    | water_heater_usage_bin | Medium | Medium | High | No |
+
+    | water_heater_uses_desuperheater | Auto | Auto | Auto | Yes |'
+- label: Measure Summary
+  uncaptioned: true
+  source_pdf: measure_pdfs/96826.pdf
+  source_pdf_sha256: 9b1963bc5ff7300c2d3e99bada6183d68a80c1e785f41b50589eab76f7532e3f
+  page: 9
+  method: extracted grid, with the cells named in `why` corrected from the PDF text layer
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 6f0278b63ac471432ee8884faa6ed486bd5f256f76a6f8290c0a1b9999cc4d90
+    why: 'The Not Applicable cell lost its opening words: it starts at ''heaters:'' and is missing ''This
+      measure does not apply to dwelling units with one of the following water'', which is nowhere else
+      in the document. The project configuration URL also carries a space where the PDF wraps the line
+      (''project_n ational''). The cell text is the extractor''s own with the missing words restored and
+      the URL joined, both from the text layer of page 9.'
+  markdown: '| Measure Title | Heat Pump Water Heater |
+
+    |---|---|
+
+    | Measure Definition | This measure installs a 240V HPWH to all dwelling units that are not currently
+    using a HPWH or a solar thermal water heater. |
+
+    | Applicability | This measure applies to all dwellings with one of the following water heaters: •
+    Electric resistance storage or tankless • Fuel storage or tankless. With these constraints, the measure
+    applies to 99.5% of existing dwelling units. |
+
+    | Not Applicable | This measure does not apply to dwelling units with one of the following water heaters:
+    • Heat pump • Solar thermal. These constraints exclude 0.5% of dwelling units from receiving this
+    measure upgrade. |
+
+    | Original Release | ResStock 2025 Release 1 |
+
+    | Project Configuration File(s) | https://github.com/NatLabRockies/resstock/blob/sdr_2025_Release_1/project_national/sdr_upgrades_amy2018.yml
+    |'
 checked:
 - label: List of Acronyms
   uncaptioned: true
@@ -241,18 +324,6 @@ checked:
   checked_utc: '2026-11-11'
   note: 'Second of two grids: the 5 rows on page 15, under the header row the PDF repeats there; every
     value matches.'
-- label: Table 5
-  caption: ResStock Argument Values for the Electric HPWH Options
-  source_pdf: measure_pdfs/96826.pdf
-  source_pdf_sha256: 9b1963bc5ff7300c2d3e99bada6183d68a80c1e785f41b50589eab76f7532e3f
-  page: 18
-  table_sha256: 5c9967c96956ffff9984159a87bb77587e5ff6a3c9645739eb9fa698a5360186
-  verdict: correct
-  method: page-render-and-text-layer
-  checked_utc: '2026-11-11'
-  note: 'Every value matches. Where the PDF wraps a word inside a cell the extraction has a space: ''UniformEn
-    ergyFactor'', ''water_heater_backup_heating_cap acity'', ''water_heater_num_bedrooms_serv ed'', ''OpenStudio-
-    HPXML?'', and the jacket R-value unit reads ''(add- on) [ft 2 ⋅° F ⋅ h/btu]'' for ''(add-on) [ft2⋅°F⋅h/btu]''.'
 - label: Table 7
   caption: Selected Properties of Dwelling Unit Samples
   source_pdf: measure_pdfs/96826.pdf
