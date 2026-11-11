@@ -1,0 +1,404 @@
+# Hand-authored overlay for measure_pdfs/94464.pdf
+#
+# 94464 is the ResStock measure documentation for efficient electric vehicle adoption with Level 2 charging and demand flexibility (measure 23).
+# Every table and figure in the report was compared with the PDF on 2026-11-11, following
+# "Checking every table and figure: the ResStock method" in overlays/README.md.
+#
+# Tables (page numbers are PDF pages, 1-based):
+#   * Table 4 (pp.24-25) is superseded: it came out as one grid per page, each with two
+#     header rows. See its `why`.
+#   * Table 2 (p.15) and Table 3 (p.23) are superseded: every cell was right, but a value in each
+#     carried a line-wrap space (the bin 40-59%; the argument value -15). They are the
+#     extractor's own grids with those values joined.
+#   * Tables 1 and 5, the Measure Summary table (p.8, no caption) and the List of Acronyms
+#     (p.5) are recorded under `checked:` as correct.
+#   * The Table of Contents and List of Figures / List of Tables grids are contents pages and
+#     have no entry.
+#   * The report's numbered page footnotes are all present. No number grid is shown as a
+#     picture.
+#
+# Figures: Figures 1-12 are described (vision-description), one bitmap per figure. Figure
+# 1's caption was swallowed into its bitmap (image_000002), so the document has no "Figure
+# 1." caption line; the description quotes the caption. The cover art and wordmark
+# (image_000000, image_000001) are decorative and omitted by the build. Values read off an
+# axis, not a data label, are worded "about".
+#
+# Flattening notes: Table 4's two header rows are joined ('Summer: Peak Start'). Tables 2
+# and 4 are split into bold-labelled parts to stay under the chunk limit, each repeating the
+# header row; the labels are not in the PDF.
+
+product: resstock
+release: resstock_amy2018_2025_release_1
+source_id: upgrade_measures
+source_path: measure_pdfs/94464.pdf
+source_url: https://docs.nlr.gov/docs/fy26osti/94464.pdf
+publication_url: https://docs.nlr.gov/docs/fy26osti/94464.pdf
+tables:
+- label: Table 2
+  caption: Mapping of ResStock Input Files to ResStock and OpenStudio-HPXML Arguments 5
+  source_pdf: measure_pdfs/94464.pdf
+  source_pdf_sha256: ef51f277c18d2f3ac380f7cceb90351fdeb792e14d08c86f3538190abddd1847
+  page: 15
+  method: extracted grid, with the cells named in `why` corrected from the PDF text layer
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 24d0df9f933eceb9afdc4159361426495db7794a4a3b3ed440fd0889361ffd70
+    why: Every cell is right, but the home-charging bin '40-59%' carries a space where the PDF breaks
+      the line ('40- 59%'), so a search for the bin misses it; 'kilowatt-hours' was broken the same way.
+      The cell text is the extractor's own with those two joined. Several arguments share one cell in
+      the PDF and are run together, as extracted.
+  markdown: '**Table 2, part 1 of 2**
+
+
+    | ResStock Input File | ResStock Arguments | OpenStudio-HPXML Arguments | Description |
+
+    |---|---|---|---|
+
+    | Electric Vehicle Ownership | Yes, No | ev_present [bool] | Turns on/off the battery EV model. |
+
+    | Electric Vehicle Charger | L1, L2, None | ev_charger_present [bool] ev_charger_power (watts, or
+    W) [float] | Describes presence and charging power of the EV charger. |
+
+    | Electric Vehicle Battery | Compact, Midsize, Pickup, and SUV with 200- and 300-mile ranges | ev_battery_usable_capacity
+    (kilowatt-hours, or kWh) [float] ev_energy_efficiency (kWh/mile) [float] ev_average_mph (miles per
+    hour, or mph) [float] | Physical description of the battery that ultimately informs charging demand;
+    average speed used to calculate hours driven. |
+
+    | Annual Miles Driven | 14 values ranging from 1,000 to 22,500 miles | ev_miles_per_year [integer]
+    ev_hours_per_week [float] (calculated internally from ev_miles_per_year using an assumed default average
+    speed) | Total miles driven per year; an assumed default average speed is used to calculate ev_hours_per_week
+    , which informs the hourly driving schedules. |
+
+
+    **Table 2, part 2 of 2**
+
+
+    | ResStock Input File | ResStock Arguments | OpenStudio-HPXML Arguments | Description |
+
+    |---|---|---|---|
+
+    | Home Charging Fraction | 6 bins, 0-19%, 20-39%, 40-59%, 60-79%, 80-99%, 100% | ev_fraction_charged_home
+    [float] | Describes what fraction of energy is provided by an at-home charger; informs the effective
+    annual miles traveled for the generation of schedules. |
+
+    | Electric Vehicle Efficiency Increase | 15% | ev_efficiency_percent_increase [float] | Used only
+    in measures, scales the baseline ev_energy_efficiency value |'
+- label: Table 3
+  caption: Mapping of ResStock Options to ResStockArgumentsPostHPXML Measure Arguments
+  source_pdf: measure_pdfs/94464.pdf
+  source_pdf_sha256: ef51f277c18d2f3ac380f7cceb90351fdeb792e14d08c86f3538190abddd1847
+  page: 23
+  method: extracted grid, with the cells named in `why` corrected from the PDF text layer
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 8cffe8bf15e3c4c2ca9d145993c02f2cec4a2a4ebb8e4490cac0ba3a2888ed67
+    why: Every cell is right, but the argument value -15 carries a space where the PDF breaks the line
+      ('- 15'), which reads as a separate dash and a positive 15. The cell text is the extractor's own
+      with that value joined. The Parameter cell is merged over both rows in the PDF and is repeated on
+      each; the two arguments in a cell are run together, as extracted.
+  markdown: '| Parameter | Option | ResStockArgumentsPostHPXML Measure Arguments | Description |
+
+    |---|---|---|---|
+
+    | Demand Flexibility Electric Vehicle | Enabled | ev_flex_enabled = True flex_random_shift_minutes
+    = {30, 15, 0, -15, or -30} | All EV chargers provide load flexibility by turning charging off during
+    the peak period |
+
+    | Demand Flexibility Electric Vehicle | Disabled | ev_flex_enabled = False flex_random_shift_minutes
+    = 0 | EV chargers do not provide load flexibility; charging schedules are entirely driven by occupancy
+    status |'
+- label: Table 4
+  caption: On-Peak Timing by State and Season
+  source_pdf: measure_pdfs/94464.pdf
+  source_pdf_sha256: ef51f277c18d2f3ac380f7cceb90351fdeb792e14d08c86f3538190abddd1847
+  page: 24
+  method: extracted grids joined under one header (compared with the page text layer)
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 4ddcb227089d56da8a37c84d9ae207bdf3dffcb91660302437925f5c25918177
+    also_removes:
+    - e44030df6e207ffbdf799f3c8d3a6b46527d8071752446011292b67092306d64
+    why: 'The table runs over two pages and was extracted as two grids, each opening with the two header
+      rows (season over Peak Start and Peak End), the second of them as a data row. Every value in both
+      grids matches the pages. The 49 state rows are the extractor''s own, joined under one header whose
+      two rows are written together (''Summer: Peak Start'').'
+  markdown: '**Table 4, part 1 of 3**
+
+
+    | State | Summer: Peak Start | Summer: Peak End | Winter: Peak Start | Winter: Peak End | Intermediate:
+    Peak Start | Intermediate: Peak End |
+
+    |---|---|---|---|---|---|---|
+
+    | AK | 17:00 | 21:00 | 17:00 | 21:00 | 16:00 | 20:00 |
+
+    | AL | 18:00 | 22:00 | 18:00 | 22:00 | 18:00 | 22:00 |
+
+    | AR | 17:00 | 21:00 | 17:00 | 21:00 | 18:00 | 22:00 |
+
+    | AZ | 18:00 | 22:00 | 18:00 | 22:00 | 17:00 | 21:00 |
+
+    | CA | 18:00 | 22:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | CO | 18:00 | 22:00 | 18:00 | 22:00 | 16:00 | 20:00 |
+
+    | CT | 17:00 | 21:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | DE | 17:00 | 21:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | FL | 18:00 | 22:00 | 18:00 | 22:00 | 18:00 | 22:00 |
+
+    | GA | 18:00 | 22:00 | 18:00 | 22:00 | 18:00 | 22:00 |
+
+    | IA | 17:00 | 21:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | ID | 19:00 | 23:00 | 17:00 | 21:00 | 18:00 | 22:00 |
+
+    | IL | 18:00 | 22:00 | 16:00 | 20:00 | 16:00 | 20:00 |
+
+    | IN | 18:00 | 22:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | KS | 18:00 | 22:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | KY | 19:00 | 23:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | LA | 18:00 | 22:00 | 17:00 | 21:00 | 18:00 | 22:00 |
+
+    | MA | 17:00 | 21:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | MD | 17:00 | 21:00 | 16:00 | 20:00 | 17:00 | 21:00 |
+
+    | ME | 17:00 | 21:00 | 17:00 | 21:00 | 16:00 | 20:00 |
+
+    | MI | 17:00 | 21:00 | 18:00 | 22:00 | 17:00 | 21:00 |
+
+
+    **Table 4, part 2 of 3**
+
+
+    | State | Summer: Peak Start | Summer: Peak End | Winter: Peak Start | Winter: Peak End | Intermediate:
+    Peak Start | Intermediate: Peak End |
+
+    |---|---|---|---|---|---|---|
+
+    | MN | 17:00 | 21:00 | 17:00 | 21:00 | 16:00 | 20:00 |
+
+    | MO | 18:00 | 22:00 | 8:00 | 12:00 | 16:00 | 20:00 |
+
+    | MS | 18:00 | 22:00 | 17:00 | 21:00 | 18:00 | 22:00 |
+
+    | MT | 17:00 | 21:00 | 18:00 | 22:00 | 19:00 | 23:00 |
+
+    | NC | 18:00 | 22:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | ND | 19:00 | 23:00 | 19:00 | 23:00 | 18:00 | 22:00 |
+
+    | NE | 15:00 | 19:00 | 17:00 | 21:00 | 16:00 | 20:00 |
+
+    | NH | 17:00 | 21:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | NJ | 17:00 | 21:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | NM | 18:00 | 22:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | NV | 18:00 | 22:00 | 17:00 | 21:00 | 18:00 | 22:00 |
+
+    | NY | 18:00 | 22:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | OH | 17:00 | 21:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | OK | 15:00 | 19:00 | 4:00 | 8:00 | 3:00 | 7:00 |
+
+    | OR | 17:00 | 21:00 | 17:00 | 21:00 | 16:00 | 20:00 |
+
+    | PA | 17:00 | 21:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | RI | 18:00 | 22:00 | 17:00 | 21:00 | 18:00 | 22:00 |
+
+    | SC | 19:00 | 23:00 | 18:00 | 22:00 | 17:00 | 21:00 |
+
+    | SD | 15:00 | 19:00 | 16:00 | 20:00 | 18:00 | 22:00 |
+
+    | TN | 17:00 | 21:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | TX | 18:00 | 22:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+
+    **Table 4, part 3 of 3**
+
+
+    | State | Summer: Peak Start | Summer: Peak End | Winter: Peak Start | Winter: Peak End | Intermediate:
+    Peak Start | Intermediate: Peak End |
+
+    |---|---|---|---|---|---|---|
+
+    | UT | 18:00 | 22:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | VA | 18:00 | 22:00 | 16:00 | 20:00 | 16:00 | 20:00 |
+
+    | VT | 18:00 | 22:00 | 18:00 | 22:00 | 17:00 | 21:00 |
+
+    | WA | 17:00 | 21:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | WI | 18:00 | 22:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | WV | 16:00 | 20:00 | 17:00 | 21:00 | 16:00 | 20:00 |
+
+    | WY | 18:00 | 22:00 | 8:00 | 12:00 | 8:00 | 12:00 |'
+checked:
+- label: List of Acronyms
+  uncaptioned: true
+  source_pdf: measure_pdfs/94464.pdf
+  source_pdf_sha256: ef51f277c18d2f3ac380f7cceb90351fdeb792e14d08c86f3538190abddd1847
+  page: 5
+  table_sha256: 2e1e72f640ae48719237f2d10ff9ba14da2319a374238a3933174c4fda6663a4
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The 9 acronyms and their expansions match the page; the first entry sits in the header row.
+- label: Measure Summary
+  uncaptioned: true
+  source_pdf: measure_pdfs/94464.pdf
+  source_pdf_sha256: ef51f277c18d2f3ac380f7cceb90351fdeb792e14d08c86f3538190abddd1847
+  page: 8
+  table_sha256: 5f542dc3866931e9fb34d17dc8a28b266adb7d8c549b0e158914a2e043f083ba
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The four rows (Measure Title, Measure Definition, Applicability, Not Applicable) match the page;
+    the PDF's dashes before the percentages are hyphens in the extraction.
+- label: Table 1
+  caption: Baseline EV ResStock Input Distribution Files and the Dependencies That Inform Option Distributions
+  source_pdf: measure_pdfs/94464.pdf
+  source_pdf_sha256: ef51f277c18d2f3ac380f7cceb90351fdeb792e14d08c86f3538190abddd1847
+  page: 13
+  table_sha256: 5302f0198047f7083ce202f208ae93404d6387343e135afe30f7362f5d8831be
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The five input files and their dependencies match the page.
+- label: Table 5
+  caption: Summary of the Three Scenarios Modeled To Analyze the Results of This Measure
+  source_pdf: measure_pdfs/94464.pdf
+  source_pdf_sha256: ef51f277c18d2f3ac380f7cceb90351fdeb792e14d08c86f3538190abddd1847
+  page: 27
+  table_sha256: f0a4eaf072b81f1f0b1c134a323bf5b5dc05891c88c25ba10bcc3ddfebab8cc7
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The scenario rows match the page.
+figures:
+- source_image: 94464_images/image_000002_c922764a7518cdd77103698ef6a1175093675f54a763a27ea77e3739f2e3c4fa.png
+  source_image_sha256: 6c898c1b1d4eb9bee496bf3179abeec3071b0e229a5002bc53c94e9dc068f425
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Flow diagram of the five steps from ResStock inputs to an EnergyPlus model, with its caption in
+    the image
+  description: 'Figure 1, whose caption is inside the bitmap and is not a line of the document: ''Figure
+    1. Steps to transform ResStock inputs into final building energy models. OS = OpenStudio''. A flow
+    diagram of five boxes joined by arrows, left to right: ResStock Inputs (.tsv files), OS-HPXML Arguments,
+    Populate HPXML File, Generate OpenStudio Model, and Translate to EnergyPlus. It carries no data.'
+- source_image: 94464_images/image_000003_c8c6ac5596f1c7c64abd87b9466613635a2430ec8d4e2267efdff706c79f8e52.png
+  source_image_sha256: ad3dfa060838924d83f43ccb8eb6d0b59e199847f75f8eea9953173ec481510c
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Four maps of California shaded by household electric vehicle ownership, by building type and tenure
+  description: 'Figure 2: four maps of California divided into Public Use Microdata Areas, one each for
+    single-family detached owners, single-family detached renters, multifamily 5+ units owners and multifamily
+    5+ units renters. Areas are shaded by household battery EV share on a scale from 0.23% to 19.24%.
+    The owner map for single-family detached homes is the darkest, mostly in coastal and urban areas;
+    the other three are near the low end throughout.'
+- source_image: 94464_images/image_000004_f562050ad9663df51029ee7a2e51fce21b3b24553a200fba83edb92cd2d63d21.png
+  source_image_sha256: a7ff616045e343535299f2067ff41ae2d9b20f1cf8b1e5901ba74df7105195e6
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Four step charts of an EV's charging availability, charging power, driving and occupancy over one
+    day
+  description: 'Figure 3: four step charts sharing a time-of-day axis from 10:00 to 20:00: EV Charging
+    Availability Schedule (0 or 1), EV Charging Power in kW, EV Driving Schedule and Occupancy Schedule.
+    The vehicle is available to charge when it is not being driven; in the example it draws about 5.8
+    kW from about 14:00 to 15:15 and again from about 17:15 to 18:30, after each trip.'
+- source_image: 94464_images/image_000005_afa7a23e0660cf105bbf1256b614f3e85414163f6443d6924002b8385e5a4ccf.png
+  source_image_sha256: c8f9b478ddd41aa4a8f52cb9288edbeceba614b9f30dce5961e3f68d068f7db5
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Workflow diagram of the order in which ResStock measures run, with and without an upgrade
+  description: 'Figure 4: workflow diagram in two columns of boxes. The left column runs BuildExistingModel,
+    ResStockArguments, BuildResidentialHPXML, BuildResidentialScheduleFile and ResStockArgumentsPostHPXML,
+    then reaches a decision, ''Upgrade?''. ''Yes'' leads to the right column, ApplyUpgrade followed by
+    the same four measures again; ''No'', and the end of the right column, lead to HPXMLToOpenStudio.
+    It carries no data.'
+- source_image: 94464_images/image_000006_eca1374fe5b1a4a748b7ac734f70950430394cd53d483b54b3f945287404c39d.png
+  source_image_sha256: 7bada9f45ebbe4bc9e89ce4238aaff056df33df977ffcbf3c7239a43035474df
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Three step charts showing EV charging interrupted by a peak period and resumed after it
+  description: 'Figure 5: three step charts from 08:00 to 23:45 with a shaded peak period from about 17:30
+    to 21:30: EV charging power in kW without DF, the same with DF, and the occupancy schedule. Without
+    DF the car charges at about 5.7 kW from about 14:00 to 15:30 and from 17:15 to 18:45. With DF the
+    second session stops when the peak begins and resumes after it, from about 21:30 to 22:45.'
+- source_image: 94464_images/image_000007_c17607a0598f289f059e060249ddd25e9aef6aa460e8033507f665b407a51ea5.png
+  source_image_sha256: 67d5bc7ef77fd75d0d0e1aaf99b5accaa8dca83a31238d9f4c284978911fc976
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Three step charts showing EV charging interrupted by a peak period with no makeup charging that
+    evening
+  description: 'Figure 6: three step charts from 12:00 to about 11:00 the next day with a shaded peak
+    period from about 17:30 to 21:00: EV charging power in kW without DF, the same with DF, and the occupancy
+    schedule. Without DF the car charges from about 15:00 to 20:30. With DF it stops when the peak begins,
+    and because the occupant leaves before the peak ends, charging resumes only at about 00:00.'
+- source_image: 94464_images/image_000008_04b72de437b779ca8e2fda815d56a875bb086b4c9c8d4048cd7aced46fd8db0d.png
+  source_image_sha256: 2c38a45a6e5ab63cb83781d151b76b884cdcd121c2ebed797979aab7790b0799
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Violin and box plots of total energy use per dwelling, baseline against the measure
+  description: 'Figure 7: two horizontal violin plots with box plots inside, Baseline above Measure. X-axis
+    is energy use in MMBtu, 0 to above 800. Both distributions are concentrated below about 200 MMBtu
+    with a long thin tail to the right; the measure''s distribution sits slightly further right, with
+    medians of about 65 MMBtu for the baseline and about 85 for the measure.'
+- source_image: 94464_images/image_000009_a51c42ecde644d0f9dfad2a67ea983d60ff039305cdf2d3f7f484dca322a9d78.png
+  source_image_sha256: cf5b77b83d62386fc413333fe06b1288f32000390bc3aeda8e9dbc974907da6a
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bars of total energy by end use for each climate zone, baseline against the EV scenarios
+  description: 'Figure 8: horizontal stacked bar chart. Rows are eight climate zones from Hot-Dry to Subarctic;
+    the bars in each are labelled Baseline, DF + EV with L2 charging, and DF + Efficient EV with L2 charging.
+    X-axis is all-fuels end uses in kWh, 0 to 1.6T, segmented by end use and fuel. The EV bars add an
+    electric vehicle charging segment: Cold, the largest zone, grows from about 1.45T to about 1.55T kWh.'
+- source_image: 94464_images/image_000010_0c00da5fe338811df71a51b73d9f07b25d550ab9d9c58ab9273a0d2147913c6a.png
+  source_image_sha256: a128d73bb34250c1583f2ebee337355f72a412b39e336f7acb89e76d282ab8c3
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Two bar charts of average unmet driving hours by annual miles and by share charged at home
+  description: 'Figure 9: two bar charts of average unmet driving hours, by annual vehicle miles traveled
+    (1,000 to 22,500) and by percent charged at home (0-19% to 100%). Series are EV + L2, Eff. EV + L2,
+    and Eff. EV + L2 + DF (this measure). The efficient vehicle roughly halves unmet hours and DF adds
+    a little back: about 4.1, 1.85 and 2.15 hours at 22,500 miles a year, and about 0.6, 0.25 and 0.3
+    for vehicles charged entirely at home.'
+- source_image: 94464_images/image_000011_aa0b456d6eeb3b5e9278405bf56e8359f852f9638207f746e22eacb3240fb717.png
+  source_image_sha256: 4667930f77688f66403879074657e519e0946349c8bece03fa2688adfa76db15
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Two stacked area charts of Colorado electricity demand by end use over three days, with peak periods
+    shaded
+  description: 'Figure 10: two stacked area charts of electricity usage in GW in Colorado by end use,
+    January 15 to 17 and July 15 to 17, with the baseline total as a dashed line, EV charging as the top
+    layer and each day''s peak period shaded. EV charging is absent during the shaded periods and spikes
+    just after each ends, rebounding to about 2.0 GW on one winter evening, against a baseline peak of
+    about 1.45 GW.'
+- source_image: 94464_images/image_000012_dcc9d1ed0f37c66f8f05afc50aa908bdb48d9cd788b163c442ab94f0d45e02a0.png
+  source_image_sha256: d6aa65f9e70dcabbfeec0cf670c57d0beb6952b139da1fc59503cc4595effcfe
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Two line charts of the daily Colorado electricity load shape in winter and summer for three scenarios
+  description: 'Figure 11: two line charts of net electricity usage in kWh by time of day, winter on the
+    left and summer on the right, with the peak period shaded. Series are Baseline (dashed), EV + L2 charger,
+    and Eff. EV + L2 charger + DF. In winter the L2 case peaks at about 1.3M kWh inside the peak period;
+    with DF the load follows the baseline, about 0.95M, during the period and then jumps to about 1.42M
+    once it ends.'
+- source_image: 94464_images/image_000013_a7e4fff8d5e9653ea0389161a4c2857a8ec6847e47540d91e8feb0c00e7a0633.png
+  source_image_sha256: dc37a3d371afb948bd6085d59a1438ee98023034527c3d870a34ce79b2c6d76f
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Two line charts of the daily Colorado load shape adding a 25% demand flexibility penetration case
+  description: 'Figure 12: the two load-shape charts of Figure 11, winter and summer, with a fourth line
+    for 25% DF penetration (this measure in 25% of homes, the L2 reference case in the rest). Y-axis is
+    net electricity usage in kWh; the peak period is shaded. In winter the 25% line peaks at about 1.2M
+    kWh inside the peak period, against about 1.27M without DF, and its rebound after the period is small
+    where full DF spikes to about 1.42M.'
