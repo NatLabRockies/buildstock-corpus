@@ -122,7 +122,7 @@ but only when the owner says so; PRs still merge in this order.
 | 8 | R3.1 | Smoke build, then full sandbox build | done 2026-11-10 | `r3-build` (`r2-fetch`) | #52 | yes, 2026-11-10 |
 | 9 | R3.2 | Fidelity audit, systematic extractor fixes, decorative rule | done 2026-11-10 | `r3-fidelity` (`r3-build`) | #53 | yes, 2026-11-11 |
 | 10 | R3.3 | Commit the first real build | done 2026-11-11 | `r3-first-build` (main) | #54 | yes, 2026-11-11 |
-| 11 | R4.1 | Overlay method and `checked:` entries | done 2026-11-11 | `r4-method` (main) | #55 | no: waiting on CI |
+| 11 | R4.1 | Overlay method and `checked:` entries | done 2026-11-11 | `r4-method` (main) | #55 | yes, 2026-11-11 |
 | 12 | R4.2 | Sidecars, measures 1 to 10 | not started | | | |
 | 13 | R4.3 | Sidecars, measures 11 to 18 | not started | | | |
 | 14 | R4.4 | Sidecars, measures 19 to 32 | not started | | | |
