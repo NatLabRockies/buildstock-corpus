@@ -200,6 +200,46 @@ were actually obtained rather than defaulting to a house style. Three routes are
   selectable. Say which part came from which; a reviewer checking one number should know
   whether to trust it to the digit or to re-read the picture.
 
+### Recording a table that was checked and found right
+
+Most tables the extractor emits are right, and until now a right table left no trace: a
+reviewer could not tell "compared with the PDF and correct" from "never looked at". A
+`checked:` entry records the first. Nothing is injected and the artifact does not change.
+
+```yaml
+checked:
+  - label: "Table 2"                    # the caption the table belongs to
+    caption: "Rated Efficiency by Compressor Type"   # documentation for reviewers
+    source_pdf: measure_pdfs/96634.pdf  # same value as source_path
+    source_pdf_sha256: "77c22cdd…"      # the PDF revision the table was compared with
+    page: 12                            # 1-based, where the table is in the PDF
+    table_sha256: "63c2673f…"           # fingerprint of the extracted table that was compared
+    verdict: correct                    # the only verdict there is; see below
+    method: page-render-and-text-layer
+    checked_utc: "2026-11-12"
+```
+
+* **Pinned from both ends**, as a replacement is. `source_pdf_sha256` must equal the
+  artifact's `input_sha256`, and `table_sha256` must match a table in the document (the
+  same fingerprint `replaces.table_sha256` uses: cell values, not column padding). A reissued
+  PDF, or an extractor that later emits anything different for that table, makes the entry
+  stale: the build warns and stops counting it, and `bsc validate` fails if a recorded
+  verdict no longer holds. A verdict is about one table as extracted from one PDF revision.
+* **`correct` is the only verdict.** A table found wrong is not noted, it is fixed: write a
+  `tables:` entry with `replaces:` so the artifact carries the right numbers. A table cannot
+  be both checked and hand-authored in the same sidecar.
+* **`label` must be a caption in the document**, except for a grid that has none (an acronym
+  list, an executive-summary table): give it a descriptive `label` and `uncaptioned: true`,
+  and the fingerprint alone identifies it.
+* **Get the fingerprint from the build, never by hand:**
+  `uv run python scripts/list_tables.py <processed .md>` prints every table with its line,
+  size, nearest caption and `table_sha256`, and lists the captions that have no table.
+
+The manifest records the labels under the artifact's overlay as `tables_checked` and counts
+them as `counts.overlay_tables_checked`; `bsc validate` reports them on their own line,
+because "an extracted table was verified" and "a table was hand-authored" are different
+claims.
+
 ## Provenance
 
 Two rules keep hand-authored text distinguishable from extracted text:
@@ -274,6 +314,44 @@ rather than stacking a second copy under the caption — that is the signal to r
 7. **Two tables with the same caption are not necessarily the same table.** Several measure
    PDFs revise a predecessor's table under its original caption, with changed units, changed
    row labels, or changed values. Transcribe each from its own page.
+
+## Checking every table and figure: the ResStock method
+
+ComStock's overlays were written after its first release, for the tables an audit found
+missing. ResStock's are written before its first tag, and for every table, missing or not:
+the audit only finds captions with nothing under them, and the tables that did the damage in
+ComStock were present and wrong. So each measure PDF is worked through whole, once.
+
+For each PDF (`processed/resstock/<release>/upgrade_measures/measure_pdfs/<n>.md`):
+
+1. **List what the extractor produced.** `scripts/list_tables.py` on the processed file:
+   every table with its caption and fingerprint, and every table caption with no table.
+   `scripts/audit_md_fidelity.py` gives the same for figures.
+2. **Render each table's page** from the PDF at 1.5x (`pypdfium2`), and read the PDF's text
+   layer for the same page. Skip the "List of Tables" page: its entries match the caption
+   pattern too.
+3. **Compare the extracted grid with the render and the text layer, cell by cell**: the
+   number of rows and columns, every header, every value, and which caption the grid sits
+   under. docling's commonest errors are a grid filed under the next table's caption, a
+   merged header flattened onto the wrong columns, and a dropped first column.
+4. **Record the outcome, one entry per table:**
+   * right: a `checked:` entry (above);
+   * wrong: a `tables:` entry with `replaces:`, `method: vision-transcription` (or
+     `pdf-text-layer` when the text layer was the source), and a `why`;
+   * missing (a caption with no table, usually a rasterized table): a caption-anchored
+     `tables:` entry.
+   A table that spans pages or was split into several grids gets one entry per grid.
+5. **Describe every figure that is not decorative**: `alt` plus a `description` to the
+   figure standard in `FIGURE_DESCRIPTIONS_ROLLOUT.md` (60 to 70 words: what the figure
+   shows and the values a reader would cite), drafted from the page render and edited by
+   hand, `method: vision-description`. A caption whose plot docling dropped has no bitmap to
+   pin; note it in the sidecar's comment block and list it in the PR.
+6. **Stamp the links and rebuild**: `scripts/stamp_overlay_links.py`, then build, validate
+   and audit as under Reviewing. Commit one document at a time.
+
+A PDF is done when every table has a `checked:` or `tables:` entry and every real figure a
+description. The technical reference guide's tables come from LaTeX source, not from a
+layout model, and are not part of this sweep; its 15 figures are described the same way.
 
 ## Reviewing
 

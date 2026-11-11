@@ -866,7 +866,7 @@ def test_an_overlay_with_neither_tables_nor_repairs_warns(pdf_env):
     applied, warnings = _apply([_pdf_doc(REPAIR_BODY)], pdf_env)
 
     assert applied == {}
-    assert "no table entries, figures, or text repairs" in warnings[0]
+    assert "no table entries, figures, text repairs, or checked tables" in warnings[0]
 
 
 def test_repairs_and_table_entries_compose_in_one_overlay(pdf_env):
@@ -1095,3 +1095,108 @@ def test_links_are_not_required_when_the_document_has_none(env):
     env.write([env.entry()])
     applied, warnings = _apply([_doc()], env)
     assert warnings == [] and applied
+
+
+# --- checked: a verdict on a table the extractor emitted, nothing injected --------------------
+#
+# R4.1 of PLAN-resstock.md. Every table in a measure PDF is compared with its page; a wrong
+# one is superseded (`replaces:` above), a right one gets a `checked:` entry so a reviewer can
+# see it was looked at. The entry is pinned to the PDF revision and to the extracted table's
+# fingerprint, so the verdict stops counting when either moves.
+
+GOOD_GRID = "| Zone | COP |\n|---|---|\n| 1A | 3.2 |\n| 5B | 2.9 |"
+CHECKED_BODY = f"""## 3 Modeling Approach
+
+Table 1. Rated COP by Climate Zone
+
+{GOOD_GRID}
+
+## 4 Results
+"""
+
+
+def _check(pdf_env, **kw):
+    base = {
+        "label": "Table 1",
+        "caption": "Rated COP by Climate Zone",
+        "source_pdf": PDF_PATH,
+        "source_pdf_sha256": PDF_SHA,
+        "page": 12,
+        "table_sha256": _fp(GOOD_GRID),
+        "verdict": "correct",
+        "method": "page-render-and-text-layer",
+        "checked_utc": "2026-11-12",
+    }
+    return {**base, **kw}
+
+
+def test_a_checked_table_is_recorded_and_nothing_is_injected(pdf_env):
+    pdf_env.write([], source_path=PDF_PATH, checked=[_check(pdf_env)])
+    doc = _pdf_doc(CHECKED_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert warnings == []
+    assert doc.body == CHECKED_BODY  # a verdict changes nothing in the artifact
+    rec = applied["upgrade_measures"][PDF_PATH]
+    assert rec["tables_checked"] == ["Table 1"]
+    assert rec["tables_applied"] == []
+
+
+def test_a_check_is_stale_once_the_extracted_table_differs(pdf_env):
+    pdf_env.write([], source_path=PDF_PATH, checked=[_check(pdf_env)])
+    doc = _pdf_doc(CHECKED_BODY.replace("| 5B | 2.9 |", "| 5B | 2.8 |"))
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {}
+    assert "extracted table changed since it was checked" in warnings[0]
+
+
+def test_a_check_is_stale_once_the_pdf_is_reissued(pdf_env):
+    pdf_env.write([], source_path=PDF_PATH, checked=[_check(pdf_env, source_pdf_sha256="b" * 64)])
+    applied, warnings = _apply([_pdf_doc(CHECKED_BODY)], pdf_env)
+
+    assert applied == {}
+    assert "source PDF changed since the check" in warnings[0]
+
+
+def test_a_check_needs_its_caption_its_fields_and_the_one_verdict(pdf_env):
+    lines = CHECKED_BODY.split("\n")
+    assert O.check_problem(lines, _check(pdf_env), PDF_SHA) is None
+    assert "caption not found" in O.check_problem(lines, _check(pdf_env, label="Table 9"), PDF_SHA)
+    for field in ("page", "table_sha256", "verdict", "checked_utc", "source_pdf_sha256"):
+        entry = _check(pdf_env)
+        del entry[field]
+        assert f"missing required field '{field}'" in O.check_problem(lines, entry, PDF_SHA)
+    wrong = O.check_problem(lines, _check(pdf_env, verdict="incorrect"), PDF_SHA)
+    assert "only verdict recorded is 'correct'" in wrong and "replaces" in wrong
+    assert "input hash unknown" in O.check_problem(lines, _check(pdf_env), None)
+
+
+def test_reformatting_the_table_does_not_stale_the_check(pdf_env):
+    """The fingerprint commits to cell values, not to column padding."""
+    padded = CHECKED_BODY.replace(GOOD_GRID, "| Zone   | COP   |\n|:-------|------:|\n| 1A     | 3.2   |\n| 5B     | 2.9   |")
+    pdf_env.write([], source_path=PDF_PATH, checked=[_check(pdf_env)])
+    applied, warnings = _apply([_pdf_doc(padded)], pdf_env)
+
+    assert warnings == []
+    assert applied["upgrade_measures"][PDF_PATH]["tables_checked"] == ["Table 1"]
+
+
+def test_a_table_cannot_be_both_checked_and_hand_authored(pdf_env):
+    pdf_env.write([pdf_env.pdf_entry()], source_path=PDF_PATH, checked=[_check(pdf_env)])
+    doc = _pdf_doc()  # Table 1's caption is bare here, so the tables: entry applies
+    applied, warnings = _apply([doc], pdf_env)
+
+    rec = applied["upgrade_measures"][PDF_PATH]
+    assert rec["tables_applied"] == ["Table 1"] and "tables_checked" not in rec
+    assert any("either checked or hand-authored, not both" in w for w in warnings)
+
+
+def test_an_uncaptioned_grid_is_identified_by_its_fingerprint_alone(pdf_env):
+    lines = f"## Acronyms\n\n{GOOD_GRID}\n".split("\n")
+    entry = _check(pdf_env, label="Acronyms list")
+    assert "caption not found" in O.check_problem(lines, entry, PDF_SHA)
+    assert O.check_problem(lines, {**entry, "uncaptioned": True}, PDF_SHA) is None
+    assert "extracted table changed" in O.check_problem(
+        lines, {**entry, "uncaptioned": True, "table_sha256": "0" * 64}, PDF_SHA
+    )

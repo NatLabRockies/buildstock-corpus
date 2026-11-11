@@ -180,6 +180,63 @@ def _find_image(lines: list[str], start: int, source_image: str) -> tuple[int, s
     return None
 
 
+# The verdicts a `checked:` entry may record. There is one: a table found wrong is not noted,
+# it is superseded (a `tables:` entry with `replaces:`), so the artifact carries the fix.
+CHECK_VERDICTS = ("correct",)
+_CHECK_REQUIRED = (
+    "label", "source_pdf", "source_pdf_sha256", "page", "table_sha256", "verdict", "checked_utc",
+)
+
+
+def check_problem(lines: list[str], entry: dict, input_sha: str | None) -> str | None:
+    """Why a `checked:` entry does not hold for this document, or None when it does.
+
+    A `checked:` entry records that someone compared a table the extractor emitted against
+    the PDF page it came from and found it right. Nothing is injected; the entry exists so a
+    reviewer can see the table was looked at, and so the verdict stops counting the moment
+    it stops being about the same thing. It is therefore pinned from both ends, as a
+    replacement is: `source_pdf_sha256` is the PDF revision the table was compared with, and
+    `table_sha256` is the fingerprint of the extracted table that was compared (see
+    _table_fingerprint). A reissued PDF, or an extractor that now emits anything different
+    for that table, is reported rather than left standing as "checked".
+
+    The caption named by `label` must still be in the document and the fingerprint must
+    match one of its tables. Position is not required: docling sometimes places a grid above
+    its caption, and the fingerprint already says which table was read. A grid with no
+    caption of its own (an acronym list, an executive-summary table) sets `uncaptioned:
+    true`; its `label` is then only a name, and the fingerprint alone identifies it.
+
+    Shared by the build and by `bsc validate` (manifest._validate_overlay), which repeats it
+    against the artifact on disk, so the two cannot disagree about what a verdict needs.
+    """
+    for field in _CHECK_REQUIRED:
+        if not entry.get(field):
+            return f"checked entry missing required field '{field}'"
+    verdict = str(entry["verdict"]).strip().lower()
+    if verdict not in CHECK_VERDICTS:
+        return (
+            f"checked entry has verdict {entry['verdict']!r}; the only verdict recorded is "
+            f"'correct' (a wrong table is superseded with a `replaces:` entry instead)"
+        )
+    if input_sha is None:
+        return "source input hash unknown for this document; cannot verify source_pdf_sha256"
+    expect = str(entry["source_pdf_sha256"])
+    if expect != input_sha:
+        return (
+            f"source PDF changed since the check (recorded {expect[:12]}…, build input "
+            f"{input_sha[:12]}…); the verdict is about another revision"
+        )
+    if not entry.get("uncaptioned") and _find_caption(lines, str(entry["label"])) is None:
+        return "caption not found in the extracted body; the check is stale"
+    want = str(entry["table_sha256"]).strip().lower()
+    if not any(_table_fingerprint(lines[s:e]) == want for s, e in _table_blocks(lines)):
+        return (
+            f"no table in the document matches the checked fingerprint {want[:12]}…; the "
+            f"extracted table changed since it was checked, so compare it with the PDF again"
+        )
+    return None
+
+
 def _has_table_below(lines: list[str], start: int) -> bool:
     """Whether a real markdown table (confirmed by its delimiter row) already labels `start`.
 
@@ -738,9 +795,11 @@ def apply_overlays(
             entries = data.get("tables") or []
             repairs = data.get("text_repairs") or []
             figures = data.get("figures") or []
-            if not entries and not repairs and not figures:
+            checks = data.get("checked") or []
+            if not entries and not repairs and not figures and not checks:
                 warnings.append(
-                    f"{overlay_rel}: overlay has no table entries, figures, or text repairs"
+                    f"{overlay_rel}: overlay has no table entries, figures, text repairs, "
+                    f"or checked tables"
                 )
                 continue
 
@@ -776,7 +835,24 @@ def apply_overlays(
                 if ok:
                     fig_sources.append(str(fig["source_image"]).strip())
 
-            if labels or n_repairs or fig_sources:
+            # Checks run last, against the body as it will be written: `bsc validate`
+            # repeats them on the artifact, and a verdict about a table another entry of
+            # this sidecar then superseded would be a verdict about nothing.
+            checked_labels: list[str] = []
+            for check in checks:
+                label = str(check.get("label", "")).strip()
+                problem = (
+                    "the same sidecar also supplies this table; a table is either checked "
+                    "or hand-authored, not both"
+                    if label and label in labels
+                    else check_problem(lines, check, input_sha)
+                )
+                if problem:
+                    warnings.append(f"{overlay_rel}: {label or '<no label>'}: {problem}")
+                else:
+                    checked_labels.append(label)
+
+            if labels or n_repairs or fig_sources or checked_labels:
                 doc.body = "\n".join(lines)
                 record = {
                     "path": overlay_rel,
@@ -791,6 +867,10 @@ def apply_overlays(
                     # Recorded like tables_applied: the manifest counts these, and re-verifies
                     # each named bitmap's hash at `bsc validate` time.
                     record["figures_applied"] = fig_sources
+                if checked_labels:
+                    # Nothing was injected for these; the manifest counts them and
+                    # `bsc validate` re-verifies both pins of each.
+                    record["tables_checked"] = checked_labels
                 applied.setdefault(doc.source_id, {})[doc.source_path] = record
 
     return applied, warnings

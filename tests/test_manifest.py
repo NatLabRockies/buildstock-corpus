@@ -433,7 +433,7 @@ def test_overlay_recorded_and_verified_against_its_source_image(tmp_path, monkey
     assert manifest["counts"]["overlay_tables"] == 1
     stats: dict = {}
     assert M.validate_manifest("comstock", RELEASE, manifest, stats) == []
-    assert stats == {"overlay_checked": 1, "overlay_checked_pdf": 0, "overlay_unverifiable": 0,
+    assert stats == {"overlay_checked": 1, "overlay_checked_pdf": 0, "overlay_unverifiable": 0, "overlay_verdicts_verified": 0,
                      "sections_checked": 0, "docs_without_sections": 1, "chunk_files_checked": 0}
 
 
@@ -451,7 +451,7 @@ def test_absent_source_image_is_unverifiable_not_a_violation(tmp_path, monkeypat
 
     stats: dict = {}
     assert M.validate_manifest("comstock", RELEASE, manifest, stats) == []
-    assert stats == {"overlay_checked": 0, "overlay_checked_pdf": 0, "overlay_unverifiable": 1,
+    assert stats == {"overlay_checked": 0, "overlay_checked_pdf": 0, "overlay_unverifiable": 1, "overlay_verdicts_verified": 0,
                      "sections_checked": 0, "docs_without_sections": 1, "chunk_files_checked": 0}
 
 
@@ -524,7 +524,7 @@ def test_caption_anchored_overlay_verified_against_the_artifacts_input_hash(tmp_
 
     stats: dict = {}
     assert M.validate_manifest("comstock", RELEASE, manifest, stats) == []
-    assert stats == {"overlay_checked": 0, "overlay_checked_pdf": 1, "overlay_unverifiable": 0,
+    assert stats == {"overlay_checked": 0, "overlay_checked_pdf": 1, "overlay_unverifiable": 0, "overlay_verdicts_verified": 0,
                      "sections_checked": 0, "docs_without_sections": 1, "chunk_files_checked": 0}
 
 
@@ -721,3 +721,63 @@ def test_validate_keeps_figure_1_of_a_site_served_pdf_but_not_its_wordmark(tmp_p
     manifest = M.build_manifest("comstock", RELEASE, [site_doc()], None, [], {}, _state(input_path=site_path), 1)
     errors = M.validate_manifest("comstock", RELEASE, manifest)
     assert len(errors) == 1 and STAMP in errors[0]
+
+
+# --- checked: verdicts on extracted tables are counted and re-verified (R4.1) -----------------
+
+CHECKED_GRID = "| Zone | COP |\n|---|---|\n| 1A | 3.2 |"
+CHECKED_OUT = OUT_CONTENT + f"\nTable 1. Rated COP by Climate Zone\n\n{CHECKED_GRID}\n"
+
+
+def _checked_overlay_fixture(tmp_path, monkeypatch, *, table_sha: str | None = None) -> dict:
+    from buildstock_corpus.overlay import _table_fingerprint
+
+    ov_root = tmp_path / "overlays"
+    monkeypatch.setattr(M, "OVERLAYS_DIR", ov_root)
+    ov_abs = ov_root / OV_REL
+    ov_abs.parent.mkdir(parents=True, exist_ok=True)
+    sha = table_sha or _table_fingerprint(CHECKED_GRID.split("\n"))
+    ov_abs.write_text(
+        f"source_url: {SOURCE_URL}\n"
+        f"publication_url: {REF_PDF}\n"
+        "checked:\n"
+        '  - label: "Table 1"\n'
+        "    source_pdf: documentation/reference_doc/4_9_hvac.tex\n"
+        '    source_pdf_sha256: "deadbeef"\n'
+        "    page: 12\n"
+        f'    table_sha256: "{sha}"\n'
+        "    verdict: correct\n"
+        '    checked_utc: "2026-11-12"\n',
+        encoding="utf-8",
+        newline="\n",
+    )
+    return {
+        "path": OV_REL,
+        "sha256": hashlib.sha256(ov_abs.read_bytes()).hexdigest(),
+        "tables_applied": [],
+        "tables_checked": ["Table 1"],
+    }
+
+
+def test_checked_tables_are_counted_and_reverified_from_the_artifact(tmp_path, monkeypatch):
+    proot = _patch(tmp_path, monkeypatch)
+    _write_output(proot, CHECKED_OUT)
+    manifest = _manifest_with_overlay(proot, _checked_overlay_fixture(tmp_path, monkeypatch))
+
+    assert manifest["counts"]["overlay_tables_checked"] == 1
+    assert manifest["counts"]["overlay_tables"] == 0
+    stats: dict = {}
+    assert M.validate_manifest("comstock", RELEASE, manifest, stats) == []
+    assert stats["overlay_verdicts_verified"] == 1
+
+
+def test_a_recorded_verdict_whose_table_no_longer_matches_is_a_violation(tmp_path, monkeypatch):
+    proot = _patch(tmp_path, monkeypatch)
+    _write_output(proot, CHECKED_OUT)
+    overlay = _checked_overlay_fixture(tmp_path, monkeypatch, table_sha="f" * 64)
+    manifest = _manifest_with_overlay(proot, overlay)
+
+    stats: dict = {}
+    errors = M.validate_manifest("comstock", RELEASE, manifest, stats)
+    assert any("Table 1" in e and "extracted table changed since it was checked" in e for e in errors)
+    assert stats["overlay_verdicts_verified"] == 0
