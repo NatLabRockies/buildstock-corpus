@@ -3182,7 +3182,15 @@ The options for Electric Vehicle Outlet Access characteristic indicate whether t
 Charging and discharging schedules provide the time periods when the EV can charge or discharge energy. The charging and discharging schedules are connected to the stochastic occupancy model (based on American Time Use Survey data) in OpenStudio-HPXML. Each unit with an EV has an occupant assigned as the sole driver. The schedule generator takes EV vehicle miles traveled and the average speed to calculate the total hours driven per year. The total hours driven per year is used as an input to the EV schedule generator and produces the charging and discharging schedule, while the battery model takes care of the actual power draw during the charging and discharging period. Figure “Illustration of EV battery discharge schedule generation.” shows an example of a generated discharging schedule. This schedule shows that during an “away period” for the occupant, the vehicle is discharged immediately after the occupant leaves and just before they arrive back home, proportional to the length of the away period. The charging schedule is similarly based on occupancy, where the baseline behavior assumes the vehicle is plugged in when the occupant arrives home, and remains plugged in for the full occupied period.
 
 <figure id="fig:ev_discharge">
-<img src="images/Example EV Discharging Schedule.png" style="width:100.0%" />
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/technical_reference/docs/technical_reference_guide/3c_ResStockInputs.yaml
+     source: images/Example EV Discharging Schedule.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+<img alt="Annotated step chart of an occupant schedule and the EV battery discharge schedule built from it" src="images/Example EV Discharging Schedule.png" style="width:100.0%" />
+
+Annotated step chart for January 7, 2007, from 04:00 to about 21:00, with values from 0 to 1. A blue line is the occupant schedule, 1 when the occupant is home, and an orange line the discharge schedule. Two away periods are marked, a long one from about 06:00 to 17:00 and a short one in the evening. Discharge occurs at the start and end of each away period, for a duration proportional to its length; a value below 1 means discharge does not last the full 15-minute timestep. A printed note says total discharge duration in a year equals total driving hours in a year.
+
 <figcaption>Illustration of EV battery discharge schedule generation.</figcaption>
 </figure>
 

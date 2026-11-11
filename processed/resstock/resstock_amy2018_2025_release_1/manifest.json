@@ -2,7 +2,7 @@
   "product": "resstock",
   "release": "resstock_amy2018_2025_release_1",
   "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
-  "generated_utc": "2026-11-11T22:29:28.520412+00:00",
+  "generated_utc": "2026-11-11T23:29:26.577985+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -59,8 +59,19 @@
           "title": "ResStock Workflow, Input Structure and Sampling",
           "input_sha256": "c328fffb8f2e132ce2f8eb14490749b45992f1ab608992a148bd05ebc9899c29",
           "output_path": "technical_reference/docs/technical_reference_guide/2_ResStockStructureAndSampling.md",
-          "output_sha256": "b0ed4bbcabb1413cbd021f43dc176f62dc5819f26af68f1654d62ab37ea65ada",
-          "body_sha256": "38a1d4d678403271b0a4f1a7a60e167faf77cc1b8ab14291ad35cea87f2a4ce5"
+          "output_sha256": "c342a982565f693efaac0d30982783ba33e31e44d668b04a16f432f8b3f39e99",
+          "body_sha256": "55f188e218ece92856074fb1424be8190152665bd600b39a09d08ec022f1e12c",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/technical_reference/docs/technical_reference_guide/2_ResStockStructureAndSampling.yaml",
+            "sha256": "51008a94e2c84ba153b5e6744a64f6cc7f785f6b48275dc620e46cd5a397271d",
+            "tables_applied": [],
+            "figures_applied": [
+              "images/Figure 1.png",
+              "images/illustrative_sample.png",
+              "images/TRG-ResStock OpenStudio Measure Flowchart.png",
+              "images/Figure 4.png"
+            ]
+          }
         },
         {
           "source_path": "docs/technical_reference_guide/3a_ResStockInputs.tex",
@@ -72,8 +83,24 @@
           "title": "Housing Characteristics and Inputs",
           "input_sha256": "382cb96b4e66f3f89cd7af526e4a6cfe096a41068d940b91b365eec309642c7a",
           "output_path": "technical_reference/docs/technical_reference_guide/3a_ResStockInputs.md",
-          "output_sha256": "9b309a25d897392f3d3ccc5370e1ab1b1d49ba3297535debf9249a933685d50d",
-          "body_sha256": "c7794a577cdcc17b65b766388aa48f067b95fc8262319f04866086ef87f4dd89"
+          "output_sha256": "f16d350df4cb43e0f1dd04246faa7096b1cc3b4e739ff3262182a8f0650dcca6",
+          "body_sha256": "d9e692262bf58d834563631f849030bcda74b26f29ccdcc5cde0fcc3c240dd9d",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/technical_reference/docs/technical_reference_guide/3a_ResStockInputs.yaml",
+            "sha256": "69b6a4d87b8efd226c57c794ff76e14f2d0609207a66d47e587d291eeb4b96c0",
+            "tables_applied": [],
+            "figures_applied": [
+              "images/2010-PUMAs.png",
+              "images/aiannh_48b.jpg",
+              "images/ashrae_iecc_cz_map_2004.jpg",
+              "images/building_america_cz.png",
+              "images/CEC_Building_Climate_Zones.png",
+              "images/ENERGY_STAR_Climate_Zone_Map.png",
+              "images/reeds_ba_map.png",
+              "images/Cambium_GEA_map_2023.png",
+              "images/custom_region_map.png"
+            ]
+          }
         },
         {
           "source_path": "docs/technical_reference_guide/3b_ResStockInputs_HVAC.tex",
@@ -98,8 +125,16 @@
           "title": "Water Heating, Appliances, Lighting, Plug Loads, Electric Vehicles, Electrical Panels, Household Characteristics",
           "input_sha256": "cf00008039b049b45ffbc1cd8c005ea5f7ff161e34f2ae43f62aee036bb01ee5",
           "output_path": "technical_reference/docs/technical_reference_guide/3c_ResStockInputs.md",
-          "output_sha256": "576c9e832721ab79ad26a2c9bd3e1d88b34025381e074d164dc4c7aed48486a9",
-          "body_sha256": "41b1d190c7aa60e9db9418eb9cb949b38955bbe9e00e8138b8d5e85e3e52a9b6"
+          "output_sha256": "28b7c07b67ff64a73e397711f899c17f6427b93b74de788266e69a66826cd16f",
+          "body_sha256": "f4c66b5e7a6a123060f13fb633e6507005d3e45d6a4cad3756e24b0b036b04fa",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/technical_reference/docs/technical_reference_guide/3c_ResStockInputs.yaml",
+            "sha256": "1119217651c97ee3fc363ea34fe8df00ab475ae09cba552b5a580a0668fa5299",
+            "tables_applied": [],
+            "figures_applied": [
+              "images/Example EV Discharging Schedule.png"
+            ]
+          }
         },
         {
           "source_path": "docs/technical_reference_guide/5_ResStockOutputs.tex",
@@ -1839,15 +1874,15 @@
   ],
   "counts": {
     "documents": 62,
-    "chunks": 4177,
+    "chunks": 4181,
     "by_type": {
       "latex": 7,
       "markdown": 27,
       "pdf": 28
     },
-    "overlay_documents": 28,
+    "overlay_documents": 31,
     "overlay_tables": 105,
-    "overlay_figures": 453,
+    "overlay_figures": 467,
     "overlay_tables_checked": 136,
     "overlay_text_repairs": 6
   },
