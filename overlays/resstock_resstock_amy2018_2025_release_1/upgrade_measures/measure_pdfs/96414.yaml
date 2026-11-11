@@ -7,7 +7,9 @@
 #
 # Tables (page numbers are PDF pages, 1-based):
 #   * Table 3 (p.18) and Table 5 (pp.21-22) are superseded: see each entry's `why`.
-#   * Tables 1, 2, 4, 6 and 7 and the Measure Summary table (p.9) are recorded under
+#   * Table 4 (p.20) is superseded: every value was right, but an argument name carried a
+#     line-wrap space. It is the extractor's own grid with that name joined.
+#   * Tables 1, 2, 6 and 7 and the Measure Summary table (p.9) are recorded under
 #     `checked:` as correct.
 #   * The List of Acronyms (p.5) has no entry: the extractor emitted it as one run-on
 #     paragraph, not a grid, so there is no table to check or to replace and no caption to
@@ -173,6 +175,62 @@ tables:
     | |
 
     | EIR coefficients as a function of flow fraction | [[2.185418751, -1.942827919, 0.757409168]] | |'
+- label: Table 4
+  caption: ResStock Argument Values for the Dual Fuel Heating System Upgrade
+  source_pdf: measure_pdfs/96414.pdf
+  source_pdf_sha256: eb06df8d38643f4acb1e2bb11401ab8c782e55221545af90f0a1aef943ac18bc
+  page: 20
+  method: extracted grid, with the cells named in `why` corrected from the PDF text layer
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 5e15523ba64431ac6bfcfcdac4aab8ee3b45a40607c9067a2041fb6f6c3727f8
+    why: Every value is right, but the argument name heat_pump_heating_capacity_retention_fraction_temperature
+      carries a space where the PDF breaks it across two lines ('..._temper ature'), so a search for the
+      argument misses it. The header 'OpenStudio-HPXML?' had the same line-break space. The cell text
+      is the extractor's own with those two joined.
+  markdown: '| ResStock Argument | Dual Fuel Heating System | Calculated by OpenStudio-HPXML? |
+
+    |---|---|---|
+
+    | heat_pump_type | air-to-air | No |
+
+    | heat_pump_heating_efficiency_type | HSPF2 | No |
+
+    | heat_pump_heating_efficiency | 7.8 | No |
+
+    | heat_pump_cooling_efficiency_type | SEER2 | No |
+
+    | heat_pump_cooling_efficiency | 15.1 | No |
+
+    | heat_pump_sizing_methodology | ACCA | No |
+
+    | heat_pump_heating_capacity | auto | Yes |
+
+    | heat_pump_fraction_heat_load_served | 1 | No |
+
+    | heat_pump_cooling_capacity | auto | Yes |
+
+    | heat_pump_fraction_cool_load_served | 1 | No |
+
+    | heat_pump_backup_type | integrated | No |
+
+    | heat_pump_backup_fuel | natural gas | No |
+
+    | heat_pump_backup_heating_efficiency | 0.950/0.925 (depending on climate zone) | No |
+
+    | heat_pump_backup_heating_capacity | auto | Yes |
+
+    | heat_pump_heating_capacity_retention_fraction | 0.5 | No |
+
+    | heat_pump_heating_capacity_retention_fraction_temperature | 5°F | No |
+
+    | heat_pump_is_ducted | TRUE | No |
+
+    | heat_pump_cooling_compressor_type | single stage | No |
+
+    | heat_pump_backup_heating_lockout_temp | 35°F | No |
+
+    | heat_pump_compressor_lockout_temp | 35°F | No |'
 checked:
 - label: Measure Summary
   uncaptioned: true
@@ -205,17 +263,6 @@ checked:
   checked_utc: '2026-11-11'
   note: Each Circuits and Breaker Spaces cell holds two lines (ckt 1, ckt 2) joined by a space. 'ground-to-
     air' in the first two rows carries a space where the PDF hyphenates 'ground-to-air' across a line.
-- label: Table 4
-  caption: ResStock Argument Values for the Dual Fuel Heating System Upgrade
-  source_pdf: measure_pdfs/96414.pdf
-  source_pdf_sha256: eb06df8d38643f4acb1e2bb11401ab8c782e55221545af90f0a1aef943ac18bc
-  page: 20
-  table_sha256: 5e15523ba64431ac6bfcfcdac4aab8ee3b45a40607c9067a2041fb6f6c3727f8
-  verdict: correct
-  method: page-render-and-text-layer
-  checked_utc: '2026-11-11'
-  note: 'Two line-wrap spaces: ''OpenStudio- HPXML?'' in the header and ''heat_pump_heating_capacity_retention_fraction_temper
-    ature'' (the PDF breaks the argument name across two lines). Every value matches.'
 - label: Table 6
   caption: Characteristics of Two Individual Dwelling Test Models
   source_pdf: measure_pdfs/96414.pdf
