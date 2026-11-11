@@ -8,19 +8,21 @@
 # Tables (page numbers are PDF pages, 1-based):
 #   * Table 3 (p.17), Table 4 (pp.19-20) and Table 5 (pp.20-22) are superseded: see each
 #     entry's `why`. Table 5 had lost its last row.
-#   * Tables 1, 2, 6 and 7 and the Measure Summary table (p.9) are recorded under
-#     `checked:` as correct.
+#   * The Measure Summary table (p.9, no caption) is superseded: it was right except
+#     for a line-wrap space inside the release URL. It is the extractor's own grid with
+#     that space removed.
+#   * Tables 1, 2, 6 and 7 are recorded under `checked:` as correct.
 #   * The List of Acronyms (p.5) was extracted as one run-on paragraph, not a grid, so
 #     there is no table to fingerprint and it has no entry. All twelve acronyms and their
 #     expansions are present in that paragraph.
 #   * The Table of Contents, List of Figures and List of Tables grids are contents pages,
 #     not tables of the report, and have no entry.
 #
-# Left in the document, outside what a table entry can remove: the paragraph "1.490"
-# below Table 4 (the value that fell out of the first grid) and, under section 3.4, the
-# paragraph "The functions of flow fraction are 1 because the blower is assumed to have
-# constant flow" (the note of Table 5's dropped last row). Both values are now in the
-# transcriptions; the stray paragraphs would need `text_repairs` or an extractor fix.
+# Text repairs: two fragments the extractor left outside their tables are removed, since
+# the transcriptions carry them: the paragraph "1.490" below Table 4 (the value that fell
+# out of the first grid) and, under section 3.4, the paragraph "The functions of flow
+# fraction are 1 because the blower is assumed to have constant flow" (the note of Table
+# 5's dropped last row).
 #
 # Figures: Figures 1-16 are described (40-70 words each, vision-description); every figure
 # caption has its image. The cover art and wordmark (image_000000, image_000001) are
@@ -42,6 +44,16 @@ source_id: upgrade_measures
 source_path: measure_pdfs/96413.pdf
 source_url: https://docs.nlr.gov/docs/fy26osti/96413.pdf
 publication_url: https://docs.nlr.gov/docs/fy26osti/96413.pdf
+text_repairs:
+- find: '1.490'
+  remove: true
+  why: The last value of hvac_perf_data_heating_max_speed_cops* in Table 4, which fell out of its cell
+    and was left as a paragraph below the table. The hand-authored Table 4 carries it in its row, so the
+    fragment is only a stray number.
+- find: The functions of flow fraction are 1 because the blower is assumed to have constant flow
+  remove: true
+  why: The note cell of Table 5's last row, which the extractor dropped from the grid and left as a paragraph
+    under section 3.4. The hand-authored Table 5 carries it in that row.
 tables:
 - label: Table 3
   caption: Summarized Apply Logic Typical Cold Climate ASHP
@@ -263,19 +275,42 @@ tables:
 
     | Heating energy input ratio as a function of flow fraction | [[1, 0, 0]]; [[1, 0, 0]]; [[1, 0, 0]]
     |  | The functions of flow fraction are 1 because the blower is assumed to have constant flow |'
-checked:
 - label: Measure Summary
   uncaptioned: true
   source_pdf: measure_pdfs/96413.pdf
   source_pdf_sha256: 393e4cf9737a44e8b5df32353ffe20386d43565d27d84b004f3228e21241ec28
   page: 9
-  table_sha256: 0a8586f01fe3de87ba9e092c9d3fd5ee34155560002a26bfb399ad74df8408fc
-  verdict: correct
-  method: page-render-and-text-layer
-  checked_utc: '2026-11-11'
-  note: The grid under the 'Measure Summary' heading (the report's upgrade summary table). The bullets
-    inside cells are run into the cell text, and the configuration URL carries a space where the PDF wraps
-    the line ('github.com/ NatLabRockies'); the cell text is otherwise the page's.
+  method: extracted grid, with the cells named in `why` corrected from the PDF text layer
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 0a8586f01fe3de87ba9e092c9d3fd5ee34155560002a26bfb399ad74df8408fc
+    why: The table is right cell for cell except the release URL, which carries a space where the PDF
+      wraps the line ('github.com/ NatLabRockies'), so the link is broken. The cell text is the extractor's
+      own with that space removed.
+  markdown: '| Measure Title | Typical Cold Climate Air-Source Heat Pump |
+
+    |---|---|
+
+    | Measure Definition | This upgrade measure replaces any existing non-shared ducted heating and air
+    conditioning system with a variable-speed ducted air-source heat pump (ASHP) with electric resistance
+    backup. If the unit does not have air conditioning, the unit will receive air conditioning through
+    the ASHP. The technology applied in this measure upgrade package is denoted in the ResStock options_lookup.tsv
+    as the following: • Typical Cold Climate Heat Pump, HSPF2 8.5, SEER2 17.5. |
+
+    | Applicability | This measure applies to all dwellings with: • Ducted non-shared (in-unit) HVAC with
+    any of the following heating fuels: electricity, natural gas, fuel oil, or propane. With these applicability
+    constraints, the measure upgrade applies to 74.3% of the existing dwelling units. |
+
+    | Not Applicable | This measure does not apply to dwelling units with the following: • Shared HVAC
+    • Non-ducted non-shared HVAC. These constraints exclude 25.7% of the dwelling units from receiving
+    this measure upgrade |
+
+    | Original Release | 2025 Release 1: 2025/resstock_amy2018_release_1; 2025/resstock_amy2012_release_1
+    |
+
+    | Project Configuration File(s) | See project_national/sdr_upgrades_tmy3.yml in https://github.com/NatLabRockies/resstock/releases/tag/2025_Release_1
+    |'
+checked:
 - label: Table 1
   caption: Default Power Rating of Ducted Heat Pump System Components
   source_pdf: measure_pdfs/96413.pdf
