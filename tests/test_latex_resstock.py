@@ -251,3 +251,29 @@ def test_load_latex_docs_threads_bibliography_and_rasters_to_convert(tmp_path, m
     assert seen == {"bibliography": "files/refs.bib"}
     assert rasters == {"images/Figure 1.png": tmp_path / "cache.png"}
     assert warnings == []
+
+
+# --- degree signs ---------------------------------------------------------------------------
+
+
+def test_degree_macros_pandoc_drops_are_rewritten_to_textdegree():
+    """gensymb's \\degree vanished in conversion ("17F") and `$\\deg$` stayed raw math."""
+    src = "between 55\\degree F and 80\\degree~is; setpoint $\\deg$ F; a \\degreedays macro"
+    out = L._DEGREE_RE.sub(r"\\textdegree{}", src)
+    assert out == (
+        "between 55\\textdegree{} F and 80\\textdegree{}~is; setpoint \\textdegree{} F; "
+        "a \\degreedays macro"
+    )
+
+
+def test_convert_hands_pandoc_the_degree_rewrite(tmp_path, monkeypatch):
+    (tmp_path / "ch.tex").write_text("Below 17\\degree F.", encoding="utf-8")
+    seen = []
+
+    def fake_pandoc(text, cwd, citeproc, bibliography):
+        seen.append(text)
+        return SimpleNamespace(returncode=0, stdout="ok", stderr="")
+
+    monkeypatch.setattr(L, "_pandoc", fake_pandoc)
+    L._convert(tmp_path / "ch.tex", tmp_path)
+    assert seen == ["Below 17\\textdegree{} F."]

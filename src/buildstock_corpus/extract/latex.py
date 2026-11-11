@@ -56,6 +56,11 @@ LATEX_PNG_CACHE = PROJECT_ROOT / ".cache" / "latex_png"
 # \includegraphics with its options split across lines can trip pandoc's LaTeX reader —
 # strip as a last-resort fallback so the chapter still converts (captions survive as text).
 _INCLUDEGRAPHICS_RE = re.compile(r"\\includegraphics\s*(?:\[[^\]]*\])?\s*\{[^}]*\}", re.DOTALL)
+# Degree signs pandoc loses. gensymb's \degree is unknown to it and is dropped without a
+# trace ("17\degree F" came out "17F"), and `$\deg$`, which authors type for the same sign,
+# is the math operator "deg" and survives as raw math. Both are rewritten to \textdegree,
+# which pandoc renders as the character. \degree inside a longer command name is left alone.
+_DEGREE_RE = re.compile(r"\$\s*\\deg\s*\$|\\degree(?![A-Za-z])")
 _LONGTABLE_RE = re.compile(r"\\begin\{longtable\}.*?\\end\{longtable\}", re.DOTALL)
 _GFM_SEP_RE = re.compile(r"^\s*\|[\s:|-]*-[\s:|-]*\|\s*$")  # a GFM header separator row
 # `center` carries no meaning in markdown (pandoc would emit <div class="center"> noise), and
@@ -511,6 +516,7 @@ def _convert(
     labels: dict[str, str] = {}
     raw = _expand_inputs(tex_path.read_text(encoding="utf-8", errors="replace"), cwd, labels=labels)
     raw = _rasterize_pdf_figures(raw, cwd, rasters)
+    raw = _DEGREE_RE.sub(r"\\textdegree{}", raw)
     chapter_file = tex_path.relative_to(cwd).as_posix() if tex_path.is_relative_to(cwd) else tex_path.name
     citeproc_opts = [True, False] if (cwd / bibliography).exists() else [False]
     last = ""

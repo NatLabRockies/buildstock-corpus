@@ -24,7 +24,13 @@ from the ref alone (index, origin, bitmap hash) so validate needs no image files
 The rule is per product (``_RULES``). The one above is ComStock's, written from its
 reports; a product with no rule hides nothing, which is the safe side: a real Figure 1
 stays visible until the product's first conversion has been looked at and a rule for it
-written here (PLAN-resstock.md R3.2 does that for ResStock).
+written here.
+
+ResStock's rule (PLAN-resstock.md R3.2, from its first conversion on 2026-11-10): every one
+of its 28 measure documents is an OSTI report on the same template, and all 28 open with
+cover art (image_000000) and the laboratory wordmark (image_000001). That was read off the
+bitmap hashes, not assumed: four cover bitmaps and two wordmark bitmaps account for all 28
+reports, and each of the six was looked at. The site serves no measure PDF of its own.
 """
 
 from __future__ import annotations
@@ -61,7 +67,12 @@ def _comstock_label(source_path: str, idx: str, name_hash: str) -> str | None:
     return None
 
 
-_RULES = {"comstock": _comstock_label}
+def _resstock_label(source_path: str, idx: str, name_hash: str) -> str | None:
+    """ResStock's rule: every measure PDF is an OSTI report, cover art then wordmark."""
+    return _OSTI_REPORT.get(idx)
+
+
+_RULES = {"comstock": _comstock_label, "resstock": _resstock_label}
 
 
 def decorative_label(product: str, source_path: str, idx: str, name_hash: str) -> str | None:
