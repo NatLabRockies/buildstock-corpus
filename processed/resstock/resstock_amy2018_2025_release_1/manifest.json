@@ -2,7 +2,7 @@
   "product": "resstock",
   "release": "resstock_amy2018_2025_release_1",
   "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
-  "generated_utc": "2026-11-11T16:34:33.417729+00:00",
+  "generated_utc": "2026-11-11T18:20:02.837402+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -658,16 +658,18 @@
           "title": "Cold Climate Air-Source Heat Pump",
           "input_sha256": "393e4cf9737a44e8b5df32353ffe20386d43565d27d84b004f3228e21241ec28",
           "output_path": "upgrade_measures/measure_pdfs/96413.md",
-          "output_sha256": "4ca01bb3fec7483cf40324c97ce9f0ceadd6d0abfe4a9235fffc6588a2c97bc9",
-          "body_sha256": "8df08751faad9ed64f76ffcd47a4943df954d126562219647bbb06f6826620df",
+          "output_sha256": "e5e7729ecc6f35b557fb736596dbf45f5eff9065cdaea0e57102973410c9c1ff",
+          "body_sha256": "6330a34927ef993757a32601fc986f6aac4550e36dfd1763368e5ddb1983bc03",
           "overlay": {
             "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96413.yaml",
-            "sha256": "4ff9847aa6941374027acc38b0d5d1d54e6616e83dd619abe7c28790ac84d0d7",
+            "sha256": "69f3dc3e65be5e35a89120b347978edb30f4d24732d80ab2782dda0dbaf8a3ec",
             "tables_applied": [
               "Table 3",
               "Table 4",
-              "Table 5"
+              "Table 5",
+              "Measure Summary"
             ],
+            "text_repairs_applied": 2,
             "figures_applied": [
               "96413_images/image_000002_1fa65a8bcf6b1a5498616801f3aae708bc78b9e08e11cadfa275d44d5e6d2d8e.png",
               "96413_images/image_000003_5a69086fab892d45ab18da2baadf6e222b2d13939b4bd6b30774a2dbd9a0959d.png",
@@ -687,7 +689,6 @@
               "96413_images/image_000017_9385dbcf068854162a0c2449c39068bdd19c5e770875868a8c44674e9724a909.png"
             ],
             "tables_checked": [
-              "Measure Summary",
               "Table 1",
               "Table 2",
               "Table 6",
@@ -705,14 +706,15 @@
           "title": "Dual Fuel Heat Pump",
           "input_sha256": "eb06df8d38643f4acb1e2bb11401ab8c782e55221545af90f0a1aef943ac18bc",
           "output_path": "upgrade_measures/measure_pdfs/96414.md",
-          "output_sha256": "e6c89aea57e6170a52cbe2ea1a8e9ad2dc196b790efd018995f83fac6ebb9b3d",
-          "body_sha256": "26826ca0c0f2f5435c40a14099faa65eaf5fd6a613e0eae9a4094300df96b364",
+          "output_sha256": "aee081436fd49121bb2fbc15c6e551c44c48866436eb3f360ab8775aad285b15",
+          "body_sha256": "6911cc3a04b42ec4ef4bb954bc1c0d04ed65d969f39b057637b15ec649973815",
           "overlay": {
             "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96414.yaml",
-            "sha256": "49fb9bc26b470c9e38616959e273fdee7152e7c3c9ce0171848ddb794bd5ab0c",
+            "sha256": "b358fd60bc72e5ec10655eb24ff1780fc4448c4d580935bd764e2d09183fae83",
             "tables_applied": [
               "Table 3",
-              "Table 5"
+              "Table 5",
+              "Table 4"
             ],
             "figures_applied": [
               "96414_images/image_000002_0d99e1371b27558582d86068aa062b8191379a1f47d3068fcd8cd57cf6743edc.png",
@@ -734,7 +736,6 @@
               "Measure Summary",
               "Table 1",
               "Table 2",
-              "Table 4",
               "Table 6",
               "Table 7"
             ]
@@ -750,14 +751,15 @@
           "title": "Natural Gas Furnace 95% AFUE",
           "input_sha256": "77c22cdd42f5f8e4159372967c0d03548077bba5e345ccf02e3b4211278900b7",
           "output_path": "upgrade_measures/measure_pdfs/96634.md",
-          "output_sha256": "57053c03810a45c90405db7995704ed35a5e9f371172e3b52fa2e2c447262c74",
-          "body_sha256": "fabddeedebd79d60498b60b19479fdcced2b0a939dfbf44bc8f067d23037a9c0",
+          "output_sha256": "817fe9c663c0d05fd37ecdb45f2c4ca17a75b715a7c9d1238ba498ad83c44d46",
+          "body_sha256": "0000bbfca7d74003be76bf2fe8828d6b8d82c996a75b44c3c211d6a86b78f241",
           "overlay": {
             "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96634.yaml",
-            "sha256": "fb3aef3aa7fc8d8d579f4cbac87fab1ce6a54076c8ff5b2ff13a1911b5a00eb2",
+            "sha256": "9436eee41b5a2418ab2af6717364ea256e3e4db9ae6190d5bd8818d48b5847b9",
             "tables_applied": [
               "Table 1",
-              "Table 3"
+              "Table 3",
+              "Upgrade Summary"
             ],
             "figures_applied": [
               "96634_images/image_000002_fc94f6d2961dc20abb2efe868d6d919ddf2c6404c651d8e8b3bac755c71d5934.png",
@@ -773,7 +775,6 @@
             ],
             "tables_checked": [
               "List of Acronyms",
-              "Upgrade Summary",
               "Table 2",
               "Table 4",
               "Table 5"
@@ -790,15 +791,17 @@
           "title": "Propane Furnace 95% AFUE and Fuel Oil Furnace 88% AFUE",
           "input_sha256": "9af4cf0249bffa601a9a798305142b0eb92eb5202c0ed5c4f480efed8b8016a7",
           "output_path": "upgrade_measures/measure_pdfs/96635.md",
-          "output_sha256": "eed2f15399945f7f9c2c1f69f0940fb65b82fd739bce35abfd892c5779f7c1e4",
-          "body_sha256": "5fe2029ea178d12224cd000b40159ddf5f23a70a451a9dfd4883e697b64f5d92",
+          "output_sha256": "2d788e1a0fb12c152409fe8feb405da8a12d74b9ffba1a86fd6e22d412535416",
+          "body_sha256": "f34b1112367be97f8b932f295761e52185171d304dfafb876ce55481116068a9",
           "overlay": {
             "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96635.yaml",
-            "sha256": "bcdbb4316cb8a806a0120b9a879adb9c55d48c77e749540b7add7ffb745bc877",
+            "sha256": "0d92dfb8011928fcbc16cb0e43b1f4b542587c72868993676e99905d5d87d285",
             "tables_applied": [
               "Table 1",
-              "Table 3"
+              "Table 3",
+              "Upgrade Summary"
             ],
+            "text_repairs_applied": 1,
             "figures_applied": [
               "96635_images/image_000002_d47bd62a76126eaf9a628ae98556e9c974d40ee7b1a94516094c99573b2e0539.png",
               "96635_images/image_000003_cc847472d85ab4147944b439f571a83215cf0d479fcb161281da3c72a3a3bc8b.png",
@@ -814,7 +817,6 @@
             ],
             "tables_checked": [
               "List of Acronyms",
-              "Upgrade Summary",
               "Table 2"
             ]
           }
@@ -829,18 +831,19 @@
           "title": "Reference Space Heating and Air Conditioning Upgrade Circa 2025",
           "input_sha256": "f7d3ed849fdae6e20111670a617bbc4c227c5f0f914bdaa0fb99343acebef475",
           "output_path": "upgrade_measures/measure_pdfs/96636.md",
-          "output_sha256": "fc67f0246d1ef33ab2bac73913b2aea3e8fec38f7b7ac60f21f8349edc9a7710",
-          "body_sha256": "3edac0076acb91d8b9c5321508fb56d43a9b80db17b373ace829d67f3b295ea1",
+          "output_sha256": "7fa4e8737b358bdb2f759e71cd5eb349bd40c7f3de25042a2337c1f63addd65d",
+          "body_sha256": "88825d3c4f4f67f59bedcb645d308406895af79a5b2d4d762083fcf3d9ff671d",
           "overlay": {
             "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96636.yaml",
-            "sha256": "2c278570115ca3d110860bfbc2fe30f025a4d15a7d389f362f29e793f8511f53",
+            "sha256": "58b955adf85eb3f5db0b0ce9b7fb03f6f3a7e1fbcfd64db412a6dfbdf42042bb",
             "tables_applied": [
               "Table 1",
               "Table 2",
               "Table 3",
               "Table 5",
               "Table 6",
-              "Table 7"
+              "Table 7",
+              "Upgrade Summary (page 10: Not Applicable, Original Release, Project Configuration File)"
             ],
             "figures_applied": [
               "96636_images/image_000002_1428a0e11423f2857129471b60674e8342823d610bc684f3a04854fbc6ad1c63.png",
@@ -860,7 +863,6 @@
             "tables_checked": [
               "List of Acronyms",
               "Upgrade Summary (page 9: Measure Definition, Applicability)",
-              "Upgrade Summary (page 10: Not Applicable, Original Release, Project Configuration File)",
               "Table 4",
               "Table 8",
               "Table 9",
@@ -891,14 +893,16 @@
           "title": "Heat Pump Water Heater",
           "input_sha256": "9b1963bc5ff7300c2d3e99bada6183d68a80c1e785f41b50589eab76f7532e3f",
           "output_path": "upgrade_measures/measure_pdfs/96826.md",
-          "output_sha256": "72b8d99297166213d22f694e5fa5937543da369cd7515324e1e81199d83d6363",
-          "body_sha256": "2e7415cfa2233411948cb729c415653b003715c141066b90cdf22cf9c4e0e654",
+          "output_sha256": "f337cf8f50e2aa9f8cc1b7f566e3c1aaa3c6e85bc2b33c3faa8a714224db42ea",
+          "body_sha256": "213a626e63fe84c909939f1673ac2b6cf9154f1b186110aa92e1fbf34e84bd30",
           "overlay": {
             "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96826.yaml",
-            "sha256": "561812f614690321b4da6522732ee816ef0a82f843ff8d560fe5818b6dd5d9cf",
+            "sha256": "601ee469798a52f3e75c53fb7611013148d14c4b76cb3934b2564399c966650b",
             "tables_applied": [
               "Table 6",
-              "Table 8"
+              "Table 8",
+              "Table 5",
+              "Measure Summary"
             ],
             "figures_applied": [
               "96826_images/image_000002_179da9a079d3e4ffe66dc3bf6d4f0c348daec624f7d5f4b9b7f54cc0985bcb88.png",
@@ -927,7 +931,6 @@
               "Table 3",
               "Table 4",
               "Table 4",
-              "Table 5",
               "Table 7"
             ]
           }
@@ -942,12 +945,14 @@
           "title": "Natural Gas Water Heater",
           "input_sha256": "df766d887490be71cc37e40ba6f92ce9d8b88844c90ab43063c0b84206fd7e0d",
           "output_path": "upgrade_measures/measure_pdfs/96827.md",
-          "output_sha256": "dcfc9d6e45a84df92c899252c707c080dda79692a339e7bd28413931cb8b5607",
-          "body_sha256": "ed4f73d23a49c0685268dcc8e1f5349614b72b2cd32899efb7f7042500bf0a60",
+          "output_sha256": "c764f0231bed12759a6c31d4f38f85a1bdf95c7386c246ad3be6482480516a6c",
+          "body_sha256": "df76614fc8b19ac0ea71c8a80d1670986f54039a55919b6bd514300d5d4d0c30",
           "overlay": {
             "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96827.yaml",
-            "sha256": "c81be6ea6695a3f12fbc9cbb3f6b17b300cd3cacd342cec072327aca1b24dd9b",
-            "tables_applied": [],
+            "sha256": "7e82383677dfb0346c14cbc74fd48c4d0be6d35e75ec5f34e3ae83889f9d939e",
+            "tables_applied": [
+              "Measure Summary"
+            ],
             "figures_applied": [
               "96827_images/image_000002_c55b3e7014c15ef1328135d21914c97aa4fe336a2cfa2a10a7e0b3373e640277.png",
               "96827_images/image_000003_c31754c0b374c6b38f43047d0af19681787f03e684d04d6c17c6f95f872c0c33.png",
@@ -995,12 +1000,15 @@
           "title": "Residential Single-Stage Geothermal Heat Pump (3.8 COP, 18.6 EER)",
           "input_sha256": "e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f",
           "output_path": "upgrade_measures/measure_pdfs/95032.md",
-          "output_sha256": "c6c211ce4066817134db21a889d8590a90113fd87b958cfde106c9c3fb5752a8",
-          "body_sha256": "f0f5825e7c51eb9f563b8cc29961761b1d8ad39307a15420c1de835d7223e65f",
+          "output_sha256": "6f5fc9c749824f841e566f7dcad435e01ea9b8725a4e61f9db7beb3b87777a96",
+          "body_sha256": "b8b19099f1d29bd9ac4d3124c863833dabe1588e8d149dd1a1e3ee6727ce880d",
           "overlay": {
             "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95032.yaml",
-            "sha256": "3c1d11887e06aa7e78dfcd146ef498bf8c15a52eb0429092589493c66c011dae",
-            "tables_applied": [],
+            "sha256": "890bec522762b6706be91725548fd04276bd9858f869d9597edf7aeb909ef540",
+            "tables_applied": [
+              "Table A-2",
+              "Table B-1"
+            ],
             "figures_applied": [
               "95032_images/image_000002_a429cf5d958a67abbdceb0a07ce46f44f0da4be97bfdd1414879ef886218ed5c.png",
               "95032_images/image_000003_381d498b4366598371b9b4b5db9daadf054c7171ba773c4bdc70c6cc1e079d37.png",
@@ -1250,17 +1258,17 @@
   ],
   "counts": {
     "documents": 62,
-    "chunks": 3918,
+    "chunks": 3912,
     "by_type": {
       "latex": 7,
       "markdown": 27,
       "pdf": 28
     },
     "overlay_documents": 10,
-    "overlay_tables": 19,
+    "overlay_tables": 29,
     "overlay_figures": 212,
-    "overlay_tables_checked": 60,
-    "overlay_text_repairs": 0
+    "overlay_tables_checked": 54,
+    "overlay_text_repairs": 3
   },
   "crosswalk": {
     "file": "crosswalk.json",

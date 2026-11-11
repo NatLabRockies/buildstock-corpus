@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96635.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96635.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96635.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96635.md | section: 3.1.2 Housing Stock Characteristics | lines: 211-279 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96635.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96635.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96635.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96635.md | section: 3.1.2 Housing Stock Characteristics | lines: 225-295 -->
 ## 3.1.2 Housing Stock Characteristics
 
 HVAC heating types and efficiencies are key characteristics of the housing stock for this upgrade; see Table 3.
@@ -64,7 +64,9 @@ Columns are U.S. Census Divisions; each value is the share of all U.S. household
 | None | <1% | <1% | <1% | <1% | <1% | 1% | <1% | <1% | <1% |
 | Total % of Housing Stock | 15% | 6% | 13% | 7% | 5% | 14% | 20% | 7% | 12% |
 
-U.S. Census Division
+<!-- text repaired by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96635.yaml
+     Table 3's spanning column header, which the extractor left as a line of its own below the table. The hand-authored Table 3 states it ('Columns are U.S. Census Divisions'), so the fragment only reads as a stray paragraph.
+     removed line: U.S. Census Division -->
 
 Natural gas is common across census divisions. Electricity is most prevalent in the South Atlantic, accounting for nearly 14.5% of the U.S. housing stock. Fuel oil is more prevalent in New England and the Middle Atlantic census divisions, which have historically used fuel oil in older and more rural buildings. Propane is used less frequently but is evenly distributed across the U.S. housing stock, as i t is primarily used in more rural areas that don't have access to natural gas service.
 

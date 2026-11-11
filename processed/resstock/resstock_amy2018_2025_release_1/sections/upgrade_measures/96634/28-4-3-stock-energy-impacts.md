@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96634.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96634.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96634.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96634.md | section: 4.3  Stock Energy Impacts | lines: 375-436 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96634.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96634.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96634.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96634.md | section: 4.3  Stock Energy Impacts | lines: 389-450 -->
 ## 4.3  Stock Energy Impacts
 
 Out of 550,000 model building simulations (i.e., models), 408,800 models are applicable for the natural gas fuel furnace upgrade (74.3%), representing the 139,647,020 dwellings from American Community Survey's 2021, 5 -year estimate of U.S. households (not including territories).

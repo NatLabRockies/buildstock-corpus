@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96634.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96634.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96634.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96634.md | section: 4.4  Stock Bill Impacts | lines: 437-479 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96634.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96634.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96634.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96634.md | section: 4.4  Stock Bill Impacts | lines: 451-493 -->
 ## 4.4  Stock Bill Impacts
 
 As previously mentioned, stock bill impacts will be shown considering the reduction in cooling when dwelling upgrade to a natural gas furnace from ASHP. Figure 10 shows the average annual bill savings per dwelling by HVAC heating efficiency and bill savings energy source.

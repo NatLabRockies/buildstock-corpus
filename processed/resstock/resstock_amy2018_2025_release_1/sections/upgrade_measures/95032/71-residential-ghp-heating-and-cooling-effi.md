@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95032.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95032.md | section: Residential GHP Heating and Cooling Efficiencies | lines: 1513-1578 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95032.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95032.md | section: Residential GHP Heating and Cooling Efficiencies | lines: 1513-1583 -->
 ## Residential GHP Heating and Cooling Efficiencies
 
 The efficiency of GHPs has improved over time. Combining historical federal equipment efficiency standards with historical unit shipment data provides insights into the efficiency of the GHP units in the residential building stock. The GeoVision report used an energy efficiency ratio (EER) of 18.2 and coefficient of performance (COP) of 4.0 at 100% load (heating or cooling) to represent typical GHPs installed in the U.S. in 2012 (U.S. DOE 2019).
@@ -35,16 +35,21 @@ Table A-2 lists the COP and EER values for the most efficient GHPs on the market
 
 Table A-2. ENERGY STAR Most Efficient GHPs, 2022
 
-Performance values with * indicate that products have previously met ENERGY STAR criteria, but no products currently meet ENERGY STAR Most Efficient 2022 Criteria.
+<!-- table recovered from measure_pdfs/95032.pdf p.77
+     overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95032.yaml
+     method: vision-transcription
+     supersedes the extractor's own table here (values c5b410395002…):
+       Every number is right, but the row grouping is not. The first column's merged cells are Open-Loop (two rows) and Closed-Loop (three rows); the extractor left the first Closed-Loop row (Water-to-air, criteria 3.6 / 17.1) with an empty group cell, so it reads as a third Open-Loop row or as no group at all. The 'Product Type' header over the first two columns was also dropped, and the COP/EER spanner was flattened into a header row plus a data row. Group labels are repeated on each row and the two header rows are joined as 'COP: Min.'. -->
 
-|              |                      | COP      | COP   | COP   | COP   | EER      | EER   | EER   | EER   |
-|--------------|----------------------|----------|-------|-------|-------|----------|-------|-------|-------|
-|              |                      | Criteria | Min.  | Ave.  | Max.  | Criteria | Min.  | Ave.  | Max.  |
-| Open- Loop   | Water-to-air         | 4.1      | 4.1   | 4.64  | 5.6   | 21.1     | 22.2  | 27.9  | 56.9  |
-| Open- Loop   | Water-to-water       | 3.5      | 3.9   | 3.9   | 3.9   | 20.1     | 20.6  | 20.6  | 20.6  |
-|              | Water-to-air         | 3.6      | 3.6   | 4.06  | 4.6   | 17.1     | 17.3  | 22.4  | 33.7  |
-| Closed- Loop | Water-to-water       | 3.1      | 3.3   | 3.3   | 3.3   | 16.1     | 17.5  | 17.5  | 17.5  |
-| Closed- Loop | Direct geo- exchange | 3.6      | 3.1*  | 3.7*  | 4.1*  | 16.0     | 17.1* | 19.5* | 21.1* |
+| Product Type | Product Type | COP: Criteria | COP: Min. | COP: Ave. | COP: Max. | EER: Criteria | EER: Min. | EER: Ave. | EER: Max. |
+|---|---|---|---|---|---|---|---|---|---|
+| Open-Loop | Water-to-air | 4.1 | 4.1 | 4.64 | 5.6 | 21.1 | 22.2 | 27.9 | 56.9 |
+| Open-Loop | Water-to-water | 3.5 | 3.9 | 3.9 | 3.9 | 20.1 | 20.6 | 20.6 | 20.6 |
+| Closed-Loop | Water-to-air | 3.6 | 3.6 | 4.06 | 4.6 | 17.1 | 17.3 | 22.4 | 33.7 |
+| Closed-Loop | Water-to-water | 3.1 | 3.3 | 3.3 | 3.3 | 16.1 | 17.5 | 17.5 | 17.5 |
+| Closed-Loop | Direct geo-exchange | 3.6 | 3.1* | 3.7* | 4.1* | 16.0 | 17.1* | 19.5* | 21.1* |
+
+Performance values with * indicate that products have previously met ENERGY STAR criteria, but no products currently meet ENERGY STAR Most Efficient 2022 Criteria.
 
 ENERGY STAR also provides unit shipment data and an estimate of the ENERGY STAR product market penetration (Figure A-9). The ENERGY STAR unit shipments and market penetration peaked in 2007. However, market penetration and shipments have generally decreased after the large increase in ENERGY STAR criteria in 2012.
 

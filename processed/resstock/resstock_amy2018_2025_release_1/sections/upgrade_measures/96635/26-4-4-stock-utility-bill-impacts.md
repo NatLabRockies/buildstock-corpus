@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96635.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96635.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96635.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96635.md | section: 4.4  Stock Utility Bill Impacts | lines: 413-442 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96635.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96635.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96635.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96635.md | section: 4.4  Stock Utility Bill Impacts | lines: 429-458 -->
 ## 4.4  Stock Utility Bill Impacts
 
 After the upgrade, the housing stock shows a reduction in energy bill costs, as shown in Figure 10, where dwellings heated with fuel oil show a 4.7% average percentage savings and dwellings heated with propane show a 7.4% average percentage savings.
