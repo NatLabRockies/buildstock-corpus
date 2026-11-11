@@ -8,23 +8,15 @@
 # Tables (page numbers are PDF pages, 1-based):
 #   * Tables 1-10, Table 11 (two grids, pp.48-49) and Table A-1 are recorded under
 #     `checked:` as correct. Table 1 is this report's upgrade summary table.
-#   * UNRESOLVED, Table A-2 (p.77) and Table B-1 (p.84): both are WRONG as extracted and
-#     have no entry in a default run of the generator, so the document still carries the
-#     wrong grids.
+#   * Table A-2 (p.77) and Table B-1 (p.84) are superseded: see each entry's `why`.
 #       - Table A-2: numbers right, grouping wrong. The first Closed-Loop row (Water-to-air,
-#         criteria 3.6 / 17.1) has an empty group cell and reads as Open-Loop or ungrouped;
-#         the "Product Type" header is dropped; the COP/EER spanner is a header row plus a
-#         data row.
+#         criteria 3.6 / 17.1) had an empty group cell and read as Open-Loop or ungrouped;
+#         the "Product Type" header was dropped; the COP/EER spanner was a header row plus
+#         a data row.
 #       - Table B-1: values right, but the bold that the caption relies on ("The Current
-#         Configuration Used is Shown in Bold") is dropped, so the table does not say which
+#         Configuration Used is Shown in Bold") was dropped, so the table did not say which
 #         configuration is used (Rectangle for 4 boreholes, "U" for 5, Line or Single
 #         otherwise).
-#     The replacements are written and verified in the generator (make_95032.py,
-#     `appendix_tables`), but the overlay engine cannot anchor them: its caption pattern
-#     only recognises numeric labels ("Table 7."), not "Table A-2." or "Table B-1.", and
-#     the entries are skipped as "caption not found". Run the generator with
-#     --with-appendix-tables to emit them once the engine accepts appendix labels.
-#     Table A-1's `checked:` entry sets `uncaptioned: true` for the same reason.
 #   * The List of Acronyms (p.5) was extracted as a run-on paragraph, not a grid, so there
 #     is no table to fingerprint and no entry. Its ten acronyms and expansions are all
 #     present in that paragraph.
@@ -46,7 +38,7 @@
 #     only one of the Figure 3-6 set that survived; in the .md its ref follows both the
 #     Figure 3 and Figure 4 captions.
 #
-# Flattening notes (for the pending appendix replacements): Table A-2's merged group cells (Open-Loop over two rows, Closed-Loop
+# Flattening notes: Table A-2's merged group cells (Open-Loop over two rows, Closed-Loop
 # over three) are repeated on each row; its "Product Type" header spans the first two
 # columns and is repeated on both; the COP / EER spanners are joined to the sub-headers
 # ("COP: Min."). Row shading in the PDF is alternating bands and carries no meaning.
@@ -59,6 +51,74 @@ source_id: upgrade_measures
 source_path: measure_pdfs/95032.pdf
 source_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf
 publication_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf
+tables:
+- label: Table A-2
+  caption: ENERGY STAR Most Efficient GHPs, 2022
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 77
+  method: vision-transcription
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: c5b4103950029bd0247ef8838638bb448514ff057f4c0e1b86eca0d13bfaca30
+    why: 'Every number is right, but the row grouping is not. The first column''s merged cells are Open-Loop
+      (two rows) and Closed-Loop (three rows); the extractor left the first Closed-Loop row (Water-to-air,
+      criteria 3.6 / 17.1) with an empty group cell, so it reads as a third Open-Loop row or as no group
+      at all. The ''Product Type'' header over the first two columns was also dropped, and the COP/EER
+      spanner was flattened into a header row plus a data row. Group labels are repeated on each row and
+      the two header rows are joined as ''COP: Min.''.'
+  markdown: '| Product Type | Product Type | COP: Criteria | COP: Min. | COP: Ave. | COP: Max. | EER:
+    Criteria | EER: Min. | EER: Ave. | EER: Max. |
+
+    |---|---|---|---|---|---|---|---|---|---|
+
+    | Open-Loop | Water-to-air | 4.1 | 4.1 | 4.64 | 5.6 | 21.1 | 22.2 | 27.9 | 56.9 |
+
+    | Open-Loop | Water-to-water | 3.5 | 3.9 | 3.9 | 3.9 | 20.1 | 20.6 | 20.6 | 20.6 |
+
+    | Closed-Loop | Water-to-air | 3.6 | 3.6 | 4.06 | 4.6 | 17.1 | 17.3 | 22.4 | 33.7 |
+
+    | Closed-Loop | Water-to-water | 3.1 | 3.3 | 3.3 | 3.3 | 16.1 | 17.5 | 17.5 | 17.5 |
+
+    | Closed-Loop | Direct geo-exchange | 3.6 | 3.1* | 3.7* | 4.1* | 16.0 | 17.1* | 19.5* | 21.1* |'
+- label: Table B-1
+  caption: Prior Ground Heat Exchanger Configurations in OpenStudio-HPXML. The Current Configuration Used
+    is Shown in Bold.
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 84
+  method: pdf-text-layer (values and font weight), checked against the page render
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 72c09aee97cf0182c66c24b6d50aed08bcaa1caf037c0976fb7ebd80499f19e2
+    why: 'The caption says the current configuration is shown in bold, and the extractor dropped the bold,
+      so the table no longer says which configuration is used for each borehole count (it is not always
+      the first one listed: Rectangle for 4 boreholes, "U" for 5). Values are the extractor''s own, compared
+      with page 84; the bold is restored from the PDF''s font weight (Arial-BoldMT) and the render. The
+      stray space before the comma in ''Line ,'' is removed.'
+  markdown: '| Number of Boreholes | Configurations |
+
+    |---|---|
+
+    | 1 | **Single** |
+
+    | 2 | **Line** |
+
+    | 3 | **Line**, "L" |
+
+    | 4 | Line, "L", **Rectangle** |
+
+    | 5 | Line, "L", **"U"** |
+
+    | 6 | **Line**, "L", Rectangle |
+
+    | 7 | **Line**, "U" |
+
+    | 8 | **Line**, "L2", Open Rectangle, Rectangle |
+
+    | 9 | **Line**, "U", Rectangle |
+
+    | 10 | **Line**, "L2", Open Rectangle, Rectangle |'
 checked:
 - label: Table 1
   caption: Upgrade Measure Overview
@@ -195,7 +255,6 @@ checked:
     spaced.'
 - label: Table A-1
   caption: An Estimate of the Number of GHP Installations in the U.S.
-  uncaptioned: true
   source_pdf: measure_pdfs/95032.pdf
   source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
   page: 70
@@ -203,9 +262,6 @@ checked:
   verdict: correct
   method: page-render-and-text-layer
   checked_utc: '2026-11-11'
-  note: The table IS captioned 'Table A-1' in the document. `uncaptioned` is set only because the overlay
-    engine's caption pattern recognises numeric labels and cannot find an appendix label, so this verdict
-    is pinned by fingerprint alone.
 figures:
 - source_image: 95032_images/image_000002_a429cf5d958a67abbdceb0a07ce46f44f0da4be97bfdd1414879ef886218ed5c.png
   source_image_sha256: 1d103172b73c4cdbd9e98d8e5ede209ed73da7f647361e247b90b2c726252fe7
