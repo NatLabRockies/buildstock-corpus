@@ -1,11 +1,18 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96634.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96634.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96634.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96634.md | section: 4.4  Stock Bill Impacts | lines: 341-376 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96634.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96634.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96634.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96634.md | section: 4.4  Stock Bill Impacts | lines: 451-493 -->
 ## 4.4  Stock Bill Impacts
 
 As previously mentioned, stock bill impacts will be shown considering the reduction in cooling when dwelling upgrade to a natural gas furnace from ASHP. Figure 10 shows the average annual bill savings per dwelling by HVAC heating efficiency and bill savings energy source.
 
 Figure 10. Average annual bill savings by HVAC heating efficiency and bill savings source
 
-![Image](96634_images/image_000011_2f335617f989cf24767aec2c7496f85cbbddf6d9101dd6924f94068a0b9bf02a.png)
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96634.yaml
+     source: 96634_images/image_000011_2f335617f989cf24767aec2c7496f85cbbddf6d9101dd6924f94068a0b9bf02a.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+![Stacked bar chart of average annual bill savings by HVAC heating efficiency and fuel](96634_images/image_000011_2f335617f989cf24767aec2c7496f85cbbddf6d9101dd6924f94068a0b9bf02a.png)
+
+Figure 10: horizontal stacked bar chart of average annual bill savings (USD, about -1,200 to 1,900) by baseline HVAC heating efficiency, with segments for electricity, natural gas, fuel oil and propane bills. Negative natural gas segments are the new gas bill. ASHP SEER 10 saves about $1,480 on electricity against about $420 of added gas; Fuel Boiler 90% AFUE has the largest swings, mostly fuel oil savings. See Table 5 for the distribution of net savings.
 
 On average, upgrading a less efficient fuel furnace to a 95% AFUE gas furnace results in bill savings.
 

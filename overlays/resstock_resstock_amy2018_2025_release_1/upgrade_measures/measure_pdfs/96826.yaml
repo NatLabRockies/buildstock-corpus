@@ -1,0 +1,509 @@
+# Hand-authored overlay for measure_pdfs/96826.pdf
+#
+# 96826 is the ResStock measure documentation for the heat pump water heater upgrade
+# (measure 9). Every table and figure in the report was compared with the PDF on 2026-11-11,
+# following "Checking every table and figure: the ResStock method" in overlays/README.md.
+#
+# Tables (page numbers are PDF pages, 1-based):
+#   * Table 5 (p.18), Table 6 (p.19), Table 8 (p.22) and the Measure Summary table (p.9,
+#     no caption) are superseded: see each entry's `why`. Table 5 and the Measure Summary
+#     are the extractor's own grids with named cells corrected: argument names and a URL
+#     that carried a line-wrap space, and the opening words the Not Applicable cell lost.
+#   * Tables 1, 2, 3, 4 (two grids, pp.14-15) and 7 and the List of Acronyms are
+#     recorded under `checked:` as correct.
+#   * The Table of Contents, List of Figures and List of Tables grids are contents pages,
+#     not tables of the report, and have no entry.
+#
+# Figures: Figures 1-18 are described (40-70 words each, vision-description); every figure
+# caption has its image. The cover art and wordmark (image_000000, image_000001) are
+# decorative and omitted by the build. Figures 2 and 3 are grids of numbers drawn as
+# pictures (COP and capacity multipliers, some 25 columns by 20 rows each) with no text
+# layer; they are described as figures and their cells are NOT transcribed, since the
+# digits are too small to read reliably at the page render.
+#
+# Flattening notes:
+#   * Table 6: the PDF's Notes column is subdivided for Standby Loss and Nominal Heating
+#     Capacity into a tank-size label per sub-row and one note shared by the sub-rows. Here
+#     that is two columns; the name "Notes: HPWH option" is a reading, not printed. It is
+#     blank on rows the PDF does not subdivide. Nominal Heating Capacity stacks a Btu/h and
+#     a kW value per tank size; each printed value has its own row. Backup Heating Capacity
+#     is one cell in the PDF ("15,355 or 4.5", "Btu/h kW") and is kept as one row. The three
+#     bold sub-table labels are not in the PDF; row order is the PDF's.
+#   * Table 8: the PDF header "Dwelling ID/State/Climate Zone" spans the two unlabelled
+#     label columns; the column names "Metric" and "Case" are supplied, not printed, and the
+#     printed header is given in the sentence above the table. Bold on the Change rows and
+#     alternating band shading carry no meaning and are dropped.
+
+product: resstock
+release: resstock_amy2018_2025_release_1
+source_id: upgrade_measures
+source_path: measure_pdfs/96826.pdf
+source_url: https://docs.nlr.gov/docs/fy26osti/96826.pdf
+publication_url: https://docs.nlr.gov/docs/fy26osti/96826.pdf
+tables:
+- label: Table 6
+  caption: HPXML Default Values for the HPWH Upgrade
+  source_pdf: measure_pdfs/96826.pdf
+  source_pdf_sha256: 9b1963bc5ff7300c2d3e99bada6183d68a80c1e785f41b50589eab76f7532e3f
+  page: 19
+  method: vision-transcription
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 2a1748bd4697e2978c9ec27e1280927bb10eb9815336a95a6d007d13b191473c
+    why: 'The extractor merged the sub-rows of two variables into single cells and lost values. Standby
+      Loss read ''3.6 4.0 4.7'' in one cell. Nominal Heating Capacity read ''6,887 2.02 7,203 2.11 7,334'':
+      the 80-gal value 2.15 kW and the ''80-gal, 3.98 UEF'' label were dropped, and the Btu/h and kW values
+      ran together with nothing tying each to its tank size. The Notes column was also split in two with
+      most notes duplicated. In the PDF each tank size has its own sub-row (50-gal: 6,887 Btu/h, 2.02
+      kW; 66-gal: 7,203 Btu/h, 2.11 kW; 80-gal: 7,334 Btu/h, 2.15 kW). One row per printed value; the
+      shared note is repeated.'
+  markdown: '**Standby Loss to Fraction Domestic Hot Water Load Served**
+
+
+    | HPXML Default Variable | Value | Units | Notes: HPWH option | Notes |
+
+    |---|---|---|---|---|
+
+    | Standby Loss | 3.6 | Btu/h°F | 50-gal, 3.78 UEF | Based on values from lab testing of different
+    sized HPWHs (Kvaltine & Larson, 2015) |
+
+    | Standby Loss | 4.0 | Btu/h°F | 66-gal, 3.95 UEF | Based on values from lab testing of different
+    sized HPWHs (Kvaltine & Larson, 2015) |
+
+    | Standby Loss | 4.7 | Btu/h°F | 80-gal, 3.98 UEF | Based on values from lab testing of different
+    sized HPWHs (Kvaltine & Larson, 2015) |
+
+    | Is Shared System | No | - |  | Whether it serves multiple units or shared laundry room |
+
+    | Fraction Domestic Hot Water Load Served | 1.0 | - |  | For a house with more than one water heater,
+    this specifies the fraction of total hot water load a water heater is serving. |
+
+
+    **Nominal Heating Capacity**
+
+
+    | HPXML Default Variable | Value | Units | Notes: HPWH option | Notes |
+
+    |---|---|---|---|---|
+
+    | Nominal Heating Capacity | 6,887 | Btu/h | 50-gal, 3.78 UEF | Value is a function of the heat pump
+    COP, which is converted from UEF using the usage bin. |
+
+    | Nominal Heating Capacity | 2.02 | kW | 50-gal, 3.78 UEF | Value is a function of the heat pump COP,
+    which is converted from UEF using the usage bin. |
+
+    | Nominal Heating Capacity | 7,203 | Btu/h | 66-gal, 3.95 UEF | Value is a function of the heat pump
+    COP, which is converted from UEF using the usage bin. |
+
+    | Nominal Heating Capacity | 2.11 | kW | 66-gal, 3.95 UEF | Value is a function of the heat pump COP,
+    which is converted from UEF using the usage bin. |
+
+    | Nominal Heating Capacity | 7,334 | Btu/h | 80-gal, 3.98 UEF | Value is a function of the heat pump
+    COP, which is converted from UEF using the usage bin. |
+
+    | Nominal Heating Capacity | 2.15 | kW | 80-gal, 3.98 UEF | Value is a function of the heat pump COP,
+    which is converted from UEF using the usage bin. |
+
+
+    **Backup Heating Capacity to Tank Model Type**
+
+
+    | HPXML Default Variable | Value | Units | Notes: HPWH option | Notes |
+
+    |---|---|---|---|---|
+
+    | Backup Heating Capacity | 15,355 or 4.5 | Btu/h kW |  | - |
+
+    | Has Flue or Chimney In Conditioned Space | Depends on the heating system | - |  | (Atmospheric)
+    flue vent is assumed to be shared between space heating and water heating. The flue vent remains when
+    the (existing) fuel heater is in the conditioned space and has an annual fuel utilization efficiency
+    (AFUE) or equivalent efficiency rating of <89%, even as water heating no longer needs it. |
+
+    | Number of Bedrooms Served | N/A | - |  | Not applicable as it is only used if the water heater is
+    a shared system. |
+
+    | HPWH Operating Mode | Hybrid | - |  | In the hybrid mode, the backup only turns on when heat pump
+    is not producing enough hot water. |
+
+    | Uses Desuperheater | False | - |  | - |
+
+    | Tank Model Type | Stratified | - |  | This means the tank does not assume uniform water temperature
+    throughout. Instead, a realistic thermal gradient exists when hot water is drawn, and different heating
+    components come on accordingly based on the thermostatic control. |'
+- label: Table 8
+  caption: Selected Metrics Before and After the HPWH Upgrade
+  source_pdf: measure_pdfs/96826.pdf
+  source_pdf_sha256: 9b1963bc5ff7300c2d3e99bada6183d68a80c1e785f41b50589eab76f7532e3f
+  page: 22
+  method: vision-transcription
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: e688359718dee39ea0cf0773dc04c02c1ec8874f66d0a5a68ed1c5646ba29a39
+    why: 'The extractor dropped the first column: the four metric labels (Delivered Hot Water (MBtu),
+      Hot Water Energy (MBtu), Annual Average COP, Total Site Energy (MBtu)) are absent, leaving four
+      unlabelled groups of Baseline/Upgrade/Change rows, so no value says what it measures. Every value
+      is right. Labels are restored from the page and repeated on each row; the values are the extractor''s
+      own, compared with page 22.'
+  markdown: 'The three value columns are Dwelling ID/State/Climate Zone.
+
+
+    | Metric | Case | 1/HI/1A | 2/CA/3B | 3/AK/7 |
+
+    |---|---|---|---|---|
+
+    | Delivered Hot Water (MBtu) | Baseline | 7.11 | 11.12 | 17.13 |
+
+    | Delivered Hot Water (MBtu) | Upgrade | 7.13 | 11.18 | 17.16 |
+
+    | Delivered Hot Water (MBtu) | Change | 0.3% | 0.5% | 0.2% |
+
+    | Hot Water Energy (MBtu) | Baseline | 7.91 | 12.10 | 18.55 |
+
+    | Hot Water Energy (MBtu) | Upgrade | 1.54 | 2.84 | 10.52 |
+
+    | Hot Water Energy (MBtu) | Change | -80% | -77% | -43% |
+
+    | Annual Average COP | Baseline | 0.90 | 0.92 | 0.92 |
+
+    | Annual Average COP | Upgrade | 4.62 | 3.93 | 1.63 |
+
+    | Annual Average COP | Change | 414% | 328% | 77% |
+
+    | Total Site Energy (MBtu) | Baseline | 35.02 | 90.12 | 111.74 |
+
+    | Total Site Energy (MBtu) | Upgrade | 28.58 | 81.04 | 105.01 |
+
+    | Total Site Energy (MBtu) | Change | -18% | -10% | -6% |'
+- label: Table 5
+  caption: ResStock Argument Values for the Electric HPWH Options
+  source_pdf: measure_pdfs/96826.pdf
+  source_pdf_sha256: 9b1963bc5ff7300c2d3e99bada6183d68a80c1e785f41b50589eab76f7532e3f
+  page: 18
+  method: extracted grid, with the cells named in `why` corrected from the PDF text layer
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 5c9967c96956ffff9984159a87bb77587e5ff6a3c9645739eb9fa698a5360186
+    why: Every value is right, but two argument names and one option value carry a space where the PDF
+      wraps them inside a cell ('water_heater_backup_heating_cap acity', 'water_heater_num_bedrooms_serv
+      ed', 'UniformEn ergyFactor'), so a search for the real name misses them. The header 'OpenStudio-HPXML?'
+      and the two unit strings had the same spacing. The cell text is the extractor's own with those joined
+      as the PDF text layer has them.
+  markdown: '| ResStock Argument | Electric Heat Pump, 50 gal, 3.78 UEF | Electric Heat Pump, 66 gal,
+    3.95 UEF | Electric Heat Pump, 80 gal, 3.98 UEF | Calculated by OpenStudio-HPXML? |
+
+    |---|---|---|---|---|
+
+    | water_heater_type | HPWH | HPWH | HPWH | No |
+
+    | water_heater_fuel_type | Electricity | Electricity | Electricity | No |
+
+    | water_heater_tank_volume [gal] | 50 | 66 | 80 | No |
+
+    | water_heater_efficiency_type | UniformEnergyFactor | UniformEnergyFactor | UniformEnergyFactor |
+    No |
+
+    | water_heater_efficiency | 3.78 | 3.95 | 3.98 | No |
+
+    | water_heater_recovery_efficiency | N/A | N/A | N/A | No |
+
+    | water_heater_standby_loss | Auto | Auto | Auto | Yes |
+
+    | water_heater_jacket_rvalue (add-on) [ft2⋅°F⋅h/btu] | 0 | 0 | 0 | No |
+
+    | water_heater_setpoint_temperature [°F] | 125 | 125 | 125 | No |
+
+    | water_heater_heating_capacity | Auto | Auto | Auto | Yes |
+
+    | water_heater_backup_heating_capacity | Auto | Auto | Auto | Yes |
+
+    | water_heater_has_flue_or_chimney | Auto | Auto | Auto | Yes |
+
+    | water_heater_num_bedrooms_served | Auto | Auto | Auto | Yes |
+
+    | water_heater_operating_mode | Auto | Auto | Auto | Yes |
+
+    | water_heater_tank_model_type | Auto | Auto | Auto | Yes |
+
+    | water_heater_usage_bin | Medium | Medium | High | No |
+
+    | water_heater_uses_desuperheater | Auto | Auto | Auto | Yes |'
+- label: Measure Summary
+  uncaptioned: true
+  source_pdf: measure_pdfs/96826.pdf
+  source_pdf_sha256: 9b1963bc5ff7300c2d3e99bada6183d68a80c1e785f41b50589eab76f7532e3f
+  page: 9
+  method: extracted grid, with the cells named in `why` corrected from the PDF text layer
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 6f0278b63ac471432ee8884faa6ed486bd5f256f76a6f8290c0a1b9999cc4d90
+    why: 'The Not Applicable cell lost its opening words: it starts at ''heaters:'' and is missing ''This
+      measure does not apply to dwelling units with one of the following water'', which is nowhere else
+      in the document. The project configuration URL also carries a space where the PDF wraps the line
+      (''project_n ational''). The cell text is the extractor''s own with the missing words restored and
+      the URL joined, both from the text layer of page 9.'
+  markdown: '| Measure Title | Heat Pump Water Heater |
+
+    |---|---|
+
+    | Measure Definition | This measure installs a 240V HPWH to all dwelling units that are not currently
+    using a HPWH or a solar thermal water heater. |
+
+    | Applicability | This measure applies to all dwellings with one of the following water heaters: •
+    Electric resistance storage or tankless • Fuel storage or tankless. With these constraints, the measure
+    applies to 99.5% of existing dwelling units. |
+
+    | Not Applicable | This measure does not apply to dwelling units with one of the following water heaters:
+    • Heat pump • Solar thermal. These constraints exclude 0.5% of dwelling units from receiving this
+    measure upgrade. |
+
+    | Original Release | ResStock 2025 Release 1 |
+
+    | Project Configuration File(s) | https://github.com/NatLabRockies/resstock/blob/sdr_2025_Release_1/project_national/sdr_upgrades_amy2018.yml
+    |'
+checked:
+- label: List of Acronyms
+  uncaptioned: true
+  source_pdf: measure_pdfs/96826.pdf
+  source_pdf_sha256: 9b1963bc5ff7300c2d3e99bada6183d68a80c1e785f41b50589eab76f7532e3f
+  page: 5
+  table_sha256: e15b4332dbb70f12c3ffe2ad2a534da2af9b3d97a2b85a234560414b4d7d24c6
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+- label: Table 1
+  caption: ENERGY STAR 240V HPWH Performance Ratings
+  source_pdf: measure_pdfs/96826.pdf
+  source_pdf_sha256: 9b1963bc5ff7300c2d3e99bada6183d68a80c1e785f41b50589eab76f7532e3f
+  page: 11
+  table_sha256: c5edf718e7ff5020725e25ca86dd3e42da1ead3c0ec9aa0f927683f068070960
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: Ranges are printed with en dashes (46–66); the extraction has hyphens (46-66). Every value matches.
+- label: Table 2
+  caption: Tank Sizing Requirement per ENERGY STAR NextGen
+  source_pdf: measure_pdfs/96826.pdf
+  source_pdf_sha256: 9b1963bc5ff7300c2d3e99bada6183d68a80c1e785f41b50589eab76f7532e3f
+  page: 12
+  table_sha256: fc95a2f61e12631fdf0d88046d53fd8257e1c214cda9af963d727c3f6c2982b2
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: The merged Number of Bathrooms header cells (1 to 1.5 over three columns, 2 to 2.5 and 3 to 3.5
+    over four each) are repeated on each column; every value matches.
+- label: Table 3
+  caption: Sizing and Efficiency of HPWH for the Final Modeling
+  source_pdf: measure_pdfs/96826.pdf
+  source_pdf_sha256: 9b1963bc5ff7300c2d3e99bada6183d68a80c1e785f41b50589eab76f7532e3f
+  page: 12
+  table_sha256: cc929fef2e72fd051f2c105f363031f7339f77588f372162fdfc6077fbe8492a
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: The spanning header 'Electric HPWH' sits over Size (Gal) and Efficiency (UEF); the extraction
+    joins it to the second only ('Electric HPWH Efficiency (UEF)'). Every cell value matches.
+- label: Table 4
+  caption: Summarized Apply Logic for HPWH Upgrade
+  source_pdf: measure_pdfs/96826.pdf
+  source_pdf_sha256: 9b1963bc5ff7300c2d3e99bada6183d68a80c1e785f41b50589eab76f7532e3f
+  page: 14
+  table_sha256: 94104d415d3e888bc157aa5c26d4dd4220975ec1fc2409f68613ac0dac8dd183
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: 'First of two grids: the table runs over pages 14 and 15 and the PDF repeats the header row on
+    page 15. These are the 15 rows on page 14; every value matches.'
+- label: Table 4
+  caption: Summarized Apply Logic for HPWH Upgrade
+  source_pdf: measure_pdfs/96826.pdf
+  source_pdf_sha256: 9b1963bc5ff7300c2d3e99bada6183d68a80c1e785f41b50589eab76f7532e3f
+  page: 15
+  table_sha256: 55e08e0a40842c63db2d729a6b77abad2b54ed77382174776afd88fa89028bdd
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: 'Second of two grids: the 5 rows on page 15, under the header row the PDF repeats there; every
+    value matches.'
+- label: Table 7
+  caption: Selected Properties of Dwelling Unit Samples
+  source_pdf: measure_pdfs/96826.pdf
+  source_pdf_sha256: 9b1963bc5ff7300c2d3e99bada6183d68a80c1e785f41b50589eab76f7532e3f
+  page: 21
+  table_sha256: 8fbe36d5a5a3da40845dfc4f479256f7ee0174c5e237dd597d7ce7bec65662f0
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: Cells merged across the three dwellings in the PDF (Building Type, Occupants, Bedrooms, Fixture
+    Usage, Hot Water Appliances, Water Heater, Water Heater Location) are repeated in each column; every
+    value matches.
+figures:
+- source_image: 96826_images/image_000002_179da9a079d3e4ffe66dc3bf6d4f0c348daec624f7d5f4b9b7f54cc0985bcb88.png
+  source_image_sha256: d9dde76314763a3152247acc4fa88e1acaef245b5259ddcd89393183441ad234
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Cutaway schematic of a 240V heat pump water heater showing the heat pump unit, tank and coils
+  description: 'Figure 1: labelled cutaway schematic of a typical 240V residential heat pump water heater;
+    no axes. The left drawing shows the heat pump unit on top of the tank: hot air in, evaporator coils,
+    compressor, expansion valve and cold air out. The right drawing shows the whole unit: cold water in,
+    hot water out, electric heating elements, and a condenser coil of hot refrigerant heating the water
+    in the tank.'
+- source_image: 96826_images/image_000003_d7edc64a66bdc3a8ddb0b74b354fb2086fb6782248004aa9079e449b2f886f98.png
+  source_image_sha256: 2b20bfc89e7f4d3e9131355d2602d637042d583d58bd641f7c81c05aaccc1c6c
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Colour-shaded grid of COP multipliers by air wet bulb temperature and tank water temperature
+  description: 'Figure 2: colour-shaded grid of numbers (heat map) of COP multipliers. Rows are air wet
+    bulb temperature in °C, from about -16 to 31; columns are tank water temperature in °C, from 0 to
+    60. The multiplier rises with warmer air and falls with hotter tank water, from about 0.1 at the coldest
+    air (red) to about 3.0 at the warmest air and coldest tank (green).'
+- source_image: 96826_images/image_000004_684beaa1f62b6fa48ec455a89a1f30f759b9d3a48aac9cffa9c27f10edb9e751.png
+  source_image_sha256: 3b58a155b3be8d5bea35f09cf718585841b6a0a7bce045085a3837948e151428
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Colour-shaded grid of capacity multipliers by air wet bulb temperature and tank water temperature
+  description: 'Figure 3: colour-shaded grid of numbers (heat map) of capacity multipliers, laid out like
+    Figure 2: rows are air wet bulb temperature in °C, from about -16 to 29, and columns are tank water
+    temperature in °C, from 0 to 60. The multiplier rises with air temperature, from slightly below zero
+    at the coldest air (red) to about 1.8 at the warmest (green).'
+- source_image: 96826_images/image_000005_919376e3baaea1050e90ac3b6a415fd36fb0ba51affe87bf3405f151ec8234ab.png
+  source_image_sha256: bd15e9cf782621da77a65c9c737f329c7e9d54b72faef3a07e3364b31df312a8
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bars of annual energy use for three example dwellings (HI, CA, AK), baseline vs HPWH
+  description: 'Figure 4: three-panel horizontal stacked bar chart for the example dwellings in HI, CA
+    and AK. X-axis is annual energy consumption in MBtu; each panel has a baseline bar (50-gal electric
+    resistance) and an upgrade bar (80-gal HPWH), stacked by end use. The water heater segment falls from
+    7.9 to 1.5 MBtu in HI, 12.1 to 2.8 in CA and 18.5 to 10.5 in AK. See Table 8.'
+- source_image: 96826_images/image_000006_6048263e3131fbc78ff8f59a52b5c2a2a94634477fe2e2d1558745e865a6386b.png
+  source_image_sha256: 6652833974c6bdf1b2c6662792e82ed1d121c03ee290df17ff314e3fb077b401
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line charts of 15-minute hot water electricity on each example dwelling's peak day, baseline vs
+    HPWH
+  description: 'Figure 5: three-panel line chart of hot water electricity (kWh per time step) by time
+    of day for the example dwellings in HI (Jul 30, 2018), CA (Feb 24, 2018) and AK (Feb 2, 2018). Lines
+    are the baseline electric resistance water heater and the upgrade HPWH. In HI baseline spikes reach
+    about 0.5 kWh, the upgrade about 0.1; in AK the two lines nearly coincide, peaking near 1.4 kWh.'
+- source_image: 96826_images/image_000007_27f1813f67376233b92c53d7698e872805d171326564e396653c577fd5e0bc03.png
+  source_image_sha256: ee1e5c988222bdff56b156e09bdca630ee3a12f475aa4b17a5f0e83aea351abd
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar charts of stock fuel totals, baseline vs HPWH, and of fuel savings from the HPWH upgrade
+  description: 'Figure 6: two-panel horizontal bar chart. The left panel shows stock-wide fuel totals
+    (kWh, 0 to over 3T) for Baseline and Heat Pump Water Heater, with rows for each fuel and total site
+    energy; the right panel shows the savings for each row (kWh, 0 to about 280B). Natural gas gives the
+    largest fuel savings, about 200B kWh, and total site energy savings are roughly 280B kWh.'
+- source_image: 96826_images/image_000008_90d47b27f331250c352661fd46c877389fd7e00f1804b662409aa4880bae20cc.png
+  source_image_sha256: a89b44cbce60b07d9a221e56036204bbc7cf3f9f531eeda9d2e533e4b03288b3
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of average dwelling energy by end use and fuel, baseline vs HPWH
+  description: 'Figure 7: horizontal grouped bar chart of average dwelling energy use (kWh, 0 to about
+    27k) for Baseline and Heat Pump Water Heater, with one row per end use and fuel plus total site energy.
+    Natural gas heating is the largest end use in both scenarios. The natural gas hot water bar disappears
+    with the upgrade, and total site energy falls from about 27k to about 25k kWh.'
+- source_image: 96826_images/image_000009_e2fd9f499225ffac1f6c9a4454880a8c852726154c6044e66e268b7c0b33cf49.png
+  source_image_sha256: df585d2fc9e051277992f8e6a8631b93e4ec078fce5df17e5da734a3aa6d1339
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Violin and box plots of percent site energy savings from the HPWH by HVAC heating type
+  description: 'Figure 8: violin plots with box plots of site energy percentage savings (about -5% to
+    60%) from the heat pump water heater, one row per HVAC heating type (ducted and non-ducted heat pump,
+    ducted and non-ducted heating, none), each labelled with its model count (n=3291 for None up to n=289505
+    for Ducted Heating). Medians sit near 10% for the four heated groups and near 20% for None.'
+- source_image: 96826_images/image_000010_961777190e8c01257f2e8dad925c818acfcad4f083030d73fd13a2cf4e58a7a7.png
+  source_image_sha256: 468192feaa2c0d72e7d1bcb8956364383993fdaaf6e29d43858ccb709b195a58
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Violin and box plots of percent site energy savings from the HPWH by Building America climate zone
+  description: 'Figure 9: violin plots with box plots of site energy percentage savings (about -5% to
+    60%) from the heat pump water heater, one row per Building America climate zone from Hot-Dry to Subarctic,
+    each labelled with its model count (n=202 for Subarctic up to n=161468 for Cold). Hot-Dry and Marine
+    have the highest medians, around 15%; Cold, Very Cold and Subarctic have the lowest, at roughly 5%
+    to 8%.'
+- source_image: 96826_images/image_000011_186d12a6841ed3d7b3dd06025faf4b53d0cefd2757c5e841efa9adb8d9ea1622.png
+  source_image_sha256: 1fdf51e2b5dc91c934274c4cf6dd21139e9accb192cfaac510f647d27897faf8
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Violin and box plots of percent site energy savings from the HPWH by water heater location
+  description: 'Figure 10: violin plots with box plots of site energy percentage savings (about -5% to
+    60%) from the heat pump water heater, one row per water heater location (eight, from Living Space
+    to Outside), each with its model count (n=853 for Crawlspace up to n=204338 for Living Space). Conditioned
+    Mechanical Room has the highest median, roughly 17%; Heated Basement has the lowest, near 5%.'
+- source_image: 96826_images/image_000012_c338eb874fe24226c043cb0ba1d285c9c8a7bdd34337f20ccfc55f91935407ff.png
+  source_image_sha256: 8d39472a0feb0f4d72f367922c66b232ed34befed1efb11eeba739b5b8ee3ee4
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Violin and box plots of percent site energy savings from the HPWH by number of occupants
+  description: 'Figure 11: violin plots with box plots of site energy percentage savings (about -5% to
+    60%) from the heat pump water heater, one row per number of occupants from 1 to 10+, each labelled
+    with its model count (n=166037 for two occupants, the largest group). The median rises steadily with
+    household size, from under 10% for one occupant to nearly 20% for 10 or more.'
+- source_image: 96826_images/image_000013_88c4e4b1435d8a58f38da7af2b9feb20cf41d430d6ce99f9f9222dc38d508741.png
+  source_image_sha256: 1eabcd1d116f5c0413eedc39bf1fe7e2c40b2fe082875f1a139a55189e5d94b8
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line charts of stock electricity on the 2018 peak day in HI, CA and AK, baseline vs HPWH upgrade
+  description: 'Figure 12: three-panel line chart of total residential power (GW) by time of day on each
+    state''s 2018 peak day: HI (Sep 30), CA (Jul 7) and AK (Feb 3), with lines for Baseline and Upgrade.
+    In HI the upgrade line is below the baseline all day; in CA the lines nearly coincide, peaking near
+    32 GW; in AK the upgrade line is above the baseline, peaking above 0.45 GW.'
+- source_image: 96826_images/image_000014_eedf8488c0b3c9f2ad8b05ebe307a4549e038b0da2fa3edf7c93932a93b9a852.png
+  source_image_sha256: 49394b84aa0ce4d357cecff681575044ad3de99b2e1b7c7f43b93222e7035553
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar charts of stock energy bills by fuel, baseline vs HPWH, and of bill savings from the upgrade
+  description: 'Figure 13: two-panel horizontal bar chart. The left panel shows stock-wide annual energy
+    bills (USD, 0 to over 300B) for Baseline and Heat Pump Water Heater, with rows for electricity, natural
+    gas, fuel oil, propane and all fuels; the right panel shows bill savings for each row (USD, 0 to 20B).
+    Natural gas gives the largest savings, about 10B, then electricity at about 7B; all-fuel savings are
+    about 19B.'
+- source_image: 96826_images/image_000015_cb3fde0ca1044ae49de933e89c4fc919eba9d942522e86a7fa73fde85fa8e8cb.png
+  source_image_sha256: bbb676a242fb79c95c01ac45015842b6d2307bdd90c2a03c230663f069479521
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Violin and box plots of annual energy bill savings from the HPWH by baseline water heater fuel
+  description: 'Figure 14: violin plots with box plots of all-fuel annual bill savings (USD, about -1,000
+    to 3,000) from the heat pump water heater, one row per baseline water heater fuel (Electricity, Natural
+    Gas, Fuel Oil, Propane), each labelled with its model count. Natural Gas is centred lowest, close
+    to zero, with the most outliers below zero; Electricity and Propane are centred at a few hundred dollars.'
+- source_image: 96826_images/image_000016_c4e5630f1a07920a2f788bb0ad464c20a0073c5c69805c50da512bbb4539f7e9.png
+  source_image_sha256: 42d2e136de4f93219c1a217a8c9374d57ead65dcbfc25592a2f199e2ca7b2f06
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked 100% columns of electric panel constraint type by water heating fuel after the HPWH upgrade
+  description: 'Figure 15: stacked 100% column chart of electric panel constraint type by water heating
+    fuel. Y-axis is percent of dwelling units; columns are All, Electricity, Natural Gas, Fuel Oil and
+    Propane; segments are No Constraint, Capacity Constrained Only, Space Constrained Only, and both.
+    No Constraint is 80.1% overall and 97.8% for electricity but about 63% for each fuel, where Space
+    Constrained Only is 31% to 34% against 17.2% overall.'
+- source_image: 96826_images/image_000017_51bb4b9a6b673dd0ee02a41a7a6a893d8323fb9bede7caf1ea7a5e9d82131ec4.png
+  source_image_sha256: de16bd2606719c0b16a21bc9fd0cdaf8949b7a430bc7af2647c1e8f918b53b03
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Choropleth map of percent of dwelling units with an electric panel capacity constraint by state
+  description: 'Figure 16: choropleth map of U.S. states, with insets for Alaska and Hawaii, of the percent
+    of dwelling units with electric panel capacity constraints, for the Heat Pump Water Heater upgrade.
+    Each state is shaded and labelled with its percentage, on a scale from 1.5% to 5.6%. The darkest states
+    are in the central Plains and the lower Mississippi valley; the West Coast and the Northeast are among
+    the lightest.'
+- source_image: 96826_images/image_000018_910420d0cd37d1b6f4e4a84d4d35c9e85ae33f73434945af7408d4786f5390df.png
+  source_image_sha256: 3e9c487fbc9b1099bb27921f3e6c2c476dafcd8ac4c06bf0d914894af300f905
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Choropleth map of percent of dwelling units with an electric panel space constraint by state
+  description: 'Figure 17: choropleth map of U.S. states, with insets for Alaska and Hawaii, of the percent
+    of dwelling units with electric panel space constraints, for the Heat Pump Water Heater upgrade. Each
+    state is shaded and labelled with its percentage; the colour scale runs from 3.5% to 29.1%. The darkest
+    states are in the West and Mountain West, Alaska and the Northeast; the Southeast, Florida above all,
+    is the lightest.'
+- source_image: 96826_images/image_000019_9932ea5aa63bc77909a746a8ca9eec6a3842755f75adaf2d1829c8fc96f13d64.png
+  source_image_sha256: c0567681db812e828c45f784a8ae16aa1479af24a07fb04de3d94e516f8a84c9
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Choropleth map of percent of dwelling units with a panel capacity and/or space constraint by state
+  description: 'Figure 18: choropleth map of U.S. states, with insets for Alaska and Hawaii, of the percent
+    of dwelling units with electric panel capacity and/or space constraints, for the Heat Pump Water Heater
+    upgrade. Each state is shaded and labelled with its percentage, on a scale from about 6% to 31%. The
+    pattern follows Figure 17: darkest in the West, Mountain West, Alaska and the Northeast, lightest
+    in the Southeast.'

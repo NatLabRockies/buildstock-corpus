@@ -1200,3 +1200,239 @@ def test_an_uncaptioned_grid_is_identified_by_its_fingerprint_alone(pdf_env):
     assert "extracted table changed" in O.check_problem(
         lines, {**entry, "uncaptioned": True, "table_sha256": "0" * 64}, PDF_SHA
     )
+
+
+# --- a replacement that removes a table's continuation grids too (R4.2) -----------------------
+#
+# A table that runs over a page break reaches the markdown as one grid per page. A
+# transcription of the whole table has to supersede every one of them.
+
+PAGE_1 = "| Type | East | West |\n|---|---|---|\n| Furnace Electricity MSHP | 1% | 2% |"
+PAGE_2 = "| Type | East | West |\n|---|---|---|\n| Propane Fuel Wall/Floor | 3% | 4% |"
+WHOLE = "| Type | East | West |\n|---|---|---|\n| Electricity MSHP | 1% | 2% |\n| Propane Fuel Wall/Floor Furnace | 3% | 4% |"
+TWO_GRID_BODY = f"""## 3 Stock
+
+Table 1. Heating Type by Division
+
+{PAGE_1}
+
+{PAGE_2}
+
+Text after the table.
+"""
+
+
+def _two_grid(pdf_env, also):
+    return pdf_env.pdf_entry(
+        label="Table 1",
+        markdown=WHOLE,
+        method="pdf-text-layer",
+        replaces={"table_sha256": _fp(PAGE_1), "also_removes": also, "why": "row labels displaced"},
+    )
+
+
+def test_replacement_removes_the_first_grid_and_its_continuation(pdf_env):
+    pdf_env.write([_two_grid(pdf_env, [_fp(PAGE_2)])], source_path=PDF_PATH)
+    doc = _pdf_doc(TWO_GRID_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert warnings == []
+    assert "Furnace Electricity MSHP" not in doc.body  # first grid gone
+    assert "| Propane Fuel Wall/Floor | 3% | 4% |" not in doc.body  # and the continuation
+    assert doc.body.count("| Type | East | West |") == 1  # only the transcription's header
+    assert "| Propane Fuel Wall/Floor Furnace | 3% | 4% |" in doc.body
+    assert "and its continuation grid(s)" in doc.body and "Text after the table." in doc.body
+    assert applied["upgrade_measures"][PDF_PATH]["tables_applied"] == ["Table 1"]
+
+
+def test_a_continuation_pin_that_matches_nothing_replaces_nothing(pdf_env):
+    pdf_env.write([_two_grid(pdf_env, ["0" * 64])], source_path=PDF_PATH)
+    doc = _pdf_doc(TWO_GRID_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {}
+    assert doc.body == TWO_GRID_BODY  # not even the first grid was touched
+    assert "also_removes" in warnings[0] and "nothing was replaced" in warnings[0]
+
+
+def test_a_continuation_pin_cannot_name_the_primary_grid_again(pdf_env):
+    pdf_env.write([_two_grid(pdf_env, [_fp(PAGE_1)])], source_path=PDF_PATH)
+    doc = _pdf_doc(TWO_GRID_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {} and doc.body == TWO_GRID_BODY
+    assert "matches 0 other extracted table(s)" in warnings[0]
+
+
+# --- appendix labels, uncaptioned replacement, line removal (R4.2) ----------------------------
+
+APPENDIX_BODY = """## Appendix A
+
+Table A-1. Installations
+
+| State | Units |
+|---|---|
+| FL | 113 |
+
+Table A-2. Most Efficient GHPs
+
+| Type | COP |
+|---|---|
+| Closed loop | 5.3 |
+|  | 4.9 |
+
+Text after.
+"""
+A2_GRID = "| Type | COP |\n|---|---|\n| Closed loop | 5.3 |\n|  | 4.9 |"
+A2_FIXED = "| Type | COP |\n|---|---|\n| Closed loop | 5.3 |\n| Closed loop | 4.9 |"
+
+
+def test_an_appendix_label_is_a_caption(pdf_env):
+    """'Table A-2.' anchors a replacement exactly as 'Table 7.' does."""
+    pdf_env.write(
+        [pdf_env.pdf_entry(
+            label="Table A-2", markdown=A2_FIXED,
+            replaces={"table_sha256": _fp(A2_GRID), "why": "group label blank on the second row"},
+        )],
+        source_path=PDF_PATH,
+    )
+    doc = _pdf_doc(APPENDIX_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert warnings == []
+    assert "|  | 4.9 |" not in doc.body and "| Closed loop | 4.9 |" in doc.body
+    # it landed under its own caption, not the appendix's first one
+    assert doc.body.index("Table A-2.") < doc.body.index("<!-- table recovered from")
+    assert "| FL | 113 |" in doc.body
+    assert applied["upgrade_measures"][PDF_PATH]["tables_applied"] == ["Table A-2"]
+
+
+def test_appendix_label_forms():
+    from buildstock_corpus.overlay import _CAPTION, _find_caption
+
+    lines = ["Table B1: Prior configs", "Figure C-4. Cooling EIR", "Table of 3. things", "Table A-2 lists the values."]
+    assert _find_caption(lines, "Table B1") == 0
+    assert _find_caption(lines, "Figure C-4") == 1
+    assert not _CAPTION.match(lines[2]) and not _CAPTION.match(lines[3])
+
+
+SUMMARY_BODY = """## Measure Summary
+
+| Field | Value |
+|---|---|
+| Description | water heater with a UEF of 0.95 |
+| Applicability | 44% |
+
+## 1 Introduction
+
+Text.
+"""
+SUMMARY_GRID = "| Field | Value |\n|---|---|\n| Description | water heater with a UEF of 0.95 |\n| Applicability | 44% |"
+SUMMARY_FIXED = "| Field | Value |\n|---|---|\n| Description | Tankless water heater with a UEF of 0.95 |\n| Applicability | 44% |"
+
+
+def _summary(pdf_env, **kw):
+    base = dict(
+        label="Measure Summary", uncaptioned=True, markdown=SUMMARY_FIXED,
+        replaces={"table_sha256": _fp(SUMMARY_GRID), "why": "the cell's first word was dropped"},
+    )
+    entry = pdf_env.pdf_entry(**{**base, **kw})
+    entry.pop("caption", None)
+    return entry
+
+
+def test_an_uncaptioned_table_is_replaced_where_it_stood(pdf_env):
+    pdf_env.write([_summary(pdf_env)], source_path=PDF_PATH)
+    doc = _pdf_doc(SUMMARY_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert warnings == []
+    assert "| Description | water heater" not in doc.body
+    assert "| Description | Tankless water heater with a UEF of 0.95 |" in doc.body
+    # between the heading it sat under and the next one
+    assert doc.body.index("## Measure Summary") < doc.body.index("Tankless") < doc.body.index("## 1 Introduction")
+    # nothing in the body names the table, so the comment does
+    assert "table: Measure Summary (no caption in the source)" in doc.body
+    assert applied["upgrade_measures"][PDF_PATH]["tables_applied"] == ["Measure Summary"]
+
+
+def test_uncaptioned_replacement_is_idempotent(pdf_env):
+    pdf_env.write([_summary(pdf_env)], source_path=PDF_PATH)
+    doc = _pdf_doc(SUMMARY_BODY)
+    _apply([doc], pdf_env)
+    once = doc.body
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert doc.body == once and warnings == [] and applied == {}
+
+
+def test_an_uncaptioned_entry_without_replaces_is_refused(pdf_env):
+    entry = _summary(pdf_env)
+    del entry["replaces"]
+    pdf_env.write([entry], source_path=PDF_PATH)
+    doc = _pdf_doc(SUMMARY_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {} and doc.body == SUMMARY_BODY
+    assert "needs 'replaces:'" in warnings[0]
+
+
+def test_an_uncaptioned_replacement_with_a_stale_pin_changes_nothing(pdf_env):
+    pdf_env.write(
+        [_summary(pdf_env, replaces={"table_sha256": "0" * 64, "why": "x"})], source_path=PDF_PATH
+    )
+    doc = _pdf_doc(SUMMARY_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {} and doc.body == SUMMARY_BODY
+    assert "no extracted table matches the pinned fingerprint" in warnings[0]
+
+
+STRAY_BODY = """Table 1. Heating Type by Division
+
+U.S. Census Division
+
+| Type | East |
+|---|---|
+| Furnace | 1% |
+
+Text after.
+"""
+
+
+def _removal(**kw):
+    return {"find": "U.S. Census Division", "remove": True,
+            "why": "a header fragment left outside the table, which carries it", **kw}
+
+
+def test_a_repair_can_remove_a_stray_line(pdf_env):
+    pdf_env.write([], source_path=PDF_PATH, text_repairs=[_removal()])
+    doc = _pdf_doc(STRAY_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert warnings == []
+    assert "\nU.S. Census Division\n" not in doc.body
+    # the removed text and the reason stay readable in the comment
+    assert "removed line: U.S. Census Division -->" in doc.body
+    assert "a header fragment left outside the table" in doc.body
+    assert "| Furnace | 1% |" in doc.body
+    assert applied["upgrade_measures"][PDF_PATH]["text_repairs_applied"] == 1
+
+
+def test_line_removal_is_idempotent(pdf_env):
+    pdf_env.write([], source_path=PDF_PATH, text_repairs=[_removal()])
+    doc = _pdf_doc(STRAY_BODY)
+    _apply([doc], pdf_env)
+    once = doc.body
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert doc.body == once and warnings == [] and applied == {}
+
+
+def test_a_repair_cannot_both_remove_and_replace(pdf_env):
+    pdf_env.write([], source_path=PDF_PATH, text_repairs=[_removal(replace="Census Division")])
+    doc = _pdf_doc(STRAY_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {} and doc.body == STRAY_BODY
+    assert "not both" in warnings[0]

@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95032.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95032.md | section: 2.2.1  OpenStudio-HPXML Overview | lines: 303-335 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95032.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95032.md | section: 2.2.1  OpenStudio-HPXML Overview | lines: 303-342 -->
 ## 2.2.1  OpenStudio-HPXML Overview
 
 OpenStudio-HPXML is a workflow, developed by the National Laboratory of the Rockies (NLR), used for modeling residential buildings. This workflow uses the HPXML (Home Performance eXtensible Markup Language) standard for defining all the properties of a building that affect energy consumption, such as square footage, the type and efficiency of heating and cooling equipment, setpoints for heating and cooling, etc. NLR leads the development of this standard alongside a working group including a variety of industry stakeholders for determining what features are included in the standard, including updates to cover new technologies and additional inputs as appropriate. The OpenStudio-HPXML workflow uses a series of OpenStudio measures to translate an HPXML file into an EnergyPlus ®  input file to simulate the energy consumption of the building with the given inputs in a standard, repeatable way. The model outputs are time-series and annual energy consumption by end use and may also include outputs derived from energy consumption, such as utility bills. More information about the OpenStudioHPXML workflow can be found at the OpenStudio-HPXML documentation (NREL 2023).
@@ -9,7 +9,14 @@ The GHP model implemented in OpenStudio-HPXML adds a GHP, the ground heat exchan
 
 Figure 1. Overview of OpenStudio-HPXML GHP (sometimes referred to as 'ground source heat pump' or 'GSHP') workflow
 
-![Image](95032_images/image_000002_a429cf5d958a67abbdceb0a07ce46f44f0da4be97bfdd1414879ef886218ed5c.png)
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95032.yaml
+     source: 95032_images/image_000002_a429cf5d958a67abbdceb0a07ce46f44f0da4be97bfdd1414879ef886218ed5c.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+![Flow diagram of the five OS-HPXML ground source heat pump calculation steps](95032_images/image_000002_a429cf5d958a67abbdceb0a07ce46f44f0da4be97bfdd1414879ef886218ed5c.png)
+
+Figure 1: process-flow diagram, a blue arrow titled 'OS-HPXML Ground Source Heat Pump Calculations' holding five steps in order: ACCA Manual J/S system size; calculate ground heat exchanger length; calculate number of boreholes and configuration; g-function lookup; add heat pump coil and distribution. There are no axes or data; it shows that loop sizing follows equipment sizing and precedes the g-function lookup.
 
 The ResStock building stock energy model contains conditional probability distributions of building characteristics that are representative of the contiguous U.S. residential building stock. These are sampled to create a synthetic stock where each sample has an assigned option for each characteristic for each dwelling unit to be simulated. ResStock uses the OpenStudio-HPXML workflow to translate these dwelling characteristics into building models ready to be simulated via OpenStudio and EnergyPlus through the use of an HPXML file.
 

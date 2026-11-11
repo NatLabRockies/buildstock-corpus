@@ -1,0 +1,465 @@
+# Hand-authored overlay for measure_pdfs/95034.pdf
+#
+# 95034 is the ResStock measure documentation for the two-stage geothermal heat pump upgrade
+# (measure 7; 4.0 COP, 20.5 EER). Every table and figure in the report was compared with
+# the PDF on 2026-11-11, following "Checking every table and figure: the ResStock method" in
+# overlays/README.md.
+#
+# Tables (page numbers are PDF pages, 1-based):
+#   * Table 1 (p.15) is superseded: its grid was extracted under the Table 2 caption. The
+#     values were right; the entry moves them under the Table 1 caption. See its `why`.
+#   * Tables 2 and 3 (p.15) and the Measure Summary table (p.10) are recorded under
+#     `checked:` as correct.
+#   * The List of Acronyms (p.5) was extracted as one run-on line of prose, not as a grid,
+#     so there is no table to check or replace. All seven acronyms and expansions are
+#     present and right.
+#   * The Table of Contents, List of Figures and List of Tables grids are contents pages,
+#     not tables of the report, and have no entry.
+#
+# Figures: the report has 49 figure captions (Figures 1-41 and A-1 to A-8) and the
+# extraction has 38 figure bitmaps, all described here (vision-description). Each bitmap
+# was matched to its figure by the plot title or cell values on the PDF page, not only by
+# the caption next to its ref. The cover art and wordmark (image_000000, image_000001)
+# are decorative and omitted by the build.
+#
+# Captions with NO image (docling kept the caption and dropped the picture), 11 in all.
+# Every one is a colour-scaled value grid pasted into the report as a picture, so its
+# numbers are in neither the text layer nor the corpus:
+#   * Figures 7 and 8 (p.19-20): full-load cooling EIR and capacity grids.
+#   * Figures 13 and 14 (p.22): part-load heating EIR and capacity grids.
+#   * Figures 19 and 20 (p.25): part-load cooling EIR and capacity grids.
+#   * Figures A-1, A-2 (p.45-46), A-5, A-6 (p.49-50) and A-8 (p.52): curve fit against
+#     manufacturer data.
+# Figures 1, 2, A-3, A-4 and A-7 are grids of the same kind whose bitmaps survived; they
+# are described as figures and their cell values are not transcribed.
+#
+# Flattening notes: Table 1's spanning header "COP" is carried on each column as
+# "COP: Min" and so on. The Median column is bold in the PDF (it is the value the measure
+# uses, as the text below Table 2 says); the emphasis is dropped. Row shading is
+# alternating bands and carries no meaning.
+
+product: resstock
+release: resstock_amy2018_2025_release_1
+source_id: upgrade_measures
+source_path: measure_pdfs/95034.pdf
+source_url: https://docs.nlr.gov/docs/fy26osti/95034.pdf
+publication_url: https://docs.nlr.gov/docs/fy26osti/95034.pdf
+tables:
+- label: Table 1
+  caption: ENERGY STAR 2025 Most Efficient GHP List and the Average COP by Compressor Type
+  source_pdf: measure_pdfs/95034.pdf
+  source_pdf_sha256: ef959791583e1a0c0f1887275ab29504bd197288d2cd01ee2d8747c0c19291b3
+  page: 15
+  method: pdf-text-layer
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 63c2673f6824607e904a25d23a810296ae0ac2b3bfd59fbab61f587954102c65
+    why: The extractor put Table 1's grid (rated heating COP by compressor type) under the Table 2 caption,
+      ahead of Table 2's own EER grid, and left the Table 1 caption with only its note beneath. A reader
+      would take the COP values for EER. Every value in the grid is right and matches page 15; it is moved
+      under its own caption, with the 'COP' spanning header carried on each column.
+  markdown: '| Compressor Type | COP: Min | COP: 25th | COP: Mean | COP: Median | COP: 75th | COP: Max
+    |
+
+    |---|---|---|---|---|---|---|
+
+    | Single-Stage | 3.5 | 3.6 | 3.8 | 3.8 | 3.9 | 4.3 |
+
+    | Two-Stage | 3.5 | 3.8 | 4.0 | 4.0 | 4.1 | 4.9 |
+
+    | Variable-Speed | 4.1 | 4.3 | 4.4 | 4.4 | 4.4 | 4.6 |'
+checked:
+- label: Measure Summary
+  uncaptioned: true
+  source_pdf: measure_pdfs/95034.pdf
+  source_pdf_sha256: ef959791583e1a0c0f1887275ab29504bd197288d2cd01ee2d8747c0c19291b3
+  page: 10
+  table_sha256: bd8d02c8cd37bf8acee2dfba144c5bb2804bebb9abce9692c7bdab6a5da314fa
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: Two columns, six rows, all text. The bulleted lists in the Applicability and Not Applicable cells
+    are run together on one line with their bullet marks; the em dash in the measure title is a hyphen
+    and '(≥8 floors)' is spaced '( ≥ 8 floors)'. Wording and every number match the page.
+- label: Table 2
+  caption: ENERGY STAR 2025 Most Efficient GHP List and the Average EER by Compressor Type
+  source_pdf: measure_pdfs/95034.pdf
+  source_pdf_sha256: ef959791583e1a0c0f1887275ab29504bd197288d2cd01ee2d8747c0c19291b3
+  page: 15
+  table_sha256: 9d34b670188b9d3cfdc1b705054baadca578f94650f3086dd225224511564486
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: The two-row header (EER over Min, 25th, Mean, Median, 75th, Max) is flattened into a header row
+    and a first data row; every value matches. In the extraction this is the second grid under the caption,
+    after the table note; the first is Table 1's, which this sidecar's Table 1 entry moves.
+- label: Table 3
+  caption: Summary of the Two-Stage GHP Measure Inputs That Differ From Those of the Single-Stage GHP
+    Measure
+  source_pdf: measure_pdfs/95034.pdf
+  source_pdf_sha256: ef959791583e1a0c0f1887275ab29504bd197288d2cd01ee2d8747c0c19291b3
+  page: 15
+  table_sha256: 493f4bbaa15d48e8d248e87754028445ddb9031345774b5d96e56d1d00d2c7a8
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+figures:
+- source_image: 95034_images/image_000002_85771d7cb5611ef5d984e14047cda991780707e4edd2e5d6c785d06f60905a52.png
+  source_image_sha256: de68b6c26ae84ae5dad27e751064a3de256b53f53882d3c4a4ed6773d92d9db6
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Colour-scaled grid of full-load heating EIR by air temperature and water temperature
+  description: 'Figure 1: colour-scaled value grid (a table shown as a picture) of full-load heating EIR.
+    Rows are air temperature, 10 to 27.5 °C; columns are water temperature, 0 to 30 °C, both in 2.5-degree
+    steps. EIR rises with air temperature and falls with water temperature: 0.193 at 10 °C air and 0 °C
+    water, 0.141 at 10 and 30 °C, and 0.273 at 27.5 and 0 °C.'
+- source_image: 95034_images/image_000003_81c6522570d41fb0ce1c7bb3130dfde81e7cdbdbd92280114d23a42473a7830f.png
+  source_image_sha256: dcdc07c26668e3950592e3498607ab710f5b7fa1aa731aaf7c6dfae4c3b66797
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Colour-scaled grid of full-load heating capacity in watts by air temperature and water temperature
+  description: 'Figure 2: colour-scaled value grid (a table shown as a picture) of full-load heating capacity
+    in W. Rows are air temperature, 10 to 27.5 °C; columns are water temperature, 0 to 30 °C, both in
+    2.5-degree steps. Capacity rises steeply with water temperature and falls slightly with air temperature:
+    8594 at 10 °C air and 0 °C water, 15485 at 10 and 30 °C, and 14871 at 27.5 and 30 °C.'
+- source_image: 95034_images/image_000004_e8cab9682e1f9a201343f4c14c722eb26d0a0085e0197aaf1186d3430ca01d2e.png
+  source_image_sha256: 9a420a66f41ae0eb11b32282e43e61b2f374c5125b4cef62105bd2ff72b73aea
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Scatter plot with quadratic fit of full-load heating EIR against fraction of airflow
+  description: 'Figure 3: scatter plot with a dotted quadratic fit of normalized EIR (y-axis, dimensionless)
+    against fraction of airflow (x-axis, dimensionless) for full-load heating of the two-stage GHP. Seven
+    points from 0.80 to 1.10 airflow; the y value falls from about 1.047 to 0.977 across them. The fitted
+    curve is y = 0.0288x² - 0.2856x + 1.2568, with R-squared of 0.9999.'
+- source_image: 95034_images/image_000005_44d353a056e306f0fcb75965a0a6f0f77b6591f4b9d709186a09cb53dcfa4075.png
+  source_image_sha256: c11104c12d6e7598612a066ed4be1e365e11c0c0efaab63cc1ebf5aba1b6934f
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Scatter plot with quadratic fit of full-load heating capacity against fraction of airflow
+  description: 'Figure 4: scatter plot with a dotted quadratic fit of normalized capacity (y-axis, dimensionless)
+    against fraction of airflow (x-axis, dimensionless) for full-load heating of the two-stage GHP. Seven
+    points from 0.80 to 1.10 airflow; the y value rises from about 0.963 to 1.019 across them. The fitted
+    curve is y = 0.0143x² + 0.1593x + 0.8264, with R-squared of 0.9998.'
+- source_image: 95034_images/image_000006_aaefbca49c75ce392f46902fbb65daec7dcc717d8504277e3428a80311e68d56.png
+  source_image_sha256: 4d90d53ed851f72292f5a37a32ec7efb3f61e0c90218768dac09118ded9c1cc9
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Scatter plot with quadratic fit of full-load heating EIR against normalized water flow
+  description: 'Figure 5: scatter plot with a dotted quadratic fit of normalized EIR (y-axis, dimensionless)
+    against normalized water flow (x-axis, dimensionless) for full-load heating of the two-stage GHP.
+    Three points at 0.5, 0.75 and 1.0 water flow; the y value falls from about 1.045 to 1.0 across them.
+    The fitted curve is y = 0.1535x² - 0.3215x + 1.1679; no R-squared is printed.'
+- source_image: 95034_images/image_000007_55ebffaf45bf99e7837fbb777b3a4afe4bbd9dc96b70abbe1a79605f532d985c.png
+  source_image_sha256: 97af0067c3ff90480774abb66280ba16ced0e4864cdc1e19bfd871a5312b83d7
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Scatter plot with quadratic fit of full-load heating capacity against normalized water flow
+  description: 'Figure 6: scatter plot with a dotted quadratic fit of normalized capacity (y-axis, dimensionless)
+    against normalized water flow (x-axis, dimensionless) for full-load heating of the two-stage GHP.
+    Three points at 0.5, 0.75 and 1.0 water flow; the y value rises from about 0.927 to 1.0 across them.
+    The fitted curve is y = -0.168x² + 0.399x + 0.769; no R-squared is printed.'
+- source_image: 95034_images/image_000008_fdda9fe16e1faf729e5b320be92679914f848531f6e4caf52cc829a06f1fbfab.png
+  source_image_sha256: 9414f817cb2ea964295a6694593a147fceda771f4055da7039e240dd02e4747f
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Scatter plot with quadratic fit of full-load cooling EIR against fraction of airflow
+  description: 'Figure 9: scatter plot with a dotted quadratic fit of normalized EIR (y-axis, dimensionless)
+    against fraction of airflow (x-axis, dimensionless) for full-load cooling of the two-stage GHP. Seven
+    points from 0.80 to 1.10 airflow; the y value rises from about 0.173 to 0.183 across them. The fitted
+    curve is y = -0.0044x² + 0.0436x + 0.1408, with R-squared of 0.9998.'
+- source_image: 95034_images/image_000009_535f2e5a0308c97c373036f4d8fd8b4bb10c759720bf34de8fdcb3978e444f51.png
+  source_image_sha256: b4d3838ad76af97b2e7e5dc0732ce92eb7b2fd2abb6a541d487d5d1670ffb825
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Scatter plot with quadratic fit of full-load cooling capacity against fraction of airflow
+  description: 'Figure 10: scatter plot with a dotted quadratic fit of normalized capacity (y-axis, dimensionless)
+    against fraction of airflow (x-axis, dimensionless) for full-load cooling of the two-stage GHP. Seven
+    points from 0.80 to 1.10 airflow; the y value rises from about 0.975 to 1.012 across them. The fitted
+    curve is y = -0.0238x² + 0.1688x + 0.8551, with R-squared of 0.9998.'
+- source_image: 95034_images/image_000010_3fe5e12df928cef8859b63cbe15e6a47f461b126ff29b0c911fee1c18430a781.png
+  source_image_sha256: be0fb1949292fbdd68abd686b2e84a33d7aa2a29817cb727873cb61f4ec73777
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Scatter plot with quadratic fit of full-load cooling EIR against normalized water flow
+  description: 'Figure 11: scatter plot with a dotted quadratic fit of normalized EIR (y-axis, dimensionless)
+    against normalized water flow (x-axis, dimensionless) for full-load cooling of the two-stage GHP.
+    Three points at 0.5, 0.75 and 1.0 water flow; the y value falls from about 1.176 to 1.0 across them.
+    The fitted curve is y = 0.4678x² - 1.055x + 1.5872; no R-squared is printed.'
+- source_image: 95034_images/image_000011_1fbe142ed5e470aa00ede77839c2ef93c1a4808ed2fc9f1fc55188e11b086f1a.png
+  source_image_sha256: bfafa7cd222fb4ec65f157be9494bf2b67214f4c1271b749cde62098604b5577
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Scatter plot with quadratic fit of full-load cooling capacity against normalized water flow
+  description: 'Figure 12: scatter plot with a dotted quadratic fit of normalized capacity (y-axis, dimensionless)
+    against normalized water flow (x-axis, dimensionless) for full-load cooling of the two-stage GHP.
+    Three points at 0.5, 0.75 and 1.0 water flow; the y value rises from about 0.942 to 1.0 across them.
+    The fitted curve is y = -0.14x² + 0.325x + 0.815; no R-squared is printed.'
+- source_image: 95034_images/image_000012_8daa03806ed0f52a0f69d7bcf0768afe7d1c746530f0c335e56594d5b6a0b481.png
+  source_image_sha256: 2e5019b2197c5419c334af639941b7dd1801988bcd0e79acea56274baa254e94
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Scatter plot with quadratic fit of part-load heating EIR against fraction of airflow
+  description: 'Figure 15: scatter plot with a dotted quadratic fit of normalized EIR (y-axis, dimensionless)
+    against fraction of airflow (x-axis, dimensionless) for part-load heating of the two-stage GHP. Seven
+    points from 0.80 to 1.10 airflow; the y value falls from about 1.041 to 0.979 across them. The fitted
+    curve is y = -0.0062x² - 0.1943x + 1.2006, with R-squared of 0.9998.'
+- source_image: 95034_images/image_000013_43927481fd0b18b1715a2c2ef2cfed5b050daf98b7f1b7074a572831cc520950.png
+  source_image_sha256: b6a6c97c4ca052b370ec555b6fb9741981746005ef4bceb49d9e38f09e6de6a4
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Scatter plot with quadratic fit of part-load heating capacity against fraction of airflow
+  description: 'Figure 16: scatter plot with a dotted quadratic fit of normalized capacity (y-axis, dimensionless)
+    against fraction of airflow (x-axis, dimensionless) for part-load heating of the two-stage GHP. Seven
+    points from 0.80 to 1.10 airflow; the y value rises from about 0.969 to 1.016 across them. The fitted
+    curve is y = 0.0238x² + 0.1112x + 0.8649, with R-squared of 0.9999.'
+- source_image: 95034_images/image_000014_cd073b64f4bdb07cc25f53973ef56c13422ffd51a79ae8a5465fb67a4997a192.png
+  source_image_sha256: 20e84e1f85ca38325ef6827d00bf34192e4af53076b7187c9c76c16ac0d30b3f
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Scatter plot with quadratic fit of part-load heating EIR against normalized water flow
+  description: 'Figure 17: scatter plot with a dotted quadratic fit of normalized EIR (y-axis, dimensionless)
+    against normalized water flow (x-axis, dimensionless) for part-load heating of the two-stage GHP.
+    Three points at 0.5, 0.75 and 1.0 water flow; the y value falls from about 1.093 to 1.0 across them.
+    The fitted curve is y = 0.3201x² - 0.6658x + 1.3457, with R-squared of 1.'
+- source_image: 95034_images/image_000015_34814a2e65971b7bb164d17e8dbe7f54360abed1d8a2df1682b76f031cac693d.png
+  source_image_sha256: 5da973293fcfe24a6ba4b00a8b3782c6f570b856bd7a10edb0fc330f5b2f4af8
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Scatter plot with quadratic fit of part-load heating capacity against normalized water flow
+  description: 'Figure 18: scatter plot with a dotted quadratic fit of normalized capacity (y-axis, dimensionless)
+    against normalized water flow (x-axis, dimensionless) for part-load heating of the two-stage GHP.
+    Three points at 0.5, 0.75 and 1.0 water flow; the y value rises from about 0.909 to 1.0 across them.
+    The fitted curve is y = -0.2139x² + 0.5027x + 0.7112; no R-squared is printed.'
+- source_image: 95034_images/image_000016_26de54f9efa8487aecb1a2f5e99041d66843b6ce44816b2d5763cd7d7060b2f0.png
+  source_image_sha256: 8c07a52cd08cd657a33803778f1835612b1a854a96d4639e0755904b5e4d8ab4
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Scatter plot with quadratic fit of part-load cooling EIR against fraction of airflow
+  description: 'Figure 21: scatter plot with a dotted quadratic fit of normalized EIR (y-axis, dimensionless)
+    against fraction of airflow (x-axis, dimensionless) for part-load cooling of the two-stage GHP. Seven
+    points from 0.80 to 1.10 airflow; the y value rises from about 0.967 to 1.015 across them. The fitted
+    curve is y = -0.0552x² + 0.2623x + 0.7931, with R-squared of 0.9995.'
+- source_image: 95034_images/image_000017_27d668af867434aa76089c02214fae4323873635bd8b826538a675f4a1aedfc8.png
+  source_image_sha256: cf407dbdd337d2aba5d622dfa3ba87131ebaa70134d7047c0420fbc0c44650bc
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Scatter plot with quadratic fit of part-load cooling capacity against fraction of airflow
+  description: 'Figure 22: scatter plot with a dotted quadratic fit of normalized capacity (y-axis, dimensionless)
+    against fraction of airflow (x-axis, dimensionless) for part-load cooling of the two-stage GHP. Seven
+    points from 0.80 to 1.10 airflow; the y value rises from about 0.979 to 1.011 across them. The fitted
+    curve is y = 0.0143x² + 0.0793x + 0.9064, with R-squared of 0.9995.'
+- source_image: 95034_images/image_000018_9f0b7bfe95fea5a9ace403d837d6b1ff533179f7c1b0b39e0642b729ae2e5ffc.png
+  source_image_sha256: 28f48cf5c29664a3c31cb6ece4c7621e0bb0af1ca9c139a0406ab1b7b53cf4f0
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Scatter plot with quadratic fit of part-load cooling EIR against normalized water flow
+  description: 'Figure 23: scatter plot with a dotted quadratic fit of normalized EIR (y-axis, dimensionless)
+    against normalized water flow (x-axis, dimensionless) for part-load cooling of the two-stage GHP.
+    Three points at 0.5, 0.75 and 1.0 water flow; the y value falls from about 1.208 to 1.0 across them.
+    The fitted curve is y = 0.5924x² - 1.3055x + 1.7131; no R-squared is printed.'
+- source_image: 95034_images/image_000019_308ec17833bed73926ad2690f1c11afb66c7684d5c158955d497d50432adc9eb.png
+  source_image_sha256: 16914ae3e5059481013b23e067cc115b9e50035a2935670e6da5410b7eb9dd1b
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Scatter plot with quadratic fit of part-load cooling capacity against normalized water flow
+  description: 'Figure 24: scatter plot with a dotted quadratic fit of normalized capacity (y-axis, dimensionless)
+    against normalized water flow (x-axis, dimensionless) for part-load cooling of the two-stage GHP.
+    Three points at 0.5, 0.75 and 1.0 water flow; the y value rises from about 0.952 to 1.0 across them.
+    The fitted curve is y = -0.129x² + 0.2903x + 0.8387; no R-squared is printed.'
+- source_image: 95034_images/image_000020_cc3484c2cc25401952052e5da3d47ed049e98840df1638eb2fb2fa4bfa3c6826.png
+  source_image_sha256: c726e39c9b18de6f7064b56ca4ddb468606b5dd80520037c8cad67380f5d80a6
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Two stacked bar charts of annual energy use for baseline, single-stage GHP and two-stage GHP
+  description: 'Figure 25: two stacked bar charts of annual energy consumption (TBtu, 0 to 12k) for Baseline,
+    Single-Stage GHP and Two-Stage GHP, stacked by end use and fuel. The top chart covers all dwellings:
+    totals are 11784, 8915 and 8171 TBtu. The bottom chart covers only applicable dwellings: 9154, 6286
+    and 5541 TBtu. Heating segments shrink most; appliance, miscellaneous, lighting and hot water segments
+    are unchanged.'
+- source_image: 95034_images/image_000021_7ec2ec9f394e3707abc7448bf4cf0fdd43d2638a274ac008246ff44744e55ea9.png
+  source_image_sha256: 2113654ec26355548f1d4829222777bbd10527afc522559081ac81202494b276
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bars of annual energy use by baseline heating fuel for baseline and both GHP upgrades
+  description: 'Figure 26: four-panel stacked bar chart of annual energy consumption (TBtu, 0 to about
+    5,700), one panel per baseline heating fuel (Electricity, Fuel Oil, Natural Gas, Propane), each with
+    Baseline, Single-Stage GHP and Two-Stage GHP bars stacked by end use. Natural gas dwellings dominate:
+    5618 TBtu baseline, 3587 single-stage, 3155 two-stage. Electricity goes 2397, 2040, 1817; fuel oil
+    567, 316, 271; propane 572, 342, 297.'
+- source_image: 95034_images/image_000022_131346fc764d3af03c591195570ffce3f0232f8b333c2fb877b8ce289340f4d9.png
+  source_image_sha256: 6178a642457ba607c070afd557cba117e16c60314b72d01dd82790d86ed44bab
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bars of annual energy use by Building America climate zone for baseline and both GHP upgrades
+  description: 'Figure 27: eight-panel stacked bar chart of annual energy consumption (TBtu, 0 to 4,000),
+    one panel per Building America climate zone, each with Baseline, Single-Stage GHP and Two-Stage GHP
+    bars stacked by end use. Cold is largest, falling from 3947 to 2335 and 2021 TBtu; Mixed-Humid goes
+    2907, 2014, 1769 and Hot-Humid 1282, 1103, 991. Marine, Mixed-Dry, Very Cold and Subarctic are each
+    under 200 TBtu.'
+- source_image: 95034_images/image_000023_0ec920bcc1f52a82ec346b06086d812453b50ad48fc17ba7971eeb64188b95fb.png
+  source_image_sha256: 0a3a7f5612c28b5613a318d4d6a803b32343ff78821cae962129de1225176ae9
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Map of contiguous U.S. states shaded by percent cooling energy savings of the two-stage GHP
+  description: 'Figure 28: choropleth map of the contiguous United States, each state labelled with its
+    percent cooling energy savings for the two-stage GHP over the baseline, in five colour bins from -50%
+    to 75%. Most states fall between 25% and 50%. Six north-central states are just above 50% (South Dakota
+    highest at 51.5%). Vermont (-34.0%) and Maine (-8.8%) are negative; Washington (13.7%) and California
+    (18.2%) are the lowest positive.'
+- source_image: 95034_images/image_000024_795e41b9ca10e3824b22e4ecec25f62622eca5bc7bdc162bf6e59c8e78acaafe.png
+  source_image_sha256: 642aa6e420c37ba2f61214246a5fba0de2f9cbf08e0816e0ccca7af0c1024c6f
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Map of contiguous U.S. states shaded by percent heating energy savings of the two-stage GHP
+  description: 'Figure 29: choropleth map of the contiguous United States, each state labelled with its
+    percent heating energy savings for the two-stage GHP over the baseline, in six colour bins from 62.5%
+    to 77.5%. Savings sit in a narrow band: most states are between 70% and 76%. The Southeast is lowest,
+    with Florida at 64.4%, South Carolina at 66.5% and Alabama and North Carolina at 68.0%.'
+- source_image: 95034_images/image_000025_6e26a8e03955c3e0bdf834784f53ca331c62eeda1e107e87c2dd355a7b32af4c.png
+  source_image_sha256: 31be4a75ab7f4e9a8c758af55163739a0dadd14011f86c90347ae65225d6013c
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Map of contiguous U.S. states shaded by average simulated heating COP of the two-stage GHP
+  description: 'Figure 30: choropleth map titled Heating COP Two Stage GHP, each contiguous U.S. state
+    labelled with its average simulated heating COP, in four colour bins from 2.6 to 3.4. COP is highest
+    in the south (Texas, Louisiana and Florida at 3.28, Arizona 3.21) and lowest in the northern plains
+    (North Dakota 2.68, Minnesota 2.77, South Dakota 2.80).'
+- source_image: 95034_images/image_000026_a49a4f0a4972d204dcb542bb3649eb0fb4e2971161b01b4fb18e9195e597bd53.png
+  source_image_sha256: 5a63b852b4cb751651771f1a0166c319d081454284c47ca8b35306180f2cf3ca
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Map of contiguous U.S. states shaded by average simulated cooling COP of the two-stage GHP
+  description: 'Figure 31: choropleth map titled Cooling COP Two Stage GHP, each contiguous U.S. state
+    labelled with its average simulated cooling COP, in ten colour bins from 3.6 to 5.6. The pattern is
+    the reverse of heating: COP is highest in the north (Montana 5.35, Vermont 5.23, North Dakota 5.18,
+    Idaho 5.17) and lowest on the Gulf coast (Florida 3.68, Louisiana 3.88).'
+- source_image: 95034_images/image_000027_6b750bb8261a6e2b93b3e86298ffad7c3749a825f601a20de5461546473a14b2.png
+  source_image_sha256: ed2ad28c753f130f18266108efc9c0a2d6c2dde4ca85d8016b849089bbc8c74f
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bars of average annual energy bill by fuel, baseline vs two-stage (dual-speed) GHP
+  description: 'Figure 32: horizontal grouped bar chart of average annual bills (USD, 0 to about 2,700)
+    for Baseline and Dual-Speed GHP, with rows for electricity, natural gas, fuel oil, propane and all
+    fuels. The electricity bill rises from roughly 1,870 to 2,000; natural gas roughly halves, from about
+    520 to 250; fuel oil and propane fall to near zero. The all-fuels bill falls from about 2,640 to 2,350.'
+- source_image: 95034_images/image_000028_4ed67468035c777c6dc9bd959cc5b6b0ebea6ae7fe6633cfe3491e8da0ec7b40.png
+  source_image_sha256: 4e9deb9082c872a56a956cb7a4a7c311f99b6c5c60a2dda1a1ef93533d3a2eff
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bars of average annual energy bill by fuel, single-stage vs two-stage GHP
+  description: 'Figure 33: horizontal grouped bar chart of average annual bills (USD, 0 to about 2,800)
+    for Single-Speed GHP and Dual-Speed GHP in applicable dwellings, with rows for electricity, natural
+    gas, fuel oil, propane and all fuels. The electricity bill is about 2,500 single-speed against 2,170
+    dual-speed; natural gas is the same small amount in both; the all-fuels bill is about 2,710 against
+    2,390.'
+- source_image: 95034_images/image_000029_17731e1fdc2d9d786ac0f3db7346de049ddde798aa6a73d06701f6ba67b1fe7f.png
+  source_image_sha256: e4ab97b22043b3d7147403e9386fde9eb8e9545cda258ff00a71db7a1691f99a
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bars of average annual energy bill by climate zone and fuel, baseline vs two-stage GHP
+  description: 'Figure 34: horizontal stacked bar chart of average annual bills (USD, 0 to about 5,300)
+    for eight Building America climate zones, with a Baseline and a Dual-Speed GHP bar per zone stacked
+    by electricity, natural gas, fuel oil and propane bills. Every zone''s total falls. Subarctic falls
+    most, from about 5,200 (mostly fuel oil) to about 3,050; the other zones go from roughly 2,300-3,200
+    to 1,900-2,900.'
+- source_image: 95034_images/image_000030_dd25c32264260639ea56c73eedd2305c057305464b671a323ab55f452f301034.png
+  source_image_sha256: e038e0598a0b06e1866580e446c3bacb9fe2c3b4afa6d36972ebedd9eb3a1021
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bars of average annual energy bill by climate zone and fuel, single-stage vs two-stage
+    GHP
+  description: 'Figure 35: horizontal stacked bar chart of average annual bills (USD, 0 to about 3,600)
+    for eight Building America climate zones, with a Single-Speed GHP and a Dual-Speed GHP bar per zone
+    stacked by electricity, natural gas, fuel oil and propane bills. Electricity dominates every bar,
+    and the dual-speed bar is shorter in every zone: Subarctic about 3,500 against 3,050, Cold about 3,330
+    against 2,860.'
+- source_image: 95034_images/image_000031_993c26255c5ce2cea85bae5e4d0b96d5e1943611159fb1018be5ffb430473bf5.png
+  source_image_sha256: 962ff3ccdbb59d6ddfed8bbebef8b02f8a960250bf8086db1293c3e66be69150
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked columns of available breaker spaces by electric panel service rating in the baseline
+  description: 'Figure 36: 100% stacked column chart titled Available Electric Panel Breaker Spaces by
+    Electric Panel Service Rating, for the baseline. X-axis is panel rating (All, <100, 100, 101-124,
+    125, 126-199, 200, 201+ amps); y-axis is percent of dwelling units; segments are 0, 1, 2, 3, 4, 5-10
+    and 10+ spaces. Across all panels 25.6% have no space and 9.7% have one, while 24.5% have 5-10 and
+    13.5% have 10+.'
+- source_image: 95034_images/image_000032_3335c8077decf782a8b683d254493ee31f847cf0ad3044e667f7ce55999e62eb.png
+  source_image_sha256: 646e1a4baccd6bb4a59ebc3f77dcd9b705800f10c46374f55324c545769f381f
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked columns of baseline panel constraint type by electric panel service rating
+  description: 'Figure 37: 100% stacked column chart titled Electric Panel Constraint Type by Electric
+    Panel Service Rating, for the baseline. X-axis is panel rating (All, <100, 100, 101-124, 125, 126-199,
+    200, 201+ amps); y-axis is percent of dwelling units; segments are No Constraint and Capacity Constrained
+    Only. Overall 97.7% have no constraint. Panels under 100 amps stand out with 32.9% capacity constrained;
+    100-amp panels have 3.7% and 101-124 amp 4.8%.'
+- source_image: 95034_images/image_000033_e8d87918d9a69d56bcbe428b575f34ca562efaee2940c4728c3dbc35d7650279.png
+  source_image_sha256: 47ad0d56749d1cea3d53329fdd1bcf62c124305e9da46ea699457fcf94a843fa
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked columns of electric panel constraint type by heating fuel after the two-stage GHP
+  description: 'Figure 38: 100% stacked column chart titled Electric Panel Constraint Type by Heating
+    Fuel, for the two-stage GHP upgrade. Columns are All, Electricity, Natural Gas, Fuel Oil and Propane;
+    y-axis is percent of dwelling units; segments are no constraint, capacity only, space only, and both.
+    Overall 62.1% have no constraint, 13.8% capacity only, 13.0% space only and 11.1% both. Unconstrained
+    share is 88.8% for electricity but 30.5% for fuel oil.'
+- source_image: 95034_images/image_000034_5df149edc9a30edf699407b3ef4f6078bf2ae883f3a134b678ced982ca9fed75.png
+  source_image_sha256: c064cf55ed61cedd0b92442230b73480a11b08a6fdd0c58107803a6369ff2700
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: State map of percent of dwelling units with a panel capacity and/or space constraint after the
+    GHP
+  description: 'Figure 39: choropleth map of U.S. states, with Alaska and Hawaii insets, titled Percent
+    of Dwelling Units with Electric Panel Capacity and/or Space Constraints, for the two-stage GHP. Each
+    state is labelled with its percentage and shaded on a scale from 11.2% to 70.1%. Shares are highest
+    in the north-central and northeastern states, mostly above 50%, and lowest in the Southeast, with
+    Florida at 11.2%.'
+- source_image: 95034_images/image_000035_3924add55f9db2003dbd197594f97b7acd0fcdb853efe4f9bb19782ad84756c7.png
+  source_image_sha256: 93ecc70c25ccef55392fc5684d4fe28e154b180e7042bb7ca7276d6e7e6c0857
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: State map of percent of dwelling units with an electric panel space constraint after the GHP
+  description: 'Figure 40: choropleth map of U.S. states, with Alaska and Hawaii insets, titled Percent
+    of Dwelling Units with Electric Panel Space Constraints, for the two-stage GHP. Each state is labelled
+    with its percentage and shaded on a scale from 4.0% to 53.9%. The pattern follows Figure 39: northern
+    and northeastern states are highest, roughly 35% to 54%, and the Southeast lowest, with Florida at
+    4.0%.'
+- source_image: 95034_images/image_000036_f49c51eeb54cf5b9029858c517381971a2bf0b5825d2861db2b09586e091ca88.png
+  source_image_sha256: d2ce9e14897001ea2b3975434092a9430ad51969a3bfe0fc5ec7eae98225cb20
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: State map of percent of dwelling units with an electric panel capacity constraint after the GHP
+  description: 'Figure 41: choropleth map of U.S. states, with Alaska and Hawaii insets, titled Percent
+    of Dwelling Units with Electric Panel Capacity Constraints, for the two-stage GHP. Each state is labelled
+    with its percentage and shaded on a scale from 6.7% to 48.1%. Northern plains and northeastern states
+    are highest, above 40% (North Dakota 47.5%), and southern and western states lowest (Texas 16.2%,
+    California 13.5%).'
+- source_image: 95034_images/image_000037_989c3b4efe5e5183e1f516540d64b76712f8f35dae3a7df6f74a63f725884986.png
+  source_image_sha256: 9a6af4010631851b0338650f2b6ffd19bff50abf4d4a2f4a79a7ae02e3afd274
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: 'Three colour-scaled grids comparing full-load cooling EIR: manufacturer data, curve fit, difference'
+  description: 'Figure A-3: three stacked colour-scaled value grids (tables shown as a picture) for full-load
+    cooling EIR: Manufacturer Data, Curvefit Data and Difference. Rows are air temperature from 45 to
+    75 °F (7.22 to 23.89 °C); columns are water temperature from 50 to 120 °F (10.00 to 48.89 °C). Manufacturer
+    EIR runs from 0.119 to 0.517, rising with water temperature. Differences lie between -0.014 and 0.013.'
+- source_image: 95034_images/image_000038_730567543a9a33baf634e6d70d37444a9962663fbae104cdb2f0320e5ca18f30.png
+  source_image_sha256: c526d3f9bbe8f094a754a3cd4b16c61fe029bef6d547f60857c48b3a9387b281
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: 'Three colour-scaled grids comparing full-load cooling capacity: manufacturer data, curve fit,
+    difference'
+  description: 'Figure A-4: three stacked colour-scaled value grids (tables shown as a picture) for full-load
+    cooling capacity: Manufacturer Data, Curvefit Data and Difference. Rows are air temperature from 45
+    to 75 °F (7.22 to 23.89 °C); columns are water temperature from 50 to 120 °F (10.00 to 48.89 °C).
+    Manufacturer capacity runs from 5820.8 to 13803.1, rising with air temperature and falling with water
+    temperature. Differences lie between -300.1 and 193.4.'
+- source_image: 95034_images/image_000039_4642b8fbe27f225f5a855d9c0f2670c9f882ba5b665484f0980768f449e85131.png
+  source_image_sha256: bcceee5e63a89605c957a854f41985d268b8bfa9749a1038671788bb932a40cf
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: 'Three colour-scaled grids comparing part-load cooling EIR: manufacturer data, curve fit, difference'
+  description: 'Figure A-7: three stacked colour-scaled value grids (tables shown as a picture) for part-load
+    cooling EIR: Manufacturer Data, Curvefit Data and Difference. Rows are air temperature from 45 to
+    75 °F (7.22 to 23.89 °C); columns are water temperature from 50 to 120 °F (10.00 to 48.89 °C). Manufacturer
+    EIR runs from 0.088 to 0.602, rising with water temperature. Differences lie between -0.020 and 0.027.'

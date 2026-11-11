@@ -71,8 +71,9 @@ REPO = Path(__file__).resolve().parent.parent
 
 # Anchored at line start so prose mentions ("as shown in Table 5") are not counted as
 # captions. Allows leading bold/italic markers, which pandoc and docling both emit.
+# Numeric labels and appendix labels ("Table A-2"), as overlay._CAPTION.
 CAPTION = re.compile(
-    r"^\s*(?:\*\*|__|\*|_)?\s*(Table|Figure|Fig\.?)\s*([0-9]+[A-Za-z]?)\s*[.:)]",
+    r"^\s*(?:\*\*|__|\*|_)?\s*(Table|Figure|Fig\.?)\s*([0-9]+[A-Za-z]?|[A-Za-z]{1,2}-?[0-9]+)\s*[.:)]",
     re.IGNORECASE,
 )
 MD_TABLE_ROW = re.compile(r"^\s*\|.*\|\s*$")

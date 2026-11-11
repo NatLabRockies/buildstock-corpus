@@ -1,0 +1,447 @@
+# Hand-authored overlay for measure_pdfs/96636.pdf
+#
+# 96636 is the ResStock measure documentation for the Reference Space Heating and Air
+# Conditioning Upgrade Circa 2025 (measure 3). Every table and figure in the report was
+# compared with the PDF on 2026-11-11, following "Checking every table and figure: the
+# ResStock method" in overlays/README.md.
+#
+# Tables (page numbers are PDF pages, 1-based):
+#   * Table 1 (p.16) is superseded: nine rows were merged into four. See its `why`.
+#   * Tables 2, 3 (p.18), 5 (pp.18-19), 6 and 7 (p.19) are superseded to restore the
+#     footnotes the extractor dropped: their grids were right (Table 5 as two grids over
+#     the page break; Table 7 with superscript markers flattened into the values), and the
+#     rows are reused from the extraction, not retyped. The footnote text is from the PDF
+#     text layer and appears nowhere else in the document.
+#   * The second grid of the Upgrade Summary table (p.10, no caption) is superseded: the
+#     project configuration URL carried a line-wrap space and the quoted word "none" was
+#     broken. It is the extractor's own grid with those two corrected.
+#   * Tables 4, 8, 9 and 10, the List of Acronyms and the first grid of the Upgrade
+#     Summary table (p.9) are recorded under `checked:` as correct.
+#   * The Table of Contents and the List of Figures / List of Tables grids are contents
+#     pages, not tables of the report, and have no entry.
+#
+# Figures: Figures 1-13 are described (40-70 words each, vision-description), one bitmap
+# per figure; no caption is without its image. The cover art and wordmark (image_000000,
+# image_000001) are decorative and omitted by the build. In Figures 6-9 the plots' own
+# legend calls the upgrade "Minimum Efficiency Furnace"; the descriptions say so.
+#
+# Flattening notes: Table 1's merged cells (Heating Fuel, HVAC Has Ducts, Shared Cooling,
+# and "Ducted Heating" over three rows) are repeated on each row. Table 7's superscript
+# footnote markers are written as Unicode superscripts. Row shading in the PDF is
+# alternating bands and carries no meaning.
+
+product: resstock
+release: resstock_amy2018_2025_release_1
+source_id: upgrade_measures
+source_path: measure_pdfs/96636.pdf
+source_url: https://docs.nlr.gov/docs/fy26osti/96636.pdf
+publication_url: https://docs.nlr.gov/docs/fy26osti/96636.pdf
+tables:
+- label: Table 1
+  caption: Summarized Apply Logic for Reference Space Heating and Air Conditioning Upgrade Circa 2025
+  source_pdf: measure_pdfs/96636.pdf
+  source_pdf_sha256: f7d3ed849fdae6e20111670a617bbc4c227c5f0f914bdaa0fb99343acebef475
+  page: 16
+  method: vision-transcription
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: b0d5d50b0c79df4f7f8be93435d2c3e8b868891a04e068652f70d6fd0301af46
+    why: The table has nine rows in the PDF and was extracted as four. The five upgraded rows were merged
+      into one row whose cells run the values together ('Yes Yes Yes Yes Yes', '43% 6% 5% 16% 5%'), which
+      no longer says which heating type pairs with which cooling type, and the next two rows were merged
+      the same way ('No No', '1% 21%') with their Shared Cooling values ('Yes', 'All options') in one
+      cell and HVAC Has Ducts wrong for the first of them (printed 'Yes', extracted under 'No'). Merged
+      cells in the first three columns are repeated on each row.
+  markdown: '| Heating Fuel | HVAC Has Ducts | Shared Cooling | HVAC Heating Type | HVAC Cooling Type
+    | Upgrade Applied? | Stock Saturation (%) |
+
+    |---|---|---|---|---|---|---|
+
+    | Electricity, Natural Gas, Fuel Oil, and Propane | Yes | No | Ducted Heating | Central AC | Yes |
+    43% |
+
+    | Electricity, Natural Gas, Fuel Oil, and Propane | Yes | No | Ducted Heating | Room AC | Yes | 6%
+    |
+
+    | Electricity, Natural Gas, Fuel Oil, and Propane | Yes | No | Ducted Heating | None | Yes | 5% |
+
+    | Electricity, Natural Gas, Fuel Oil, and Propane | Yes | No | Ducted Heat Pump | Ducted Heat Pump
+    | Yes | 16% |
+
+    | Electricity, Natural Gas, Fuel Oil, and Propane | Yes | No | Non-Ducted Heating | Central AC | Yes
+    | 5% |
+
+    | Electricity, Natural Gas, Fuel Oil, and Propane | Yes | Yes | Ducted Heating | Central AC | No |
+    1% |
+
+    | Electricity, Natural Gas, Fuel Oil, and Propane | No | All options | All options | All options |
+    No | 21% |
+
+    | None, Wood | Yes | All options | All options | All options | No | 1% |
+
+    | None, Wood | No | All options | All options | All options | No | 2% |'
+- label: Table 2
+  caption: ResStock Argument Values for Central Furnace Upgrades in this Measure
+  source_pdf: measure_pdfs/96636.pdf
+  source_pdf_sha256: f7d3ed849fdae6e20111670a617bbc4c227c5f0f914bdaa0fb99343acebef475
+  page: 18
+  method: extracted grid (values, compared with the page) + pdf-text-layer (footnote)
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 27d7b1c2a16d3b3084a1605d05888611b83fadd74ac11af9a19acc8edf57a19a
+    why: Every cell of the extracted grid matches page 18, but the extractor dropped the footnote printed
+      under the table, leaving the asterisk in the grid pointing at nothing. The rows are the extractor's
+      own; the footnote is restored from the page's text layer.
+  markdown: '| ResStock Argument | Value | Units |
+
+    |---|---|---|
+
+    | Heating System Type | Furnace | - |
+
+    | Heating System Pilot Light Capacity | 0 | Btu/hr |
+
+    | Heating System Fuel | Natural Gas, Propane, Fuel Oil | - |
+
+    | Annual Heating Efficiency | 0.80* for Natural Gas and Propane, 0.83* for Fuel Oil | AFUE |
+
+    | Fraction Heating Load Served | 1 | Fraction |
+
+
+    *Or like-for-like AFUE when existing furnace efficiency is greater than the minimum'
+- label: Table 3
+  caption: ResStock Argument Values for Wall/Floor Furnace Upgrades in this Measure
+  source_pdf: measure_pdfs/96636.pdf
+  source_pdf_sha256: f7d3ed849fdae6e20111670a617bbc4c227c5f0f914bdaa0fb99343acebef475
+  page: 18
+  method: extracted grid (values, compared with the page) + pdf-text-layer (footnote)
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 50ec4825d234246ec272cb685da4b80ba8af4396e1944b57ae7b18f42d3e88d8
+    why: Every cell of the extracted grid matches page 18, but the extractor dropped the footnote printed
+      under the table, leaving the asterisk in the grid pointing at nothing. The rows are the extractor's
+      own; the footnote is restored from the page's text layer.
+  markdown: '| ResStock Argument | Wall Furnace | Units |
+
+    |---|---|---|
+
+    | Heating System Type | Wall Furnace | - |
+
+    | Heating System Fuel | Natural Gas, Propane, Fuel Oil | - |
+
+    | Annual Heating Efficiency | Like-for-like* | AFUE |
+
+    | Fraction Heating Load Served | 1 | Fraction |
+
+
+    *The package keeps non-ducted wall/floor furnaces at their existing levels for like-for-like replacement.'
+- label: Table 5
+  caption: ResStock Argument Values for Boiler Upgrades in this Measure
+  source_pdf: measure_pdfs/96636.pdf
+  source_pdf_sha256: f7d3ed849fdae6e20111670a617bbc4c227c5f0f914bdaa0fb99343acebef475
+  page: 18
+  method: extracted grid (values, compared with the page) + pdf-text-layer (footnote)
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 7e8b3c968f70cdc6cf40808496588a6cd129dffdc12aec9a864a0bb318eb938e
+    also_removes:
+    - 97952f1909951a5b6d8f75ee33726904a0aa210a75506beb3e56f86eed5bfade
+    why: The table runs over pages 18 and 19 and was extracted as two grids (one row, then three, the
+      header repeated), and the footnote printed under it on page 19 was dropped, leaving the asterisk
+      pointing at nothing. Every cell of both grids matches the pages. The rows are the extractor's own,
+      joined under one header; the footnote is restored from the page's text layer.
+  markdown: '| ResStock Argument | Boiler | Units |
+
+    |---|---|---|
+
+    | Heating System Type | Boiler | - |
+
+    | Heating System Fuel | Natural Gas, Propane, Fuel Oil | - |
+
+    | Annual Heating Efficiency | Natural Gas or Propane: 0.80; Fuel Oil: 0.83 AFUE; or like-for-like*
+    | AFUE |
+
+    | Fraction Heating Load Served | 1 | Fraction |
+
+
+    *If an existing boiler is greater than minimum, it is retained like-for-like efficiency'
+- label: Table 6
+  caption: ResStock Argument Values for Central Air Conditioner Upgrades in this Measure
+  source_pdf: measure_pdfs/96636.pdf
+  source_pdf_sha256: f7d3ed849fdae6e20111670a617bbc4c227c5f0f914bdaa0fb99343acebef475
+  page: 19
+  method: extracted grid (values, compared with the page) + pdf-text-layer (footnote)
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 633754126e695c3491de9a605f2e1fcb01332c759012ca63ca6bb2a506b8ed5b
+    why: Every cell of the extracted grid matches page 19, but the extractor dropped the footnote printed
+      under the table, leaving the asterisk in the grid pointing at nothing. The rows are the extractor's
+      own; the footnote is restored from the page's text layer.
+  markdown: '| ResStock Argument | Central Air Conditioner | Units |
+
+    |---|---|---|
+
+    | Cooling System Type | Central Air Conditioner | - |
+
+    | Cooling System Fuel | Electricity | - |
+
+    | Annual Cooling Efficiency | SEER2 14.3 (South); SEER2 13.4 (North); or like-for-like* | SEER2 |
+
+    | Fraction Cooling Load Served | 1 | Fraction |
+
+    | Compressor Type | Single stage | - |
+
+
+    *Like-for-like retention applies where the existing central AC is greater than minimum efficiency.
+    See section 1.3.3 for a list of states in the South and North regions.'
+- label: Table 7
+  caption: ResStock Argument Values for Room Air Conditioner Upgrades in this Measure
+  source_pdf: measure_pdfs/96636.pdf
+  source_pdf_sha256: f7d3ed849fdae6e20111670a617bbc4c227c5f0f914bdaa0fb99343acebef475
+  page: 19
+  method: extracted grid (values, compared with the page) + pdf-text-layer (footnote)
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: ee4c93dbcda24ceb5576091f418fcf571e824122e132ec393a5c8b1b0bb42b14
+    why: The extractor flattened the superscript footnote markers into the values ('12.0 1', 'EER 3',
+      'Varies 2'), so the efficiency read as two numbers, and dropped the three footnotes they refer to.
+      The markers are restored as superscripts and the footnotes from the page's text layer; every other
+      cell is the extractor's own and matches page 19. The missing space in '1.01.ResStock' is the source's.
+  markdown: '| ResStock Argument | Room Air Conditioner | Units |
+
+    |---|---|---|
+
+    | Heat Pump Type | Room Air Conditioner | - |
+
+    | Annual Cooling Efficiency | 12.0¹ | EER³ |
+
+    | Fraction Cooling Load Served | Varies² | Fraction |
+
+    | Compressor Type | Single Stage | - |
+
+
+    ¹Like-for-like retention applies where the existing room AC is greater than minimum efficiency
+
+
+    ²Fraction of load served varies based on dwelling specification
+
+
+    ³EER is used rather than CEER as the default rated efficiency units for room AC in ResStock. One can
+    convert between units using: CEER = EER / 1.01.ResStock may move to CEER for future releases.'
+- label: 'Upgrade Summary (page 10: Not Applicable, Original Release, Project Configuration File)'
+  uncaptioned: true
+  source_pdf: measure_pdfs/96636.pdf
+  source_pdf_sha256: f7d3ed849fdae6e20111670a617bbc4c227c5f0f914bdaa0fb99343acebef475
+  page: 10
+  method: extracted grid, with the cells named in `why` corrected from the PDF text layer
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: af1b3ffdd9bbf04310d8b0dae7b0a89f7e1a1902d5dc1d43e571595889776cfe
+    why: 'Second grid of the Upgrade Summary (page 10). Two cells are wrong: the project configuration
+      URL carries a space where the PDF wraps the line (''project_n ational''), so a search for the real
+      path misses it, and the quoted word “none” was extracted as ''n one ''. The cell text is the extractor''s
+      own with those two corrected from the PDF text layer.'
+  markdown: '| Measure Title | Reference Space Heating and Air Conditioning Upgrade Circa 2025 |
+
+    |---|---|
+
+    | Not Applicable | This upgrade does not apply to: • Homes that do not have existing ductwork, including
+    homes heated with electric resistance baseboard, boilers/radiators, ductless heat pumps, and wall/floor
+    furnaces that do not have ducted air conditioning. • Heating systems sourced from wood and homes without
+    heating (i.e., “none”). • Systems already meeting or exceeding the specified minimum efficiency thresholds
+    (modeled as like-for-like replacements). These constraints exclude 24.8% of the dwelling units from
+    receiving this measure upgrade. |
+
+    | Original Release | 2025/resstock_amy2018_release_1; 2025/resstock_amy2012_release_1 |
+
+    | Project Configuration File | https://github.com/NatLabRockies/resstock/blob/sdr_2025_Release_1/project_national/sdr_upgrades_amy2018.yml
+    |'
+checked:
+- label: List of Acronyms
+  uncaptioned: true
+  source_pdf: measure_pdfs/96636.pdf
+  source_pdf_sha256: f7d3ed849fdae6e20111670a617bbc4c227c5f0f914bdaa0fb99343acebef475
+  page: 5
+  table_sha256: a527b5ac5f09bce2ddaf6dd58b760b123084273708ca98ff3f43ca843ea145ee
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+- label: 'Upgrade Summary (page 9: Measure Definition, Applicability)'
+  uncaptioned: true
+  source_pdf: measure_pdfs/96636.pdf
+  source_pdf_sha256: f7d3ed849fdae6e20111670a617bbc4c227c5f0f914bdaa0fb99343acebef475
+  page: 9
+  table_sha256: 123565212b29537278ae76b490de3cd71dae38825764364d491c0a5c6ef6b900
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: The table runs over pages 9 and 10 and is extracted as one grid per page, each under the repeated
+    'Measure Title' header row. The bullet lists inside the cells are run together with their bullets
+    kept, and the en dash in '80%–83%' is rendered ' - '; the cell text is otherwise the page's.
+- label: Table 4
+  caption: ResStock Argument Values for Electric Furnace Upgrades in this Measure
+  source_pdf: measure_pdfs/96636.pdf
+  source_pdf_sha256: f7d3ed849fdae6e20111670a617bbc4c227c5f0f914bdaa0fb99343acebef475
+  page: 18
+  table_sha256: f8ad936b23fcc6e1ce0b94df8123f5dfa8567e9f0562daeb9443e2b8fe3cba57
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+- label: Table 8
+  caption: ResStock Argument Values for ASHP Upgrades in this Measure
+  source_pdf: measure_pdfs/96636.pdf
+  source_pdf_sha256: f7d3ed849fdae6e20111670a617bbc4c227c5f0f914bdaa0fb99343acebef475
+  page: 20
+  table_sha256: 8d249dbd91b4580d643b110659cd054c9255eb4d1391811473a42a42f3a24702
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: The header 'Calculated by OpenStudio-HPXML?' carries a space after the hyphen where the PDF wraps
+    it. The table's footnote survives as the paragraph below the grid.
+- label: Table 9
+  caption: Single Model Types
+  source_pdf: measure_pdfs/96636.pdf
+  source_pdf_sha256: f7d3ed849fdae6e20111670a617bbc4c227c5f0f914bdaa0fb99343acebef475
+  page: 21
+  table_sha256: b598d7837c67edca9cde33a91fe7b0758352a581d66752bd4a9e2cfa04ee2c59
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+- label: Table 10
+  caption: Average Annual Bill Savings by HVAC Cooling Efficiency
+  source_pdf: measure_pdfs/96636.pdf
+  source_pdf_sha256: f7d3ed849fdae6e20111670a617bbc4c227c5f0f914bdaa0fb99343acebef475
+  page: 32
+  table_sha256: 1b20842bd28e1445148cf394f1cb45519f7500dd093a3517720c72b696310bfc
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+figures:
+- source_image: 96636_images/image_000002_1428a0e11423f2857129471b60674e8342823d610bc684f3a04854fbc6ad1c63.png
+  source_image_sha256: aef6a0a100a1b77d5393a936fb6871b4192213d60cce085a69655e672a37a203
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar of annual energy use for a Massachusetts example unit, baseline vs upgrade
+  description: 'Figure 1: horizontal stacked bar chart for the example dwelling in Massachusetts. X-axis
+    is annual energy consumption in MBtu, 0 to 160; bars are Upgrade and Baseline, stacked by Others (all
+    fuels), fuel oil heating, heating fans and pumps, cooling, and cooling fans and pumps. Fuel oil heating
+    falls from 77.0 to 70.7 MBtu; the other segments are essentially unchanged. Table 9 lists the dwelling''s
+    characteristics.'
+- source_image: 96636_images/image_000003_4add8fa61c2d014bbf2a03548724fbd7000e9f0c34b3779d7e97680aec6e23f9.png
+  source_image_sha256: 468718caaf2ed8ef20645a3a763ab0907458e486fb203a63257fabcc1ba30fc7
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar of annual energy use for a Georgia example unit, baseline vs upgrade
+  description: 'Figure 2: horizontal stacked bar chart for the example dwelling in Georgia. X-axis is
+    annual energy consumption in MBtu, 0 to 7; bars are Upgrade and Baseline, stacked by Others (all fuels),
+    electric heating, heating fans and pumps, cooling, and cooling fans and pumps. Cooling falls from
+    2.6 to 2.2 MBtu and electric heating from 0.9 to 0.8; Others stays at 2.2. Table 9 lists the dwelling''s
+    characteristics.'
+- source_image: 96636_images/image_000004_50bb88ef8aee8346705921c36632747ab0b229391595017988c68a510096700b.png
+  source_image_sha256: ec96ea0d273031396de44782407f5f28204697d3bf2fc8a871a856c8490bece1
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar of annual energy use for an Illinois example unit, baseline vs upgrade
+  description: 'Figure 3: horizontal stacked bar chart for the example dwelling in Illinois. X-axis is
+    annual energy consumption in MBtu, 0 to 140; bars are Upgrade and Baseline, stacked by Others (all
+    fuels), natural gas heating, heating fans and pumps, cooling, and cooling fans and pumps. Others is
+    27.2 MBtu in both bars; natural gas heating, the largest segment, shrinks with the upgrade, taking
+    the total from roughly 123 to 99 MBtu.'
+- source_image: 96636_images/image_000005_1e7d0b7ce7c3f66e10fda3dc3671a79e9c56e7a41d42da15d3f441adbf32ce03.png
+  source_image_sha256: d8715c67992ea29463a4b0b458f6fe1dd0c36729b227712e365a4a6be1d9897f
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of daily aggregated average energy consumption across 2018 for the Colorado baseline
+  description: 'Figure 4: line chart of daily aggregated average energy consumption (kBtu, 100 to 800)
+    over January to December 2018 for the baseline in Colorado. Consumption is highest and most variable
+    in winter, peaking near 780 kBtu in late February, falls through spring to a flat summer floor of
+    roughly 110 kBtu from June to September, then rises again from October to about 700 kBtu by late December.'
+- source_image: 96636_images/image_000006_a8c856870a58fa7e6dbc57524225523d5fb52e99759b93d55462924c5c26b91a.png
+  source_image_sha256: aa0b85f4f12417be9f367cf4cb839cc2f4f3c8742595b77eae3cf1c0990437ba
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of aggregated average power on the Colorado peak day, baseline vs upgrade
+  description: 'Figure 5: line chart of aggregated average power (kW, about 7 to 13) over the 24 hours
+    of February 20, 2018, the peak day in Colorado, with one line each for Baseline and Upgrade. Both
+    follow the same shape: a morning peak of nearly 13 kW around 07:30, a trough of about 7 kW near 15:30
+    and an evening plateau near 9 kW. The upgrade line runs slightly below the baseline for most of the
+    day.'
+- source_image: 96636_images/image_000007_364a491fc6506078058f88e1f374db2b5c739884bfc74818a0914c13e178f38e.png
+  source_image_sha256: eca658160ae337e6c4019f4e21c20a2bd8149e5ef9094ed01684db0a3cf4a1aa
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of annual stock energy by fuel type, baseline vs minimum efficiency upgrade
+  description: 'Figure 6: horizontal grouped bar chart of stock-wide fuel totals (kWh, 0 to 3T) for Baseline
+    and the upgrade (legend label Minimum Efficiency Furnace), with rows for electricity, natural gas,
+    propane, fuel oil, electricity generation and total site energy. Electricity falls slightly, from
+    about 1.35T to 1.3T kWh; natural gas stays near 1.25T, and propane and fuel oil are each near 0.1T.
+    Total site energy falls from roughly 2.85T to 2.8T kWh.'
+- source_image: 96636_images/image_000008_c04c8c01ea88059b7267c2b82a1fdca1d3b42cde14a169f2080af53a3d168ada.png
+  source_image_sha256: 49dee5001d79bf9560c33d4558063294b583ce3934c95e8f213836e46316ede8
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar chart of annual all-fuel end-use energy by HVAC heating type, baseline vs upgrade
+  description: 'Figure 7: horizontal stacked bar chart of all-fuels end-use consumption (kWh, 0 to about
+    2.4T) for three HVAC heating types, Ducted Heat Pump, Ducted Heating and Non-Ducted Heating, each
+    with a Baseline bar and an upgrade bar (labelled Minimum Efficiency Furnace). Segments are end uses
+    by fuel. Ducted Heating dominates at roughly 2.3T kWh, against about 0.35T for Ducted Heat Pump and
+    0.15T for Non-Ducted Heating; the upgrade bars are only slightly shorter.'
+- source_image: 96636_images/image_000009_709b301bf1a003d6cfeb91b8bba67e32331dc5a16fc3e7c04c86db8566c5ec6e.png
+  source_image_sha256: 342477f5762c34aefde78cf8ef366677a9e41cd2f98f20023763f974a3be49fb
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar chart of average all-fuel end-use energy per dwelling by HVAC cooling efficiency
+  description: 'Figure 8: horizontal stacked bar chart of average all-fuels end-use consumption per dwelling
+    (kWh, 0 to 35k) for ten HVAC cooling efficiency classes, each with a Baseline bar and an upgrade bar
+    (labelled Minimum Efficiency Furnace). Segments are end uses by fuel. AC, SEER 8 is the longest pair,
+    about 34k kWh in the baseline and visibly shorter after the upgrade; Ducted Heat Pump is the shortest,
+    near 16k kWh, and most pairs barely differ.'
+- source_image: 96636_images/image_000010_00f3f6dae6a0dbadd20234f11d600a8d164b1191dddf2f37f03f0ee11ded316c.png
+  source_image_sha256: 9fe0e27f20aa0f7fd6ef2dae401e1bc57729f41fad579fbcafec78d4c4af8396
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar chart of average all-fuel end-use energy per dwelling by HVAC heating efficiency
+  description: 'Figure 9: horizontal stacked bar chart of average all-fuels end-use consumption per dwelling
+    (kWh, 0 to about 40k) for 17 HVAC heating efficiency classes, each with a Baseline bar and an upgrade
+    bar (labelled Minimum Efficiency Furnace). Segments are end uses by fuel, with heating the largest
+    in the fuel-fired rows. Fuel Furnace, 60% AFUE is the longest pair, about 41k kWh in the baseline;
+    Shared Heating is the shortest, near 12k kWh.'
+- source_image: 96636_images/image_000011_1877ce4b1fe9b1ac5073829ead0c647abf37728d59159910fd36d126c08bd810.png
+  source_image_sha256: f5a9d412481a5c215dd6a182ea8a3cdaecacf7b388c4074d975352dcbe5a6575
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Violin and box plots of annual site energy savings per dwelling by heating fuel
+  description: 'Figure 10: violin plots with box plots of site energy consumption savings per dwelling
+    (kWh, 0 to 4,000), one row per heating fuel, each labelled with its model count: Electricity n=164152,
+    Natural Gas n=212136, Fuel Oil n=16731, Propane n=20592. Fuel Oil has the highest median, near 1,000
+    kWh, and the widest box; Natural Gas and Propane medians are below 200 kWh, and every distribution
+    has a long right tail.'
+- source_image: 96636_images/image_000012_03a3edc1fb69a3d65d536955e3d34340366b27b13ec615865afefb8b5ac959f6.png
+  source_image_sha256: a0216604c3b51e4d1933607477e3c414d6bbd378ab165319d96dc2a2e6ee5df4
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar chart of average annual all-fuel end-use savings per dwelling by HVAC cooling efficiency
+  description: 'Figure 11: horizontal stacked bar chart of average all-fuels end-use savings per dwelling
+    (kWh, 0 to 3,000) for ten HVAC cooling efficiency classes. Segments are end uses by fuel; electric
+    cooling makes up most of the larger bars, with smaller fan and heating segments. AC, SEER 8 saves
+    the most, about 2,900 kWh, then AC, SEER 10 at about 1,750 kWh; AC, SEER 15, Room AC, EER 12.0 and
+    None save under 250 kWh.'
+- source_image: 96636_images/image_000013_f55150d53ff544dc9aeddf77adf1e59342cf2d5dc5f5b4291da0eaf76fc9d01f.png
+  source_image_sha256: cd7e85cb1646168c308ac0eb9586555c4f8afaaeab5c22eb551a8c1972ba21d7
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar chart of total annual stock bill savings by heating fuel and bill type
+  description: 'Figure 12: horizontal stacked bar chart of total annual housing stock bill savings (USD,
+    0 to above 4B) for homes heated by Electricity, Natural Gas, Fuel Oil and Propane, with segments for
+    electricity, natural gas, fuel oil and propane bills. Electricity-heated homes save the most, about
+    $4.4B, all on electricity bills; natural-gas-heated homes save about $3.3B, mostly electricity; fuel
+    oil and propane homes each save about $0.5B or less.'
+- source_image: 96636_images/image_000014_163bb4e76ad8aa7b6cc1a374790e36ba8623fdd0dd5951c2dfd6a835ceda195d.png
+  source_image_sha256: a69241bd106bde7023f30c017cc9426d792c1f5b233e8806aa7bdb041715dbdb
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Violin and box plots of annual bill savings per dwelling by HVAC cooling efficiency
+  description: 'Figure 13: violin plots with box plots of all-fuels annual bill savings per dwelling (USD,
+    0 to 1,200), one row for each of ten HVAC cooling efficiency classes, each labelled with its model
+    count. AC, SEER 8 has the highest median, a little over $300, and the widest box, followed by AC,
+    SEER 10; AC, SEER 15, Room AC, EER 12.0 and None sit close to zero. See Table 10 for mean savings
+    and sample sizes.'

@@ -1,0 +1,689 @@
+# Hand-authored overlay for measure_pdfs/95032.pdf
+#
+# 95032 is the ResStock measure documentation for the residential single-stage geothermal
+# heat pump upgrade (measure 6). Every table and figure in the report was compared with the
+# PDF on 2026-11-11, following "Checking every table and figure: the ResStock method" in
+# overlays/README.md.
+#
+# Tables (page numbers are PDF pages, 1-based):
+#   * Tables 1-10, Table 11 (two grids, pp.48-49) and Table A-1 are recorded under
+#     `checked:` as correct. Table 1 is this report's upgrade summary table.
+#   * Table A-2 (p.77) and Table B-1 (p.84) are superseded: see each entry's `why`.
+#       - Table A-2: numbers right, grouping wrong. The first Closed-Loop row (Water-to-air,
+#         criteria 3.6 / 17.1) had an empty group cell and read as Open-Loop or ungrouped;
+#         the "Product Type" header was dropped; the COP/EER spanner was a header row plus
+#         a data row.
+#       - Table B-1: values right, but the bold that the caption relies on ("The Current
+#         Configuration Used is Shown in Bold") was dropped, so the table did not say which
+#         configuration is used (Rectangle for 4 boreholes, "U" for 5, Line or Single
+#         otherwise).
+#   * The List of Acronyms (p.5) was extracted as a run-on paragraph, not a grid, so there
+#     is no table to fingerprint and no entry. Its ten acronyms and expansions are all
+#     present in that paragraph.
+#   * The Table of Contents, List of Figures and List of Tables grids are contents pages,
+#     not tables of the report, and have no entry.
+#
+# Figures: 44 bitmaps are described (40-70 words each, vision-description). The cover art
+# and wordmark (image_000000, image_000001) are decorative and omitted by the build.
+#   * Bitmaps that are one panel of a two-panel figure: image_000013 and image_000014
+#     (Figure 15, left and right), image_000016 and image_000017 (Figure 17, table panel
+#     and chart; the caption sits between the two refs), image_000042 (Figure A-9; the
+#     caption follows the ref and a stray line of axis years).
+#   * Figure captions with NO bitmap (the converter kept the caption and dropped the
+#     picture), so nothing can be pinned: Figure 3, Figure 5, Figure 6 (p.24) and
+#     Figures C-1, C-2, C-3, C-4 (pp.86-89). All seven are colour-scaled grids of numbers
+#     pasted in as pictures (EIR and capacity lookups by air and water temperature; the
+#     Appendix C ones are manufacturer / curve-fit / difference grids). They have no text
+#     layer, so their values are absent from the document. image_000004 is Figure 4, the
+#     only one of the Figure 3-6 set that survived; in the .md its ref follows both the
+#     Figure 3 and Figure 4 captions.
+#
+# Flattening notes: Table A-2's merged group cells (Open-Loop over two rows, Closed-Loop
+# over three) are repeated on each row; its "Product Type" header spans the first two
+# columns and is repeated on both; the COP / EER spanners are joined to the sub-headers
+# ("COP: Min."). Row shading in the PDF is alternating bands and carries no meaning.
+# Table B-1's bold is load-bearing (the caption says so) and is carried as markdown bold.
+# Tables 9 and 10 set the Median column in bold; that restates the column and is dropped.
+
+product: resstock
+release: resstock_amy2018_2025_release_1
+source_id: upgrade_measures
+source_path: measure_pdfs/95032.pdf
+source_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf
+publication_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf
+tables:
+- label: Table A-2
+  caption: ENERGY STAR Most Efficient GHPs, 2022
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 77
+  method: vision-transcription
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: c5b4103950029bd0247ef8838638bb448514ff057f4c0e1b86eca0d13bfaca30
+    why: 'Every number is right, but the row grouping is not. The first column''s merged cells are Open-Loop
+      (two rows) and Closed-Loop (three rows); the extractor left the first Closed-Loop row (Water-to-air,
+      criteria 3.6 / 17.1) with an empty group cell, so it reads as a third Open-Loop row or as no group
+      at all. The ''Product Type'' header over the first two columns was also dropped, and the COP/EER
+      spanner was flattened into a header row plus a data row. Group labels are repeated on each row and
+      the two header rows are joined as ''COP: Min.''.'
+  markdown: '| Product Type | Product Type | COP: Criteria | COP: Min. | COP: Ave. | COP: Max. | EER:
+    Criteria | EER: Min. | EER: Ave. | EER: Max. |
+
+    |---|---|---|---|---|---|---|---|---|---|
+
+    | Open-Loop | Water-to-air | 4.1 | 4.1 | 4.64 | 5.6 | 21.1 | 22.2 | 27.9 | 56.9 |
+
+    | Open-Loop | Water-to-water | 3.5 | 3.9 | 3.9 | 3.9 | 20.1 | 20.6 | 20.6 | 20.6 |
+
+    | Closed-Loop | Water-to-air | 3.6 | 3.6 | 4.06 | 4.6 | 17.1 | 17.3 | 22.4 | 33.7 |
+
+    | Closed-Loop | Water-to-water | 3.1 | 3.3 | 3.3 | 3.3 | 16.1 | 17.5 | 17.5 | 17.5 |
+
+    | Closed-Loop | Direct geo-exchange | 3.6 | 3.1* | 3.7* | 4.1* | 16.0 | 17.1* | 19.5* | 21.1* |'
+- label: Table B-1
+  caption: Prior Ground Heat Exchanger Configurations in OpenStudio-HPXML. The Current Configuration Used
+    is Shown in Bold.
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 84
+  method: pdf-text-layer (values and font weight), checked against the page render
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 72c09aee97cf0182c66c24b6d50aed08bcaa1caf037c0976fb7ebd80499f19e2
+    why: 'The caption says the current configuration is shown in bold, and the extractor dropped the bold,
+      so the table no longer says which configuration is used for each borehole count (it is not always
+      the first one listed: Rectangle for 4 boreholes, "U" for 5). Values are the extractor''s own, compared
+      with page 84; the bold is restored from the PDF''s font weight (Arial-BoldMT) and the render. The
+      stray space before the comma in ''Line ,'' is removed.'
+  markdown: '| Number of Boreholes | Configurations |
+
+    |---|---|
+
+    | 1 | **Single** |
+
+    | 2 | **Line** |
+
+    | 3 | **Line**, "L" |
+
+    | 4 | Line, "L", **Rectangle** |
+
+    | 5 | Line, "L", **"U"** |
+
+    | 6 | **Line**, "L", Rectangle |
+
+    | 7 | **Line**, "U" |
+
+    | 8 | **Line**, "L2", Open Rectangle, Rectangle |
+
+    | 9 | **Line**, "U", Rectangle |
+
+    | 10 | **Line**, "L2", Open Rectangle, Rectangle |'
+checked:
+- label: Table 1
+  caption: Upgrade Measure Overview
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 10
+  table_sha256: 652811af162388d4c3eda4639435bcc7e547eb9bc6052bfc500a0649b0fc1764
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: This is the report's upgrade summary table. It has no header row in the PDF; the extractor used
+    the first row (Measure Title) as the header. Bullets are run inline and the bold on 71%, 6.4% and
+    25% is dropped; all text matches.
+- label: Table 2
+  caption: Rated Performance of the Products Used for Developing Performance Curves
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 21
+  table_sha256: 6d120fb8507443480e75e190c331d96b7ade32150ff19d446ef8134686f676c0
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: The first header cell is blank in the PDF as well.
+- label: Table 3
+  caption: Short Grass Median Undisturbed Ground Temperatures by IECC 2012 Climate Zones, According to
+    the Simplified Design Model and Site Locations in (Xing 2014)
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 31
+  table_sha256: 9aedc48c5f494d2182b01e9bcbc993b727a9fe0a1e33763f938be865474df417
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+- label: Table 4
+  caption: Summary of Software Tools Used to Optimize Geothermal Heat Pump (GHP) System Design, Focusing
+    on Ground Heat Exchanger Sizing, Thermal Modeling, and System Performance Over Time
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 35
+  table_sha256: d9859c07df98907cbadaee3596eb35b1de3c69441e7635814e34dd9b75aca5d2
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: '''large- scale'' carries a space where the PDF breaks the line after the hyphen.'
+- label: Table 5
+  caption: Borehole Depths and Diameters in the G-Function Library
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 38
+  table_sha256: e6965174dd6034e5910d78068d61700da696f9382473c41b646288ea4cbc06c2
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+- label: Table 6
+  caption: Overview of the G-Function Library Contents
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 40
+  table_sha256: 488b8007f54b7b2ddd5488ac24a66a7250515f180e1d1c5cb2feb8e6acb784ce
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+- label: Table 7
+  caption: Default Power Rating of Ducted Heat Pump System Components
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 44
+  table_sha256: 40e804590b3149e1897de3de9e3ef1835593bcb7748178b3417cc7ceaa4897c0
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: The table has two rows in the PDF (compressor and air handler); there is no electric-backup row
+    although the prose above mentions one.
+- label: Table 8
+  caption: Default Voltage and Breaker Space for Ducted Heat Pumps.
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 45
+  table_sha256: c1b742ab2c4a56d091de1753950f025b8922b3a7372834e8b1c1f11ed070c62b
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: One data row. The two lines in the Circuits and Breaker Spaces cells (ckt 1, ckt 2) are run together
+    on one line; 'ground-to- air' carries a line-break space.
+- label: Table 9
+  caption: ENERGY STAR 2025 Most Efficient GHP List and the Range of COP by Compressor Type
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 47
+  table_sha256: 63c2673f6824607e904a25d23a810296ae0ac2b3bfd59fbab61f587954102c65
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: The two-row header (COP over Min, 25th, Mean, Median, 75th, Max) is flattened into a header row
+    and a first data row; every value matches. The PDF sets the Median column in bold; the bold is dropped.
+- label: Table 10
+  caption: ENERGY STAR 2025 Most Efficient GHP List and the Range of EER by Compressor Type
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 47
+  table_sha256: 9d34b670188b9d3cfdc1b705054baadca578f94650f3086dd225224511564486
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: The two-row header (EER over Min, 25th, Mean, Median, 75th, Max) is flattened into a header row
+    and a first data row; every value matches. The PDF sets the Median column in bold; the bold is dropped.
+- label: Table 11
+  caption: Summary of the GHP, Geothermal Loop, and Soil Inputs
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 48
+  table_sha256: ac37eee7ddc25d60a59a33f79b84df49684329acc6f89a4ed987dee74226c6b8
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: 'First of two grids (the table runs over pages 48 and 49): 18 rows, Geothermal loop borefield
+    configuration to Heat pump airflow defect ratio. Footnote markers that are superscripts in the PDF
+    are flattened into the cell text as plain numbers after a space: ''default 28'', ''Exchanger 29'',
+    ''calculations 30'', ''glycol 31'', ''max=95°F 32'', ''default 33''. They are footnote numbers, not
+    part of the values.'
+- label: Table 11
+  caption: Summary of the GHP, Geothermal Loop, and Soil Inputs
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 49
+  table_sha256: 484ae413df3ba489ce8d1189dd42ddf6c7455fde456691f91f0704175188cf5d
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: 'Second of two grids (page 49): 21 rows, Heat pump backup type to Soil volumetric heat capacity.
+    Footnote markers that are superscripts in the PDF are flattened into the cell text as plain numbers
+    after a space: ''0.73 34'' (the value is 0.73), ''0.375 W/cfm 35'', ''80 W/ton 36'', ''Site default
+    37''. They are footnote numbers, not part of the values. ''(J/K-m 3 )'' is J/K-m3 with the superscript
+    spaced.'
+- label: Table A-1
+  caption: An Estimate of the Number of GHP Installations in the U.S.
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 70
+  table_sha256: ad0c7b43146815c0cd5f1dbc9bc579a347fabaf91eecefb7e3fabba2a4af1986
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+figures:
+- source_image: 95032_images/image_000002_a429cf5d958a67abbdceb0a07ce46f44f0da4be97bfdd1414879ef886218ed5c.png
+  source_image_sha256: 1d103172b73c4cdbd9e98d8e5ede209ed73da7f647361e247b90b2c726252fe7
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Flow diagram of the five OS-HPXML ground source heat pump calculation steps
+  description: 'Figure 1: process-flow diagram, a blue arrow titled ''OS-HPXML Ground Source Heat Pump
+    Calculations'' holding five steps in order: ACCA Manual J/S system size; calculate ground heat exchanger
+    length; calculate number of boreholes and configuration; g-function lookup; add heat pump coil and
+    distribution. There are no axes or data; it shows that loop sizing follows equipment sizing and precedes
+    the g-function lookup.'
+- source_image: 95032_images/image_000003_381d498b4366598371b9b4b5db9daadf054c7171ba773c4bdc70c6cc1e079d37.png
+  source_image_sha256: 9e77ab3f62c115ae739c82ea13e6dd04c8b9b2a3d8e126869ad1e8f3ac1b430f
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Manufacturer performance data sheet for a geothermal heat pump at 1,200 cfm nominal airflow
+  description: 'Figure 2: scanned manufacturer performance table, headed ''1,200 CFM Nominal (Rated) Airflow
+    Cooling, 1,200 CFM Nominal (Rated) Airflow Heating''. Rows are entering water temperature from 20
+    to 120°F; column groups are cooling at 80/67°F entering air (capacities, kW, EER) and heating at 70°F
+    (capacity, kW, COP). Cooling at 20°F and heating at 100°F and above are marked ''Operation not recommended''.
+    Cell values are too small to read here.'
+- source_image: 95032_images/image_000004_872e7ec1aa750ad3902165630b6bc45ce6078f5fb8da186d9449b306842a0cb7.png
+  source_image_sha256: 0ebc404efd137cb2b91b034d060d2d4e137d52d65740e6099e46f2c238047810
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Colour-scaled grid of full load heating capacity by return air and ground exit water temperature
+  description: 'Figure 4: colour-scaled grid of full load heating capacity. Rows are return air temperature
+    (Tair), 10 to 27.5°C, and columns ground exit water temperature (Twater), 0 to 30°C, in 2.5°C steps;
+    no unit is printed. Capacity rises with water temperature and falls slightly with air temperature:
+    5650 at 10°C air and 0°C water, 10073 at 10°C air and 30°C water, and 4918 at 27.5°C air and 0°C water.'
+- source_image: 95032_images/image_000005_4dfb61b921b84d56dee7f26c56923efe615391f76fdf44f7bb2b4a1840031c3e.png
+  source_image_sha256: e289278ee355c76b7b11cfdcd99ba666b007fd64d1794f777c036d316bcbc713
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Scatter plot of part load factor against part load ratio with a cubic fit, Cc = 0.9
+  description: 'Figure 7: scatter plot titled ''Part Load Factor, Cc = 0.9''. X-axis is part load ratio
+    (PLR), 0 to 1; y-axis is part load factor (PLF), -0.2 to 1.2. Points rise steeply from 0 at PLR 0,
+    then flatten toward 1.0. A dotted fitted curve, y = 3.0626x^3 - 6.0299x^2 + 3.8941x + 0.1186 (R^2
+    = 0.9701), is held at a floor of 0.7 below PLR 0.2.'
+- source_image: 95032_images/image_000006_9fd4a9d9d0d51492d2d3a745371f30847dba7f41211210885e29b9dc4d37cfd2.png
+  source_image_sha256: 4ddd0832e40bf8dfbb0dcdef3675edcf786fb6033138b0242e2e0e80f2503a48
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Scatter plot of normalized heat pump capacity against fraction of airflow, with quadratic fits
+  description: 'Figure 8: scatter plot titled ''Normalized Capacity''. X-axis is fraction of airflow,
+    0 to 1.4; y-axis is capacity multiplier, 0.92 to 1.04. Two series with dotted quadratic fits: total
+    capacity (y = -0.3165x^2 + 0.8099x + 0.5068) and heating capacity (y = -0.1234x^2 + 0.3642x + 0.7594).
+    Both pass through 1.0 at full airflow; at about 0.72 airflow total capacity falls to about 0.925 and
+    heating capacity to about 0.957.'
+- source_image: 95032_images/image_000007_8e91835e9eedff3807fb19af0a4acdfddb59ca8d776842e86343f49d15c6a5b0.png
+  source_image_sha256: 2bb4fc5fe600907d4d8141f6aa537159e94f692e37f68ac9f04c839d0f178649
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Scatter plot of normalized EIR against fraction of airflow, with quadratic fits
+  description: 'Figure 9: scatter plot titled ''Normalized EIR''. X-axis is fraction of airflow, 0 to
+    1.4; y-axis is EIR multiplier, 0 to 1.6. Two series with quadratic fits: cooling normalized EIR (y
+    = 0.5789x^2 - 1.6182x + 2.0184) and heating normalized EIR (y = 1.3858x^2 - 3.0886x + 2.796). Cooling
+    EIR falls from about 1.15 at 0.72 airflow to about 0.96 above full airflow; heating points scatter
+    from 0.96 to 1.33.'
+- source_image: 95032_images/image_000008_b1a456a8c1eca543c81f5150d2eff7bcc6c401302d7a735081af76e30bcd6038.png
+  source_image_sha256: 8b0315c112f2757ddad086a3182686906fc72b9af4e4040bbf228bf4b7927464
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Map of North America with a dot at each ground temperature site in Xing's Appendix A-3
+  description: 'Figure 10: dot map of North America on a street-map base. Each black dot is one site from
+    Xing''s Appendix A-3 lookup table of ground temperature model parameters. Dots cover the contiguous
+    United States densely, most heavily in the Northeast, the Midwest and along the West Coast, with sparser
+    coverage of Alaska, Canada, Hawaii, Mexico and the Caribbean. There are no axes, legend or values.'
+- source_image: 95032_images/image_000009_68544727652b6af7cc6d1e1a93d0616e1fbf31d2ffa47da83fe33af2848ce710.png
+  source_image_sha256: e8109ee596686f398a6b73f66eb87a820ca8a05e6f7167ed7f4e6671966be887
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Box plots of annual mean undisturbed ground temperature by IECC 2012 climate and moisture zone
+  description: 'Figure 11: box plots of annual mean undisturbed ground temperature. Y-axis is ground temperature
+    in °C, about -2 to 27; x-axis is 17 IECC 2012 zones grouped by moisture regime: (A, 1A) to (A, 7A),
+    (AK, 7AK), (AK, 8AK), (B, 2B) to (B, 7B), (C, 3C), (C, 4C). Medians fall from about 25°C in 1A to
+    about 2°C in 8AK; 4B has the widest box. Table 3 lists the medians.'
+- source_image: 95032_images/image_000010_cab8d4f17f3da1d7ece26f7fb6dfa4680ce01ae9d249aca1bbdaca4f9ef3947a.png
+  source_image_sha256: 631716392816c0098b7cac36ce6ac20320bbe3950725aeb0837472f8c6676ec1
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grid of 17 histograms of ground thermal conductivity samples, one per IECC 2012 climate zone
+  description: 'Figure 12: grid of 17 histograms, one per IECC 2012 climate zone from 1A to 8AK. X-axis
+    is thermal conductivity in W/m-K, 0 to 4; y-axis is number of samples, on a different scale in each
+    panel (a few tens in 1A, 3C, 7B and 8AK; about 6,000 in 5A). Most zones peak between about 2 and 2.5
+    W/m-K; zone 7B instead has its tallest bar in the lowest bin.'
+- source_image: 95032_images/image_000011_16d71ced2b5c649d540392e444501a31130a216a187653bcc183ecc40c2e9708.png
+  source_image_sha256: ab7d099c26ebbd4a17fe2ca15258b1b67c9fde8317d729c7e985d4bc156cd77e
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: County map of median ground thermal conductivity in W/m-K, with Alaska and Hawaii insets
+  description: 'Figure 13: county choropleth map of the United States with insets for Alaska and Hawaii.
+    The colour scale is median ground thermal conductivity in W/m-K, from 1.385 (dark red) through yellow
+    to 3.461 (green). The lowest values cover much of Washington, Oregon, Idaho, Nevada and the central
+    Rocky Mountains; the upper Midwest, Texas and parts of California are mostly yellow, and the Southeast
+    and Northeast orange.'
+- source_image: 95032_images/image_000012_c26098c96bf2d74e4306840eb471fc8a462a3d4f20213b734ea1614320d259c1.png
+  source_image_sha256: b740f4e0b59777550f187fe07264e3bd5dc4cc1d0fb84d59c62ddcddcb3b11b5
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: 'Nine top-view dot plots of borehole field layouts: rectangle, C, L, zoned rectangle, U, lopsided
+    U, open rectangle'
+  description: 'Figure 14: nine top-view dot plots of borehole layouts, each with x and y axes in metres
+    and a title giving its dimensions and number of boreholes (NBH). The labelled shapes are Rectangle
+    (5x8, NBH 40), C (8x12, NBH 33), L (7x13, NBH 19), Zoned Rectangle (10x15, NBH 49), two U layouts
+    (NBH 23 and 72), LopU (NBH 17) and two Open Rectangle layouts (NBH 42 and 44).'
+- source_image: 95032_images/image_000013_3d56b6b5e0e4eec8b2d2083e2394ac7995cf49b0a6f8cd07920b0bb3b8976eea.png
+  source_image_sha256: b035b44548cabab49b840b6cffdfb2dc8b737446a05699f9071908e80484c015
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Code editor screenshot of rectangle_5m_v1.0.json with an arrow on the single layout key
+  description: 'Figure 15, left panel: dark-theme code editor screenshot of rectangle_5m_v1.0.json under
+    HPXMLtoOpenStudio/resources/g_functions. One orange arrow points at the top-level key "1_1", the single
+    key that selects a Rectangle layout. Beneath it are bore_locations, a g block whose entries are keyed
+    like "5._192._0.08", and logtime; further collapsed layout keys follow ("1_10", "1_2", "1_3" and so
+    on).'
+- source_image: 95032_images/image_000014_84cf7c06986c50e5750fa755d4e89891cbb125ff420ec268adefbf09c943dfd7.png
+  source_image_sha256: b6e49b897a62e6c4edd0536dbe09b35433b8901669d1f1cc38b308568916476c
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Code editor screenshot of C_configurations_5m_v1.0.json with arrows on its two layout keys
+  description: 'Figure 15, right panel: dark-theme code editor screenshot of C_configurations_5m_v1.0.json
+    under HPXMLtoOpenStudio/resources/g_functions. Two orange arrows point at the nested keys "3_3" and
+    "1", the two keys that together select a C layout. Inside are collapsed bore_locations, g and logtime
+    entries, followed by a second top-level key "3_4" with its own "1" entry. The file runs to 430 lines.'
+- source_image: 95032_images/image_000015_4e0e834577ca62244b368024ba1389acc61c4f5f161cfff94fd31840a94d19dc.png
+  source_image_sha256: f3fbb24613fb20b14d75e2d05f5768ed9c883a7f0a6bfafec37ddcb8f60891cd
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Flowchart of the four-step g-function interpolation procedure
+  description: 'Figure 16: flowchart of four boxes joined by downward arrows. Step 1: configuration selected
+    with B, H, rb and B/H. Step 2: interpolate g-function values based on B/H, and the corresponding values
+    of rb/H (to be used in the correction) and D/H (informational only). Step 3: calculate rb (interpolated
+    value). Step 4: correct g-function values for the actual rb using Equation 1. No data are shown.'
+- source_image: 95032_images/image_000016_aa3e725d033f56a66ececb988e75a63754ddf0f16fe8d8c8035c1b6eef7561b2.png
+  source_image_sha256: c59769c1330f865ad303363a03de4cd90f004cb08f31ffd4a720fdef7ac6a998
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Table image of g-function values A and B at 27 values of ln(t/ts)
+  description: 'Figure 17, left panel: a table rendered as an image, with columns ln(t/ts), A and B and
+    27 rows from ln(t/ts) = -8.5 to 3.003. A is the g-function from the OpenStudio-HPXML run and B the
+    library documentation example. The two agree to about three decimal places throughout, from 2.6191
+    and 2.6190 in the first row to 43.8846 and 43.8850 in the last. The right panel plots the same values.'
+- source_image: 95032_images/image_000017_099c716c5f0ef5cfa411df2378251f51da8bc43dbd09baac7b3143045bfa52d4.png
+  source_image_sha256: baaa403e7a7fdd6bd5f253a69a646d9bac12121c1311c499c2afb542f3cbd749
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line and scatter chart of g-function value against ln(t/ts), series A on series B
+  description: 'Figure 17, right panel: chart titled ''g-function validation''. X-axis is ln(t/ts), -10
+    to 4; y-axis is g-function value, 0 to 50. Series A is plotted as dots and series B as a line. Both
+    trace one S-shaped curve, from about 2.6 at ln(t/ts) = -8.5 to about 44 at 3, steepest between -4
+    and 0; the dots sit on the line. The left panel tabulates the values.'
+- source_image: 95032_images/image_000018_8a050bcd65a4fe768564b737f6c008027678f9907a50df281584a00ee3f6a22a.png
+  source_image_sha256: f70ffc1223f6b4d87ed37084f34a40c23e660caafd28ecac3aa1a19a29c55fb6
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bars of total stock energy use by end use and fuel, baseline vs single-stage GHP
+  description: 'Figure 18: stacked bar chart for the entire stock. Y-axis is annual energy consumption
+    in TBtu, 0 to 12k; the two bars are Baseline (total 11784) and Single-Stage GHP (total 8915), stacked
+    by end use and fuel (appliances, misc, cooling, lighting, heating, hot water, each by electricity,
+    natural gas, fuel oil and propane). Fuel-fired heating segments shrink to almost nothing while electric
+    heating grows from 874.0 to 1858.6 TBtu.'
+- source_image: 95032_images/image_000019_f87fe3a9790ad142819b296ed353f131e5adbcb877b78e44cd7342d0acd8f343.png
+  source_image_sha256: 97e3fa1d7e9c8062cfc0efd746daccef0475b08323292a5c616b03641da8b8b2
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bars of energy use by end use and fuel for upgraded dwellings only, baseline vs single-stage
+    GHP
+  description: 'Figure 19: stacked bar chart for dwellings that receive the upgrade only. Y-axis is annual
+    energy consumption in TBtu, 0 to 12k; the two bars are Baseline (total 9154) and Single-Stage GHP
+    (total 6286), stacked by the same end-use and fuel segments as Figure 18. Fuel-fired heating disappears
+    from the upgrade bar and is replaced by a larger electric heating segment; the non-HVAC segments are
+    unchanged.'
+- source_image: 95032_images/image_000020_5d8338e660d97856439511ce17f6d62eca9de204245c9341ea9503ce7348da78.png
+  source_image_sha256: ed115e6654cb5c2c2d975f7fbf659aba571648c40efdfa063683e85a072624f5
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Four panels of stacked energy use bars by baseline heating fuel, baseline vs single-stage GHP
+  description: 'Figure 20: four-panel stacked bar chart, one panel per baseline heating fuel, each with
+    a Baseline and a Single-Stage GHP bar on a shared y-axis of annual energy consumption in TBtu (0 to
+    about 5,700). Totals fall in every panel: Electricity 2397 to 2040, Fuel Oil 567 to 316, Natural Gas
+    5618 to 3587 and Propane 572 to 342. Segments are the end uses and fuels of Figure 18.'
+- source_image: 95032_images/image_000021_f26931939b374ad3053c1cd3f44a330be42a79f99af48cf227fd0a0adc0587e2.png
+  source_image_sha256: 7828c48931113babffe18eda2d1e9e47820b235cf32b47c07440f3d0b1dfaa1a
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Eight panels of stacked energy use bars by Building America climate zone, baseline vs single-stage
+    GHP
+  description: 'Figure 21: eight-panel stacked bar chart, one panel per Building America climate zone,
+    each with a Baseline and a Single-Stage GHP bar on a shared y-axis of annual energy consumption in
+    TBtu (0 to about 4,000). The largest totals are Cold (3947 falling to 2335), Mixed-Humid (2907 to
+    2014) and Hot-Humid (1282 to 1103); Hot-Dry, Marine, Mixed-Dry, Very Cold and Subarctic are far smaller.
+    Totals fall in every zone.'
+- source_image: 95032_images/image_000022_c75c66ef7dafa438308da9bc1e62571e4be42eaa26e593a3a820d5fb92475cf0.png
+  source_image_sha256: aeffbcaf6177eb06098492dc04935edddf9d57ea921103b92c55268ff7372225
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: State map of percent cooling energy savings from the single-stage GHP, labelled by state
+  description: 'Figure 22: choropleth map of the contiguous United States, each state labelled with its
+    percent cooling energy savings and coloured in six bins from -100 to -75% up to 25 to 50%. Most states
+    save roughly 20% to 31%, for example South Dakota 31.6% and Kansas 31.3%. Savings are negative in
+    Vermont (-92.0%), Maine (-56.2%), Washington (-17.7%), New Hampshire (-11.9%), Wyoming, Montana and
+    California.'
+- source_image: 95032_images/image_000023_0243a1e3739940b80830bd87b4cbf70ec6d53a927ebca13e3ccb6c1ff469b095.png
+  source_image_sha256: 3b28127bcd363497ef14d2153f8db259dfa54e859618c4d7feeded64c14734f0
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: State map of percent heating energy savings from the single-stage GHP, labelled by state
+  description: 'Figure 23: choropleth map of the contiguous United States, each state labelled with its
+    percent heating energy savings and coloured in seven bins from 50.0 to 52.5% up to 65.0 to 67.5%.
+    Every state saves more than half of its heating energy: the lowest label is Florida at 50.6% and the
+    highest Maine at 67.9%. The lightest bins are confined to the Southeast, and most other states are
+    above 60%.'
+- source_image: 95032_images/image_000024_67f5a27b9452a8ca7248a9ffa63a3c6cd025ab979c3aed648c1940377a8c11d8.png
+  source_image_sha256: f6dfac227a9c8fa275f6fb84254fb8eb9500d6ce46b35e0d0f8d1c96873e1d0b
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: State map of average cooling COP of the single-stage GHP, labelled by state
+  description: 'Figure 24: choropleth map of the contiguous United States titled ''Cooling COP Single
+    Stage GHP'', each state labelled with its average simulated cooling COP and coloured in four bins
+    from 2.8 to 3.0 up to 3.4 to 3.6. Values rise from south to north: Florida is lowest at 2.90, the
+    Gulf states are near 3.0, and Montana and Idaho are highest at 3.70.'
+- source_image: 95032_images/image_000025_a03296a97463bb0252888ce12f6a603833556caf42e347f20e727684830519d8.png
+  source_image_sha256: 4e605879d5bf1b0a6cbe96d8c0a6a624414845edf05a3e586aa3fc0c795dbc0c
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: State map of average heating COP of the single-stage GHP, labelled by state
+  description: 'Figure 25: choropleth map of the contiguous United States titled ''Heating COP Single
+    Stage GHP'', each state labelled with its average simulated heating COP and coloured in three bins:
+    2.0 to 2.2, 2.2 to 2.4 and 2.4 to 2.6. Northern Plains, upper Midwest and northern New England states
+    are lowest (North Dakota 2.04), most others fall between 2.2 and 2.4, and Louisiana is highest at
+    2.40.'
+- source_image: 95032_images/image_000026_8f9e30a4dd7c5aea3c2e26ca80ebbf5751cdba5722b9fe2695565978c967718e.png
+  source_image_sha256: 1429d3de9ab443d4fa972342bd224d77e8799e1d1d1616fbbbbf3ee5c8ccf330
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bars of average annual energy bills by fuel, baseline vs single-stage GHP
+  description: 'Figure 26: horizontal grouped bar chart. X-axis is bills in USD, 0 to about 2,800; rows
+    are electricity, natural gas, fuel oil, propane and all fuels (labelled out.bills.electricity.usd
+    and so on), each with Baseline and ''Single-Speed GHP'' bars. Electricity rises from about 2,000 to
+    about 2,500 USD, natural gas falls from about 560 to about 180, and the all-fuels total falls slightly.'
+- source_image: 95032_images/image_000027_9e3e808e17cc5f30bd16e7ed041aa880d67b34b0d840661de9a967f96e72842f.png
+  source_image_sha256: e27d923cb88aad0241d510d3c37cf1a1b4d15ea5fd995ea395a404c9076fc218
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bars of average annual energy bills by Building America climate zone and fuel, baseline
+    vs GHP
+  description: 'Figure 27: horizontal stacked bar chart. X-axis is bills in USD, 0 to about 5,200; rows
+    are eight Building America climate zones, each with a Baseline bar above a ''Single-Speed GHP'' bar,
+    stacked by electricity, natural gas, fuel oil and propane bills. Subarctic is the outlier, falling
+    from about 5,200 USD (mostly fuel oil) to about 3,500; the other zones lie between about 2,100 and
+    3,300.'
+- source_image: 95032_images/image_000028_43855c053cd6a05a85a618442f99dc5c06ee1a935a1c9b2b9bff86d65ca83f02.png
+  source_image_sha256: 433538800e1207c473951285fed1a89d171c13d7b99e8e328f42f1a3257b6bf3
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: 100% stacked columns of available breaker spaces by electric panel service rating, baseline stock
+  description: 'Figure 28: 100% stacked column chart titled ''Available Electric Panel Breaker Spaces
+    by Electric Panel Service Rating''. Y-axis is percent of dwelling units; columns are All and seven
+    service ratings from under 100 to 201+ amps; segments are 0, 1, 2, 3, 4, 5-10 and 10+ available spaces.
+    In the All column 25.6% of units have no free space and 9.7% have one.'
+- source_image: 95032_images/image_000029_046b3a8cae73f6427c500fad9f99f6cf1257f32a523444c97f9c88bb0d1afcb6.png
+  source_image_sha256: 7c3bc12ac15cbedd27dd3f0ffe9c109f7d1a61045a7bf1909c084a5affb3866a
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: 100% stacked columns of baseline panel constraint type by electric panel service rating
+  description: 'Figure 29: 100% stacked column chart titled ''Electric Panel Constraint Type by Electric
+    Panel Service Rating''. Y-axis is percent of dwelling units; columns are All and seven service ratings
+    from under 100 to 201+ amps; segments are No Constraint and Capacity Constrained Only. Overall 97.7%
+    of units have no constraint. Panels under 100 amps stand out, with 32.9% capacity constrained.'
+- source_image: 95032_images/image_000030_97385c5eeb7b9f8a80b230fa1baf26d2cbd364039e74043e7df9f9ee2727b5cc.png
+  source_image_sha256: bd3f5bb278a1c8cdfdf4d099cd93e73ddd5fda521408757ff6040bb12591557c
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: 100% stacked columns of panel constraint type by heating fuel after the single-stage GHP upgrade
+  description: 'Figure 30: 100% stacked column chart titled ''Electric Panel Constraint Type by Heating
+    Fuel''. Y-axis is percent of dwelling units; columns are All, Electricity, Natural Gas, Fuel Oil and
+    Propane; segments are No Constraint, Capacity Constrained Only, Space Constrained Only, and Capacity
+    and Space Constrained. Overall 62.4% have no constraint; electricity-heated units are 88.9% unconstrained
+    and fuel oil units only 30.8%.'
+- source_image: 95032_images/image_000031_27b59514c186eafbc41d05d288e8bb1f87359c9ab7965947e0e97d70f54f8f2a.png
+  source_image_sha256: f6424c3f36b5d56bd13d9e7813ec24e3d12a07ba52e559b3e6dfb0eaff59428f
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: State map of percent of dwelling units with a panel capacity and/or space constraint after the
+    GHP upgrade
+  description: 'Figure 31: choropleth map titled ''Percent of Dwelling Units with Electric Panel Capacity
+    and/or Space Constraints'', a dashboard screenshot with Alaska and Hawaii insets and a percent label
+    on each state. The colour scale runs from 11.1% to 70.0% of dwelling units. Shares are highest across
+    the northern Plains, upper Midwest and New England, mostly above 50%, and lowest in the Southeast,
+    with Florida at 11.1%.'
+- source_image: 95032_images/image_000032_0db02900222ccf1a8b71001b02c89f4b9d38ba51a311f6a40e4042fe1a873e82.png
+  source_image_sha256: 7379b143f97f18cc38a73d802f0118725a05870ce389b4139415cbbbb188e82b
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: State map of percent of dwelling units with a panel space constraint after the GHP upgrade
+  description: 'Figure 32: choropleth map titled ''Percent of Dwelling Units with Electric Panel Space
+    Constraints'', a dashboard screenshot with Alaska and Hawaii insets and a percent label on each state.
+    The colour scale runs from 3.9% to 53.4% of dwelling units. Shares are highest in northern New England,
+    Alaska (49.7%) and the northern Plains, and lowest in the South, with Florida at 3.9%.'
+- source_image: 95032_images/image_000033_1113c7de7523a3a89ed04b197ee2efab1fc9141d82291b9aa08666e3f579dfcb.png
+  source_image_sha256: b01b07e3b9dd8a372fe91bf05d64494171e35c3cd7b5344d626aa099bdc19d88
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: State map of percent of dwelling units with a panel capacity constraint after the GHP upgrade
+  description: 'Figure 33: choropleth map titled ''Percent of Dwelling Units with Electric Panel Capacity
+    Constraints'', a dashboard screenshot with Alaska and Hawaii insets and a percent label on each state.
+    The colour scale, labelled ''% of Total Weight'', runs from 6.7% to 47.9%. Shares are highest in the
+    northern Plains, upper Midwest and New England, above 40% in several states, and lowest in the South
+    and Southwest, with Florida at 7.9%.'
+- source_image: 95032_images/image_000034_361e08038428e7c89c0ba16dd08a8eeaabf6ad4b55216e8a8580604d151c7dc4.png
+  source_image_sha256: 6dd27b59e30156ecb9aae6a840a4c9251a2db2ce4c1e0d21f8ae857080f90422
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of annual GHP unit shipments 2003-2021 from ENERGY STAR and Jaewan et al., with estimates
+  description: 'Figure A-1: grouped bar chart. X-axis is year, 2003 to 2021; y-axis is GHP unit shipments
+    in thousands, 0 to 300. Series are ENERGY STAR shipment data and J. Jaewan et al. (2021) for 2003-2015,
+    and estimated ENERGY STAR shipment data with error bars for 2016-2021. The measured series rise together
+    from about 40 thousand in 2003 to 250 thousand in 2015; the estimates range from about 115 to 210.'
+- source_image: 95032_images/image_000035_230eba1faef0df78c1641a0e67855f6a236d8bcdd9fbb6010c12f5563c912d30.png
+  source_image_sha256: b732c8549a3a1cb8267d4da6c6332ea00bba3ea30a247787309c3d31d32ed4d1
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: State map of occupied dwelling units with GHPs in 2020, in thousands
+  description: 'Figure A-2: choropleth map of the United States. The colour scale is dwelling units with
+    GHPs in thousands, from near 0 (lightest) to above 100 (darkest blue); states with no RECS sample
+    are white. The darkest states are Florida, Tennessee, North Carolina and Alabama, followed by Texas
+    and Ohio; most western and northern Plains states are in the lightest shades. Figure A-3 charts the
+    values.'
+- source_image: 95032_images/image_000036_ec69f93323e89253e621616077006268a536dcd707812ce8589561ac2ba57999.png
+  source_image_sha256: f553249a53b80c968f4934c1d12ccf1375ab6ecece85f770e0bbcac17646eb2f
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Two bar charts of GHP installations in thousands, by state and by IECC climate zone
+  description: 'Figure A-3: two bar charts with y-axes in number of GHP installations (thousands). The
+    top chart ranks states from Florida (about 113), Tennessee, North Carolina and Alabama (about 98)
+    down to Hawaii and North Dakota near zero. The bottom chart ranks ten IECC climate zones: 4A is highest
+    at about 375, then 3A (about 310), 5A (about 240) and 2A (about 180); the other six are below about
+    65.'
+- source_image: 95032_images/image_000037_4b7fb99c3e7021029b6409af1592dc1f37777dad2937d2cf4516a735b6948710.png
+  source_image_sha256: b2e368e2723aa513e1a8dd1482b792b9463d67482357fe1e1fb19ca2545a49f5
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: 'Two bar charts by building type: U.S. occupied dwellings and GHP installations'
+  description: 'Figure A-4: two bar charts sharing the x-axis ''Geometry Building Type RECS'' (single-family
+    detached, mobile home, multi-family with 5+ units, multi-family with 2-4 units, single-family attached).
+    The left y-axis is full residential stock, peaking at about 75M for single-family detached. The right
+    y-axis is GHP installations in thousands: about 970 in single-family detached, about 120 in mobile
+    homes and about 60 or fewer in each other type.'
+- source_image: 95032_images/image_000038_2d6cda281787f5678310e73c31c9ab221ef340c3c80d87cc9ff0c6220632294f.png
+  source_image_sha256: 523ae4c2441182f4de2f92f991ab2f99bd4755228798aec0bfa6550ff586910a
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: 'Two bar charts by house vintage: U.S. residential stock and RECS 2020 GHP installations'
+  description: 'Figure A-5: two bar charts by vintage in eight bins from ''Before 1950'' to the most recent
+    decade. Left, ''U.S. Residential Stock'': the pre-1950 bin is tallest, at about 22M dwellings. Right,
+    ''RECS 2020 GHP Installations'': the y-axis is installations in thousands, 0 to about 270. The four
+    bins before 1980 are each about 110 thousand or less, while the four later bins are each about 220
+    to 265 thousand.'
+- source_image: 95032_images/image_000039_d7a7072c6f3841e9668f0ea9d6375b5351e219f2d5f78e5aa8039fbdef525cf6.png
+  source_image_sha256: 59223f09146c63c228d80e59518d71bec651609a1f2c0efacd042e715618bbcc
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart with data table of residential GHP equipment type shares
+  description: 'Figure A-6: bar chart with a data table beneath it. Y-axis is percent installed, 0% to
+    100%; the four bars are equipment types. Water-to-air (WTA) is by far the largest at 77%, followed
+    by combined WTA and WTW systems at 10%, water-to-water (WTW, hydronic) at 8% and direct geo-exchange
+    at 5%.'
+- source_image: 95032_images/image_000040_a873b949f7b0975c3bd0081277e87f3a97614fa022f02cffa25df21ad9abda66.png
+  source_image_sha256: 9c4c1cb0f317fae4946553544285abf68959fbb895aea978bf92bb5875a35b84
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of ENERGY STAR EER criteria for six GHP types, 2001-2021
+  description: 'Figure A-7: step line chart. X-axis is year, 2000 to 2022; y-axis is EER, 12 to 22. Six
+    series: closed-loop and open-loop water-to-air (WTA) and water-to-water (WTW), and direct geo-exchange
+    (DGX) WTA and WTW. Criteria are flat until 2010, step up by 2012 and stay flat: closed-loop WTA rises
+    from about 14.1 to 17.1 and open-loop WTA from about 16.2 to 21.1. The WTW series begin in 2009.'
+- source_image: 95032_images/image_000041_fdb18ae07fd25df40d71c502c2c76635056688cf12346e53d4c6829b91de68a7.png
+  source_image_sha256: 01dcd47d2b265cc9264f0ce5743c4861a4d32d20830219e3e0236c9d48bf2e08
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of ENERGY STAR COP criteria for six GHP types, 2001-2021
+  description: 'Figure A-8: step line chart. X-axis is year, 2000 to 2022; y-axis is COP, 2.9 to 4.3.
+    Series are closed-loop and open-loop water-to-air (WTA), closed-loop and open-loop water-to-water
+    (WTW), and direct geo-exchange (DGX). Criteria step up between 2010 and 2012 and are flat afterwards:
+    closed-loop WTA rises from 3.3 to 3.6, open-loop WTA from 3.6 to 4.1 and closed-loop WTW from 3.0
+    to 3.1; open-loop WTW ends at 3.5.'
+- source_image: 95032_images/image_000042_5b09e878d2895f15802a0a7e7832ccbb0656f95c84c0a27c41e3e5d3799619af.png
+  source_image_sha256: 27eb07652333d3e395e21eae4c48506b238f2b0b8e2b8057c7632118e62b9bd6
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Two bar charts of ENERGY STAR GHP unit shipments and market penetration by year, 2003-2021
+  description: 'Figure A-9: two bar charts by year, 2003 to 2021. Top: ENERGY STAR GHP shipments in thousands
+    (axis 0 to 120), rising from about 14 in 2003 to a peak of about 99 in 2007, then declining to 20-40
+    from 2013 on. Bottom: GHP ENERGY STAR market penetration (axis 0 to 100, labelled ''thousands''),
+    peaking at about 92 in 2007 and falling to about 16 in 2015; none for 2016-2021.'
+- source_image: 95032_images/image_000043_5d0bea541b2b6d6ccb2cdd6b0b4c7956bd8ded554229045e3cdaa498d8de8023.png
+  source_image_sha256: 2da0b2dc6ca0c108bf6e133ccf49ce339ae787e2d3088a44ed0ff7f13c0cab27
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped horizontal bars of ground heat exchanger configuration shares from three studies
+  description: 'Figure A-10: horizontal grouped bar chart. X-axis is installation percentage, 0 to 80;
+    rows are Direct Exchange, Open Loop and Pond/Lake, Horizontal and Vertical; series are Lund and Boyd
+    2016, Battocletti and Glassley 2013 and Liu et al. 2019. The sources disagree: Battocletti and Glassley
+    put vertical at 70 and Liu et al. at about 46, while Lund and Boyd put horizontal at about 63.'
+- source_image: 95032_images/image_000044_309c78f8214ea20ad7f6b3a11be676b34cfc149b25920517f03386412e7539c4.png
+  source_image_sha256: 816c9494624e2d4eef4b73c5a191466ecc79b295bcfb11f4790a7d032baffbfc
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Schematic of three U-tube spacing configurations A, B and C in a borehole cross-section
+  description: 'Figure B-1: schematic of three circular borehole cross-sections, each with two U-tube
+    pipes drawn as smaller circles. In Configuration A the pipes touch at the centre of the borehole,
+    in Configuration B they are moderately spaced, and in Configuration C they sit against opposite walls
+    of the borehole. A black rectangle is drawn around Configuration B, marking it as the one used. There
+    are no dimensions or values.'
+- source_image: 95032_images/image_000045_30957a2dcd6e1c3c973b3010465432cb86333364f9757ceb38057815d2ca1045.png
+  source_image_sha256: 1323d035fd59a63375f6c051b2342f7f089554411318537e220062fe9d7d7a35
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bubble map of dwelling units ineligible for GHPs by county because of low ground thermal conductivity
+  description: 'Figure B-2: bubble map of the United States with Alaska and Hawaii insets. Each circle
+    is a county; its size is the number of units represented (legend 1 to 2,218) and its colour the ground
+    thermal conductivity in W/m-K (legend 0.86535 to 1.38456). The largest circles are in western Washington
+    and Oregon, California, Utah and Colorado; east of the Rockies there are only small scattered points,
+    densest in the Northeast.'

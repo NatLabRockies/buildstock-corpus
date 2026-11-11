@@ -94,8 +94,12 @@ from .paths import OVERLAYS_DIR, overlay_file
 # Line-anchored so prose mentions ("as shown in Table 5") never match — same semantics as
 # CAPTION in scripts/audit_md_fidelity.py, which is what verifies this work landed.
 # Leading bold/italic markers are allowed because pandoc and docling both emit them.
+# The label is a number ("Table 7", "Table 7a") or an appendix label: one or two letters,
+# an optional hyphen, then a number ("Table A-2", "Figure B1"). The ResStock measure reports
+# number their appendix tables that way, and a label the pattern cannot read is a table that
+# can be neither replaced nor found.
 _CAPTION = re.compile(
-    r"^\s*(?:\*\*|__|\*|_)?\s*(Table|Figure|Fig\.?)\s*([0-9]+[A-Za-z]?)\s*[.:)]",
+    r"^\s*(?:\*\*|__|\*|_)?\s*(Table|Figure|Fig\.?)\s*([0-9]+[A-Za-z]?|[A-Za-z]{1,2}-?[0-9]+)\s*[.:)]",
     re.IGNORECASE,
 )
 _MD_IMAGE_TARGET = re.compile(r"!\[[^\]]*\]\(\s*([^)\s]+)")
@@ -343,8 +347,18 @@ def _injection(entry: dict, overlay_rel: str, replaced_sha: str | None = None) -
         f"     overlay: {overlay_rel}",
         f"     method: {method}",
     ]
+    if entry.get("uncaptioned"):
+        # No caption line names this table in the body, so the comment has to.
+        head.append(f"     table: {str(entry.get('label', '')).strip()} (no caption in the source)")
     if replaced_sha:
         head.append(f"     supersedes the extractor's own table here (values {replaced_sha[:12]}…):")
+        extra = _also_removes(entry.get("replaces") or {})
+        if extra:
+            head.append(
+                "     and its continuation grid(s) (values "
+                + ", ".join(f"{sha[:12]}…" for sha in extra)
+                + "):"
+            )
         head += _comment_lines((entry.get("replaces") or {}).get("why", ""), "       ")
     return "\n".join(head) + " -->\n\n" + markdown
 
@@ -386,6 +400,43 @@ def _resolve_image_anchor(
         )
         return None
     return j
+
+
+def _also_removes(replaces: dict) -> list[str]:
+    """The extra fingerprints a replacement removes besides `table_sha256`, lower-cased."""
+    extra = replaces.get("also_removes") or []
+    if isinstance(extra, str):
+        extra = [extra]
+    return [str(sha).strip().lower() for sha in extra if str(sha).strip()]
+
+
+def _resolve_continuations(
+    lines: list[str], replaces: dict, primary: tuple[int, int], out: list[str]
+) -> list[tuple[int, int]] | None:
+    """Spans of the continuation grids a replacement also removes, or None (reason -> `out`).
+
+    One printed table can reach the markdown as several grids: a table that runs over a page
+    break comes out as one grid per page, each with the header repeated. A transcription of
+    the whole table supersedes all of them, so `replaces.also_removes` lists the fingerprints
+    of the grids after the first. Each must match exactly one table that is not the primary
+    one and not already claimed; anything else and nothing at all is replaced, for the same
+    reason a single pin must identify a single table.
+    """
+    spans: list[tuple[int, int]] = []
+    blocks = _table_blocks(lines)
+    for want in _also_removes(replaces):
+        hits = [
+            (s, e) for s, e in blocks
+            if _table_fingerprint(lines[s:e]) == want and (s, e) != primary and (s, e) not in spans
+        ]
+        if len(hits) != 1:
+            out.append(
+                f"'replaces.also_removes' fingerprint {want[:12]}… matches {len(hits)} other "
+                f"extracted table(s), not exactly one; nothing was replaced"
+            )
+            return None
+        spans.append(hits[0])
+    return spans
 
 
 def _resolve_replacement(
@@ -496,6 +547,9 @@ def _apply_entry(
         if not entry.get(field):
             return False, warn(f"overlay entry missing required field '{field}'")
 
+    if entry.get("uncaptioned"):
+        return _apply_uncaptioned(lines, entry, overlay_rel, warn, input_sha)
+
     i = _find_caption(lines, label)
     if i is None:
         return False, warn("caption not found in the extracted body; overlay is stale")
@@ -535,8 +589,13 @@ def _apply_entry(
             span = _resolve_replacement(lines, i, replaces, reasons)
             if span is None:
                 return False, warn(reasons[0])
+            more = _resolve_continuations(lines, replaces, span, reasons)
+            if more is None:
+                return False, warn(reasons[0])
             replaced_sha = str(replaces["table_sha256"]).lower()
-            _remove_block(lines, *span)
+            # Bottom-up, so removing one span does not shift the ones still to go.
+            for s, e in sorted([span, *more], reverse=True):
+                _remove_block(lines, s, e)
             # Re-find rather than adjust: the removed block can sit either side of the caption,
             # and sequential entries each shift what follows. Re-finding cannot drift.
             i = _find_caption(lines, label)
@@ -547,13 +606,76 @@ def _apply_entry(
     # chunk._pack splits on blank lines, so what matters is the largest single paragraph,
     # not the size of the whole injected block: a table decomposed into blank-line-separated
     # sub-tables survives intact however long the group runs in total.
+    return True, _oversize_warning(entry, warn)
+
+
+def _oversize_warning(entry: dict, warn) -> list[str]:
+    """Warn when a transcription's largest paragraph would be split mid-row by the chunker."""
     longest = max((len(p.text) for p in _paragraphs(str(entry["markdown"]).split("\n"))), default=0)
     if longest > _CHUNK_MAX_CHARS:
-        return True, warn(
+        return warn(
             f"largest table paragraph is {longest} chars, over the {_CHUNK_MAX_CHARS}-char "
             f"chunk limit; decompose it into sub-tables or it will be split mid-row"
         )
-    return True, []
+    return []
+
+
+def _apply_uncaptioned(
+    lines: list[str], entry: dict, overlay_rel: str, warn, input_sha: str | None
+) -> tuple[bool, list[str]]:
+    """Supersede an extracted table that has no caption of its own. Returns (applied, warnings).
+
+    A measure report's summary table sits under a heading, not a "Table N." line, so there is
+    no caption to anchor on. The pinned fingerprint already says which table is meant, so the
+    transcription goes exactly where that table was. That only works for a replacement: with
+    no caption and no table to supersede there is nowhere to put the text, so an uncaptioned
+    entry without `replaces:` is refused. `label` is then only a name; it is written into the
+    provenance comment, since nothing else in the body names the table.
+    """
+    if entry_kind(entry) != "pdf":
+        return False, warn("an uncaptioned entry must be pinned to a PDF (source_pdf), not an image")
+    replaces = entry.get("replaces") or {}
+    if not replaces:
+        return False, warn(
+            "an uncaptioned entry needs 'replaces:': with no caption, the table it supersedes "
+            "is the only thing that says where the transcription goes"
+        )
+    expect = str(entry["source_pdf_sha256"])
+    if input_sha is None:
+        return False, warn(
+            "source input hash unknown for this document; cannot verify source_pdf_sha256"
+        )
+    if expect != input_sha:
+        return False, warn(
+            f"source PDF changed since transcription (recorded {expect[:12]}…, build "
+            f"input {input_sha[:12]}…); transcription may be stale"
+        )
+
+    want = str(replaces.get("table_sha256", "")).strip().lower()
+    body = "\n".join(lines)
+    if (
+        want
+        and f"{_MARKER} {_origin(entry)}" in body
+        and str(entry["markdown"]).strip("\n") in body
+        and not any(_table_fingerprint(lines[s:e]) == want for s, e in _table_blocks(lines))
+    ):
+        return False, []  # already injected — idempotent, not a problem
+
+    reasons: list[str] = []
+    span = _resolve_replacement(lines, len(lines), replaces, reasons)
+    if span is None:
+        return False, warn(reasons[0])
+    more = _resolve_continuations(lines, replaces, span, reasons)
+    if more is None:
+        return False, warn(reasons[0])
+    # Bottom-up, so earlier spans keep their indices. The first grid becomes the
+    # transcription in place; its continuation grids are removed.
+    for s, e in sorted([span, *more], reverse=True):
+        if (s, e) == span:
+            lines[s:e] = [_injection(entry, overlay_rel, want)]
+        else:
+            _remove_block(lines, s, e)
+    return True, _oversize_warning(entry, warn)
 
 
 def _find_image_refs(lines: list[str], source_image: str) -> list[tuple[int, str]]:
@@ -704,18 +826,34 @@ def _apply_repair(lines: list[str], repair: dict, overlay_rel: str) -> tuple[boo
     find = str(repair.get("find", ""))
     warn = lambda msg: [f"{where}: {find[:60]!r}: {msg}"]  # noqa: E731
 
-    for field in ("find", "replace", "why"):
+    # `remove: true` deletes the line instead of rewording it: a fragment the extractor left
+    # outside a table that a transcription now carries in full. It takes no `replace`.
+    remove = bool(repair.get("remove"))
+    if remove and str(repair.get("replace", "")).strip():
+        return False, warn("a repair either removes its line ('remove: true') or replaces it, not both")
+    for field in ("find", "why") if remove else ("find", "replace", "why"):
         if not str(repair.get(field, "")).strip():
             return False, [f"{where}: repair is missing required field '{field}'"]
-    replace = str(repair["replace"])
-    if "-->" in str(repair["why"]):
+    replace = "" if remove else str(repair["replace"])
+    if "-->" in str(repair["why"]) or (remove and "-->" in find):
         return False, warn("'why' contains '-->', which would truncate the provenance comment")
+    removed_note = f"     removed line: {find.strip()}"
 
     hits = [n for n, line in enumerate(lines) if line.strip() == find.strip()]
+    if remove and len(hits) == 1:
+        n = hits[0]
+        lines[n] = "\n".join(
+            [f"{_REPAIR_MARKER} {overlay_rel}", *_comment_lines(repair["why"], "     "), removed_note]
+        ) + " -->"
+        return True, []
     if len(hits) != 1:
-        already = any(
-            line.strip() == replace.strip() and _repaired_above(lines, n)
-            for n, line in enumerate(lines)
+        already = (
+            any(line.rstrip() == removed_note + " -->" for line in lines)
+            if remove
+            else any(
+                line.strip() == replace.strip() and _repaired_above(lines, n)
+                for n, line in enumerate(lines)
+            )
         )
         if not hits and already:
             return False, []  # already repaired — idempotent, not a problem

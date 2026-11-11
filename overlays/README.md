@@ -157,6 +157,48 @@ first table below is not a match, replaces nothing and warns.
 in this sidecar. The redundancy refusal is skipped for these entries: a table under the caption
 is the premise, not a reason to back off.
 
+**A table that came out as several grids.** A table that runs over a page break reaches the
+markdown as one grid per page. A transcription of the whole table has to supersede all of
+them, so `replaces` may list the later grids' fingerprints:
+
+```yaml
+    replaces:
+      table_sha256: "2c1a0437…"        # the first grid
+      also_removes:                    # the continuation grid(s), in any order
+        - "b2f5bdf4…"
+      why: >-
+        Row labels are displaced between rows in both grids; values are right.
+```
+
+Each `also_removes` fingerprint must match exactly one other table. If any does not, nothing
+is replaced: a partial replacement would leave the transcription beside a stale half of the
+table it supersedes.
+
+**A table with no caption.** A measure report's summary table sits under a heading, not a
+"Table N." line. Give the entry `uncaptioned: true` and a descriptive `label`:
+
+```yaml
+  - label: "Measure Summary"
+    uncaptioned: true
+    source_pdf: measure_pdfs/96827.pdf
+    source_pdf_sha256: "df766d88…"
+    page: 9
+    replaces:
+      table_sha256: "ac675955…"
+      why: >-
+        Two cells lost their opening sentence.
+    markdown: |
+      ...
+```
+
+The fingerprint alone says which table is meant, and the transcription goes exactly where
+that table stood. `replaces:` is therefore required: with no caption and no table to
+supersede there is nowhere to put the text. The `label` is written into the provenance
+comment, since nothing else in the body names the table.
+
+**Caption labels.** A label is a number (`Table 7`, `Table 7a`) or an appendix label: one or
+two letters, an optional hyphen, a number (`Table A-2`, `Figure B1`).
+
 ### Repairing a line of extracted text
 
 `text_repairs:` is a top-level list, for extractor artifacts that corrupt document *structure*
@@ -177,6 +219,22 @@ substring would also hit the three legitimate copies of that note elsewhere in 9
 count of anything but one is refused with a warning. `why` is required and lands in an HTML
 comment above the repaired line. Repairs run before the table entries, since they fix the
 headings those entries are located against.
+
+A repair can also delete its line, with `remove: true` in place of `replace`:
+
+```yaml
+text_repairs:
+  - find: "1.490"
+    remove: true
+    why: |
+      The last value of a Table 4 row, which fell out of its cell and was left as a
+      paragraph below the table. The hand-authored Table 4 carries it in its row.
+```
+
+This is for a fragment the extractor left outside a table whose transcription now carries
+it: a value that fell out of a cell, a spanning header stranded below the grid. The removed
+text stays readable in the comment, with the reason. It is not for deleting content that is
+nowhere else in the document.
 
 This is deliberately the narrowest tool here. It is not for editing prose, fixing typos (see
 "transcribe, don't improve" below), or normalizing characters. Before writing one, scan the
@@ -341,6 +399,17 @@ For each PDF (`processed/resstock/<release>/upgrade_measures/measure_pdfs/<n>.md
    * missing (a caption with no table, usually a rasterized table): a caption-anchored
      `tables:` entry.
    A table that spans pages or was split into several grids gets one entry per grid.
+   Three things count as wrong even when every value is in the right cell:
+   * **a dropped table footnote.** A footnote is part of its table; a marker in a cell that
+     points at nothing is a defect. Replace the table and carry the footnote below the grid.
+   * **an identifier or URL broken by a line-wrap space** (`..._heating_cap acity`,
+     `projec t_national`). A search for the real name, or a click on the link, misses it.
+     Replace the table with the extractor's own grid and the name joined, and say so in
+     `method`. An ordinary word broken the same way (`ground-to- air`) is left as it is and
+     mentioned in the `checked:` note.
+   * **a fragment left outside the grid** (a value that fell out of a cell, a spanning
+     header stranded below the table). Carry it in the transcription and remove the stray
+     line with a `text_repairs` entry (`remove: true`).
 5. **Describe every figure that is not decorative**: `alt` plus a `description` to the
    figure standard in `FIGURE_DESCRIPTIONS_ROLLOUT.md` (60 to 70 words: what the figure
    shows and the values a reader would cite), drafted from the page render and edited by
@@ -348,6 +417,12 @@ For each PDF (`processed/resstock/<release>/upgrade_measures/measure_pdfs/<n>.md
    pin; note it in the sidecar's comment block and list it in the PR.
 6. **Stamp the links and rebuild**: `scripts/stamp_overlay_links.py`, then build, validate
    and audit as under Reviewing. Commit one document at a time.
+
+**Not tables: the contents pages.** docling renders a report's Table of Contents, List of
+Figures and List of Tables as grids of dot leaders and page numbers. They are navigation for
+a paginated document, not content, and are left out of the sweep: no entry is written for
+them. The List of Acronyms and the Upgrade Summary table are content and are checked like
+any other table, as `uncaptioned` entries.
 
 A PDF is done when every table has a `checked:` or `tables:` entry and every real figure a
 description. The technical reference guide's tables come from LaTeX source, not from a

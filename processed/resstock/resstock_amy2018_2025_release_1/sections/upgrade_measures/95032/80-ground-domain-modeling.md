@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95032.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95032.md | section: Ground Domain Modeling | lines: 1333-1475 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95032.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95032.md | section: Ground Domain Modeling | lines: 1632-1787 -->
 ## Ground Domain Modeling
 
 Based on the cooling load calculated according to ACCA Manual J and ACCA Manual S, a length for the ground heat exchanger is calculated (ACCA 2016) (ACCA 2014). As the first step, the ground heat exchanger length per ton of required heating or cooling is calculated. This calculation uses the pipe, ground and grout R-value to calculate an overall R-value for the borehole:
@@ -45,7 +45,14 @@ Where:
 
 Figure B-1. Borehole spacing types. In OpenStudio-HPXML, the 'B' configuration is used by default.
 
-![Image](95032_images/image_000044_309c78f8214ea20ad7f6b3a11be676b34cfc149b25920517f03386412e7539c4.png)
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95032.yaml
+     source: 95032_images/image_000044_309c78f8214ea20ad7f6b3a11be676b34cfc149b25920517f03386412e7539c4.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+![Schematic of three U-tube spacing configurations A, B and C in a borehole cross-section](95032_images/image_000044_309c78f8214ea20ad7f6b3a11be676b34cfc149b25920517f03386412e7539c4.png)
+
+Figure B-1: schematic of three circular borehole cross-sections, each with two U-tube pipes drawn as smaller circles. In Configuration A the pipes touch at the centre of the borehole, in Configuration B they are moderately spaced, and in Configuration C they sit against opposite walls of the borehole. A black rectangle is drawn around Configuration B, marking it as the one used. There are no dimensions or values.
 
 From (Spitler and Javed 2016) (J. D. Spitler 2016).
 
@@ -129,16 +136,22 @@ Where:
 
 Table B-1. Prior Ground Heat Exchanger Configurations in OpenStudio-HPXML. The Current Configuration Used is Shown in Bold.
 
-|   Number of Boreholes | Configurations                         |
-|-----------------------|----------------------------------------|
-|                     1 | Single                                 |
-|                     2 | Line                                   |
-|                     3 | Line , "L"                             |
-|                     4 | Line, "L", Rectangle                   |
-|                     5 | Line, "L", "U"                         |
-|                     6 | Line , "L", Rectangle                  |
-|                     7 | Line , "U"                             |
-|                     8 | Line , "L2", Open Rectangle, Rectangle |
-|                     9 | Line , "U", Rectangle                  |
-|                    10 | Line , "L2", Open Rectangle, Rectangle |
+<!-- table recovered from measure_pdfs/95032.pdf p.84
+     overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95032.yaml
+     method: pdf-text-layer (values and font weight), checked against the page render
+     supersedes the extractor's own table here (values 72c09aee97cf…):
+       The caption says the current configuration is shown in bold, and the extractor dropped the bold, so the table no longer says which configuration is used for each borehole count (it is not always the first one listed: Rectangle for 4 boreholes, "U" for 5). Values are the extractor's own, compared with page 84; the bold is restored from the PDF's font weight (Arial-BoldMT) and the render. The stray space before the comma in 'Line ,' is removed. -->
+
+| Number of Boreholes | Configurations |
+|---|---|
+| 1 | **Single** |
+| 2 | **Line** |
+| 3 | **Line**, "L" |
+| 4 | Line, "L", **Rectangle** |
+| 5 | Line, "L", **"U"** |
+| 6 | **Line**, "L", Rectangle |
+| 7 | **Line**, "U" |
+| 8 | **Line**, "L2", Open Rectangle, Rectangle |
+| 9 | **Line**, "U", Rectangle |
+| 10 | **Line**, "L2", Open Rectangle, Rectangle |
 
