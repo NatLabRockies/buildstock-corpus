@@ -1,0 +1,9 @@
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96634.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96634.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96634.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96634.md | section: 4.5  Electric Panel Impacts | lines: 377-384 -->
+## 4.5  Electric Panel Impacts
+
+Electrical panel constraint modeling was added to ResStock via OpenStudio-HPXML measures in 2025 to assess whether the existing panel has enough capacity or breaker space to accommodate new loads from an energy retrofit. For details on panel constraint modeling, refer to the ResStock Technical Reference Guide (Reyna et al, 2025).
+
+Upgrading to a 95% AFUE natural gas furnace generally has no impact on the electrical panel, as no new electrical loads or circuits are being added. Most homes receiving this measure are replacing an existing fuel furnace. However, for the small fraction of homes previously heated by electrically (e.g., by an electric resistance furnace or a ducted heat pump), this measure can free up panel capacity and breaker space by removing those circuits and loads from the panel.
+
+Any panel constraints appearing in the upgrade results reflect pre-existing conditions, as this measure does not worsen them. 2.3% of the existing panels are estimated to already exceed capacity based on code. Pre-existing capacity constraints are an artifact of the panel modeling process, in which panel service ratings are estimated from selected housing variables rather than detailed inventory data. While anecdotal evidence suggests these constraints can occur in practice -manifesting as flickering lights or tripping breakers -the lack of empirical data prevents us from confirming their prevalence.
+

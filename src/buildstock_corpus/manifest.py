@@ -133,8 +133,15 @@ def build_manifest(
     overlays: dict[str, dict] | None = None,
     corpus_version: str | None = None,
     excluded_urls: list[dict] | None = None,
+    not_converted: list[dict] | None = None,
+    notes: list[str] | None = None,
 ) -> dict:
     """Assemble and write manifest.json from the just-built documents + fetch state.
+
+    `not_converted` and `notes` come straight from the source registry (see
+    Source.not_converted and Registry.notes): upstream files left out on purpose, and
+    facts about the release no document states. Each is written only when there is
+    something to say, so a registry without them produces the manifest it always did.
 
     `excluded_urls` lists fetched upstream PDFs the source registry told build to leave out
     (see Source.exclude_urls); recorded under gaps.excluded_by_registry so their absence
@@ -251,6 +258,10 @@ def build_manifest(
         },
         "warnings": warnings,
     }
+    if not_converted:
+        manifest["gaps"]["not_converted"] = not_converted
+    if notes:
+        manifest["notes"] = notes
     if sample is not None:
         manifest["sample"] = {"per_category": sample, "partial": True}
 
@@ -695,6 +706,9 @@ def validate_release(product: str, release: str) -> bool:
     gm = gaps.get("measures", [])
     if gm:
         print(f"  {len(gm)} tracked measure gap(s): {', '.join(gm)}")
+    nc = gaps.get("not_converted", [])
+    if nc:
+        print(f"  {len(nc)} upstream file(s) left unconverted by the source registry")
     up = gaps.get("unreachable_pdfs", [])
     if up:
         print(f"  {len(up)} unreachable PDF(s) recorded as gaps")

@@ -1,0 +1,9 @@
+<!-- resstock resstock_amy2018_2025_release_1 | technical_reference | docs/technical_reference_guide/3c_ResStockInputs.tex | status: site_page | source_url: https://github.com/NatLabRockies/resstock/blob/3888e2ff0a4764eb57de65ad0d103870330eb542/docs/technical_reference_guide/3c_ResStockInputs.tex | publication_url: https://natlabrockies.github.io/ResStock.github.io/assets/trd/ResStockTechnicalReferenceGuide_2025_1.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: technical_reference/docs/technical_reference_guide/3c_ResStockInputs.md | section: Hot Water Appliances | lines: 515-522 -->
+## Hot Water Appliances
+
+For dishwashers and clothes washers, their daily demand for hot water (in gallons per day) is calculated according to ANSI/RESNET/ICC 301 standard. The standard uses the rated values from the product EnergyGuide label and the number of bedrooms to estimate the number of annual cycles, and thus, annual energy and hot water uses. The energy and hot water uses are further adjusted for the number of occupants in a home and multiplied by an appliance usage multiplier to add diversity, representing high-usage or low-usage occupants. These usage multipliers are given by a simple, manually created distribution of values ranging from 80% to 120%, with mean centered at 100%. The energy to heat the water and distribution losses are attributed to the water heater.
+
+The stochastic occupant model is used to produce detailed schedule inputs from the hot water fixtures and appliances. The schedules are combined with the daily demands to calculate the peak flow rate (or design level) and peak-normalized schedules. In other words, the schedules are normalized and specify when hot water is used, not how much hot water is used; when multiplied by the peak flow rate, they aggregate to the total hot water demand calculated.
+
+# Appliances
+

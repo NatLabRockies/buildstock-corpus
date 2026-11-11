@@ -193,6 +193,19 @@ def build_crosswalk(
     return {
         "release": release,
         "counts": {"measures": len(measures), "covered": covered, "gaps": len(gaps)},
-        "measures": sorted(measures, key=lambda m: m["measure_id"]),
-        "gaps": sorted(gaps, key=lambda g: g["measure_id"]),
+        "measures": sorted(measures, key=lambda m: measure_sort_key(m["measure_id"])),
+        "gaps": sorted(gaps, key=lambda g: measure_sort_key(g["measure_id"])),
     }
+
+
+_DIGITS_RE = re.compile(r"(\d+)")
+
+
+def measure_sort_key(measure_id: str) -> list:
+    """Order measure ids the way a reader counts: runs of digits compare as numbers.
+
+    ResStock's ids are bare numbers, and as strings "10" sorts before "2". ComStock's
+    (hvac_0001) are zero-padded to one width, so their order is the same either way.
+    Text and number parts alternate, so two keys never compare a string with an int.
+    """
+    return [int(part) if part.isdigit() else part for part in _DIGITS_RE.split(measure_id)]

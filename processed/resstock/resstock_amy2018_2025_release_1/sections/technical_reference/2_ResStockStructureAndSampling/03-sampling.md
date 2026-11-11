@@ -1,0 +1,10 @@
+<!-- resstock resstock_amy2018_2025_release_1 | technical_reference | docs/technical_reference_guide/2_ResStockStructureAndSampling.tex | status: site_page | source_url: https://github.com/NatLabRockies/resstock/blob/3888e2ff0a4764eb57de65ad0d103870330eb542/docs/technical_reference_guide/2_ResStockStructureAndSampling.tex | publication_url: https://natlabrockies.github.io/ResStock.github.io/assets/trd/ResStockTechnicalReferenceGuide_2025_1.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: technical_reference/docs/technical_reference_guide/2_ResStockStructureAndSampling.md | section: Sampling | lines: 29-37 -->
+## Sampling
+
+ResStock does not model actual buildings (for example: the apartment complex at 123 Main Street). Instead, the housing characteristic distributions are sampled hundreds of thousands of times—typically 550,000—to create a synthetic stock representation of U.S. housing units. Each sampled housing unit is assigned an option for each of the ResStock housing characteristics. Within the ResStock workflow the full set of sampled housing units and their associated characteristics is referred to as the `buildstock.csv`. An illustrative example of some characteristics of a ResStock model is shown in Figure “An illustrative example of a representative housing unit sample from ResStock (does not show all characteristics available in ResStock)”. More information about how the sampling is performed can be found in Section “Sampling Methodology”. Each of the 550,000 representative samples in the `buildstock.csv` can be thought of as an archetype residential housing unit description, meaning that each synthetic building represents approximately 250 real U.S. housing units.
+
+<figure id="fig:illustrative_sample">
+<img src="images/illustrative_sample.png" style="width:100.0%" />
+<figcaption>An illustrative example of a representative housing unit sample from ResStock (does not show all characteristics available in ResStock)</figcaption>
+</figure>
+

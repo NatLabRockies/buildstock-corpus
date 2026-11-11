@@ -1,0 +1,10 @@
+<!-- resstock resstock_amy2018_2025_release_1 | github_site | docs/resources/explanations/Wood_Stud_Depth.md | status: site_page | source_url: https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/resources/explanations/Wood_Stud_Depth.md | publication_url: https://natlabrockies.github.io/ResStock.github.io/docs/resources/explanations/Wood_Stud_Depth.html | corpus_version: resstock_amy2018_2025_release_1-v1-pre -->
+# Wood Stud Depth and Wall R-Value Calculations
+
+## Wood Stud Depth and Wall R-Value Calculations
+
+Wood stud walls in ResStock are characterized by nominal wall cavity R-values. These values get combined with layers like exterior finish, OSB sheathing, the stud and cavity layer, and drywall (which add to the overall assembly R-value) in parallel path calculations that account for heat transfer through both cavities and studs (which typically reduces to overall assembly R-value). The assembly R-values are used to determine a detailed wall construction set[^1] that incorporates stud depth (2x4 or 2x6), framing factor, and other thermal properties such that the calculated R-value of the whole wall assembly matches the ResStock assembly R-value. See [this file](https://github.com/NatLabRockies/resstock/blob/develop/resources/hpxml-measures/BuildResidentialHPXML/resources/options/enclosure_wall.tsv) which shows the mapping between option names and assembly R-value.
+
+When an insulation level is chosen, either in the baseline model or in an upgrade model, EnergyPlus calculates the heat transfer of the stud and wall cavity using multiple one-dimensional heat transfer paths. Two-dimensional heat calculations are used for foundation walls and slabs in contact with the ground.
+
+[^1]: For more information how ResStock plans to address wall construction, see this GitHub issue: https://github.com/NatLabRockies/OpenStudio-HPXML/issues/1182

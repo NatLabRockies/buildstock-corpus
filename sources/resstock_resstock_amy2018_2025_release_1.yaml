@@ -30,6 +30,13 @@
 product: resstock
 release: "resstock_amy2018_2025_release_1"
 
+# Written into the manifest and listed in the corpus map under "About this release".
+notes:
+  # D2: one documentation set, two weather years.
+  - "This documentation also describes the AMY2012 dataset of the same release (resstock_amy2012_release_1 on OEDI); the corpus is built once, under the AMY2018 release id."
+  # D1: which guide text this is, for a reader comparing it to the published PDF.
+  - "The technical reference guide is converted from the ResStock repository at tag 2025_Release_1_upgrades_29_to_32. The PDF the site publishes (ResStockTechnicalReferenceGuide_2025_1.pdf, October 2025) was built from a later, untagged state of the same source, so the two can differ in places."
+
 # Publication status (see src/buildstock_corpus/status.py): osti_pdf for reports with an
 # OSTI number, site_page for anything the ResStock site publishes without one. latex/markdown
 # sources declare one status for all their documents here; the measures source derives it
@@ -70,6 +77,12 @@ sources:
     doc_glob: "docs/**/*.md"
     exclude_globs:
       - "docs/upgrade_measures.md"
+    # D4: listed in the map's known gaps, so a reader looking for them is told where they are.
+    not_converted:
+      - path: "docs/resources/how-to-guides/access_annual_data_programmatically.ipynb"
+        reason: "Jupyter notebook; the markdown extractor reads .md files only."
+      - path: "docs/resources/how-to-guides/access_timeseries_data_programmatically.ipynb"
+        reason: "Jupyter notebook; the markdown extractor reads .md files only."
 
   # Upgrade measures -- every documented measure is an external OSTI report; the site
   # renders no measure page of its own (so no internal_dir) and commits no crosswalk CSV.

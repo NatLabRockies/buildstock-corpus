@@ -1,0 +1,5 @@
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96347.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96347.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96347.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96347.md | section: 1  Technology Summary | lines: 135-138 -->
+## 1  Technology Summary
+
+This upgrade package, which includes advanced air sealing, attic floor insulation, and duct sealing, combines three key areas of a retrofit measures. The goal of these upgrades is to reduce heat losses in winter and retain cool air in the conditioned space during summer. Air sealing alone does not eliminate the need for insulation (DOE, 2025). Insulation and air sealing work best together to improve comfort and energy efficiency. Therefore, they are often implemented as a package to address complementary aspects of a home's energy performance, and their combined effect is much greater than any single measure alone. Together, these upgrades help to lower energy bills, enhance indoor comfort and improve indoor air quality year round.
+

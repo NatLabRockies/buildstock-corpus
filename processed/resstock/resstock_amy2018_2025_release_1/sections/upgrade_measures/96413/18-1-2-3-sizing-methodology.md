@@ -1,0 +1,9 @@
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96413.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96413.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96413.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96413.md | section: 1.2.3  Sizing Methodology | lines: 184-191 -->
+## 1.2.3  Sizing Methodology
+
+This heat pump measure upgrade is sized to 'max load'. Sizing to max load involves sizing the ASHP to the maximum calculated load between the cooling and heating loads. This methodology considers the capacity degradation of the ASHP so that it is sized large enough to meet both the heating and cooling loads at design conditions. For example, a dwelling in a cold climate will have its ASHP rated capacity at 47°F be larger than its load at design conditions, since its capacity retention will not be 100% at the design temperature of the heating load.
+
+Max load is chosen for this ASHP option because it has a variable-speed compressor that more effectively meets the heating load at low ambient temperatures. This effectiveness helps reduce the total size of the ASHP in cold climates from being unrealistically large. Additionally, the multiple speeds available for this ASHP allow it to avoid elevated indoor humidity due to short cycling issues that single-stage compressors incur.
+
+Because this ASHP option is sized to max load, applicable dwellings in cold climates will receive ASHPs that are relatively larger than an existing fossil fuel system. Large ASHP sizing can increase the cost of the ASHP installation and require multiple mounted indoor units in the dwelling and possibly multiple outdoor units. However, because of this sizing and the variablespeed compressor, its backup system utilization will be much lower, leading to lower operational energy use.
+

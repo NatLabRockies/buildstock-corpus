@@ -72,7 +72,7 @@ def test_lookup_join_counts_names_and_gaps(tmp_path):
 
     # six lookup measures (baseline excluded); 4 documented, 11 undocumented, 29 not on the page
     assert cw["counts"] == {"measures": 6, "covered": 4, "gaps": 2}
-    assert [m["measure_id"] for m in cw["measures"]] == ["1", "11", "24", "25", "29", "6"]
+    assert [m["measure_id"] for m in cw["measures"]] == ["1", "6", "11", "24", "25", "29"]  # numeric order, not "10" before "2"
     assert cw["gaps"] == [
         {"measure_id": "11", "reason": "documentation expected soon"},
         {"measure_id": "29", "reason": "not listed in index page"},

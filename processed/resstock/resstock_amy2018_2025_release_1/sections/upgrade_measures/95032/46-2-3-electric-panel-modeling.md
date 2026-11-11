@@ -1,0 +1,32 @@
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95032.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95032.md | section: 2.3  Electric Panel Modeling | lines: 836-866 -->
+## 2.3  Electric Panel Modeling
+
+This section summarizes the electrical information for the ducted heat pump upgrade. Electrical information is used in ResStock to assess whether the dwelling unit's electrical panel would become space constrained or over capacity due to this upgrade.
+
+The electric load assumption for all GHP upgrades is borrowed from another heat pump upgrade, the air-to-air heat pump without electric backup. This is a limitation of this work.
+
+The power rating of a ducted heat pump system is the sum of the power rating of the compressor, the air handler, and any electric backup allowed to operate simultaneously, which are summarized in Table 7. The heat pump compressor power rating is estimated based on its design heating capacity using a regression equation derived from product labels. The air handler power rating is estimated from the design airflow rate and OS-HPXML assumption of fan power. The electric resistance backup power rating is directly converted from its heating capacity at an efficiency of 100%. For more information on the modeling assumptions, see the Technical Reference Document (Reyna, et al. 2025).
+
+Table 7. Default Power Rating of Ducted Heat Pump System Components
+
+| Component            | Power Rating [W]                                  | Note                                                     |
+|----------------------|---------------------------------------------------|----------------------------------------------------------|
+| Heat pump compressor | (0.631 * Heating_Capacity [kBtu/h] + 1.615) * 240 | Regression of Minimum Circuit Amp, multiplied by voltage |
+| Air handler          | Air_Flow [cfm] * Fan_Power [W/cfm]                | Default to OS-HPXML assumptions                          |
+
+Ducted heat pumps require at least one 208/240V circuit, each of which is protected by a doublepole breaker. The specific number of circuits depend on whether the heat pump has backup heating (dual-fuel or electric) and how its indoor and outdoor units are configured along with the backup. Table 8 summarizes the wiring configuration for ducted heat pumps assumed in ResStock 2025 Release 1. For example, a dual-fuel heat pump is assumed to have a 120V air handler on one circuit and another 240V circuit for the compressor. For a heat pump with an electric backup, the air handler is commonly 240V to allow for the strip heat to be on the same circuit. This is also the assumption in ResStock 2025 Release 1. The maximum overcurrent protection allowed per circuit is assumed to be up to 50A. Therefore, more circuits may be required for larger heat pump systems, which correspond to the use of multiple compressors and/or heat kits in real life.
+
+Although upgrading to a heat pump replaces both the heating and cooling systems, it may require more electrical circuits and breaker space than what becomes available by removing the existing HVAC equipment. The heat pump upgrade may also add more connected load to the panel, especially when the backup is sized for emergency use. The power rating of heat pump systems is driven by their heating configuration and the presence of electric resistance backup. Therefore, homes in colder climates are more likely to face a capacity constraint when upgrading to a heat pump since a backup is often required to supplement the heat pump performance and they are more likely to have fuel heating previously.
+
+Table 8. Default Voltage and Breaker Space for Ducted Heat Pumps.
+
+(Note: ckt: circuit, ODU: outdoor unit or heat pump compressor, IDU: indoor unit or air handler)
+
+| Heat Pump System                               | Circuits                          | Breaker Spaces                                      |
+|------------------------------------------------|-----------------------------------|-----------------------------------------------------|
+| Air-to-air / ground-to- air, ducted, no backup | ckt 1: 240V, ODU ckt 2: 240V, IDU | ckt 1: 2 * round_up(ODU power [W] / 12000) ckt 2: 2 |
+
+Electrical panel constraint modeling is added to ResStock 2025 Release 1 via OpenStudioHPXML measures in 2025. As new electric loads are added into the home during an improvement project, the electrical panel may not have enough capacity or space headroom to accommodate these new circuits. Thus, the panel may become constrained, requiring an electrical upgrade that may include upsizing the service entrance. Panel constraints can also be mitigated in other ways without the panel or service being upsized, by using load shedding devices, circuit sharing devices, or a smart panel to allow more loads to be connected; lowpower, combination, or smart appliances to reduce electric loads at the source; slim tandem breakers or subpanels for more space; and more. The panel constraint estimate from the upgrade measure allows for the costing of any potential electrical upgrade or mitigation, thus helping to capture the total cost of upgrade more holistically across the housing stock.
+
+Panel capacity and space constraints are modeled using a service load and a breaker space calculation, respectively. The load calculation is based on 2023 National Electrical Code's loadbased method in Section 220, which guides how the load diversity should be estimated and summed to estimate the total load connected to the panel. When this total load converted to ampacity exceeds the service rating of the panel, the panel is considered capacity constrained in ResStock 2025 Release 1. Similarly, the panel is considered space constrained when the total occupied breaker space counted from the bottom-up exceeds the rated space count of the panel. The panel's capacity and space ratings are probabilistically sampled based on other housing characteristics such as heating fuel and the presence of certain appliances. Users are encouraged to reevaluate these constraint metrics according to other considerations, such as a margin of safety to account for uncertainty in the modeling process. For more details on panel constraint modeling, refer to the ResStock Technical Reference Guide (Reyna, et al. 2025).
+
