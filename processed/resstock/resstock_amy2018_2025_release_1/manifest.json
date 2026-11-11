@@ -2,7 +2,7 @@
   "product": "resstock",
   "release": "resstock_amy2018_2025_release_1",
   "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
-  "generated_utc": "2026-11-11T23:29:26.577985+00:00",
+  "generated_utc": "2026-11-11T23:49:38.797900+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -1312,11 +1312,11 @@
           "title": "Heat Pump Water Heater",
           "input_sha256": "9b1963bc5ff7300c2d3e99bada6183d68a80c1e785f41b50589eab76f7532e3f",
           "output_path": "upgrade_measures/measure_pdfs/96826.md",
-          "output_sha256": "b9d02c1d825663f75e2b290221bab54c209f968bb04479555570049f0b329f59",
-          "body_sha256": "ec0a11ac199c500911c14525f19c9bab49ee2a7d37e85e0e2d877a4da1a76820",
+          "output_sha256": "9909def4a0eeaabcde5825434b565c97efbcb41b2434d163ae18c3685a808b34",
+          "body_sha256": "998a5f32d1f93f62d3bf84a57a2461e3c6d0357bedf77c219adfd86720678767",
           "overlay": {
             "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96826.yaml",
-            "sha256": "705d960f847e14e0e77a96e72e2cf4aaf89d489d62b76182223aea21d1e5368b",
+            "sha256": "e0cf7c37a9c02723ac6fc3540f410089384063dcf6d8d4c0911d6718de27522d",
             "tables_applied": [
               "Table 6",
               "Table 8",
