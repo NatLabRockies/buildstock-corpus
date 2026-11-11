@@ -2,7 +2,7 @@
 
 Written 2026-10-19 from a survey of the two ResStock sources and of how the ComStock corpus
 was built (PLAN.md, PLAN-staging.md, PLAN-buildstock-corpus-handoff.md). Owner: Lauren Klun.
-Status: decisions D1 to D6 taken 2026-10-19; stage R1 merged (PRs #46 to #49); R2.1 and R2.2 done 2026-11-10; R3.0 (docling table mode, added 2026-11-10) and R3.1 (sandbox builds) done the same day; R3.2 (fidelity audit and extractor fixes) done 2026-11-10; R3.3 (first real build committed) done 2026-11-11; R4.1 (overlay method and `checked:` entries) done 2026-11-11; R4.2 (sidecars for measures 1 to 10) done 2026-11-11 and merged (PR #56); R4.2a (page footnotes the converter drops, added 2026-11-11) done 2026-11-11 and merged (PR #57); R4.2b (number grids captioned as figures) done 2026-11-11, PR #58 open; R4.3 (sidecars for measures 11 to 18) next. The order every step runs in, with its branch, PR and merge state, is the "Order of work" table below; that table is the one to read for where things stand. Steps run one at a time, each asked for before it starts, one
+Status: decisions D1 to D6 taken 2026-10-19; stage R1 merged (PRs #46 to #49); R2.1 and R2.2 done 2026-11-10; R3.0 (docling table mode, added 2026-11-10) and R3.1 (sandbox builds) done the same day; R3.2 (fidelity audit and extractor fixes) done 2026-11-10; R3.3 (first real build committed) done 2026-11-11; R4.1 (overlay method and `checked:` entries) done 2026-11-11; R4.2 (sidecars for measures 1 to 10) done 2026-11-11 and merged (PR #56); R4.2a (page footnotes the converter drops, added 2026-11-11) done 2026-11-11 and merged (PR #57); R4.2b (number grids captioned as figures) done 2026-11-11 and merged (PR #58); R4.3 (sidecars for measures 11 to 18) next. The order every step runs in, with its branch, PR and merge state, is the "Order of work" table below; that table is the one to read for where things stand. Steps run one at a time, each asked for before it starts, one
 branch and PR per step unless a row says otherwise (the ComStock convention).
 
 ## Goal
@@ -125,7 +125,7 @@ but only when the owner says so; PRs still merge in this order.
 | 11 | R4.1 | Overlay method and `checked:` entries | done 2026-11-11 | `r4-method` (main) | #55 | yes, 2026-11-11 |
 | 12 | R4.2 | Sidecars, measures 1 to 10 | done 2026-11-11 | `r4-measures-1-10` (main) | #56 | yes, 2026-11-11 |
 | 13 | R4.2a | Page footnotes the converter drops | done 2026-11-11 | `r4-footnotes` (main) | #57 | yes, 2026-11-11 |
-| 14 | R4.2b | Number grids captioned as figures, measures 1 to 10 | done 2026-11-11 | `r4-number-grids` (main) | #58 | no |
+| 14 | R4.2b | Number grids captioned as figures, measures 1 to 10 | done 2026-11-11 | `r4-number-grids` (main) | #58 | yes, 2026-11-11 |
 | 15 | R4.3 | Sidecars, measures 11 to 18 | not started | | | |
 | 16 | R4.4 | Sidecars, measures 19 to 32 | not started | | | |
 | 17 | R4.5 | Technical guide figures | not started | | | |
