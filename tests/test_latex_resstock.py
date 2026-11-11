@@ -277,3 +277,40 @@ def test_convert_hands_pandoc_the_degree_rewrite(tmp_path, monkeypatch):
     monkeypatch.setattr(L, "_pandoc", fake_pandoc)
     L._convert(tmp_path / "ch.tex", tmp_path)
     assert seen == ["Below 17\\textdegree{} F."]
+
+
+# --- titles for files with several top-level headings ---------------------------------------
+
+
+def test_chapter_title_names_every_top_level_heading_when_there_are_several():
+    body = "# Water Heating\n\nintro\n\n## Water Heaters\n\n# Appliances\n\n```\n# not a heading\n```\n\n# Lighting\n"
+    assert L._chapter_title(body) == "Water Heating, Appliances, Lighting"
+
+
+def test_chapter_title_is_the_single_heading_otherwise():
+    assert L._chapter_title("# HVAC\n\n## Primary Heating\n") == "HVAC"
+    assert L._chapter_title("## Only a section\n") == "Only a section"
+    assert L._chapter_title("no headings at all") is None
+
+
+# --- citation keys that differ from the bibliography only by case ---------------------------
+
+
+def test_cite_key_is_respelled_when_exactly_one_bibliography_key_matches_ignoring_case(tmp_path):
+    bib = tmp_path / "refs.bib"
+    bib.write_text(
+        "@misc{AHS,\n title={American Housing Survey}}\n@techreport{Wilson2014, title={x}}\n"
+        "@misc{recs,\n title={a}}\n@misc{RECS,\n title={b}}\n@comment{ignored}\n",
+        encoding="utf-8",
+    )
+    keys = L._bib_keys(bib)
+    assert keys == {"AHS", "Wilson2014", "recs", "RECS"}
+    text = "Surveys ({\\cite{ahs}}) and \\citep[see][p. 3]{wilson2014, AHS} but \\cite{Recs} and \\cite{nope}."
+    assert L._match_cite_keys(text, keys) == (
+        "Surveys ({\\cite{AHS}}) and \\citep[see][p. 3]{Wilson2014, AHS} but \\cite{Recs} and \\cite{nope}."
+    )
+
+
+def test_cite_keys_are_left_alone_without_a_bibliography(tmp_path):
+    assert L._bib_keys(tmp_path / "missing.bib") == set()
+    assert L._match_cite_keys("\\cite{ahs}", set()) == "\\cite{ahs}"

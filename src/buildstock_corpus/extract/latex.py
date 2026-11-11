@@ -366,6 +366,46 @@ def _chapter_files(main_tex: Path) -> list[str]:
     return _CHAPTER_CMD_RE.findall(text)
 
 
+# A citation command and its key list: \cite{a,b}, \citep[see][p. 3]{a}, \parencite{a}.
+_CITE_CMD_RE = re.compile(r"(\\[A-Za-z]*cite[A-Za-z]*\*?(?:\[[^\]]*\])*)\{([^{}]*)\}")
+_BIB_KEY_RE = re.compile(r"^\s*@[A-Za-z]+\s*\{\s*([^,\s]+)\s*,", re.M)
+
+
+def _bib_keys(bib_path: Path) -> set[str]:
+    """Entry keys of a BibTeX file (@comment, @string and @preamble have no key to cite)."""
+    try:
+        text = bib_path.read_text(encoding="utf-8", errors="replace")
+    except OSError:
+        return set()
+    return set(_BIB_KEY_RE.findall(text))
+
+
+def _match_cite_keys(text: str, bib_keys: set[str]) -> str:
+    """Spell each cited key the way the bibliography does when they differ only by case.
+
+    Citation keys are case-sensitive, so `\\cite{ahs}` against an entry `AHS` resolves to
+    nothing and the reference is lost from the chapter. A key with no exact match is
+    replaced by the one bibliography key that equals it ignoring case; with no such key, or
+    more than one, it is left alone and pandoc reports it as before. Nothing is guessed.
+    """
+    if not bib_keys:
+        return text
+    folded: dict[str, list[str]] = {}
+    for key in bib_keys:
+        folded.setdefault(key.lower(), []).append(key)
+
+    def fix(key: str) -> str:
+        stripped = key.strip()
+        if not stripped or stripped in bib_keys:
+            return key
+        matches = folded.get(stripped.lower(), [])
+        return key.replace(stripped, matches[0]) if len(matches) == 1 else key
+
+    return _CITE_CMD_RE.sub(
+        lambda m: f"{m.group(1)}{{{','.join(fix(k) for k in m.group(2).split(','))}}}", text
+    )
+
+
 def _pandoc(text: str, cwd: Path, citeproc: bool, bibliography: str = DEFAULT_BIBLIOGRAPHY):
     import pypandoc
 
@@ -491,6 +531,29 @@ def _normalize_heading_levels(md: str) -> str:
     return "\n".join(out)
 
 
+def _chapter_title(body: str) -> str | None:
+    """A chapter document's title: its top-level heading, or all of them when it has several.
+
+    One LaTeX file can hold more than one top-level division: two \\chapters, or the
+    \\sections of a chapter that began in the previous file (pandoc promotes those to H1
+    when the file has no \\chapter of its own). Titling such a document after its first
+    heading alone routes a reader to it for a fraction of what it holds, so the title names
+    every top-level heading, in order. Heading levels are left as pandoc gave them.
+    """
+    tops: list[str] = []
+    in_fence = False
+    for line in body.split("\n"):
+        if line.startswith("```"):
+            in_fence = not in_fence
+        elif not in_fence and line.startswith("# "):
+            text = line[2:].strip()
+            if text:
+                tops.append(text)
+    if len(tops) > 1:
+        return ", ".join(tops)
+    return first_heading(body)
+
+
 def _stamp_table_sources(md: str, labels: dict[str, str], chapter_file: str) -> str:
     """Add `data-source="<file>.tex"` to every table wrapper pandoc emitted.
 
@@ -519,6 +582,8 @@ def _convert(
     raw = _DEGREE_RE.sub(r"\\textdegree{}", raw)
     chapter_file = tex_path.relative_to(cwd).as_posix() if tex_path.is_relative_to(cwd) else tex_path.name
     citeproc_opts = [True, False] if (cwd / bibliography).exists() else [False]
+    if citeproc_opts[0]:
+        raw = _match_cite_keys(raw, _bib_keys(cwd / bibliography))
     last = ""
     for text in (raw, _INCLUDEGRAPHICS_RE.sub("", raw)):
         for citeproc in citeproc_opts:
@@ -577,7 +642,7 @@ def load_latex_docs(
                 source_id=source_id,
                 source_type="latex",
                 source_path=rel,
-                title=first_heading(body) or Path(tex_name).stem,
+                title=_chapter_title(body) or Path(tex_name).stem,
                 body=body,
             )
         )
