@@ -7,8 +7,12 @@
 #
 # Tables (page numbers are PDF pages, 1-based):
 #   * Table 1 (p.12) and Table 3 (pp.15-16) are superseded: see each entry's `why`.
-#   * Table 2, the List of Acronyms and the Upgrade Summary table are recorded under
-#     `checked:` as correct.
+#   * The Upgrade Summary table (p.9, no caption) is superseded: it was right except for
+#     a line-wrap space inside the project configuration URL. It is the extractor's own
+#     grid with that space removed.
+#   * Table 2 and the List of Acronyms are recorded under `checked:` as correct.
+#   * Text repair: the line "U.S. Census Division" (Table 3's spanning header, left below
+#     the table by the extractor) is removed; the hand-authored Table 3 states it.
 #   * The Table of Contents and the List of Figures / List of Tables grids are contents
 #     pages, not tables of the report, and have no entry.
 #
@@ -27,6 +31,12 @@ source_id: upgrade_measures
 source_path: measure_pdfs/96635.pdf
 source_url: https://docs.nlr.gov/docs/fy26osti/96635.pdf
 publication_url: https://docs.nlr.gov/docs/fy26osti/96635.pdf
+text_repairs:
+- find: U.S. Census Division
+  remove: true
+  why: Table 3's spanning column header, which the extractor left as a line of its own below the table.
+    The hand-authored Table 3 states it ('Columns are U.S. Census Divisions'), so the fragment only reads
+    as a stray paragraph.
 tables:
 - label: Table 1
   caption: Summarized Apply Logic for Fuel Oil or Propane Furnace Upgrade Package
@@ -181,6 +191,54 @@ tables:
     | None | <1% | <1% | <1% | <1% | <1% | 1% | <1% | <1% | <1% |
 
     | Total % of Housing Stock | 15% | 6% | 13% | 7% | 5% | 14% | 20% | 7% | 12% |'
+- label: Upgrade Summary
+  uncaptioned: true
+  source_pdf: measure_pdfs/96635.pdf
+  source_pdf_sha256: 9af4cf0249bffa601a9a798305142b0eb92eb5202c0ed5c4f480efed8b8016a7
+  page: 9
+  method: extracted grid, with the cells named in `why` corrected from the PDF text layer
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: c8668c2b98f04b9784d4028220ffa1a6a16a66eae972b49f021a84c1f65d1e10
+    why: The table is right cell for cell except the project configuration URL, which carries a space
+      where the PDF wraps the line ('project_nationa l'). A search for the real path, or a click on the
+      link, misses it. The cell text is the extractor's own with that space removed; the joined URL is
+      the one in the PDF text layer.
+  markdown: '**Upgrade Summary, part 1 of 2**
+
+
+    | Measure Title | Propane Furnace 95% AFUE and Fuel Oil Furnace 88% AFUE |
+
+    |---|---|
+
+    | Measure Definition | Upgrades existing ducted fuel furnaces to high-efficiency units while retaining
+    the current fuel: • If the dwelling heats with propane , replace with 95% AFUE fuel furnace • If the
+    dwelling heats with fuel oil , replace with 88% AFUE fuel furnace. |
+
+    | Applicability | Applies to dwellings that: • Have ducts, and • Do not use wood, ''other fuel,''
+    or have no primary heating fuel, and • Are not serviced by disqualifying shared central systems, and
+    • For propane upgrade: Currently have a fuel furnace with efficiency less than 95% AFUE • For fuel
+    oil upgrade: Currently have a fuel furnace with efficiency less than 88% AFUE. With these applicability
+    constraints, the measure upgrade applies to 5.8% of the existing dwelling units. |
+
+    | Not Applicable | This upgrade does not apply to: • Dwellings without ducts • Dwellings with primary
+    heating electricity, natural gas, fuel wood, other fuel, or none • Dwellings served by shared central
+    systems • Dwelling whose existing fuel furnace efficiency falls outside the sets noted in ''Applicability''
+    . These constraints exclude 94.4% of the dwelling units from receiving this measure upgrade. |
+
+
+    **Upgrade Summary, part 2 of 2**
+
+
+    | Measure Title | Propane Furnace 95% AFUE and Fuel Oil Furnace 88% AFUE |
+
+    |---|---|
+
+    | Original Release | 2025 Release 1: 2025/resstock_amy2018_release_1; 2025/resstock_amy2012_release_1;
+    2025/release_tmy2_release1 |
+
+    | Project Configuration File | https://github.com/NatLabRockies/resstock/blob/sdr_2025_Release_1/project_national/sdr_upgrades_amy2018.yml
+    |'
 checked:
 - label: List of Acronyms
   uncaptioned: true
@@ -191,17 +249,6 @@ checked:
   verdict: correct
   method: page-render-and-text-layer
   checked_utc: '2026-11-11'
-- label: Upgrade Summary
-  uncaptioned: true
-  source_pdf: measure_pdfs/96635.pdf
-  source_pdf_sha256: 9af4cf0249bffa601a9a798305142b0eb92eb5202c0ed5c4f480efed8b8016a7
-  page: 9
-  table_sha256: c8668c2b98f04b9784d4028220ffa1a6a16a66eae972b49f021a84c1f65d1e10
-  verdict: correct
-  method: page-render-and-text-layer
-  checked_utc: '2026-11-11'
-  note: The project configuration URL carries a space where the PDF wraps the line ('project_nationa l'),
-    and the bulleted lists are run into one line per cell; the cell text is otherwise the page's.
 - label: Table 2
   caption: ResStock Argument Values for Central Furnaces
   source_pdf: measure_pdfs/96635.pdf
