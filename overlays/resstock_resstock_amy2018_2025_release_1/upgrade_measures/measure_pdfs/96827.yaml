@@ -1,0 +1,220 @@
+# Hand-authored overlay for measure_pdfs/96827.pdf
+#
+# 96827 is the ResStock measure documentation for the natural gas water heater upgrade
+# (measure 10, a high-efficiency condensing natural gas tankless water heater). Every table
+# and figure in the report was compared with the PDF on 2026-11-11, following "Checking every
+# table and figure: the ResStock method" in overlays/README.md.
+#
+# Tables (page numbers are PDF pages, 1-based):
+#   * Tables 1-7 (pp.10, 12, 14, 16, 17, 19, 20) are recorded under `checked:` as correct.
+#   * UNRESOLVED, no entry: the Measure Summary table (p.9, no caption) is WRONG in the
+#     extraction. Two cells lost their lead-in sentence: Applicability starts at "water
+#     heating, cooking, ..." and is missing "This measure applies to all dwellings that have
+#     natural gas space heating,"; Not Applicable starts at the first bullet and is missing
+#     "This measure does not apply to dwelling units with one of the following
+#     characteristics:", and its last word "upgrade." is dropped. The dropped text is nowhere
+#     else in the document. A `tables:` entry is located by a Table N caption and this grid
+#     has none, so the sidecar schema cannot carry the replacement; it is not recorded as
+#     checked because it is not correct.
+#   * The List of Acronyms (p.5) was extracted as one run-on paragraph, not a grid, so
+#     there is no table to check; its eight entries are all present and in order.
+#   * The Table of Contents grid and the List of Figures grid (which also swallowed the
+#     List of Tables) are contents pages and have no entry. The first rows of the
+#     References list (p.31) were extracted as a two-column grid with the entries'
+#     opening words displaced; it is not a table of the report and has no entry.
+#
+# Figures: Figures 1-11 are described (vision-description), one bitmap each. The cover art
+# and wordmark (image_000000, image_000001) are decorative and omitted by the build. No
+# figure caption is without an image.
+#
+# Flattening notes: none; no table is hand-authored here. Row shading in the PDF is
+# alternating bands and carries no meaning.
+
+product: resstock
+release: resstock_amy2018_2025_release_1
+source_id: upgrade_measures
+source_path: measure_pdfs/96827.pdf
+source_url: https://docs.nlr.gov/docs/fy26osti/96827.pdf
+publication_url: https://docs.nlr.gov/docs/fy26osti/96827.pdf
+checked:
+- label: Table 1
+  caption: Number of Gas Water Heater Offerings Surveyed on July 1, 2025
+  source_pdf: measure_pdfs/96827.pdf
+  source_pdf_sha256: df766d887490be71cc37e40ba6f92ce9d8b88844c90ab43063c0b84206fd7e0d
+  page: 10
+  table_sha256: 6bc51c43c2cf45ae066394223f4c221cf391c16e06eda05c7687ae06d55e00a2
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+- label: Table 2
+  caption: ENERGY STAR Tankless Gas Water Heater Performance Ratings
+  source_pdf: measure_pdfs/96827.pdf
+  source_pdf_sha256: df766d887490be71cc37e40ba6f92ce9d8b88844c90ab43063c0b84206fd7e0d
+  page: 12
+  table_sha256: 541cf3471b6c99e099617e5c22db4cfff95fc50d6ee4b0d08bb163f2f5c15535
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: The PDF's en dashes in the ranges are hyphens in the extraction ('130-150' for '130–150') and
+    the degree sign is spaced ('67 ° F'); every value matches.
+- label: Table 3
+  caption: Summarized Apply Logic for High-Efficiency Natural Gas Tankless Water Heater Upgrade
+  source_pdf: measure_pdfs/96827.pdf
+  source_pdf_sha256: df766d887490be71cc37e40ba6f92ce9d8b88844c90ab43063c0b84206fd7e0d
+  page: 14
+  table_sha256: 906451c5dc8bd6774d7c7b094b643945d20c6e9f96273da611ad18afab892a7d
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+- label: Table 4
+  caption: ResStock Argument Values for the Natural Gas Tankless Water Heater
+  source_pdf: measure_pdfs/96827.pdf
+  source_pdf_sha256: df766d887490be71cc37e40ba6f92ce9d8b88844c90ab43063c0b84206fd7e0d
+  page: 16
+  table_sha256: d6e36d224dd2b754a5d8ed99d09f11c26b5de16acc1fd84aa70160021943bd15
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: The third header reads 'OpenStudio- HPXML?' with a space where the PDF breaks the line after the
+    hyphen, and '[°F]' is spaced as '[ ° F]'; every cell otherwise matches.
+- label: Table 5
+  caption: HPXML Default Values for the High-Efficiency Condensing Natural Gas Tankless Water Heater
+  source_pdf: measure_pdfs/96827.pdf
+  source_pdf_sha256: df766d887490be71cc37e40ba6f92ce9d8b88844c90ab43063c0b84206fd7e0d
+  page: 17
+  table_sha256: c782de94778d8c66569b68363b9fc8108566c64f97e71403110c9e5293a8860f
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: The Units column is blank on every row in the PDF, as extracted.
+- label: Table 6
+  caption: Selected Properties of Dwelling Unit Samples
+  source_pdf: measure_pdfs/96827.pdf
+  source_pdf_sha256: df766d887490be71cc37e40ba6f92ce9d8b88844c90ab43063c0b84206fd7e0d
+  page: 19
+  table_sha256: 0e7dd49ee4455472487d3bdf1da6de09df6f3073bd2437991a6cf5c06372757e
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+- label: Table 7
+  caption: Selected Energy Metrics Before and After the High-Efficiency Natural Gas Tankless Water Heater
+    Upgrade
+  source_pdf: measure_pdfs/96827.pdf
+  source_pdf_sha256: df766d887490be71cc37e40ba6f92ce9d8b88844c90ab43063c0b84206fd7e0d
+  page: 20
+  table_sha256: 7a79a6de7bddcda262303420b95f9e1e3f6a33c96e1cfacc3d26fa6df21ebef7
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: Each metric label is a merged cell over three rows (Baseline, Upgrade, Change) in the PDF and
+    is repeated on each row in the extraction; the second header cell is blank in both. Bold on the Change
+    rows is not carried. Every value matches.
+figures:
+- source_image: 96827_images/image_000002_c55b3e7014c15ef1328135d21914c97aa4fe336a2cfa2a10a7e0b3373e640277.png
+  source_image_sha256: 116933f662e6d059ddac21c23b9a73c7906ff82ade0191f408f32b78b198ba42
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bars of annual energy use for three example dwellings, baseline vs gas tankless water heater
+  description: 'Figure 1: three horizontal stacked bar charts, one per example dwelling (Hawaii 1A, California
+    3B, Alaska 7AK). X-axis is annual energy consumption in MBtu; bars are the baseline 30-gal natural
+    gas water heater and the tankless upgrade, stacked by others, heating, cooling electricity, and hot
+    water gas. Hot water gas falls from 7.6 to 3.0, 8.4 to 3.0, and 23.8 to 14.7 MBtu; other segments
+    barely change. See Table 7.'
+- source_image: 96827_images/image_000003_c31754c0b374c6b38f43047d0af19681787f03e684d04d6c17c6f95f872c0c33.png
+  source_image_sha256: 04ccc96472e129a21e830eb6eab558a6c0b5cf81693320f0e090751049326d5f
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line charts of hot water gas use over one day for three example dwellings, baseline vs tankless
+    upgrade
+  description: 'Figure 2: three line charts, one per example dwelling (Hawaii, California, Alaska), of
+    hot water energy in kBtu against time of day on January 2, 2018, with a baseline line (30-gal natural
+    gas water heater) and an upgrade line (natural gas tankless). The baseline shows spikes recurring
+    through the whole day, including overnight; the upgrade line is at zero outside the morning and evening
+    draw periods and peaks lower.'
+- source_image: 96827_images/image_000004_1125547a5db17e2eb12b2a03194972102c9c41f697979497d909293c990f327a.png
+  source_image_sha256: 28a4ee03af786bd4a3aded1ae417883762e0e537e21da8deee0ba9d359b0c489
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar charts of stock fuel totals and savings by fuel, baseline vs natural gas tankless water heater
+  description: 'Figure 3: two-panel horizontal bar chart. Left: stock fuel totals in kWh (0 to 3T) for
+    Baseline and Natural Gas Tankless WH, by electricity, natural gas, propane, fuel oil, electricity
+    generation and total site energy. Right: fuel savings in kWh (0 to 100B). Natural gas is the largest
+    single-fuel saving, about 70B kWh, then electricity at about 40B; total site energy savings exceed
+    100B kWh.'
+- source_image: 96827_images/image_000005_2be11b462c51d505c2623e527b3228c19e21b25f32be59ccf3760a36aade51ca.png
+  source_image_sha256: bb46b8be529abd1675db1dd7bf2270baa2cced93879b38922be81553bcda1be3
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of average dwelling energy by end use and fuel, baseline vs natural gas tankless
+    water heater
+  description: 'Figure 4: horizontal grouped bar chart of average all-fuels end-use energy per dwelling
+    (kWh, 0 to 30k), with one row per end use and fuel plus total site energy, for Baseline and Natural
+    Gas Tankless WH. Natural gas heating is the largest end use, about 15k kWh in both scenarios. Total
+    site energy is about 30k kWh and slightly lower with the upgrade; the hot water rows are where the
+    bars differ.'
+- source_image: 96827_images/image_000006_507d7bfe4a6d9096a4de4a20d6853a4a1b98285c54cdd5bd23c1590aea7147e2.png
+  source_image_sha256: 3bb5c9bc64ebc76fa265b789b97dde82c7d9a6a45db5c8337c3e620e08307f51
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Violin and box plots of natural gas space heating savings per dwelling by HVAC heating efficiency
+  description: 'Figure 5: violin plots with box plots of natural gas space heating savings per dwelling
+    (kWh, 0 to 25k), one row per baseline HVAC heating efficiency (fuel furnaces, wall/floor furnaces
+    and boilers by AFUE, and shared heating), each labelled with its model count. Every distribution is
+    concentrated at zero; the furnace rows at 76%, 80% and 92.5% AFUE have sparse outliers reaching 10k
+    to 20k kWh.'
+- source_image: 96827_images/image_000007_f829e2129262f815a9d3c90aa44cf0b774042a88d1c56b1898015e4236c50f4e.png
+  source_image_sha256: 42fcdcc8a3cba4a1f05ea2bad5cefb20b008939543c223daf5f8c020de0de3e8
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Violin and box plots of percent site energy savings by baseline water heater fuel
+  description: 'Figure 6: violin plots with box plots of site energy percentage savings (x-axis about
+    -2 to 45), one row per baseline water heater fuel: electricity (n=60830), natural gas (n=209849),
+    fuel oil (n=2903) and propane (n=1639). Electricity is concentrated near zero. The three fuel rows
+    have medians near 8% and interquartile ranges of roughly 4% to 12%, with tails to about 30%.'
+- source_image: 96827_images/image_000008_6991b9f61c74071995f6ec2f1c4c95e16b4c86b65038df01c65dd743eafc7fea.png
+  source_image_sha256: ba7641c9f15f540c425e7bf4456d5cc8fbe336364854fae18ecca60174bac391
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Violin and box plots of percent site energy savings by Building America climate zone
+  description: 'Figure 7: violin plots with box plots of site energy percentage savings (x-axis about
+    -5 to 45), one row per Building America climate zone: Hot-Dry, Hot-Humid, Mixed-Dry, Mixed-Humid,
+    Marine, Cold, Very Cold and Subarctic, each labelled with its model count. Medians fall between roughly
+    4% and 9% in every zone; Hot-Dry and Marine sit highest, and Subarctic has only 29 models.'
+- source_image: 96827_images/image_000009_65861e03bb4a597a9d44f6ab034cd5b2cf26309c07065d3afd5cff920a721766.png
+  source_image_sha256: 46bce31857fdeba4bbe556b80e05d82d750fe504e57ff0ed83cb3ff82ed20275
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Violin and box plots of percent site energy savings by number of occupants
+  description: 'Figure 8: violin plots with box plots of site energy percentage savings (x-axis about
+    -5 to 40), one row per number of occupants from 1 to 10+, each labelled with its model count (n=72298
+    for one occupant down to n=336 for 10+). Medians sit near 6% in every row and the boxes overlap; the
+    upper tails shorten as occupancy rises, from above 30% to under 20%.'
+- source_image: 96827_images/image_000010_2c36cfeaac13d5ae3170c222ccc9b5ff1c85a234de365ffad054cf66e71fd49f.png
+  source_image_sha256: d27135e5fcb6a7c9451834fe362eeef658a33476f0da76982ca1fc9c7329f629
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line charts of stock electricity demand on the 2018 peak day in HI, CA and AK, baseline vs upgrade
+  description: 'Figure 9: three line charts of total stock electricity power (GW) over 24 hours on each
+    state''s 2018 electric peak day: Hawaii (September 30, peaking near 0.75 GW), California (July 7,
+    near 32 GW) and Alaska (February 3, near 0.42 GW), with Baseline and Upgrade lines. The two lines
+    nearly coincide in all three panels; the upgrade line is slightly lower through the daytime in Hawaii
+    and California.'
+- source_image: 96827_images/image_000011_8a6fe98653343d23450b054ae74b76a8f196b301ac6833dbc6817d9efb1f6430.png
+  source_image_sha256: a9646777cd2d00c7a9329c86ddc2ba114e9659e77b979c16c322ce7c11cf45d9
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar charts of stock energy bills and bill savings by fuel, baseline vs natural gas tankless water
+    heater
+  description: 'Figure 10: two-panel horizontal bar chart. Left: stock annual energy bills in USD (0 to
+    300B) for Baseline and Natural Gas Tankless WH, by electricity, natural gas, fuel oil, propane and
+    all fuels. Right: bill savings in USD (0 to 10B). All-fuels savings are about 10B; electricity gives
+    the largest share, above 6B, and natural gas about 3B, with small fuel oil and propane savings.'
+- source_image: 96827_images/image_000012_98a311cf99dd45b027f82c1cad0a2695288d7f33273d7455613fd920846508d6.png
+  source_image_sha256: e7dd65330c514faa71e3e7699d1036f31460a904c5c187a69b21c288a96334c7
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Violin and box plots of annual energy bill savings per dwelling by baseline water heater fuel
+  description: 'Figure 11: violin plots with box plots of all-fuels bill savings per dwelling (USD, about
+    -200 to 2,500), one row per baseline water heater fuel: electricity (n=60830), natural gas (n=209849),
+    fuel oil (n=2903) and propane (n=1639). Natural gas is the narrowest, centered below 100 USD; electricity,
+    fuel oil and propane center between roughly 200 and 350 USD, with tails beyond 1,000 USD.'
