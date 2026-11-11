@@ -21,8 +21,8 @@
 # decorative and omitted by the build.
 #
 # Flattening notes: Table 1's merged cells (Heating Fuel over three rows, "None" over two)
-# are repeated on each row; its footnote, absent from the extracted body, is carried below
-# the table. Table 3's spanning header "U.S. Census Division" is stated in a sentence above
+# are repeated on each row; its footnote is the extracted paragraph below the table (kept
+# by the extractor since R4.2a, 2026-11-11). Table 3's spanning header "U.S. Census Division" is stated in a sentence above
 # the sub-tables; row shading in the PDF is alternating bands and carries no meaning.
 
 product: resstock
@@ -50,9 +50,9 @@ tables:
     why: 'The extractor put the merged Heating Fuel cells on the wrong rows: ''Fuel Oil'' on the first
       two rows only, ''Propane'' only on the sixth, and a blank on rows three to five, so the propane
       rows (None/Yes, 3.74%; None/No, 0.62%) read as having no fuel or as fuel oil. The merged ''None''
-      cell was also blank on row two, and the footnote explaining ''Yes*'' was dropped from the document.
-      All other cells were right. Merged cells are repeated on each row and the footnote is restored below
-      the table.'
+      cell was also blank on row two. All other cells were right. Merged cells are repeated on each row
+      and the footnote is restored below the table. The footnote explaining ''Yes*'' is the extracted
+      paragraph below the table.'
   markdown: '| Heating Fuel | HVAC Shared Efficiencies | HVAC Has Ducts | Propane Fuel Furnace | Fuel
     Oil Furnace | Stock Saturation (%) |
 
@@ -74,11 +74,7 @@ tables:
     Electricity; Boiler Baseboards Heating Only, Fuel; Boiler Baseboards Heating Only, Electricity | Any
     | No | No | 0.90% |
 
-    | Electric, Natural Gas, Other Fuel, None | Any | Any | No | No | 90.88% |
-
-
-    *The upgrade is not applied when the dwelling’s existing furnace efficiency is greater than the upgrade’s
-    furnace efficiency, accounting for <1% of dwellings.'
+    | Electric, Natural Gas, Other Fuel, None | Any | Any | No | No | 90.88% |'
 - label: Table 3
   caption: Percentage of Households by HVAC Heating Type and Efficiency, and U.S. Census Division
   source_pdf: measure_pdfs/96635.pdf
