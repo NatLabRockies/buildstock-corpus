@@ -157,6 +157,23 @@ first table below is not a match, replaces nothing and warns.
 in this sidecar. The redundancy refusal is skipped for these entries: a table under the caption
 is the premise, not a reason to back off.
 
+**A table that came out as several grids.** A table that runs over a page break reaches the
+markdown as one grid per page. A transcription of the whole table has to supersede all of
+them, so `replaces` may list the later grids' fingerprints:
+
+```yaml
+    replaces:
+      table_sha256: "2c1a0437…"        # the first grid
+      also_removes:                    # the continuation grid(s), in any order
+        - "b2f5bdf4…"
+      why: >-
+        Row labels are displaced between rows in both grids; values are right.
+```
+
+Each `also_removes` fingerprint must match exactly one other table. If any does not, nothing
+is replaced: a partial replacement would leave the transcription beside a stale half of the
+table it supersedes.
+
 ### Repairing a line of extracted text
 
 `text_repairs:` is a top-level list, for extractor artifacts that corrupt document *structure*
@@ -348,6 +365,12 @@ For each PDF (`processed/resstock/<release>/upgrade_measures/measure_pdfs/<n>.md
    pin; note it in the sidecar's comment block and list it in the PR.
 6. **Stamp the links and rebuild**: `scripts/stamp_overlay_links.py`, then build, validate
    and audit as under Reviewing. Commit one document at a time.
+
+**Not tables: the contents pages.** docling renders a report's Table of Contents, List of
+Figures and List of Tables as grids of dot leaders and page numbers. They are navigation for
+a paginated document, not content, and are left out of the sweep: no entry is written for
+them. The List of Acronyms and the Upgrade Summary table are content and are checked like
+any other table, as `uncaptioned` entries.
 
 A PDF is done when every table has a `checked:` or `tables:` entry and every real figure a
 description. The technical reference guide's tables come from LaTeX source, not from a

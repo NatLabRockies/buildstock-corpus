@@ -1200,3 +1200,65 @@ def test_an_uncaptioned_grid_is_identified_by_its_fingerprint_alone(pdf_env):
     assert "extracted table changed" in O.check_problem(
         lines, {**entry, "uncaptioned": True, "table_sha256": "0" * 64}, PDF_SHA
     )
+
+
+# --- a replacement that removes a table's continuation grids too (R4.2) -----------------------
+#
+# A table that runs over a page break reaches the markdown as one grid per page. A
+# transcription of the whole table has to supersede every one of them.
+
+PAGE_1 = "| Type | East | West |\n|---|---|---|\n| Furnace Electricity MSHP | 1% | 2% |"
+PAGE_2 = "| Type | East | West |\n|---|---|---|\n| Propane Fuel Wall/Floor | 3% | 4% |"
+WHOLE = "| Type | East | West |\n|---|---|---|\n| Electricity MSHP | 1% | 2% |\n| Propane Fuel Wall/Floor Furnace | 3% | 4% |"
+TWO_GRID_BODY = f"""## 3 Stock
+
+Table 1. Heating Type by Division
+
+{PAGE_1}
+
+{PAGE_2}
+
+Text after the table.
+"""
+
+
+def _two_grid(pdf_env, also):
+    return pdf_env.pdf_entry(
+        label="Table 1",
+        markdown=WHOLE,
+        method="pdf-text-layer",
+        replaces={"table_sha256": _fp(PAGE_1), "also_removes": also, "why": "row labels displaced"},
+    )
+
+
+def test_replacement_removes_the_first_grid_and_its_continuation(pdf_env):
+    pdf_env.write([_two_grid(pdf_env, [_fp(PAGE_2)])], source_path=PDF_PATH)
+    doc = _pdf_doc(TWO_GRID_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert warnings == []
+    assert "Furnace Electricity MSHP" not in doc.body  # first grid gone
+    assert "| Propane Fuel Wall/Floor | 3% | 4% |" not in doc.body  # and the continuation
+    assert doc.body.count("| Type | East | West |") == 1  # only the transcription's header
+    assert "| Propane Fuel Wall/Floor Furnace | 3% | 4% |" in doc.body
+    assert "and its continuation grid(s)" in doc.body and "Text after the table." in doc.body
+    assert applied["upgrade_measures"][PDF_PATH]["tables_applied"] == ["Table 1"]
+
+
+def test_a_continuation_pin_that_matches_nothing_replaces_nothing(pdf_env):
+    pdf_env.write([_two_grid(pdf_env, ["0" * 64])], source_path=PDF_PATH)
+    doc = _pdf_doc(TWO_GRID_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {}
+    assert doc.body == TWO_GRID_BODY  # not even the first grid was touched
+    assert "also_removes" in warnings[0] and "nothing was replaced" in warnings[0]
+
+
+def test_a_continuation_pin_cannot_name_the_primary_grid_again(pdf_env):
+    pdf_env.write([_two_grid(pdf_env, [_fp(PAGE_1)])], source_path=PDF_PATH)
+    doc = _pdf_doc(TWO_GRID_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {} and doc.body == TWO_GRID_BODY
+    assert "matches 0 other extracted table(s)" in warnings[0]

@@ -345,6 +345,13 @@ def _injection(entry: dict, overlay_rel: str, replaced_sha: str | None = None) -
     ]
     if replaced_sha:
         head.append(f"     supersedes the extractor's own table here (values {replaced_sha[:12]}…):")
+        extra = _also_removes(entry.get("replaces") or {})
+        if extra:
+            head.append(
+                "     and its continuation grid(s) (values "
+                + ", ".join(f"{sha[:12]}…" for sha in extra)
+                + "):"
+            )
         head += _comment_lines((entry.get("replaces") or {}).get("why", ""), "       ")
     return "\n".join(head) + " -->\n\n" + markdown
 
@@ -386,6 +393,43 @@ def _resolve_image_anchor(
         )
         return None
     return j
+
+
+def _also_removes(replaces: dict) -> list[str]:
+    """The extra fingerprints a replacement removes besides `table_sha256`, lower-cased."""
+    extra = replaces.get("also_removes") or []
+    if isinstance(extra, str):
+        extra = [extra]
+    return [str(sha).strip().lower() for sha in extra if str(sha).strip()]
+
+
+def _resolve_continuations(
+    lines: list[str], replaces: dict, primary: tuple[int, int], out: list[str]
+) -> list[tuple[int, int]] | None:
+    """Spans of the continuation grids a replacement also removes, or None (reason -> `out`).
+
+    One printed table can reach the markdown as several grids: a table that runs over a page
+    break comes out as one grid per page, each with the header repeated. A transcription of
+    the whole table supersedes all of them, so `replaces.also_removes` lists the fingerprints
+    of the grids after the first. Each must match exactly one table that is not the primary
+    one and not already claimed; anything else and nothing at all is replaced, for the same
+    reason a single pin must identify a single table.
+    """
+    spans: list[tuple[int, int]] = []
+    blocks = _table_blocks(lines)
+    for want in _also_removes(replaces):
+        hits = [
+            (s, e) for s, e in blocks
+            if _table_fingerprint(lines[s:e]) == want and (s, e) != primary and (s, e) not in spans
+        ]
+        if len(hits) != 1:
+            out.append(
+                f"'replaces.also_removes' fingerprint {want[:12]}… matches {len(hits)} other "
+                f"extracted table(s), not exactly one; nothing was replaced"
+            )
+            return None
+        spans.append(hits[0])
+    return spans
 
 
 def _resolve_replacement(
@@ -535,8 +579,13 @@ def _apply_entry(
             span = _resolve_replacement(lines, i, replaces, reasons)
             if span is None:
                 return False, warn(reasons[0])
+            more = _resolve_continuations(lines, replaces, span, reasons)
+            if more is None:
+                return False, warn(reasons[0])
             replaced_sha = str(replaces["table_sha256"]).lower()
-            _remove_block(lines, *span)
+            # Bottom-up, so removing one span does not shift the ones still to go.
+            for s, e in sorted([span, *more], reverse=True):
+                _remove_block(lines, s, e)
             # Re-find rather than adjust: the removed block can sit either side of the caption,
             # and sequential entries each shift what follows. Re-finding cannot drift.
             i = _find_caption(lines, label)
