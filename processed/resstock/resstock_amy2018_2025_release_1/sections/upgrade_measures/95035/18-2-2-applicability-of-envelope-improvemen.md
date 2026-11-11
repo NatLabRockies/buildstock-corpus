@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95035.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95035.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95035.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95035.md | section: 2.2 Applicability of Envelope Improvements | lines: 189-204 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95035.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95035.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95035.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95035.md | section: 2.2 Applicability of Envelope Improvements | lines: 203-218 -->
 ## 2.2 Applicability of Envelope Improvements
 
 While envelope improvements are included for any home receiving a two-stage GHP, the baseline conditions must warrant an improvement for each component of the upgrade to apply. For example, homes that already are tightly sealed will not have air sealing applied.

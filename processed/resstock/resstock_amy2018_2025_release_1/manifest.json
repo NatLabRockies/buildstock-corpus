@@ -2,7 +2,7 @@
   "product": "resstock",
   "release": "resstock_amy2018_2025_release_1",
   "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
-  "generated_utc": "2026-11-11T20:53:27.306239+00:00",
+  "generated_utc": "2026-11-11T21:42:58.059268+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -580,8 +580,36 @@
           "title": "Residential Two-Stage Geothermal Heat Pump (4.0 COP, 20.5 EER) With Envelope Improvements and Advanced Air Sealing",
           "input_sha256": "920e569b5f8673769c5494edffb5a6fd5163a2db6ad6a089d4aa11fb6e1db25a",
           "output_path": "upgrade_measures/measure_pdfs/95035.md",
-          "output_sha256": "379ecf6d4b336b2d2cb75dff74e9d29f3058cfd26db2f71fa992a5d20a75a715",
-          "body_sha256": "90fa5ac549396770ffbebfd2ba0eb6707cc5a5259b6c5d20f9afe22328b0f31d"
+          "output_sha256": "7e991589670798e5e70a0118269a9e1c7d643cc96b2bbfcfcbb8ce986b67885a",
+          "body_sha256": "01d7d44f7754b9a44edc26ab0bfa2885a141192662d50b85c7e80f0e7520ffa5",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95035.yaml",
+            "sha256": "af148d392cd273c0de16946c8b5916f5286c5d4c89d8a7ea0acada5cf92d8f7d",
+            "tables_applied": [
+              "Table 1"
+            ],
+            "figures_applied": [
+              "95035_images/image_000002_2c0ff093bd5981b71c0905a3039201fcf95ec7002eb988692707ee448e9b71a9.png",
+              "95035_images/image_000003_bdbf82e421598ee700513a75863bc3d2a7f7b776252d7db44146467f341e7582.png",
+              "95035_images/image_000004_afad554ac8fc676a4eb5cd0f1f4126db3c6e10689ad6585964286461397a55a1.png",
+              "95035_images/image_000005_8cc5f6347b5960f664e16cf500e33f2d7f851ed729080b8cd8edb1416ea74d7c.png",
+              "95035_images/image_000006_956bba6a1fa4f50949803b57ac89654e2551ab1c7f7cec2eb51f40ee016264fd.png",
+              "95035_images/image_000007_61e10d6b9ac8220b01f7def307381905bc3e6f40df57ffbd91b33e2136cf1f0e.png",
+              "95035_images/image_000008_2fc59feaede0587c9d34c805bcf2ccf31046438b430873dc96e5e07728168d7c.png",
+              "95035_images/image_000009_0d83e331403418b90722046368d9624d3d15f9625dcdb5fb583de5ab93b60a92.png",
+              "95035_images/image_000010_d5be9534ea596b26d1b24d3891dfdeb87117432a102eedc51c753b156bfe2c43.png",
+              "95035_images/image_000011_2e47c6b88c542f290cda512aa2144ba8da8df299501c303cc1bc29b2cb40bbbd.png",
+              "95035_images/image_000012_abb8e41cd6dde867c00afad0e3e418678c411ff26839a9d94b28e98ce5bbe835.png",
+              "95035_images/image_000013_3335c8077decf782a8b683d254493ee31f847cf0ad3044e667f7ce55999e62eb.png",
+              "95035_images/image_000014_91d8c025d46f0c7308ae0437e93bf08995f62e60da743d320b05f214d65da23d.png",
+              "95035_images/image_000015_8c77edbffe56feffd23c8667641f8d80d883440b95b4c7d2aa97e7955ca892bc.png",
+              "95035_images/image_000016_da28bfc36dbf5d49c3903939378ed4d646868cd604bbdf1e143fca324c801ecf.png",
+              "95035_images/image_000017_49ce8cb1c3f5a2f5dc84b2ede1f5830220ad910f791764e2d30c5e04150c9454.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/96281.pdf",
@@ -593,8 +621,44 @@
           "title": "Advanced Air Sealing with Drill-and-Fill Wall Insulation",
           "input_sha256": "6fcf72b697dbdadcbeedf1960b78c499cb09adb34bc40603d32259c709004b6e",
           "output_path": "upgrade_measures/measure_pdfs/96281.md",
-          "output_sha256": "64a3ffcea51884170ec9bfeea1d46606f1e7a920f2b3dc7bc3dd0275a7af8bfe",
-          "body_sha256": "ced8c8cba51f82049954a2e2ce57638ed0ef5df4967c9211c7894cf0b310cdc4"
+          "output_sha256": "2412952c4edae3b2af7f71c25d2ca5af70d7935c6bb10c28a193e0d71f25e8bc",
+          "body_sha256": "e68d71f389622059a2feb3ca2afb068dd7b36b2e007a53408817fd522d681a3d",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96281.yaml",
+            "sha256": "b6a48c4d79771e7b99ada0dbdb6732ab0d1722419ba6b328fc0e0884c447fb03",
+            "tables_applied": [
+              "Measure Summary",
+              "Table 4",
+              "Table 5",
+              "Table 7"
+            ],
+            "figures_applied": [
+              "96281_images/image_000002_46496dc9dcb6427dbff75f4ddc0358aa8acb60d56420701d57fc4b392b42fde5.png",
+              "96281_images/image_000003_4165cdb849777588f903dbc2349e4953499344dee3d8d278a56163c5af888c1c.png",
+              "96281_images/image_000004_34347d7836123add5a60a69e20342925aab67b0d013ea3a83a25053f2b797833.png",
+              "96281_images/image_000005_a9975d58cdf6a4834ab1e7c26924121d3ed2187873caca333f68df3a4b6f0bd6.png",
+              "96281_images/image_000006_9483f9b84ddc19c186d1247f9db9e2679b265ff1d48b2ac14a0ff3b7f6852aa8.png",
+              "96281_images/image_000007_6cee5967ff3b230472cbaaf860ca80611294f363be3fe84052f02cdba2408c4e.png",
+              "96281_images/image_000008_9c74e86c9c1c756c55e84b8c64382b43549ca9e74bc704a60cf1b588e30ac007.png",
+              "96281_images/image_000009_c5718aeedc65f82ad45d27e0d45fded267034d0345cefa8e1dbce545f5f03706.png",
+              "96281_images/image_000010_3327c93c4b8815e775d0a7aaec0807570894f9eaa068811cce34d2b3ea56c911.png",
+              "96281_images/image_000011_54f7e8de384993f58882e7ad1a8225311a689c2ef180b731b86d34151e881bd1.png",
+              "96281_images/image_000012_c85e04ec85ddd60ac0aa0d6e751d57ed63cdbca0fc428d77d6bdfbadc8fa53e3.png",
+              "96281_images/image_000013_4ab1b7f951180dd941402c341fa761194a5236b369c5b9c94ac2175fcdb36ed1.png",
+              "96281_images/image_000014_3e46ac6508dcb8fb71edc044c568d9a94c34485551088ec378c5997b28f87feb.png",
+              "96281_images/image_000015_9a1480228beb49cc05d5e8d09394d18a98bde2ca82b58b91e9fe6475039784e7.png",
+              "96281_images/image_000016_679b6e951f47c24787642cc44e5f11bac3cab627311b5a11e4f6a16d05a68e86.png",
+              "96281_images/image_000017_77a206b20fad6454937ee8f6557dbf8878d38c711906125290d586692f6e4f18.png",
+              "96281_images/image_000018_91e0c1da712d750cd6ef1be5209c07a99e7c72fcf9ff09a4a520292f5a4ee3b5.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms",
+              "Table 1",
+              "Table 2",
+              "Table 3",
+              "Table 6"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/96344.pdf",
@@ -606,8 +670,35 @@
           "title": "Duct Sealing and Insulation",
           "input_sha256": "73927d7ffd584cd0a93c1b50d048962fded9d4ebe57240caa48eab67aecc01f9",
           "output_path": "upgrade_measures/measure_pdfs/96344.md",
-          "output_sha256": "3b7bb089b466423a04e7cca0693a8b0ddb93f2f57ee9f546dd31c799679e4ee3",
-          "body_sha256": "001c615b2ec228010892309173bf169d59ee7be7c6ed457a2dbe76701dd32d5f"
+          "output_sha256": "186405463aa414083fb8a616aba81d59fb53de20a7d64f5908e4c4344f469ba3",
+          "body_sha256": "1ad58d2414ce29538dc76ef4677dccb4e5d844aa84a93bf0a03b3c14d3ede2e0",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96344.yaml",
+            "sha256": "642d9dde790166623f67b2326c41326e69e4dafa6308c774480d0607cd0166b6",
+            "tables_applied": [
+              "Measure Summary",
+              "Table 3"
+            ],
+            "figures_applied": [
+              "96344_images/image_000002_9ecad925ccf8a1e923d00e59076a111c9453fa090d859ec4326a0be3675de123.png",
+              "96344_images/image_000003_c46d99a932e7161e98fd4bd53c3baa9e7a234fc147d9685b61c0ebe626ca7651.png",
+              "96344_images/image_000004_3a7238f3084af6d7709c3b9989a5e7f091425ef19f1223caebdad9fdade479b2.png",
+              "96344_images/image_000005_ccafcc4b295ed2a2f8e3a08b0db00c81e191071c4a98c1089884e7bfc0bca2d5.png",
+              "96344_images/image_000006_39ab4071c3bd66a8f8723d1cc2f2308a87c192f1ccfa1f8e92d5ba12ee2d38dc.png",
+              "96344_images/image_000007_b3194cde69b142f2be3b621374ff19d7960d28c181c747a7e1b15bb1ae84758f.png",
+              "96344_images/image_000008_a96c20964df7b0f1ad027bcc4a46a60f0bca91aa5691c039f908c210067953bd.png",
+              "96344_images/image_000009_e64a67a1db219ee638f2ab8ec7a68c5933bf86fd09d444004b6cff66b8c068d1.png",
+              "96344_images/image_000010_11df0cb0285c38a8af683ac3afa3ff3340e74af7717b930b9114cf67c74cf112.png",
+              "96344_images/image_000011_57492828a6f484b4666981ec55f0ea51e33fda33f92bfe6c0963b9a4ed0b3b0a.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms",
+              "Table 1",
+              "Table 2",
+              "Table 4",
+              "Table 5"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/96347.pdf",
@@ -619,8 +710,37 @@
           "title": "Advanced Air Sealing, Attic Floor Insulation, and Duct Sealing and Insulation",
           "input_sha256": "2ffcba94508cff195d23f09ac9ad8de1c693ce64057c8cbeb5131c639354a896",
           "output_path": "upgrade_measures/measure_pdfs/96347.md",
-          "output_sha256": "09a54c496bf3bdf23ae1261408ea1348de34e0daa9551f8ec803d1fe7a6e5b06",
-          "body_sha256": "69ec3caa81a01539b3302b2b9ff930e89dd380fa0226284b9f93e47497dd8b88"
+          "output_sha256": "96c3f71bc7c021ffc9a27312b53fcbb90f95f556f4d5f6245f1dbc70f5c8e298",
+          "body_sha256": "a3f921ffd695277548bc835d1ffb15145605afffa8bdc72d76140bb6c99d15c9",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96347.yaml",
+            "sha256": "24796c8a220c2dbff9b6190511ac8f028d5c68f104bfc03a9c73a362850977e6",
+            "tables_applied": [
+              "Measure Summary",
+              "Table 2"
+            ],
+            "text_repairs_applied": 2,
+            "figures_applied": [
+              "96347_images/image_000002_17faec5a5644c7632f09725faacde9f83f888335fc05eee1ff14874f47773022.png",
+              "96347_images/image_000003_6fae500e2b41a558be104f83e25fdf113ff2e8477911ed1763abcd3da3d1ceca.png",
+              "96347_images/image_000004_e9fec4a58398a737f6a0396026b3a2590e906aff76945c3b6ec05e447f0b8e0e.png",
+              "96347_images/image_000005_c817dc30b01bc8597b725c5c0627d337065612e2ad9f9917549a0f5c878a6b86.png",
+              "96347_images/image_000006_b56a4bdc5da4a977b1c0c77141b04ef357874aa572cda22d93e62d1a266afd6c.png",
+              "96347_images/image_000007_07d9ed1c8e0684ed9bcd651cc3e418d44654edda3c3759393ae362ae1dedd455.png",
+              "96347_images/image_000008_db89e3fa51b8d83f8808dc601507632c894a60c19027297d8bfc36aca87b2f4f.png",
+              "96347_images/image_000009_7c2a7f57f23c779bdbb47a6217326862e8f0281a25f512b0476065f1a3b0bc51.png",
+              "96347_images/image_000010_6af402e2a10f38c78167c0ed37e28234adb9ebd75f526606053b34c1a6eca60b.png",
+              "96347_images/image_000011_1f5127fdb2af8ef79dce5da289df33c7d3cc379d33f52a40b1b88158bcc49831.png",
+              "96347_images/image_000012_b83e726b78cd6b05140860edb3fea7e980da1daf383d5fd3b30f9fbb3f217b83.png",
+              "96347_images/image_000013_c924217ff53abc44d5f225ddd36ed749fbb73dbcc5e0b71521c8270b2b99ab01.png"
+            ],
+            "tables_checked": [
+              "Table 1",
+              "Table 3",
+              "Table 4",
+              "Table 5"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/96349.pdf",
@@ -632,8 +752,35 @@
           "title": "Advanced Air Sealing, Drill-and-Fill Wall Insulation, Attic Floor Insulation, and Duct Sealing and Insulation",
           "input_sha256": "d8e84ac9c38537cf9c538f4d08b657b134edcf375d160821ee06f079c69757c8",
           "output_path": "upgrade_measures/measure_pdfs/96349.md",
-          "output_sha256": "cf133b19c79d28314da369853d8208a2e3f63982f2e101d9be617945676e8f90",
-          "body_sha256": "cea6c6e3f02e0fcfa830a54662ff334dc98238d2f54f86f35029b0b05d20a714"
+          "output_sha256": "e7bc2427708bc3df2952be6ca5894e428e3544c1f1c86964fa7af7c81517bb23",
+          "body_sha256": "49ea12094157c3c70ac5c0fa91b6fa7b94bb7d72b9811baddb0006ff771b187a",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96349.yaml",
+            "sha256": "deb51766c33c0d3ea8db0ae75fd301c28679e9526137ec086636f920beca57dd",
+            "tables_applied": [
+              "Measure Summary"
+            ],
+            "figures_applied": [
+              "96349_images/image_000002_ec8405c3fb44b9510888a0b4be5118c306a40764ad626b6515987c743e9dfb4d.png",
+              "96349_images/image_000003_4fa811ea2da840d2a7fffc5325b5226ef295d6a9738520991566045f193f5e34.png",
+              "96349_images/image_000004_bfdd0e75084ad502f6c830a8698f0081d6db17cc462b451c5235ed1d0ad4985d.png",
+              "96349_images/image_000005_70bf801bc00f07ee7d9188214015a606a67cd8460fa8961763aa681543f6d2a0.png",
+              "96349_images/image_000006_86a8b5a421115ca1a602622fc31ea5e7aef7daf5fa4506b1cda0dc9c00c8c055.png",
+              "96349_images/image_000007_1afdd9f131be5b788e1b15c1405daca9576b376cf211c632506722de5f1579b2.png",
+              "96349_images/image_000008_7bf07ed7ffbe6fe159bcd35e6673584c4a382ce53a18675341a232a74c4033d9.png",
+              "96349_images/image_000009_7170aeac165fbd56dba27de1d6f26d0cdbaa5056d3eeecc7a4eb31c42bb20a03.png",
+              "96349_images/image_000010_228491704945e3f11f4e1c4c3ca360ea4915d79705a4eb2e236c061b5e7878b5.png",
+              "96349_images/image_000011_335fa813be6755382c4c80d7f840e06c0879d05fdde747a8b2a9df65c120a475.png",
+              "96349_images/image_000012_bc1be525b8bff439c8bcc97dbc26cc82a6fcac41dbd65fde02a7ba6308de0cca.png"
+            ],
+            "tables_checked": [
+              "Table 1",
+              "Table 2",
+              "Table 3",
+              "Table 4",
+              "Table 5"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/96405.pdf",
@@ -645,8 +792,45 @@
           "title": "EnergyStar Windows",
           "input_sha256": "b1cf02f7e140f9a47a12ac2d163a6db237273ea5966a9bd93dc1ddab999f7cd7",
           "output_path": "upgrade_measures/measure_pdfs/96405.md",
-          "output_sha256": "7efbf13f444a3c5ee20741d41488d9ddb9a5b78f8c275d30c0b1794e6b433613",
-          "body_sha256": "d7fb548706875ebf616b37b7c46d3ae7ab232d7a2c06fd1238695bccd28ecd52"
+          "output_sha256": "ffa6548f2b5d907b92ab5fc3cafc06ff190101791872d63d09525b09fce14e93",
+          "body_sha256": "c559007d85a8283883dae3892cc0b211dbbeec8e125fe79d1cf7a91e0d09e9d5",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96405.yaml",
+            "sha256": "1d2d756079c9d44e8cf427766b2a57cb8b4925c4127b58f6efb55e9c887835bc",
+            "tables_applied": [
+              "Measure Summary",
+              "Table 1",
+              "Table 3",
+              "Table 11"
+            ],
+            "figures_applied": [
+              "96405_images/image_000002_e0936df14c9b44914d154af1635a98ceb20af513f78244b04c27059e0dc8b562.png",
+              "96405_images/image_000003_5aca6bdca90914b366befd1d89518959b1023715c16bdc7873cdf37137686d8f.png",
+              "96405_images/image_000004_0ed3f84b39c94f39aa2a304fdf570c3f9d1d90cfde1c23b9b4e70291adf57171.png",
+              "96405_images/image_000005_2b876596b70033471c296750f156c1ceb0fbc8db53060835ca7f15c70402a841.png",
+              "96405_images/image_000006_e2c17078e8ea6319a4099902923014105e5c22b2bd88968e3e085ba5c247e7f1.png",
+              "96405_images/image_000007_868897185000e3f28d9ff03d43f6a1499b4d1f5f7055cddaee4676db0c72ddd0.png",
+              "96405_images/image_000008_c4993d38c1bd0b723cc06b715e154eb9842fb1e524b1f17473ededc8a198edba.png",
+              "96405_images/image_000009_21c0798ccdae732924c43f4a3e9e7b17a79ea59fd0c7db882dad454fdcd59569.png",
+              "96405_images/image_000010_ee5a1f887a0322413d9070f70e6be872b57ca796135ce3833bbb7023c94349e5.png",
+              "96405_images/image_000011_737aa85e302a20c85762b9a5409e3c64a5c0c56f23fa55723371e2a7fe498e87.png",
+              "96405_images/image_000012_8ccd414aa24f295d71ab0b900efaa297f8a736ec831aa1824a2ddfb46d887688.png",
+              "96405_images/image_000013_a5e935bed476a46232fc3505f516438d37f7d84dba243084e5ab5f4a01cd66c6.png",
+              "96405_images/image_000014_bfcc3a9f1853eb9f93f99e21e4cbd5b3c1bc9b020b18598ac31c6279c3e8af82.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms",
+              "Table 2",
+              "Table 4",
+              "Table 5",
+              "Table 6",
+              "Table 7",
+              "Table 8",
+              "Table 9",
+              "Table 10",
+              "Table 12"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/96413.pdf",
@@ -880,8 +1064,49 @@
           "title": "Attic Floor Insulation",
           "input_sha256": "a77485f90ebb3506ea12f2c7871e112fd96d80246110112291ba96cd22434e42",
           "output_path": "upgrade_measures/measure_pdfs/96739.md",
-          "output_sha256": "9fb7b7d6fb126b102585bc5aa27df42d1959fc313d84afe8f911e2be4f8d0724",
-          "body_sha256": "7ec3845c68289a3f1dfec6b927f71d3c825974d4efcda3009ddcacd7eed4a5de"
+          "output_sha256": "51cf0bc80f55a38a48ebaeabe3df599b6f2b699a1ba3dd48a1c8b6631cc761a1",
+          "body_sha256": "4250abb6b745495d51828363e44f0efc7083abfe1fb32590eee41dc5d39e2b33",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96739.yaml",
+            "sha256": "fa91d018b03711de2db334e8406f008cd317928851d80127e01278820661c439",
+            "tables_applied": [
+              "Measure Summary",
+              "Table 3",
+              "Table 4"
+            ],
+            "figures_applied": [
+              "96739_images/image_000002_91c9a8ed13074cbecc7e1794b4a545230145c12e70a8f9a795e36ff99dd8d55e.png",
+              "96739_images/image_000003_aaeebb418e9862b88f53b8bbc2353ecf9cf2df5fc24331b8982a244442912a27.png",
+              "96739_images/image_000004_ab69992a7903ef9832984b80c376832f07dda8068b660de07174be3d94189b67.png",
+              "96739_images/image_000005_139a90a23797320281f12888fdb67656c737c644fb8c8fb12cae73bdb131d4d7.png",
+              "96739_images/image_000006_6eda026027b566485c9a6c4f2cfc87a69b20cf097d46d7bb5a7a6f21bdafc9ed.png",
+              "96739_images/image_000007_7d6d0b6064ac4e1cc0e91d539f3a3a9f75020f0c18dee68db58ca9a635d93e25.png",
+              "96739_images/image_000008_29f1ff1d0dda9ee7db8eb24dd4a93ee762a58562ac13733f12622c09fcd0694b.png",
+              "96739_images/image_000009_7864852ade963ab0d24bc8137f5e335114513b0f5d696e6496ceadbea6c7d31e.png",
+              "96739_images/image_000010_faedce3ded33a2e599af11932ea3f009d001e3dd02612307484e871ca716e604.png",
+              "96739_images/image_000011_7be44784ab5279fd00694b351b6402522aa1cbd33dfcf82cabaf04f28e67452a.png",
+              "96739_images/image_000012_9f4fb597b1f22c4760f1f149aff59e6424e7c3682ec3e8693e5c312c8e5357d8.png",
+              "96739_images/image_000013_2b87be43349c38b73385e33e75e9f8d4e14d6ed64735ce16e3be2c9c6f00d002.png",
+              "96739_images/image_000014_7080ba901122aea4f6721b094cd31f4b0b4264207a324569d0b705fa1e5a17fe.png",
+              "96739_images/image_000015_d74e93a30e41294f2c24bd3fd141b8ccaad10384dc06840a9e7cd51c7519920e.png",
+              "96739_images/image_000016_7b5f3e9abb8731fe6781ec241845136c8f0ed7f94648d133f0ceacbe959517f5.png",
+              "96739_images/image_000017_e2a5570fbdf9eaf198bd47999cef7b05a2afdd6a6efba3acc53c41f68b61df12.png",
+              "96739_images/image_000018_d75b63747cb47b51123d3326e93baa6211409af0a5e08f492b733af43f4680ad.png",
+              "96739_images/image_000019_5f62bf5e433ecd576be8ad80a0f1bc081cda2ce4c4ee9648edfb682ce1f1494d.png",
+              "96739_images/image_000020_ac2470bb42f8a0fa0ce3d16e6bb6e3ed824824b61f29e38efe862c0f4059078f.png",
+              "96739_images/image_000021_f069493905f66c42f1ee44fdf425e336a4732c9dea6770ef040d94ecae6a9d1a.png",
+              "96739_images/image_000022_36bc401e96782c2a1798e6f45cba1bbf61d6e17b8c54ba8fd01bf5683db595c2.png",
+              "96739_images/image_000023_0795a33dd0e7bc7b886b5efa625375f046002bc73fc74586315c308e8b3b7340.png",
+              "96739_images/image_000024_f08fd813e5d365e60f43c061145e3e8797d1d5902f0425451afedc2c7b5b6f7f.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms",
+              "Table 1",
+              "Table 2",
+              "Table 5",
+              "Table 6"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/96826.pdf",
@@ -989,8 +1214,50 @@
           "title": "Advanced Air Sealing",
           "input_sha256": "f89df99f5694bc497162871fbdbc697bd2dec13f1ad64d1e8f7e76086d074d02",
           "output_path": "upgrade_measures/measure_pdfs/96738.md",
-          "output_sha256": "9c9c357f42c987aaf7c4bb3d33edb6186157a7ace88dcfca9bd9b9ec25cbafe1",
-          "body_sha256": "8d96678370b2a1d1ffcb0e44d26bf4899f2a58834fd6549ab62decfbbac8fede"
+          "output_sha256": "7bd3fe8cda4c8a6e5c1d3b1b3f23e9084158cc7abb0329b5e3f7922b6bf65698",
+          "body_sha256": "60f5c680628a307835217f1e991c50dc69ebdaa1f456a745fde1794119ef9ec6",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96738.yaml",
+            "sha256": "eef53d040cd6585a7e454bd792c201344dadf9548707b96ed02fea8b7c925861",
+            "tables_applied": [
+              "Measure Summary",
+              "Table 1",
+              "Table 3"
+            ],
+            "figures_applied": [
+              "96738_images/image_000002_6a5f0c9ec688ed81fbbefc03199b0bdd79eca78673ec3545ca5425f2141d965d.png",
+              "96738_images/image_000003_acd536ba8bf62f212ccc1abeb08584f7804926e9d93b7ba8b9efcf19ca82d1ff.png",
+              "96738_images/image_000004_c64e1e2f54f1a35f6e35cfbaf46f35f3a0c05d06a45bc5c322cba5c063cec8a3.png",
+              "96738_images/image_000005_06f1826118dedc419a875592f5c69f37fc61876f7d28c9afee6646f200efad84.png",
+              "96738_images/image_000006_75805ad8b43ebbbfc3cb7a14aae5d1d2b9e1e6ade3a9534b83f1eca614a21fb9.png",
+              "96738_images/image_000007_04b157404a21254c21995a48383ee70ca4771b4f2625f5758fff692594055904.png",
+              "96738_images/image_000008_9586e7f7d353fb6b45f07b71180c175412ca9b735552dce3b6a76746e12ac2dc.png",
+              "96738_images/image_000009_a515dd09d356946f6d8567715d4ea1a8ab4bf844b6bf728a51d0e9a6191f0089.png",
+              "96738_images/image_000010_12a631a2f60e595e39d023ddc2662be43d9cc4628129881a02ef2560df9c7385.png",
+              "96738_images/image_000011_92e6e6fdb26dd755d91a10e08137d072831df669fa6eab8a90febff67e43f0d5.png",
+              "96738_images/image_000012_ced4e80c2d73568fc956489903bf763b020626efcd8aaa8b5f9fc20361555ce1.png",
+              "96738_images/image_000013_1640fa8ba4b1348a4d77ce0b53efb987c7e79c75602b8f33676888ef6d47abd5.png",
+              "96738_images/image_000014_f247c31c4c31cffaf955cf77dc4400c72f045dc13e94e2a6066af82e1d86e030.png",
+              "96738_images/image_000015_bee13bbc8ffe014cb3e0af9dbfb8f5a9f4d55ca90c261ac35145286508192528.png",
+              "96738_images/image_000016_ed5170bea76203f8cc012a7c2dfda5cb53785b0511946def21e849113101ea8e.png",
+              "96738_images/image_000017_d06a85465e3cbef744270ee59ac0693e129bbc36ce10c23ac3c5693543a36f72.png",
+              "96738_images/image_000018_1b59e431c64c7bdcc749ef5ed239ef959cd7edb55d52bb2ffcfba4c4c7381d68.png",
+              "96738_images/image_000019_ac942cd62e175e34b63585a2f1acddb4340e03db3c30edfbc1c39dcb2b5a8c30.png",
+              "96738_images/image_000020_cfa30b433668477fe6c50cf04f793b4c320fdecaa92dc3ab36b7c571f767f49b.png",
+              "96738_images/image_000021_087e74fb763889a511e422fa2e70aec57ad1e6df4f226e0174cfe1ae5df65341.png",
+              "96738_images/image_000022_530ff0f88ec97843c2d7588bc0df06f216e861b83f0dc42c00564bfa636d4004.png",
+              "96738_images/image_000023_87897ce8a8b14208b336198ccfc903c962fb4b00c2655d167b8cba7874c6a5f8.png",
+              "96738_images/image_000024_dca409be1a03425c4c7d958f4f84e311eeece2d8279907114dc8a093cbc18e1e.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms",
+              "Table 2",
+              "Table 4",
+              "Table 5",
+              "Table 6",
+              "Table 7"
+            ]
+          }
         },
         {
           "source_path": "measure_pdfs/95032.pdf",
@@ -1300,17 +1567,17 @@
   ],
   "counts": {
     "documents": 62,
-    "chunks": 4025,
+    "chunks": 4094,
     "by_type": {
       "latex": 7,
       "markdown": 27,
       "pdf": 28
     },
-    "overlay_documents": 10,
-    "overlay_tables": 68,
-    "overlay_figures": 212,
-    "overlay_tables_checked": 57,
-    "overlay_text_repairs": 3
+    "overlay_documents": 18,
+    "overlay_tables": 88,
+    "overlay_figures": 337,
+    "overlay_tables_checked": 98,
+    "overlay_text_repairs": 5
   },
   "crosswalk": {
     "file": "crosswalk.json",

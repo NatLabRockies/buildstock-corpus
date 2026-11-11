@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96739.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96739.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96739.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96739.md | section: References | lines: 417-431 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96739.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96739.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96739.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96739.md | section: References | lines: 604-618 -->
 ## References
 
 | [1]   | J. Reyna et al. , 'ResStock Technical Reference Documentation v3.3.0,' Golden, CO, Jul. 2025. Accessed: Sep. 21, 2025. [Online]. Available: https://www.nlr.gov/docs/fy25osti/91621.pdf                                                                                                                                               |

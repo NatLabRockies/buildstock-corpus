@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96405.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96405.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96405.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96405.md | section: 4.1.1 Single Dwelling Annual | lines: 433-456 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96405.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96405.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96405.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96405.md | section: 4.1.1 Single Dwelling Annual | lines: 480-503 -->
 ## 4.1.1 Single Dwelling Annual
 
 Based on the applicability logic, the windows in all four individual dwellings were upgraded. In addition to the updated window performance characteristics, all four dwellings received a 30% infiltration reduction because they all started with single pane windows.

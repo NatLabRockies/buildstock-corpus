@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96281.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96281.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96281.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96281.md | section: 4.1.1 Example Time Series Individual Building Results | lines: 349-372 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96281.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96281.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96281.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96281.md | section: 4.1.1 Example Time Series Individual Building Results | lines: 380-410 -->
 ## 4.1.1 Example Time Series Individual Building Results
 
 Individual heating and cooling energy load profiles are shown below for the three dwelling units. In general, the upgraded dwelling units show a decrease in both heating and cooling energy, as expected given the improved insulation and reduced infiltration rates of these dwelling units. January 1 and July 1 were chosen as representative winter and summer days.
@@ -7,7 +7,14 @@ Individual heating and cooling energy load profiles are shown below for the thre
 
 Figure 2. Heating and cooling energy (excludes air handler and boiler pump electricity) single day time-series for three example models
 
-![Image](96281_images/image_000003_4165cdb849777588f903dbc2349e4953499344dee3d8d278a56163c5af888c1c.png)
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96281.yaml
+     source: 96281_images/image_000003_4165cdb849777588f903dbc2349e4953499344dee3d8d278a56163c5af888c1c.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+![Six line charts of single-day heating and cooling energy for three example models, baseline against upgrade](96281_images/image_000003_4165cdb849777588f903dbc2349e4953499344dee3d8d278a56163c5af888c1c.png)
+
+Figure 2: six line charts, a row each for the Colorado, North Carolina and Arizona models. The left column is heating energy in kWh on January 1, 2018 and the right column cooling energy in kWh on July 1, 2018, each baseline against upgrade. The upgrade lowers every peak: Colorado's morning heating peak falls from about 9 to about 7 kWh, and North Carolina's afternoon cooling peak from about 4 to about 2.8.
 
 Figure 2 shows the baseline and the upgraded natural gas heating energy for the Colorado model, represented by the top line of figures. On January 1, the upgraded dwelling unit has a lower hourly heating profile than the baseline, which is the expected result.
 

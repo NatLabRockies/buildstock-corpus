@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96344.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96344.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96344.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96344.md | section: 4.1.1  Individual Building Annual Energy Consumption | lines: 234-260 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96344.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96344.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96344.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96344.md | section: 4.1.1  Individual Building Annual Energy Consumption | lines: 254-287 -->
 ## 4.1.1  Individual Building Annual Energy Consumption
 
 Figure 1 shows the annual energy consumption of three example dwelling units before and after duct sealing and insulation upgrades. The upgrades resulted in reductions across several heatingand cooling-related end uses, including heating, cooling, heating and cooling fans/pumps, heating heat pump backup, and associated backup fans/pumps.
@@ -13,7 +13,14 @@ The percentage reduction in energy use for these three example dwelling units is
 
 Figure 1. Annual site energy consumption before and after duct sealing and insulation upgrade
 
-![Image](96344_images/image_000002_9ecad925ccf8a1e923d00e59076a111c9453fa090d859ec4326a0be3675de123.png)
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96344.yaml
+     source: 96344_images/image_000002_9ecad925ccf8a1e923d00e59076a111c9453fa090d859ec4326a0be3675de123.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+![Three stacked bar charts of annual energy use before and after duct sealing for three example dwellings](96344_images/image_000002_9ecad925ccf8a1e923d00e59076a111c9453fa090d859ec4326a0be3675de123.png)
+
+Figure 1: three horizontal stacked bar charts, one per example dwelling unit (Hawaii, climate zone 1A; North Carolina, 3A; Alaska, 8AK). X-axis is annual energy consumption in MBtu; each chart has a Baseline bar and a Duct Sealing and Insulation Upgrade bar, segmented by end use. Only heating and cooling segments change: Hawaii cooling falls from 37.3 to 30.9, North Carolina heating from 17.2 to 13.1, and Alaska fuel-oil heating from 163.0 to 132.4.
 
 As shown in Table 4, the unmet heating and cooling hours either remained at zero or decreased after the duct sealing and insulation upgrade.
 
