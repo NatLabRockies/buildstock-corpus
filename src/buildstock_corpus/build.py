@@ -362,7 +362,9 @@ def _extract_documents(
                 if u not in seen_urls:
                     warnings.append(f"{src.id}: exclude_urls entry matched no fetched PDF: {u}")
             specs = _cap(specs, sample)
-            pdf_docs, pdf_warn, pdf_imgs = load_pdf_docs(specs, product, release, src.id)
+            pdf_docs, pdf_warn, pdf_imgs = load_pdf_docs(
+                specs, product, release, src.id, table_mode=src.pdf_table_mode
+            )
             docs += pdf_docs
             warnings += [f"{src.id}: {w}" for w in pdf_warn]
             for source_path, (rel_dir, cache_dir) in pdf_imgs.items():

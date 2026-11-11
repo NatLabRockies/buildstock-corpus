@@ -2,7 +2,7 @@
 
 Written 2026-10-19 from a survey of the two ResStock sources and of how the ComStock corpus
 was built (PLAN.md, PLAN-staging.md, PLAN-buildstock-corpus-handoff.md). Owner: Lauren Klun.
-Status: decisions D1 to D6 taken 2026-10-19; stage R1 merged (PRs #46 to #49); R2.1 and R2.2 done 2026-11-10; R3.1 (smoke build) next. Steps run one at a time, each asked for before it starts, one
+Status: decisions D1 to D6 taken 2026-10-19; stage R1 merged (PRs #46 to #49); R2.1 and R2.2 done 2026-11-10; R3.0 (docling table mode, added 2026-11-10) and R3.1 (sandbox builds) done the same day; R3.2 (fidelity audit and extractor fixes) next. The order every step runs in, with its branch, PR and merge state, is the "Order of work" table below; that table is the one to read for where things stand. Steps run one at a time, each asked for before it starts, one
 branch and PR per step unless a row says otherwise (the ComStock convention).
 
 ## Goal
@@ -102,6 +102,48 @@ prompt say "ComStock" in prose.
    `missing`), line-1 header, section files, chunking, manifest and validate, changelog and
    `release.yml`, tag form `<release id>-v<N>`, one PR per step.
 
+## Order of work
+
+Steps run in exactly this order, top to bottom. No step is skipped and none starts before
+the one above it is done. "Done" means the work is finished and recorded in its row under
+Steps; "merged" is tracked separately, because a step can be done while its PR waits on CI.
+A step may start on a branch stacked on the previous step's branch before that PR merges,
+but only when the owner says so; PRs still merge in this order.
+
+| Order | Step | What | Work | Branch (base) | PR | Merged |
+|-------|------|------|------|---------------|----|--------|
+| 1 | R1.1 | Registry fields | done 2026-10-19 | `r1-registry` (main) | #46 | yes |
+| 2 | R1.2 | LaTeX loader | done 2026-10-19 | `r1-latex` (main) | #47 | yes |
+| 3 | R1.3 | Measures id pattern, OEDI lookup | done 2026-10-19 | `r1-measures` (main) | #48 | yes |
+| 4 | R1.4 | Product-neutral CLI and prose | done 2026-10-19 | `r1-neutral` (main) | #49 | yes, 2026-11-10 |
+| 5 | R2.1 | ResStock registry | done 2026-11-10 | `r2-registry` (main) | #50 | yes, 2026-11-10 |
+| 6 | R2.2 | Fetch | done 2026-11-10 | `r2-fetch` (`r2-registry`) | #51 | no: waiting on CI |
+| 7 | R3.0 | docling table mode per source (D5) | done 2026-11-10 | `r3-build` (`r2-fetch`) | with R3.1 | no |
+| 8 | R3.1 | Smoke build, then full sandbox build | done 2026-11-10 | `r3-build` (`r2-fetch`) | to open | no |
+| 9 | R3.2 | Fidelity audit, systematic extractor fixes, decorative rule | not started | | | |
+| 10 | R3.3 | Commit the first real build | not started | | | |
+| 11 | R4.1 | Overlay method and `checked:` entries | not started | | | |
+| 12 | R4.2 | Sidecars, measures 1 to 10 | not started | | | |
+| 13 | R4.3 | Sidecars, measures 11 to 18 | not started | | | |
+| 14 | R4.4 | Sidecars, measures 19 to 32 | not started | | | |
+| 15 | R4.5 | Technical guide figures | not started | | | |
+| 16 | R4.6 | Rebuild with overlays, audit, spot-check | not started | | | |
+| 17 | R5.1 | Index and three smoke questions | not started | | | |
+| 18 | R5.2 | Acceptance run by a fresh agent | not started | | | |
+| 19 | R6.1 | README, AGENTS, llms.txt, changelog | not started | | | |
+| 20 | R6.2 | Final build, tag `-v1`, release | not started | | | |
+| 21 | R7.1 | ResStock site discovery (separate repo) | not started | | | |
+
+Changes to the original step list, so nothing here is a surprise:
+
+- **R3.0 is new (added 2026-11-10).** Decision D5 chose docling's ACCURATE table mode, but no
+  step set it: the extractor hard-codes FAST. R3.1's build cannot honour D5 until a source
+  can choose its mode, so that change comes first. It is in the Stage R3 table below.
+- **R4.3 covers measures 11 to 18**, not 12 to 18: measure 11's report (96738) was published
+  on 2026-11-10.
+- **R2.1, R2.2 and R3.0/R3.1 are stacked branches.** PR #50's CI sat in the runner queue on
+  2026-11-10, and the owner asked for R2.2 and then R3.1 to start without waiting for it.
+
 ## Steps
 
 Sizes: S under an hour, M a few hours, L a day or more. "Files" are the main ones touched.
@@ -126,7 +168,8 @@ Sizes: S under an hour, M a few hours, L a day or more. "Files" are the main one
 
 | # | Step | Files | Done when | Size |
 |---|------|-------|-----------|------|
-| R3.1 | Smoke build in a sandbox: `uv run bsc build --product resstock --release … --work-dir <scratch> --sample 2`, then the full build with `--no-overlays`. Expect ~7 TRG chapters (1, 2, 3a, 3b, 3c, 5, 6), ~26 site pages, 27 PDFs. The docling warm-up at ACCURATE is a one-time cost of roughly an hour. Read every build warning. | none committed | Build completes; warnings list recorded here. | M |
+| R3.0 | Added 2026-11-10. Let a `measures` source choose docling's table-structure mode: registry field `pdf_table_mode` (`fast` or `accurate`, default `fast`, so ComStock is unchanged), threaded from the build into the PDF extractor, where it is part of the conversion-cache fingerprint. The ResStock registry sets `accurate` (D5). | `registry.py`, `extract/pdf.py`, `build.py`, the ResStock registry, tests | ComStock's registry still loads as `fast` and its cached conversions still hit; the ResStock registry loads as `accurate`; a mode other than the two is refused; tests pass. **Done 2026-11-10, branch `r3-build`.** `pdf_table_mode` on the registry's `Source`; `load_pdf_docs(..., table_mode=)` sets the extractor's mode for its batch and drops the converter and fingerprint built for the other mode. Checked with docling itself: the two fingerprints differ only in `table_mode` (`fast` / `accurate`), all 57 conversion-cache dirs on this machine still match the `fast` fingerprint (so ComStock re-converts nothing), and `bsc validate --product comstock` is green. 2 new tests (`test_registry.py`, `test_pdf_cache.py`). **Later the same day the owner set ComStock's registry to `accurate` as well, for builds after `-v3`.** Nothing was rebuilt: `processed/comstock/` is still the `-v3` build made with `fast`, and it still validates. The next ComStock `bsc build` will re-convert all its measure PDFs once (the 57 cached conversions carry the `fast` fingerprint and stop matching), and its overlays need a look afterwards: 6 `replaces:` entries pin a fast-mode table, 28 caption-anchored tables and 820 figure pins should be unaffected but are checked by that build's warnings. This belongs in ComStock's next changelog entry, with the two changes R1.2 already queued. | S |
+| R3.1 | Smoke build in a sandbox: `uv run bsc build --product resstock --release … --work-dir <scratch> --sample 2`, then the full build with `--no-overlays`. Expect ~7 TRG chapters (1, 2, 3a, 3b, 3c, 5, 6), ~26 site pages, 27 PDFs. The docling warm-up at ACCURATE is a one-time cost of roughly an hour. Read every build warning. | none committed | Build completes; warnings list recorded here. **Done 2026-11-10, branch `r3-build`** (sandbox `C:/Users/lklun/AppData/Local/Temp/bsc_rs`, overlays off, built at commit `7ce30a1b`). Smoke build (`--sample 2`): 6 documents, 4 minutes, no warnings. Full build: 34 minutes including the docling warm-up at ACCURATE for 26 PDFs (the other 2 were cached by the smoke build), so about 80 seconds a PDF, well under the hour estimated. Output: 62 documents (7 guide chapters: 1, 2, 3a, 3b, 3c, 5, 6; 27 site pages; 28 measure PDFs, all `osti_pdf`), 3,760 chunks, 1,149 section files, 606 images, 74 MB. Crosswalk 32 measures, 32 covered, 0 gaps; 0 unreachable PDFs. `bsc validate --work-dir` on the sandbox is green. 7 documents are over 100 KB: chapters 3a (159 KB), 3b (154 KB), 3c (220 KB) and four measure reports, the largest 95032 at 232 KB. **Warnings: one.** `3c_ResStockInputs.tex: Citeproc: citation ahs not found`: line 2122 cites `\cite{ahs}` but the key in `files/refs.bib` is `AHS`, a case mismatch upstream, so the American Housing Survey citation in the well-pump paragraph does not resolve. It is one citation in one document; R3.2 decides whether to resolve keys case-insensitively or leave it and report it upstream. No docling failure and no empty conversion. | M |
 | R3.2 | Run `scripts/audit_md_fidelity.py` on the sandbox output and fix the extractor for every class of defect that is systematic rather than per-document: longtables that lost their header or caption, `customLongTable` captions, heading levels, cross-references (`\ref{table:…}` to quoted titles), soft hyphens and NBSPs, dangling image refs. Inspect the first two docling images of three ResStock PDFs and set the product's decorative rule (R1.4). | `extract/latex.py`, `decorative.py`, tests | latex: 0 orphaned table or figure captions, 0 dangling refs; pdf: orphaned count known and every one traced to a rasterized table (overlay work for R4), not an extractor bug; character hygiene zero in latex and markdown. | M |
 | R3.3 | Commit the first real build to `processed/resstock/…` with `--corpus-version resstock_amy2018_2025_release_1-v1-pre` or no version (the manifest's `corpus_version` only has to equal the tag at release time); `bsc map`, `bsc validate`. | `processed/resstock/**` | Validate green; `CORPUS_MAP.md` lists every document, the 32-measure routing table and the gap (measure 11, two notebooks). | S |
 
@@ -136,7 +179,7 @@ Sizes: S under an hour, M a few hours, L a day or more. "Files" are the main one
 |---|------|-------|-----------|------|
 | R4.1 | Working method, written once in `overlays/README.md` under a ResStock heading: for each PDF, list its tables from the audit; render each table's page at 1.5x; compare docling's grid to the render and the text layer cell by cell; a correct table gets a `checked:` entry (label, page, `verdict: correct`, date) and an incorrect one a `replaces:` transcription (`method: vision-transcription`); a table missing entirely gets a caption-anchored insert. For figures, every non-decorative image gets `alt` plus a description to the W6 standard, drafted from the render and edited by hand. `checked:` is a new, minimal engine addition (validate confirms the label exists and the page pin; nothing is injected). | `overlay.py`, `overlays/README.md`, tests | Engine accepts `checked:` entries; `bsc validate` counts them. | S |
 | R4.2 | Sidecars for measures 1 to 10 (HVAC and water heating reports: 96634, 96635, 96636, 96413, 96414, 95032, 95034, 95036, 96826, 96827). Commit per document, as the rollout did. | `overlays/resstock_…/upgrade_measures/measure_pdfs/<n>.yaml` | Every table in the ten PDFs has a `checked` or `replaces` entry; every real figure a description. | L |
-| R4.3 | Measures 12 to 18 (envelope and packages: 96739, 96344, 96281, 96347, 96349, 96405, 95035). | same | same | L |
+| R4.3 | Measures 11 to 18 (envelope and packages: 96738, 96739, 96344, 96281, 96347, 96349, 96405, 95035). | same | same | L |
 | R4.4 | Measures 19 to 32 (EV reports 94459 to 94464, the shared demand-flexibility report 93846, the four light-envelope reports 99816 to 99820). | same | same | L |
 | R4.5 | TRG figures: the 15 images chapter 2 and 3a reference (maps, the workflow and flowchart PDFs, the dependency tree), described to the same standard; the six rasterized PDF figures pinned by the PNG the build wrote. | `overlays/resstock_…/technical_reference/…yaml` | All TRG figure refs carry alt text and a description. | M |
 | R4.6 | Rebuild with overlays, re-run the audit: 0 orphaned captions in `pdf`; every `replaces` and `checked` entry verified by `bsc validate` against the PDF hash. Spot-check ten tables at random against the PDF a second time, by a different reader (a fresh agent or the owner). | `processed/resstock/**` | Audit and validate green; spot-check recorded here. | S |

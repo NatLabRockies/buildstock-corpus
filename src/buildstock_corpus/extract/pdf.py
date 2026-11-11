@@ -36,6 +36,23 @@ _UNSAFE_REF_RE = re.compile(r"[^A-Za-z0-9._-]+")  # chars needing escaping in a 
 _converter = None  # docling DocumentConverter is costly to build; make one and reuse it
 _fingerprint: dict | None = None  # memoized: importing docling's options module isn't free
 
+# docling's TableFormer mode for the PDFs being converted. A measures source picks it in the
+# registry (`pdf_table_mode`); load_pdf_docs sets it for its batch. It is part of the cache
+# fingerprint, so a PDF converted under one mode is re-converted if asked for under the other,
+# and one product's cache is untouched by another product's choice (different PDFs, different
+# cache dirs).
+TABLE_MODES = ("fast", "accurate")
+_table_mode = "fast"
+
+
+def _set_table_mode(mode: str) -> None:
+    """Switch the table mode, dropping the converter and fingerprint built for the old one."""
+    global _table_mode, _converter, _fingerprint
+    if mode not in TABLE_MODES:
+        raise ValueError(f"pdf table mode must be one of {TABLE_MODES}, got {mode!r}")
+    if mode != _table_mode:
+        _table_mode, _converter, _fingerprint = mode, None, None
+
 
 @dataclass
 class PdfSpec:
@@ -66,10 +83,15 @@ def _pipeline_options():
     # keep the layout + table-structure models, which are the point of a layout-aware reader.
     # TableFormer FAST (vs ACCURATE) and more CPU threads keep the one-time cache warm to
     # tens of minutes instead of hours; tables still get real structure, just less refinement.
+    # FAST is the default; a source whose priority is cell structure over warm-up time sets
+    # `pdf_table_mode: accurate` in the registry (ResStock from its first build; ComStock from
+    # the build after -v3).
     opts = PdfPipelineOptions()
     opts.do_ocr = False
     opts.do_table_structure = True
-    opts.table_structure_options.mode = TableFormerMode.FAST
+    opts.table_structure_options.mode = (
+        TableFormerMode.ACCURATE if _table_mode == "accurate" else TableFormerMode.FAST
+    )
     opts.table_structure_options.do_cell_matching = True
     opts.accelerator_options = AcceleratorOptions(num_threads=12)
     # Without this docling only emits <!-- image --> placeholders; the figure bitmaps
@@ -253,9 +275,9 @@ def _image_dir_name(source_path: str) -> str:
 
 
 def load_pdf_docs(
-    specs: list[PdfSpec], product: str, release: str, source_id: str
+    specs: list[PdfSpec], product: str, release: str, source_id: str, table_mode: str = "fast"
 ) -> tuple[list[Document], list[str], dict[str, tuple[str, Path]]]:
-    """Convert each PDF spec into a Document.
+    """Convert each PDF spec into a Document, with docling's tables in `table_mode`.
 
     Returns (docs, warnings, image_dirs), where image_dirs maps a PDF's source_path to
     (path relative to processed/<source_id>/, cache directory holding its extracted images).
@@ -266,6 +288,7 @@ def load_pdf_docs(
     docs: list[Document] = []
     warnings: list[str] = []
     image_dirs: dict[str, tuple[str, Path]] = {}
+    _set_table_mode(table_mode)
     for spec in specs:
         try:
             cache_dir = _cache_dir_for(spec)
