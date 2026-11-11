@@ -6,8 +6,10 @@
 #
 # Tables (page numbers are PDF pages, 1-based):
 #   * Table 1 (p.12) and Table 3 (pp.15-16) are superseded: see each entry's `why`.
-#   * Tables 2, 4 and 5, the List of Acronyms and the Upgrade Summary table are recorded
-#     under `checked:` as correct.
+#   * The Upgrade Summary table (p.9, no caption) is superseded: it was right except for
+#     a line-wrap space inside the project configuration URL. It is the extractor's own
+#     grid with that space removed.
+#   * Tables 2, 4 and 5 and the List of Acronyms are recorded under `checked:` as correct.
 #   * The Table of Contents, List of Figures and List of Tables grids are contents pages,
 #     not tables of the report, and have no entry.
 #
@@ -164,6 +166,55 @@ tables:
     | None | <1% | <1% | <1% | <1% | <1% | 1% | <1% | <1% | <1% |
 
     | Total % of Housing Stock | 15% | 6% | 13% | 7% | 5% | 14% | 20% | 7% | 12% |'
+- label: Upgrade Summary
+  uncaptioned: true
+  source_pdf: measure_pdfs/96634.pdf
+  source_pdf_sha256: 77c22cdd42f5f8e4159372967c0d03548077bba5e345ccf02e3b4211278900b7
+  page: 9
+  method: extracted grid, with the cells named in `why` corrected from the PDF text layer
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 4e3b50c1e5bbf01d364784200767253eb4b26726f4bd121f06f24f2a346901a7
+    why: The table is right cell for cell except the project configuration URL, which carries a space
+      where the PDF wraps the line ('projec t_national'). A search for the real path, or a click on the
+      link, misses it. The cell text is the extractor's own with that space removed; the joined URL is
+      the one in the PDF text layer.
+  markdown: '**Upgrade Summary, part 1 of 2**
+
+
+    | Measure Title | Upgrade Description |
+
+    |---|---|
+
+    | Measure Definition | Replaces existing space-heating equipment with a high-efficiency natural gas
+    furnace (95% AFUE). The upgrade also converts heating fuel to natural gas (if not already) and sets
+    the heating type and fuel to ''Natural Gas Fuel Furnace . '' In cases where the space-heating equipment
+    also provides cooling or air conditioning, like a heat pump, the cooling is removed. |
+
+    | Applicability | This upgrade applies to dwellings that have existing ducted systems. No restrictions
+    are placed on prior heating fuel or access to natural gas infrastructure. Applies to dwellings that:
+    • Have ducts, and • Do not use wood, ''other fuel,'' or have no primary heating fuel, and • Has stand-alone
+    HVAC (no part of the HVAC is shared with other dwelling units) No restriction is placed on prior heating
+    fuel - homes are converted to natural gas within the upgrade logic. With these applicability constraints,
+    the upgrade applies to 74.3% of the existing dwelling units. |
+
+
+    **Upgrade Summary, part 2 of 2**
+
+
+    | Measure Title | Upgrade Description |
+
+    |---|---|
+
+    | Not Applicable | This upgrade does not apply to: • Dwellings without ducts • Dwellings with primary
+    heating fuel of wood , other fuel , or none • Dwellings served by shared HVAC systems , including
+    shared heating only, shared cooling only, or both These constraints exclude 25.7% of the dwelling
+    units from receiving this upgrade. |
+
+    | Original Release | ResStock 2025 Release 1 |
+
+    | Project Configuration File | https://github.com/NatLabRockies/resstock/blob/sdr_2025_Release_1/project_national/sdr_upgrades_amy2018.yml
+    |'
 checked:
 - label: List of Acronyms
   uncaptioned: true
@@ -174,17 +225,6 @@ checked:
   verdict: correct
   method: page-render-and-text-layer
   checked_utc: '2026-11-11'
-- label: Upgrade Summary
-  uncaptioned: true
-  source_pdf: measure_pdfs/96634.pdf
-  source_pdf_sha256: 77c22cdd42f5f8e4159372967c0d03548077bba5e345ccf02e3b4211278900b7
-  page: 9
-  table_sha256: 4e3b50c1e5bbf01d364784200767253eb4b26726f4bd121f06f24f2a346901a7
-  verdict: correct
-  method: page-render-and-text-layer
-  checked_utc: '2026-11-11'
-  note: The project configuration URL carries a space where the PDF wraps the line ('projec t_national');
-    the cell text is otherwise the page's.
 - label: Table 2
   caption: ResStock Argument Values for Gas Furnace Upgrade
   source_pdf: measure_pdfs/96634.pdf
