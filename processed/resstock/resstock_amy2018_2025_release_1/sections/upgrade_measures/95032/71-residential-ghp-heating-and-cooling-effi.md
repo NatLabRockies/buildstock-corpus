@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95032.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95032.md | section: Residential GHP Heating and Cooling Efficiencies | lines: 1591-1661 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95032.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95032.md | section: Residential GHP Heating and Cooling Efficiencies | lines: 1591-1663 -->
 ## Residential GHP Heating and Cooling Efficiencies
 
 The efficiency of GHPs has improved over time. Combining historical federal equipment efficiency standards with historical unit shipment data provides insights into the efficiency of the GHP units in the residential building stock. The GeoVision report used an energy efficiency ratio (EER) of 18.2 and coefficient of performance (COP) of 4.0 at 100% load (heating or cooling) to represent typical GHPs installed in the U.S. in 2012 (U.S. DOE 2019).
@@ -64,7 +64,9 @@ ENERGY STAR also provides unit shipment data and an estimate of the ENERGY STAR 
 
 Figure A-9: two bar charts by year, 2003 to 2021. Top: ENERGY STAR GHP shipments in thousands (axis 0 to 120), rising from about 14 in 2003 to a peak of about 99 in 2007, then declining to 20-40 from 2013 on. Bottom: GHP ENERGY STAR market penetration (axis 0 to 100, labelled 'thousands'), peaking at about 92 in 2007 and falling to about 16 in 2015; none for 2016-2021.
 
-2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021
+<!-- text repaired by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95032.yaml
+     The year labels of Figure A-9's horizontal axis (p.78), which the extractor left as a line of text between the figure's picture and its caption. They are part of the picture, and the figure's description gives the range (2003 to 2021).
+     removed line: 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 -->
 
 Figure A-9. Top: ENERGY STAR GHP unit shipments between 2003 and 2021. Bottom: Estimates of ENERGY STAR GHP market penetration between 2003 and 2021.
 

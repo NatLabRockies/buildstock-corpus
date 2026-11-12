@@ -278,7 +278,7 @@ tables:
   method: ocr of the figure's embedded bitmap, cell by cell (two recognitions agree); every value lies
     on a fitted second-order surface to within rounding
   transcribed_utc: '2026-11-11'
-  markdown: '**COP Multiplier at Different Air Wet Bulb and d Tank Temperatures (part 1 of 5)**
+  markdown: '**COP Multiplier at Different Air Wet Bulb and Tank Temperatures (part 1 of 5)**
 
 
     | Air Wet Bulb Temp °C↓ Tank Water Temp °C→ | 0 | 2.5 | 5 | 7.5 | 10 | 12.5 | 15 | 17.5 | 20 | 22.5
@@ -302,7 +302,7 @@ tables:
     | 0.53 | 0.52 | 0.50 | 0.48 | 0.46 | 0.45 | 0.43 | 0.41 | 0.39 | 0.37 | 0.35 | 0.33 |
 
 
-    **COP Multiplier at Different Air Wet Bulb and d Tank Temperatures (part 2 of 5)**
+    **COP Multiplier at Different Air Wet Bulb and Tank Temperatures (part 2 of 5)**
 
 
     | Air Wet Bulb Temp °C↓ Tank Water Temp °C→ | 0 | 2.5 | 5 | 7.5 | 10 | 12.5 | 15 | 17.5 | 20 | 22.5
@@ -326,7 +326,7 @@ tables:
     1.02 | 0.98 | 0.94 | 0.90 | 0.87 | 0.83 | 0.79 | 0.75 | 0.71 | 0.67 | 0.63 | 0.59 |
 
 
-    **COP Multiplier at Different Air Wet Bulb and d Tank Temperatures (part 3 of 5)**
+    **COP Multiplier at Different Air Wet Bulb and Tank Temperatures (part 3 of 5)**
 
 
     | Air Wet Bulb Temp °C↓ Tank Water Temp °C→ | 0 | 2.5 | 5 | 7.5 | 10 | 12.5 | 15 | 17.5 | 20 | 22.5
@@ -350,7 +350,7 @@ tables:
     | 1.37 | 1.32 | 1.27 | 1.21 | 1.16 | 1.10 | 1.05 | 0.99 | 0.94 | 0.88 | 0.83 | 0.77 |
 
 
-    **COP Multiplier at Different Air Wet Bulb and d Tank Temperatures (part 4 of 5)**
+    **COP Multiplier at Different Air Wet Bulb and Tank Temperatures (part 4 of 5)**
 
 
     | Air Wet Bulb Temp °C↓ Tank Water Temp °C→ | 0 | 2.5 | 5 | 7.5 | 10 | 12.5 | 15 | 17.5 | 20 | 22.5
@@ -374,7 +374,7 @@ tables:
     | 1.79 | 1.72 | 1.65 | 1.57 | 1.50 | 1.43 | 1.35 | 1.28 | 1.20 | 1.13 | 1.05 | 0.98 |
 
 
-    **COP Multiplier at Different Air Wet Bulb and d Tank Temperatures (part 5 of 5)**
+    **COP Multiplier at Different Air Wet Bulb and Tank Temperatures (part 5 of 5)**
 
 
     | Air Wet Bulb Temp °C↓ Tank Water Temp °C→ | 0 | 2.5 | 5 | 7.5 | 10 | 12.5 | 15 | 17.5 | 20 | 22.5

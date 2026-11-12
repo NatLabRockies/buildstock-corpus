@@ -2,7 +2,7 @@
   "product": "resstock",
   "release": "resstock_amy2018_2025_release_1",
   "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
-  "generated_utc": "2026-11-11T23:29:26.577985+00:00",
+  "generated_utc": "2026-11-12T00:07:39.146164+00:00",
   "tooling": {
     "pipeline": "0.1.0",
     "embedding_model": "BAAI/bge-small-en-v1.5",
@@ -1312,11 +1312,11 @@
           "title": "Heat Pump Water Heater",
           "input_sha256": "9b1963bc5ff7300c2d3e99bada6183d68a80c1e785f41b50589eab76f7532e3f",
           "output_path": "upgrade_measures/measure_pdfs/96826.md",
-          "output_sha256": "b9d02c1d825663f75e2b290221bab54c209f968bb04479555570049f0b329f59",
-          "body_sha256": "ec0a11ac199c500911c14525f19c9bab49ee2a7d37e85e0e2d877a4da1a76820",
+          "output_sha256": "9909def4a0eeaabcde5825434b565c97efbcb41b2434d163ae18c3685a808b34",
+          "body_sha256": "998a5f32d1f93f62d3bf84a57a2461e3c6d0357bedf77c219adfd86720678767",
           "overlay": {
             "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96826.yaml",
-            "sha256": "705d960f847e14e0e77a96e72e2cf4aaf89d489d62b76182223aea21d1e5368b",
+            "sha256": "e0cf7c37a9c02723ac6fc3540f410089384063dcf6d8d4c0911d6718de27522d",
             "tables_applied": [
               "Table 6",
               "Table 8",
@@ -1408,16 +1408,17 @@
           "title": "Advanced Air Sealing",
           "input_sha256": "f89df99f5694bc497162871fbdbc697bd2dec13f1ad64d1e8f7e76086d074d02",
           "output_path": "upgrade_measures/measure_pdfs/96738.md",
-          "output_sha256": "7bd3fe8cda4c8a6e5c1d3b1b3f23e9084158cc7abb0329b5e3f7922b6bf65698",
-          "body_sha256": "60f5c680628a307835217f1e991c50dc69ebdaa1f456a745fde1794119ef9ec6",
+          "output_sha256": "fc808d0b8ee19d08cf66af1b817287ccf27bf72e02f243c23745c79a8e36b4e6",
+          "body_sha256": "09dc9708de4f6132b9937c10989de1f9478aa65677943d37a133f45372f00346",
           "overlay": {
             "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96738.yaml",
-            "sha256": "eef53d040cd6585a7e454bd792c201344dadf9548707b96ed02fea8b7c925861",
+            "sha256": "6026576cf37fd678f29c7e156596120200417544f0a6b035381b502f1c26fd42",
             "tables_applied": [
               "Measure Summary",
               "Table 1",
               "Table 3"
             ],
+            "text_repairs_applied": 2,
             "figures_applied": [
               "96738_images/image_000002_6a5f0c9ec688ed81fbbefc03199b0bdd79eca78673ec3545ca5425f2141d965d.png",
               "96738_images/image_000003_acd536ba8bf62f212ccc1abeb08584f7804926e9d93b7ba8b9efcf19ca82d1ff.png",
@@ -1463,11 +1464,11 @@
           "title": "Residential Single-Stage Geothermal Heat Pump (3.8 COP, 18.6 EER)",
           "input_sha256": "e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f",
           "output_path": "upgrade_measures/measure_pdfs/95032.md",
-          "output_sha256": "7ea38c05aaeef561f6ac3b1a63b35aa6bcf8368c039712122e567d7b2f21bb7b",
-          "body_sha256": "f26b387038cb0c061ccfaa261067427610ca4fb65a9fb2faacb17ab4268b285a",
+          "output_sha256": "0660cee6a9d7840a53165a594b6e2d1c6d79acbf8a3cd8814da9674201355928",
+          "body_sha256": "0d581546220cdef7f3e5eb6e8abad1ba6f99303fba4eb5576de436a1e241324f",
           "overlay": {
             "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95032.yaml",
-            "sha256": "1b92b41b5b1857382b7918eb249caaff65b82bfaf650ae845ec57184f669453d",
+            "sha256": "0790e4c05f8c83a08229a94edb59a1c87ccd8272aa192d19b197318fded74144",
             "tables_applied": [
               "Table A-2",
               "Table B-1",
@@ -1480,6 +1481,7 @@
               "Figure C-3",
               "Figure C-4"
             ],
+            "text_repairs_applied": 1,
             "figures_applied": [
               "95032_images/image_000002_a429cf5d958a67abbdceb0a07ce46f44f0da4be97bfdd1414879ef886218ed5c.png",
               "95032_images/image_000003_381d498b4366598371b9b4b5db9daadf054c7171ba773c4bdc70c6cc1e079d37.png",
@@ -1874,7 +1876,7 @@
   ],
   "counts": {
     "documents": 62,
-    "chunks": 4181,
+    "chunks": 4183,
     "by_type": {
       "latex": 7,
       "markdown": 27,
@@ -1884,7 +1886,7 @@
     "overlay_tables": 105,
     "overlay_figures": 467,
     "overlay_tables_checked": 136,
-    "overlay_text_repairs": 6
+    "overlay_text_repairs": 9
   },
   "crosswalk": {
     "file": "crosswalk.json",
