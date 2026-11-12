@@ -270,6 +270,51 @@ Table 1. Specifications of Available VRF (HR) Systems
     assert tables == []
 
 
+def test_figure_transcribed_as_a_table_under_its_caption_is_not_orphaned(tmp_path):
+    """A number grid shown as a picture, transcribed by an overlay (ResStock 95032 Figure C-1).
+
+    The converter kept the caption and no bitmap; the overlay put the grid under the caption,
+    with a sentence on the layout and a bold label above each part. Nothing is missing.
+    """
+    _, figures = orphans(
+        tmp_path,
+        """
+Figure C-1. Heating curve-fit capacity results verified against manufacturer catalog data
+
+<!-- table recovered from measure_pdfs/95032.pdf p.86
+     overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95032.yaml
+     method: ocr of the figure's embedded bitmap, cell by cell -->
+
+The figure is a spreadsheet image holding three blocks.
+
+**Manufacturer**
+
+| Tair | 30 | 40 |
+|---|---|---|
+| 60 | 8594 | 9202 |
+""",
+    )
+    assert figures == []
+
+
+def test_overlay_marker_with_no_table_does_not_excuse_a_figure_caption(tmp_path):
+    """The marker alone is not content: the next caption ends the search for the grid."""
+    _, figures = orphans(
+        tmp_path,
+        """
+Figure 3. Full load heating EIR
+
+<!-- table recovered from measure_pdfs/95032.pdf p.24
+     method: ocr -->
+
+Figure 4. Full load heating capacity
+
+![grid](img/four.png)
+""",
+    )
+    assert figures == [2]
+
+
 def test_a_decomposed_overlay_injection_is_not_read_as_still_missing(tmp_path):
     """The widest gap an overlay puts between a caption and its first table row — 86599.md:284.
 
