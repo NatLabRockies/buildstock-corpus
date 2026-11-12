@@ -1,34 +1,53 @@
 # buildstock-corpus
 
-> The AI-ready BuildStock corpus: ComStock's documentation (technical reference, site pages,
-> upgrade-measure reports) extracted to clean, release-tagged markdown, with a provenance
-> manifest, a human-readable map, and a machine index. One dataset release per folder;
-> currently ComStock 2025 release 3 (`comstock_amy2018_2025_release_3`): 118 documents,
-> 65 measures.
+> The AI-ready BuildStock corpus: the documentation of ComStock and of ResStock (technical
+> reference, site pages, upgrade-measure reports) extracted to clean, release-tagged
+> markdown, with a provenance manifest, a human-readable map, and a machine index. One
+> dataset release per folder, under `processed/<product>/<release>/`. Two products:
+> ComStock 2025 release 3 (`comstock_amy2018_2025_release_3`): 118 documents, 65 measures.
+> ResStock 2025 release 1 (`resstock_amy2018_2025_release_1`): 62 documents, 32 measures.
 
 Every file is served raw by GitHub, unauthenticated. The links below use `main`, the newest
 build. To pin a citation, replace `main` with a release tag of the form
-`<release id>-v<N>`; tags never move. Current: `comstock_amy2018_2025_release_3-v3`.
+`<release id>-v<N>`; tags never move, and each product has its own. Current:
+
+- ComStock: `comstock_amy2018_2025_release_3-v3`
+- ResStock: `resstock_amy2018_2025_release_1-v1`
+
+A product's files exist only at its own tags and on `main`: the ComStock tag does not
+contain the ResStock folder. Do not mix facts across products or releases.
 
 ## Start here
 
-Two start orders, one per kind of reader: with a clone, read `CORPUS_MAP.md` first; fetching
-URLs without a clone, fetch `index.json` first, at a release tag. Then:
+Pick the product first; a question about housing is ResStock's, one about commercial
+buildings is ComStock's. Two start orders, one per kind of reader: with a clone, read that
+product's `CORPUS_MAP.md` first; fetching URLs without a clone, fetch that product's
+`index.json` first, at its release tag. Then one section file.
 
 - [AGENTS.md](https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/main/AGENTS.md): how to read and cite the corpus, for agents
-- [index.json](https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/main/processed/comstock/comstock_amy2018_2025_release_3/index.json): every document and measure with its path, status, links and size (fetch this first; ~155 KB raw, ~20 KB gzip-compressed over the wire now that each row names its section files)
-- [sections.json](https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/main/processed/comstock/comstock_amy2018_2025_release_3/sections.json): every heading with its line range in the document (only when you need to land on a heading)
+
+## ComStock (commercial buildings)
+
+- [index.json](https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/main/processed/comstock/comstock_amy2018_2025_release_3/index.json): every document and measure with its path, status, links, size and section files (fetch this first; ~155 KB raw, ~20 KB gzip-compressed over the wire)
+- [sections.json](https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/main/processed/comstock/comstock_amy2018_2025_release_3/sections.json): every heading, H3 and below included, with its line range in the document (only when you need to land on a heading below H2)
 - [CORPUS_MAP.md](https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/main/processed/comstock/comstock_amy2018_2025_release_3/CORPUS_MAP.md): the same contents as a readable map, with the measure → upgrade-id → document table
+
+## ResStock (housing)
+
+- [index.json](https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/main/processed/resstock/resstock_amy2018_2025_release_1/index.json): every document and measure with its path, status, links, size and section files (fetch this first; ~85 KB raw, ~11 KB gzip-compressed over the wire)
+- [sections.json](https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/main/processed/resstock/resstock_amy2018_2025_release_1/sections.json): every heading, H3 and below included, with its line range in the document (only when you need to land on a heading below H2)
+- [CORPUS_MAP.md](https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/main/processed/resstock/resstock_amy2018_2025_release_1/CORPUS_MAP.md): the same contents as a readable map, with the measure → upgrade-id → document table
 
 ## Documents
 
-- Pattern: `https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/<ref>/processed/comstock/comstock_amy2018_2025_release_3/<corpus_path>`, where `corpus_path` comes from index.json
-- Line 1 of every document is a provenance header: release, upstream path, publication status, source and publication URLs, corpus version. It alone is enough to cite the file.
-- 41 of 118 documents are over 100 KB; check `bytes` in index.json before fetching a whole document. Every H2 is also its own file, named in the document's index.json row (`sections_dir` + `section_files`): fetch `<sections_dir>/<name>` instead of the document.
+- Pattern: `https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/<ref>/processed/<product>/<release>/<corpus_path>`, where `corpus_path` comes from that product's index.json
+- Line 1 of every document is a provenance header: product, release, upstream path, publication status, source and publication URLs, corpus version. It alone is enough to cite the file.
+- Check `bytes` in index.json before fetching a whole document: 41 of ComStock's 118 documents and 14 of ResStock's 62 are over 100 KB. Every H2 is also its own file, named in the document's index.json row (`sections_dir` + `section_files`): fetch `<sections_dir>/<name>` instead of the document. Most section files are a few KB; a few are large (ComStock's Appendix A is one 450 KB section; in ResStock the Geometry and Envelope sections of guide chapter 3a are about 60 KB each, because each holds many housing characteristics under one H2). For a table inside a large section, take its heading's line range from sections.json.
 
 ## Optional
 
 - [README.md](https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/main/README.md): the authoring pipeline, layout, and smoke tests
-- [manifest.json](https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/main/processed/comstock/comstock_amy2018_2025_release_3/manifest.json): sha256 of every input and output, clone commits, overlays, gaps
-- [crosswalk.json](https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/main/processed/comstock/comstock_amy2018_2025_release_3/crosswalk.json): measure → upgrade id → document, with dates
+- [CHANGELOG.md](https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/main/CHANGELOG.md): one entry per tag; a product's newest tag is its topmost entry
+- manifest.json, beside each index.json: sha256 of every input and output, clone commits, overlays, gaps
+- crosswalk.json, beside each index.json: measure → upgrade id → document, with dates
 - [schemas/](https://github.com/NatLabRockies/buildstock-corpus/tree/main/schemas): JSON Schemas for index.json and sections.json

@@ -1,0 +1,111 @@
+# Hand-authored overlay for docs/technical_reference_guide/3a_ResStockInputs.tex
+#
+# Figure descriptions for the ResStock technical reference guide (plan step R4.5). The
+# guide's tables come from LaTeX source and are not part of the measure-report sweep; its
+# figures are pictures with a caption and no other text, so each gets an `alt` and a
+# description written from the picture, on 2026-11-11.
+#
+# pandoc writes a LaTeX figure as a <figure> block, so the refs are HTML <img> tags. The
+# overlay keeps the tag, sets the alt as its attribute, and places the description between
+# the picture and its <figcaption>.
+#
+# The California and ENERGY STAR maps are PNGs the build rasterizes from PDFs in the
+# source's images/ folder; each is pinned by the PNG the build wrote. Map descriptions
+# say what the legend and labels say and where the regions lie; they do not list every
+# state or county.
+
+product: resstock
+release: resstock_amy2018_2025_release_1
+source_id: technical_reference
+source_path: docs/technical_reference_guide/3a_ResStockInputs.tex
+source_url: https://github.com/NatLabRockies/resstock/blob/3888e2ff0a4764eb57de65ad0d103870330eb542/docs/technical_reference_guide/3a_ResStockInputs.tex
+publication_url: https://natlabrockies.github.io/ResStock.github.io/assets/trd/ResStockTechnicalReferenceGuide_2025_1.pdf
+figures:
+- source_image: images/2010-PUMAs.png
+  source_image_sha256: 35d219a93f7c6aeb9f5522758361f8ad19ef218700652cda53f69cd7cf204916
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Outline map of the United States divided into 2010 Public Use Microdata Areas
+  description: Greyscale outline map of the contiguous United States with insets for Alaska and Hawaii.
+    State borders are drawn heavy and Public Use Microdata Area boundaries thin. The areas are small and
+    densely packed around large cities and along the coasts, and large across the rural West and Plains,
+    where a single area can cover many counties. The map has no labels or legend.
+- source_image: images/aiannh_48b.jpg
+  source_image_sha256: 07270167374790d2b2df9e016834a3e575b573322f8faca203f2a0feeea35629
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Map of the contiguous United States with American Indian, Alaska Native and Native Hawaiian areas
+    in green
+  description: Map of the contiguous United States with state and county outlines on a pale background
+    and AIANNH areas filled in green. The largest green areas are in the Four Corners region of Arizona,
+    New Mexico and Utah, in eastern Oklahoma, and in South Dakota and Montana; many smaller areas are
+    scattered across the West, the upper Midwest and the Southeast. Alaska and Hawaii are not shown.
+- source_image: images/ashrae_iecc_cz_map_2004.jpg
+  source_image_sha256: d091f9e1acdf5b49d1db7754fe952f2615a360cdd13fa2ca46a56d87c64bd1b3
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: County-level map of the United States coloured by ASHRAE and IECC climate zone 1 to 7
+  description: County-level map of the contiguous United States coloured by climate zone, numbered 1 (the
+    southern tip of Florida) to 7 (the northern Plains, northern Minnesota and high mountains), with zones
+    2 to 6 in bands between. A scale across the top divides the country into Marine (C), Dry (B) and Moist
+    (A), and a white line marks the warm-humid area below it. Notes say all of Alaska is in Zone 7 except
+    nine named boroughs in Zone 8, and that Zone 1 includes Hawaii, Guam, Puerto Rico and the Virgin Islands.
+- source_image: images/building_america_cz.png
+  source_image_sha256: 0eae85d35611fdbee7933708979ca3a18375f3ed31aea9287f27b13f6779e4a2
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Map of the United States coloured by Building America climate zone
+  description: 'Map of the contiguous United States and Puerto Rico coloured by Building America climate
+    zone, with the zone names printed beside it: Marine along the Pacific coast; Cold / Very Cold across
+    the northern half, with the Very Cold areas dotted; Mixed-Humid across the middle of the East; Hot-Humid
+    along the Gulf and southern Atlantic coasts; and Hot-Dry / Mixed-Dry in the Southwest, with the Mixed-Dry
+    areas dotted.'
+- source_image: images/CEC_Building_Climate_Zones.png
+  source_image_sha256: 047f5a117dd7cc820396136a2eb391674ac6dd90dc60bab99559dbc1712d6f11
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Map of California's 16 building climate zones, 2020, with an inset of the Los Angeles area
+  description: Map titled 'Building Climate Zones, California, 2020', from the California Energy Commission,
+    with the 16 zones shaded and numbered and an inset enlarging the Los Angeles area. Zones 1 to 7 run
+    down the coast from north to south, 8 to 10 lie inland in the south, 11 to 13 fill the Central Valley,
+    14 and 15 cover the deserts and 16 the mountains. A printed note says these zones are based on energy
+    use, temperature, weather and other factors.
+- source_image: images/ENERGY_STAR_Climate_Zone_Map.png
+  source_image_sha256: 4945a3e62824c0a386b72e33ec8822539749426249d93fab4c8b8c693a313338
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Map of the United States coloured by the four ENERGY STAR climate zones
+  description: Map of the United States, with Alaska and Hawaii, coloured by the four ENERGY STAR climate
+    zones. Northern (blue) covers the northern tier, the Mountain West and Alaska; North-Central (yellow)
+    a band from California through the mid-Atlantic; South-Central (orange) the Southwest and the inland
+    South; and Southern (red) southern California and Arizona, south Texas, the Gulf Coast, Florida and
+    Hawaii.
+- source_image: images/reeds_ba_map.png
+  source_image_sha256: 67b2a87290d7925400aaa8afa8293e43fe9f0341f8140b3f51a62134cd0c7a71
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Map of the contiguous United States divided into ReEDS balancing areas, with interconnect boundaries
+  description: Map of the contiguous United States divided into ReEDS balancing areas, shaded in muted
+    blue, green, tan and white so that neighbours differ, each subdivided by thin lines into wind and
+    concentrating solar power regions. A red line marks the interconnect boundaries, running north to
+    south through the Plains and around most of Texas. The legend names Interconnect, Balancing Area and
+    Wind/CSP Region; the areas are not labelled.
+- source_image: images/Cambium_GEA_map_2023.png
+  source_image_sha256: 4aeafa83971b7376007ad33301255aa8021da6adaa7dce4fc55a0343b1d9b8b1
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Map of the contiguous United States divided into the 18 Cambium 2023 generation and emission assessment
+    regions
+  description: 'Map of the contiguous United States divided into 18 labelled regions: NorthernGrid West,
+    NorthernGrid East, NorthernGrid South, CAISO, WestConnect North, WestConnect South, SPP North, SPP
+    South, ERCOT, MISO North, MISO Central, MISO South, PJM West, PJM East, SERTP, FRCC, NYISO and ISONE.
+    Each region is a group of smaller numbered balancing areas, 1 to 134, outlined in grey.'
+- source_image: images/custom_region_map.png
+  source_image_sha256: d90d7ea0379952a4e4dd97550467a949c16bdf5661ff6e01a9c71749efb18060
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Map of the contiguous United States coloured and numbered by ResStock custom region
+  description: 'Map of the contiguous United States, over a road-map background, coloured by ResStock
+    custom region with each region''s number and name printed on it: 2 Upper Midwest, 3 New England, 4
+    Great Lakes, 5 Mountain North, 6 Pacific Northwest, 7 Mid-Atlantic, 8 Zone 4A (two separate areas,
+    in the central Plains and from Kentucky to Virginia), 9 Southeast, 10 Southwest and 11 California.'

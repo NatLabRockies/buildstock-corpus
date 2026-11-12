@@ -1,0 +1,1155 @@
+# Hand-authored overlay for measure_pdfs/95032.pdf
+#
+# 95032 is the ResStock measure documentation for the residential single-stage geothermal
+# heat pump upgrade (measure 6). Every table and figure in the report was compared with the
+# PDF on 2026-11-11, following "Checking every table and figure: the ResStock method" in
+# overlays/README.md.
+#
+# Tables (page numbers are PDF pages, 1-based):
+#   * Tables 1-10, Table 11 (two grids, pp.48-49) and Table A-1 are recorded under
+#     `checked:` as correct. Table 1 is this report's upgrade summary table.
+#   * Table A-2 (p.77) and Table B-1 (p.84) are superseded: see each entry's `why`.
+#       - Table A-2: numbers right, grouping wrong. The first Closed-Loop row (Water-to-air,
+#         criteria 3.6 / 17.1) had an empty group cell and read as Open-Loop or ungrouped;
+#         the "Product Type" header was dropped; the COP/EER spanner was a header row plus
+#         a data row.
+#       - Table B-1: values right, but the bold that the caption relies on ("The Current
+#         Configuration Used is Shown in Bold") was dropped, so the table did not say which
+#         configuration is used (Rectangle for 4 boreholes, "U" for 5, Line or Single
+#         otherwise).
+#   * The List of Acronyms (p.5) was extracted as a run-on paragraph, not a grid, so there
+#     is no table to fingerprint and no entry. Its ten acronyms and expansions are all
+#     present in that paragraph.
+#   * The Table of Contents, List of Figures and List of Tables grids are contents pages,
+#     not tables of the report, and have no entry.
+#
+# Figures: 44 bitmaps are described (40-70 words each, vision-description). The cover art
+# and wordmark (image_000000, image_000001) are decorative and omitted by the build.
+#   * Bitmaps that are one panel of a two-panel figure: image_000013 and image_000014
+#     (Figure 15, left and right), image_000016 and image_000017 (Figure 17, table panel
+#     and chart; the caption sits between the two refs), image_000042 (Figure A-9; the
+#     caption follows the ref; the line of axis years the extractor left between them is
+#     removed by a `text_repairs` entry, added in R4.6).
+#   * Number grids captioned as figures (R4.2b): Figures 3, 4, 5, 6 (p.24) and C-1, C-2,
+#     C-3, C-4 (pp.86-89) are colour-scaled grids of numbers pasted in as pictures (EIR
+#     and capacity lookups by air and water temperature; the Appendix C ones are
+#     manufacturer / curve-fit / difference grids). They have no text layer, and the
+#     converter kept only Figure 4's bitmap (image_000004). Each is now transcribed as a
+#     table under its caption (`tables:` entries labelled "Figure N").
+#   How they were read: each figure's bitmap was taken from the PDF at its own resolution
+#   and read cell by cell with OCR (RapidOCR), every cell recognised twice. The readings
+#   were then checked without reference to the OCR: in the appendix figures,
+#   Manufacturer minus Curvefit equals Difference in every cell; in the others, every value
+#   lies on a second-order surface fitted to its grid, to within rounding of the last digit.
+#   Row and column labels were checked too (even steps; °F against °C). Cells the two
+#   recognitions disagreed on were settled by eye.
+#     Not transcribed: Figure 2 (p.20), a scanned manufacturer performance sheet, which is
+#     described as a figure only.
+#
+# Flattening notes: Table A-2's merged group cells (Open-Loop over two rows, Closed-Loop
+# over three) are repeated on each row; its "Product Type" header spans the first two
+# columns and is repeated on both; the COP / EER spanners are joined to the sub-headers
+# ("COP: Min."). Row shading in the PDF is alternating bands and carries no meaning.
+# Table B-1's bold is load-bearing (the caption says so) and is carried as markdown bold.
+# Tables 9 and 10 set the Median column in bold; that restates the column and is dropped.
+
+product: resstock
+release: resstock_amy2018_2025_release_1
+source_id: upgrade_measures
+source_path: measure_pdfs/95032.pdf
+source_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf
+publication_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf
+text_repairs:
+- find: 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021
+  remove: true
+  why: The year labels of Figure A-9's horizontal axis (p.78), which the extractor left as a line of text between
+    the figure's picture and its caption. They are part of the picture, and the figure's description gives the range
+    (2003 to 2021).
+tables:
+- label: Table A-2
+  caption: ENERGY STAR Most Efficient GHPs, 2022
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 77
+  method: vision-transcription
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: c5b4103950029bd0247ef8838638bb448514ff057f4c0e1b86eca0d13bfaca30
+    why: 'Every number is right, but the row grouping is not. The first column''s merged cells are Open-Loop
+      (two rows) and Closed-Loop (three rows); the extractor left the first Closed-Loop row (Water-to-air,
+      criteria 3.6 / 17.1) with an empty group cell, so it reads as a third Open-Loop row or as no group
+      at all. The ''Product Type'' header over the first two columns was also dropped, and the COP/EER
+      spanner was flattened into a header row plus a data row. Group labels are repeated on each row and
+      the two header rows are joined as ''COP: Min.''.'
+  markdown: '| Product Type | Product Type | COP: Criteria | COP: Min. | COP: Ave. | COP: Max. | EER:
+    Criteria | EER: Min. | EER: Ave. | EER: Max. |
+
+    |---|---|---|---|---|---|---|---|---|---|
+
+    | Open-Loop | Water-to-air | 4.1 | 4.1 | 4.64 | 5.6 | 21.1 | 22.2 | 27.9 | 56.9 |
+
+    | Open-Loop | Water-to-water | 3.5 | 3.9 | 3.9 | 3.9 | 20.1 | 20.6 | 20.6 | 20.6 |
+
+    | Closed-Loop | Water-to-air | 3.6 | 3.6 | 4.06 | 4.6 | 17.1 | 17.3 | 22.4 | 33.7 |
+
+    | Closed-Loop | Water-to-water | 3.1 | 3.3 | 3.3 | 3.3 | 16.1 | 17.5 | 17.5 | 17.5 |
+
+    | Closed-Loop | Direct geo-exchange | 3.6 | 3.1* | 3.7* | 4.1* | 16.0 | 17.1* | 19.5* | 21.1* |'
+- label: Table B-1
+  caption: Prior Ground Heat Exchanger Configurations in OpenStudio-HPXML. The Current Configuration Used
+    is Shown in Bold.
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 84
+  method: pdf-text-layer (values and font weight), checked against the page render
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 72c09aee97cf0182c66c24b6d50aed08bcaa1caf037c0976fb7ebd80499f19e2
+    why: 'The caption says the current configuration is shown in bold, and the extractor dropped the bold,
+      so the table no longer says which configuration is used for each borehole count (it is not always
+      the first one listed: Rectangle for 4 boreholes, "U" for 5). Values are the extractor''s own, compared
+      with page 84; the bold is restored from the PDF''s font weight (Arial-BoldMT) and the render. The
+      stray space before the comma in ''Line ,'' is removed.'
+  markdown: '| Number of Boreholes | Configurations |
+
+    |---|---|
+
+    | 1 | **Single** |
+
+    | 2 | **Line** |
+
+    | 3 | **Line**, "L" |
+
+    | 4 | Line, "L", **Rectangle** |
+
+    | 5 | Line, "L", **"U"** |
+
+    | 6 | **Line**, "L", Rectangle |
+
+    | 7 | **Line**, "U" |
+
+    | 8 | **Line**, "L2", Open Rectangle, Rectangle |
+
+    | 9 | **Line**, "U", Rectangle |
+
+    | 10 | **Line**, "L2", Open Rectangle, Rectangle |'
+- label: Figure 3
+  caption: Full load heating EIR as a function of indoor return air (°C) and ground exit water temperature
+    (°C)
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 24
+  method: ocr of the figure's embedded bitmap, cell by cell (two recognitions agree); every value lies
+    on a fitted second-order surface to within rounding
+  transcribed_utc: '2026-11-11'
+  markdown: '| Tair↓ Twater→ | 0 | 2.5 | 5 | 7.5 | 10 | 12.5 | 15 | 17.5 | 20 | 22.5 | 25 | 27.5 | 30
+    |
+
+    |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+
+    | 10 | 0.218 | 0.205 | 0.193 | 0.182 | 0.173 | 0.165 | 0.158 | 0.153 | 0.148 | 0.145 | 0.144 | 0.143
+    | 0.144 |
+
+    | 12.5 | 0.244 | 0.229 | 0.216 | 0.205 | 0.194 | 0.185 | 0.177 | 0.170 | 0.165 | 0.161 | 0.158 | 0.157
+    | 0.156 |
+
+    | 15 | 0.273 | 0.258 | 0.244 | 0.231 | 0.219 | 0.209 | 0.200 | 0.192 | 0.185 | 0.180 | 0.176 | 0.174
+    | 0.172 |
+
+    | 17.5 | 0.307 | 0.290 | 0.275 | 0.261 | 0.248 | 0.236 | 0.226 | 0.217 | 0.210 | 0.203 | 0.198 | 0.195
+    | 0.192 |
+
+    | 20 | 0.344 | 0.326 | 0.310 | 0.295 | 0.281 | 0.268 | 0.257 | 0.247 | 0.238 | 0.231 | 0.224 | 0.220
+    | 0.216 |
+
+    | 22.5 | 0.385 | 0.366 | 0.349 | 0.333 | 0.317 | 0.304 | 0.291 | 0.280 | 0.270 | 0.262 | 0.255 | 0.249
+    | 0.244 |
+
+    | 25 | 0.431 | 0.411 | 0.392 | 0.374 | 0.358 | 0.343 | 0.330 | 0.318 | 0.307 | 0.297 | 0.288 | 0.281
+    | 0.276 |
+
+    | 27.5 | 0.480 | 0.459 | 0.439 | 0.420 | 0.403 | 0.387 | 0.372 | 0.359 | 0.347 | 0.336 | 0.326 | 0.318
+    | 0.311 |'
+- label: Figure 4
+  caption: Full load heating capacity as a function of indoor return air temperature (°C) and ground exit
+    water temperature (°C)
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 24
+  method: ocr of the figure's embedded bitmap, cell by cell (two recognitions agree); every value lies
+    on a fitted second-order surface to within rounding
+  transcribed_utc: '2026-11-11'
+  markdown: '| Tair↓ Twater→ | 0 | 2.5 | 5 | 7.5 | 10 | 12.5 | 15 | 17.5 | 20 | 22.5 | 25 | 27.5 | 30
+    |
+
+    |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+
+    | 10 | 5650 | 6037 | 6420 | 6800 | 7176 | 7550 | 7920 | 8287 | 8651 | 9011 | 9368 | 9722 | 10073 |
+
+    | 12.5 | 5559 | 5939 | 6315 | 6688 | 7058 | 7425 | 7789 | 8149 | 8506 | 8859 | 9210 | 9557 | 9901
+    |
+
+    | 15 | 5463 | 5836 | 6206 | 6573 | 6936 | 7296 | 7653 | 8006 | 8356 | 8703 | 9047 | 9388 | 9725 |
+
+    | 17.5 | 5363 | 5729 | 6092 | 6452 | 6809 | 7162 | 7512 | 7859 | 8203 | 8543 | 8880 | 9214 | 9544
+    |
+
+    | 20 | 5258 | 5618 | 5974 | 6328 | 6677 | 7024 | 7367 | 7707 | 8044 | 8378 | 8708 | 9035 | 9359 |
+
+    | 22.5 | 5149 | 5502 | 5852 | 6198 | 6541 | 6881 | 7218 | 7551 | 7881 | 8208 | 8532 | 8852 | 9169
+    |
+
+    | 25 | 5036 | 5382 | 5725 | 6065 | 6401 | 6734 | 7064 | 7391 | 7714 | 8034 | 8351 | 8665 | 8975 |
+
+    | 27.5 | 4918 | 5257 | 5593 | 5926 | 6256 | 6583 | 6906 | 7226 | 7542 | 7856 | 8166 | 8473 | 8777
+    |'
+- label: Figure 5
+  caption: Full load cooling EIR as a function of indoor return air temperature (°C) and ground exit water
+    temperature (°C)
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 24
+  method: ocr of the figure's embedded bitmap, cell by cell (two recognitions agree); every value lies
+    on a fitted second-order surface to within rounding
+  transcribed_utc: '2026-11-11'
+  markdown: '| Tair↓ Twater→ | 10 | 13 | 16 | 19 | 22 | 25 | 28 | 31 | 34 | 37 | 40 | 43 | 46 |
+
+    |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+
+    | 10 | 0.119 | 0.125 | 0.132 | 0.141 | 0.152 | 0.164 | 0.178 | 0.193 | 0.210 | 0.229 | 0.249 | 0.271
+    | 0.295 |
+
+    | 12.5 | 0.109 | 0.113 | 0.120 | 0.128 | 0.138 | 0.149 | 0.162 | 0.177 | 0.193 | 0.211 | 0.231 | 0.252
+    | 0.275 |
+
+    | 15 | 0.099 | 0.104 | 0.109 | 0.117 | 0.126 | 0.136 | 0.149 | 0.163 | 0.178 | 0.196 | 0.214 | 0.235
+    | 0.257 |
+
+    | 17.5 | 0.092 | 0.095 | 0.100 | 0.107 | 0.115 | 0.125 | 0.137 | 0.150 | 0.165 | 0.181 | 0.199 | 0.219
+    | 0.241 |
+
+    | 20 | 0.086 | 0.088 | 0.093 | 0.099 | 0.106 | 0.115 | 0.126 | 0.139 | 0.153 | 0.169 | 0.186 | 0.205
+    | 0.226 |
+
+    | 22.5 | 0.081 | 0.083 | 0.087 | 0.092 | 0.099 | 0.107 | 0.117 | 0.129 | 0.143 | 0.158 | 0.174 | 0.193
+    | 0.213 |
+
+    | 25 | 0.079 | 0.080 | 0.083 | 0.087 | 0.093 | 0.101 | 0.110 | 0.121 | 0.134 | 0.148 | 0.164 | 0.182
+    | 0.201 |'
+- label: Figure 6
+  caption: Full load cooling capacity as a function of indoor return air temperature (°C) and ground exit
+    water temperature (°C)
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 24
+  method: ocr of the figure's embedded bitmap, cell by cell (two recognitions agree); every value lies
+    on a fitted second-order surface to within rounding
+  transcribed_utc: '2026-11-11'
+  markdown: '| Tair↓ Twater→ | 10 | 13 | 16 | 19 | 22 | 25 | 28 | 31 | 34 | 37 | 40 | 43 | 46 |
+
+    |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+
+    | 10 | 6891 | 7008 | 7075 | 7095 | 7066 | 6989 | 6863 | 6689 | 6467 | 6196 | 5877 | 5509 | 5094 |
+
+    | 12.5 | 7531 | 7639 | 7700 | 7712 | 7675 | 7591 | 7458 | 7276 | 7046 | 6768 | 6442 | 6067 | 5644
+    |
+
+    | 15 | 8170 | 8271 | 8324 | 8329 | 8285 | 8193 | 8052 | 7863 | 7626 | 7340 | 7006 | 6624 | 6193 |
+
+    | 17.5 | 8809 | 8903 | 8948 | 8945 | 8894 | 8794 | 8647 | 8450 | 8206 | 7912 | 7571 | 7181 | 6743
+    |
+
+    | 20 | 9448 | 9535 | 9573 | 9562 | 9503 | 9396 | 9241 | 9037 | 8785 | 8485 | 8136 | 7739 | 7293 |
+
+    | 22.5 | 10087 | 10166 | 10197 | 10179 | 10113 | 9998 | 9836 | 9624 | 9365 | 9057 | 8701 | 8296 |
+    7843 |
+
+    | 25 | 10727 | 10798 | 10821 | 10796 | 10722 | 10600 | 10430 | 10211 | 9944 | 9629 | 9265 | 8853 |
+    8393 |'
+- label: Figure C-1
+  caption: Heating curve-fit capacity results verified against manufacturer catalog data
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 86
+  method: ocr of the figure's embedded bitmap, cell by cell (two recognitions agree); Manufacturer minus
+    Curvefit equals Difference in every cell
+  transcribed_utc: '2026-11-11'
+  markdown: 'The figure is a spreadsheet image holding three blocks. The first two columns of each block
+    are the indoor air temperature in °F and in °C; the other columns are water temperatures. Where a
+    block has two header rows (°F over °C) they are joined with '' / ''.
+
+
+    **Manufacturer Data**
+
+
+    | degreeF | degreeF / Tair↓ Twater→ | 30 / -1.11 | 40 / 4.44 | 50 / 10.00 | 60 / 15.56 | 70 / 21.11
+    | 80 / 26.67 | 85 / 29.44 |
+
+    |---|---|---|---|---|---|---|---|---|
+
+    | 50 | 10.00 | 7828.3 | 9041.5 | 10341.4 | 11641.3 | 12883.4 | 14010.0 | 14472.2 |
+
+    | 55 | 12.78 | 7683.3 | 8874.1 | 10149.9 | 11425.7 | 12644.8 | 13750.5 | 14204.2 |
+
+    | 60 | 15.56 | 7527.9 | 8694.6 | 9944.6 | 11194.6 | 12389.1 | 13472.4 | 13916.9 |
+
+    | 65 | 18.33 | 7366.8 | 8508.5 | 9731.7 | 10955.0 | 12123.9 | 13184.1 | 13619.0 |
+
+    | 70 | 21.11 | 7201.6 | 8317.8 | 9513.6 | 10709.4 | 11852.1 | 12888.5 | 13313.7 |
+
+    | 75 | 23.89 | 7034.1 | 8124.3 | 9292.3 | 10460.3 | 11576.4 | 12588.7 | 13004.0 |
+
+    | 80 | 26.67 | 6865.7 | 7929.8 | 9069.9 | 10209.9 | 11299.3 | 12287.4 | 12692.7 |
+
+
+    **Curvefit Data**
+
+
+    |  | Tair↓ Twater→ | -1.11 | 4.44 | 10.00 | 15.56 | 21.11 | 26.67 | 29.44 |
+
+    |---|---|---|---|---|---|---|---|---|
+
+    | 50 | 10.00 | 7995.2 | 9247.0 | 10475.3 | 11680.2 | 12861.6 | 14019.6 | 14589.7 |
+
+    | 55 | 12.78 | 7851.6 | 9079.3 | 10283.4 | 11464.1 | 12621.3 | 13755.1 | 14313.1 |
+
+    | 60 | 15.56 | 7700.1 | 8903.5 | 10083.4 | 11239.9 | 12373.0 | 13482.5 | 14028.5 |
+
+    | 65 | 18.33 | 7540.4 | 8719.7 | 9875.4 | 11007.7 | 12116.6 | 13201.9 | 13735.8 |
+
+    | 70 | 21.11 | 7372.8 | 8527.8 | 9659.4 | 10767.5 | 11852.1 | 12913.3 | 13435.1 |
+
+    | 75 | 23.89 | 7197.1 | 8327.9 | 9435.3 | 10519.2 | 11579.7 | 12616.6 | 13126.3 |
+
+    | 80 | 26.67 | 7013.3 | 8120.0 | 9203.2 | 10262.9 | 11299.1 | 12311.9 | 12809.5 |
+
+
+    **Difference**
+
+
+    |  | Tair↓ Twater→ | -1.11 | 4.44 | 10.00 | 15.56 | 21.11 | 26.67 | 29.44 |
+
+    |---|---|---|---|---|---|---|---|---|
+
+    | 50 | 10.00 | -166.9 | -205.5 | -133.9 | -38.9 | 21.8 | -9.5 | -117.5 |
+
+    | 55 | 12.78 | -168.3 | -205.2 | -133.5 | -38.4 | 23.5 | -4.5 | -109.0 |
+
+    | 60 | 15.56 | -172.2 | -208.9 | -138.9 | -45.3 | 16.1 | -10.1 | -111.6 |
+
+    | 65 | 18.33 | -173.7 | -211.2 | -143.7 | -52.7 | 7.3 | -17.9 | -116.8 |
+
+    | 70 | 21.11 | -171.1 | -210.1 | -145.8 | -58.1 | 0.0 | -24.8 | -121.4 |
+
+    | 75 | 23.89 | -163.0 | -203.7 | -143.0 | -58.9 | -3.2 | -27.9 | -122.3 |
+
+    | 80 | 26.67 | -147.6 | -190.2 | -133.3 | -53.0 | 0.2 | -24.6 | -116.8 |'
+- label: Figure C-2
+  caption: Heating EIR curve-fit capacity results verified against manufacturer catalog data
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 87
+  method: ocr of the figure's embedded bitmap, cell by cell (two recognitions agree); Manufacturer minus
+    Curvefit equals Difference in every cell
+  transcribed_utc: '2026-11-11'
+  markdown: 'The figure is a spreadsheet image holding three blocks. The first two columns of each block
+    are the indoor air temperature in °F and in °C; the other columns are water temperatures. Where a
+    block has two header rows (°F over °C) they are joined with '' / ''.
+
+
+    **Manufacturer Data**
+
+
+    | degreeF | degreeF / Tair↓ Twater→ | 30 / -1.11 | 40 / 4.44 | 50 / 10.00 | 60 / 15.56 | 70 / 21.11
+    | 80 / 26.67 | 85 / 29.44 |
+
+    |---|---|---|---|---|---|---|---|---|
+
+    | 50 | 10.00 | 0.1745 | 0.1546 | 0.1389 | 0.1272 | 0.1184 | 0.1121 | 0.1103 |
+
+    | 55 | 12.78 | 0.1963 | 0.1739 | 0.1562 | 0.1431 | 0.1332 | 0.1261 | 0.124 |
+
+    | 60 | 15.56 | 0.2223 | 0.197 | 0.1769 | 0.1621 | 0.1509 | 0.1428 | 0.1405 |
+
+    | 65 | 18.33 | 0.2528 | 0.224 | 0.2012 | 0.1843 | 0.1715 | 0.1624 | 0.1597 |
+
+    | 70 | 21.11 | 0.2882 | 0.2553 | 0.2293 | 0.2101 | 0.1955 | 0.1851 | 0.1821 |
+
+    | 75 | 23.89 | 0.3287 | 0.2913 | 0.2616 | 0.2397 | 0.2231 | 0.2112 | 0.2077 |
+
+    | 80 | 26.67 | 0.3748 | 0.3321 | 0.2983 | 0.2732 | 0.2543 | 0.2407 | 0.2368 |
+
+
+    **Curvefit Data**
+
+
+    |  | Tair↓ Twater→ | -1.11 | 4.44 | 10.00 | 15.56 | 21.11 | 26.67 | 29.44 |
+
+    |---|---|---|---|---|---|---|---|---|
+
+    | 50 | 10.00 | 0.177 | 0.154 | 0.136 | 0.123 | 0.116 | 0.113 | 0.114 |
+
+    | 55 | 12.78 | 0.200 | 0.175 | 0.155 | 0.140 | 0.130 | 0.125 | 0.124 |
+
+    | 60 | 15.56 | 0.227 | 0.199 | 0.177 | 0.160 | 0.148 | 0.141 | 0.139 |
+
+    | 65 | 18.33 | 0.257 | 0.228 | 0.204 | 0.184 | 0.170 | 0.161 | 0.158 |
+
+    | 70 | 21.11 | 0.292 | 0.260 | 0.234 | 0.212 | 0.196 | 0.184 | 0.180 |
+
+    | 75 | 23.89 | 0.330 | 0.296 | 0.268 | 0.244 | 0.225 | 0.211 | 0.206 |
+
+    | 80 | 26.67 | 0.372 | 0.336 | 0.305 | 0.279 | 0.258 | 0.243 | 0.237 |
+
+
+    **Difference**
+
+
+    |  | Tair↓ Twater→ | -1.11 | 4.44 | 10.00 | 15.56 | 21.11 | 26.67 | 29.44 |
+
+    |---|---|---|---|---|---|---|---|---|
+
+    | 50 | 10.00 | -0.002 | 0.000 | 0.003 | 0.004 | 0.003 | -0.001 | -0.003 |
+
+    | 55 | 12.78 | -0.004 | -0.001 | 0.001 | 0.003 | 0.003 | 0.001 | 0.000 |
+
+    | 60 | 15.56 | -0.004 | -0.003 | 0.000 | 0.002 | 0.003 | 0.002 | 0.001 |
+
+    | 65 | 18.33 | -0.005 | -0.004 | -0.002 | 0.000 | 0.002 | 0.002 | 0.002 |
+
+    | 70 | 21.11 | -0.004 | -0.005 | -0.004 | -0.002 | 0.000 | 0.001 | 0.002 |
+
+    | 75 | 23.89 | -0.001 | -0.005 | -0.006 | -0.004 | -0.002 | 0.000 | 0.001 |
+
+    | 80 | 26.67 | 0.002 | -0.004 | -0.007 | -0.006 | -0.004 | -0.002 | 0.000 |'
+- label: Figure C-3
+  caption: Cooling capacity curve-fit capacity results verified against manufacturer catalog data
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 88
+  method: ocr of the figure's embedded bitmap, cell by cell (two recognitions agree); Manufacturer minus
+    Curvefit equals Difference in every cell
+  transcribed_utc: '2026-11-11'
+  markdown: 'The figure is a spreadsheet image holding three blocks. The first two columns of each block
+    are the indoor air temperature in °F and in °C; the other columns are water temperatures. Where a
+    block has two header rows (°F over °C) they are joined with '' / ''.
+
+
+    **Manufacturer Data**
+
+
+    | degreeF | degreeF / Tair↓ Twater→ | 50 / 10.00 | 60 / 15.56 | 70 / 21.11 | 80 / 26.67 | 85 / 29.44
+    | 90 / 32.22 | 100 / 37.78 | 110 / 43.33 | 120 / 48.89 |
+
+    |---|---|---|---|---|---|---|---|---|---|---|
+
+    | 50 | 10.00 | 7969.9 | 8075.4 | 7927.8 | 7653.7 | 7442.8 | 7232.0 | 6768.1 | 6262.1 | 5756.1 |
+
+    | 55 | 12.78 | 8793.4 | 8909.7 | 8746.9 | 8444.5 | 8211.8 | 7979.2 | 7467.4 | 6909.1 | 6350.8 |
+
+    | 60 | 15.56 | 9618.0 | 9745.2 | 9567.1 | 9236.3 | 8981.9 | 8727.4 | 8167.6 | 7557.0 | 6946.3 |
+
+    | 65 | 18.33 | 10441.5 | 10579.6 | 10386.2 | 10027.1 | 9750.9 | 9474.7 | 8867.0 | 8204.0 | 7541.1
+    |
+
+    | 67 | 19.44 | 10639.3 | 10780.1 | 10583.1 | 10217.2 | 9935.7 | 9654.2 | 9035.0 | 8359.5 | 7684.0
+    |
+
+    | 70 | 21.11 | 11266.0 | 11415.0 | 11206.4 | 10818.9 | 10520.9 | 10222.9 | 9567.2 | 8851.9 | 8136.6
+    |
+
+    | 75 | 23.89 | 12089.5 | 12249.4 | 12025.5 | 11609.8 | 11289.9 | 10970.1 | 10266.5 | 9498.9 | 8731.3
+    |
+
+
+    **Curvefit Data**
+
+
+    |  | Tair↓ Twater→ | 10.00 | 15.56 | 21.11 | 26.67 | 29.44 | 32.22 | 37.78 | 43.33 | 48.89 |
+
+    |---|---|---|---|---|---|---|---|---|---|---|
+
+    | 50 | 10.00 | 7682.6 | 7879.8 | 7892.2 | 7719.7 | 7564.2 | 7362.4 | 6820.2 | 6093.1 | 5181.2 |
+
+    | 55 | 12.78 | 8474.3 | 8654.4 | 8649.8 | 8460.2 | 8296.1 | 8085.8 | 7526.5 | 6782.4 | 5853.3 |
+
+    | 60 | 15.56 | 9266.0 | 9429.1 | 9407.3 | 9200.7 | 9028.1 | 8809.2 | 8232.8 | 7471.6 | 6525.5 |
+
+    | 65 | 18.33 | 10057.7 | 10203.7 | 10164.9 | 9941.2 | 9760.0 | 9532.6 | 8939.2 | 8160.9 | 7197.7 |
+
+    | 67 | 19.44 | 10374.4 | 10513.6 | 10467.9 | 10237.4 | 10052.8 | 9822.0 | 9221.7 | 8436.6 | 7466.6
+    |
+
+    | 70 | 21.11 | 10849.4 | 10978.4 | 10922.5 | 10681.7 | 10492.0 | 10256.0 | 9645.5 | 8850.1 | 7869.9
+    |
+
+    | 75 | 23.89 | 11641.2 | 11753.0 | 11680.1 | 11422.2 | 11224.0 | 10979.5 | 10351.9 | 9539.4 | 8542.1
+    |
+
+
+    **Difference**
+
+
+    |  | Tair↓ Twater→ | 10.00 | 15.56 | 21.11 | 26.67 | 29.44 | 32.22 | 37.78 | 43.33 | 48.89 |
+
+    |---|---|---|---|---|---|---|---|---|---|---|
+
+    | 50 | 10.00 | 287.4 | 195.5 | 35.5 | -66.1 | -121.4 | -130.4 | -52.1 | 169.0 | 574.9 |
+
+    | 55 | 12.78 | 319.2 | 255.3 | 97.1 | -15.7 | -84.3 | -106.6 | -59.1 | 126.8 | 497.5 |
+
+    | 60 | 15.56 | 352.0 | 316.1 | 159.8 | 35.6 | -46.2 | -81.8 | -65.2 | 85.4 | 420.8 |
+
+    | 65 | 18.33 | 383.8 | 375.8 | 221.3 | 85.9 | -9.1 | -58.0 | -72.2 | 43.1 | 343.4 |
+
+    | 67 | 19.44 | 265.0 | 266.5 | 115.1 | -20.2 | -117.1 | -167.8 | -186.7 | -77.1 | 217.4 |
+
+    | 70 | 21.11 | 416.6 | 436.6 | 283.9 | 137.2 | 28.9 | -33.2 | -78.4 | 1.7 | 266.7 |
+
+    | 75 | 23.89 | 448.3 | 496.4 | 345.5 | 187.5 | 66.0 | -9.4 | -85.4 | -40.5 | 189.2 |'
+- label: Figure C-4
+  caption: Cooling EIR curve-fit capacity results verified against manufacturer catalog data
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 89
+  method: ocr of the figure's embedded bitmap, cell by cell (two recognitions agree); Manufacturer minus
+    Curvefit equals Difference in every cell
+  transcribed_utc: '2026-11-11'
+  markdown: 'The figure is a spreadsheet image holding three blocks. The first two columns of each block
+    are the indoor air temperature in °F and in °C; the other columns are water temperatures. Where a
+    block has two header rows (°F over °C) they are joined with '' / ''.
+
+
+    **Manufacturer Data**
+
+
+    | degreeF | degreeF / Tair↓ Twater→ | 50 / 10.00 | 60 / 15.56 | 70 / 21.11 | 80 / 26.67 | 85 / 29.44
+    | 90 / 32.22 | 100 / 37.78 | 110 / 43.33 | 120 / 48.89 |
+
+    |---|---|---|---|---|---|---|---|---|---|---|
+
+    | 50 | 10.00 | 0.194 | 0.21 | 0.237 | 0.272 | 0.296 | 0.32 | 0.378 | 0.454 | 0.547 |
+
+    | 55 | 12.78 | 0.176 | 0.191 | 0.215 | 0.247 | 0.269 | 0.291 | 0.344 | 0.413 | 0.497 |
+
+    | 60 | 15.56 | 0.161 | 0.175 | 0.198 | 0.227 | 0.247 | 0.267 | 0.315 | 0.378 | 0.456 |
+
+    | 65 | 18.33 | 0.149 | 0.162 | 0.183 | 0.21 | 0.228 | 0.247 | 0.291 | 0.35 | 0.421 |
+
+    | 67 | 19.44 | 0.147 | 0.159 | 0.179 | 0.206 | 0.224 | 0.242 | 0.286 | 0.344 | 0.414 |
+
+    | 70 | 21.11 | 0.139 | 0.15 | 0.17 | 0.195 | 0.212 | 0.229 | 0.271 | 0.325 | 0.392 |
+
+    | 75 | 23.89 | 0.13 | 0.141 | 0.159 | 0.182 | 0.198 | 0.214 | 0.253 | 0.304 | 0.366 |
+
+
+    **Curvefit Data**
+
+
+    |  | Tair↓ Twater→ | 10.00 | 15.56 | 21.11 | 26.67 | 29.44 | 32.22 | 37.78 | 43.33 | 48.89 |
+
+    |---|---|---|---|---|---|---|---|---|---|---|
+
+    | 50 | 10.00 | 0.196 | 0.215 | 0.244 | 0.281 | 0.304 | 0.328 | 0.385 | 0.450 | 0.525 |
+
+    | 55 | 12.78 | 0.177 | 0.193 | 0.219 | 0.254 | 0.276 | 0.299 | 0.353 | 0.416 | 0.488 |
+
+    | 60 | 15.56 | 0.160 | 0.175 | 0.198 | 0.231 | 0.251 | 0.273 | 0.324 | 0.384 | 0.454 |
+
+    | 65 | 18.33 | 0.147 | 0.159 | 0.180 | 0.210 | 0.229 | 0.250 | 0.298 | 0.356 | 0.423 |
+
+    | 67 | 19.44 | 0.143 | 0.154 | 0.174 | 0.203 | 0.221 | 0.241 | 0.289 | 0.346 | 0.412 |
+
+    | 70 | 21.11 | 0.138 | 0.147 | 0.165 | 0.193 | 0.210 | 0.230 | 0.276 | 0.331 | 0.396 |
+
+    | 75 | 23.89 | 0.131 | 0.138 | 0.154 | 0.179 | 0.195 | 0.213 | 0.257 | 0.310 | 0.372 |
+
+
+    **Difference**
+
+
+    |  | Tair↓ Twater→ | 10.00 | 15.56 | 21.11 | 26.67 | 29.44 | 32.22 | 37.78 | 43.33 | 48.89 |
+
+    |---|---|---|---|---|---|---|---|---|---|---|
+
+    | 50 | 10.00 | -0.003 | -0.005 | -0.007 | -0.010 | -0.008 | -0.008 | -0.007 | 0.004 | 0.022 |
+
+    | 55 | 12.78 | -0.001 | -0.003 | -0.004 | -0.007 | -0.006 | -0.008 | -0.009 | -0.003 | 0.009 |
+
+    | 60 | 15.56 | 0.001 | 0.000 | -0.001 | -0.004 | -0.004 | -0.006 | -0.009 | -0.006 | 0.002 |
+
+    | 65 | 18.33 | 0.002 | 0.003 | 0.003 | -0.001 | -0.001 | -0.003 | -0.007 | -0.006 | -0.002 |
+
+    | 67 | 19.44 | 0.003 | 0.005 | 0.006 | 0.003 | 0.003 | 0.001 | -0.003 | -0.002 | 0.002 |
+
+    | 70 | 21.11 | 0.001 | 0.004 | 0.005 | 0.002 | 0.002 | 0.000 | -0.005 | -0.006 | -0.004 |
+
+    | 75 | 23.89 | -0.001 | 0.003 | 0.005 | 0.003 | 0.003 | 0.001 | -0.004 | -0.006 | -0.006 |'
+checked:
+- label: Table 1
+  caption: Upgrade Measure Overview
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 10
+  table_sha256: 652811af162388d4c3eda4639435bcc7e547eb9bc6052bfc500a0649b0fc1764
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: This is the report's upgrade summary table. It has no header row in the PDF; the extractor used
+    the first row (Measure Title) as the header. Bullets are run inline and the bold on 71%, 6.4% and
+    25% is dropped; all text matches.
+- label: Table 2
+  caption: Rated Performance of the Products Used for Developing Performance Curves
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 21
+  table_sha256: 6d120fb8507443480e75e190c331d96b7ade32150ff19d446ef8134686f676c0
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: The first header cell is blank in the PDF as well.
+- label: Table 3
+  caption: Short Grass Median Undisturbed Ground Temperatures by IECC 2012 Climate Zones, According to
+    the Simplified Design Model and Site Locations in (Xing 2014)
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 31
+  table_sha256: 9aedc48c5f494d2182b01e9bcbc993b727a9fe0a1e33763f938be865474df417
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+- label: Table 4
+  caption: Summary of Software Tools Used to Optimize Geothermal Heat Pump (GHP) System Design, Focusing
+    on Ground Heat Exchanger Sizing, Thermal Modeling, and System Performance Over Time
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 35
+  table_sha256: d9859c07df98907cbadaee3596eb35b1de3c69441e7635814e34dd9b75aca5d2
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: '''large- scale'' carries a space where the PDF breaks the line after the hyphen.'
+- label: Table 5
+  caption: Borehole Depths and Diameters in the G-Function Library
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 38
+  table_sha256: e6965174dd6034e5910d78068d61700da696f9382473c41b646288ea4cbc06c2
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+- label: Table 6
+  caption: Overview of the G-Function Library Contents
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 40
+  table_sha256: 488b8007f54b7b2ddd5488ac24a66a7250515f180e1d1c5cb2feb8e6acb784ce
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+- label: Table 7
+  caption: Default Power Rating of Ducted Heat Pump System Components
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 44
+  table_sha256: 40e804590b3149e1897de3de9e3ef1835593bcb7748178b3417cc7ceaa4897c0
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: The table has two rows in the PDF (compressor and air handler); there is no electric-backup row
+    although the prose above mentions one.
+- label: Table 8
+  caption: Default Voltage and Breaker Space for Ducted Heat Pumps.
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 45
+  table_sha256: c1b742ab2c4a56d091de1753950f025b8922b3a7372834e8b1c1f11ed070c62b
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: One data row. The two lines in the Circuits and Breaker Spaces cells (ckt 1, ckt 2) are run together
+    on one line; 'ground-to- air' carries a line-break space.
+- label: Table 9
+  caption: ENERGY STAR 2025 Most Efficient GHP List and the Range of COP by Compressor Type
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 47
+  table_sha256: 63c2673f6824607e904a25d23a810296ae0ac2b3bfd59fbab61f587954102c65
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: The two-row header (COP over Min, 25th, Mean, Median, 75th, Max) is flattened into a header row
+    and a first data row; every value matches. The PDF sets the Median column in bold; the bold is dropped.
+- label: Table 10
+  caption: ENERGY STAR 2025 Most Efficient GHP List and the Range of EER by Compressor Type
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 47
+  table_sha256: 9d34b670188b9d3cfdc1b705054baadca578f94650f3086dd225224511564486
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: The two-row header (EER over Min, 25th, Mean, Median, 75th, Max) is flattened into a header row
+    and a first data row; every value matches. The PDF sets the Median column in bold; the bold is dropped.
+- label: Table 11
+  caption: Summary of the GHP, Geothermal Loop, and Soil Inputs
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 48
+  table_sha256: ac37eee7ddc25d60a59a33f79b84df49684329acc6f89a4ed987dee74226c6b8
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: 'First of two grids (the table runs over pages 48 and 49): 18 rows, Geothermal loop borefield
+    configuration to Heat pump airflow defect ratio. Footnote markers that are superscripts in the PDF
+    are flattened into the cell text as plain numbers after a space: ''default 28'', ''Exchanger 29'',
+    ''calculations 30'', ''glycol 31'', ''max=95°F 32'', ''default 33''. They are footnote numbers, not
+    part of the values.'
+- label: Table 11
+  caption: Summary of the GHP, Geothermal Loop, and Soil Inputs
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 49
+  table_sha256: 484ae413df3ba489ce8d1189dd42ddf6c7455fde456691f91f0704175188cf5d
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: 'Second of two grids (page 49): 21 rows, Heat pump backup type to Soil volumetric heat capacity.
+    Footnote markers that are superscripts in the PDF are flattened into the cell text as plain numbers
+    after a space: ''0.73 34'' (the value is 0.73), ''0.375 W/cfm 35'', ''80 W/ton 36'', ''Site default
+    37''. They are footnote numbers, not part of the values. ''(J/K-m 3 )'' is J/K-m3 with the superscript
+    spaced.'
+- label: Table A-1
+  caption: An Estimate of the Number of GHP Installations in the U.S.
+  source_pdf: measure_pdfs/95032.pdf
+  source_pdf_sha256: e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f
+  page: 70
+  table_sha256: ad0c7b43146815c0cd5f1dbc9bc579a347fabaf91eecefb7e3fabba2a4af1986
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+figures:
+- source_image: 95032_images/image_000002_a429cf5d958a67abbdceb0a07ce46f44f0da4be97bfdd1414879ef886218ed5c.png
+  source_image_sha256: 1d103172b73c4cdbd9e98d8e5ede209ed73da7f647361e247b90b2c726252fe7
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Flow diagram of the five OS-HPXML ground source heat pump calculation steps
+  description: 'Figure 1: process-flow diagram, a blue arrow titled ''OS-HPXML Ground Source Heat Pump
+    Calculations'' holding five steps in order: ACCA Manual J/S system size; calculate ground heat exchanger
+    length; calculate number of boreholes and configuration; g-function lookup; add heat pump coil and
+    distribution. There are no axes or data; it shows that loop sizing follows equipment sizing and precedes
+    the g-function lookup.'
+- source_image: 95032_images/image_000003_381d498b4366598371b9b4b5db9daadf054c7171ba773c4bdc70c6cc1e079d37.png
+  source_image_sha256: 9e77ab3f62c115ae739c82ea13e6dd04c8b9b2a3d8e126869ad1e8f3ac1b430f
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Manufacturer performance data sheet for a geothermal heat pump at 1,200 cfm nominal airflow
+  description: 'Figure 2: scanned manufacturer performance table, headed ''1,200 CFM Nominal (Rated) Airflow
+    Cooling, 1,200 CFM Nominal (Rated) Airflow Heating''. Rows are entering water temperature from 20
+    to 120°F; column groups are cooling at 80/67°F entering air (capacities, kW, EER) and heating at 70°F
+    (capacity, kW, COP). Cooling at 20°F and heating at 100°F and above are marked ''Operation not recommended''.
+    Cell values are too small to read here.'
+- source_image: 95032_images/image_000004_872e7ec1aa750ad3902165630b6bc45ce6078f5fb8da186d9449b306842a0cb7.png
+  source_image_sha256: 0ebc404efd137cb2b91b034d060d2d4e137d52d65740e6099e46f2c238047810
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Colour-scaled grid of full load heating capacity by return air and ground exit water temperature
+  description: 'Figure 4: colour-scaled grid of full load heating capacity. Rows are return air temperature
+    (Tair), 10 to 27.5°C, and columns ground exit water temperature (Twater), 0 to 30°C, in 2.5°C steps;
+    no unit is printed. Capacity rises with water temperature and falls slightly with air temperature:
+    5650 at 10°C air and 0°C water, 10073 at 10°C air and 30°C water, and 4918 at 27.5°C air and 0°C water.'
+- source_image: 95032_images/image_000005_4dfb61b921b84d56dee7f26c56923efe615391f76fdf44f7bb2b4a1840031c3e.png
+  source_image_sha256: e289278ee355c76b7b11cfdcd99ba666b007fd64d1794f777c036d316bcbc713
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Scatter plot of part load factor against part load ratio with a cubic fit, Cc = 0.9
+  description: 'Figure 7: scatter plot titled ''Part Load Factor, Cc = 0.9''. X-axis is part load ratio
+    (PLR), 0 to 1; y-axis is part load factor (PLF), -0.2 to 1.2. Points rise steeply from 0 at PLR 0,
+    then flatten toward 1.0. A dotted fitted curve, y = 3.0626x^3 - 6.0299x^2 + 3.8941x + 0.1186 (R^2
+    = 0.9701), is held at a floor of 0.7 below PLR 0.2.'
+- source_image: 95032_images/image_000006_9fd4a9d9d0d51492d2d3a745371f30847dba7f41211210885e29b9dc4d37cfd2.png
+  source_image_sha256: 4ddd0832e40bf8dfbb0dcdef3675edcf786fb6033138b0242e2e0e80f2503a48
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Scatter plot of normalized heat pump capacity against fraction of airflow, with quadratic fits
+  description: 'Figure 8: scatter plot titled ''Normalized Capacity''. X-axis is fraction of airflow,
+    0 to 1.4; y-axis is capacity multiplier, 0.92 to 1.04. Two series with dotted quadratic fits: total
+    capacity (y = -0.3165x^2 + 0.8099x + 0.5068) and heating capacity (y = -0.1234x^2 + 0.3642x + 0.7594).
+    Both pass through 1.0 at full airflow; at about 0.72 airflow total capacity falls to about 0.925 and
+    heating capacity to about 0.957.'
+- source_image: 95032_images/image_000007_8e91835e9eedff3807fb19af0a4acdfddb59ca8d776842e86343f49d15c6a5b0.png
+  source_image_sha256: 2bb4fc5fe600907d4d8141f6aa537159e94f692e37f68ac9f04c839d0f178649
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Scatter plot of normalized EIR against fraction of airflow, with quadratic fits
+  description: 'Figure 9: scatter plot titled ''Normalized EIR''. X-axis is fraction of airflow, 0 to
+    1.4; y-axis is EIR multiplier, 0 to 1.6. Two series with quadratic fits: cooling normalized EIR (y
+    = 0.5789x^2 - 1.6182x + 2.0184) and heating normalized EIR (y = 1.3858x^2 - 3.0886x + 2.796). Cooling
+    EIR falls from about 1.15 at 0.72 airflow to about 0.96 above full airflow; heating points scatter
+    from 0.96 to 1.33.'
+- source_image: 95032_images/image_000008_b1a456a8c1eca543c81f5150d2eff7bcc6c401302d7a735081af76e30bcd6038.png
+  source_image_sha256: 8b0315c112f2757ddad086a3182686906fc72b9af4e4040bbf228bf4b7927464
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Map of North America with a dot at each ground temperature site in Xing's Appendix A-3
+  description: 'Figure 10: dot map of North America on a street-map base. Each black dot is one site from
+    Xing''s Appendix A-3 lookup table of ground temperature model parameters. Dots cover the contiguous
+    United States densely, most heavily in the Northeast, the Midwest and along the West Coast, with sparser
+    coverage of Alaska, Canada, Hawaii, Mexico and the Caribbean. There are no axes, legend or values.'
+- source_image: 95032_images/image_000009_68544727652b6af7cc6d1e1a93d0616e1fbf31d2ffa47da83fe33af2848ce710.png
+  source_image_sha256: e8109ee596686f398a6b73f66eb87a820ca8a05e6f7167ed7f4e6671966be887
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Box plots of annual mean undisturbed ground temperature by IECC 2012 climate and moisture zone
+  description: 'Figure 11: box plots of annual mean undisturbed ground temperature. Y-axis is ground temperature
+    in °C, about -2 to 27; x-axis is 17 IECC 2012 zones grouped by moisture regime: (A, 1A) to (A, 7A),
+    (AK, 7AK), (AK, 8AK), (B, 2B) to (B, 7B), (C, 3C), (C, 4C). Medians fall from about 25°C in 1A to
+    about 2°C in 8AK; 4B has the widest box. Table 3 lists the medians.'
+- source_image: 95032_images/image_000010_cab8d4f17f3da1d7ece26f7fb6dfa4680ce01ae9d249aca1bbdaca4f9ef3947a.png
+  source_image_sha256: 631716392816c0098b7cac36ce6ac20320bbe3950725aeb0837472f8c6676ec1
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grid of 17 histograms of ground thermal conductivity samples, one per IECC 2012 climate zone
+  description: 'Figure 12: grid of 17 histograms, one per IECC 2012 climate zone from 1A to 8AK. X-axis
+    is thermal conductivity in W/m-K, 0 to 4; y-axis is number of samples, on a different scale in each
+    panel (a few tens in 1A, 3C, 7B and 8AK; about 6,000 in 5A). Most zones peak between about 2 and 2.5
+    W/m-K; zone 7B instead has its tallest bar in the lowest bin.'
+- source_image: 95032_images/image_000011_16d71ced2b5c649d540392e444501a31130a216a187653bcc183ecc40c2e9708.png
+  source_image_sha256: ab7d099c26ebbd4a17fe2ca15258b1b67c9fde8317d729c7e985d4bc156cd77e
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: County map of median ground thermal conductivity in W/m-K, with Alaska and Hawaii insets
+  description: 'Figure 13: county choropleth map of the United States with insets for Alaska and Hawaii.
+    The colour scale is median ground thermal conductivity in W/m-K, from 1.385 (dark red) through yellow
+    to 3.461 (green). The lowest values cover much of Washington, Oregon, Idaho, Nevada and the central
+    Rocky Mountains; the upper Midwest, Texas and parts of California are mostly yellow, and the Southeast
+    and Northeast orange.'
+- source_image: 95032_images/image_000012_c26098c96bf2d74e4306840eb471fc8a462a3d4f20213b734ea1614320d259c1.png
+  source_image_sha256: b740f4e0b59777550f187fe07264e3bd5dc4cc1d0fb84d59c62ddcddcb3b11b5
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: 'Nine top-view dot plots of borehole field layouts: rectangle, C, L, zoned rectangle, U, lopsided
+    U, open rectangle'
+  description: 'Figure 14: nine top-view dot plots of borehole layouts, each with x and y axes in metres
+    and a title giving its dimensions and number of boreholes (NBH). The labelled shapes are Rectangle
+    (5x8, NBH 40), C (8x12, NBH 33), L (7x13, NBH 19), Zoned Rectangle (10x15, NBH 49), two U layouts
+    (NBH 23 and 72), LopU (NBH 17) and two Open Rectangle layouts (NBH 42 and 44).'
+- source_image: 95032_images/image_000013_3d56b6b5e0e4eec8b2d2083e2394ac7995cf49b0a6f8cd07920b0bb3b8976eea.png
+  source_image_sha256: b035b44548cabab49b840b6cffdfb2dc8b737446a05699f9071908e80484c015
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Code editor screenshot of rectangle_5m_v1.0.json with an arrow on the single layout key
+  description: 'Figure 15, left panel: dark-theme code editor screenshot of rectangle_5m_v1.0.json under
+    HPXMLtoOpenStudio/resources/g_functions. One orange arrow points at the top-level key "1_1", the single
+    key that selects a Rectangle layout. Beneath it are bore_locations, a g block whose entries are keyed
+    like "5._192._0.08", and logtime; further collapsed layout keys follow ("1_10", "1_2", "1_3" and so
+    on).'
+- source_image: 95032_images/image_000014_84cf7c06986c50e5750fa755d4e89891cbb125ff420ec268adefbf09c943dfd7.png
+  source_image_sha256: b6e49b897a62e6c4edd0536dbe09b35433b8901669d1f1cc38b308568916476c
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Code editor screenshot of C_configurations_5m_v1.0.json with arrows on its two layout keys
+  description: 'Figure 15, right panel: dark-theme code editor screenshot of C_configurations_5m_v1.0.json
+    under HPXMLtoOpenStudio/resources/g_functions. Two orange arrows point at the nested keys "3_3" and
+    "1", the two keys that together select a C layout. Inside are collapsed bore_locations, g and logtime
+    entries, followed by a second top-level key "3_4" with its own "1" entry. The file runs to 430 lines.'
+- source_image: 95032_images/image_000015_4e0e834577ca62244b368024ba1389acc61c4f5f161cfff94fd31840a94d19dc.png
+  source_image_sha256: f3fbb24613fb20b14d75e2d05f5768ed9c883a7f0a6bfafec37ddcb8f60891cd
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Flowchart of the four-step g-function interpolation procedure
+  description: 'Figure 16: flowchart of four boxes joined by downward arrows. Step 1: configuration selected
+    with B, H, rb and B/H. Step 2: interpolate g-function values based on B/H, and the corresponding values
+    of rb/H (to be used in the correction) and D/H (informational only). Step 3: calculate rb (interpolated
+    value). Step 4: correct g-function values for the actual rb using Equation 1. No data are shown.'
+- source_image: 95032_images/image_000016_aa3e725d033f56a66ececb988e75a63754ddf0f16fe8d8c8035c1b6eef7561b2.png
+  source_image_sha256: c59769c1330f865ad303363a03de4cd90f004cb08f31ffd4a720fdef7ac6a998
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Table image of g-function values A and B at 27 values of ln(t/ts)
+  description: 'Figure 17, left panel: a table rendered as an image, with columns ln(t/ts), A and B and
+    27 rows from ln(t/ts) = -8.5 to 3.003. A is the g-function from the OpenStudio-HPXML run and B the
+    library documentation example. The two agree to about three decimal places throughout, from 2.6191
+    and 2.6190 in the first row to 43.8846 and 43.8850 in the last. The right panel plots the same values.'
+- source_image: 95032_images/image_000017_099c716c5f0ef5cfa411df2378251f51da8bc43dbd09baac7b3143045bfa52d4.png
+  source_image_sha256: baaa403e7a7fdd6bd5f253a69a646d9bac12121c1311c499c2afb542f3cbd749
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line and scatter chart of g-function value against ln(t/ts), series A on series B
+  description: 'Figure 17, right panel: chart titled ''g-function validation''. X-axis is ln(t/ts), -10
+    to 4; y-axis is g-function value, 0 to 50. Series A is plotted as dots and series B as a line. Both
+    trace one S-shaped curve, from about 2.6 at ln(t/ts) = -8.5 to about 44 at 3, steepest between -4
+    and 0; the dots sit on the line. The left panel tabulates the values.'
+- source_image: 95032_images/image_000018_8a050bcd65a4fe768564b737f6c008027678f9907a50df281584a00ee3f6a22a.png
+  source_image_sha256: f70ffc1223f6b4d87ed37084f34a40c23e660caafd28ecac3aa1a19a29c55fb6
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bars of total stock energy use by end use and fuel, baseline vs single-stage GHP
+  description: 'Figure 18: stacked bar chart for the entire stock. Y-axis is annual energy consumption
+    in TBtu, 0 to 12k; the two bars are Baseline (total 11784) and Single-Stage GHP (total 8915), stacked
+    by end use and fuel (appliances, misc, cooling, lighting, heating, hot water, each by electricity,
+    natural gas, fuel oil and propane). Fuel-fired heating segments shrink to almost nothing while electric
+    heating grows from 874.0 to 1858.6 TBtu.'
+- source_image: 95032_images/image_000019_f87fe3a9790ad142819b296ed353f131e5adbcb877b78e44cd7342d0acd8f343.png
+  source_image_sha256: 97e3fa1d7e9c8062cfc0efd746daccef0475b08323292a5c616b03641da8b8b2
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bars of energy use by end use and fuel for upgraded dwellings only, baseline vs single-stage
+    GHP
+  description: 'Figure 19: stacked bar chart for dwellings that receive the upgrade only. Y-axis is annual
+    energy consumption in TBtu, 0 to 12k; the two bars are Baseline (total 9154) and Single-Stage GHP
+    (total 6286), stacked by the same end-use and fuel segments as Figure 18. Fuel-fired heating disappears
+    from the upgrade bar and is replaced by a larger electric heating segment; the non-HVAC segments are
+    unchanged.'
+- source_image: 95032_images/image_000020_5d8338e660d97856439511ce17f6d62eca9de204245c9341ea9503ce7348da78.png
+  source_image_sha256: ed115e6654cb5c2c2d975f7fbf659aba571648c40efdfa063683e85a072624f5
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Four panels of stacked energy use bars by baseline heating fuel, baseline vs single-stage GHP
+  description: 'Figure 20: four-panel stacked bar chart, one panel per baseline heating fuel, each with
+    a Baseline and a Single-Stage GHP bar on a shared y-axis of annual energy consumption in TBtu (0 to
+    about 5,700). Totals fall in every panel: Electricity 2397 to 2040, Fuel Oil 567 to 316, Natural Gas
+    5618 to 3587 and Propane 572 to 342. Segments are the end uses and fuels of Figure 18.'
+- source_image: 95032_images/image_000021_f26931939b374ad3053c1cd3f44a330be42a79f99af48cf227fd0a0adc0587e2.png
+  source_image_sha256: 7828c48931113babffe18eda2d1e9e47820b235cf32b47c07440f3d0b1dfaa1a
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Eight panels of stacked energy use bars by Building America climate zone, baseline vs single-stage
+    GHP
+  description: 'Figure 21: eight-panel stacked bar chart, one panel per Building America climate zone,
+    each with a Baseline and a Single-Stage GHP bar on a shared y-axis of annual energy consumption in
+    TBtu (0 to about 4,000). The largest totals are Cold (3947 falling to 2335), Mixed-Humid (2907 to
+    2014) and Hot-Humid (1282 to 1103); Hot-Dry, Marine, Mixed-Dry, Very Cold and Subarctic are far smaller.
+    Totals fall in every zone.'
+- source_image: 95032_images/image_000022_c75c66ef7dafa438308da9bc1e62571e4be42eaa26e593a3a820d5fb92475cf0.png
+  source_image_sha256: aeffbcaf6177eb06098492dc04935edddf9d57ea921103b92c55268ff7372225
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: State map of percent cooling energy savings from the single-stage GHP, labelled by state
+  description: 'Figure 22: choropleth map of the contiguous United States, each state labelled with its
+    percent cooling energy savings and coloured in six bins from -100 to -75% up to 25 to 50%. Most states
+    save roughly 20% to 31%, for example South Dakota 31.6% and Kansas 31.3%. Savings are negative in
+    Vermont (-92.0%), Maine (-56.2%), Washington (-17.7%), New Hampshire (-11.9%), Wyoming, Montana and
+    California.'
+- source_image: 95032_images/image_000023_0243a1e3739940b80830bd87b4cbf70ec6d53a927ebca13e3ccb6c1ff469b095.png
+  source_image_sha256: 3b28127bcd363497ef14d2153f8db259dfa54e859618c4d7feeded64c14734f0
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: State map of percent heating energy savings from the single-stage GHP, labelled by state
+  description: 'Figure 23: choropleth map of the contiguous United States, each state labelled with its
+    percent heating energy savings and coloured in seven bins from 50.0 to 52.5% up to 65.0 to 67.5%.
+    Every state saves more than half of its heating energy: the lowest label is Florida at 50.6% and the
+    highest Maine at 67.9%. The lightest bins are confined to the Southeast, and most other states are
+    above 60%.'
+- source_image: 95032_images/image_000024_67f5a27b9452a8ca7248a9ffa63a3c6cd025ab979c3aed648c1940377a8c11d8.png
+  source_image_sha256: f6dfac227a9c8fa275f6fb84254fb8eb9500d6ce46b35e0d0f8d1c96873e1d0b
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: State map of average cooling COP of the single-stage GHP, labelled by state
+  description: 'Figure 24: choropleth map of the contiguous United States titled ''Cooling COP Single
+    Stage GHP'', each state labelled with its average simulated cooling COP and coloured in four bins
+    from 2.8 to 3.0 up to 3.4 to 3.6. Values rise from south to north: Florida is lowest at 2.90, the
+    Gulf states are near 3.0, and Montana and Idaho are highest at 3.70.'
+- source_image: 95032_images/image_000025_a03296a97463bb0252888ce12f6a603833556caf42e347f20e727684830519d8.png
+  source_image_sha256: 4e605879d5bf1b0a6cbe96d8c0a6a624414845edf05a3e586aa3fc0c795dbc0c
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: State map of average heating COP of the single-stage GHP, labelled by state
+  description: 'Figure 25: choropleth map of the contiguous United States titled ''Heating COP Single
+    Stage GHP'', each state labelled with its average simulated heating COP and coloured in three bins:
+    2.0 to 2.2, 2.2 to 2.4 and 2.4 to 2.6. Northern Plains, upper Midwest and northern New England states
+    are lowest (North Dakota 2.04), most others fall between 2.2 and 2.4, and Louisiana is highest at
+    2.40.'
+- source_image: 95032_images/image_000026_8f9e30a4dd7c5aea3c2e26ca80ebbf5751cdba5722b9fe2695565978c967718e.png
+  source_image_sha256: 1429d3de9ab443d4fa972342bd224d77e8799e1d1d1616fbbbbf3ee5c8ccf330
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bars of average annual energy bills by fuel, baseline vs single-stage GHP
+  description: 'Figure 26: horizontal grouped bar chart. X-axis is bills in USD, 0 to about 2,800; rows
+    are electricity, natural gas, fuel oil, propane and all fuels (labelled out.bills.electricity.usd
+    and so on), each with Baseline and ''Single-Speed GHP'' bars. Electricity rises from about 2,000 to
+    about 2,500 USD, natural gas falls from about 560 to about 180, and the all-fuels total falls slightly.'
+- source_image: 95032_images/image_000027_9e3e808e17cc5f30bd16e7ed041aa880d67b34b0d840661de9a967f96e72842f.png
+  source_image_sha256: e27d923cb88aad0241d510d3c37cf1a1b4d15ea5fd995ea395a404c9076fc218
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bars of average annual energy bills by Building America climate zone and fuel, baseline
+    vs GHP
+  description: 'Figure 27: horizontal stacked bar chart. X-axis is bills in USD, 0 to about 5,200; rows
+    are eight Building America climate zones, each with a Baseline bar above a ''Single-Speed GHP'' bar,
+    stacked by electricity, natural gas, fuel oil and propane bills. Subarctic is the outlier, falling
+    from about 5,200 USD (mostly fuel oil) to about 3,500; the other zones lie between about 2,100 and
+    3,300.'
+- source_image: 95032_images/image_000028_43855c053cd6a05a85a618442f99dc5c06ee1a935a1c9b2b9bff86d65ca83f02.png
+  source_image_sha256: 433538800e1207c473951285fed1a89d171c13d7b99e8e328f42f1a3257b6bf3
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: 100% stacked columns of available breaker spaces by electric panel service rating, baseline stock
+  description: 'Figure 28: 100% stacked column chart titled ''Available Electric Panel Breaker Spaces
+    by Electric Panel Service Rating''. Y-axis is percent of dwelling units; columns are All and seven
+    service ratings from under 100 to 201+ amps; segments are 0, 1, 2, 3, 4, 5-10 and 10+ available spaces.
+    In the All column 25.6% of units have no free space and 9.7% have one.'
+- source_image: 95032_images/image_000029_046b3a8cae73f6427c500fad9f99f6cf1257f32a523444c97f9c88bb0d1afcb6.png
+  source_image_sha256: 7c3bc12ac15cbedd27dd3f0ffe9c109f7d1a61045a7bf1909c084a5affb3866a
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: 100% stacked columns of baseline panel constraint type by electric panel service rating
+  description: 'Figure 29: 100% stacked column chart titled ''Electric Panel Constraint Type by Electric
+    Panel Service Rating''. Y-axis is percent of dwelling units; columns are All and seven service ratings
+    from under 100 to 201+ amps; segments are No Constraint and Capacity Constrained Only. Overall 97.7%
+    of units have no constraint. Panels under 100 amps stand out, with 32.9% capacity constrained.'
+- source_image: 95032_images/image_000030_97385c5eeb7b9f8a80b230fa1baf26d2cbd364039e74043e7df9f9ee2727b5cc.png
+  source_image_sha256: bd3f5bb278a1c8cdfdf4d099cd93e73ddd5fda521408757ff6040bb12591557c
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: 100% stacked columns of panel constraint type by heating fuel after the single-stage GHP upgrade
+  description: 'Figure 30: 100% stacked column chart titled ''Electric Panel Constraint Type by Heating
+    Fuel''. Y-axis is percent of dwelling units; columns are All, Electricity, Natural Gas, Fuel Oil and
+    Propane; segments are No Constraint, Capacity Constrained Only, Space Constrained Only, and Capacity
+    and Space Constrained. Overall 62.4% have no constraint; electricity-heated units are 88.9% unconstrained
+    and fuel oil units only 30.8%.'
+- source_image: 95032_images/image_000031_27b59514c186eafbc41d05d288e8bb1f87359c9ab7965947e0e97d70f54f8f2a.png
+  source_image_sha256: f6424c3f36b5d56bd13d9e7813ec24e3d12a07ba52e559b3e6dfb0eaff59428f
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: State map of percent of dwelling units with a panel capacity and/or space constraint after the
+    GHP upgrade
+  description: 'Figure 31: choropleth map titled ''Percent of Dwelling Units with Electric Panel Capacity
+    and/or Space Constraints'', a dashboard screenshot with Alaska and Hawaii insets and a percent label
+    on each state. The colour scale runs from 11.1% to 70.0% of dwelling units. Shares are highest across
+    the northern Plains, upper Midwest and New England, mostly above 50%, and lowest in the Southeast,
+    with Florida at 11.1%.'
+- source_image: 95032_images/image_000032_0db02900222ccf1a8b71001b02c89f4b9d38ba51a311f6a40e4042fe1a873e82.png
+  source_image_sha256: 7379b143f97f18cc38a73d802f0118725a05870ce389b4139415cbbbb188e82b
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: State map of percent of dwelling units with a panel space constraint after the GHP upgrade
+  description: 'Figure 32: choropleth map titled ''Percent of Dwelling Units with Electric Panel Space
+    Constraints'', a dashboard screenshot with Alaska and Hawaii insets and a percent label on each state.
+    The colour scale runs from 3.9% to 53.4% of dwelling units. Shares are highest in northern New England,
+    Alaska (49.7%) and the northern Plains, and lowest in the South, with Florida at 3.9%.'
+- source_image: 95032_images/image_000033_1113c7de7523a3a89ed04b197ee2efab1fc9141d82291b9aa08666e3f579dfcb.png
+  source_image_sha256: b01b07e3b9dd8a372fe91bf05d64494171e35c3cd7b5344d626aa099bdc19d88
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: State map of percent of dwelling units with a panel capacity constraint after the GHP upgrade
+  description: 'Figure 33: choropleth map titled ''Percent of Dwelling Units with Electric Panel Capacity
+    Constraints'', a dashboard screenshot with Alaska and Hawaii insets and a percent label on each state.
+    The colour scale, labelled ''% of Total Weight'', runs from 6.7% to 47.9%. Shares are highest in the
+    northern Plains, upper Midwest and New England, above 40% in several states, and lowest in the South
+    and Southwest, with Florida at 7.9%.'
+- source_image: 95032_images/image_000034_361e08038428e7c89c0ba16dd08a8eeaabf6ad4b55216e8a8580604d151c7dc4.png
+  source_image_sha256: 6dd27b59e30156ecb9aae6a840a4c9251a2db2ce4c1e0d21f8ae857080f90422
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of annual GHP unit shipments 2003-2021 from ENERGY STAR and Jaewan et al., with estimates
+  description: 'Figure A-1: grouped bar chart. X-axis is year, 2003 to 2021; y-axis is GHP unit shipments
+    in thousands, 0 to 300. Series are ENERGY STAR shipment data and J. Jaewan et al. (2021) for 2003-2015,
+    and estimated ENERGY STAR shipment data with error bars for 2016-2021. The measured series rise together
+    from about 40 thousand in 2003 to 250 thousand in 2015; the estimates range from about 115 to 210.'
+- source_image: 95032_images/image_000035_230eba1faef0df78c1641a0e67855f6a236d8bcdd9fbb6010c12f5563c912d30.png
+  source_image_sha256: b732c8549a3a1cb8267d4da6c6332ea00bba3ea30a247787309c3d31d32ed4d1
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: State map of occupied dwelling units with GHPs in 2020, in thousands
+  description: 'Figure A-2: choropleth map of the United States. The colour scale is dwelling units with
+    GHPs in thousands, from near 0 (lightest) to above 100 (darkest blue); states with no RECS sample
+    are white. The darkest states are Florida, Tennessee, North Carolina and Alabama, followed by Texas
+    and Ohio; most western and northern Plains states are in the lightest shades. Figure A-3 charts the
+    values.'
+- source_image: 95032_images/image_000036_ec69f93323e89253e621616077006268a536dcd707812ce8589561ac2ba57999.png
+  source_image_sha256: f553249a53b80c968f4934c1d12ccf1375ab6ecece85f770e0bbcac17646eb2f
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Two bar charts of GHP installations in thousands, by state and by IECC climate zone
+  description: 'Figure A-3: two bar charts with y-axes in number of GHP installations (thousands). The
+    top chart ranks states from Florida (about 113), Tennessee, North Carolina and Alabama (about 98)
+    down to Hawaii and North Dakota near zero. The bottom chart ranks ten IECC climate zones: 4A is highest
+    at about 375, then 3A (about 310), 5A (about 240) and 2A (about 180); the other six are below about
+    65.'
+- source_image: 95032_images/image_000037_4b7fb99c3e7021029b6409af1592dc1f37777dad2937d2cf4516a735b6948710.png
+  source_image_sha256: b2e368e2723aa513e1a8dd1482b792b9463d67482357fe1e1fb19ca2545a49f5
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: 'Two bar charts by building type: U.S. occupied dwellings and GHP installations'
+  description: 'Figure A-4: two bar charts sharing the x-axis ''Geometry Building Type RECS'' (single-family
+    detached, mobile home, multi-family with 5+ units, multi-family with 2-4 units, single-family attached).
+    The left y-axis is full residential stock, peaking at about 75M for single-family detached. The right
+    y-axis is GHP installations in thousands: about 970 in single-family detached, about 120 in mobile
+    homes and about 60 or fewer in each other type.'
+- source_image: 95032_images/image_000038_2d6cda281787f5678310e73c31c9ab221ef340c3c80d87cc9ff0c6220632294f.png
+  source_image_sha256: 523ae4c2441182f4de2f92f991ab2f99bd4755228798aec0bfa6550ff586910a
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: 'Two bar charts by house vintage: U.S. residential stock and RECS 2020 GHP installations'
+  description: 'Figure A-5: two bar charts by vintage in eight bins from ''Before 1950'' to the most recent
+    decade. Left, ''U.S. Residential Stock'': the pre-1950 bin is tallest, at about 22M dwellings. Right,
+    ''RECS 2020 GHP Installations'': the y-axis is installations in thousands, 0 to about 270. The four
+    bins before 1980 are each about 110 thousand or less, while the four later bins are each about 220
+    to 265 thousand.'
+- source_image: 95032_images/image_000039_d7a7072c6f3841e9668f0ea9d6375b5351e219f2d5f78e5aa8039fbdef525cf6.png
+  source_image_sha256: 59223f09146c63c228d80e59518d71bec651609a1f2c0efacd042e715618bbcc
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart with data table of residential GHP equipment type shares
+  description: 'Figure A-6: bar chart with a data table beneath it. Y-axis is percent installed, 0% to
+    100%; the four bars are equipment types. Water-to-air (WTA) is by far the largest at 77%, followed
+    by combined WTA and WTW systems at 10%, water-to-water (WTW, hydronic) at 8% and direct geo-exchange
+    at 5%.'
+- source_image: 95032_images/image_000040_a873b949f7b0975c3bd0081277e87f3a97614fa022f02cffa25df21ad9abda66.png
+  source_image_sha256: 9c4c1cb0f317fae4946553544285abf68959fbb895aea978bf92bb5875a35b84
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of ENERGY STAR EER criteria for six GHP types, 2001-2021
+  description: 'Figure A-7: step line chart. X-axis is year, 2000 to 2022; y-axis is EER, 12 to 22. Six
+    series: closed-loop and open-loop water-to-air (WTA) and water-to-water (WTW), and direct geo-exchange
+    (DGX) WTA and WTW. Criteria are flat until 2010, step up by 2012 and stay flat: closed-loop WTA rises
+    from about 14.1 to 17.1 and open-loop WTA from about 16.2 to 21.1. The WTW series begin in 2009.'
+- source_image: 95032_images/image_000041_fdb18ae07fd25df40d71c502c2c76635056688cf12346e53d4c6829b91de68a7.png
+  source_image_sha256: 01dcd47d2b265cc9264f0ce5743c4861a4d32d20830219e3e0236c9d48bf2e08
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of ENERGY STAR COP criteria for six GHP types, 2001-2021
+  description: 'Figure A-8: step line chart. X-axis is year, 2000 to 2022; y-axis is COP, 2.9 to 4.3.
+    Series are closed-loop and open-loop water-to-air (WTA), closed-loop and open-loop water-to-water
+    (WTW), and direct geo-exchange (DGX). Criteria step up between 2010 and 2012 and are flat afterwards:
+    closed-loop WTA rises from 3.3 to 3.6, open-loop WTA from 3.6 to 4.1 and closed-loop WTW from 3.0
+    to 3.1; open-loop WTW ends at 3.5.'
+- source_image: 95032_images/image_000042_5b09e878d2895f15802a0a7e7832ccbb0656f95c84c0a27c41e3e5d3799619af.png
+  source_image_sha256: 27eb07652333d3e395e21eae4c48506b238f2b0b8e2b8057c7632118e62b9bd6
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Two bar charts of ENERGY STAR GHP unit shipments and market penetration by year, 2003-2021
+  description: 'Figure A-9: two bar charts by year, 2003 to 2021. Top: ENERGY STAR GHP shipments in thousands
+    (axis 0 to 120), rising from about 14 in 2003 to a peak of about 99 in 2007, then declining to 20-40
+    from 2013 on. Bottom: GHP ENERGY STAR market penetration (axis 0 to 100, labelled ''thousands''),
+    peaking at about 92 in 2007 and falling to about 16 in 2015; none for 2016-2021.'
+- source_image: 95032_images/image_000043_5d0bea541b2b6d6ccb2cdd6b0b4c7956bd8ded554229045e3cdaa498d8de8023.png
+  source_image_sha256: 2da0b2dc6ca0c108bf6e133ccf49ce339ae787e2d3088a44ed0ff7f13c0cab27
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped horizontal bars of ground heat exchanger configuration shares from three studies
+  description: 'Figure A-10: horizontal grouped bar chart. X-axis is installation percentage, 0 to 80;
+    rows are Direct Exchange, Open Loop and Pond/Lake, Horizontal and Vertical; series are Lund and Boyd
+    2016, Battocletti and Glassley 2013 and Liu et al. 2019. The sources disagree: Battocletti and Glassley
+    put vertical at 70 and Liu et al. at about 46, while Lund and Boyd put horizontal at about 63.'
+- source_image: 95032_images/image_000044_309c78f8214ea20ad7f6b3a11be676b34cfc149b25920517f03386412e7539c4.png
+  source_image_sha256: 816c9494624e2d4eef4b73c5a191466ecc79b295bcfb11f4790a7d032baffbfc
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Schematic of three U-tube spacing configurations A, B and C in a borehole cross-section
+  description: 'Figure B-1: schematic of three circular borehole cross-sections, each with two U-tube
+    pipes drawn as smaller circles. In Configuration A the pipes touch at the centre of the borehole,
+    in Configuration B they are moderately spaced, and in Configuration C they sit against opposite walls
+    of the borehole. A black rectangle is drawn around Configuration B, marking it as the one used. There
+    are no dimensions or values.'
+- source_image: 95032_images/image_000045_30957a2dcd6e1c3c973b3010465432cb86333364f9757ceb38057815d2ca1045.png
+  source_image_sha256: 1323d035fd59a63375f6c051b2342f7f089554411318537e220062fe9d7d7a35
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bubble map of dwelling units ineligible for GHPs by county because of low ground thermal conductivity
+  description: 'Figure B-2: bubble map of the United States with Alaska and Hawaii insets. Each circle
+    is a county; its size is the number of units represented (legend 1 to 2,218) and its colour the ground
+    thermal conductivity in W/m-K (legend 0.86535 to 1.38456). The largest circles are in western Washington
+    and Oregon, California, Utah and Colorado; east of the Rockies there are only small scattered points,
+    densest in the Northeast.'

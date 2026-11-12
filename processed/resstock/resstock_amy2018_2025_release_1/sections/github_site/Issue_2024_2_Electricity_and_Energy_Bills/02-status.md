@@ -1,0 +1,4 @@
+<!-- resstock resstock_amy2018_2025_release_1 | github_site | docs/resources/explanations/Issue_2024_2_Electricity_and_Energy_Bills.md | status: site_page | source_url: https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/resources/explanations/Issue_2024_2_Electricity_and_Energy_Bills.md | publication_url: https://natlabrockies.github.io/ResStock.github.io/docs/resources/explanations/Issue_2024_2_Electricity_and_Energy_Bills.html | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: github_site/docs/resources/explanations/Issue_2024_2_Electricity_and_Energy_Bills.md | section: Status | lines: 8-10 -->
+## Status
+Impacts ResStock™ 2024 Release 2 (ResStock 2024.2) only. Preliminary investigation complete. Detailed investigation complete.
+

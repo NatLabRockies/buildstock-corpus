@@ -27,7 +27,7 @@ from .corpus_map import MAP_FILENAME, recorded_manifest_sha256
 from .decorative import surviving_decorative_refs
 from .index import EMBED_MODEL
 from .links import is_absolute_https
-from .overlay import entry_kind
+from .overlay import check_problem, entry_kind
 from .paths import (
     OVERLAYS_DIR,
     chunks_file,
@@ -95,7 +95,7 @@ def _input_hashes(src_state: dict) -> dict[str, str]:
     for key in ("inputs", "internal_pages", "external_pdfs", "local_pdfs"):
         for item in src_state.get(key) or []:
             hashes[item["path"]] = item["sha256"]
-    for key in ("crosswalk", "index_page"):
+    for key in ("crosswalk", "upgrades_lookup", "index_page"):
         item = src_state.get(key)
         if item:
             hashes[item["path"]] = item["sha256"]
@@ -133,8 +133,15 @@ def build_manifest(
     overlays: dict[str, dict] | None = None,
     corpus_version: str | None = None,
     excluded_urls: list[dict] | None = None,
+    not_converted: list[dict] | None = None,
+    notes: list[str] | None = None,
 ) -> dict:
     """Assemble and write manifest.json from the just-built documents + fetch state.
+
+    `not_converted` and `notes` come straight from the source registry (see
+    Source.not_converted and Registry.notes): upstream files left out on purpose, and
+    facts about the release no document states. Each is written only when there is
+    something to say, so a registry without them produces the manifest it always did.
 
     `excluded_urls` lists fetched upstream PDFs the source registry told build to leave out
     (see Source.exclude_urls); recorded under gaps.excluded_by_registry so their absence
@@ -233,6 +240,11 @@ def build_manifest(
                 for v in overlays.values()
                 for rec in v.values()
             ),
+            "overlay_tables_checked": sum(
+                len(rec.get("tables_checked") or [])
+                for v in overlays.values()
+                for rec in v.values()
+            ),
             "overlay_text_repairs": sum(
                 rec.get("text_repairs_applied", 0)
                 for v in overlays.values()
@@ -251,6 +263,10 @@ def build_manifest(
         },
         "warnings": warnings,
     }
+    if not_converted:
+        manifest["gaps"]["not_converted"] = not_converted
+    if notes:
+        manifest["notes"] = notes
     if sample is not None:
         manifest["sample"] = {"per_category": sample, "partial": True}
 
@@ -260,10 +276,17 @@ def build_manifest(
     return manifest
 
 
-def _validate_overlay(proot: Path, artifact: dict, where: str) -> tuple[list[str], int, int, int]:
+def _validate_overlay(
+    proot: Path, artifact: dict, where: str
+) -> tuple[list[str], int, int, int, int]:
     """Check a hand-authored overlay is intact and still matches the source it transcribed.
 
-    Returns (violations, image_anchored_checked, caption_anchored_checked, unverifiable).
+    Returns (violations, image_anchored_checked, caption_anchored_checked, unverifiable,
+    verdicts_verified). The last counts `checked:` entries: tables the extractor emitted that
+    were compared with the PDF and recorded correct. Each is re-verified here the way the
+    build verified it (overlay.check_problem): the PDF pin against this artifact's
+    `input_sha256`, the caption and the table fingerprint against the artifact on disk. Both
+    are in a fresh clone, so a verdict is always verifiable.
     The two checked counts are reported separately because they are not the same claim: one
     says a bitmap on disk still hashes to what the transcriber saw, the other says the PDF
     this artifact was built from is the revision that was transcribed.
@@ -296,10 +319,11 @@ def _validate_overlay(proot: Path, artifact: dict, where: str) -> tuple[list[str
 
     ov_abs = OVERLAYS_DIR / ov.get("path", "")
     if not ov_abs.is_file():
-        return [f"{where}: overlay file missing on disk: {ov.get('path')}"], 0, 0, 0
+        return [f"{where}: overlay file missing on disk: {ov.get('path')}"], 0, 0, 0, 0
     if _sha256_file(ov_abs) != ov.get("sha256"):
         return (
             [f"{where}: overlay hash mismatch (sidecar changed since build): {ov['path']}"],
+            0,
             0,
             0,
             0,
@@ -308,7 +332,7 @@ def _validate_overlay(proot: Path, artifact: dict, where: str) -> tuple[list[str
     try:
         data = yaml.safe_load(ov_abs.read_text(encoding="utf-8")) or {}
     except yaml.YAMLError as exc:
-        return [f"{where}: overlay is not readable YAML: {str(exc)[:120]}"], 0, 0, 0
+        return [f"{where}: overlay is not readable YAML: {str(exc)[:120]}"], 0, 0, 0, 0
 
     # The sidecar names the document it transcribes by its two links; they must be the ones
     # this artifact carries, or the transcription was made from something else.
@@ -364,7 +388,26 @@ def _validate_overlay(proot: Path, artifact: dict, where: str) -> tuple[list[str
             )
         else:
             checked += 1
-    return errors, checked, checked_pdf, unverifiable
+
+    # Verdicts on extracted tables. Read the artifact once, and only if there is one to check.
+    verdicts = 0
+    recorded = set(ov.get("tables_checked") or [])
+    if recorded:
+        doc_path = proot / artifact.get("output_path", "")
+        try:
+            doc_lines = doc_path.read_text(encoding="utf-8").split("\n")
+        except OSError:
+            doc_lines = None  # a missing artifact is already a violation of its own
+        for entry in data.get("checked") or []:
+            label = str(entry.get("label", "")).strip()
+            if label not in recorded or doc_lines is None:
+                continue  # recorded as not holding at build time: it was never counted
+            problem = check_problem(doc_lines, entry, artifact.get("input_sha256"))
+            if problem:
+                errors.append(f"{where}: {label}: {problem}")
+            else:
+                verdicts += 1
+    return errors, checked, checked_pdf, unverifiable, verdicts
 
 
 def validate_manifest(
@@ -379,7 +422,7 @@ def validate_manifest(
     """
     proot = processed_root(product, release)
     errors: list[str] = []
-    checked = checked_pdf = unverifiable = 0
+    checked = checked_pdf = unverifiable = verdicts = 0
 
     if manifest.get("product") != product or manifest.get("release") != release:
         errors.append(
@@ -463,7 +506,7 @@ def validate_manifest(
                     # and wordmark, a site doc's wordmark) have no description by the figure
                     # standard; build replaces their bare refs with a comment (W6.1).
                     if a.get("source_type") == "pdf":
-                        for ref in surviving_decorative_refs(a.get("source_path") or "", text):
+                        for ref in surviving_decorative_refs(product, a.get("source_path") or "", text):
                             errors.append(f"{where}: undescribed decorative image ref survives: {ref}")
                     # Section files are committed output a consumer fetches on their own,
                     # and a pure function of the document: regenerate and compare.
@@ -473,11 +516,12 @@ def validate_manifest(
                     if not present:
                         docs_without_sections += 1
             if a.get("overlay"):
-                ov_errors, n_ok, n_ok_pdf, n_skip = _validate_overlay(proot, a, where)
+                ov_errors, n_ok, n_ok_pdf, n_skip, n_verdicts = _validate_overlay(proot, a, where)
                 errors += ov_errors
                 checked += n_ok
                 checked_pdf += n_ok_pdf
                 unverifiable += n_skip
+                verdicts += n_verdicts
     if n_art == 0:
         errors.append("manifest records zero artifacts")
     # A section dir for a document this manifest does not list is stale output.
@@ -497,6 +541,7 @@ def validate_manifest(
         stats["overlay_checked"] = checked
         stats["overlay_checked_pdf"] = checked_pdf
         stats["overlay_unverifiable"] = unverifiable
+        stats["overlay_verdicts_verified"] = verdicts
         stats["sections_checked"] = sections_checked
         stats["docs_without_sections"] = docs_without_sections
         stats["chunk_files_checked"] = chunk_files_checked
@@ -685,6 +730,15 @@ def validate_release(product: str, release: str) -> bool:
             f"  {' and '.join(kinds)} across "
             f"{counts.get('overlay_documents')} doc(s): {detail}"
         )
+    n_verdicts = counts.get("overlay_tables_checked") or 0
+    if n_verdicts:
+        # A third kind of claim: nothing hand-authored was added, an extracted table was
+        # compared with its PDF page and found right. Reported apart from the tables above.
+        print(
+            f"  {n_verdicts} extracted table(s) checked against the source PDF and recorded "
+            f"correct: {stats.get('overlay_verdicts_verified', 0)} re-verified (PDF hash and "
+            f"table fingerprint)"
+        )
     n_fix = counts.get("overlay_text_repairs") or 0
     if n_fix:
         # Reported separately from the tables because it is a different kind of claim: these
@@ -695,6 +749,9 @@ def validate_release(product: str, release: str) -> bool:
     gm = gaps.get("measures", [])
     if gm:
         print(f"  {len(gm)} tracked measure gap(s): {', '.join(gm)}")
+    nc = gaps.get("not_converted", [])
+    if nc:
+        print(f"  {len(nc)} upstream file(s) left unconverted by the source registry")
     up = gaps.get("unreachable_pdfs", [])
     if up:
         print(f"  {len(up)} unreachable PDF(s) recorded as gaps")

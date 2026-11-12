@@ -80,6 +80,7 @@ should surface the problem, not abort a 118-document run over one sidecar.
 from __future__ import annotations
 
 import hashlib
+import html
 import re
 from pathlib import Path
 
@@ -94,11 +95,19 @@ from .paths import OVERLAYS_DIR, overlay_file
 # Line-anchored so prose mentions ("as shown in Table 5") never match — same semantics as
 # CAPTION in scripts/audit_md_fidelity.py, which is what verifies this work landed.
 # Leading bold/italic markers are allowed because pandoc and docling both emit them.
+# The label is a number ("Table 7", "Table 7a") or an appendix label: one or two letters,
+# an optional hyphen, then a number ("Table A-2", "Figure B1"). The ResStock measure reports
+# number their appendix tables that way, and a label the pattern cannot read is a table that
+# can be neither replaced nor found.
 _CAPTION = re.compile(
-    r"^\s*(?:\*\*|__|\*|_)?\s*(Table|Figure|Fig\.?)\s*([0-9]+[A-Za-z]?)\s*[.:)]",
+    r"^\s*(?:\*\*|__|\*|_)?\s*(Table|Figure|Fig\.?)\s*([0-9]+[A-Za-z]?|[A-Za-z]{1,2}-?[0-9]+)\s*[.:)]",
     re.IGNORECASE,
 )
 _MD_IMAGE_TARGET = re.compile(r"!\[[^\]]*\]\(\s*([^)\s]+)")
+# Same pattern as HTML_IMG_TARGET in scripts/audit_md_fidelity.py. The target may hold spaces
+# ("images/Figure 1.png"), which a markdown ref cannot.
+_HTML_IMG_TARGET = re.compile(r"<img\b[^>]*?\bsrc\s*=\s*[\"']([^\"']+)[\"']", re.IGNORECASE)
+_HTML_IMG_ALT = re.compile(r"\balt\s*=\s*(\"[^\"]*\"|'[^']*')", re.IGNORECASE)
 _MD_TABLE_DELIM = re.compile(r"^\s*\|[\s:|\-]+\|\s*$")
 _MD_HEADING = re.compile(r"^#{1,6}\s+\S")
 # A table's own printed title, which docling emits between the caption and the table — e.g.
@@ -177,6 +186,63 @@ def _find_image(lines: list[str], start: int, source_image: str) -> tuple[int, s
         for m in _MD_IMAGE_TARGET.finditer(lines[i]):
             if Path(m.group(1)).name == want:
                 return i, m.group(1)
+    return None
+
+
+# The verdicts a `checked:` entry may record. There is one: a table found wrong is not noted,
+# it is superseded (a `tables:` entry with `replaces:`), so the artifact carries the fix.
+CHECK_VERDICTS = ("correct",)
+_CHECK_REQUIRED = (
+    "label", "source_pdf", "source_pdf_sha256", "page", "table_sha256", "verdict", "checked_utc",
+)
+
+
+def check_problem(lines: list[str], entry: dict, input_sha: str | None) -> str | None:
+    """Why a `checked:` entry does not hold for this document, or None when it does.
+
+    A `checked:` entry records that someone compared a table the extractor emitted against
+    the PDF page it came from and found it right. Nothing is injected; the entry exists so a
+    reviewer can see the table was looked at, and so the verdict stops counting the moment
+    it stops being about the same thing. It is therefore pinned from both ends, as a
+    replacement is: `source_pdf_sha256` is the PDF revision the table was compared with, and
+    `table_sha256` is the fingerprint of the extracted table that was compared (see
+    _table_fingerprint). A reissued PDF, or an extractor that now emits anything different
+    for that table, is reported rather than left standing as "checked".
+
+    The caption named by `label` must still be in the document and the fingerprint must
+    match one of its tables. Position is not required: docling sometimes places a grid above
+    its caption, and the fingerprint already says which table was read. A grid with no
+    caption of its own (an acronym list, an executive-summary table) sets `uncaptioned:
+    true`; its `label` is then only a name, and the fingerprint alone identifies it.
+
+    Shared by the build and by `bsc validate` (manifest._validate_overlay), which repeats it
+    against the artifact on disk, so the two cannot disagree about what a verdict needs.
+    """
+    for field in _CHECK_REQUIRED:
+        if not entry.get(field):
+            return f"checked entry missing required field '{field}'"
+    verdict = str(entry["verdict"]).strip().lower()
+    if verdict not in CHECK_VERDICTS:
+        return (
+            f"checked entry has verdict {entry['verdict']!r}; the only verdict recorded is "
+            f"'correct' (a wrong table is superseded with a `replaces:` entry instead)"
+        )
+    if input_sha is None:
+        return "source input hash unknown for this document; cannot verify source_pdf_sha256"
+    expect = str(entry["source_pdf_sha256"])
+    if expect != input_sha:
+        return (
+            f"source PDF changed since the check (recorded {expect[:12]}…, build input "
+            f"{input_sha[:12]}…); the verdict is about another revision"
+        )
+    if not entry.get("uncaptioned") and _find_caption(lines, str(entry["label"])) is None:
+        return "caption not found in the extracted body; the check is stale"
+    want = str(entry["table_sha256"]).strip().lower()
+    if not any(_table_fingerprint(lines[s:e]) == want for s, e in _table_blocks(lines)):
+        return (
+            f"no table in the document matches the checked fingerprint {want[:12]}…; the "
+            f"extracted table changed since it was checked, so compare it with the PDF again"
+        )
     return None
 
 
@@ -286,8 +352,18 @@ def _injection(entry: dict, overlay_rel: str, replaced_sha: str | None = None) -
         f"     overlay: {overlay_rel}",
         f"     method: {method}",
     ]
+    if entry.get("uncaptioned"):
+        # No caption line names this table in the body, so the comment has to.
+        head.append(f"     table: {str(entry.get('label', '')).strip()} (no caption in the source)")
     if replaced_sha:
         head.append(f"     supersedes the extractor's own table here (values {replaced_sha[:12]}…):")
+        extra = _also_removes(entry.get("replaces") or {})
+        if extra:
+            head.append(
+                "     and its continuation grid(s) (values "
+                + ", ".join(f"{sha[:12]}…" for sha in extra)
+                + "):"
+            )
         head += _comment_lines((entry.get("replaces") or {}).get("why", ""), "       ")
     return "\n".join(head) + " -->\n\n" + markdown
 
@@ -329,6 +405,43 @@ def _resolve_image_anchor(
         )
         return None
     return j
+
+
+def _also_removes(replaces: dict) -> list[str]:
+    """The extra fingerprints a replacement removes besides `table_sha256`, lower-cased."""
+    extra = replaces.get("also_removes") or []
+    if isinstance(extra, str):
+        extra = [extra]
+    return [str(sha).strip().lower() for sha in extra if str(sha).strip()]
+
+
+def _resolve_continuations(
+    lines: list[str], replaces: dict, primary: tuple[int, int], out: list[str]
+) -> list[tuple[int, int]] | None:
+    """Spans of the continuation grids a replacement also removes, or None (reason -> `out`).
+
+    One printed table can reach the markdown as several grids: a table that runs over a page
+    break comes out as one grid per page, each with the header repeated. A transcription of
+    the whole table supersedes all of them, so `replaces.also_removes` lists the fingerprints
+    of the grids after the first. Each must match exactly one table that is not the primary
+    one and not already claimed; anything else and nothing at all is replaced, for the same
+    reason a single pin must identify a single table.
+    """
+    spans: list[tuple[int, int]] = []
+    blocks = _table_blocks(lines)
+    for want in _also_removes(replaces):
+        hits = [
+            (s, e) for s, e in blocks
+            if _table_fingerprint(lines[s:e]) == want and (s, e) != primary and (s, e) not in spans
+        ]
+        if len(hits) != 1:
+            out.append(
+                f"'replaces.also_removes' fingerprint {want[:12]}… matches {len(hits)} other "
+                f"extracted table(s), not exactly one; nothing was replaced"
+            )
+            return None
+        spans.append(hits[0])
+    return spans
 
 
 def _resolve_replacement(
@@ -439,6 +552,9 @@ def _apply_entry(
         if not entry.get(field):
             return False, warn(f"overlay entry missing required field '{field}'")
 
+    if entry.get("uncaptioned"):
+        return _apply_uncaptioned(lines, entry, overlay_rel, warn, input_sha)
+
     i = _find_caption(lines, label)
     if i is None:
         return False, warn("caption not found in the extracted body; overlay is stale")
@@ -478,8 +594,13 @@ def _apply_entry(
             span = _resolve_replacement(lines, i, replaces, reasons)
             if span is None:
                 return False, warn(reasons[0])
+            more = _resolve_continuations(lines, replaces, span, reasons)
+            if more is None:
+                return False, warn(reasons[0])
             replaced_sha = str(replaces["table_sha256"]).lower()
-            _remove_block(lines, *span)
+            # Bottom-up, so removing one span does not shift the ones still to go.
+            for s, e in sorted([span, *more], reverse=True):
+                _remove_block(lines, s, e)
             # Re-find rather than adjust: the removed block can sit either side of the caption,
             # and sequential entries each shift what follows. Re-finding cannot drift.
             i = _find_caption(lines, label)
@@ -490,13 +611,76 @@ def _apply_entry(
     # chunk._pack splits on blank lines, so what matters is the largest single paragraph,
     # not the size of the whole injected block: a table decomposed into blank-line-separated
     # sub-tables survives intact however long the group runs in total.
+    return True, _oversize_warning(entry, warn)
+
+
+def _oversize_warning(entry: dict, warn) -> list[str]:
+    """Warn when a transcription's largest paragraph would be split mid-row by the chunker."""
     longest = max((len(p.text) for p in _paragraphs(str(entry["markdown"]).split("\n"))), default=0)
     if longest > _CHUNK_MAX_CHARS:
-        return True, warn(
+        return warn(
             f"largest table paragraph is {longest} chars, over the {_CHUNK_MAX_CHARS}-char "
             f"chunk limit; decompose it into sub-tables or it will be split mid-row"
         )
-    return True, []
+    return []
+
+
+def _apply_uncaptioned(
+    lines: list[str], entry: dict, overlay_rel: str, warn, input_sha: str | None
+) -> tuple[bool, list[str]]:
+    """Supersede an extracted table that has no caption of its own. Returns (applied, warnings).
+
+    A measure report's summary table sits under a heading, not a "Table N." line, so there is
+    no caption to anchor on. The pinned fingerprint already says which table is meant, so the
+    transcription goes exactly where that table was. That only works for a replacement: with
+    no caption and no table to supersede there is nowhere to put the text, so an uncaptioned
+    entry without `replaces:` is refused. `label` is then only a name; it is written into the
+    provenance comment, since nothing else in the body names the table.
+    """
+    if entry_kind(entry) != "pdf":
+        return False, warn("an uncaptioned entry must be pinned to a PDF (source_pdf), not an image")
+    replaces = entry.get("replaces") or {}
+    if not replaces:
+        return False, warn(
+            "an uncaptioned entry needs 'replaces:': with no caption, the table it supersedes "
+            "is the only thing that says where the transcription goes"
+        )
+    expect = str(entry["source_pdf_sha256"])
+    if input_sha is None:
+        return False, warn(
+            "source input hash unknown for this document; cannot verify source_pdf_sha256"
+        )
+    if expect != input_sha:
+        return False, warn(
+            f"source PDF changed since transcription (recorded {expect[:12]}…, build "
+            f"input {input_sha[:12]}…); transcription may be stale"
+        )
+
+    want = str(replaces.get("table_sha256", "")).strip().lower()
+    body = "\n".join(lines)
+    if (
+        want
+        and f"{_MARKER} {_origin(entry)}" in body
+        and str(entry["markdown"]).strip("\n") in body
+        and not any(_table_fingerprint(lines[s:e]) == want for s, e in _table_blocks(lines))
+    ):
+        return False, []  # already injected — idempotent, not a problem
+
+    reasons: list[str] = []
+    span = _resolve_replacement(lines, len(lines), replaces, reasons)
+    if span is None:
+        return False, warn(reasons[0])
+    more = _resolve_continuations(lines, replaces, span, reasons)
+    if more is None:
+        return False, warn(reasons[0])
+    # Bottom-up, so earlier spans keep their indices. The first grid becomes the
+    # transcription in place; its continuation grids are removed.
+    for s, e in sorted([span, *more], reverse=True):
+        if (s, e) == span:
+            lines[s:e] = [_injection(entry, overlay_rel, want)]
+        else:
+            _remove_block(lines, s, e)
+    return True, _oversize_warning(entry, warn)
 
 
 def _find_image_refs(lines: list[str], source_image: str) -> list[tuple[int, str]]:
@@ -509,10 +693,21 @@ def _find_image_refs(lines: list[str], source_image: str) -> list[tuple[int, str
     want = Path(source_image).name
     hits: list[tuple[int, str]] = []
     for i, line in enumerate(lines):
-        for m in _MD_IMAGE_TARGET.finditer(line):
-            if Path(m.group(1)).name == want:
-                hits.append((i, m.group(1)))
+        # A markdown ref, or an HTML <img src="...">: pandoc writes a LaTeX figure as a
+        # <figure> block, so the technical reference guides' pictures are HTML tags.
+        for pattern in (_MD_IMAGE_TARGET, _HTML_IMG_TARGET):
+            for m in pattern.finditer(line):
+                if Path(m.group(1)).name == want:
+                    hits.append((i, m.group(1)))
     return hits
+
+
+def _html_img_with_alt(line: str, alt: str) -> str:
+    """The line's <img> tag with its alt attribute set (added, or replaced if one is there)."""
+    quoted = html.escape(alt, quote=True)
+    if _HTML_IMG_ALT.search(line):
+        return _HTML_IMG_ALT.sub(lambda _m: f'alt="{quoted}"', line, count=1)
+    return re.sub(r"<img\b", lambda _m: f'<img alt="{quoted}"', line, count=1, flags=re.IGNORECASE)
 
 
 def _figure_applied_above(lines: list[str], n: int) -> bool:
@@ -533,13 +728,18 @@ def _figure_applied_above(lines: list[str], n: int) -> bool:
     return k >= 0 and lines[k].lstrip().startswith(_FIGURE_MARKER)
 
 
-def _figure_injection(entry: dict, overlay_rel: str, target: str) -> str:
+def _figure_injection(entry: dict, overlay_rel: str, target: str, html_line: str | None = None) -> str:
     """The injected block: provenance comment, the alt-bearing image ref, then the description.
 
     The `alt` is folded into the ref (`![alt](target)`) rather than added as separate text so it
     renders as the picture's alt attribute and travels with the image; the `description` is a
     plain paragraph below it, present only when non-empty and non-decorative, so a
     text-embedding retriever has prose to index for a figure that otherwise contributes nothing.
+
+    `html_line` is the ref's own line when the ref is an HTML <img> tag. The tag is kept as it
+    is, with the alt set as its attribute, and the block has the same shape as for a markdown
+    ref (comment, ref, description), so the description sits inside the <figure>, between
+    the picture and its <figcaption>.
     """
     alt = str(entry["alt"]).strip()
     method = entry.get("method", "unspecified")
@@ -550,15 +750,19 @@ def _figure_injection(entry: dict, overlay_rel: str, target: str) -> str:
     ]
     if entry.get("described_utc"):
         head.append(f"     described: {entry['described_utc']}")
-    block = "\n".join(head) + f" -->\n\n![{alt}]({target})"
+    ref = _html_img_with_alt(html_line, alt) if html_line is not None else f"![{alt}]({target})"
+    block = "\n".join(head) + f" -->\n\n{ref}"
     desc = str(entry.get("description", "")).strip()
     if desc and not entry.get("decorative"):
         block += f"\n\n{desc}"
+        if html_line is not None:
+            block += "\n"  # a blank line before the <figcaption> that follows
     return block
 
 
 def _apply_figure(
-    lines: list[str], entry: dict, image_dir: Path | None, overlay_rel: str, where: str
+    lines: list[str], entry: dict, image_dir: Path | None, overlay_rel: str, where: str,
+    rendered: dict[str, Path] | None = None,
 ) -> tuple[bool, list[str]]:
     """Describe one figure in place: rewrite its image ref with alt + description. (applied, warnings).
 
@@ -593,9 +797,14 @@ def _apply_figure(
     i, target = pending[0]
 
     expect = str(entry["source_image_sha256"])
-    if image_dir is None:
-        return False, warn("source image root unknown; cannot verify source_image_sha256")
-    img = _locate_image(image_dir, target)
+    # A picture the build itself rendered (a PDF figure of a LaTeX source, rasterized to PNG)
+    # is not in the source tree: it sits in a cache until the images are copied, under
+    # another name. `rendered` says where each such ref's file is right now.
+    img = (rendered or {}).get(target)
+    if img is None:
+        if image_dir is None:
+            return False, warn("source image root unknown; cannot verify source_image_sha256")
+        img = _locate_image(image_dir, target)
     if img is None:
         return False, warn(f"source image not found at {image_dir / target}")
     actual = _sha256_file(img)
@@ -605,7 +814,8 @@ def _apply_figure(
             f"{actual[:12]}…); description may be stale"
         )
 
-    lines[i] = _figure_injection(entry, overlay_rel, target)
+    is_html = not any(m.group(1) == target for m in _MD_IMAGE_TARGET.finditer(lines[i]))
+    lines[i] = _figure_injection(entry, overlay_rel, target, html_line=lines[i] if is_html else None)
 
     desc = str(entry.get("description", "")).strip()
     if desc and not entry.get("decorative"):
@@ -647,18 +857,34 @@ def _apply_repair(lines: list[str], repair: dict, overlay_rel: str) -> tuple[boo
     find = str(repair.get("find", ""))
     warn = lambda msg: [f"{where}: {find[:60]!r}: {msg}"]  # noqa: E731
 
-    for field in ("find", "replace", "why"):
+    # `remove: true` deletes the line instead of rewording it: a fragment the extractor left
+    # outside a table that a transcription now carries in full. It takes no `replace`.
+    remove = bool(repair.get("remove"))
+    if remove and str(repair.get("replace", "")).strip():
+        return False, warn("a repair either removes its line ('remove: true') or replaces it, not both")
+    for field in ("find", "why") if remove else ("find", "replace", "why"):
         if not str(repair.get(field, "")).strip():
             return False, [f"{where}: repair is missing required field '{field}'"]
-    replace = str(repair["replace"])
-    if "-->" in str(repair["why"]):
+    replace = "" if remove else str(repair["replace"])
+    if "-->" in str(repair["why"]) or (remove and "-->" in find):
         return False, warn("'why' contains '-->', which would truncate the provenance comment")
+    removed_note = f"     removed line: {find.strip()}"
 
     hits = [n for n, line in enumerate(lines) if line.strip() == find.strip()]
+    if remove and len(hits) == 1:
+        n = hits[0]
+        lines[n] = "\n".join(
+            [f"{_REPAIR_MARKER} {overlay_rel}", *_comment_lines(repair["why"], "     "), removed_note]
+        ) + " -->"
+        return True, []
     if len(hits) != 1:
-        already = any(
-            line.strip() == replace.strip() and _repaired_above(lines, n)
-            for n, line in enumerate(lines)
+        already = (
+            any(line.rstrip() == removed_note + " -->" for line in lines)
+            if remove
+            else any(
+                line.strip() == replace.strip() and _repaired_above(lines, n)
+                for n, line in enumerate(lines)
+            )
         )
         if not hits and already:
             return False, []  # already repaired — idempotent, not a problem
@@ -682,6 +908,7 @@ def apply_overlays(
     release: str,
     image_dirs: dict[tuple[str, str], Path] | None = None,
     input_shas: dict[str, dict[str, str]] | None = None,
+    rendered_images: dict[str, Path] | None = None,
 ) -> tuple[dict[str, dict], list[str]]:
     """Inject every overlay that matches a document in `docs`.
 
@@ -693,6 +920,11 @@ def apply_overlays(
     `input_shas` maps source_id -> source_path -> sha256 of the input file, taken from the
     same fetch state the manifest's `input_sha256` comes from. Caption-anchored entries are
     verified against it (see _apply_entry).
+
+    `rendered_images` maps a processed/-relative image path (`<source_id>/<dir>/<ref>`) to
+    the file the build rendered for it, for pictures that do not exist in the source tree
+    (PDF figures of a LaTeX source, rasterized to PNG). A figure entry naming such a picture
+    is verified against that file.
 
     Returns ({source_id: {source_path: {...record...}}}, warnings). The record is what the
     manifest stores next to the artifact: the overlay's path, its hash, and the labels
@@ -738,13 +970,20 @@ def apply_overlays(
             entries = data.get("tables") or []
             repairs = data.get("text_repairs") or []
             figures = data.get("figures") or []
-            if not entries and not repairs and not figures:
+            checks = data.get("checked") or []
+            if not entries and not repairs and not figures and not checks:
                 warnings.append(
-                    f"{overlay_rel}: overlay has no table entries, figures, or text repairs"
+                    f"{overlay_rel}: overlay has no table entries, figures, text repairs, "
+                    f"or checked tables"
                 )
                 continue
 
             image_dir = image_dirs.get((doc.source_id, doc.source_path))
+            prefix = f"{doc.source_id}/{Path(doc.source_path).parent.as_posix()}/"
+            rendered = {
+                key[len(prefix):]: path for key, path in (rendered_images or {}).items()
+                if key.startswith(prefix)
+            }
             input_sha = input_shas.get(doc.source_id, {}).get(doc.source_path)
 
             lines = doc.body.split("\n")
@@ -771,12 +1010,29 @@ def apply_overlays(
             # artifact no longer shows.
             fig_sources: list[str] = []
             for fig in figures:
-                ok, warns = _apply_figure(lines, fig, image_dir, overlay_rel, overlay_rel)
+                ok, warns = _apply_figure(lines, fig, image_dir, overlay_rel, overlay_rel, rendered)
                 warnings += warns
                 if ok:
                     fig_sources.append(str(fig["source_image"]).strip())
 
-            if labels or n_repairs or fig_sources:
+            # Checks run last, against the body as it will be written: `bsc validate`
+            # repeats them on the artifact, and a verdict about a table another entry of
+            # this sidecar then superseded would be a verdict about nothing.
+            checked_labels: list[str] = []
+            for check in checks:
+                label = str(check.get("label", "")).strip()
+                problem = (
+                    "the same sidecar also supplies this table; a table is either checked "
+                    "or hand-authored, not both"
+                    if label and label in labels
+                    else check_problem(lines, check, input_sha)
+                )
+                if problem:
+                    warnings.append(f"{overlay_rel}: {label or '<no label>'}: {problem}")
+                else:
+                    checked_labels.append(label)
+
+            if labels or n_repairs or fig_sources or checked_labels:
                 doc.body = "\n".join(lines)
                 record = {
                     "path": overlay_rel,
@@ -791,6 +1047,10 @@ def apply_overlays(
                     # Recorded like tables_applied: the manifest counts these, and re-verifies
                     # each named bitmap's hash at `bsc validate` time.
                     record["figures_applied"] = fig_sources
+                if checked_labels:
+                    # Nothing was injected for these; the manifest counts them and
+                    # `bsc validate` re-verifies both pins of each.
+                    record["tables_checked"] = checked_labels
                 applied.setdefault(doc.source_id, {})[doc.source_path] = record
 
     return applied, warnings

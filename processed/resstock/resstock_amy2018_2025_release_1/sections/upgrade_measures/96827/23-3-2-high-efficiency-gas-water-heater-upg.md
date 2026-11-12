@@ -1,0 +1,5 @@
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96827.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96827.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96827.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96827.md | section: 3.2  High-Efficiency Gas Water Heater Upgrade | lines: 245-248 -->
+## 3.2  High-Efficiency Gas Water Heater Upgrade
+
+In the model articulation step of the workflow, each building characteristic assigned in ResStock is translated to OpenStudio-HPXML parameters. An OpenStudio-HPXML default value is used when there is no input from ResStock for a required field. A measure upgrade is modeled as changes to specific building characteristics of a model articulated using the baseline building stock characteristics. This section discusses the technical details of the high-efficiency condensing natural gas tankless water heater changes in the ResStock workflow.
+

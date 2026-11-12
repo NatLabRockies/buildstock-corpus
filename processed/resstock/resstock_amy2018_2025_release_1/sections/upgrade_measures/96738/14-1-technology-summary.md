@@ -1,0 +1,5 @@
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96738.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy27osti/96738.pdf | publication_url: https://docs.nlr.gov/docs/fy27osti/96738.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96738.md | section: 1 Technology Summary | lines: 219-222 -->
+## 1 Technology Summary
+
+Air sealing is designed to reduce unwanted air leakage through a home's building envelope by sealing gaps and cracks. This helps prevent conditioned indoor air from escaping, and outdoor air, moisture, dust, and pollutants from entering. The result is lower energy use for heating and cooling equipment, and often improved indoor comfort, better indoor air quality, and building durability. This section provides an overview of common air sealing methods and references applicable building codes that set air leakage targets by climate zone. These specifications inform the air leakage rate included in this measure upgrade.
+

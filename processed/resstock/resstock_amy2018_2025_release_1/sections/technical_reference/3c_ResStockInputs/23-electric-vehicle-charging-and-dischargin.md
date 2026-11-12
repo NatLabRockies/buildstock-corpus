@@ -1,0 +1,22 @@
+<!-- resstock resstock_amy2018_2025_release_1 | technical_reference | docs/technical_reference_guide/3c_ResStockInputs.tex | status: site_page | source_url: https://github.com/NatLabRockies/resstock/blob/3888e2ff0a4764eb57de65ad0d103870330eb542/docs/technical_reference_guide/3c_ResStockInputs.tex | publication_url: https://natlabrockies.github.io/ResStock.github.io/assets/trd/ResStockTechnicalReferenceGuide_2025_1.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: technical_reference/docs/technical_reference_guide/3c_ResStockInputs.md | section: Electric Vehicle Charging and Discharging Schedules | lines: 3180-3200 -->
+## Electric Vehicle Charging and Discharging Schedules
+
+Charging and discharging schedules provide the time periods when the EV can charge or discharge energy. The charging and discharging schedules are connected to the stochastic occupancy model (based on American Time Use Survey data) in OpenStudio-HPXML. Each unit with an EV has an occupant assigned as the sole driver. The schedule generator takes EV vehicle miles traveled and the average speed to calculate the total hours driven per year. The total hours driven per year is used as an input to the EV schedule generator and produces the charging and discharging schedule, while the battery model takes care of the actual power draw during the charging and discharging period. Figure “Illustration of EV battery discharge schedule generation.” shows an example of a generated discharging schedule. This schedule shows that during an “away period” for the occupant, the vehicle is discharged immediately after the occupant leaves and just before they arrive back home, proportional to the length of the away period. The charging schedule is similarly based on occupancy, where the baseline behavior assumes the vehicle is plugged in when the occupant arrives home, and remains plugged in for the full occupied period.
+
+<figure id="fig:ev_discharge">
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/technical_reference/docs/technical_reference_guide/3c_ResStockInputs.yaml
+     source: images/Example EV Discharging Schedule.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+<img alt="Annotated step chart of an occupant schedule and the EV battery discharge schedule built from it" src="images/Example EV Discharging Schedule.png" style="width:100.0%" />
+
+Annotated step chart for January 7, 2007, from 04:00 to about 21:00, with values from 0 to 1. A blue line is the occupant schedule, 1 when the occupant is home, and an orange line the discharge schedule. Two away periods are marked, a long one from about 06:00 to 17:00 and a short one in the evening. Discharge occurs at the start and end of each away period, for a duration proportional to its length; a value below 1 means discharge does not last the full 15-minute timestep. A printed note says total discharge duration in a year equals total driving hours in a year.
+
+<figcaption>Illustration of EV battery discharge schedule generation.</figcaption>
+</figure>
+
+# Electrical Panels
+
+The electrical panel is a breaker box that distributes power from the utility pole to the connected appliances and receptacles while protecting them from overload, short circuit, or ground fault. Inside the panel, electric appliances are organized into branch circuits that are each protected by an overcurrent protection device (A.K.A. breaker). Two bus bars each carrying 120V service along with a neutral bus bar run down the breaker slots to supply power at either 120V or 240V. 120V circuits use single-pole breakers that take up one space while 240V require two-space double-pole breakers to draw the 240V potential between the two hot wires. Some breakers, such as tandem breakers, can serve multiple circuits without taking up more space. The panel service rating refers to the maximum amps of current the panel can safely handle to power the circuits. This is often the same as the ampacity rating of the service entrance disconnect, which limits the amount of power entering the panel, though it is possible to have a panel rated larger than its service disconnect, and vice versa.
+

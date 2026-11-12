@@ -29,7 +29,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from buildstock_corpus.links import artifact_urls, clone_for  # noqa: E402
-from buildstock_corpus.paths import OVERLAYS_DIR, manifest_file, raw_root  # noqa: E402
+from buildstock_corpus.paths import OVERLAYS_DIR, manifest_file, overlay_file, raw_root  # noqa: E402
 from buildstock_corpus.registry import load_registry  # noqa: E402
 
 _KEY_RE = re.compile(r"^(product|release|source_id|source_path|source_url|publication_url):")
@@ -72,6 +72,15 @@ def _targets(product: str, release: str) -> dict[str, tuple[str, str, str, str]]
         for a in s["artifacts"]:
             if a.get("overlay"):
                 out[a["overlay"]["path"]] = (s["id"], a["source_path"], a["source_url"], a["publication_url"])
+
+    # A sidecar written since the last build has no overlay record yet, but its document is
+    # in the manifest: every artifact's sidecar would sit at overlay_file(...), whatever the
+    # source type (a LaTeX chapter is not in the fetch record's page lists used below).
+    for s in manifest["sources"]:
+        for a in s["artifacts"]:
+            rel = overlay_file(product, release, s["id"], a["source_path"]).relative_to(OVERLAYS_DIR).as_posix()
+            if rel not in out and (OVERLAYS_DIR / rel).is_file():
+                out[rel] = (s["id"], a["source_path"], a["source_url"], a["publication_url"])
 
     # Overlays with no manifest row: documents the registry excluded. Resolve their links
     # the way build would have, from the fetch record and the registry.

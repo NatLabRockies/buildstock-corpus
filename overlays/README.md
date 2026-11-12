@@ -157,6 +157,48 @@ first table below is not a match, replaces nothing and warns.
 in this sidecar. The redundancy refusal is skipped for these entries: a table under the caption
 is the premise, not a reason to back off.
 
+**A table that came out as several grids.** A table that runs over a page break reaches the
+markdown as one grid per page. A transcription of the whole table has to supersede all of
+them, so `replaces` may list the later grids' fingerprints:
+
+```yaml
+    replaces:
+      table_sha256: "2c1a0437…"        # the first grid
+      also_removes:                    # the continuation grid(s), in any order
+        - "b2f5bdf4…"
+      why: >-
+        Row labels are displaced between rows in both grids; values are right.
+```
+
+Each `also_removes` fingerprint must match exactly one other table. If any does not, nothing
+is replaced: a partial replacement would leave the transcription beside a stale half of the
+table it supersedes.
+
+**A table with no caption.** A measure report's summary table sits under a heading, not a
+"Table N." line. Give the entry `uncaptioned: true` and a descriptive `label`:
+
+```yaml
+  - label: "Measure Summary"
+    uncaptioned: true
+    source_pdf: measure_pdfs/96827.pdf
+    source_pdf_sha256: "df766d88…"
+    page: 9
+    replaces:
+      table_sha256: "ac675955…"
+      why: >-
+        Two cells lost their opening sentence.
+    markdown: |
+      ...
+```
+
+The fingerprint alone says which table is meant, and the transcription goes exactly where
+that table stood. `replaces:` is therefore required: with no caption and no table to
+supersede there is nowhere to put the text. The `label` is written into the provenance
+comment, since nothing else in the body names the table.
+
+**Caption labels.** A label is a number (`Table 7`, `Table 7a`) or an appendix label: one or
+two letters, an optional hyphen, a number (`Table A-2`, `Figure B1`).
+
 ### Repairing a line of extracted text
 
 `text_repairs:` is a top-level list, for extractor artifacts that corrupt document *structure*
@@ -177,6 +219,22 @@ substring would also hit the three legitimate copies of that note elsewhere in 9
 count of anything but one is refused with a warning. `why` is required and lands in an HTML
 comment above the repaired line. Repairs run before the table entries, since they fix the
 headings those entries are located against.
+
+A repair can also delete its line, with `remove: true` in place of `replace`:
+
+```yaml
+text_repairs:
+  - find: "1.490"
+    remove: true
+    why: |
+      The last value of a Table 4 row, which fell out of its cell and was left as a
+      paragraph below the table. The hand-authored Table 4 carries it in its row.
+```
+
+This is for a fragment the extractor left outside a table whose transcription now carries
+it: a value that fell out of a cell, a spanning header stranded below the grid. The removed
+text stays readable in the comment, with the reason. It is not for deleting content that is
+nowhere else in the document.
 
 This is deliberately the narrowest tool here. It is not for editing prose, fixing typos (see
 "transcribe, don't improve" below), or normalizing characters. Before writing one, scan the
@@ -199,6 +257,46 @@ were actually obtained rather than defaulting to a house style. Three routes are
   whose screenshots cover the product names while the specification rows below them stay
   selectable. Say which part came from which; a reviewer checking one number should know
   whether to trust it to the digit or to re-read the picture.
+
+### Recording a table that was checked and found right
+
+Most tables the extractor emits are right, and until now a right table left no trace: a
+reviewer could not tell "compared with the PDF and correct" from "never looked at". A
+`checked:` entry records the first. Nothing is injected and the artifact does not change.
+
+```yaml
+checked:
+  - label: "Table 2"                    # the caption the table belongs to
+    caption: "Rated Efficiency by Compressor Type"   # documentation for reviewers
+    source_pdf: measure_pdfs/96634.pdf  # same value as source_path
+    source_pdf_sha256: "77c22cdd…"      # the PDF revision the table was compared with
+    page: 12                            # 1-based, where the table is in the PDF
+    table_sha256: "63c2673f…"           # fingerprint of the extracted table that was compared
+    verdict: correct                    # the only verdict there is; see below
+    method: page-render-and-text-layer
+    checked_utc: "2026-11-12"
+```
+
+* **Pinned from both ends**, as a replacement is. `source_pdf_sha256` must equal the
+  artifact's `input_sha256`, and `table_sha256` must match a table in the document (the
+  same fingerprint `replaces.table_sha256` uses: cell values, not column padding). A reissued
+  PDF, or an extractor that later emits anything different for that table, makes the entry
+  stale: the build warns and stops counting it, and `bsc validate` fails if a recorded
+  verdict no longer holds. A verdict is about one table as extracted from one PDF revision.
+* **`correct` is the only verdict.** A table found wrong is not noted, it is fixed: write a
+  `tables:` entry with `replaces:` so the artifact carries the right numbers. A table cannot
+  be both checked and hand-authored in the same sidecar.
+* **`label` must be a caption in the document**, except for a grid that has none (an acronym
+  list, an executive-summary table): give it a descriptive `label` and `uncaptioned: true`,
+  and the fingerprint alone identifies it.
+* **Get the fingerprint from the build, never by hand:**
+  `uv run python scripts/list_tables.py <processed .md>` prints every table with its line,
+  size, nearest caption and `table_sha256`, and lists the captions that have no table.
+
+The manifest records the labels under the artifact's overlay as `tables_checked` and counts
+them as `counts.overlay_tables_checked`; `bsc validate` reports them on their own line,
+because "an extracted table was verified" and "a table was hand-authored" are different
+claims.
 
 ## Provenance
 
@@ -274,6 +372,76 @@ rather than stacking a second copy under the caption — that is the signal to r
 7. **Two tables with the same caption are not necessarily the same table.** Several measure
    PDFs revise a predecessor's table under its original caption, with changed units, changed
    row labels, or changed values. Transcribe each from its own page.
+
+## Checking every table and figure: the ResStock method
+
+ComStock's overlays were written after its first release, for the tables an audit found
+missing. ResStock's are written before its first tag, and for every table, missing or not:
+the audit only finds captions with nothing under them, and the tables that did the damage in
+ComStock were present and wrong. So each measure PDF is worked through whole, once.
+
+For each PDF (`processed/resstock/<release>/upgrade_measures/measure_pdfs/<n>.md`):
+
+1. **List what the extractor produced.** `scripts/list_tables.py` on the processed file:
+   every table with its caption and fingerprint, and every table caption with no table.
+   `scripts/audit_md_fidelity.py` gives the same for figures.
+2. **Render each table's page** from the PDF at 1.5x (`pypdfium2`), and read the PDF's text
+   layer for the same page. Skip the "List of Tables" page: its entries match the caption
+   pattern too.
+3. **Compare the extracted grid with the render and the text layer, cell by cell**: the
+   number of rows and columns, every header, every value, and which caption the grid sits
+   under. docling's commonest errors are a grid filed under the next table's caption, a
+   merged header flattened onto the wrong columns, and a dropped first column.
+   `scripts/check_grids_against_pdf.py <report number>` runs three checks on every grid
+   against the PDF text layer: each cell's text is on the page; each row appears whole
+   and the rows in order; and no text sits between consecutive rows that the grid does
+   not carry (a dropped word or a dropped row). It does not replace reading the page:
+   a merged cell left blank, or text filed in the wrong row, still has to be seen.
+4. **Record the outcome, one entry per table:**
+   * right: a `checked:` entry (above);
+   * wrong: a `tables:` entry with `replaces:`, `method: vision-transcription` (or
+     `pdf-text-layer` when the text layer was the source), and a `why`;
+   * missing (a caption with no table, usually a rasterized table): a caption-anchored
+     `tables:` entry.
+   A table that spans pages or was split into several grids gets one entry per grid.
+   Three things count as wrong even when every value is in the right cell:
+   * **a dropped table footnote.** A footnote is part of its table; a marker in a cell that
+     points at nothing is a defect. The extractor keeps the footnotes docling attaches to a
+     table (`extract/pdf.py`, `_detach_footnotes`), so they normally arrive as paragraphs
+     below the grid and need nothing. `scripts/count_footnotes.py` lists any that are in the
+     PDF and not in the markdown; if one is still missing, replace the table and carry the
+     footnote below the grid.
+   * **an identifier or URL broken by a line-wrap space** (`..._heating_cap acity`,
+     `projec t_national`). A search for the real name, or a click on the link, misses it.
+     Replace the table with the extractor's own grid and the name joined, and say so in
+     `method`. An ordinary word broken the same way (`ground-to- air`) is left as it is and
+     mentioned in the `checked:` note.
+   * **a fragment left outside the grid** (a value that fell out of a cell, a spanning
+     header stranded below the table). Carry it in the transcription and remove the stray
+     line with a `text_repairs` entry (`remove: true`).
+5. **Describe every figure that is not decorative**: `alt` plus a `description` to the
+   figure standard in `FIGURE_DESCRIPTIONS_ROLLOUT.md` (60 to 70 words: what the figure
+   shows and the values a reader would cite), drafted from the page render and edited by
+   hand, `method: vision-description`. A caption whose plot docling dropped has no bitmap to
+   pin; note it in the sidecar's comment block and list it in the PR.
+6. **Stamp the links and rebuild**: `scripts/stamp_overlay_links.py`, then build, validate
+   and audit as under Reviewing. Commit one document at a time.
+
+**Not tables: the contents pages.** docling renders a report's Table of Contents, List of
+Figures and List of Tables as grids of dot leaders and page numbers. They are navigation for
+a paginated document, not content, and are left out of the sweep: no entry is written for
+them. The List of Acronyms and the Upgrade Summary table are content and are checked like
+any other table, as `uncaptioned` entries.
+
+**Figures in a LaTeX guide.** pandoc writes a LaTeX figure as a `<figure>` block, so its ref is
+an HTML `<img src="...">` tag, not a markdown ref. A `figures:` entry matches it the same way (by
+the image's file name), keeps the tag, sets the `alt` as its attribute and puts the description
+between the picture and its `<figcaption>`. A figure the build rasterizes from a PDF is pinned
+by the PNG the build wrote, read from `processed/` when the sidecar is written.
+
+A PDF is done when every table has a `checked:` or `tables:` entry and every real figure a
+description. The technical reference guide's tables come from LaTeX source, not from a
+layout model, and are not part of this sweep; its 15 figures are described the same way.
 
 ## Reviewing
 

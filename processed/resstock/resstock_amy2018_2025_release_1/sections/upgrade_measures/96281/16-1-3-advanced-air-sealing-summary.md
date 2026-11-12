@@ -1,0 +1,9 @@
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96281.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96281.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96281.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96281.md | section: 1.3  Advanced Air Sealing Summary | lines: 221-228 -->
+## 1.3  Advanced Air Sealing Summary
+
+As previously mentioned, drill-and-fill wall insulation is often installed along with air sealing during retrofit projects. Therefore, this drill-and-fill insulation package is modeled with air sealing. Full documentation for the advanced air sealing component of this package is reported separately, but a summary is provided below (Phoung, Lou and White 2025).
+
+Air sealing can take various forms, including weatherstripping, caulking, and spray foam. Two common ways to describe air leakage rates are air changes per hour at 50 pascals (ACH50) and cubic feet per minute at 50 pascals (CFM50). ACH50 is used to compare air leakage rates between dwelling units of different sizes, and this metric will be used in this package.
+
+All dwelling units with an infiltration rate above 6 ACH50 will receive advanced air sealing and then have an infiltration rate of 5 ACH50. This level of advanced air sealing, 5 ACH50, should be considered very aggressive, similar to bringing all residential air leakage down to IECC 2021 new construction levels (3-5 ACH50 depending on climate). In reality, bringing infiltration rates down to this level may require additional enclosure upgrades, such as over cladding of walls, replacing windows, or other techniques that go beyond traditional air sealing practices. This applies to 92% of all dwelling units (Phoung, Lou and White 2025).
+

@@ -1,0 +1,72 @@
+# Hand-authored overlay for docs/technical_reference_guide/2_ResStockStructureAndSampling.tex
+#
+# Figure descriptions for the ResStock technical reference guide (plan step R4.5). The
+# guide's tables come from LaTeX source and are not part of the measure-report sweep; its
+# figures are pictures with a caption and no other text, so each gets an `alt` and a
+# description written from the picture, on 2026-11-11.
+#
+# pandoc writes a LaTeX figure as a <figure> block, so the refs are HTML <img> tags. The
+# overlay keeps the tag, sets the alt as its attribute, and places the description between
+# the picture and its <figcaption>.
+#
+# Figure 1.png, the flowchart and Figure 4.png are PNGs the build rasterizes from the
+# PDFs in the source's images/ folder; each is pinned by the PNG the build wrote. The
+# illustrative sample is a table shown as a picture: all 24 of its values are given in the
+# description, which is therefore longer than the 40 to 70 word standard. In the workflow
+# overview the text boxes under the second and third chevrons (Building Energy Model
+# Articulation; Sampling) describe sampling and model articulation respectively, the
+# reverse of the chevrons above them; the description gives the boxes in the order drawn.
+
+product: resstock
+release: resstock_amy2018_2025_release_1
+source_id: technical_reference
+source_path: docs/technical_reference_guide/2_ResStockStructureAndSampling.tex
+source_url: https://github.com/NatLabRockies/resstock/blob/3888e2ff0a4764eb57de65ad0d103870330eb542/docs/technical_reference_guide/2_ResStockStructureAndSampling.tex
+publication_url: https://natlabrockies.github.io/ResStock.github.io/assets/trd/ResStockTechnicalReferenceGuide_2025_1.pdf
+figures:
+- source_image: images/Figure 1.png
+  source_image_sha256: 4f9127eed4250bedcc4880b3948a8458c137e5bc41ab25ebe9b1f4958c4b575a
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Flow diagram of the five ResStock workflow steps, each with a box saying what happens in it
+  description: 'Flow diagram: five chevrons left to right, Stock Characterization, Building Energy Model
+    Articulation, Sampling, Batch Simulation, and Results and Publication, each joined by a line to a
+    text box. As drawn, the boxes read: establish a conditional probability distribution describing housing
+    technologies, structures and occupants in the United States; sample those distributions to create
+    representative synthetic buildings; translate the sampled housing options into building energy model
+    inputs via OpenStudio-HPXML; simulate all samples and upgrades with BuildStock Batch on high-performance
+    or cloud computing; format the outputs, aggregate key results and publish all data on OEDI.'
+- source_image: images/illustrative_sample.png
+  source_image_sha256: 0910d62944ebf6d9b7c4940cc2fe49ce4f759df8b7f730f0862e248186fdc597
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: 'Table shown as a picture: the characteristics of one illustrative ResStock housing unit sample'
+  description: 'A table shown as a picture, listing one illustrative housing unit sample in three pairs
+    of columns. IECC climate zone 5A; city Cleveland, OH; building type single-family detached; occupants
+    3; vintage <1940; floor area bin 1500-1999; bedrooms 3; stories 2. Heating: natural gas furnace, 80%
+    AFUE; cooling: central AC, SEER 13; setpoints: heating 70°F, cooling 72°F; setpoint offsets: heating
+    3°F, cooling 2°F; refrigerator EF 17.6; clothes washer EnergyStar, 123 rated kWh; dishwasher 290 rated
+    kWh; cooking range gas. Wall type wood stud; wall insulation uninsulated; attic type vented attic;
+    attic insulation uninsulated; infiltration 8 ACH50; foundation type unheated basement; ducts 10% leakage,
+    uninsulated; windows double, clear, non-metal, air.'
+- source_image: images/TRG-ResStock OpenStudio Measure Flowchart.png
+  source_image_sha256: 9fbe30a0d42590d4b34b5aa17973b0dfd063c0e6177bef267dda800d9dc55b47
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Flowchart of the OpenStudio measures that turn a ResStock sample into an OpenStudio model
+  description: 'Flowchart in two columns of boxes. The left column runs BuildExistingModel, ResStockArguments,
+    BuildResidentialHPXML and BuildResidentialScheduleFile, then reaches a decision, ''Upgrade?''. ''Yes''
+    leads to the right column: ApplyUpgrade, then ResStockArguments, BuildResidentialHPXML and BuildResidentialScheduleFile
+    again. ''No'', and the end of the right column, both lead to HPXMLtoOpenStudio, which is followed
+    by ResStockArgumentsPostHPXML. It carries no data.'
+- source_image: images/Figure 4.png
+  source_image_sha256: 82ec64ce51fb9bedd77fd39634dd81fc0b45c39ba7a8ed8e6dc9a75bcedcdb41
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Chain of eight small bar charts showing how one building characteristic distribution conditions
+    the next
+  description: Eight small horizontal bar charts joined by arrows, each showing a distribution with one
+    bar hatched to mark the option drawn. Census Division (Middle Atlantic, 13%, hatched) leads to Vintage
+    (1980s, 9%), which leads to Heating Fuel (natural gas, 49%), which leads to Natural Gas Heating Efficiency
+    (80% AFUE is 41%, 92.5% AFUE 25%). A second row shows Ceiling Insulation (R-30 is 40%), Wall Insulation
+    (R-11 is 84%), Window Panes (double is 70%) and Cooling Type (central AC is 46%).

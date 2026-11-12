@@ -36,6 +36,23 @@ _UNSAFE_REF_RE = re.compile(r"[^A-Za-z0-9._-]+")  # chars needing escaping in a 
 _converter = None  # docling DocumentConverter is costly to build; make one and reuse it
 _fingerprint: dict | None = None  # memoized: importing docling's options module isn't free
 
+# docling's TableFormer mode for the PDFs being converted. A measures source picks it in the
+# registry (`pdf_table_mode`); load_pdf_docs sets it for its batch. It is part of the cache
+# fingerprint, so a PDF converted under one mode is re-converted if asked for under the other,
+# and one product's cache is untouched by another product's choice (different PDFs, different
+# cache dirs).
+TABLE_MODES = ("fast", "accurate")
+_table_mode = "fast"
+
+
+def _set_table_mode(mode: str) -> None:
+    """Switch the table mode, dropping the converter and fingerprint built for the old one."""
+    global _table_mode, _converter, _fingerprint
+    if mode not in TABLE_MODES:
+        raise ValueError(f"pdf table mode must be one of {TABLE_MODES}, got {mode!r}")
+    if mode != _table_mode:
+        _table_mode, _converter, _fingerprint = mode, None, None
+
 
 @dataclass
 class PdfSpec:
@@ -66,10 +83,15 @@ def _pipeline_options():
     # keep the layout + table-structure models, which are the point of a layout-aware reader.
     # TableFormer FAST (vs ACCURATE) and more CPU threads keep the one-time cache warm to
     # tens of minutes instead of hours; tables still get real structure, just less refinement.
+    # FAST is the default; a source whose priority is cell structure over warm-up time sets
+    # `pdf_table_mode: accurate` in the registry (ResStock from its first build; ComStock from
+    # the build after -v3).
     opts = PdfPipelineOptions()
     opts.do_ocr = False
     opts.do_table_structure = True
-    opts.table_structure_options.mode = TableFormerMode.FAST
+    opts.table_structure_options.mode = (
+        TableFormerMode.ACCURATE if _table_mode == "accurate" else TableFormerMode.FAST
+    )
     opts.table_structure_options.do_cell_matching = True
     opts.accelerator_options = AcceleratorOptions(num_threads=12)
     # Without this docling only emits <!-- image --> placeholders; the figure bitmaps
@@ -105,6 +127,12 @@ def _pipeline_fingerprint() -> dict:
             "table_mode": str(getattr(tbl.mode, "value", tbl.mode)),
             "do_cell_matching": bool(tbl.do_cell_matching),
             "generate_picture_images": bool(opts.generate_picture_images),
+            # Not a docling option but a step of ours that changes the markdown the same
+            # way one would (see _detach_footnotes), so it is recorded with them: a cache
+            # built before it lacks the key and is re-converted.
+            "table_footnotes": "in_body",
+            # Likewise ours (see _keep_line_end_hyphens).
+            "line_end_hyphens": "kept_between_words",
         }
     return _fingerprint
 
@@ -131,12 +159,62 @@ def _write_fingerprint(cached: Path) -> None:
     )
 
 
+_HYPHEN_MARK = ""  # private-use character standing in for a line-end hyphen
+_WORDS_RE = re.compile(r"\b[\w]+\b")
+
+
+def _keep_line_end_hyphens(sanitize):
+    """Wrap docling's line joiner so a hyphen at a line end stays in the text.
+
+    docling joins the lines of a paragraph, heading or caption with a space, except that a
+    line ending in '-' between two words is joined to the next with neither the space nor
+    the hyphen. That suits a word split at a syllable and is wrong for a word spelled with
+    the hyphen that merely broke there: 'Post-' / 'Retrofit' came out 'PostRetrofit', and a
+    URL broken after a hyphen lost it and stopped resolving. Counted over the 28 ResStock
+    measure reports (scripts/count_line_end_hyphens.py), 311 hyphens were lost this way and
+    not one line-end hyphen in running text was a syllable break; the reports are typeset
+    without automatic hyphenation. ComStock's count says the same (543 lost, none a
+    syllable break). So the hyphen is always kept.
+
+    The joiner also normalizes quotes and ligatures, which should keep following docling.
+    So this does not copy it: each line-end hyphen is swapped for a private-use mark, the
+    original joiner then sees an ordinary line and adds its space, and mark-plus-space is
+    turned back into the hyphen. 'word -' at a line end (a spaced dash) keeps its space.
+    """
+
+    def joined(self, lines):
+        lines = list(lines)
+        for i, line in enumerate(lines[:-1]):
+            # Exactly docling's own test for dropping the hyphen: a word on each side.
+            # Anything else it already leaves alone (a dash that is a text cell of its own,
+            # as an en dash between two numbers is), and so does this.
+            if line.endswith("-"):
+                before, after = _WORDS_RE.findall(line), _WORDS_RE.findall(lines[i + 1])
+                if before and after and before[-1].isalnum() and after[0].isalnum():
+                    lines[i] = line[:-1] + _HYPHEN_MARK
+        text = sanitize(self, lines)
+        text = text.replace(f" {_HYPHEN_MARK} ", " - ")
+        return text.replace(f"{_HYPHEN_MARK} ", "-").replace(_HYPHEN_MARK, "-")
+
+    joined._keeps_line_end_hyphens = True
+    return joined
+
+
+def _patch_line_joiner() -> None:
+    """Install _keep_line_end_hyphens on docling's page assembler, once."""
+    from docling.models.stages.page_assemble.page_assemble_model import PageAssembleModel
+
+    if not getattr(PageAssembleModel.sanitize_text, "_keeps_line_end_hyphens", False):
+        PageAssembleModel.sanitize_text = _keep_line_end_hyphens(PageAssembleModel.sanitize_text)
+
+
 def _get_converter():
     global _converter
     if _converter is None:
         from docling.datamodel.base_models import InputFormat
         from docling.document_converter import DocumentConverter, PdfFormatOption
 
+        _patch_line_joiner()
         _converter = DocumentConverter(
             format_options={InputFormat.PDF: PdfFormatOption(pipeline_options=_pipeline_options())}
         )
@@ -160,6 +238,28 @@ def _relativize_image_refs(md: str, img_dir: Path) -> str:
     return _MD_IMAGE_RE.sub(repl, md)
 
 
+def _detach_footnotes(document) -> int:
+    """Stop docling's markdown export from dropping footnotes it attached to a table or figure.
+
+    When a page footnote sits under a table (or a figure), docling's layout step records it
+    as that table's footnote. The markdown serializer writes a table's caption but not its
+    footnotes, and it also skips them in the body because the table "owns" them, so the text
+    is in the converted document and in neither place in the markdown. Nothing reports it.
+    In the ResStock measure reports that lost the rating conditions behind 95036's COP and
+    EER tables, among others.
+
+    Clearing the reference leaves the footnote where it already is in reading order, an
+    ordinary body item just below the table, and the export then writes it as a paragraph.
+    Returns how many footnotes were released.
+    """
+    released = 0
+    for item in [*document.tables, *document.pictures]:
+        if getattr(item, "footnotes", None):
+            released += len(item.footnotes)
+            item.footnotes = []
+    return released
+
+
 def _convert_into(abs_path: Path, dest: Path) -> None:
     """Convert one PDF into dest/document.md plus dest/images/ for embedded figures.
 
@@ -169,6 +269,7 @@ def _convert_into(abs_path: Path, dest: Path) -> None:
     from docling_core.types.doc import ImageRefMode
 
     result = _get_converter().convert(str(abs_path))
+    _detach_footnotes(result.document)
     dest.mkdir(parents=True, exist_ok=True)
     md_path = dest / CACHE_MD_NAME
     result.document.save_as_markdown(
@@ -253,9 +354,9 @@ def _image_dir_name(source_path: str) -> str:
 
 
 def load_pdf_docs(
-    specs: list[PdfSpec], product: str, release: str, source_id: str
+    specs: list[PdfSpec], product: str, release: str, source_id: str, table_mode: str = "fast"
 ) -> tuple[list[Document], list[str], dict[str, tuple[str, Path]]]:
-    """Convert each PDF spec into a Document.
+    """Convert each PDF spec into a Document, with docling's tables in `table_mode`.
 
     Returns (docs, warnings, image_dirs), where image_dirs maps a PDF's source_path to
     (path relative to processed/<source_id>/, cache directory holding its extracted images).
@@ -266,6 +367,7 @@ def load_pdf_docs(
     docs: list[Document] = []
     warnings: list[str] = []
     image_dirs: dict[str, tuple[str, Path]] = {}
+    _set_table_mode(table_mode)
     for spec in specs:
         try:
             cache_dir = _cache_dir_for(spec)

@@ -1,0 +1,52 @@
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96414.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96414.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96414.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96414.md | section: 3.2.2  Default Inputs From OpenStudio-HPXML for the Measure Upgrade Name | lines: 371-421 -->
+## 3.2.2  Default Inputs From OpenStudio-HPXML for the Measure Upgrade Name
+
+OpenStudio-HPXML will receive the ResStock inputs from Table 4 via the ResStockArguments OpenStudio Measure. Any values that are not specified by ResStock will be calculated using defaults in the BuildResidentialHPXML OpenStudio measure. Table 5 describes the HPXML default values calculated by this measure. These values are calculated in the defaults.rb file with many called Ruby methods being defined in the hvac.rb file. OpenStudio-HPXML documentation covering these elements can be found here.
+
+Table 5. HPXML Default Values for the Dual Fuel Heating System Upgrade
+
+<!-- table recovered from measure_pdfs/96414.pdf p.21
+     overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96414.yaml
+     method: vision-transcription
+     supersedes the extractor's own table here (values 811d8f7d0d2a…):
+     and its continuation grid(s) (values a6522a0aeac5…):
+       The table runs over pages 21 and 22 and was extracted as two grids. In the second grid the Value cell is repeated in the Units column on ten rows: the heating 'Fan speed ratio' read Value 1, Units 1 and the 'Rated COP equation' appeared as its own units, where the page has Units blank; the eight coefficient lists were doubled the same way. The section bands (Cooling Curve Values, Cooling Capacity and COP Curve Coefficients, Heating Curve Values, Heating Capacity and COP Curve Coefficients) were ordinary data rows. Every value and note is the extractor's own, compared with pages 21 and 22; the table is regrouped into one sub-table per section band, with a single Coefficients column where the page merges Value and Units. -->
+
+| HPXML Default Variable | Value | Units | Notes |
+|---|---|---|---|
+| Net sensible heat ratio | 0.73 | | |
+| Crankcase heater power | 50 | W | Based on RESNET Publication No. 002-2017, heater warms lubricating oil pan |
+| Fan power | 0.375 | W/cfm | Based on electronically commutating motor—a more efficient type of blower that allows for variable speeds and not on/off binary operation like permanent split capacitor (PSC) blowers |
+| Rated fan power | 0.18 | W/cfm | Based on ASHRAE 1449-RP |
+
+| Cooling Curve Values | Value | Units | Notes |
+|---|---|---|---|
+| Rated cfm per ton for cooling | 394.2 | cfm/ton | Derived from Cutler et al. (2013a) |
+| Cooling capacity ratio | 1 | | |
+| Cycling degradation coefficient | 0.07 | | Degradation coefficient encapsulates inefficiencies involved with system cycling, heating the coils, and distributing fluid. This value is derived from conversations with experts and engineering judgment |
+| Fan speed ratio | 1 | | |
+| Rated COPs equation | 0.2692 * SEER + 0.2706 | | This eqn. is a regression based on the inverse model of SEER as a function of rated COP |
+| Gross sensible heat ratio | Calculated using rated conditions at 80°F, nominal cfm/ton, the coil Ao factor, and the net sensible heating ratio | | Calculation from OpenStudio-HPXML is here |
+
+| Cooling Capacity and COP Curve Coefficients | Coefficients | Notes |
+|---|---|---|
+| | | The COP curve is expressed as a function of the energy input ratio (EIR) which is 1/COP. These values are derived from Cutler et al. (2013b) |
+| Capacity coefficients as function of operating temperatures | [[3.68637657, -0.098352478, 0.000956357, 0.005838141, -0.0000127, -0.000131702]] | |
+| EIR coefficients as function of operating temperatures | [[-3.437356399, 0.136656369, -0.001049231, -0.0079378, 0.000185435, -0.0001441]] | |
+| Capacity coefficients as function of flow fraction | [[0.718664047, 0.41797409, -0.136638137]] | |
+| EIR coefficients as function of flow fraction | [[1.143487507, -0.13943972, -0.004047787]] | |
+
+| Heating Curve Values | Value | Units | Notes |
+|---|---|---|---|
+| Rated cfm per ton for heating | 384.1 | cfm/ton | |
+| Rated COP equation | 0.0353 * HSPF^2 + 0.0331 * HSPF + 0.9447 | | This eqn. is a regression based on the inverse model of HSPF as a function of rated COP. |
+| Fan speed ratio | 1 | | |
+
+| Heating Capacity and COP Curve Coefficients | Coefficients | Notes |
+|---|---|---|
+| | | The COP curve is expressed as a function of the EIR, which is 1/COP. These values are derived from Cutler et al. (2013b) |
+| Capacity coefficients as a function of operating temperatures | [[0.671428571, 0.18417308, -0.002303414, 0, 0.007142857, 0]] | Calculated as a function of heating capacity retention fraction and heating capacity retention fraction temperature. Calculation from OpenStudio-HPXML here. Note: since capacity retention is specified in the ResStock outputs, this will not be used. |
+| EIR coefficients as a function of operating temperatures | [[0.718398423, 0.003498178, 0.000142202, -0.005724331, 0.00014085, -0.000215321]] | |
+| Capacity coefficients as a function of flow fraction | [[0.694045465, 0.474207981, -0.168253446]] | |
+| EIR coefficients as a function of flow fraction | [[2.185418751, -1.942827919, 0.757409168]] | |
+

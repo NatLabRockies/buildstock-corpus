@@ -1,0 +1,423 @@
+# Hand-authored overlay for measure_pdfs/96414.pdf
+#
+# 96414 is the ResStock measure documentation for the dual fuel heat pump (dual fuel heating
+# system) upgrade (measure 5). Every table and figure in the report was compared with the
+# PDF on 2026-11-11, following "Checking every table and figure: the ResStock method" in
+# overlays/README.md.
+#
+# Tables (page numbers are PDF pages, 1-based):
+#   * Table 3 (p.18) and Table 5 (pp.21-22) are superseded: see each entry's `why`.
+#   * Table 4 (p.20) is superseded: every value was right, but an argument name carried a
+#     line-wrap space. It is the extractor's own grid with that name joined.
+#   * Tables 1, 2, 6 and 7 and the Measure Summary table (p.9) are recorded under
+#     `checked:` as correct.
+#   * The List of Acronyms (p.5) has no entry: the extractor emitted it as one run-on
+#     paragraph, not a grid, so there is no table to check or to replace and no caption to
+#     anchor a transcription to. The 13 acronyms and their expansions are all present in
+#     that paragraph, in order.
+#   * The Table of Contents and the combined List of Figures / List of Tables grids are
+#     contents pages, not tables of the report, and have no entry.
+#
+# Figures: Figures 1-14 are described (40-70 words each, vision-description); every figure
+# caption has its bitmap. The cover art and wordmark (image_000000, image_000001) are
+# decorative and omitted by the build. The Figure 1 bitmap is cropped above the plot area
+# (no chart title); it is matched to Figure 1 by its caption.
+#
+# Flattening notes: Table 3's merged cells (HVAC Has Ducts "Yes" over four rows, Heating
+# Fuel over three, "Not Present" over two) are repeated on each row. Table 5 is split into
+# five sub-tables at the shaded section bands the PDF itself prints, each band serving as
+# its sub-table's header row; the header row repeated at the top of page 22 is a page
+# continuation and is dropped. In the two coefficient sections the PDF merges Value and
+# Units into one "Coefficients" cell, written here as one column, and the section's note
+# sits in a first row with no variable name, as on the page. Hyperlinked words ("here",
+# "RESNET Publication No. 002-2017", "Cutler et al.") are kept as text without their links.
+# Row shading is alternating bands and carries no meaning.
+
+product: resstock
+release: resstock_amy2018_2025_release_1
+source_id: upgrade_measures
+source_path: measure_pdfs/96414.pdf
+source_url: https://docs.nlr.gov/docs/fy26osti/96414.pdf
+publication_url: https://docs.nlr.gov/docs/fy26osti/96414.pdf
+tables:
+- label: Table 3
+  caption: Summarized Apply Logic for the Dual Fuel Heat Pump Upgrade Package
+  source_pdf: measure_pdfs/96414.pdf
+  source_pdf_sha256: eb06df8d38643f4acb1e2bb11401ab8c782e55221545af90f0a1aef943ac18bc
+  page: 18
+  method: vision-transcription
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 93f9b9514fe49bd0a79e853ffdf7c1783edc05213bdcd1ba90f13016b2cee465
+    why: Cells that span several rows in the PDF were split across the wrong rows. The Heating Fuel cell
+      'Electricity, Natural Gas, Fuel Oil, Propane' covers the first three data rows, but the grid left
+      it blank on the first row (the 1.85% row), put 'Electricity, Natural Gas, Fuel Oil,' on the second
+      and 'Propane' alone on the third, so the 29.68% row read as propane only; 'Not Present', which covers
+      the second and third rows, was blank on the third. The other columns and every number are right.
+      Transcribed from page 18 with merged cells repeated on each row.
+  markdown: '| HVAC Has Ducts | Heating Fuel | HVAC Shared Efficiencies | Does This Dwelling Have a Natural
+    Gas Hookup? | Dual Fuel Heat Pump Applied? | Stock Saturation (%) |
+
+    |---|---|---|---|---|---|
+
+    | Yes | Electricity, Natural Gas, Fuel Oil, Propane | Present | All options | No | 1.85 |
+
+    | Yes | Electricity, Natural Gas, Fuel Oil, Propane | Not Present | Yes | Yes | 44.65 |
+
+    | Yes | Electricity, Natural Gas, Fuel Oil, Propane | Not Present | No | No | 29.68 |
+
+    | Yes | Other Fuel, None | All options | All options | No | 0.84 |
+
+    | No | All options | All options | All options | No | 22.98 |'
+- label: Table 5
+  caption: HPXML Default Values for the Dual Fuel Heating System Upgrade
+  source_pdf: measure_pdfs/96414.pdf
+  source_pdf_sha256: eb06df8d38643f4acb1e2bb11401ab8c782e55221545af90f0a1aef943ac18bc
+  page: 21
+  method: vision-transcription
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 811d8f7d0d2a52f25bdda43ef16e937ec7599ce114b3f661a1055fbd6b6e2b52
+    also_removes:
+    - a6522a0aeac5b26a6bd8d56123d2596113ff0ebc92d06832cee1a05dbe3eac2c
+    why: 'The table runs over pages 21 and 22 and was extracted as two grids. In the second grid the Value
+      cell is repeated in the Units column on ten rows: the heating ''Fan speed ratio'' read Value 1,
+      Units 1 and the ''Rated COP equation'' appeared as its own units, where the page has Units blank;
+      the eight coefficient lists were doubled the same way. The section bands (Cooling Curve Values,
+      Cooling Capacity and COP Curve Coefficients, Heating Curve Values, Heating Capacity and COP Curve
+      Coefficients) were ordinary data rows. Every value and note is the extractor''s own, compared with
+      pages 21 and 22; the table is regrouped into one sub-table per section band, with a single Coefficients
+      column where the page merges Value and Units.'
+  markdown: '| HPXML Default Variable | Value | Units | Notes |
+
+    |---|---|---|---|
+
+    | Net sensible heat ratio | 0.73 | | |
+
+    | Crankcase heater power | 50 | W | Based on RESNET Publication No. 002-2017, heater warms lubricating
+    oil pan |
+
+    | Fan power | 0.375 | W/cfm | Based on electronically commutating motor—a more efficient type of blower
+    that allows for variable speeds and not on/off binary operation like permanent split capacitor (PSC)
+    blowers |
+
+    | Rated fan power | 0.18 | W/cfm | Based on ASHRAE 1449-RP |
+
+
+    | Cooling Curve Values | Value | Units | Notes |
+
+    |---|---|---|---|
+
+    | Rated cfm per ton for cooling | 394.2 | cfm/ton | Derived from Cutler et al. (2013a) |
+
+    | Cooling capacity ratio | 1 | | |
+
+    | Cycling degradation coefficient | 0.07 | | Degradation coefficient encapsulates inefficiencies involved
+    with system cycling, heating the coils, and distributing fluid. This value is derived from conversations
+    with experts and engineering judgment |
+
+    | Fan speed ratio | 1 | | |
+
+    | Rated COPs equation | 0.2692 * SEER + 0.2706 | | This eqn. is a regression based on the inverse
+    model of SEER as a function of rated COP |
+
+    | Gross sensible heat ratio | Calculated using rated conditions at 80°F, nominal cfm/ton, the coil
+    Ao factor, and the net sensible heating ratio | | Calculation from OpenStudio-HPXML is here |
+
+
+    | Cooling Capacity and COP Curve Coefficients | Coefficients | Notes |
+
+    |---|---|---|
+
+    | | | The COP curve is expressed as a function of the energy input ratio (EIR) which is 1/COP. These
+    values are derived from Cutler et al. (2013b) |
+
+    | Capacity coefficients as function of operating temperatures | [[3.68637657, -0.098352478, 0.000956357,
+    0.005838141, -0.0000127, -0.000131702]] | |
+
+    | EIR coefficients as function of operating temperatures | [[-3.437356399, 0.136656369, -0.001049231,
+    -0.0079378, 0.000185435, -0.0001441]] | |
+
+    | Capacity coefficients as function of flow fraction | [[0.718664047, 0.41797409, -0.136638137]] |
+    |
+
+    | EIR coefficients as function of flow fraction | [[1.143487507, -0.13943972, -0.004047787]] | |
+
+
+    | Heating Curve Values | Value | Units | Notes |
+
+    |---|---|---|---|
+
+    | Rated cfm per ton for heating | 384.1 | cfm/ton | |
+
+    | Rated COP equation | 0.0353 * HSPF^2 + 0.0331 * HSPF + 0.9447 | | This eqn. is a regression based
+    on the inverse model of HSPF as a function of rated COP. |
+
+    | Fan speed ratio | 1 | | |
+
+
+    | Heating Capacity and COP Curve Coefficients | Coefficients | Notes |
+
+    |---|---|---|
+
+    | | | The COP curve is expressed as a function of the EIR, which is 1/COP. These values are derived
+    from Cutler et al. (2013b) |
+
+    | Capacity coefficients as a function of operating temperatures | [[0.671428571, 0.18417308, -0.002303414,
+    0, 0.007142857, 0]] | Calculated as a function of heating capacity retention fraction and heating
+    capacity retention fraction temperature. Calculation from OpenStudio-HPXML here. Note: since capacity
+    retention is specified in the ResStock outputs, this will not be used. |
+
+    | EIR coefficients as a function of operating temperatures | [[0.718398423, 0.003498178, 0.000142202,
+    -0.005724331, 0.00014085, -0.000215321]] | |
+
+    | Capacity coefficients as a function of flow fraction | [[0.694045465, 0.474207981, -0.168253446]]
+    | |
+
+    | EIR coefficients as a function of flow fraction | [[2.185418751, -1.942827919, 0.757409168]] | |'
+- label: Table 4
+  caption: ResStock Argument Values for the Dual Fuel Heating System Upgrade
+  source_pdf: measure_pdfs/96414.pdf
+  source_pdf_sha256: eb06df8d38643f4acb1e2bb11401ab8c782e55221545af90f0a1aef943ac18bc
+  page: 20
+  method: extracted grid, with the cells named in `why` corrected from the PDF text layer
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 5e15523ba64431ac6bfcfcdac4aab8ee3b45a40607c9067a2041fb6f6c3727f8
+    why: Every value is right, but the argument name heat_pump_heating_capacity_retention_fraction_temperature
+      carries a space where the PDF breaks it across two lines ('..._temper ature'), so a search for the
+      argument misses it. The header 'OpenStudio-HPXML?' had the same line-break space. The cell text
+      is the extractor's own with those two joined.
+  markdown: '| ResStock Argument | Dual Fuel Heating System | Calculated by OpenStudio-HPXML? |
+
+    |---|---|---|
+
+    | heat_pump_type | air-to-air | No |
+
+    | heat_pump_heating_efficiency_type | HSPF2 | No |
+
+    | heat_pump_heating_efficiency | 7.8 | No |
+
+    | heat_pump_cooling_efficiency_type | SEER2 | No |
+
+    | heat_pump_cooling_efficiency | 15.1 | No |
+
+    | heat_pump_sizing_methodology | ACCA | No |
+
+    | heat_pump_heating_capacity | auto | Yes |
+
+    | heat_pump_fraction_heat_load_served | 1 | No |
+
+    | heat_pump_cooling_capacity | auto | Yes |
+
+    | heat_pump_fraction_cool_load_served | 1 | No |
+
+    | heat_pump_backup_type | integrated | No |
+
+    | heat_pump_backup_fuel | natural gas | No |
+
+    | heat_pump_backup_heating_efficiency | 0.950/0.925 (depending on climate zone) | No |
+
+    | heat_pump_backup_heating_capacity | auto | Yes |
+
+    | heat_pump_heating_capacity_retention_fraction | 0.5 | No |
+
+    | heat_pump_heating_capacity_retention_fraction_temperature | 5°F | No |
+
+    | heat_pump_is_ducted | TRUE | No |
+
+    | heat_pump_cooling_compressor_type | single stage | No |
+
+    | heat_pump_backup_heating_lockout_temp | 35°F | No |
+
+    | heat_pump_compressor_lockout_temp | 35°F | No |'
+checked:
+- label: Measure Summary
+  uncaptioned: true
+  source_pdf: measure_pdfs/96414.pdf
+  source_pdf_sha256: eb06df8d38643f4acb1e2bb11401ab8c782e55221545af90f0a1aef943ac18bc
+  page: 9
+  table_sha256: 719181be018dd367bedfd58c8caa4d059fce261c04083f2ec3f6599cbb5f5a33
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: Bulleted lists inside the Measure Definition, Applicability and Not Applicable cells are run into
+    the cell text with their bullet marks; the wording and the percentages (44.7%, 44.3%) are the page's.
+- label: Table 1
+  caption: Default Power Rating of Ducted Heat Pump System Components
+  source_pdf: measure_pdfs/96414.pdf
+  source_pdf_sha256: eb06df8d38643f4acb1e2bb11401ab8c782e55221545af90f0a1aef943ac18bc
+  page: 14
+  table_sha256: 02e2610b94c85401d261f10fe1af57bd86c6d6b3cdb006359c5d1b3eb5fab5f7
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+- label: Table 2
+  caption: Default Voltage and Breaker Space for Ducted Heat Pumps
+  source_pdf: measure_pdfs/96414.pdf
+  source_pdf_sha256: eb06df8d38643f4acb1e2bb11401ab8c782e55221545af90f0a1aef943ac18bc
+  page: 14
+  table_sha256: 11add4f1ad457b8c4064e544c0fcaf4ed3ce171f736ebc8286c0046254cd6a0b
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: Each Circuits and Breaker Spaces cell holds two lines (ckt 1, ckt 2) joined by a space. 'ground-to-
+    air' in the first two rows carries a space where the PDF hyphenates 'ground-to-air' across a line.
+- label: Table 6
+  caption: Characteristics of Two Individual Dwelling Test Models
+  source_pdf: measure_pdfs/96414.pdf
+  source_pdf_sha256: eb06df8d38643f4acb1e2bb11401ab8c782e55221545af90f0a1aef943ac18bc
+  page: 24
+  table_sha256: 48081924d6cc49ac714be4f4fd33ddf0ee6f21147556d76c5f85666f7189ec21
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+- label: Table 7
+  caption: Savings in Annual Energy Consumption and Utility Bills for Two Individual Dwelling Test Models
+  source_pdf: measure_pdfs/96414.pdf
+  source_pdf_sha256: eb06df8d38643f4acb1e2bb11401ab8c782e55221545af90f0a1aef943ac18bc
+  page: 25
+  table_sha256: 0a1c7fcac4c6360e74a9635700b3ff4adf406e61825e6f10b6ca4e7b729f31ac
+  verdict: correct
+  method: page-render-and-text-layer
+  checked_utc: '2026-11-11'
+  note: Row labels have a hyphen where the PDF has an em dash ('Electricity-Cooling'), as in the body
+    text of the conversion; every value and sign matches.
+figures:
+- source_image: 96414_images/image_000002_0d99e1371b27558582d86068aa062b8191379a1f47d3068fcd8cd57cf6743edc.png
+  source_image_sha256: b65366555afbcc3c3ccce255592a9beadf56ad363e6c9fb6a728c7ec4fe9b1fe
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked area chart of Dwelling 1 (Wisconsin) electricity demand by end use over a summer day
+  description: 'Figure 1: stacked area chart of average electricity demand (kW, 0 to 1) over a summer
+    day for Dwelling 1, stacked by end use, with a dotted baseline total and dashed outdoor temperature
+    (°F, right axis). Cooling is the largest end use. The total peaks near 0.9 kW at about 16:00 and runs
+    just below the baseline for most of the day. See Table 6 for the dwelling.'
+- source_image: 96414_images/image_000003_bd9781efcbe79d9d02c94f10385d1f2094a8d9cf0123625c68211a95912cccee.png
+  source_image_sha256: 974884fe0930c29e0642c32f0863081939a58296fa72ffc7487b53ddc41c7e2f
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked area chart of Dwelling 2 (Texas, CZ 2A) electricity demand by end use over a summer day
+  description: 'Figure 2: stacked area chart of average electricity demand (kW, 0 to 1.2) over a summer
+    day for Dwelling 2 (single-family detached, CZ 2A, Texas), stacked by end use, with a dotted baseline
+    total and dashed outdoor temperature (°F, right axis). Cooling dominates all day. The total climbs
+    from about 0.25 kW overnight to about 1.0 kW near 17:00 and stays slightly below the baseline throughout.'
+- source_image: 96414_images/image_000004_5e0443053d6923a23ea629a0b3d8c383b22a57a745a7a907c8e3c0fb5e623a3f.png
+  source_image_sha256: c9b411257e47f7184634637c76f7c7a417ad4716a524ffc5ec830c30f40a0c7f
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked area chart of Dwelling 1 (Wisconsin, CZ 6A) electricity demand by end use over a winter
+    day
+  description: 'Figure 3: stacked area chart of average electricity demand (kW, 0 to 1) over a winter
+    day for Dwelling 1 (single-family detached, CZ 6A, Wisconsin), stacked by end use, with a dotted baseline
+    total and dashed outdoor temperature (°F, right axis). The total tracks the baseline for most of the
+    day, then spikes to about 0.88 kW near 16:00, well above it, when the outdoor temperature peaks.'
+- source_image: 96414_images/image_000005_65ee4ad5c8af3ea69b63dad37837d8e522e74902799d815b11f249fe3189c4b6.png
+  source_image_sha256: cd75aa0770ad56e2a6f88114b28aa65986f2e3bffa691890d26006f7a01797aa
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked area chart of Dwelling 2 (Texas, CZ 2A) electricity demand by end use over a winter day
+  description: 'Figure 4: stacked area chart of average electricity demand (kW, 0 to 0.7) over a winter
+    day for Dwelling 2 (single-family detached, CZ 2A, Texas), stacked by end use, with a dotted baseline
+    total and dashed outdoor temperature (°F, right axis). The upgrade total sits above the baseline all
+    day, with three heating blocks reaching about 0.45 kW after midnight, 0.48 kW near 15:00 and 0.57
+    kW near 22:00.'
+- source_image: 96414_images/image_000006_d8831fe3f0ad34072958da1a2566c9f32fb6ccc2a71ad3305a5ab87cc81a4bdd.png
+  source_image_sha256: 5d5dc4e2c1b1fc920e37f62f4754bbee8f436445ac4a9066a31d1355356d3c80
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bars of total stock annual energy consumption by end use and fuel, baseline vs dual fuel
+    heat pump
+  description: 'Figure 5: stacked bar chart of annual energy consumption (TBtu, 0 to 12k) for the whole
+    stock, one bar each for Baseline and Dual-Fuel Heat Pump, with segments for each end use and fuel.
+    The total falls from 11,784 to 10,687 TBtu. The baseline natural gas heating segment, the largest,
+    is mostly replaced by a smaller heat pump backup natural gas segment.'
+- source_image: 96414_images/image_000007_c019cfbc5f09d69647b0260c9383948a8a92acfc4a8e5d84d585b2c8692ab59d.png
+  source_image_sha256: e9a286e6b541372312d56d83329f48dab0382d49af8c2f538c19eb3591ad9a7f
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bars of annual energy consumption for applicable dwellings, baseline vs dual fuel heat
+    pump
+  description: 'Figure 6: stacked bar chart of annual energy consumption (TBtu, 0 to 12k) for dwellings
+    the upgrade applies to, one bar each for Baseline and Dual-Fuel Heat Pump, with segments for each
+    end use and fuel. The total falls from 6,664 to 5,567 TBtu. Natural gas heating dominates the baseline
+    bar; heat pump backup natural gas is the largest segment after the upgrade.'
+- source_image: 96414_images/image_000008_5327cce2aff3415e86bcd096f8e4a227a20c5e31542e74b31ed20a2165e96af7.png
+  source_image_sha256: e5dc509c0c605f8a9aca8b0348af67f59f5ee835e42af38814423961ef7adba3
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bars of annual energy consumption for applicable dwellings by baseline heating fuel
+  description: 'Figure 7: four panels of stacked bars, one per baseline heating fuel (Electricity, Fuel
+    Oil, Natural Gas, Propane), each comparing Baseline with Dual-Fuel Heat Pump in annual energy consumption
+    (TBtu, 0 to 6,000), segmented by end use and fuel. Natural gas homes dominate: 6,041 TBtu falls to
+    4,987. Electricity goes from 522 to 501, fuel oil from 81 to 63 and propane from 20 to 17.'
+- source_image: 96414_images/image_000009_edf1b556e9145cba3e3621d5dfab36060ce1d01b1b61ea87471a3da946398c83.png
+  source_image_sha256: 9f45d2e4c6a4be6f96b9cdd328ff974bc0f197d79dff80f495ee903ff5a2d551
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bars of annual energy consumption for applicable dwellings by Building America climate
+    zone
+  description: 'Figure 8: eight panels of stacked bars, one per Building America climate zone, each comparing
+    Baseline with Dual-Fuel Heat Pump in annual energy consumption (TBtu, 0 to about 3,300), segmented
+    by end use and fuel. Cold is the largest, falling from 3,273 to 2,778 TBtu; Mixed-Humid falls from
+    1,853 to 1,489. Hot-Dry, Hot-Humid and Marine are each under 600 TBtu, and Subarctic rounds to zero.'
+- source_image: 96414_images/image_000010_e6db175e387ebaf4dd85d7fa5ac12720c22266045ad642e068019bdb32e841cf.png
+  source_image_sha256: e9457ab2cf15fa18ac6cad42d719d3837d6b8f751eb136972188d2bbd920f0f4
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bars of average annual utility bills per dwelling by fuel, baseline vs dual fuel heat pump
+  description: 'Figure 9: horizontal grouped bar chart of average annual utility bills per dwelling (USD,
+    0 to about 2,600) for electricity, natural gas, fuel oil, propane and all fuels, with one bar each
+    for Baseline and Dual Fuel Heat Pump. The electricity bill rises from roughly 1,870 to 1,960 USD,
+    the natural gas bill falls from roughly 520 to 400, and the all-fuels bill falls slightly from about
+    2,640.'
+- source_image: 96414_images/image_000011_aeab95ef7d931f5e6c4ea3039814e7bfe42e18ab24b5080f6c72bccfbfebada8.png
+  source_image_sha256: b5b06f8555d3a0c744f460a053fee905c1aff69d0c49a8366bfdaf06b8b5eec3
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bars of average annual utility bills by Building America climate zone and fuel, baseline
+    vs upgrade
+  description: 'Figure 10: horizontal stacked bar chart of average annual utility bills (USD, 0 to about
+    4,700) by Building America climate zone, a Baseline and a Dual Fuel Heat Pump bar per zone, with segments
+    for electricity, natural gas, fuel oil and propane bills. Subarctic is highest at about 4,650 USD,
+    mostly fuel oil; the other zones fall between about 2,100 and 3,000 USD, with the upgrade bar slightly
+    shorter.'
+- source_image: 96414_images/image_000012_82df624e6af1e97d1e9ed174b7e5acd0cf2588ff1aa3913dd3797626ca19796d.png
+  source_image_sha256: 4a08ae963ff2a5b05a8411b6558f17cac8585e483dd5ad00fd33b5e3d9e31493
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: 100% stacked columns of electrical panel constraint type by baseline heating fuel after the upgrade
+  description: 'Figure 11: 100% stacked column chart of the share of dwelling units by panel constraint
+    type after the Dual Fuel Heating System upgrade, with columns for All, Electricity, Natural Gas, Fuel
+    Oil, Propane, Wood, Other Fuel and Null. Segments are no constraint, capacity only, space only, and
+    both. In the All column 92.0% have no constraint and 5.1% are capacity constrained only.'
+- source_image: 96414_images/image_000013_5b6c3633bb4eff664a44e23a426dfc95c7bdb64af885cafad8ef1b4f0abebf23.png
+  source_image_sha256: 69175a6a7c8c774c1f5ce8211329d240604bb47f7e92a0c2674607516bee82c6
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Choropleth map of the percent of dwelling units with electrical panel capacity constraints by state
+  description: 'Figure 12: choropleth map of the United States, with Alaska and Hawaii inset, shading
+    each state by the percent of dwelling units with an electrical panel capacity constraint after the
+    Dual Fuel Heating System upgrade; states are labelled with values. The colour scale runs from 1.4%
+    to 13.9%. The darkest states are in the central Plains, and Alaska is the lightest at 1.4%.'
+- source_image: 96414_images/image_000014_7b4738bb091c2e06e587308ad85f5b076a8bef061ea30c039a3abc07d87309e5.png
+  source_image_sha256: 72222bfd25b1f5d7222c6c9099e1c95cc378362163f7fb492526758ea34ea76c
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Choropleth map of the percent of dwelling units with electrical panel space constraints by state
+  description: 'Figure 13: choropleth map of the United States, with Alaska and Hawaii inset, shading
+    each state by the percent of dwelling units with an electrical panel space constraint after the Dual
+    Fuel Heating System upgrade; states are labelled with values. The colour scale tops out at 7.7%. The
+    darkest states are in the northern Rockies and northern Plains; most southern and central states are
+    a few percent or less.'
+- source_image: 96414_images/image_000015_71556d393875b3ba8ef5ea720ed431310b50cb4b8485f612914b11edcb06204b.png
+  source_image_sha256: 9d48cae0f805197f0d0fc6dc23cfca11af5c4bf7fe1737386e128181258db237
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Choropleth map of the percent of dwelling units with a panel capacity and/or space constraint by
+    state
+  description: 'Figure 14: choropleth map of the United States, with Alaska and Hawaii inset, shading
+    each state by the percent of dwelling units with an electrical panel capacity and/or space constraint
+    after the Dual Fuel Heating System upgrade; states are labelled with values. The colour scale runs
+    from 3.1% to 16.4%. The darkest states are in the central and northern Plains, combining the patterns
+    of Figures 12 and 13.'

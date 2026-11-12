@@ -1,0 +1,11 @@
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96636.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96636.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96636.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96636.md | section: 1.3.3 Seasonal Energy Efficiency Ratio, Version 2 | lines: 207-216 -->
+## 1.3.3 Seasonal Energy Efficiency Ratio, Version 2
+
+SEER2 is a metric for representing the cooling efficiency of central air conditioners and heat pumps as they would perform over an entire cooling season. It is defined as the total cooling output (in British thermal units, Btu) during a typical cooling season divided by the total electrical energy input, including the blower fan energy (in watt-hours) consumed over that same period. Higher SEER2 values indicate more efficient systems, since they deliver more cooling per unit of electricity. Energy losses due to on-off cycling, blower waste heat, and refrigerant line heat transfer all reduce SEER2.
+
+SEER2 is determined under standardized test conditions specified by ANSI/AHRI Standard 210/240-2024 (and DOE's Appendix M1), which simulates a range of outdoor temperatures and indoor loads to approximate real-world operation throughout the cooling season. Ratings typically range from about 13 SEER2 for older equipment up to 26 SEER2 for more advanced centrally ducted air-conditioner systems, and up to 35.1 SEER2 for non-ducted systems.
+
+In this study, dwellings with existing air-conditioning systems below the regional minimums are modeled with central air conditioners or heat pumps rated at 14.3 SEER2 in the South region and 13.4 SEER2 in the North region, and with central ASHPs rated at 14.3 SEER2 and 7.5 HSPF2. For dwellings whose current cooling equipment already meets or exceeds these thresholds, we simulate a like-for-like replacement at the higher efficiency.
+
+The South region includes the following states: Alabama, Arizona, Arkansas, California, Delaware, Florida, Georgia, Hawai ' i, Kentucky, Louisiana, Maryland, Mississippi, Nevada, New Mexico, North Carolina, Oklahoma, South Carolina, Tennessee, Texas, Virginia, and the District of Columbia. The North region includes all states not listed in the South region.
+

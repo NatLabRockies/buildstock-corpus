@@ -8,7 +8,7 @@ be one fetch away in the manifest (W2.2). Two links do that:
                    file URL carrying the commit hash, so it resolves to the same bytes
                    next year. For a document fetched from OSTI it is the OSTI URL.
   publication_url  the human-readable publication a reader should be sent to: the live
-                   ComStock-site page for a site page, the file the site serves for a
+                   product-site page for a site page, the file the site serves for a
                    site-served PDF, the release's reference-documentation PDF for a
                    technical-reference chapter, and the OSTI URL for an OSTI report.
 
@@ -61,8 +61,9 @@ def site_file_url(site_url: str, path: str) -> str:
 def site_page_url(site_url: str, source_path: str) -> str:
     """URL of the rendered page for a Jekyll source file: docs/a/b.md -> docs/a/b.html.
 
-    Holds for every page in the ComStock site repo because none sets its own permalink;
-    a page that did would need a registry override rather than this rule.
+    Holds for every page in the ComStock site repo because none sets its own permalink
+    (to be confirmed for the ResStock site at its first build); a page that did would need
+    a registry override rather than this rule.
     """
     path = source_path.strip("/")
     if path.endswith(".md"):

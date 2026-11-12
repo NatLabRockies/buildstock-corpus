@@ -61,13 +61,13 @@ def _clone_dir(product: str, release: str, src: Source) -> Path:
     return raw_root(product, release) / "repos" / f"{Path(src.repo).stem}@{src.git_ref}"
 
 
-def _index_refs(clone_dir: Path, src_state: dict) -> list[MeasureRef]:
+def _index_refs(clone_dir: Path, src_state: dict, id_pattern: str) -> list[MeasureRef]:
     """Parse the measures index page (hashed by fetch) into measure->doc refs."""
     idx = src_state.get("index_page")
     if not idx:
         return []
     text = (clone_dir / idx["path"]).read_text(encoding="utf-8", errors="replace")
-    return parse_index(text, idx["path"])
+    return parse_index(text, idx["path"], id_pattern)
 
 
 def _measure_extra(refs: list[MeasureRef], dates: dict[str, DocDate] | None = None) -> dict:
@@ -208,7 +208,7 @@ def _measure_statuses(src_state: dict) -> dict[str, str]:
     """source_path -> publication status for every document of a measures source.
 
     The index page's internal pages and the PDFs committed beside them are both things
-    the ComStock site serves, so both are site_page; a PDF fetched from elsewhere is judged
+    the product's site serves, so both are site_page; a PDF fetched from elsewhere is judged
     by its URL (see status.status_for_url). Keyed by the same source_path the extractors
     stamp on each Document, so build can assign without re-deriving link kinds.
     """
@@ -276,6 +276,7 @@ def _extract_documents(
     dict | None,
     dict[str, Path],
     dict[tuple[str, str], Path],
+    dict[str, Path],
 ]:
     """Extract every fetched source into Documents.
 
@@ -288,7 +289,9 @@ def _extract_documents(
     Returns the two image maps separately because they answer different questions:
     `pdf_images` says where a PDF's bitmaps are copied *to* under processed/, while
     `image_dirs` says where any document's bitmaps can be read *from* right now, which is
-    what overlay.apply_overlays needs to hash one it has pinned.
+    what overlay.apply_overlays needs to hash one it has pinned. `rasters` is the third
+    map: single PNG files the LaTeX loader rendered from PDF figures, keyed by their
+    processed/-relative path (see extract.latex._rasterize_pdf_figures).
     """
     reg = load_registry(product, release)
     docs: list[Document] = []
@@ -296,9 +299,10 @@ def _extract_documents(
     excluded_urls: list[dict] = []
     warnings: list[str] = []
     crosswalk: dict | None = None
-    crosswalk_spec: tuple = (None, None, None, None)
+    crosswalk_spec: tuple = (None, None, None, None, None)
     pdf_images: dict[str, Path] = {}
     image_dirs: dict[tuple[str, str], Path] = {}
+    rasters: dict[str, Path] = {}
 
     for src in reg.sources:
         src_state = state["sources"][src.id]
@@ -306,9 +310,15 @@ def _extract_documents(
         first = len(docs)  # so this source's own docs can be post-processed below
 
         if src.type == "latex":
+            latex_rasters: dict[str, Path] = {}
             latex_docs, latex_warn = load_latex_docs(
-                clone_dir, src.latex_main or "", product, release, src.id, limit=sample
+                clone_dir, src.latex_main or "", product, release, src.id, limit=sample,
+                bibliography=src.bibliography, rasters=latex_rasters,
             )
+            # a PDF figure's PNG lands beside the chapter, where its rewritten ref points
+            proj_rel = (clone_dir / (src.latex_main or "")).parent.relative_to(clone_dir).as_posix()
+            for ref, cached in latex_rasters.items():
+                rasters[f"{src.id}/{proj_rel}/{ref}"] = cached
             # Date each chapter by its \input closure, not the chapter file alone.
             warnings += _date_docs(latex_docs, clone_dir, src.id, latex_doc_date)
             docs += latex_docs
@@ -326,7 +336,7 @@ def _extract_documents(
                 excluded[src.id] = md_excl
 
         elif src.type == "measures":
-            refs = _index_refs(clone_dir, src_state)
+            refs = _index_refs(clone_dir, src_state, src.measure_id_pattern)
             # Resolve each measure document's date once, up front: the same dict feeds both
             # the chunk metadata (via _measure_extra below) and the crosswalk, so there is one
             # resolution and no chance the two drift. (build_crosswalk keeps its keys always-
@@ -352,7 +362,9 @@ def _extract_documents(
                 if u not in seen_urls:
                     warnings.append(f"{src.id}: exclude_urls entry matched no fetched PDF: {u}")
             specs = _cap(specs, sample)
-            pdf_docs, pdf_warn, pdf_imgs = load_pdf_docs(specs, product, release, src.id)
+            pdf_docs, pdf_warn, pdf_imgs = load_pdf_docs(
+                specs, product, release, src.id, table_mode=src.pdf_table_mode
+            )
             docs += pdf_docs
             warnings += [f"{src.id}: {w}" for w in pdf_warn]
             for source_path, (rel_dir, cache_dir) in pdf_imgs.items():
@@ -360,17 +372,25 @@ def _extract_documents(
                 pdf_images[f"{src.id}/{remap_dir(rel_dir, src.output_remap)}"] = cache_dir
                 # a PDF's bitmaps are only in the cache until _copy_source_images runs
                 image_dirs[(src.id, source_path)] = cache_dir
-            crosswalk_spec = (clone_dir, src_state.get("crosswalk"), refs, doc_dates)
+            crosswalk_spec = (
+                clone_dir, src_state.get("crosswalk"), src_state.get("upgrades_lookup"), refs, doc_dates
+            )
 
         _assign_provenance(docs[first:], src, src_state, state.get("clones", []))
 
-        if src.type == "measures" and crosswalk_spec[1]:
-            # The crosswalk join (CSV + index) runs after provenance so each row can carry
-            # its document's corpus_path and canonical doc_url, dated by its own document.
-            cdir, cw, refs, doc_dates = crosswalk_spec
+        if src.type == "measures" and (crosswalk_spec[1] or crosswalk_spec[2]):
+            # The crosswalk join (upgrade map + index) runs after provenance so each row can
+            # carry its document's corpus_path and canonical doc_url, dated by its own document.
+            cdir, cw, lookup, refs, doc_dates = crosswalk_spec
             crosswalk = build_crosswalk(
-                cdir / cw["path"], refs, release, doc_dates,
+                cdir / cw["path"] if cw else None, refs, release, doc_dates,
                 docs=_measure_doc_index(docs[first:], src, src_state),
+                lookup_path=raw_root(product, release) / lookup["path"] if lookup else None,
+            )
+        elif src.type == "measures" and src.upgrades_lookup_url:
+            warnings.append(
+                f"{src.id}: upgrades lookup was not fetched ({src.upgrades_lookup_url}); "
+                f"no crosswalk built -- re-run bsc fetch"
             )
 
         # Everything not filled in above is a clone-sourced page, whose images sit beside it
@@ -380,7 +400,7 @@ def _extract_documents(
                 (doc.source_id, doc.source_path), (clone_dir / doc.source_path).parent
             )
 
-    return docs, excluded, excluded_urls, warnings, crosswalk, pdf_images, image_dirs
+    return docs, excluded, excluded_urls, warnings, crosswalk, pdf_images, image_dirs, rasters
 
 
 def _omit_decorative_images(docs: list[Document]) -> int:
@@ -395,9 +415,9 @@ def _omit_decorative_images(docs: list[Document]) -> int:
         if doc.source_type != "pdf":
             continue
 
-        def repl(m: re.Match, source_path: str = doc.source_path) -> str:
+        def repl(m: re.Match, source_path: str = doc.source_path, product: str = doc.product) -> str:
             nonlocal n
-            label = decorative_label(source_path, m.group("idx"), m.group("hash"))
+            label = decorative_label(product, source_path, m.group("idx"), m.group("hash"))
             if label is None:
                 return m.group(0)  # a real figure (a site doc's Figure 1): left as it was
             n += 1
@@ -492,11 +512,15 @@ def _replace_dir(src_dir: Path, dst: Path) -> int:
     return sum(1 for p in Path(long_path(dst)).rglob("*") if p.is_file())
 
 
-def _copy_source_images(product: str, release: str, pdf_images: dict[str, Path]) -> int:
+def _copy_source_images(
+    product: str, release: str, pdf_images: dict[str, Path], rasters: dict[str, Path] | None = None
+) -> int:
     """Copy image assets into processed/ so the relative refs in the .md files resolve.
 
-    Clone-sourced images (measures media/, LaTeX figures/) are copied to the same relative
-    depth as the .md files that reference them; PDF images come from the docling cache.
+    Clone-sourced images (measures media/, the LaTeX project's images dir) are copied to the
+    same relative depth as the .md files that reference them; PDF images come from the
+    docling cache; `rasters` are single PNGs rendered from PDF figures, copied last so they
+    land inside the images dir the directory copy just replaced.
     """
     reg = load_registry(product, release)
     root = processed_root(product, release)
@@ -512,7 +536,7 @@ def _copy_source_images(product: str, release: str, pdf_images: dict[str, Path])
             # measures pages reference media/*.png relative to the page's directory,
             # so media follows the pages when that directory is remapped
             src_media = clone_dir / (src.internal_dir or "") / "media"
-            if src_media.is_dir():
+            if src.internal_dir and src_media.is_dir():
                 rel_media = f"{(src.internal_dir or '').strip('/')}/media"
                 dst = root / src.id / remap_dir(rel_media, src.output_remap)
                 copied += _replace_dir(src_media, dst)
@@ -524,13 +548,19 @@ def _copy_source_images(product: str, release: str, pdf_images: dict[str, Path])
                 dst = root / src.id / "assets" / "images"
                 copied += _replace_dir(src_assets, dst)
         elif src.type == "latex":
-            # pandoc emits <img src="figures/..."> relative to the chapter .tex files
+            # pandoc emits <img src="<images_dir>/..."> relative to the chapter .tex files
             latex_main = clone_dir / (src.latex_main or "")
-            src_figures = latex_main.parent / "figures"
+            src_figures = latex_main.parent / src.images_dir
             if src_figures.is_dir():
                 rel = latex_main.parent.relative_to(clone_dir).as_posix()
-                dst = root / src.id / rel / "figures"
+                dst = root / src.id / rel / src.images_dir
                 copied += _replace_dir(src_figures, dst)
+
+    for rel_path, cached in (rasters or {}).items():
+        dst = root / rel_path
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(long_path(cached), long_path(dst))
+        copied += 1
     return copied
 
 
@@ -556,7 +586,7 @@ def build_release(
     """
     corpus_version = corpus_version or default_corpus_version()
     state = _load_fetch_state(product, release)
-    docs, excluded, excluded_urls, warnings, crosswalk, pdf_images, image_dirs = (
+    docs, excluded, excluded_urls, warnings, crosswalk, pdf_images, image_dirs, rasters = (
         _extract_documents(product, release, state, sample)
     )
     reg = load_registry(product, release)
@@ -567,7 +597,7 @@ def build_release(
         # files and chunks.jsonl. Image-anchored entries hash the bitmap where it lives now;
         # caption-anchored entries verify against the fetched input hashes instead.
         applied, overlay_warnings = apply_overlays(
-            docs, product, release, image_dirs, input_hashes(state)
+            docs, product, release, image_dirs, input_hashes(state), rendered_images=rasters
         )
         warnings += overlay_warnings
 
@@ -577,7 +607,7 @@ def build_release(
 
     remaps = reg.output_remaps()
     _write_processed(product, release, docs, remaps, corpus_version)
-    n_images = _copy_source_images(product, release, pdf_images)
+    n_images = _copy_source_images(product, release, pdf_images, rasters)
     n_sections = _write_section_files(product, release, docs, remaps)
 
     # Chunk line ranges are lines of the files just written, so a hit can be re-read with
@@ -600,6 +630,10 @@ def build_release(
     manifest = build_manifest(
         product, release, docs, crosswalk, warnings, excluded, state, len(chunks), remaps,
         sample, applied, corpus_version=corpus_version, excluded_urls=excluded_urls,
+        not_converted=[
+            {"source_id": s.id, **entry} for s in reg.sources for entry in s.not_converted
+        ],
+        notes=reg.notes,
     )
 
     # After the manifest, never before: the map and the index stamp the manifest's hash so

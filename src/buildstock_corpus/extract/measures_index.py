@@ -17,11 +17,14 @@ import re
 from dataclasses import dataclass
 from pathlib import PurePosixPath
 
+from ..registry import DEFAULT_MEASURE_ID_PATTERN
+
 _REF_DEF_RE = re.compile(r"^\[(\d+)\]:\s*(.+?)\s*$", re.MULTILINE)
 # First cell captured loosely so combined rows ("dr_0005 / dr_0006", one shared doc)
-# yield one ref per id; rows whose first cell holds no measure id are skipped.
+# yield one ref per id; rows whose first cell holds no measure id are skipped. What counts
+# as an id is the registry's `measure_id_pattern`: ComStock's hvac_0001 form by default,
+# ResStock's plain numbers 1 to 32 when the registry says so.
 _ROW_RE = re.compile(r"^\|\s*([^|]*?)\s*\|\s*(.*?)\s*\|\s*(.*?)\s*\|\s*$", re.MULTILINE)
-_MEASURE_ID_RE = re.compile(r"[a-z]+_\d+")
 _INLINE_LINK_RE = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
 _REF_LINK_RE = re.compile(r"\[([^\]]+)\]\[(\d+)\]")
 _LIQUID_LINK_RE = re.compile(r"\{%\s*link\s+(.+?)\s*%\}")
@@ -70,18 +73,23 @@ def _classify(target: str, index_dir: str) -> tuple[str, str]:
     return "external_other", target
 
 
-def parse_index(text: str, index_page_path: str) -> list[MeasureRef]:
+def parse_index(
+    text: str, index_page_path: str, id_pattern: str = DEFAULT_MEASURE_ID_PATTERN
+) -> list[MeasureRef]:
     """Parse the index markdown into MeasureRefs, in table order.
 
     index_page_path is the repo-relative path of the index page, used to resolve
-    reference-style relative links (e.g. ../../assets/files/foo.pdf).
+    reference-style relative links (e.g. ../../assets/files/foo.pdf). `id_pattern` is the
+    registry's measure_id_pattern: every match in a row's first cell is one measure id
+    (so it must not contain capturing groups).
     """
     index_dir = PurePosixPath(index_page_path).parent.as_posix()
     refs = {n: t for n, t in _REF_DEF_RE.findall(text)}
+    id_re = re.compile(id_pattern)
 
     out: list[MeasureRef] = []
     for id_cell, cell, release in _ROW_RE.findall(text):
-        ids = _MEASURE_ID_RE.findall(id_cell)
+        ids = id_re.findall(id_cell)
         if not ids:
             continue  # header / separator / non-measure table rows
         release = _clean_name(release) or "unknown"

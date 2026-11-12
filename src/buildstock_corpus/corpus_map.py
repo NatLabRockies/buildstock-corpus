@@ -27,6 +27,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from .paths import chunks_file, manifest_file, processed_root, sha256_file
+from .registry import product_name
 
 MAP_FILENAME = "CORPUS_MAP.md"
 
@@ -114,7 +115,7 @@ def _published(status: str | None, url: str | None) -> str:
 
     A short label rather than the URL itself keeps the tables readable -- the map is the
     first thing an agent reads -- while the status says what kind of publication the link
-    is (an OSTI report, a page or file on the ComStock site) before it is followed.
+    is (an OSTI report, a page or file on the product's site) before it is followed.
     """
     if not url:
         return "—"
@@ -204,7 +205,8 @@ def _gaps_section(manifest: dict) -> list[str]:
     by_registry = gaps.get("excluded_by_registry") or []
     unreachable = gaps.get("unreachable_pdfs") or []
     measures = gaps.get("measures") or []
-    if not (excluded or by_registry or unreachable or measures):
+    not_converted = gaps.get("not_converted") or []
+    if not (excluded or by_registry or unreachable or measures or not_converted):
         return []
     lines = ["## Known gaps", ""]
     if measures:
@@ -218,6 +220,14 @@ def _gaps_section(manifest: dict) -> list[str]:
         lines += [
             f"- **{len(paths)} unpublished `{src_id}` page(s)** excluded upstream "
             f"(`published: false`), so they are absent by intent, not by failure."
+        ]
+    if not_converted:
+        lines += [
+            f"- **{len(not_converted)} upstream file(s) not converted**, by decision of the "
+            f"source registry; read them upstream:"
+        ]
+        lines += [
+            f"  - `{e.get('source_id')}/{e.get('path')}`: {e.get('reason')}" for e in not_converted
         ]
     if by_registry:
         lines += [
@@ -248,6 +258,10 @@ def _render(product: str, release: str, manifest: dict, manifest_sha: str, facts
         f"- `build_generated_utc`: `{manifest.get('generated_utc')}`",
         "",
     ]
+    if manifest.get("notes"):
+        lines += ["## About this release", ""]
+        lines += [f"- {note}" for note in manifest["notes"]]
+        lines += [""]
     if manifest.get("sample"):
         lines += [
             "> **SAMPLE BUILD — partial corpus, not a release record.** This map describes a "
@@ -273,7 +287,7 @@ def _render(product: str, release: str, manifest: dict, manifest_sha: str, facts
         "manifest they describe and validate against `schemas/` in the repo.",
         "- **The Published column links the human-readable publication.** Its label is the "
         "document's status: `osti_pdf` for a report with an OSTI number, `site_page` for a page "
-        "or file the ComStock site serves without one. Send a reader there, not to the "
+        f"or file the {product_name(product)} site serves without one. Send a reader there, not to the "
         "markdown.",
         "- **Images are not in the clone.** `processed/**/*.png` is gitignored (~250 MB, "
         "regenerable), so image references resolve to absent files. Tables and figure "

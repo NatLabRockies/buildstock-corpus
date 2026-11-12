@@ -1,20 +1,29 @@
 # buildstock-corpus — for agents (Claude Code, Codex, Gemini CLI, and any other)
 
 This repo holds the **AI-ready BuildStock corpus**: clean, release-tagged markdown
-extracted from ComStock's documentation, with a provenance manifest.
+extracted from the documentation of two products, ComStock and ResStock, with a provenance
+manifest. Each product has its own folder, release id and release tag:
+
+| Product | Covers | Folder under `processed/` | Current tag |
+|---|---|---|---|
+| ComStock | commercial buildings | `comstock/comstock_amy2018_2025_release_3/` (118 documents, 65 measures) | `comstock_amy2018_2025_release_3-v3` |
+| ResStock | housing | `resstock/resstock_amy2018_2025_release_1/` (62 documents, 32 measures) | `resstock_amy2018_2025_release_1-v1` |
 
 ## Start here
 
-Two start orders, one per kind of reader:
+**Pick the product first.** Then two start orders, one per kind of reader:
 
-- **With a clone, read `processed/<product>/<release>/CORPUS_MAP.md` first**, currently
-  [processed/comstock/comstock_amy2018_2025_release_3/CORPUS_MAP.md](processed/comstock/comstock_amy2018_2025_release_3/CORPUS_MAP.md).
-- **Fetching URLs without a clone, fetch `index.json` first**, at a release tag; see
-  "Reading without a clone" below. `CORPUS_MAP.md` is the same contents as readable prose.
+- **With a clone, read `processed/<product>/<release>/CORPUS_MAP.md` first**:
+  [ComStock's map](processed/comstock/comstock_amy2018_2025_release_3/CORPUS_MAP.md) or
+  [ResStock's map](processed/resstock/resstock_amy2018_2025_release_1/CORPUS_MAP.md).
+- **Fetching URLs without a clone, fetch that product's `index.json` first**, at its release
+  tag; see "Reading without a clone" below. `CORPUS_MAP.md` is the same contents as readable
+  prose.
 
 The map lists every document with its title, path, sections and last-updated date, plus a
 measure → upgrade-id → document routing table and the corpus's known gaps. One read there
-tells you which file to open; without it you are grepping 118 files blind.
+tells you which file to open; without it you are grepping 118 files (ComStock) or 62
+(ResStock) blind.
 
 ## Reading without a clone
 
@@ -24,18 +33,25 @@ If you can fetch URLs but have no checkout, every file under `processed/` is ser
 https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/<ref>/processed/<product>/<release>/<path>
 ```
 
-- **Pin `<ref>` to a release tag** (`<release id>-v<N>`). The current tag is
-  `comstock_amy2018_2025_release_3-v3`; the newest is always the top entry of `CHANGELOG.md`
-  and the "Current" line of `llms.txt`. `main` moves on every rebuild.
-- **Fetch `index.json` first** (~155 KB raw, ~20 KB gzip-compressed over the wire): every
+- **Pin `<ref>` to the product's release tag** (`<release id>-v<N>`), from the table
+  above; a product's newest tag is its topmost entry in `CHANGELOG.md` and its "Current"
+  line in `llms.txt`. A product's folder exists only at its own tags and on `main`: the
+  ComStock tag has no ResStock folder. `main` moves on every rebuild.
+- **Fetch `index.json` first**, at
+  `processed/<product>/<release>/index.json` (ComStock's is ~155 KB raw, ~20 KB
+  gzip-compressed over the wire; ResStock's ~85 KB and ~11 KB): every
   document and measure with its `corpus_path`, `status`, `source_url`, `publication_url`,
   `bytes`, and the document's section files (`sections_dir` + `section_files`, one per H2,
   the slug being the heading). Then fetch the one section you need,
-  `<sections_dir>/<name>`, a few KB with its own citable line-1 header that also names the
-  parent `corpus_path` and `lines`; or the whole document. `sections.json` adds every
-  heading's level and line range, and is only needed for those.
-- **Check `bytes` before fetching a whole document.** 41 documents are over 100 KB;
-  Appendix A is 437 KB. Fetch the section file instead, or read a line range.
+  `<sections_dir>/<name>`, usually a few KB, with its own citable line-1 header that also
+  names the parent `corpus_path` and `lines`; or the whole document. `sections.json` adds
+  every heading's level and line range, H3 and below included; fetch it when the section
+  file is large and you need one table's lines (in ResStock's guide chapter 3a, the
+  Geometry and Envelope sections are about 60 KB each and hold many housing characteristics,
+  one H4 apiece).
+- **Check `bytes` before fetching a whole document.** 41 of ComStock's documents and 14 of
+  ResStock's are over 100 KB; ComStock's Appendix A is 450 KB and ResStock's largest, the
+  report 95032, is 291 KB. Fetch the section file instead, or read a line range.
 - Both JSON files validate against `schemas/` in this repo.
 
 ## Reading the corpus
@@ -53,8 +69,10 @@ https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/<ref>/processe
   regenerable), so image references point at files that are not there. Tables and figures
   marked *hand-authored* in the map were transcribed from those images, so their content is
   present as text even when the picture is not.
-- **The corpus is one dataset release.** Do not mix facts across releases; the release tag
-  is part of every claim.
+- **Each folder is one dataset release of one product.** Do not mix facts across products
+  or releases; the release tag is part of every claim. Tables of similar name can sit close
+  together (ResStock's Geometry Stories, Geometry Story Bin and Geometry Building Type
+  Height): cite the one whose heading matches the question, with its line range.
 
 ## Citing
 
@@ -63,7 +81,7 @@ How to cite depends on the status:
 
 - **`osti_pdf`** — a report with an OSTI number. Cite the `publication_url` (the OSTI URL);
   it is the publication of record and does not depend on this corpus.
-- **`site_page`** — a page or PDF the ComStock site publishes without an OSTI number. Cite
+- **`site_page`** — a page or PDF the product's site publishes without an OSTI number (ResStock's technical reference guide is one). Cite
   the `publication_url` **and the `corpus_version`**, and say the document has no OSTI
   number. It can be revised in place upstream; the corpus version is what pins the text
   you read.
@@ -84,11 +102,14 @@ pins in `overlays/`, which is how transcribed tables prove they match their sour
 Everything under `processed/` is already committed — you do not need to fetch or build to
 read it.
 
-If you changed something and need to regenerate:
+If you changed something and need to regenerate, name the product and its release (with two
+products registered, `bsc` no longer guesses):
 
 ```bash
-uv run bsc map      --release comstock_amy2018_2025_release_3   # seconds, needs no raw/
-uv run bsc validate --release comstock_amy2018_2025_release_3   # provenance invariants
+uv run bsc map      --product comstock --release comstock_amy2018_2025_release_3   # seconds, needs no raw/
+uv run bsc validate --product comstock --release comstock_amy2018_2025_release_3   # provenance invariants
+uv run bsc map      --product resstock --release resstock_amy2018_2025_release_1
+uv run bsc validate --product resstock --release resstock_amy2018_2025_release_1
 ```
 
 ## Provenance is load-bearing

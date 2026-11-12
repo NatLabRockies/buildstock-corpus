@@ -1,0 +1,5 @@
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96405.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96405.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96405.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96405.md | section: 4.4  Electrical Panel Impacts | lines: 649-652 -->
+## 4.4  Electrical Panel Impacts
+
+An electric panel constraint occurs when a unit's electrical service panel (the breaker box) does not have enough capacity (amps) or space (breaker slots) to support new electrical equipment or increased electrical load from existing equipment. Upgrading windows does not add additional electric equipment to the dwelling. Depending on the existing HVAC equipment, it generally reduces either equipment runtime or equipment power draw. Therefore, this upgrade is broadly applicable nationwide without concerns related to electrical panel capacity (National Fenestration Rating Council (NFRC), n.d.).
+

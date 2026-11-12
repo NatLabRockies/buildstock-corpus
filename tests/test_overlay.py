@@ -866,7 +866,7 @@ def test_an_overlay_with_neither_tables_nor_repairs_warns(pdf_env):
     applied, warnings = _apply([_pdf_doc(REPAIR_BODY)], pdf_env)
 
     assert applied == {}
-    assert "no table entries, figures, or text repairs" in warnings[0]
+    assert "no table entries, figures, text repairs, or checked tables" in warnings[0]
 
 
 def test_repairs_and_table_entries_compose_in_one_overlay(pdf_env):
@@ -1095,3 +1095,414 @@ def test_links_are_not_required_when_the_document_has_none(env):
     env.write([env.entry()])
     applied, warnings = _apply([_doc()], env)
     assert warnings == [] and applied
+
+
+# --- checked: a verdict on a table the extractor emitted, nothing injected --------------------
+#
+# R4.1 of PLAN-resstock.md. Every table in a measure PDF is compared with its page; a wrong
+# one is superseded (`replaces:` above), a right one gets a `checked:` entry so a reviewer can
+# see it was looked at. The entry is pinned to the PDF revision and to the extracted table's
+# fingerprint, so the verdict stops counting when either moves.
+
+GOOD_GRID = "| Zone | COP |\n|---|---|\n| 1A | 3.2 |\n| 5B | 2.9 |"
+CHECKED_BODY = f"""## 3 Modeling Approach
+
+Table 1. Rated COP by Climate Zone
+
+{GOOD_GRID}
+
+## 4 Results
+"""
+
+
+def _check(pdf_env, **kw):
+    base = {
+        "label": "Table 1",
+        "caption": "Rated COP by Climate Zone",
+        "source_pdf": PDF_PATH,
+        "source_pdf_sha256": PDF_SHA,
+        "page": 12,
+        "table_sha256": _fp(GOOD_GRID),
+        "verdict": "correct",
+        "method": "page-render-and-text-layer",
+        "checked_utc": "2026-11-12",
+    }
+    return {**base, **kw}
+
+
+def test_a_checked_table_is_recorded_and_nothing_is_injected(pdf_env):
+    pdf_env.write([], source_path=PDF_PATH, checked=[_check(pdf_env)])
+    doc = _pdf_doc(CHECKED_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert warnings == []
+    assert doc.body == CHECKED_BODY  # a verdict changes nothing in the artifact
+    rec = applied["upgrade_measures"][PDF_PATH]
+    assert rec["tables_checked"] == ["Table 1"]
+    assert rec["tables_applied"] == []
+
+
+def test_a_check_is_stale_once_the_extracted_table_differs(pdf_env):
+    pdf_env.write([], source_path=PDF_PATH, checked=[_check(pdf_env)])
+    doc = _pdf_doc(CHECKED_BODY.replace("| 5B | 2.9 |", "| 5B | 2.8 |"))
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {}
+    assert "extracted table changed since it was checked" in warnings[0]
+
+
+def test_a_check_is_stale_once_the_pdf_is_reissued(pdf_env):
+    pdf_env.write([], source_path=PDF_PATH, checked=[_check(pdf_env, source_pdf_sha256="b" * 64)])
+    applied, warnings = _apply([_pdf_doc(CHECKED_BODY)], pdf_env)
+
+    assert applied == {}
+    assert "source PDF changed since the check" in warnings[0]
+
+
+def test_a_check_needs_its_caption_its_fields_and_the_one_verdict(pdf_env):
+    lines = CHECKED_BODY.split("\n")
+    assert O.check_problem(lines, _check(pdf_env), PDF_SHA) is None
+    assert "caption not found" in O.check_problem(lines, _check(pdf_env, label="Table 9"), PDF_SHA)
+    for field in ("page", "table_sha256", "verdict", "checked_utc", "source_pdf_sha256"):
+        entry = _check(pdf_env)
+        del entry[field]
+        assert f"missing required field '{field}'" in O.check_problem(lines, entry, PDF_SHA)
+    wrong = O.check_problem(lines, _check(pdf_env, verdict="incorrect"), PDF_SHA)
+    assert "only verdict recorded is 'correct'" in wrong and "replaces" in wrong
+    assert "input hash unknown" in O.check_problem(lines, _check(pdf_env), None)
+
+
+def test_reformatting_the_table_does_not_stale_the_check(pdf_env):
+    """The fingerprint commits to cell values, not to column padding."""
+    padded = CHECKED_BODY.replace(GOOD_GRID, "| Zone   | COP   |\n|:-------|------:|\n| 1A     | 3.2   |\n| 5B     | 2.9   |")
+    pdf_env.write([], source_path=PDF_PATH, checked=[_check(pdf_env)])
+    applied, warnings = _apply([_pdf_doc(padded)], pdf_env)
+
+    assert warnings == []
+    assert applied["upgrade_measures"][PDF_PATH]["tables_checked"] == ["Table 1"]
+
+
+def test_a_table_cannot_be_both_checked_and_hand_authored(pdf_env):
+    pdf_env.write([pdf_env.pdf_entry()], source_path=PDF_PATH, checked=[_check(pdf_env)])
+    doc = _pdf_doc()  # Table 1's caption is bare here, so the tables: entry applies
+    applied, warnings = _apply([doc], pdf_env)
+
+    rec = applied["upgrade_measures"][PDF_PATH]
+    assert rec["tables_applied"] == ["Table 1"] and "tables_checked" not in rec
+    assert any("either checked or hand-authored, not both" in w for w in warnings)
+
+
+def test_an_uncaptioned_grid_is_identified_by_its_fingerprint_alone(pdf_env):
+    lines = f"## Acronyms\n\n{GOOD_GRID}\n".split("\n")
+    entry = _check(pdf_env, label="Acronyms list")
+    assert "caption not found" in O.check_problem(lines, entry, PDF_SHA)
+    assert O.check_problem(lines, {**entry, "uncaptioned": True}, PDF_SHA) is None
+    assert "extracted table changed" in O.check_problem(
+        lines, {**entry, "uncaptioned": True, "table_sha256": "0" * 64}, PDF_SHA
+    )
+
+
+# --- a replacement that removes a table's continuation grids too (R4.2) -----------------------
+#
+# A table that runs over a page break reaches the markdown as one grid per page. A
+# transcription of the whole table has to supersede every one of them.
+
+PAGE_1 = "| Type | East | West |\n|---|---|---|\n| Furnace Electricity MSHP | 1% | 2% |"
+PAGE_2 = "| Type | East | West |\n|---|---|---|\n| Propane Fuel Wall/Floor | 3% | 4% |"
+WHOLE = "| Type | East | West |\n|---|---|---|\n| Electricity MSHP | 1% | 2% |\n| Propane Fuel Wall/Floor Furnace | 3% | 4% |"
+TWO_GRID_BODY = f"""## 3 Stock
+
+Table 1. Heating Type by Division
+
+{PAGE_1}
+
+{PAGE_2}
+
+Text after the table.
+"""
+
+
+def _two_grid(pdf_env, also):
+    return pdf_env.pdf_entry(
+        label="Table 1",
+        markdown=WHOLE,
+        method="pdf-text-layer",
+        replaces={"table_sha256": _fp(PAGE_1), "also_removes": also, "why": "row labels displaced"},
+    )
+
+
+def test_replacement_removes_the_first_grid_and_its_continuation(pdf_env):
+    pdf_env.write([_two_grid(pdf_env, [_fp(PAGE_2)])], source_path=PDF_PATH)
+    doc = _pdf_doc(TWO_GRID_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert warnings == []
+    assert "Furnace Electricity MSHP" not in doc.body  # first grid gone
+    assert "| Propane Fuel Wall/Floor | 3% | 4% |" not in doc.body  # and the continuation
+    assert doc.body.count("| Type | East | West |") == 1  # only the transcription's header
+    assert "| Propane Fuel Wall/Floor Furnace | 3% | 4% |" in doc.body
+    assert "and its continuation grid(s)" in doc.body and "Text after the table." in doc.body
+    assert applied["upgrade_measures"][PDF_PATH]["tables_applied"] == ["Table 1"]
+
+
+def test_a_continuation_pin_that_matches_nothing_replaces_nothing(pdf_env):
+    pdf_env.write([_two_grid(pdf_env, ["0" * 64])], source_path=PDF_PATH)
+    doc = _pdf_doc(TWO_GRID_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {}
+    assert doc.body == TWO_GRID_BODY  # not even the first grid was touched
+    assert "also_removes" in warnings[0] and "nothing was replaced" in warnings[0]
+
+
+def test_a_continuation_pin_cannot_name_the_primary_grid_again(pdf_env):
+    pdf_env.write([_two_grid(pdf_env, [_fp(PAGE_1)])], source_path=PDF_PATH)
+    doc = _pdf_doc(TWO_GRID_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {} and doc.body == TWO_GRID_BODY
+    assert "matches 0 other extracted table(s)" in warnings[0]
+
+
+# --- appendix labels, uncaptioned replacement, line removal (R4.2) ----------------------------
+
+APPENDIX_BODY = """## Appendix A
+
+Table A-1. Installations
+
+| State | Units |
+|---|---|
+| FL | 113 |
+
+Table A-2. Most Efficient GHPs
+
+| Type | COP |
+|---|---|
+| Closed loop | 5.3 |
+|  | 4.9 |
+
+Text after.
+"""
+A2_GRID = "| Type | COP |\n|---|---|\n| Closed loop | 5.3 |\n|  | 4.9 |"
+A2_FIXED = "| Type | COP |\n|---|---|\n| Closed loop | 5.3 |\n| Closed loop | 4.9 |"
+
+
+def test_an_appendix_label_is_a_caption(pdf_env):
+    """'Table A-2.' anchors a replacement exactly as 'Table 7.' does."""
+    pdf_env.write(
+        [pdf_env.pdf_entry(
+            label="Table A-2", markdown=A2_FIXED,
+            replaces={"table_sha256": _fp(A2_GRID), "why": "group label blank on the second row"},
+        )],
+        source_path=PDF_PATH,
+    )
+    doc = _pdf_doc(APPENDIX_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert warnings == []
+    assert "|  | 4.9 |" not in doc.body and "| Closed loop | 4.9 |" in doc.body
+    # it landed under its own caption, not the appendix's first one
+    assert doc.body.index("Table A-2.") < doc.body.index("<!-- table recovered from")
+    assert "| FL | 113 |" in doc.body
+    assert applied["upgrade_measures"][PDF_PATH]["tables_applied"] == ["Table A-2"]
+
+
+def test_appendix_label_forms():
+    from buildstock_corpus.overlay import _CAPTION, _find_caption
+
+    lines = ["Table B1: Prior configs", "Figure C-4. Cooling EIR", "Table of 3. things", "Table A-2 lists the values."]
+    assert _find_caption(lines, "Table B1") == 0
+    assert _find_caption(lines, "Figure C-4") == 1
+    assert not _CAPTION.match(lines[2]) and not _CAPTION.match(lines[3])
+
+
+SUMMARY_BODY = """## Measure Summary
+
+| Field | Value |
+|---|---|
+| Description | water heater with a UEF of 0.95 |
+| Applicability | 44% |
+
+## 1 Introduction
+
+Text.
+"""
+SUMMARY_GRID = "| Field | Value |\n|---|---|\n| Description | water heater with a UEF of 0.95 |\n| Applicability | 44% |"
+SUMMARY_FIXED = "| Field | Value |\n|---|---|\n| Description | Tankless water heater with a UEF of 0.95 |\n| Applicability | 44% |"
+
+
+def _summary(pdf_env, **kw):
+    base = dict(
+        label="Measure Summary", uncaptioned=True, markdown=SUMMARY_FIXED,
+        replaces={"table_sha256": _fp(SUMMARY_GRID), "why": "the cell's first word was dropped"},
+    )
+    entry = pdf_env.pdf_entry(**{**base, **kw})
+    entry.pop("caption", None)
+    return entry
+
+
+def test_an_uncaptioned_table_is_replaced_where_it_stood(pdf_env):
+    pdf_env.write([_summary(pdf_env)], source_path=PDF_PATH)
+    doc = _pdf_doc(SUMMARY_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert warnings == []
+    assert "| Description | water heater" not in doc.body
+    assert "| Description | Tankless water heater with a UEF of 0.95 |" in doc.body
+    # between the heading it sat under and the next one
+    assert doc.body.index("## Measure Summary") < doc.body.index("Tankless") < doc.body.index("## 1 Introduction")
+    # nothing in the body names the table, so the comment does
+    assert "table: Measure Summary (no caption in the source)" in doc.body
+    assert applied["upgrade_measures"][PDF_PATH]["tables_applied"] == ["Measure Summary"]
+
+
+def test_uncaptioned_replacement_is_idempotent(pdf_env):
+    pdf_env.write([_summary(pdf_env)], source_path=PDF_PATH)
+    doc = _pdf_doc(SUMMARY_BODY)
+    _apply([doc], pdf_env)
+    once = doc.body
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert doc.body == once and warnings == [] and applied == {}
+
+
+def test_an_uncaptioned_entry_without_replaces_is_refused(pdf_env):
+    entry = _summary(pdf_env)
+    del entry["replaces"]
+    pdf_env.write([entry], source_path=PDF_PATH)
+    doc = _pdf_doc(SUMMARY_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {} and doc.body == SUMMARY_BODY
+    assert "needs 'replaces:'" in warnings[0]
+
+
+def test_an_uncaptioned_replacement_with_a_stale_pin_changes_nothing(pdf_env):
+    pdf_env.write(
+        [_summary(pdf_env, replaces={"table_sha256": "0" * 64, "why": "x"})], source_path=PDF_PATH
+    )
+    doc = _pdf_doc(SUMMARY_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {} and doc.body == SUMMARY_BODY
+    assert "no extracted table matches the pinned fingerprint" in warnings[0]
+
+
+STRAY_BODY = """Table 1. Heating Type by Division
+
+U.S. Census Division
+
+| Type | East |
+|---|---|
+| Furnace | 1% |
+
+Text after.
+"""
+
+
+def _removal(**kw):
+    return {"find": "U.S. Census Division", "remove": True,
+            "why": "a header fragment left outside the table, which carries it", **kw}
+
+
+def test_a_repair_can_remove_a_stray_line(pdf_env):
+    pdf_env.write([], source_path=PDF_PATH, text_repairs=[_removal()])
+    doc = _pdf_doc(STRAY_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert warnings == []
+    assert "\nU.S. Census Division\n" not in doc.body
+    # the removed text and the reason stay readable in the comment
+    assert "removed line: U.S. Census Division -->" in doc.body
+    assert "a header fragment left outside the table" in doc.body
+    assert "| Furnace | 1% |" in doc.body
+    assert applied["upgrade_measures"][PDF_PATH]["text_repairs_applied"] == 1
+
+
+def test_line_removal_is_idempotent(pdf_env):
+    pdf_env.write([], source_path=PDF_PATH, text_repairs=[_removal()])
+    doc = _pdf_doc(STRAY_BODY)
+    _apply([doc], pdf_env)
+    once = doc.body
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert doc.body == once and warnings == [] and applied == {}
+
+
+def test_a_repair_cannot_both_remove_and_replace(pdf_env):
+    pdf_env.write([], source_path=PDF_PATH, text_repairs=[_removal(replace="Census Division")])
+    doc = _pdf_doc(STRAY_BODY)
+    applied, warnings = _apply([doc], pdf_env)
+
+    assert applied == {} and doc.body == STRAY_BODY
+    assert "not both" in warnings[0]
+
+
+# --- a figure whose ref is an HTML <img> tag (R4.5) -------------------------------------------
+#
+# pandoc writes a LaTeX figure as a <figure> block, so the technical reference guides'
+# pictures are <img src="..."> tags, and a target may hold a space.
+
+HTML_FIG_BODY = """Text before.
+
+<figure id="fig:roof">
+<img src="media/roof.png" style="width:100.0%" />
+<figcaption>Roof R-values by climate zone</figcaption>
+</figure>
+
+Text after.
+"""
+
+
+def test_figure_describes_an_html_img_ref(env):
+    env.write([], figures=[_fig(env, alt='Bar chart of "roof" R-values')])
+    doc = _doc(HTML_FIG_BODY)
+    applied, warnings = _apply([doc], env)
+
+    assert warnings == []
+    # the tag is kept, with the alt as its attribute (quotes escaped) and its style untouched
+    assert '<img alt="Bar chart of &quot;roof&quot; R-values" src="media/roof.png" style="width:100.0%" />' in doc.body
+    # same shape as a markdown ref: comment, ref, description; the caption still follows
+    body = doc.body
+    assert body.index("<!-- figure described by overlay:") < body.index("<img alt=") < body.index(FIG_DESC)
+    assert body.index(FIG_DESC) < body.index("<figcaption>Roof R-values by climate zone</figcaption>")
+    assert applied["upgrade_measures"]["docs/upgrade_measures/env_roof.md"]["figures_applied"] == ["media/roof.png"]
+
+
+def test_html_figure_injection_is_idempotent(env):
+    env.write([], figures=[_fig(env)])
+    doc = _doc(HTML_FIG_BODY)
+    _apply([doc], env)
+    once = doc.body
+    applied, warnings = _apply([doc], env)
+
+    assert doc.body == once and warnings == [] and applied == {}
+
+
+def test_an_html_img_alt_is_replaced_not_duplicated(env):
+    env.write([], figures=[_fig(env)])
+    doc = _doc(HTML_FIG_BODY.replace('<img src="media/roof.png"', '<img alt="old" src="media/roof.png"'))
+    _apply([doc], env)
+
+    assert doc.body.count("alt=") == 1 and f'alt="{FIG_ALT}"' in doc.body
+
+
+def test_a_figure_the_build_rendered_is_verified_against_the_rendered_file(env, tmp_path):
+    """A PDF figure of a LaTeX source is rasterized by the build: the PNG is not in the source
+    tree, so the pin is checked against the file the build says it rendered for that ref."""
+    cached = tmp_path / "cache" / "abc123.png"
+    cached.parent.mkdir()
+    cached.write_bytes(b"rendered-png-bytes")
+    import hashlib
+
+    sha = hashlib.sha256(b"rendered-png-bytes").hexdigest()
+    env.write([], figures=[_fig(env, source_image="media/Figure 1.png", source_image_sha256=sha)])
+    doc = _doc(HTML_FIG_BODY.replace("media/roof.png", "media/Figure 1.png"))
+    from buildstock_corpus import overlay as O
+
+    applied, warnings = O.apply_overlays(
+        [doc], "comstock", RELEASE, image_dirs=env.image_dirs, input_shas=env.input_shas,
+        rendered_images={"upgrade_measures/docs/upgrade_measures/media/Figure 1.png": cached},
+    )
+    assert warnings == [] and FIG_DESC in doc.body
+    assert '<img alt="' in doc.body and 'src="media/Figure 1.png"' in doc.body

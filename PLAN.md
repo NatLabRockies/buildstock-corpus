@@ -30,7 +30,7 @@ agent finds, pins, and cites it.
 - **Image cleanup only where it needs no new information.** (confirmed as "maybe"; W6 splits
   it accordingly)
 - **CI is future work.** (confirmed; listed in W7 as a proposal, not scheduled)
-- **ResStock is to be determined.** (confirmed; W8 is a placeholder)
+- **ResStock is to be determined.** (confirmed; W8 is a placeholder. Superseded 2026-10-19: see PLAN-resstock.md)
 - **The six site-page measures and the two site-served measure PDFs are one class.** Status
   `site_page`: published on the ComStock site without an OSTI number, whether as a rendered
   page or a PDF file. All eight live in `unpublished_docs/upgrade_measures/`, a folder name
@@ -294,9 +294,9 @@ step is the recipe in W1.1, with the Release cut by the workflow rather than by 
 
 ## W8 · ResStock
 
-To be determined. The layout `processed/<product>/<release>/` needs no change; a ResStock entry
-in `sources/` and the same status and link fields are all that is required when its
-documentation is in scope.
+Planned and carried out in [PLAN-resstock.md](PLAN-resstock.md): the ResStock corpus,
+`processed/resstock/resstock_amy2018_2025_release_1/`, built by the same pipeline and tagged
+`resstock_amy2018_2025_release_1-v1`. That file has its own order of work and step records.
 
 ## Sequencing
 

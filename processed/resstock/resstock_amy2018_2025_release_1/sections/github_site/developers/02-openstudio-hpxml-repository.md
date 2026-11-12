@@ -1,0 +1,4 @@
+<!-- resstock resstock_amy2018_2025_release_1 | github_site | docs/developers.md | status: site_page | source_url: https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/developers.md | publication_url: https://natlabrockies.github.io/ResStock.github.io/docs/developers.html | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: github_site/docs/developers.md | section: OpenStudio-HPXML Repository | lines: 10-12 -->
+## OpenStudio-HPXML Repository
+ResStock relies heavily on [OpenStudio-HPXML](https://github.com/NatLabRockies/OpenStudio-HPXML), which provides a method for simulating residential buildings with OpenStudio and EnergyPlus. OpenStudio-HPXML uses a series of OpenStudio measures to generate an EnergyPlus model for each sample based on the building and occupant characteristics defined by ResStock. In many cases, ResStock relies upon the OpenStudio-HPXML default arguments and calculations.
+

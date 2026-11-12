@@ -1,0 +1,498 @@
+# Hand-authored overlay for measure_pdfs/96738.pdf
+#
+# 96738 is the ResStock measure documentation for the advanced air sealing upgrade (measure
+# 11). Every table and figure in the report was compared with the PDF on 2026-11-11,
+# following "Checking every table and figure: the ResStock method" in overlays/README.md.
+#
+# Tables (page numbers are PDF pages, 1-based):
+#   * Table 1 (pp.11-12) is superseded: it came out as one grid per page. See its `why`.
+#   * Table 3 (p.13) is superseded: merged cells were left blank on some of the rows they
+#     cover. See its `why`.
+#   * The Measure Summary table (p.10, no caption) is superseded: it was right except for a
+#     line-wrap space inside the project configuration URL and inside two row labels.
+#   * Tables 2, 4, 5, 6 and 7 and the List of Acronyms (p.5) are recorded under `checked:`
+#     as correct.
+#   * The Table of Contents, List of Figures and List of Tables grids are contents pages and
+#     have no entry.
+#   * No table in this report has a footnote, and no number grid is shown as a picture.
+#
+# Text: one paragraph of section 3 (p.16) was broken in two at its cross-reference
+# '(Table 3)', so its second half began 'Table 3).' and read as a table caption with no
+# table. Two `text_repairs` entries join it as the page has it (added in R4.6).
+#
+# Figures: Figures 1-22 are described (40-70 words each, vision-description); every figure
+# caption has its image. Figure 7 is two bitmaps, its cooling panel (image_000008) and its
+# heating panel (image_000009). The cover art and wordmark (image_000000, image_000001) are
+# decorative and omitted by the build. Values read off an axis, not a data label, are worded
+# "about". In Figure 3 the bar label "Basline" is the source's spelling; the description
+# says Baseline.
+#
+# Flattening notes: Table 3's merged cells (Climate Zone, Methods and Cite of the first
+# study) are repeated on each row they cover. Tables 1 and 3 and the Measure Summary are
+# split into bold-labelled parts to stay under the chunk limit, each repeating the header
+# row; the labels are not in the PDF. Row shading in the PDF is alternating bands and
+# carries no meaning.
+
+product: resstock
+release: resstock_amy2018_2025_release_1
+source_id: upgrade_measures
+source_path: measure_pdfs/96738.pdf
+source_url: https://docs.nlr.gov/docs/fy27osti/96738.pdf
+publication_url: https://docs.nlr.gov/docs/fy27osti/96738.pdf
+text_repairs:
+- find: In this work, b uildings with infiltration rates ≥6 ACH 50 are eligible for an upgrade to 5 ACH50. This
+    threshold serves as a nationally consistent benchmark across the housing stock. In practice, some new construction
+    households in climate zones (e.g., climate zones 3 -5) require tighter envelopes such as 3 ACH50 or better (Table
+    2), and many older or leakier homes may only feasibly reach ~5 ACH50 through air sealing (
+  replace: In this work, b uildings with infiltration rates ≥6 ACH 50 are eligible for an upgrade to 5 ACH50. This
+    threshold serves as a nationally consistent benchmark across the housing stock. In practice, some new construction
+    households in climate zones (e.g., climate zones 3 -5) require tighter envelopes such as 3 ACH50 or better (Table
+    2), and many older or leakier homes may only feasibly reach ~5 ACH50 through air sealing (Table 3). In practice,
+    this infiltration level is typically achieved through blower-door-guided air sealing of attics, crawlspaces,
+    rim joists, and other leakage pathways. Previous studies have shown that such practices can bring homes that
+    start above 6 ACH50 down to or below the 5 ACH50 threshold [7] [13]. Therefore, 5 ACH50 provides a balanced
+    and conservative target that represents a meaningful improvement for existing homes, while still allowing comparability
+    across climate zones and building types.
+  why: 'One paragraph of section 3 (p.16) that the extractor broke in two at the cross-reference ''(Table 3)'':
+    the first part ended at the open bracket and the second began ''Table 3).'', which reads as a table caption
+    with no table. The two parts are joined as the page has them; no word is changed.'
+- find: Table 3). In practice, this infiltration level is typically achieved through blower-door-guided air sealing
+    of attics, crawlspaces, rim joists, and other leakage pathways. Previous studies have shown that such practices
+    can bring homes that start above 6 ACH50 down to or below the 5 ACH50 threshold [7] [13]. Therefore, 5 ACH50
+    provides a balanced and conservative target that represents a meaningful improvement for existing homes, while
+    still allowing comparability across climate zones and building types.
+  remove: true
+  why: The second half of the paragraph joined by the repair above, which now carries these words.
+tables:
+- label: Measure Summary
+  uncaptioned: true
+  source_pdf: measure_pdfs/96738.pdf
+  source_pdf_sha256: f89df99f5694bc497162871fbdbc697bd2dec13f1ad64d1e8f7e76086d074d02
+  page: 10
+  method: extracted grid, with the cells named in `why` corrected from the PDF text layer
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 286bb533cc6497c9c48e867d6f1db0753c06ba088b548955181d53d08f207f6b
+    why: The table is right cell for cell except the project configuration URL, which carries a space
+      where the PDF wraps the line ('project_national/s dr_upgrades_amy2018.yml'). A search for the real
+      path, or a click on the link, misses it. Two row labels were broken the same way ('Applicabili ty',
+      'Project Configurat ion File(s)') and are joined too. The cell text is otherwise the extractor's
+      own.
+  markdown: '| Measure Title | Advanced Air Sealing |
+
+    |---|---|
+
+    | Measure Definition | This measure reduces infiltration rates in existing buildings with baseline
+    infiltration levels of 6 ACH50 (air changes per hour at 50 pascals) or higher. |
+
+    | Applicability | Buildings with infiltration rates ≥6 ACH50 are eligible for an upgrade to 5 ACH50.
+    While some regions require tighter envelopes for new constructions, 5 ACH50 reflects the average infiltration
+    rate achieved in empirical studies across representative climate zones and ensures that selected homes
+    do not already comply with 2024 IECC requirements. Table 4 provides additional details. With these
+    applicability constraints, the measure upgrade applies to 92.2% of the existing dwelling units. |
+
+    | Not Applicable | This measure does not apply to new construction nor to existing units with infiltration
+    rates below 6 ACH50. These constraints exclude 7.8% of the dwelling units from receiving this measure
+    upgrade. |
+
+    | Original Release | 2025 Release 1: 2025/resstock_amy2018_release_1; 2025/resstock_amy2012_release_1;
+    2025/resstock_tmy3_release_1 |
+
+    | Project Configuration File(s) | https://github.com/NatLabRockies/resstock/blob/sdr_2025_Release_1/project_national/sdr_upgrades_amy2018.yml
+    |'
+- label: Table 1
+  caption: Common Air Sealing Techniques
+  source_pdf: measure_pdfs/96738.pdf
+  source_pdf_sha256: f89df99f5694bc497162871fbdbc697bd2dec13f1ad64d1e8f7e76086d074d02
+  page: 11
+  method: extracted grids joined under one header (compared with the page renders and text layer)
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 644382e68500b42b6801e9d1b9c2fd94627e70eb93f2a507908352f1e1963ba3
+    also_removes:
+    - 018e809ca4323f5c1b290bef08d28647fc0b0a5b1f029c2732e784ffcfa78f1a
+    why: The table runs over two pages and was extracted as two grids, the second with its first row (House
+      wrap) standing as a header. Every cell of both grids matches the pages. The eight rows are the extractor's
+      own, joined under the one header; a line-break space in '(closed-cell)' and a space before the subscript
+      in ACH₅₀ are removed.
+  markdown: '| Technique | Typical Application | Notes/Performance Considerations |
+
+    |---|---|---|
+
+    | Aerosol sealing | Whole-home air sealing (walls, ceilings, etc.); more common in new construction
+    | Delivers sealant as fine mist to seal leaks; shown to achieve high reductions in ACH₅₀ [7] |
+
+    | Weatherstripping | Around doors and operable windows | Reduces drafts; easy to install and cost-effective
+    |
+
+    | Caulking (includes mastic, and high temperature rated sealants) | Cracks around window frames, rim
+    joists, baseboards, small attic penetrations, gaps around heat sources, etc. | Best for small gaps
+    <¼ inch; silicone or acrylic latex types commonly used |
+
+    | Foam sealants (cans) | Large gaps around pipes, vents, attic hatches, attic penetrations, and rim
+    joists | Expands to fill irregular gaps; provides insulation value as well |
+
+    | Spray foam (closed-cell) | Rim joists, attic penetrations | Offers both air sealing and insulation
+    |
+
+    | Airtight electrical boxes | Behind outlets and switches on exterior walls | Prevents air leakage
+    through walls; used with gaskets |
+
+    | House wrap | New construction beneath siding; retrofit when combined with insulated siding or exterior
+    rigid foam | Blocks air while allowing moisture escape |
+
+    | Vapor retarders | Inside wall assemblies in most U.S. climates | Controls moisture diffusion; not
+    for air sealing per se |'
+- label: Table 3
+  caption: Summary of Air Sealing Empirical Studies Across Climate Zones, Showing Pre- and PostRetrofit
+    ACH50 Values and Percent Reductions Used to Inform Measure Assumptions
+  source_pdf: measure_pdfs/96738.pdf
+  source_pdf_sha256: f89df99f5694bc497162871fbdbc697bd2dec13f1ad64d1e8f7e76086d074d02
+  page: 13
+  method: extracted grid, with merged cells repeated on the rows they cover (compared with the page render)
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: e9699c57c264f42385dc6fe6c113d9e7d6b0c19070b82c0cb25f49c9ddd953d5
+    why: 'The first study (CA and MN) fills four rows, and its Climate Zone, Methods and Cite cells are
+      merged over them: ''CA: 3C'' covers the two California rows, ''MN: 6A'' the two Minnesota rows,
+      and the Methods text and the citation [7] all four. The extractor repeated some of these and left
+      others blank, so the CA multifamily and MN multifamily rows had no climate zone, the MN multifamily
+      row no method, and three of the four rows no citation. Every value was right. The merged cells are
+      repeated on each row they cover; line-break spaces in ''single-family'', ''Post-Retrofits'', ''Somerville''
+      and ''St. Petersburg'' are removed.'
+  markdown: '**Table 3, part 1 of 3**
+
+
+    | Area (s) | Climate Zone | Methods | Pre-Retrofits | Post-Retrofits | Findings | Cite |
+
+    |---|---|---|---|---|---|---|
+
+    | CA and MN | CA: 3C | Existing 5 CA and 12 MN single-family houses and 6 CA and 9 MN multifamily
+    units were air sealed using aerosol sealing in existing, unoccupied single-family houses and multifamily
+    units. | CA single-family: 12 ACH50 | CA single-family:5.5 ACH50 | CA single-family: 53% reduction
+    | [7] |
+
+    | CA and MN | CA: 3C | Existing 5 CA and 12 MN single-family houses and 6 CA and 9 MN multifamily
+    units were air sealed using aerosol sealing in existing, unoccupied single-family houses and multifamily
+    units. | CA multifamily: 8.9 ACH50 | CA multifamily: 3.3 ACH50 | CA multifamily: 63% reduction | [7]
+    |
+
+    | CA and MN | MN: 6A | Existing 5 CA and 12 MN single-family houses and 6 CA and 9 MN multifamily
+    units were air sealed using aerosol sealing in existing, unoccupied single-family houses and multifamily
+    units. | MN single-family: 7.5 ACH50 | MN single-family: 4.3 ACH50 | MN single-family: 42% reduction
+    | [7] |
+
+
+    **Table 3, part 2 of 3**
+
+
+    | Area (s) | Climate Zone | Methods | Pre-Retrofits | Post-Retrofits | Findings | Cite |
+
+    |---|---|---|---|---|---|---|
+
+    | CA and MN | MN: 6A | Existing 5 CA and 12 MN single-family houses and 6 CA and 9 MN multifamily
+    units were air sealed using aerosol sealing in existing, unoccupied single-family houses and multifamily
+    units. | MN multifamily: 9.7 ACH50 | MN multifamily: 5.8 ACH50 | MN multifamily: 40% reduction | [7]
+    |
+
+    | IL | Zone 4 & 5 | 27 single-family homes, split into 16 control and 11 treatment homes | 12.14 ACH50
+    | 8.27 ACH50 | 31.9% | [4] |
+
+    | NC | 4A | 236 apartments in 30 two-story brick and siding clad buildings constructed between 1968
+    and 1970. | 19.8 ACH50 | 10.4 ACH50 | 50% | [8] |
+
+    | Somerville and Millbury, MA | 5A | 2 tests homes: 1 single family detached, 1 triple decker multifamily
+    wood-framed building | 10.4 ACH50; 16.5 ACH50 | 1.5 ACH50; 3.5 ACH50 | 86%; 79% | [11] |
+
+    | MN | 6 & 7 | Aerosol envelope air sealing on 9 existing multifamily units | 14.5 ACH50 | 4.76 ACH50
+    | 68% | [12] |
+
+    | Central FL | 2A | 1 test home in Florida | 6 ACH50 | 4.8 ACH50 | 20% | [13] |
+
+    | Las Vegas, NV | 3B | Tested/retrofitted 2 single family attached homes | 9.8 ACH50; 6.1 ACH50 |
+    3.2 ACH50; 3.2 ACH50 | 58% | [14] |
+
+
+    **Table 3, part 3 of 3**
+
+
+    | Area (s) | Climate Zone | Methods | Pre-Retrofits | Post-Retrofits | Findings | Cite |
+
+    |---|---|---|---|---|---|---|
+
+    | St. Petersburg, FL | 3C | 1 multi-use facility/ transitional housing | 22 ACH50 Not blower tested,
+    based on estimate from previous work for building with similar characteristics. | 8.8 ACH50 | 60%
+    | [15] |'
+checked:
+- label: List of Acronyms
+  uncaptioned: true
+  source_pdf: measure_pdfs/96738.pdf
+  source_pdf_sha256: f89df99f5694bc497162871fbdbc697bd2dec13f1ad64d1e8f7e76086d074d02
+  page: 5
+  table_sha256: 7c3da87cd22c6c324ea04f953c7b11d084e7eb6f409f2f45a6ce4f66cea8f07e
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: Twelve acronyms, ACH50 to USD, each with its expansion; the first entry sits in the header row.
+- label: Table 2
+  caption: IECC 2024 Air Leakage Requirements by Climate Zone
+  source_pdf: measure_pdfs/96738.pdf
+  source_pdf_sha256: f89df99f5694bc497162871fbdbc697bd2dec13f1ad64d1e8f7e76086d074d02
+  page: 12
+  table_sha256: 3c96e563e3a753a2c04e2ff45b44102d12a784b4045f5252880a2012551707b4
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The three rows match the page. The line 'From REPI-063 and REPI-064 [10]' between the caption
+    and the grid is the table's printed source note.
+- label: Table 4
+  caption: Summarized Apply Logic for Advanced Air Sealing
+  source_pdf: measure_pdfs/96738.pdf
+  source_pdf_sha256: f89df99f5694bc497162871fbdbc697bd2dec13f1ad64d1e8f7e76086d074d02
+  page: 14
+  table_sha256: a978cb182253e720e80b5066ca90dbd69bc8b502b52d6f234c43abbd533b5b4a
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The three rows match the page.
+- label: Table 5
+  caption: Combined Apply Logic for Advanced Air Sealing
+  source_pdf: measure_pdfs/96738.pdf
+  source_pdf_sha256: f89df99f5694bc497162871fbdbc697bd2dec13f1ad64d1e8f7e76086d074d02
+  page: 14
+  table_sha256: ba10be195b01480c9ab1ac6e45bf944ac00bbc21eca45396f7717dbb0ec17914
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The single row matches the page.
+- label: Table 6
+  caption: ResStock Argument Values for Infiltration Options
+  source_pdf: measure_pdfs/96738.pdf
+  source_pdf_sha256: f89df99f5694bc497162871fbdbc697bd2dec13f1ad64d1e8f7e76086d074d02
+  page: 17
+  table_sha256: b109543e91a296b75b5bccb2147430a707624082b0051ec41993e30c20eb20ff
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The six rows match the page.
+- label: Table 7
+  caption: Heating and Cooling Unmet Hours Before and After Advanced Air Sealing Upgrade
+  source_pdf: measure_pdfs/96738.pdf
+  source_pdf_sha256: f89df99f5694bc497162871fbdbc697bd2dec13f1ad64d1e8f7e76086d074d02
+  page: 20
+  table_sha256: b63cdac52367e1033800cb57a77c4e3ff0d72244d95b825fccd3a9cd4d5f94e5
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The two-row header (Unmet Hours Before Upgrade and After Upgrade over Heating and Cooling) is
+    a header row plus a first data row; the three unit rows match the page.
+figures:
+- source_image: 96738_images/image_000002_6a5f0c9ec688ed81fbbefc03199b0bdd79eca78673ec3545ca5425f2141d965d.png
+  source_image_sha256: da5d7ea421a70adc84017091fb8092d7f33963ea01e0ce3373c10fdcd7c3d942
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Box plot of baseline infiltration in ACH50 by vintage
+  description: 'Figure 1: box plot. X-axis is vintage in nine bins from before 1940 to the 2010s; y-axis
+    is infiltration in ACH50, 0 to 50. Older homes are leakier: the boxes for homes built before 1960
+    span 15 to 30 ACH50 with a median of 20, the 1980s median is 15, and the medians for the 1990s to
+    2010s are about 8 to 10, with boxes of roughly 6 to 15.'
+- source_image: 96738_images/image_000003_acd536ba8bf62f212ccc1abeb08584f7804926e9d93b7ba8b9efcf19ca82d1ff.png
+  source_image_sha256: 2d718766f8552680a04e58e672bb57cd557089c099c4939a3cd9ccfdc8369b92
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Box plot of baseline infiltration in ACH50 by ASHRAE IECC climate zone
+  description: 'Figure 2: box plot. X-axis is ASHRAE IECC climate zone 2004, seventeen zones from 1A to
+    8AK; y-axis is infiltration in ACH50, 0 to 50. Medians are about 20 in zones 1A, 2A and 4A, about
+    15 in most other zones, about 10 in 2B and 5B, and about 5 in the two Alaska zones, 7AK and 8AK. Most
+    zones have outliers up to 50.'
+- source_image: 96738_images/image_000004_c64e1e2f54f1a35f6e35cfbaf46f35f3a0c05d06a45bc5c322cba5c063cec8a3.png
+  source_image_sha256: c21a31867191ef44675837d50713c982f37b13f337afe713e9aa8ebb50432283
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar chart of annual energy use for an example Hawaii dwelling, baseline against upgrade
+  description: 'Figure 3: horizontal stacked bar chart for an example dwelling unit in Hawaii (climate
+    zone 1A). X-axis is annual energy consumption in MMBtu, 0 to 100; the two bars are Upgrade and Baseline,
+    segmented by end use. Cooling falls from 38.0 to 27.5 and cooling fans and pumps from 8.5 to 6.6;
+    other end uses stay at 42.3 and heating is 0.08 and 0.01.'
+- source_image: 96738_images/image_000005_06f1826118dedc419a875592f5c69f37fc61876f7d28c9afee6646f200efad84.png
+  source_image_sha256: b5b19753a79a186c4e5ebaae414a3a5ce45ccde54557dc9c9b65045659ca648c
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar chart of annual energy use for an example Texas dwelling, baseline against air sealing
+    upgrade
+  description: 'Figure 4: horizontal stacked bar chart for an example dwelling unit in Texas (climate
+    zone 3A). X-axis is annual energy consumption in MBtu, 0 to 100; the two bars are Air Sealing Upgrade
+    and Baseline, segmented by end use. Electric heating falls from 14.4 to 9.3, cooling from 30.7 to
+    26.6 and cooling fans and pumps from 6.2 to 5.4; other end uses stay at 37.7.'
+- source_image: 96738_images/image_000006_75805ad8b43ebbbfc3cb7a14aae5d1d2b9e1e6ade3a9534b83f1eca614a21fb9.png
+  source_image_sha256: 3aa4d81487025790528f7ab259c406d13f6c8399fb81a5c3ed3f16e26aecc0c7
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar chart of annual energy use for an example Alaska dwelling, baseline against air sealing
+    upgrade
+  description: 'Figure 5: horizontal stacked bar chart for an example dwelling unit in Alaska (climate
+    zone 8AK). X-axis is annual energy consumption in MBtu, 0 to 180; the two bars are Air Sealing Upgrade
+    and Baseline, segmented by end use. Fuel-oil heating falls from 167.9 to 161.7 and heating fans and
+    pumps from 1.67 to 1.61; other end uses stay at 27.6.'
+- source_image: 96738_images/image_000007_04b157404a21254c21995a48383ee70ca4771b4f2625f5758fff692594055904.png
+  source_image_sha256: 7d8c25f8a13cca78ab08925874e15fecc4087ba815a4e422b925746832e5380c
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line charts of temperature and of heating and cooling energy over a winter and a summer day in
+    Hawaii
+  description: 'Figure 6: two pairs of line charts for the example Hawaii dwelling, a winter day (January
+    2, 2018) above a summer day (July 2, 2018). In each pair the upper chart shows indoor and outdoor
+    temperature in °F and the lower chart 15-minute heating or cooling energy in kWh, base against upgrade.
+    Midday heating peaks at about 0.12 kWh at base and 0.055 upgraded; evening cooling at about 0.95 and
+    0.55.'
+- source_image: 96738_images/image_000008_9586e7f7d353fb6b45f07b71180c175412ca9b735552dce3b6a76746e12ac2dc.png
+  source_image_sha256: 434fcd39c34975a443336fa0b050dd629866dbd6b2f55fd8ece127eb64ade634
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of 15-minute cooling energy on July 2 for an example Texas dwelling, with thermostat
+    setpoint
+  description: 'Figure 7, cooling panel: line chart for an example dwelling unit in Texas (climate zone
+    3A) on July 2. Left axis is cooling energy consumption in kWh, 0 to 1.4; right axis is setpoint in
+    °F, stepping from 68 to 70 at 8:00 AM. Series are Baseline, Upgrade and Setpoint. Cooling peaks near
+    6:00 PM, at about 1.27 kWh for the baseline and about 1.05 for the upgrade.'
+- source_image: 96738_images/image_000009_a515dd09d356946f6d8567715d4ea1a8ab4bf844b6bf728a51d0e9a6191f0089.png
+  source_image_sha256: bc35bb0a99cebe1744ccef9f7fbc837fa0e40ee0a79fe676bc2ba7d932d4b7ec
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of 15-minute heating energy on January 2 for an example Texas dwelling, with thermostat
+    setpoint
+  description: 'Figure 7, heating panel: line chart for the same Texas dwelling on January 2. Left axis
+    is heating energy consumption in kWh, 0 to 4; right axis is setpoint in °F, stepping from 59 to 65
+    at about 8:00 AM. Series are Baseline, Upgrade and Setpoint. After a recovery spike near 3.4 kWh,
+    the baseline runs at about 1.4 kWh through the day and the upgrade at about 1.0.'
+- source_image: 96738_images/image_000010_12a631a2f60e595e39d023ddc2662be43d9cc4628129881a02ef2560df9c7385.png
+  source_image_sha256: c836c61546abc3a63bad04d1d6110dc7a0e2c552ef912fe20b753e14900bf185
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of total annual site energy by end use and fuel, baseline against air sealing
+  description: 'Figure 8: horizontal grouped bar chart. Rows are end uses by fuel, from electric vehicle
+    charging to generation, plus total site energy; x-axis is all-fuels end uses in kWh, 0 to above 3T.
+    Series are Baseline and Air Sealing. Total site energy falls from about 3.15T to about 2.65T kWh;
+    natural gas heating, the largest end use, falls from about 1.07T to about 0.75T.'
+- source_image: 96738_images/image_000011_92e6e6fdb26dd755d91a10e08137d072831df669fa6eab8a90febff67e43f0d5.png
+  source_image_sha256: f1cee68f71a403624fa638e87d0140f9029de4c6e0a0b7162f500e4c19aa7c55
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of average annual site energy by end use per dwelling unit, baseline against
+    air sealing
+  description: 'Figure 9: horizontal grouped bar chart with the same rows as Figure 8, as an average per
+    dwelling unit. X-axis is all-fuels end uses in kWh, 0 to 25k; series are Baseline and Air Sealing.
+    Total site energy falls from about 24.5k to about 20.5k kWh, and natural gas heating from about 8.2k
+    to about 5.8k.'
+- source_image: 96738_images/image_000012_ced4e80c2d73568fc956489903bf763b020626efcd8aaa8b5f9fc20361555ce1.png
+  source_image_sha256: 05a6ec66583d897b1c13d743249033f9eb817a1f7cd7ff65c2a4a43e1658d911
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of average annual energy consumption by baseline infiltration, baseline against
+    air sealing
+  description: 'Figure 10: horizontal grouped bar chart. Rows are ten baseline infiltration levels from
+    6 to 50 ACH50; x-axis is average annual energy consumption in kWh per unit per year, 0 to about 27k.
+    Series are Baseline and Air Sealing. Baseline consumption is about 23k to 27k across the levels; with
+    air sealing it falls from about 23.5k at 6 ACH50 to about 17.5k at 50 ACH50.'
+- source_image: 96738_images/image_000013_1640fa8ba4b1348a4d77ce0b53efb987c7e79c75602b8f33676888ef6d47abd5.png
+  source_image_sha256: e1d5d37c8284ce4c91cbdda4acae98d366c6e7fe786c79a44183062af968aee5
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of average annual energy savings from air sealing by baseline infiltration
+  description: 'Figure 11: horizontal bar chart. Rows are ten baseline infiltration levels from 6 to 50
+    ACH50; x-axis is average annual energy savings in kWh per unit per year, 0 to about 9,500. Savings
+    rise steadily with leakiness: about 500 kWh at 6 ACH50, about 1,900 at 10, about 4,450 at 20, about
+    6,500 at 30, about 8,400 at 40 and about 9,400 at 50.'
+- source_image: 96738_images/image_000014_f247c31c4c31cffaf955cf77dc4400c72f045dc13e94e2a6066af82e1d86e030.png
+  source_image_sha256: a42e84d5d8371623170b3b6c40e22566a86b22233f2241c44a656c1b66610a79
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of average annual energy consumption by vintage, baseline against air sealing
+  description: 'Figure 12: horizontal grouped bar chart. Rows are nine vintage bins from before 1940 to
+    the 2010s; x-axis is average annual energy consumption in kWh per unit per year, 0 to above 30k. Series
+    are Baseline and Air Sealing. Consumption falls with newer construction and the gap narrows: about
+    33k against 26k for homes built before 1940, and about 17.5k against 16k for the 2010s.'
+- source_image: 96738_images/image_000015_bee13bbc8ffe014cb3e0af9dbfb8f5a9f4d55ca90c261ac35145286508192528.png
+  source_image_sha256: 44cf85922ee0b673317bbfca1ac11dc6c03bbc20eadfe0db691e76188f3a4c0e
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of average annual energy savings from air sealing by vintage
+  description: 'Figure 13: horizontal bar chart. Rows are nine vintage bins from before 1940 to the 2010s;
+    x-axis is average annual energy savings in kWh per unit per year, 0 to about 7,000. Savings fall with
+    newer construction: about 7,050 kWh before 1940, about 6,050 for the 1940s and 1950s, about 4,400
+    for the 1960s, about 2,750 for the 1980s and about 1,600 for the 2010s.'
+- source_image: 96738_images/image_000016_ed5170bea76203f8cc012a7c2dfda5cb53785b0511946def21e849113101ea8e.png
+  source_image_sha256: afc130be13ea8f320380282eda69a918e97cd09c8e77882a27ff2b6882a8d752
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of percent site energy saving from air sealing by vintage
+  description: 'Figure 14: horizontal bar chart. Rows are nine vintage bins from before 1940 to the 2010s;
+    x-axis is percent saving, 0 to above 20. Savings fall with newer construction: about 21.5% before
+    1940, about 20% for the 1940s and 1950s, about 16% for the 1960s and 1970s, about 14% for the 1980s,
+    about 11% for the 1990s and about 9% for the 2000s and 2010s.'
+- source_image: 96738_images/image_000017_d06a85465e3cbef744270ee59ac0693e129bbc36ce10c23ac3c5693543a36f72.png
+  source_image_sha256: cafee62fc14f3ff7c766713c771e7999d2f66578c15b53e54c4a6c2ecd095ec2
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of average annual energy consumption by climate zone, baseline against air sealing
+  description: 'Figure 15: horizontal grouped bar chart. Rows are seventeen climate zones from 1A to 8AK;
+    x-axis is average annual energy consumption in kWh per unit per year, 0 to 40k. Series are Baseline
+    and Air Sealing. Zone 7A is highest, about 39k falling to about 30.5k, followed by 6A and 5A; zone
+    1A is lowest, about 12k falling to about 11.3k.'
+- source_image: 96738_images/image_000018_1b59e431c64c7bdcc749ef5ed239ef959cd7edb55d52bb2ffcfba4c4c7381d68.png
+  source_image_sha256: c65b4417a7d9f88aa06e8c106cb3802577d5752ac8dc827c8ca949032d9127ca
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of average annual energy savings from air sealing by climate zone
+  description: 'Figure 16: horizontal bar chart. Rows are seventeen climate zones from 1A to 8AK; x-axis
+    is average annual energy savings in kWh per unit per year, 0 to above 8,000. Cold, humid zones save
+    most: about 8,300 kWh in 7A, about 7,050 in 6A, about 6,600 in 5A and about 4,950 in 4A. Savings are
+    about 600 to 700 in zones 1A, 2B and 3B.'
+- source_image: 96738_images/image_000019_ac942cd62e175e34b63585a2f1acddb4340e03db3c30edfbc1c39dcb2b5a8c30.png
+  source_image_sha256: 491ab6bf45c8183a03b0f9ea9f90ab98fb094feeb84005d84eda002541f3e44e
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of percent site energy savings from air sealing by climate zone
+  description: 'Figure 17: horizontal bar chart. Rows are seventeen climate zones from 1A to 8AK; x-axis
+    is percent savings, 0 to above 20. Savings are about 21.5% in zone 7A, about 20% in 6A, about 19.5%
+    in 5A and about 19% in 4A, against about 3.5% in 2B, about 5% in 3B and about 5.5% in 1A.'
+- source_image: 96738_images/image_000020_cfa30b433668477fe6c50cf04f793b4c320fdecaa92dc3ab36b7c571f767f49b.png
+  source_image_sha256: 9bf89b2cfe1304eb17285401c0af3eb67fbeee42f699e88d92086fe9332ad5c6
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Stacked bar chart of average annual energy savings by climate zone, segmented by end use and fuel
+  description: 'Figure 18: horizontal stacked bar chart. Rows are seventeen climate zones from 1A to 8AK;
+    x-axis is average annual energy savings in kWh per unit per year, 0 to above 8,000. Each bar is segmented
+    by end use and fuel, listed in the legend. Heating segments make up nearly all the savings in every
+    zone but the hottest, where cooling electricity is the visible share; zone 7A totals about 8,300 kWh.'
+- source_image: 96738_images/image_000021_087e74fb763889a511e422fa2e70aec57ad1e6df4f226e0174cfe1ae5df65341.png
+  source_image_sha256: b55e99a6393d0be4ffe7506a380af9bcaa6576e3e6382330fae3c9509a7c5907
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of average annual utility bills by fuel, baseline against air sealing
+  description: 'Figure 19: horizontal grouped bar chart. Rows are electricity, natural gas, fuel oil,
+    propane and all fuels; x-axis is average utility bills in US dollars per unit per year, 0 to above
+    2,500. Series are Baseline and Air Sealing. The all-fuels bill falls from about $2,600 to about $2,320,
+    electricity from about $1,840 to about $1,720, and natural gas from about $520 to about $430.'
+- source_image: 96738_images/image_000022_530ff0f88ec97843c2d7588bc0df06f216e861b83f0dc42c00564bfa636d4004.png
+  source_image_sha256: 61cdf83962758f2d5d1ff0987b285177fb20d4e06ef071c1ff76daf7bc7287c2
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of average annual utility bill savings from air sealing by baseline infiltration
+  description: 'Figure 20: horizontal bar chart. Rows are ten baseline infiltration levels from 6 to 50
+    ACH50; x-axis is bill savings in US dollars, 0 to 700. Savings rise steadily with leakiness: about
+    $35 at 6 ACH50, about $130 at 10, about $315 at 20, about $455 at 30, about $590 at 40 and about $665
+    at 50.'
+- source_image: 96738_images/image_000023_87897ce8a8b14208b336198ccfc903c962fb4b00c2655d167b8cba7874c6a5f8.png
+  source_image_sha256: 21df656023c995781230512f2923b0b2148118fab58ea5d18e6c5f48dda8f852
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of daily aggregated average energy consumption for baseline homes in Colorado across
+    2018
+  description: 'Figure 21: line chart. X-axis is time, January to December 2018; y-axis is daily aggregated
+    average energy consumption in kBtu, about 100 to 800. A single series, the baseline in Colorado. Consumption
+    is highest and most variable in winter, peaking near 780 kBtu in February, and flat at about 110 to
+    130 kBtu from June to September.'
+- source_image: 96738_images/image_000024_dca409be1a03425c4c7d958f4f84e311eeece2d8279907114dc8a093cbc18e1e.png
+  source_image_sha256: 62c3defaed4f65134ce3657f817356428f45e724fb02a4a12c7ac3d5dc811565
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of aggregated average power in Colorado on the peak day, baseline against upgrade
+  description: 'Figure 22: line chart for February 20, 2018. X-axis is time of day, 00:00 to 24:00; y-axis
+    is aggregated average power in kW, about 5 to 13. Series are Baseline and Upgrade. The baseline peaks
+    at about 12.9 kW near 07:00 and the upgrade at about 10.8 kW; both reach their minimum near 15:00,
+    at about 7.0 and 5.6 kW.'

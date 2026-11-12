@@ -52,6 +52,7 @@ Results are grouped by extractor (latex / markdown / measures / pdf) so it is cl
 which path is losing content.
 
 Usage:  uv run python scripts/audit_md_fidelity.py [--release comstock_amy2018_2025_release_3] [--product comstock]
+            [--work-dir <sandbox root>]   audit a `bsc build --work-dir` sandbox; reports land there
 """
 
 from __future__ import annotations
@@ -70,8 +71,9 @@ REPO = Path(__file__).resolve().parent.parent
 
 # Anchored at line start so prose mentions ("as shown in Table 5") are not counted as
 # captions. Allows leading bold/italic markers, which pandoc and docling both emit.
+# Numeric labels and appendix labels ("Table A-2"), as overlay._CAPTION.
 CAPTION = re.compile(
-    r"^\s*(?:\*\*|__|\*|_)?\s*(Table|Figure|Fig\.?)\s*([0-9]+[A-Za-z]?)\s*[.:)]",
+    r"^\s*(?:\*\*|__|\*|_)?\s*(Table|Figure|Fig\.?)\s*([0-9]+[A-Za-z]?|[A-Za-z]{1,2}-?[0-9]+)\s*[.:)]",
     re.IGNORECASE,
 )
 MD_TABLE_ROW = re.compile(r"^\s*\|.*\|\s*$")
@@ -108,6 +110,9 @@ COMMENT_CLOSE = re.compile(r"-->")
 # `source:` line inside that comment. Kept in sync with overlay._FIGURE_MARKER / the head built
 # by overlay._figure_injection; together the two identify the exact sidecar entry behind a block.
 FIGURE_MARKER = "<!-- figure described by overlay:"
+# The provenance comment a table overlay leaves above the grid it injected. Kept in sync with
+# overlay._MARKER.
+TABLE_MARKER = "<!-- table recovered from"
 MARKER_SOURCE = re.compile(r"^\s*source:\s*(\S+)")
 
 # How far a caption may reach for its artifact, counted in *content* lines: blank lines, HTML
@@ -352,7 +357,7 @@ def overlay_description_lines(
 
         while j < len(lines) and not lines[j].strip():
             j += 1
-        if j >= len(lines) or not MD_IMAGE.search(lines[j]):
+        if j >= len(lines) or not (MD_IMAGE.search(lines[j]) or HTML_IMG.search(lines[j])):
             warn(i, f"no image ref below the marker for {source}")
             continue
         j += 1
@@ -577,6 +582,40 @@ def bind_captions(
     return bound
 
 
+def transcribed_figure_captions(
+    lines: list[str], figure_captions: list[int], tables: set[int], comments: set[int]
+) -> set[int]:
+    """Figure captions whose content is a hand-authored table directly under them.
+
+    Some figures are grids of numbers pasted into the report as pictures (ResStock's
+    geothermal performance maps). An overlay transcribes each as a table anchored on the
+    figure's caption, so the caption is followed by the overlay's `<!-- table recovered from`
+    comment and then the grid. Nothing is missing there, and for most of them the converter
+    kept no bitmap, so there is no image for the caption to bind to.
+
+    Narrow on purpose. The overlay's own marker must be the first thing under the caption:
+    a figure caption over a table the *extractor* produced is still the wrong kind of
+    artifact and stays orphaned. And a table must follow that marker before the next
+    heading or caption, so a marker whose table went missing excuses nothing. Prose between
+    the marker and the grid is allowed: a transcription may open with a sentence on how the
+    picture is laid out, and a grid split into parts carries a bold label above each part.
+    """
+    out: set[int] = set()
+    for i in figure_captions:
+        j = i + 1
+        while j < len(lines) and not lines[j].strip():
+            j += 1
+        if j >= len(lines) or not lines[j].lstrip().startswith(TABLE_MARKER):
+            continue
+        for k in range(j, min(len(lines), j + SCAN_CAP)):
+            if k in tables:
+                out.add(i)
+                break
+            if k not in comments and boundary(lines[k]):
+                break
+    return out
+
+
 def classify_sources(manifest: dict) -> dict[str, str]:
     """output_path -> source_type, so gaps can be attributed to an extractor."""
     kinds: dict[str, str] = {}
@@ -604,6 +643,7 @@ def audit(
             "orphan_tables": 0,
             "figure_captions": 0,
             "orphan_figures": 0,
+            "figures_transcribed_as_tables": 0,
             "md_tables": 0,
             "html_tables": 0,
             "html_imgs": 0,
@@ -667,6 +707,16 @@ def audit(
         bound = bind_captions(
             lines, [(i, want) for i, want, _, _ in captions], tables, images, fence, walkable
         )
+
+        # A figure whose content an overlay transcribed as a table under its caption is not
+        # missing, with or without a bitmap beside it. Counted, so the excuse stays visible.
+        transcribed = transcribed_figure_captions(
+            lines, [i for i, want, _, _ in captions if want == "figure"], tbl, comments
+        )
+        for i in transcribed:
+            if not bound[i]:
+                t["figures_transcribed_as_tables"] += 1
+            bound[i] = True
 
         orphan_t: list[dict] = []
         orphan_f: list[dict] = []
@@ -743,7 +793,7 @@ def write_report(path: Path, findings: list[dict], totals: dict, product: str, r
         for k in (
             "table_captions", "orphan_tables", "figure_captions", "orphan_figures",
             "md_tables", "md_images", "html_imgs", "dangling_refs", "duplicate_h1",
-            "overlay_desc_warnings", *CHAR_CLASSES,
+            "overlay_desc_warnings", "figures_transcribed_as_tables", *CHAR_CLASSES,
         )
     }
     lines += [
@@ -754,6 +804,10 @@ def write_report(path: Path, findings: list[dict], totals: dict, product: str, r
         f"{agg['md_images'] + agg['html_imgs']} image refs present with "
         f"{agg['dangling_refs']} dangling; {agg['duplicate_h1']} duplicated H1 heading(s); "
         f"{agg['overlay_desc_warnings']} unmatched figure description(s).",
+        "",
+        f"{agg['figures_transcribed_as_tables']} figure caption(s) have no image beside them and "
+        "are not counted as orphaned, because an overlay transcribed the figure (a grid of "
+        "numbers shown as a picture) as a table directly under its caption.",
         "",
         "## Character hygiene by extractor",
         "",
@@ -831,17 +885,25 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--product", default="comstock")
     ap.add_argument("--release", default="comstock_amy2018_2025_release_3")
+    ap.add_argument(
+        "--work-dir",
+        type=Path,
+        default=None,
+        help="Audit a sandbox build: the root passed to `bsc build --work-dir`. The reports "
+        "are written there too, so the committed report at the repo root is left alone.",
+    )
     args = ap.parse_args()
 
-    processed = REPO / "processed" / args.product / args.release
+    root = args.work_dir or REPO
+    processed = root / "processed" / args.product / args.release
     manifest = json.loads((processed / "manifest.json").read_text(encoding="utf-8"))
     kinds = classify_sources(manifest)
     entry_index = overlay_entry_index(REPO / "overlays", args.product, args.release)
 
     findings, totals = audit(processed, kinds, entry_index)
 
-    out_md = REPO / "md_fidelity_report.md"
-    out_json = REPO / "md_fidelity_report.json"
+    out_md = root / "md_fidelity_report.md"
+    out_json = root / "md_fidelity_report.json"
     write_report(out_md, findings, totals, args.product, args.release)
     out_json.write_text(
         json.dumps(
@@ -864,6 +926,12 @@ def main() -> None:
             f"{t['md_images'] + t['html_imgs']:>7}{t['dangling_refs']:>8}"
             f"{t['duplicate_h1']:>7}{t['html_tables']:>9}"
         )
+    transcribed = sum(t["figures_transcribed_as_tables"] for t in totals.values())
+    if transcribed:
+        print(
+            f"\n{transcribed} figure caption(s) with no image beside them are not orphans: "
+            "an overlay transcribed the figure as a table under its caption"
+        )
     print(
         f"\n{'extractor':<12}{'files':>6}{'softHyp':>9}{'nbsp':>7}{'rangeEn':>9}"
     )
@@ -875,8 +943,8 @@ def main() -> None:
         )
 
     print(f"\nfiles with gaps: {len(findings)}")
-    print(f"wrote {out_md.relative_to(REPO)}")
-    print(f"wrote {out_json.relative_to(REPO)}")
+    print(f"wrote {out_md}")
+    print(f"wrote {out_json}")
 
 
 if __name__ == "__main__":

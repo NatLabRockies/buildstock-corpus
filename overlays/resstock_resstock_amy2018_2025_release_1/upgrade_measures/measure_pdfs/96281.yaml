@@ -1,0 +1,462 @@
+# Hand-authored overlay for measure_pdfs/96281.pdf
+#
+# 96281 is the ResStock measure documentation for advanced air sealing with drill-and-fill
+# wall insulation (measure 14). Every table and figure in the report was compared with the
+# PDF on 2026-11-11, following "Checking every table and figure: the ResStock method" in
+# overlays/README.md.
+#
+# Tables (page numbers are PDF pages, 1-based):
+#   * Table 4 (p.18) and Table 5 (pp.18-19) are superseded: their units are printed as stacked
+#     fractions with superscripts and were flattened into strings that do not read as units;
+#     Table 5 also came out as one grid per page. See each entry's `why`.
+#   * Table 7 (p.23) is superseded: five of its seven row-group labels were lost. See its
+#     `why`.
+#   * The Measure Summary table (p.9, no caption) is superseded: it was right except for a
+#     line-wrap space inside the project configuration URL.
+#   * Tables 1, 2, 3 and 6 and the List of Acronyms (p.5) are recorded under `checked:` as
+#     correct.
+#   * The Table of Contents and List of Figures / List of Tables grids are contents pages and
+#     have no entry.
+#   * The report's seven numbered page footnotes are all present in the document. No table
+#     has a footnote of its own, and no number grid is shown as a picture.
+#
+# Figures: Figures 1-13 and A-1 to A-5 are described (vision-description). Figures A-2 and
+# A-3 were extracted as ONE bitmap (image_000016) that also swallowed Figure A-2's caption,
+# so the document has no "Figure A-2." caption line; the description of that bitmap covers
+# both figures and quotes the A-2 caption, which is otherwise nowhere in the document. The
+# cover art and wordmark (image_000000, image_000001) are decorative and omitted by the
+# build. Values read off an axis, not a data label, are worded "about". In Figures 4, 10 and
+# 12 the upgrade series is labelled "Drill Fill Air Sealing" in the plot itself.
+#
+# Flattening notes: Table 7's seven merged group labels are repeated on each of their three
+# rows, and its two blank header cells are blank in the PDF. Units printed as stacked
+# fractions are written with a slash (W/m-K, m³/s, W/K, h-ft²-R/Btu). Tables 5 and 7 and the
+# Measure Summary are split into bold-labelled parts to stay under the chunk limit, each
+# repeating the header row; the labels are not in the PDF. Row shading in the PDF is
+# alternating bands and carries no meaning.
+
+product: resstock
+release: resstock_amy2018_2025_release_1
+source_id: upgrade_measures
+source_path: measure_pdfs/96281.pdf
+source_url: https://docs.nlr.gov/docs/fy26osti/96281.pdf
+publication_url: https://docs.nlr.gov/docs/fy26osti/96281.pdf
+tables:
+- label: Measure Summary
+  uncaptioned: true
+  source_pdf: measure_pdfs/96281.pdf
+  source_pdf_sha256: 6fcf72b697dbdadcbeedf1960b78c499cb09adb34bc40603d32259c709004b6e
+  page: 9
+  method: extracted grid, with the cells named in `why` corrected from the PDF text layer
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 8d404cfd42215e0749e2d0facd1d8f61f985436db57c865ba81e4a8e9571e459
+    why: The table is right cell for cell except the project configuration URL, which carries a space
+      where the PDF wraps the line ('project_national/sdr _upgrades_tmy3.yml'). A search for the real
+      path, or a click on the link, misses it. The cell text is the extractor's own with that space removed;
+      the joined URL is the one in the PDF text layer.
+  markdown: '**Measure Summary, part 1 of 2**
+
+
+    | Measure Title | Advanced Air Sealing with Drill-and-Fill Wall Insulation |
+
+    |---|---|
+
+    | Measure Definition | This upgrade measure applies R-13 drill-and-fill insulation to exterior wood-stud
+    walls and is modeled with advanced air sealing. Advanced air sealing details are available in the
+    measure documentation (Phoung, Lou and White 2025). |
+
+    | Applicability | The insulation portion of this measure applies to all dwellings with: • Uninsulated
+    above-grade wood stud walls separating conditioned from unconditioned space. With these applicability
+    constraints, this portion of the measure upgrade applies to about 30% of existing dwelling units.
+    The advanced air sealing portion of the measure applies to dwelling units with infiltration rates
+    of ≥6 ACH50. With these applicability constraints, this portion of the measure applies to about 92%
+    of existing dwelling units. In total, portions or the full package apply to 92% of dwelling units.
+    |
+
+
+    **Measure Summary, part 2 of 2**
+
+
+    | Measure Title | Advanced Air Sealing with Drill-and-Fill Wall Insulation |
+
+    |---|---|
+
+    | Not Applicable | The insulation portion of this measure does not apply to dwelling units with: •
+    Wood stud walls with existing insulation (any amount) • Non-wood stud walls. These constraints exclude
+    about 70% of dwelling units from receiving wall insulation upgrades. The advanced air sealing portion
+    of this measure does not apply to dwelling units with infiltration rates below 6 ACH50. This excludes
+    about 8% of all dwelling units. |
+
+    | Original Release | ResStock 2025 Release 1 |
+
+    | Project Configuration File(s) | https://github.com/NatLabRockies/resstock/blob/2025_Release_1/project_national/sdr_upgrades_tmy3.yml
+    |'
+- label: Table 4
+  caption: OS-HPXML Arguments Assigned with the ResStock 'Insulation Wall' Option Argument Values for
+    Drill-and-Fill Wall Insulation
+  source_pdf: measure_pdfs/96281.pdf
+  source_pdf_sha256: 6fcf72b697dbdadcbeedf1960b78c499cb09adb34bc40603d32259c709004b6e
+  page: 18
+  method: extracted grid, with one unit rewritten as a fraction (compared with the page render)
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: b2abb8a4f5161baf8d9e748adea89e064d4662a238e1bce3d1089bf6e245897e
+    why: The Units cell of wall_assembly_r is printed as a stacked fraction, h-ft²-R over Btu. The extractor
+      flattened it to 'h-ft 2 -R Btu', which loses the fraction bar and the superscript and does not read
+      as a unit. It is written 'h-ft²-R/Btu'. Every other cell is the extractor's own; a line-break space
+      in 'R-value' is removed.
+  markdown: '| OS-HPXML Argument | Required | Units | Type | Choices | Description |
+
+    |---|---|---|---|---|---|
+
+    | wall_type | true | - | Choice | WoodStud, ConcreteMasonryUnit, DoubleWoodStud, InsulatedConcreteForms,
+    LogWall, StructuredInsulatedPanel, SolidConcrete, SteelFrame, Stone, StrawBale, StructuralBrick |
+    The type of walls |
+
+    | wall_assembly_r | true | h-ft²-R/Btu | - | Double | Assembly R-value of the walls |'
+- label: Table 5
+  caption: Idf File Argument Changes as a Result of Advanced Air Sealing with Drill-and-Fill Wall Insulation
+  source_pdf: measure_pdfs/96281.pdf
+  source_pdf_sha256: 6fcf72b697dbdadcbeedf1960b78c499cb09adb34bc40603d32259c709004b6e
+  page: 18
+  method: extracted grids joined under one header, with units rewritten as fractions (compared with the
+    page renders)
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: f1b4f65a84cae8e052ef88bdbd45fb1f613258a80b8c9abe3fb76aeecdd4c4e0
+    also_removes:
+    - e49a82211d26e46ee6df177e57ebd5ac5fac6df5c1c1c2e9531417e57b4a7c55
+    why: The table runs over two pages and was extracted as two grids, each with the header row. Its units
+      are printed as stacked fractions with superscripts (W over m-K, m³ over s, W over K, cm²), and the
+      argument names carry the same superscripts ({cm²}, {m³/s}). The extractor flattened them to 'W m-K',
+      'm 3 s', 'W K', 'cm 2', '{cm 2 }' and '{m 3 /s}', which do not read as units. They are written 'W/m-K',
+      'm³/s', 'W/K', 'cm²', '{cm²}' and '{m³/s}'. Every other cell is the extractor's own, the 13 rows
+      joined under the one header.
+  markdown: '| IDF File Argument | Units | Description |
+
+    |---|---|---|
+
+    | c | - | Converts the flow coefficient based on ASHRAE principles |
+
+    | Conductivity | W/m-K | Conductivity of the wall stud and cavity |
+
+    | Effective Air Leakage Area {cm²} | cm² | Area where air can escape |
+
+    | Maximum Air Flow Rate {m³/s} | m³/s | Maximum air flow rate through a duct |
+
+    | Design Supply Air Flow Rate {m³/s} | m³/s | Design condition for the air flow rate for the air-source
+    heat pump |
+
+    | Cooling Supply Air Flow Rate {m³/s} | m³/s | Cooling design condition for the air flow rate for
+    the air-source heat pump |
+
+    | Design Maximum Air Flow Rate {m³/s} | m³/s | Maximum air flow rate for the air-source heat pump
+    fan |
+
+    | Speed Flow Fraction 1 | - | Flow fraction for the fan speed (Big Ladder Software n.d.) |
+
+    | Speed Electric Power Fraction 1 | - | Electric power fraction for the fan speed (Big Ladder Software
+    n.d.) |
+
+    | Heating Design Capacity {W} | W | The heating design capacity of the baseboard heating system if
+    present |
+
+    | U-Factor Times Area Value {W/K} | W/K | Heat transfer through the baseboard heating wall if present
+    |
+
+    | Maximum Water Flow Rate {m³/s} | m³/s | The maximum water flow rate of the baseboard heating system
+    if present |
+
+    | Nominal Capacity {W} | W | Capacity of the hot water boiler if present |'
+- label: Table 7
+  caption: Individual Building Model Annual Results
+  source_pdf: measure_pdfs/96281.pdf
+  source_pdf_sha256: 6fcf72b697dbdadcbeedf1960b78c499cb09adb34bc40603d32259c709004b6e
+  page: 23
+  method: extracted grid, with the lost row-group labels restored from the PDF text layer (compared with
+    the page render)
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: e3ac424af31cf383fa7fc3e1bee8a4aeda29ede90469ededc1975dfac1e6ac7a
+    why: The first column holds seven merged group labels, each over three model rows. The extractor kept
+      the first two (Site Energy for All Fuels, Cooling Energy Consumption) and left the other five blank,
+      so fifteen rows of values, from Heating Energy Consumption to Heating Hourly Peak Power, did not
+      say what they measure, and those labels were nowhere else in the document. Every value was right.
+      The five labels are restored from the text layer of the page and each label is repeated on its three
+      rows.
+  markdown: '**Table 7, part 1 of 2**
+
+
+    |  |  | Before | After | Percent Decrease |
+
+    |---|---|---|---|---|
+
+    | Site Energy for All Fuels [kWh] | Colorado model | 21,770 | 15,991 | 26.5% |
+
+    | Site Energy for All Fuels [kWh] | North Carolina model | 19,745 | 15,099 | 23.5% |
+
+    | Site Energy for All Fuels [kWh] | Arizona model | 20,448 | 16,660 | 18.5% |
+
+    | Cooling Energy Consumption [kWh] | Colorado model | 1,284 | 1,188 | 7.5% |
+
+    | Cooling Energy Consumption [kWh] | North Carolina model | 4,519 | 3,446 | 23.7% |
+
+    | Cooling Energy Consumption [kWh] | Arizona model | 7,527 | 5,696 | 24.3% |
+
+    | Heating Energy Consumption [kWh] | Colorado model | 12,427 | 7,030 | 43.4% |
+
+    | Heating Energy Consumption [kWh] | North Carolina model | 6,850 | 4,827 | 29.5% |
+
+    | Heating Energy Consumption [kWh] | Arizona model | 3,176 | 1,404 | 55.8% |
+
+    | Unmet Cooling Hours [hours] | Colorado model | 50 | 8.25 | 83.5% |
+
+    | Unmet Cooling Hours [hours] | North Carolina model | 1.5 | 0 | 100% |
+
+    | Unmet Cooling Hours [hours] | Arizona model | 0 | 0 | n/a |
+
+    | Unmet Heating Hours [hours] | Colorado model | 5.25 | 0.75 | 85.7% |
+
+    | Unmet Heating Hours [hours] | North Carolina model | 0 | 0 | n/a |
+
+    | Unmet Heating Hours [hours] | Arizona model | 36.25 | 15.75 | 56.6% |
+
+    | Cooling Hourly Peak Power [kBtu/h] | Colorado model | 15.78 | 15.42 | 2.3% |
+
+
+    **Table 7, part 2 of 2**
+
+
+    |  |  | Before | After | Percent Decrease |
+
+    |---|---|---|---|---|
+
+    | Cooling Hourly Peak Power [kBtu/h] | North Carolina model | 41.38 | 30.97 | 25.2% |
+
+    | Cooling Hourly Peak Power [kBtu/h] | Arizona model | 53.54 | 40.48 | 24.4% |
+
+    | Heating Hourly Peak Power [kBtu/h] | Colorado model | 44.56 | 42.43 | 4.8% |
+
+    | Heating Hourly Peak Power [kBtu/h] | North Carolina model | 77.85 | 57.71 | 25.6% |
+
+    | Heating Hourly Peak Power [kBtu/h] | Arizona model | 45.67 | 45.01 | 1.4% |'
+checked:
+- label: List of Acronyms
+  uncaptioned: true
+  source_pdf: measure_pdfs/96281.pdf
+  source_pdf_sha256: 6fcf72b697dbdadcbeedf1960b78c499cb09adb34bc40603d32259c709004b6e
+  page: 5
+  table_sha256: 65751c1f4d12c97be415b1532a34c6da503ad90972cee4c3621c0396a70f66ba
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: Eight acronyms, ACH50 to RESNET, each with its expansion; the first entry sits in the header row.
+- label: Table 1
+  caption: Framing and Insulation Type as a Percentage of the ResStock 2025 Release 1 Baseline Housing
+    Stock
+  source_pdf: measure_pdfs/96281.pdf
+  source_pdf_sha256: 6fcf72b697dbdadcbeedf1960b78c499cb09adb34bc40603d32259c709004b6e
+  page: 14
+  table_sha256: 8cab012474ce2d20d8535c8c0f9d34dce96a1a3ca8f4607a5e6e159c74c32c82
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: All 15 rows and values match the page, in order.
+- label: Table 2
+  caption: Probability of Baseline Model Uninsulated Wood Stud Wall and Infiltration Type
+  source_pdf: measure_pdfs/96281.pdf
+  source_pdf_sha256: 6fcf72b697dbdadcbeedf1960b78c499cb09adb34bc40603d32259c709004b6e
+  page: 15
+  table_sha256: d6124bfd55d4299317695376a89cf747ef85ba540e6ef15179b59e5057e8ec77
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The 14 infiltration rows and their values match the page. The first column's one merged cell ('Wood
+    stud, uninsulated') is repeated on every row.
+- label: Table 3
+  caption: Relevant Column Names and Values for Specific Portions of This Upgrade
+  source_pdf: measure_pdfs/96281.pdf
+  source_pdf_sha256: 6fcf72b697dbdadcbeedf1960b78c499cb09adb34bc40603d32259c709004b6e
+  page: 16
+  table_sha256: ab764a1110b4f5be9059b20f85dcc150b4f7b140c361704bb328eddbd28cf94d
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The three rows match the page; 'drill- and-fill' carries a space where the PDF breaks the line.
+- label: Table 6
+  caption: Baseline Individual Model Characteristics
+  source_pdf: measure_pdfs/96281.pdf
+  source_pdf_sha256: 6fcf72b697dbdadcbeedf1960b78c499cb09adb34bc40603d32259c709004b6e
+  page: 20
+  table_sha256: 3a12ca77ebdccc1d861eedef3a812a08d3af166f914ae4f62732b4832c365696
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The seven rows match the page; the first header cell is blank in the PDF.
+figures:
+- source_image: 96281_images/image_000002_46496dc9dcb6427dbff75f4ddc0358aa8acb60d56420701d57fc4b392b42fde5.png
+  source_image_sha256: c115f9c47411d6b6b8c14cb559ce53d8ba0309c22d3f56f1cf259478db19ad38
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Photograph of a worker in protective gear blowing insulation through a hose into an exterior wall
+  description: 'Figure 1: photograph of drill-and-fill insulation being installed. A worker in a white
+    protective suit and a respirator kneels beside a house and holds a hose against the exterior wall,
+    blowing insulation into the wall cavity through an opening in the siding; plastic sheeting covers
+    the ground and equipment behind. The photograph carries no data.'
+- source_image: 96281_images/image_000003_4165cdb849777588f903dbc2349e4953499344dee3d8d278a56163c5af888c1c.png
+  source_image_sha256: 6e0b7f1ddb52669065ecf368991ce9d3e402e7ec62d4542fde040adc08f8c59c
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Six line charts of single-day heating and cooling energy for three example models, baseline against
+    upgrade
+  description: 'Figure 2: six line charts, a row each for the Colorado, North Carolina and Arizona models.
+    The left column is heating energy in kWh on January 1, 2018 and the right column cooling energy in
+    kWh on July 1, 2018, each baseline against upgrade. The upgrade lowers every peak: Colorado''s morning
+    heating peak falls from about 9 to about 7 kWh, and North Carolina''s afternoon cooling peak from
+    about 4 to about 2.8.'
+- source_image: 96281_images/image_000004_34347d7836123add5a60a69e20342925aab67b0d013ea3a83a25053f2b797833.png
+  source_image_sha256: ea57c939341c6579ce095b044eefeaa566d5944b403e4f94f3b1357958a8ba67
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of average energy by end use per applicable dwelling unit, baseline against upgrade
+  description: 'Figure 3: horizontal grouped bar chart. Rows are end uses by fuel, from electric vehicle
+    charging to generation, plus total site energy; x-axis is all-fuels end uses in kWh, 0 to 25k. Series
+    are Baseline and ''Air, Wall Sealing/Insulation''. Total site energy falls from about 24.7k to about
+    19.3k kWh, and natural gas heating, the largest end use, from about 8.3k to about 5k.'
+- source_image: 96281_images/image_000005_a9975d58cdf6a4834ab1e7c26924121d3ed2187873caca333f68df3a4b6f0bd6.png
+  source_image_sha256: 7fb4f03e2c2699e00bc0c1d53276250e63cc87f474f7aa75e43599e17916c452
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of percentage site energy savings per applicable dwelling unit by wall type and insulation
+    level
+  description: 'Figure 4: horizontal bar chart. Rows are fifteen wall types and insulation levels (CMU,
+    brick and wood stud, each uninsulated or R-7 to R-19); x-axis is site energy total consumption percentage
+    savings, 0 to above 30. The single series is labelled ''Drill Fill Air Sealing''. Uninsulated wood
+    stud walls save by far the most, about 32%; uninsulated brick saves about 20% and the other rows about
+    7% to 18%.'
+- source_image: 96281_images/image_000006_9483f9b84ddc19c186d1247f9db9e2679b265ff1d48b2ac14a0ff3b7f6852aa8.png
+  source_image_sha256: b9099a49a4445704b70d495de52ae0667642bb8cf1db4f55438ef3cfce69d054
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of stock-level annual site energy by baseline infiltration, baseline against
+    upgrade
+  description: 'Figure 5: horizontal grouped bar chart. Rows are fourteen baseline infiltration levels
+    from 2 to 50 ACH50; x-axis is site energy total consumption in kWh, 0 to above 800B. Series are Baseline
+    and ''Air, Wall Sealing/Insulation''. The 15 ACH50 group is the largest, about 810B kWh falling to
+    about 655B, followed by 20 ACH50, about 570B falling to about 430B; groups at 2 to 5 ACH50 are near
+    zero.'
+- source_image: 96281_images/image_000007_6cee5967ff3b230472cbaaf860ca80611294f363be3fe84052f02cdba2408c4e.png
+  source_image_sha256: a905a515db97845a1b72c9f507bb7415f4a9dcbfa34c1b0a13a226ced5c37a8f
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of percentage site energy savings per applicable dwelling unit by baseline infiltration
+  description: 'Figure 6: horizontal bar chart. Rows are fourteen baseline infiltration levels from 2
+    to 50 ACH50; x-axis is site energy total consumption percentage savings, 0 to above 40. Savings are
+    about 19% to 20% at 2 to 5 ACH50, drop to about 5% at 6 ACH50, then rise steadily: about 12.5% at
+    10, about 24.5% at 20, about 32% at 30 and about 41.5% at 50 ACH50.'
+- source_image: 96281_images/image_000008_9c74e86c9c1c756c55e84b8c64382b43549ca9e74bc704a60cf1b588e30ac007.png
+  source_image_sha256: 6b81e65b3d257e5a58ffde8e9e782b29805e8d14b91d28c219c9058bf1b15f15
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of average annual site energy per applicable dwelling unit by vintage, baseline
+    against upgrade
+  description: 'Figure 7: horizontal grouped bar chart. Rows are nine vintage bins from before 1940 to
+    the 2010s; x-axis is site energy total consumption in kWh, 0 to above 30k. Series are Baseline and
+    ''Air, Wall Sealing/Insulation''. Consumption and savings both fall with newer construction: about
+    33.5k against 22.5k for homes built before 1940, and about 17.5k against 16k for the 2010s.'
+- source_image: 96281_images/image_000009_c5718aeedc65f82ad45d27e0d45fded267034d0345cefa8e1dbce545f5f03706.png
+  source_image_sha256: ecd970b886a907b1de4ebc9fd759b1b4f08cd6ab1e8b69fb70e628fe8f522eba
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of percent site energy savings for applicable units by vintage
+  description: 'Figure 8: horizontal bar chart. Rows are nine vintage bins from before 1940 to the 2010s;
+    x-axis is site energy total consumption percentage savings, 0 to above 30. Savings fall with newer
+    construction: about 32.5% before 1940, about 29.5% for the 1940s and 1950s, about 25.5% for the 1960s,
+    about 18.5% for the 1970s, about 14% for the 1980s and about 9% for the 2000s and 2010s.'
+- source_image: 96281_images/image_000010_3327c93c4b8815e775d0a7aaec0807570894f9eaa068811cce34d2b3ea56c911.png
+  source_image_sha256: 0f574f690994be432e894fd739e5cf65bbb5db1fa8985d7c985d183314c0ebf5
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of percentage site energy savings per dwelling unit by ASHRAE climate zone
+  description: 'Figure 9: horizontal bar chart. Rows are nineteen climate zone groups from 1A - FL and
+    1A - HI to 8AK; x-axis is site energy total consumption percentage savings, 0 to above 25. Cold and
+    mixed zones save most: about 26% in 5A and 4A and about 23.5% to 24% in 6A, 6B and 7A. Hot zones save
+    least: about 3% in 1A - HI and about 6% to 7% in 1A - FL and 2B.'
+- source_image: 96281_images/image_000011_54f7e8de384993f58882e7ad1a8225311a689c2ef180b731b86d34151e881bd1.png
+  source_image_sha256: 778147b73ac1ea9aa5069b0fd222cf10f86f1f5c1ccd485bde91e3eee42c7e51
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of average site energy for applicable dwelling units by ASHRAE climate zone,
+    baseline against upgrade
+  description: 'Figure 10: horizontal grouped bar chart. Rows are seventeen climate zones from 1A to 8AK;
+    x-axis is site energy total consumption in kWh, 0 to above 40k. Series are Baseline and ''Drill Fill
+    Air Sealing''. Zone 7A is highest, about 42.5k falling to about 32k, followed by 6A and 5A; zone 1A
+    is lowest, about 12k falling to about 11k.'
+- source_image: 96281_images/image_000012_c85e04ec85ddd60ac0aa0d6e751d57ed63cdbca0fc428d77d6bdfbadc8fa53e3.png
+  source_image_sha256: 8a6561b9570ab69621a10d8c4aa23e4b30d894bd88b4faff59cc04864c2790c4
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of daily aggregated average energy consumption for baseline homes in Colorado across
+    2018
+  description: 'Figure 11: line chart. X-axis is time, January to December 2018; y-axis is daily aggregated
+    average energy consumption in kBtu, about 100 to 800. A single series, the baseline in Colorado. Consumption
+    is highest and most variable in winter, peaking near 780 kBtu in February, and flat at about 110 to
+    130 kBtu from June to September.'
+- source_image: 96281_images/image_000013_4ab1b7f951180dd941402c341fa761194a5236b369c5b9c94ac2175fcdb36ed1.png
+  source_image_sha256: 8927913c4b6dcf9adb487b58d4320b5a0ac278209c3d35832abfff6fbf9d6a7e
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of aggregated average power in Colorado on the peak day, baseline against upgrade
+  description: 'Figure 12: line chart for February 20, 2018. X-axis is time of day, 00:00 to 24:00; y-axis
+    is aggregated average power in kW, 5 to 13. Series are Baseline and ''Drill Fill Air Sealing''. The
+    baseline peaks at about 12.9 kW near 07:00 and the upgrade at about 10.1 kW; both reach their minimum
+    near 15:00, at about 7.0 and 5.4 kW.'
+- source_image: 96281_images/image_000014_3e46ac6508dcb8fb71edc044c568d9a94c34485551088ec378c5997b28f87feb.png
+  source_image_sha256: bcfe489b6ed78e065899e41c1e1cd29cc6602dd11813ab74455699e4d10133a1
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of average annual energy bills by fuel for applicable dwelling units, baseline
+    against upgrade
+  description: 'Figure 13: horizontal grouped bar chart. Rows are electricity, natural gas, fuel oil,
+    propane and all fuels; x-axis is bills in US dollars, 0 to above 2,500. Series are Baseline and ''Air,
+    Wall Sealing/Insulation''. The all-fuels bill falls from about $2,620 to about $2,220, electricity
+    from about $1,860 to about $1,680, and natural gas from about $520 to about $360.'
+- source_image: 96281_images/image_000015_9a1480228beb49cc05d5e8d09394d18a98bde2ca82b58b91e9fe6475039784e7.png
+  source_image_sha256: 9fdae5240bdfb4afbab5c87be00b0f10cf747217407ae8a9939b582f7a53480e
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of average energy by end use, air sealing only against air sealing with wall
+    insulation
+  description: 'Figure A-1: horizontal grouped bar chart. Rows are end uses by fuel plus total site energy;
+    x-axis is all-fuels end uses in kWh, 0 to 20k. Series are Air Sealing and ''Air, Wall Sealing/Insulation'',
+    both for applicable dwelling units only. Total site energy is about 20.4k kWh with air sealing alone
+    and about 19.2k with wall insulation added; natural gas heating is about 5.8k against about 5.0k.'
+- source_image: 96281_images/image_000016_679b6e951f47c24787642cc44e5f11bac3cab627311b5a11e4f6a16d05a68e86.png
+  source_image_sha256: 9e6d91a64766a4b3d58d8ef3f7ec1ace629f8e268e035c53a3f3d79c89f89887
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: 'Two bar charts: percentage savings by wall type, and site energy by vintage, for two upgrade scenarios'
+  description: 'Figures A-2 and A-3, extracted as one bitmap that also holds Figure A-2''s caption: ''Average
+    annual dwelling unit percentage site energy savings per applicable dwelling unit for advanced air
+    sealing with drill-and-fill wall insulation (air, wall sealing/insulation) and advanced air sealing
+    only''. In the upper chart (A-2) the two scenarios save the same for every wall type except uninsulated
+    wood stud: about 18% with air sealing alone and about 32% with wall insulation. The lower chart (A-3)
+    shows site energy by vintage; homes built before 1940 use about 26k kWh against about 22.8k.'
+- source_image: 96281_images/image_000017_77a206b20fad6454937ee8f6557dbf8878d38c711906125290d586692f6e4f18.png
+  source_image_sha256: 35b0dcbd89a59df4e1bb4ad58e74c5ab08ea8f85f05c10e0adcf53eaf65786b5
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of site energy by ASHRAE climate zone, air sealing only against air sealing with
+    wall insulation
+  description: 'Figure A-4: horizontal grouped bar chart. Rows are nineteen climate zone groups from 1A
+    - FL to 8AK; x-axis is site energy total consumption in kWh, 0 to above 30k. Series are Air Sealing
+    and ''Air, Wall Sealing/Insulation''. Adding wall insulation lowers consumption a little further in
+    most zones: about 30.5k against 29.7k in 7A and about 26.8k against 24.7k in 5A; the hottest zones
+    barely differ.'
+- source_image: 96281_images/image_000018_91e0c1da712d750cd6ef1be5209c07a99e7c72fcf9ff09a4a520292f5a4ee3b5.png
+  source_image_sha256: 9ec838dd654eb133c15d062fadedf8ff3da57e170e9bf394f35ad7e039ea8b91
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of average annual energy bills by fuel, air sealing only against air sealing
+    with wall insulation
+  description: 'Figure A-5: horizontal grouped bar chart. Rows are electricity, natural gas, fuel oil,
+    propane and all fuels; x-axis is bills in US dollars, 0 to above 2,000. Series are Air Sealing and
+    ''Air, Wall Sealing/Insulation'', for applicable dwelling units only. The all-fuels bill is about
+    $2,310 with air sealing alone and about $2,220 with wall insulation added; natural gas is about $420
+    against about $370.'

@@ -1,0 +1,271 @@
+# Hand-authored overlay for measure_pdfs/96344.pdf
+#
+# 96344 is the ResStock measure documentation for the duct sealing and insulation upgrade
+# (measure 13). Every table and figure in the report was compared with the PDF on 2026-11-11,
+# following "Checking every table and figure: the ResStock method" in overlays/README.md.
+#
+# Tables (page numbers are PDF pages, 1-based):
+#   * Table 3 (p.14) is superseded: its two merged Notes cells were cut in mid-sentence and
+#     spread over the rows they cover. See its `why`.
+#   * The Measure Summary table (p.9, no caption) is superseded: it was right except for a
+#     line-wrap space inside the project configuration URL. It is the extractor's own grid
+#     with that space removed.
+#   * Tables 1, 2, 4 and 5 and the List of Acronyms (p.5) are recorded under `checked:` as
+#     correct.
+#   * The Table of Contents, List of Figures and List of Tables grids are contents pages, not
+#     tables of the report, and have no entry. The References list (p.25) was extracted as a
+#     one-column grid with some entries run together; it is not a table of the report and
+#     has no entry.
+#   * No table in this report has a footnote, and no number grid is shown as a picture.
+#
+# Figures: Figures 1-10 are described (40-70 words each, vision-description), one bitmap per
+# figure; every figure caption has its image. The cover art and wordmark (image_000000,
+# image_000001) are decorative and omitted by the build. Values in the descriptions that are
+# read off an axis, not a data label, are worded "about".
+#
+# Flattening notes: Table 3's two merged Notes cells are repeated on each row they cover, and
+# the table is split into two bold-labelled parts to stay under the chunk limit (the labels
+# are not in the PDF). The Measure Summary is split the same way, each part repeating the
+# first row (Measure Title). Bulleted lists inside its cells are run into the cell text, as
+# extracted. Row shading in the PDF is alternating bands and carries no meaning.
+
+product: resstock
+release: resstock_amy2018_2025_release_1
+source_id: upgrade_measures
+source_path: measure_pdfs/96344.pdf
+source_url: https://docs.nlr.gov/docs/fy26osti/96344.pdf
+publication_url: https://docs.nlr.gov/docs/fy26osti/96344.pdf
+tables:
+- label: Measure Summary
+  uncaptioned: true
+  source_pdf: measure_pdfs/96344.pdf
+  source_pdf_sha256: 73927d7ffd584cd0a93c1b50d048962fded9d4ebe57240caa48eab67aecc01f9
+  page: 9
+  method: extracted grid, with the cells named in `why` corrected from the PDF text layer
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 83f6a1fb7160edcc451750ace80d72ebde40ac8efe4d2c4e8fbb6435477462ac
+    why: The table is right cell for cell except the project configuration URL, which carries a space
+      where the PDF wraps the line ('project_nationa l'). A search for the real path, or a click on the
+      link, misses it. The cell text is the extractor's own with that space removed; the joined URL is
+      the one in the PDF text layer. The full stop after '.yml' is printed in the PDF.
+  markdown: '| Measure Title | Duct Sealing and Insulation |
+
+    |---|---|
+
+    | Measure Definition | This upgrade measure involves sealing HVAC ducts and adding insulation in applicable
+    dwelling units. After the upgrade, the units will achieve 5% duct leakage to the outside and an R-8
+    duct insulation level. |
+
+    | Applicability | This measure applies to all dwellings with ductwork located in unconditioned space
+    that have one or both of the following characteristics: • More than 6% duct leakage to the outside
+    • Less than R-6 duct insulation. With these applicability constraints, the measure upgrade applies
+    to about 46% of the existing dwelling units. |
+
+    | Not Applicable | This measure does not apply to dwelling units with any of the following characteristics:
+    • 6% (or less) duct leakage to the outside and R-6 (or greater) duct insulation • 0% leakage to the
+    outside. These constraints exclude 54% of the dwelling units from receiving this measure upgrade.
+    |
+
+    | Original Release | 2025/resstock_amy2018_release_1 |
+
+    | Project Configuration File(s) | https://github.com/NatLabRockies/resstock/blob/sdr_2025_Release_1/project_national/sdr_upgrades_amy2018.yml.
+    |'
+- label: Table 3
+  caption: HPXML Default Values for the Duct Sealing and Insulation Upgrades
+  source_pdf: measure_pdfs/96344.pdf
+  source_pdf_sha256: 73927d7ffd584cd0a93c1b50d048962fded9d4ebe57240caa48eab67aecc01f9
+  page: 14
+  method: extracted grid, with the split Notes cells rejoined (compared with the page render and text
+    layer)
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 5cd58c8c258b2e4eb30f428cc7f3cd4a8665e1086ec2da437a38cec0d69467e1
+    why: 'The Notes column has two merged cells, each covering two rows: one note for the two buried-insulation-level
+      rows and one for the two fraction-rectangular rows. The extractor cut each note in the middle of
+      a sentence and put the first half on one row and the second half on the next, so neither row carried
+      a readable note (''...Fully buried ducts'' / ''have insulation that just covers...''). Every other
+      cell was right. Each note is rejoined from the extractor''s own two halves and repeated on both
+      rows it covers.'
+  markdown: '**Table 3, part 1 of 2**
+
+
+    | HPXML Default Variable | Value | Units | Notes |
+
+    |---|---|---|---|
+
+    | ducts_supply_buried_insulation_level | Not buried | - | An option to indicate whether the supply
+    and return ducts are buried in, e.g., attic loose-fill insulation. Partially buried ducts have insulation
+    that does not cover the top of the ducts. Fully buried ducts have insulation that just covers the
+    top of the ducts. Deeply buried ducts have insulation that extends above the top of the ducts. See
+    the Building America Solution Center for more information. |
+
+    | ducts_return_buried_insulation_level | Not buried | - | An option to indicate whether the supply
+    and return ducts are buried in, e.g., attic loose-fill insulation. Partially buried ducts have insulation
+    that does not cover the top of the ducts. Fully buried ducts have insulation that just covers the
+    top of the ducts. Deeply buried ducts have insulation that extends above the top of the ducts. See
+    the Building America Solution Center for more information. |
+
+    | ducts_supply_fraction_rectangular | 0.25 | - | The fraction of supply and return ducts that are
+    rectangular (as opposed to round); this affects the duct effective R-value used for modeling. A value
+    of 1.0 means DuctShape is ''rectangular'' and 0.0 means DuctShape is ''round'' or ''oval.'' |
+
+
+    **Table 3, part 2 of 2**
+
+
+    | HPXML Default Variable | Value | Units | Notes |
+
+    |---|---|---|---|
+
+    | ducts_return_fraction_rectangular | 1.0 | - | The fraction of supply and return ducts that are rectangular
+    (as opposed to round); this affects the duct effective R-value used for modeling. A value of 1.0 means
+    DuctShape is ''rectangular'' and 0.0 means DuctShape is ''round'' or ''oval.'' |'
+checked:
+- label: List of Acronyms
+  uncaptioned: true
+  source_pdf: measure_pdfs/96344.pdf
+  source_pdf_sha256: 73927d7ffd584cd0a93c1b50d048962fded9d4ebe57240caa48eab67aecc01f9
+  page: 5
+  table_sha256: a3ba4d671d017eabf86d957d62a699698509614f315d7b860f1914a2b60c6cdc
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: Seven acronyms, AC to NLR, each with its expansion; the first entry sits in the header row.
+- label: Table 1
+  caption: Summarized Apply Logic for Duct Sealing and Insulation
+  source_pdf: measure_pdfs/96344.pdf
+  source_pdf_sha256: 73927d7ffd584cd0a93c1b50d048962fded9d4ebe57240caa48eab67aecc01f9
+  page: 12
+  table_sha256: 2636d834b5e2c35d2dbc08af5b4c75755e575d3214f5b7868c8719b7177d323c
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The two-row header (Housing Characteristics over 'Duct Leakage and Insulation' and 'Ducts in conditioned
+    space'; Upgrade Value over 'Duct Leakage and Insulation') is joined into one header row; all 14 rows
+    and every value match the page.
+- label: Table 2
+  caption: ResStock Argument Values for the Duct Sealing and Insulation Upgrades
+  source_pdf: measure_pdfs/96344.pdf
+  source_pdf_sha256: 73927d7ffd584cd0a93c1b50d048962fded9d4ebe57240caa48eab67aecc01f9
+  page: 14
+  table_sha256: 9c4ee880927709f28301fe51aa985e1341c4f4928ca449fa3409affee90fc6b2
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The last header reads 'Calculated by OpenStudio- HPXML' with a space where the PDF breaks the
+    line after the hyphen; every cell otherwise matches.
+- label: Table 4
+  caption: Heating and Cooling Unmet Hours Before and After Duct Sealing and Insulation Upgrade
+  source_pdf: measure_pdfs/96344.pdf
+  source_pdf_sha256: 73927d7ffd584cd0a93c1b50d048962fded9d4ebe57240caa48eab67aecc01f9
+  page: 17
+  table_sha256: 0953c82a62ebbd5036952fcc95316caa31df66c2a08a70357b8dad68d77e83b1
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The two-row header (Unmet Hours Before Upgrade and After Upgrade over Heating and Cooling) is
+    a header row plus a first data row; the three example rows match the page.
+- label: Table 5
+  caption: Annual Site Energy Consumption Saving Percentage per Upgraded Dwelling Unit After Duct Sealing
+    and Insulation Upgrade
+  source_pdf: measure_pdfs/96344.pdf
+  source_pdf_sha256: 73927d7ffd584cd0a93c1b50d048962fded9d4ebe57240caa48eab67aecc01f9
+  page: 21
+  table_sha256: ff40b23985f62f1e6a7e158360731031c2b37cda8247abbad8f9167deba24989
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: All 30 end-use rows and values match the page, in order.
+figures:
+- source_image: 96344_images/image_000002_9ecad925ccf8a1e923d00e59076a111c9453fa090d859ec4326a0be3675de123.png
+  source_image_sha256: 3c8aabd1a9259e5f60eb6ccb08fa901406e4d75f5de5d95ff64c7b9db37adc32
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Three stacked bar charts of annual energy use before and after duct sealing for three example dwellings
+  description: 'Figure 1: three horizontal stacked bar charts, one per example dwelling unit (Hawaii,
+    climate zone 1A; North Carolina, 3A; Alaska, 8AK). X-axis is annual energy consumption in MBtu; each
+    chart has a Baseline bar and a Duct Sealing and Insulation Upgrade bar, segmented by end use. Only
+    heating and cooling segments change: Hawaii cooling falls from 37.3 to 30.9, North Carolina heating
+    from 17.2 to 13.1, and Alaska fuel-oil heating from 163.0 to 132.4.'
+- source_image: 96344_images/image_000003_c46d99a932e7161e98fd4bd53c3baa9e7a234fc147d9685b61c0ebe626ca7651.png
+  source_image_sha256: 79982d01569cc2ff4ab3b50afb4149f8838e0f0f9826e9231ac94a7e08fd9344
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Four line charts of 15-minute heating or cooling energy on one day, baseline against upgrade, with
+    setpoint
+  description: 'Figure 2: four line charts, (a) to (d), of 15-minute energy consumption in kWh over one
+    day, with the thermostat setpoint in °F on the right axis. Panels are North Carolina cooling on July
+    2 and heating on January 2, Hawaii cooling, and Alaska heating. Series are Baseline, Upgrade and Setpoint.
+    The upgrade line sits below the baseline all day; North Carolina''s afternoon cooling peak falls from
+    about 0.7 to about 0.55 kWh.'
+- source_image: 96344_images/image_000004_3a7238f3084af6d7709c3b9989a5e7f091425ef19f1223caebdad9fdade479b2.png
+  source_image_sha256: 802e98f3f2ec1f7670ba90e3cf2b8d30c2219e18e5a81e6d27f7ef0ba8ed7232
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of annual site energy by end use and fuel for all homes, baseline against upgrade
+  description: 'Figure 3: horizontal grouped bar chart. Rows are end uses by fuel, from electric vehicle
+    charging to generation, plus total site energy; x-axis is all-fuels end uses in kWh, 0 to above 3T.
+    Series are Baseline and Duct Sealing and Insulation. Total site energy falls from about 3.4T to about
+    3.2T kWh; natural gas heating, the largest end use, falls from about 1.15T to about 1.0T.'
+- source_image: 96344_images/image_000005_ccafcc4b295ed2a2f8e3a08b0db00c81e191071c4a98c1089884e7bfc0bca2d5.png
+  source_image_sha256: 699263e6d046b4389a0e8878bcd6b6925caef0291f21a1d035c6c5a3edef4d86
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of annual site energy by end use per upgraded dwelling unit, baseline against
+    upgrade
+  description: 'Figure 4: horizontal grouped bar chart with the same rows as Figure 3, per upgraded dwelling
+    unit. X-axis is all-fuels end uses in kWh, 0 to about 30k; series are Baseline and Duct Sealing and
+    Insulation. Total site energy falls from about 31k to about 27k kWh, and natural gas heating from
+    about 11k to about 9k. Table 5 gives the percentage saving for each end use.'
+- source_image: 96344_images/image_000006_39ab4071c3bd66a8f8723d1cc2f2308a87c192f1ccfa1f8e92d5ba12ee2d38dc.png
+  source_image_sha256: 392e8136d0e038f0d5091c85f613c08ea805ef826c0ac65c39ebbc9c56a6de7a
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of site energy savings per upgraded dwelling by baseline duct leakage and insulation
+    level
+  description: 'Figure 5: horizontal bar chart. Rows are twelve baseline duct conditions, 10%, 20% and
+    30% leakage to outside each with R-4, R-6, R-8 and uninsulated ducts; x-axis is site energy total
+    consumption savings in kWh, 0 to about 7,000. Savings rise with leakage and are largest for uninsulated
+    ducts: about 6,900 kWh at 30% leakage, uninsulated, against about 550 at 10% leakage with R-6 or R-8.'
+- source_image: 96344_images/image_000007_b3194cde69b142f2be3b621374ff19d7960d28c181c747a7e1b15bb1ae84758f.png
+  source_image_sha256: 6969d9a4840997db06e67f8b67897a9cfba390c1fb509694553ef79f56da8cf0
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Bar chart of site energy savings per upgraded dwelling unit by vintage
+  description: 'Figure 6: horizontal bar chart. Rows are nine vintage bins from before 1940 to the 2010s;
+    x-axis is site energy total consumption savings in kWh, 0 to about 5,500. Savings fall with newer
+    construction: about 5,500 kWh for homes built before 1940, about 4,400 to 4,700 for the 1940s to 1960s,
+    about 3,500 to 3,700 for the 1970s to 1990s, and about 1,900 for the 2000s and 2010s.'
+- source_image: 96344_images/image_000008_a96c20964df7b0f1ad027bcc4a46a60f0bca91aa5691c039f908c210067953bd.png
+  source_image_sha256: d7eaacd17d6fcb1490b26be5be2a86535c5c013c44845618bfbce90d4e331969
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of annual unmet cooling and heating hours, baseline against upgrade
+  description: 'Figure 7: horizontal grouped bar chart of unmet hours per upgraded dwelling unit. Rows
+    are unmet cooling hours and unmet heating hours; x-axis is unmet hours, 0 to above 100; series are
+    Baseline and Duct Sealing and Insulation. Unmet cooling hours fall from about 112 to about 50, and
+    unmet heating hours from about 18 to about 13.'
+- source_image: 96344_images/image_000009_e64a67a1db219ee638f2ab8ec7a68c5933bf86fd09d444004b6cff66b8c068d1.png
+  source_image_sha256: ec61c612dc5847c3bde8cdeec8189ac1018c2716ccf7516649b66775f236757e
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of daily aggregated average energy consumption for baseline homes in Colorado across
+    2018
+  description: 'Figure 8: line chart. X-axis is time, January to December 2018; y-axis is daily aggregated
+    average energy consumption in kBtu, about 100 to 800. A single series, the baseline in Colorado. Consumption
+    is highest and most variable in winter, peaking near 780 kBtu in February, and flat at about 110 to
+    130 kBtu from June to September.'
+- source_image: 96344_images/image_000010_11df0cb0285c38a8af683ac3afa3ff3340e74af7717b930b9114cf67c74cf112.png
+  source_image_sha256: f1601456d17fac1f88481680260d79ed48b0f0c82d1a6084068b5da086984f71
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of aggregated average power in Colorado on the peak day, baseline against upgrade
+  description: 'Figure 9: line chart for February 20, 2018. X-axis is time of day, 00:00 to 24:00; y-axis
+    is aggregated average power in kW, 6 to 13. Series are Baseline and Upgrade. Both peak near 07:00,
+    the baseline at about 12.9 kW and the upgrade at about 11.4, and both reach their minimum near 15:00,
+    at about 7.0 and 6.3 kW.'
+- source_image: 96344_images/image_000011_57492828a6f484b4666981ec55f0ea51e33fda33f92bfe6c0963b9a4ed0b3b0a.png
+  source_image_sha256: d134addfde9f01dd4ddc4cdccb4cdd9e8ba989f2a9b12fdba1852ccedf778c5a
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Grouped bar chart of annual utility bills per dwelling unit by fuel, baseline against upgrade
+  description: 'Figure 10: horizontal grouped bar chart. Rows are electricity, natural gas, fuel oil,
+    propane and all fuels; x-axis is bills in US dollars, 0 to about 2,600; series are Baseline and Duct
+    Sealing and Insulation. The all-fuels bill falls from about $2,620 to about $2,490, electricity from
+    about $1,860 to about $1,780, and natural gas from about $520 to about $480.'

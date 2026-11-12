@@ -11,6 +11,7 @@ import os
 
 from .index import EMBED_MODEL, collection_name, index_root
 from .paths import PROJECT_ROOT
+from .registry import product_name
 
 _EMBED_CACHE = PROJECT_ROOT / ".cache" / "fastembed"
 
@@ -88,7 +89,7 @@ def answer_from_hits(product: str, release: str, text: str, hits: list[dict]) ->
         for i, h in enumerate(hits, 1)
     )
     prompt = (
-        f"Answer the question using ONLY the passages below (ComStock {release}). "
+        f"Answer the question using ONLY the passages below ({product_name(product)} {release}). "
         f"Cite passages as [n]. If the passages don't cover it, say so.\n\n"
         f"Passages:\n{context}\n\nQuestion: {text}"
     )

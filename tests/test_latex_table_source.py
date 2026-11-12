@@ -32,7 +32,7 @@ def _project(tmp_path):
     return tmp_path
 
 
-def _fake_pandoc(text, cwd, citeproc):
+def _fake_pandoc(text, cwd, citeproc, bibliography=None):
     """Stand in for pandoc: one <div id="tab:..."> wrapper per table label, like the real one."""
     out = "# HVAC\n\n" + "\n".join(
         f'<div id="{lab}">\n\n| a |\n|---|\n\n</div>' for lab in re.findall(r"\\label\{(tab:[^}]+)\}", text)

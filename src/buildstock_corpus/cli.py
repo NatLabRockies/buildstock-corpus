@@ -35,13 +35,20 @@ app = typer.Typer(
     help="BuildStock Level 1 AI-ready content pipeline (release-tagged, provenance-tracked).",
 )
 
-ProductOpt = Annotated[str, typer.Option(help="Dataset product, e.g. 'comstock'.")]
+ProductOpt = Annotated[
+    str | None,
+    typer.Option(
+        help="Dataset product, e.g. 'comstock' or 'resstock'. Optional when the registries "
+        "in sources/ leave only one choice.",
+    ),
+]
 ReleaseOpt = Annotated[
-    str,
+    str | None,
     typer.Option(
         help="Dataset release id, following the OEDI data lake convention "
         "<dataset type>_<weather data>_<year of publication>_release_<release number>, "
-        "e.g. 'comstock_amy2018_2025_release_3'.",
+        "e.g. 'comstock_amy2018_2025_release_3'. Optional when the registries in sources/ "
+        "leave only one choice.",
     ),
 ]
 WorkDirOpt = Annotated[
@@ -52,6 +59,41 @@ WorkDirOpt = Annotated[
         "conversion caches are still shared.",
     ),
 ]
+
+
+def _registries() -> list[tuple[str, str]]:
+    """(product, release) of every registry in sources/, in file order."""
+    import yaml
+
+    from . import paths
+
+    found: list[tuple[str, str]] = []
+    for f in sorted(paths.SOURCES_DIR.glob("*.yaml")):
+        data = yaml.safe_load(f.read_text(encoding="utf-8")) or {}
+        found.append((str(data.get("product")), str(data.get("release"))))
+    return found
+
+
+def _target(product: str | None, release: str | None) -> tuple[str, str]:
+    """The (product, release) a command addresses.
+
+    Either flag may be omitted when the registries in sources/ leave exactly one match:
+    with one registry neither is needed, with one per product `--product` is enough, and
+    `--release` always pins. With no match or several, exit 2 naming the registries, so the
+    fix is one flag rather than a guess at which corpus a build or validate just touched.
+    """
+    registries = _registries()
+    hits = [(p, r) for p, r in registries if product in (None, p) and release in (None, r)]
+    if len(hits) == 1:
+        return hits[0]
+    names = ", ".join(f"{p} {r}" for p, r in registries) or "none"
+    asked = f"product={product!r} release={release!r}"
+    if not hits:
+        msg = f"no registry in sources/ matches {asked} (registries: {names})"
+    else:
+        msg = f"several registries match {asked}; pass --release (registries: {names})"
+    print(f"bsc: {msg}", file=sys.stderr)
+    raise typer.Exit(code=2)
 
 
 def _workspace(work_dir: Path | None) -> None:
@@ -65,19 +107,20 @@ def _workspace(work_dir: Path | None) -> None:
 
 @app.command()
 def fetch(
-    product: ProductOpt = "comstock",
-    release: ReleaseOpt = "comstock_amy2018_2025_release_3",
+    product: ProductOpt = None,
+    release: ReleaseOpt = None,
 ) -> None:
     """Download and hash raw sources for a release."""
     from . import fetch as _fetch
 
+    product, release = _target(product, release)
     _fetch.fetch_release(product, release)
 
 
 @app.command()
 def build(
-    product: ProductOpt = "comstock",
-    release: ReleaseOpt = "comstock_amy2018_2025_release_3",
+    product: ProductOpt = None,
+    release: ReleaseOpt = None,
     sample: Annotated[
         int | None,
         typer.Option(
@@ -109,6 +152,7 @@ def build(
     from . import build as _build
 
     _workspace(work_dir)
+    product, release = _target(product, release)
     _build.build_release(
         product, release, sample=sample, overlays=overlays, corpus_version=corpus_version
     )
@@ -117,8 +161,8 @@ def build(
 # Named explicitly so the function does not shadow the `map` builtin at module scope.
 @app.command("map")
 def corpus_map(
-    product: ProductOpt = "comstock",
-    release: ReleaseOpt = "comstock_amy2018_2025_release_3",
+    product: ProductOpt = None,
+    release: ReleaseOpt = None,
     work_dir: WorkDirOpt = None,
 ) -> None:
     """Regenerate CORPUS_MAP.md, index.json, sections.json and sections/ for this release.
@@ -138,6 +182,7 @@ def corpus_map(
     from .sections import write_all_sections
 
     _workspace(work_dir)
+    product, release = _target(product, release)
     _corpus_map.build_map(product, release)
     proot = processed_root(product, release)
     manifest = json.loads(manifest_file(product, release).read_text(encoding="utf-8"))
@@ -154,22 +199,23 @@ def corpus_map(
 
 @app.command()
 def index(
-    product: ProductOpt = "comstock",
-    release: ReleaseOpt = "comstock_amy2018_2025_release_3",
+    product: ProductOpt = None,
+    release: ReleaseOpt = None,
     work_dir: WorkDirOpt = None,
 ) -> None:
     """Embed chunks into a persistent Chroma collection for this release."""
     from . import index as _index
 
     _workspace(work_dir)
+    product, release = _target(product, release)
     _index.build_index(product, release)
 
 
 @app.command()
 def query(
     text: Annotated[str, typer.Argument(help="Natural-language question.")],
-    product: ProductOpt = "comstock",
-    release: ReleaseOpt = "comstock_amy2018_2025_release_3",
+    product: ProductOpt = None,
+    release: ReleaseOpt = None,
     k: Annotated[int, typer.Option(help="Number of passages to retrieve.")] = 5,
     answer: Annotated[
         bool, typer.Option(help="Also synthesize an answer via an LLM (requires an API key).")
@@ -180,6 +226,7 @@ def query(
     from . import query as _query
 
     _workspace(work_dir)
+    product, release = _target(product, release)
     _query.query_corpus(text, product=product, release=release, k=k, answer=answer)
 
 
@@ -213,8 +260,8 @@ def changelog(
         bool,
         typer.Option(help="Also insert the entry at the top of CHANGELOG.md (refuses a duplicate heading)."),
     ] = False,
-    product: ProductOpt = "comstock",
-    release: ReleaseOpt = "comstock_amy2018_2025_release_3",
+    product: ProductOpt = None,
+    release: ReleaseOpt = None,
     work_dir: WorkDirOpt = None,
 ) -> None:
     """Print release notes computed from two builds' manifests.
@@ -237,6 +284,7 @@ def changelog(
         if show is not None:
             print(_changelog.entry_for(show, changelog_md), end="")
             return
+        product, release = _target(product, release)
         _log, entry = _changelog.changelog(product, release, from_ref, to_ref)
         if append:
             _changelog.append_entry(entry, changelog_md)
@@ -250,14 +298,15 @@ def changelog(
 
 @app.command()
 def validate(
-    product: ProductOpt = "comstock",
-    release: ReleaseOpt = "comstock_amy2018_2025_release_3",
+    product: ProductOpt = None,
+    release: ReleaseOpt = None,
     work_dir: WorkDirOpt = None,
 ) -> None:
     """Check manifest provenance invariants; exit non-zero on failure."""
     from . import manifest as _manifest
 
     _workspace(work_dir)
+    product, release = _target(product, release)
     ok = _manifest.validate_release(product, release)
     raise typer.Exit(code=0 if ok else 1)
 

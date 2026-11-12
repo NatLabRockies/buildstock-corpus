@@ -1,0 +1,1922 @@
+{
+  "product": "resstock",
+  "release": "resstock_amy2018_2025_release_1",
+  "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+  "generated_utc": "2026-11-12T17:14:36.910975+00:00",
+  "tooling": {
+    "pipeline": "0.1.0",
+    "embedding_model": "BAAI/bge-small-en-v1.5",
+    "pandoc": "3.9",
+    "docling": "2.115.0"
+  },
+  "clones": [
+    {
+      "repo": "https://github.com/NatLabRockies/resstock.git",
+      "git_ref": "2025_Release_1_upgrades_29_to_32",
+      "sha": "3888e2ff0a4764eb57de65ad0d103870330eb542",
+      "dest": "repos/resstock@2025_Release_1_upgrades_29_to_32",
+      "sparse": [
+        "docs/technical_reference_guide"
+      ]
+    },
+    {
+      "repo": "https://github.com/NatLabRockies/ResStock.github.io.git",
+      "git_ref": "main",
+      "sha": "696c020d696137830ddae75abbfb477ae7af8eaa",
+      "dest": "repos/ResStock.github.io@main",
+      "sparse": [
+        "assets/images",
+        "docs"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "technical_reference",
+      "type": "latex",
+      "clone": "resstock@2025_Release_1_upgrades_29_to_32",
+      "artifacts": [
+        {
+          "source_path": "docs/technical_reference_guide/1_Introduction.tex",
+          "source_type": "latex",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/resstock/blob/3888e2ff0a4764eb57de65ad0d103870330eb542/docs/technical_reference_guide/1_Introduction.tex",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/assets/trd/ResStockTechnicalReferenceGuide_2025_1.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Introduction",
+          "input_sha256": "e4da646a2031e054b736370ca2e3026bb2497ea19c361e1dd0d4884931a2b7c6",
+          "output_path": "technical_reference/docs/technical_reference_guide/1_Introduction.md",
+          "output_sha256": "1e9881cadcf7c6da6fe033c61f7fab0a49bc431752a0bab68ba1edbe30448698",
+          "body_sha256": "b28d468b150e105be8a43cff4cc9ff28f087114a1366938638e903760ef0b900"
+        },
+        {
+          "source_path": "docs/technical_reference_guide/2_ResStockStructureAndSampling.tex",
+          "source_type": "latex",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/resstock/blob/3888e2ff0a4764eb57de65ad0d103870330eb542/docs/technical_reference_guide/2_ResStockStructureAndSampling.tex",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/assets/trd/ResStockTechnicalReferenceGuide_2025_1.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "ResStock Workflow, Input Structure and Sampling",
+          "input_sha256": "c328fffb8f2e132ce2f8eb14490749b45992f1ab608992a148bd05ebc9899c29",
+          "output_path": "technical_reference/docs/technical_reference_guide/2_ResStockStructureAndSampling.md",
+          "output_sha256": "c342a982565f693efaac0d30982783ba33e31e44d668b04a16f432f8b3f39e99",
+          "body_sha256": "55f188e218ece92856074fb1424be8190152665bd600b39a09d08ec022f1e12c",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/technical_reference/docs/technical_reference_guide/2_ResStockStructureAndSampling.yaml",
+            "sha256": "51008a94e2c84ba153b5e6744a64f6cc7f785f6b48275dc620e46cd5a397271d",
+            "tables_applied": [],
+            "figures_applied": [
+              "images/Figure 1.png",
+              "images/illustrative_sample.png",
+              "images/TRG-ResStock OpenStudio Measure Flowchart.png",
+              "images/Figure 4.png"
+            ]
+          }
+        },
+        {
+          "source_path": "docs/technical_reference_guide/3a_ResStockInputs.tex",
+          "source_type": "latex",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/resstock/blob/3888e2ff0a4764eb57de65ad0d103870330eb542/docs/technical_reference_guide/3a_ResStockInputs.tex",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/assets/trd/ResStockTechnicalReferenceGuide_2025_1.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Housing Characteristics and Inputs",
+          "input_sha256": "382cb96b4e66f3f89cd7af526e4a6cfe096a41068d940b91b365eec309642c7a",
+          "output_path": "technical_reference/docs/technical_reference_guide/3a_ResStockInputs.md",
+          "output_sha256": "f16d350df4cb43e0f1dd04246faa7096b1cc3b4e739ff3262182a8f0650dcca6",
+          "body_sha256": "d9e692262bf58d834563631f849030bcda74b26f29ccdcc5cde0fcc3c240dd9d",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/technical_reference/docs/technical_reference_guide/3a_ResStockInputs.yaml",
+            "sha256": "69b6a4d87b8efd226c57c794ff76e14f2d0609207a66d47e587d291eeb4b96c0",
+            "tables_applied": [],
+            "figures_applied": [
+              "images/2010-PUMAs.png",
+              "images/aiannh_48b.jpg",
+              "images/ashrae_iecc_cz_map_2004.jpg",
+              "images/building_america_cz.png",
+              "images/CEC_Building_Climate_Zones.png",
+              "images/ENERGY_STAR_Climate_Zone_Map.png",
+              "images/reeds_ba_map.png",
+              "images/Cambium_GEA_map_2023.png",
+              "images/custom_region_map.png"
+            ]
+          }
+        },
+        {
+          "source_path": "docs/technical_reference_guide/3b_ResStockInputs_HVAC.tex",
+          "source_type": "latex",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/resstock/blob/3888e2ff0a4764eb57de65ad0d103870330eb542/docs/technical_reference_guide/3b_ResStockInputs_HVAC.tex",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/assets/trd/ResStockTechnicalReferenceGuide_2025_1.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "HVAC",
+          "input_sha256": "d41335697adde7b84fccb46745ae4448f9aaebd11acfa49d767a0fe940dd4ab6",
+          "output_path": "technical_reference/docs/technical_reference_guide/3b_ResStockInputs_HVAC.md",
+          "output_sha256": "25edc87f9dfda280c5a0a76e55ef7561bbf4729980432df5653177a441bd726a",
+          "body_sha256": "ab3e9d54d4a594b7a4bce2e75f3d4fd014337f0d481c7b610621bd275b335831"
+        },
+        {
+          "source_path": "docs/technical_reference_guide/3c_ResStockInputs.tex",
+          "source_type": "latex",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/resstock/blob/3888e2ff0a4764eb57de65ad0d103870330eb542/docs/technical_reference_guide/3c_ResStockInputs.tex",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/assets/trd/ResStockTechnicalReferenceGuide_2025_1.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Water Heating, Appliances, Lighting, Plug Loads, Electric Vehicles, Electrical Panels, Household Characteristics",
+          "input_sha256": "cf00008039b049b45ffbc1cd8c005ea5f7ff161e34f2ae43f62aee036bb01ee5",
+          "output_path": "technical_reference/docs/technical_reference_guide/3c_ResStockInputs.md",
+          "output_sha256": "28b7c07b67ff64a73e397711f899c17f6427b93b74de788266e69a66826cd16f",
+          "body_sha256": "f4c66b5e7a6a123060f13fb633e6507005d3e45d6a4cad3756e24b0b036b04fa",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/technical_reference/docs/technical_reference_guide/3c_ResStockInputs.yaml",
+            "sha256": "1119217651c97ee3fc363ea34fe8df00ab475ae09cba552b5a580a0668fa5299",
+            "tables_applied": [],
+            "figures_applied": [
+              "images/Example EV Discharging Schedule.png"
+            ]
+          }
+        },
+        {
+          "source_path": "docs/technical_reference_guide/5_ResStockOutputs.tex",
+          "source_type": "latex",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/resstock/blob/3888e2ff0a4764eb57de65ad0d103870330eb542/docs/technical_reference_guide/5_ResStockOutputs.tex",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/assets/trd/ResStockTechnicalReferenceGuide_2025_1.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "ResStock Outputs",
+          "input_sha256": "42fdde3cb30d42e0328715d5a21080e742679aa3b09f5234affc07c3ada7e683",
+          "output_path": "technical_reference/docs/technical_reference_guide/5_ResStockOutputs.md",
+          "output_sha256": "d09b8d33c161e61a0b6aadc9a0d5ed66549c98bd496bb14c5547eba00199808b",
+          "body_sha256": "7a1fa861087d6bd0e0860dc75cd8d089fe07fe2fc9a8ed1667f2063d5a596f4f"
+        },
+        {
+          "source_path": "docs/technical_reference_guide/6_PublicDataAccess.tex",
+          "source_type": "latex",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/resstock/blob/3888e2ff0a4764eb57de65ad0d103870330eb542/docs/technical_reference_guide/6_PublicDataAccess.tex",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/assets/trd/ResStockTechnicalReferenceGuide_2025_1.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Public Data Access",
+          "input_sha256": "37a47ea49ced6cd58c0f2d5e11efa8be2562a3765f747f2300cead6493bfd610",
+          "output_path": "technical_reference/docs/technical_reference_guide/6_PublicDataAccess.md",
+          "output_sha256": "dc04d5ba55167dcffa895bc18329c6c65e616f2f7f814688f69273185e502abc",
+          "body_sha256": "83cfb070decad0140d5178cf19a5c5d4a9196648f40f345c750e44a85ead4999"
+        }
+      ]
+    },
+    {
+      "id": "github_site",
+      "type": "markdown",
+      "clone": "ResStock.github.io@main",
+      "artifacts": [
+        {
+          "source_path": "docs/citation_data_attribution.md",
+          "source_type": "markdown",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/citation_data_attribution.md",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/docs/citation_data_attribution.html",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Citation and Data Attribution",
+          "input_sha256": "350925de01f40ad097603325cd2892fa015b8050209bb92ea22211b4ed543cca",
+          "output_path": "github_site/docs/citation_data_attribution.md",
+          "output_sha256": "78c5bb4660371466be6f03667f33b466b557731c71b37fb70fd25b10567a6b13",
+          "body_sha256": "af55c851a13fe348961e47bd274fedf0c6fa9fc19192fa2e92a14f86bf973741"
+        },
+        {
+          "source_path": "docs/contact.md",
+          "source_type": "markdown",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/contact.md",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/docs/contact.html",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Contact",
+          "input_sha256": "18de37888185661e047409594de4edbb3c68232f965594bf4e9387a6ebef82be",
+          "output_path": "github_site/docs/contact.md",
+          "output_sha256": "85c3107eb2ab4d08825ac4308db66c95e8b4e365457e6743405e6c75d6c5c5d3",
+          "body_sha256": "b69ef0d2f26f249383ce71c04d74865a82a460011b47e54abd172acefa197f57"
+        },
+        {
+          "source_path": "docs/data.md",
+          "source_type": "markdown",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/data.md",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/docs/data.html",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Data",
+          "input_sha256": "415faa33fe13c1fa7fd51095ba9fd1d89af841d5349ca6a8efdb9c886c6ebd4d",
+          "output_path": "github_site/docs/data.md",
+          "output_sha256": "a44e676374131fe0dd2d0b82c50c6deddbb839125d96af3823c4907eb56890e4",
+          "body_sha256": "92ace56100961c1ba96a783f8054f47a91a5ee47cf17a4bc73c23f1ebc9134e6"
+        },
+        {
+          "source_path": "docs/developers.md",
+          "source_type": "markdown",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/developers.md",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/docs/developers.html",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "For Developers",
+          "input_sha256": "378e575f9532f672f301dab23d1a9c47684e7dbd77a4b2bf951bbd4e65b37a8e",
+          "output_path": "github_site/docs/developers.md",
+          "output_sha256": "793bcb7c5182b528e863698375e759e360ec4173ddf7e147b731cf95c9b45f9c",
+          "body_sha256": "c133bb8b7d93f68ffdbd9cc8bbd0f315bf92a3ac3cbd10d043f93fea4d93d2cb"
+        },
+        {
+          "source_path": "docs/FAQ.md",
+          "source_type": "markdown",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/FAQ.md",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/docs/FAQ.html",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "FAQ",
+          "input_sha256": "2678a66e64f99ff8c6ad3288b8db653d937a3586adaf6cf77b4ba2f00e118f4c",
+          "output_path": "github_site/docs/FAQ.md",
+          "output_sha256": "624bb505e03cb740e4625b571f8c1be15e3727c11c2cbbfedd7f7d70dd7d0723",
+          "body_sha256": "c456010be89ca6cc3b8e515e777aa2590bfdcd461051e865025601bc148e4af9"
+        },
+        {
+          "source_path": "docs/resources/explanations/Building_Types.md",
+          "source_type": "markdown",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/resources/explanations/Building_Types.md",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/docs/resources/explanations/Building_Types.html",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Building Types Not Included In ResStock",
+          "input_sha256": "f0c559745220eaaff69bccbc8199c43428279f5a21412acb038529dc239c5513",
+          "output_path": "github_site/docs/resources/explanations/Building_Types.md",
+          "output_sha256": "30d4dc34c6955465399be97b7bcf287fb2ef1b3a0eb4077d55250cd14b3de028",
+          "body_sha256": "e7d3e2527d352adcea139011f4b612a0c46a870e3841b44f73c3f7a53731cdf1"
+        },
+        {
+          "source_path": "docs/resources/explanations/Considerations_for_ResStock_Calibration_and_Validation.md",
+          "source_type": "markdown",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/resources/explanations/Considerations_for_ResStock_Calibration_and_Validation.md",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/docs/resources/explanations/Considerations_for_ResStock_Calibration_and_Validation.html",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Considerations for ResStock Calibration and Validation",
+          "input_sha256": "9749b01f33988234d0afaba6b0cbe9dc3bdbf87f995472634d043e4fed50c80d",
+          "output_path": "github_site/docs/resources/explanations/Considerations_for_ResStock_Calibration_and_Validation.md",
+          "output_sha256": "087bbafe16cf3370dc80514d17a141edd7a4bddc138833a2072ff35c793e27fa",
+          "body_sha256": "36527c8312a4cd7b66b573ed0caade51c9c4844e1ad7e12a56f7351a992412a7"
+        },
+        {
+          "source_path": "docs/resources/explanations/Geographic_Fields_and_Codes.md",
+          "source_type": "markdown",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/resources/explanations/Geographic_Fields_and_Codes.md",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/docs/resources/explanations/Geographic_Fields_and_Codes.html",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Geographic Fields and Codes",
+          "input_sha256": "bba5412ec71f4cdacd2d902e01432f7c37d32bc0441429e9fbf65eaa01b2f733",
+          "output_path": "github_site/docs/resources/explanations/Geographic_Fields_and_Codes.md",
+          "output_sha256": "195facd36ef8279d4cb1e721825893b13531e27571f40fe90ae5600f9780331b",
+          "body_sha256": "7829c9d990756e64d73f3270c6d9e3a905d0a554a3c6bf9be18d9986f593c887"
+        },
+        {
+          "source_path": "docs/resources/explanations/Individual_Measures_Not_Combined.md",
+          "source_type": "markdown",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/resources/explanations/Individual_Measures_Not_Combined.md",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/docs/resources/explanations/Individual_Measures_Not_Combined.html",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Why Individual ResStock Measures Should Not Be Combined",
+          "input_sha256": "af4a3e1a9f82039d1997adff4d1d35a00bd877602c6f44a5e38af6d691f2107b",
+          "output_path": "github_site/docs/resources/explanations/Individual_Measures_Not_Combined.md",
+          "output_sha256": "7cc9b8990c25ad530ef0b623ae3bceb1ffebfa0c723cef20c03831248e85ed5f",
+          "body_sha256": "73dbbabf2dc4077d01ca61a70f4160299df3826f14af55cdd29164abec83ca59"
+        },
+        {
+          "source_path": "docs/resources/explanations/Issue_2024_2_Electricity_and_Energy_Bills.md",
+          "source_type": "markdown",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/resources/explanations/Issue_2024_2_Electricity_and_Energy_Bills.md",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/docs/resources/explanations/Issue_2024_2_Electricity_and_Energy_Bills.html",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "ResStock 2024 Release 2 Electricity and Energy Bills",
+          "input_sha256": "8a74e19b0b2ccbf4ad83ece0b26f83325b9df8f3ef1b131664dc749f2c9d4976",
+          "output_path": "github_site/docs/resources/explanations/Issue_2024_2_Electricity_and_Energy_Bills.md",
+          "output_sha256": "d6149afbc2c639e75c303f57101944dcdfd61a24a48528e70948699e6103f866",
+          "body_sha256": "b5681f2d5acc33ae03e881de3b2e200fb3d811541c42f927456cb08c9ec9e429"
+        },
+        {
+          "source_path": "docs/resources/explanations/Issue_2024_2_Measure_Applicability.md",
+          "source_type": "markdown",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/resources/explanations/Issue_2024_2_Measure_Applicability.md",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/docs/resources/explanations/Issue_2024_2_Measure_Applicability.html",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "ResStock 2024 Release 2 Measure Applicability",
+          "input_sha256": "21d737e956aec7a1daee1ddfb84d8485ec9f2dba915e1a913510757db182d65d",
+          "output_path": "github_site/docs/resources/explanations/Issue_2024_2_Measure_Applicability.md",
+          "output_sha256": "f33dcb2ba483e7b9950d919c7ceb139d9b1a1ad6b82e0a72b87a1b96e1f8f2eb",
+          "body_sha256": "e187a4b13d78902902b37fc991a4195bee4ab4f9c2abb552258a820fc19d49ab"
+        },
+        {
+          "source_path": "docs/resources/explanations/Issue_2025_1_Column_Applicability.md",
+          "source_type": "markdown",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/resources/explanations/Issue_2025_1_Column_Applicability.md",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/docs/resources/explanations/Issue_2025_1_Column_Applicability.html",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "ResStock 2025 Release 1 Column Applicability",
+          "input_sha256": "cb2df53760dff02522d2a01d6a4dbd06b2878a0bfda7f21d62bc353b8e7e7b6a",
+          "output_path": "github_site/docs/resources/explanations/Issue_2025_1_Column_Applicability.md",
+          "output_sha256": "ff0274450354cb9a8d6346d388cb98413afb7247ae1f8e718e37ec78e072ce7b",
+          "body_sha256": "44f6c13320a1f0a0b685874f3e848fdcd044526307a0b687e7cd984140108c87"
+        },
+        {
+          "source_path": "docs/resources/explanations/Issue_2025_1_Electric_Panel_Capacity.md",
+          "source_type": "markdown",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/resources/explanations/Issue_2025_1_Electric_Panel_Capacity.md",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/docs/resources/explanations/Issue_2025_1_Electric_Panel_Capacity.html",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "ResStock 2025 Release 1 Electric Panel Capacity",
+          "input_sha256": "9ce058fc884000184600fbb451d4f8d141e3b86b0e8b1b602c64402035f4c63b",
+          "output_path": "github_site/docs/resources/explanations/Issue_2025_1_Electric_Panel_Capacity.md",
+          "output_sha256": "2dac5641c26552d1d3313f45f2678f7e91f58f081e1c7f3b69a16c9f4dd108f4",
+          "body_sha256": "44877e025df6281bcb9982e02578214b1105b4a99fdfc40b08a3bd6fd193f8e7"
+        },
+        {
+          "source_path": "docs/resources/explanations/Issue_Wall_Type_Especially_Maine.md",
+          "source_type": "markdown",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/resources/explanations/Issue_Wall_Type_Especially_Maine.md",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/docs/resources/explanations/Issue_Wall_Type_Especially_Maine.html",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Wall Type Issue, Especially in Maine",
+          "input_sha256": "c02fbb2f41bded980f9c7ce2d6195ebcde8204bc0fd995d3ca094da5b5ce0155",
+          "output_path": "github_site/docs/resources/explanations/Issue_Wall_Type_Especially_Maine.md",
+          "output_sha256": "36ce99b72bfde16fb6960422a7238fee5fb1934a2e80fe16f689e3afc2efa396",
+          "body_sha256": "38a13f853dbbb7a1a6fb421b890e8259cfeea348f2b5ad2face1da00bf163525"
+        },
+        {
+          "source_path": "docs/resources/explanations/Monthly_Net_Electricity_Comparisons.md",
+          "source_type": "markdown",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/resources/explanations/Monthly_Net_Electricity_Comparisons.md",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/docs/resources/explanations/Monthly_Net_Electricity_Comparisons.html",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Monthly Net Electricity Comparisons between ResStock 2024 Release 2 data and 2018 861M data",
+          "input_sha256": "ff15c125bba9a5dbc7d398786ac1801bdff8ebbd18d95e04f80128dbc8c98004",
+          "output_path": "github_site/docs/resources/explanations/Monthly_Net_Electricity_Comparisons.md",
+          "output_sha256": "6c2d38c3ee1904ae8d6cb8dc5369e9fa4f24ad92cd2bcf5e403d36b889bbdffa",
+          "body_sha256": "7866e94afcd6d20c6fc09e2dc449eba75cbc1b7d6ff7191739d6ab251882d878"
+        },
+        {
+          "source_path": "docs/resources/explanations/Number_of_samples.md",
+          "source_type": "markdown",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/resources/explanations/Number_of_samples.md",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/docs/resources/explanations/Number_of_samples.html",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "How Many Samples are Required for this Analysis?",
+          "input_sha256": "e323932b138a9f57816d75357cef07c12c7dec5a37381df58315bd5334a88729",
+          "output_path": "github_site/docs/resources/explanations/Number_of_samples.md",
+          "output_sha256": "358b844d67d7dbaee459446f52498afced23025a02dbd99e871df612d5a60170",
+          "body_sha256": "4bd0d97801f8d98e14a63fdc95a86384ce8c03090cb46e80386a9b75a1f45788"
+        },
+        {
+          "source_path": "docs/resources/explanations/One_Row_Data_House.md",
+          "source_type": "markdown",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/resources/explanations/One_Row_Data_House.md",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/docs/resources/explanations/One_Row_Data_House.html",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "One Row of Data Is Not One Real House",
+          "input_sha256": "225b29f81954b1bb8156c83134acbf7d154359f9768a1b46350cd7757a15b21a",
+          "output_path": "github_site/docs/resources/explanations/One_Row_Data_House.md",
+          "output_sha256": "19914deb8f5cec99c53d226d7b7096c5a4eabd100e4bb65f2d64f7e265328ef9",
+          "body_sha256": "8e62f5769da79db1a0780b01340af94191dc05124c780cb85035d42a792be16a"
+        },
+        {
+          "source_path": "docs/resources/explanations/PV_System_Assignment_and_Distributions.md",
+          "source_type": "markdown",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/resources/explanations/PV_System_Assignment_and_Distributions.md",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/docs/resources/explanations/PV_System_Assignment_and_Distributions.html",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "PV System Assignment and Distributions",
+          "input_sha256": "2e940a6b5e4e572d50dfafd645adc45369295e2203a0f57a30af8d18237bc679",
+          "output_path": "github_site/docs/resources/explanations/PV_System_Assignment_and_Distributions.md",
+          "output_sha256": "23412897e640706ae3738d4ebddba39c9d51b43e9e51705849421992e30e2d34",
+          "body_sha256": "ea4a612966723207ffbfa541f32a42d7a3fc4dfa0dd0347dc3105ebc57fc7650"
+        },
+        {
+          "source_path": "docs/resources/explanations/Quota_Based_Sampling.md",
+          "source_type": "markdown",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/resources/explanations/Quota_Based_Sampling.md",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/docs/resources/explanations/Quota_Based_Sampling.html",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Quota-Based Sampling and Implications",
+          "input_sha256": "6cdb99fffcdf996b6e2ae9693913b841eefcb9ee66a4fdbf4bb9b5eeb1fe6e45",
+          "output_path": "github_site/docs/resources/explanations/Quota_Based_Sampling.md",
+          "output_sha256": "1b14832384e2f52ddcf09301675302319452006032d972daccdeef9fa4eb0206",
+          "body_sha256": "b395f8d1cb4391a999261fc6ad6685a0846b0363fb21d656a8fc8aff51801cac"
+        },
+        {
+          "source_path": "docs/resources/explanations/Summer_Peaking_CCHP.md",
+          "source_type": "markdown",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/resources/explanations/Summer_Peaking_CCHP.md",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/docs/resources/explanations/Summer_Peaking_CCHP.html",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Summer Peak Increase from Cold Climate Heat Pump in ResStock 2025 Release 1",
+          "input_sha256": "b836e66b731567ac7098570a34a6e703ec01173c401e142a4c4ca3d999d8c493",
+          "output_path": "github_site/docs/resources/explanations/Summer_Peaking_CCHP.md",
+          "output_sha256": "3586125ef27b2adedee3eceb9f4e8537b43d6a308a1d2228bcd4ccca990b30eb",
+          "body_sha256": "5c8694e172c14d67924149bd84aea6c4f41bc07ff04d86ba9f7dc9acdfe84bad"
+        },
+        {
+          "source_path": "docs/resources/explanations/Unmet_load_hours.md",
+          "source_type": "markdown",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/resources/explanations/Unmet_load_hours.md",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/docs/resources/explanations/Unmet_load_hours.html",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Unmet Load Hours",
+          "input_sha256": "9e20b3b367d71c1cb4477c00530914a21a36b97e0c7a3581ec7dc75e4ee786dd",
+          "output_path": "github_site/docs/resources/explanations/Unmet_load_hours.md",
+          "output_sha256": "d091feeae9d5b2bd6ccd4bad7e276c18b0e73d74a003100f474d0b8e21e836bb",
+          "body_sha256": "0d5346b1d78387bad11002fc02b4002cca21bc6de41057ada7bb293c8ea79d18"
+        },
+        {
+          "source_path": "docs/resources/explanations/Wood_Stud_Depth.md",
+          "source_type": "markdown",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/resources/explanations/Wood_Stud_Depth.md",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/docs/resources/explanations/Wood_Stud_Depth.html",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Wood Stud Depth and Wall R-Value Calculations",
+          "input_sha256": "c9561170067bf4f521416297a6f7a42c8643ff74610a34283600945f3b96b2be",
+          "output_path": "github_site/docs/resources/explanations/Wood_Stud_Depth.md",
+          "output_sha256": "b11fa363983ef042fb2cbd53201a53ffc60b90dd61aa6eca904b9af62050d2f1",
+          "body_sha256": "4e57bae8885f195c25254e5b2343df77555c075cb34bc246593755d801ea0263"
+        },
+        {
+          "source_path": "docs/resources/how-to-guides/Analyze_housing_stock_programmatically.md",
+          "source_type": "markdown",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/resources/how-to-guides/Analyze_housing_stock_programmatically.md",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/docs/resources/how-to-guides/Analyze_housing_stock_programmatically.html",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Analyze Housing Stock Programmatically",
+          "input_sha256": "96208530b61ef15366217276cfec3d74fb764d7a2bdeb425c7b21cd8234b5573",
+          "output_path": "github_site/docs/resources/how-to-guides/Analyze_housing_stock_programmatically.md",
+          "output_sha256": "b0588cf255ae0434cfd7d6c567fa10a83ae800a568de32827cc56d78d3f7fd11",
+          "body_sha256": "932a41b59812a3fb0825cbee511001cc3da06b4d90c9d8a62bbfaa1df32e9124"
+        },
+        {
+          "source_path": "docs/resources/how-to-guides/aws_athena_queries.md",
+          "source_type": "markdown",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/resources/how-to-guides/aws_athena_queries.md",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/docs/resources/how-to-guides/aws_athena_queries.html",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "AWS Athena Queries",
+          "input_sha256": "c6373ef9ad145b54c075ad3c2d7b5b3993d8338f7b108532c4777845b0500d7a",
+          "output_path": "github_site/docs/resources/how-to-guides/aws_athena_queries.md",
+          "output_sha256": "e4ad83324593d5241b7e01dd39db8ff752eb558c6e5e63f1bfaa64e0d991133a",
+          "body_sha256": "78029f1f57c8e71428f47ab14d3c62e57a74290fe94b4025095ae10bd8c524f4"
+        },
+        {
+          "source_path": "docs/resources/how-to-guides/Housing_Stock_Excel_Questions.md",
+          "source_type": "markdown",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/resources/how-to-guides/Housing_Stock_Excel_Questions.md",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/docs/resources/how-to-guides/Housing_Stock_Excel_Questions.html",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Analyze Your Housing Stock and Different What if Scenarios Using Excel",
+          "input_sha256": "69e3a9d3fc1d3df32df21c9f65773b1b549339c14c7fc9159af13317690b9971",
+          "output_path": "github_site/docs/resources/how-to-guides/Housing_Stock_Excel_Questions.md",
+          "output_sha256": "f8e47d065689d3459261a5ec6d8b05b9b8e7dab8270b13d5642588739bf6733e",
+          "body_sha256": "3eaf802e90de50c194abf8e4635a6ba30879fc828c8412ce080f4333669b69d3"
+        },
+        {
+          "source_path": "docs/resources/resources.md",
+          "source_type": "markdown",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/resources/resources.md",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/docs/resources/resources.html",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Resources",
+          "input_sha256": "e0c0821f8dcf4ef125b7ea0baa7f2a34ebe877e1a8128022fd1251bd21172bcf",
+          "output_path": "github_site/docs/resources/resources.md",
+          "output_sha256": "a5186f116bb4f334c8450722d4fa4a0dc9374a5a9a66f9786dc6b6097d2d6dfb",
+          "body_sha256": "af7e6f5c54e7d56fc86f84af4cd33c6e84278a35bde7f148c9bedcb66c8bea27"
+        },
+        {
+          "source_path": "docs/resources/tutorials/Enough_Samples_Data_Viewer.md",
+          "source_type": "markdown",
+          "status": "site_page",
+          "source_url": "https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/resources/tutorials/Enough_Samples_Data_Viewer.md",
+          "publication_url": "https://natlabrockies.github.io/ResStock.github.io/docs/resources/tutorials/Enough_Samples_Data_Viewer.html",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "How To Use The Data Viewer With Enough Samples",
+          "input_sha256": "14e4dc62b9304d665a87d38239e00d16db130f00f2215f634e643de205b3e79c",
+          "output_path": "github_site/docs/resources/tutorials/Enough_Samples_Data_Viewer.md",
+          "output_sha256": "e539a80f832dbdbe892962bf07811ac47b93dc35f66c71fa24066097c5baeafa",
+          "body_sha256": "bb3a685ddde186b76da10df26e11e53f828d7edf9ac5b189f59632f4d02ff179"
+        }
+      ]
+    },
+    {
+      "id": "upgrade_measures",
+      "type": "measures",
+      "clone": "ResStock.github.io@main",
+      "artifacts": [
+        {
+          "source_path": "measure_pdfs/93846.pdf",
+          "source_type": "pdf",
+          "status": "osti_pdf",
+          "source_url": "https://docs.nlr.gov/docs/fy26osti/93846.pdf",
+          "publication_url": "https://docs.nlr.gov/docs/fy26osti/93846.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "HVAC Demand Flexibility with On-Peak Load Shedding of 2F offset",
+          "input_sha256": "116beec10a3e99257e74721cdf9cfb152cf0c417cf09f615cd196892c45d7711",
+          "output_path": "upgrade_measures/measure_pdfs/93846.md",
+          "output_sha256": "d7ce69f3389b53a1214efb5027979d1b8499ab6f96b47fff6c4b3ca282027985",
+          "body_sha256": "25ab99d3bf1de39a1097718b44e85395a1317d3fd7a2b31c888eb8c37184b8a3",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/93846.yaml",
+            "sha256": "aa484e268897f4b0d761a9c6da64649eccd6f390577839f9e67398934c1676fc",
+            "tables_applied": [
+              "Measure Summary",
+              "Table 3",
+              "Table 8"
+            ],
+            "figures_applied": [
+              "93846_images/image_000002_2bbdeeb898afdcae484f1b9cee7eb972193faaaa298c9490cd1fb5d70b624a8f.png",
+              "93846_images/image_000003_06ad1ce32d34b0a4c47437dc4560d542e3896ac29aeb4ea0e7a85f2e95bb78c7.png",
+              "93846_images/image_000004_9fdc5c56e0145c0c5a74d4625ceb19c412c38ae3247f56420193b3bd7856b5b1.png",
+              "93846_images/image_000005_07961a4f4885bb7ef48a54f29e7f3a97d1eafac235668c2a941a3f5648e1353b.png",
+              "93846_images/image_000006_237219a796170b95c283c7880a902ec35a40297ff8ae71239d18baa8505fdbb9.png",
+              "93846_images/image_000007_10db1b29bf7776feccb0e8319ad0e975528394d7820b2a6d692c2bfcdc91a17f.png",
+              "93846_images/image_000008_3d2bc4c66e1a8bfb1a2e48c59565c0fbeafd4cf84475045a6c45fbd071788c3a.png",
+              "93846_images/image_000009_2495bdaaa88f1d942605d350662dd9d2731318e0bdc82ec792f3a82008fdbf3d.png",
+              "93846_images/image_000010_31a3b6f9472ee7882b0c081baafed934581c4572b394e472da91cc5a4f77dbc6.png",
+              "93846_images/image_000011_65450befe3cba9bb93cad8f3ddf5b0e2f95da7953fad5c8ca7565170ba960923.png",
+              "93846_images/image_000012_129951035cfe5ecb59cd46b0a110748ac65b4708fa12fddfb92ed44233e3173b.png",
+              "93846_images/image_000013_23d53b26aa5e4186935f6d6eac63b188087cda48003e428010de7152ad96512d.png",
+              "93846_images/image_000014_be750ad86d30b61c6abb090759d400be4aeb849dbc0794f50ea6eaa0fa2d29c9.png",
+              "93846_images/image_000015_ef0017f010af5299bca91b9cb7119768ae4d1ffbb283ad5bb3fc89d27212a2fd.png",
+              "93846_images/image_000016_a50df4318adb1579dae25e91dee8489873e29d12106594e88fbce365042f5d6f.png",
+              "93846_images/image_000017_05cb93c72021777f372119f5a582fda107b0e9b4adaf8974bf75f22ea6f5b5e0.png",
+              "93846_images/image_000018_b1277cf5e376d84f28b0a9476c785f23557b32c1cf751e86d6c79b4f672a445c.png",
+              "93846_images/image_000019_32bfa25b4cc07367e7046cdb74ba6f2027878651234ceecf4ecdc64e7bbbf6b1.png",
+              "93846_images/image_000020_40322e352f9234c7d0dd8a0ba791a28c636cd4a72fa58fbdd1c4f00a82390da0.png",
+              "93846_images/image_000021_96c52fcbe82c8d709c440a0c8632b0d2eb75e08c798a0947aed58f821c99e07e.png",
+              "93846_images/image_000022_cc011a5720a274c7a89a7796c1b2d57b07f1460411884ec1845ce7843d85d827.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms",
+              "Table 1",
+              "Table 2",
+              "Table 4",
+              "Table 5",
+              "Table 6",
+              "Table 7"
+            ]
+          }
+        },
+        {
+          "source_path": "measure_pdfs/94459.pdf",
+          "source_type": "pdf",
+          "status": "osti_pdf",
+          "source_url": "https://docs.nlr.gov/docs/fy26osti/94459.pdf",
+          "publication_url": "https://docs.nlr.gov/docs/fy26osti/94459.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Electric Vehicle Adoption with Level 1 Charging",
+          "input_sha256": "8755835eb63bc39bbf383abf14a0abd03fa9a05bb01d07b8f2ca02e039625c71",
+          "output_path": "upgrade_measures/measure_pdfs/94459.md",
+          "output_sha256": "c1cc7d893d9b82c7c312fd4ba54cc91c329f37947ae868f7961ec21c7f63c142",
+          "body_sha256": "d0b51093551ef919f33d6b8312ab0f73db66c17efc888be9c70fd86e9b97161a",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/94459.yaml",
+            "sha256": "56808891b209b3199e4aa99470e4565de868f92b74c45a608fdca1a1a301bfdb",
+            "tables_applied": [
+              "Table 2"
+            ],
+            "figures_applied": [
+              "94459_images/image_000002_4e902202fc376d07d3bf81aa5d9a59944a6d76021ab831b99b3b027d829373af.png",
+              "94459_images/image_000003_5af19426c3b0534ed711762192ae2c7e2e04ae6e0020d1f31956aff1360a4603.png",
+              "94459_images/image_000004_081d9b6686e8cf141807f9c4cdb8292111a6e7e19aa2f2c962d6dd6754c13cd7.png",
+              "94459_images/image_000005_6aac09b7faf7a4a3a18551a405a4744f00ee946caf0d6165ef9614759e6a04ba.png",
+              "94459_images/image_000006_63b705edcd86dc8c39c047ff338dd95b1f8cf2f68d13057aa57abde569cd6d2c.png",
+              "94459_images/image_000007_2378b50a825df1c84d6e09d6c3483bb8eb788e535a088b2126e248ed732a9b35.png",
+              "94459_images/image_000008_7cb57755deabd3e8df6c3982b5162471864d3feb2fd9b5a0b58ac4d806ae9fe7.png"
+            ],
+            "tables_checked": [
+              "Measure Summary",
+              "Table 1"
+            ]
+          }
+        },
+        {
+          "source_path": "measure_pdfs/94460.pdf",
+          "source_type": "pdf",
+          "status": "osti_pdf",
+          "source_url": "https://docs.nlr.gov/docs/fy26osti/94460.pdf",
+          "publication_url": "https://docs.nlr.gov/docs/fy26osti/94460.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Electric Vehicle Adoption with Level 2 Charging",
+          "input_sha256": "d63ef7e391b9d0898a8319403e5a4f163dde6f7cbeca55d5e550da7a46a85da3",
+          "output_path": "upgrade_measures/measure_pdfs/94460.md",
+          "output_sha256": "9d1a27dda3743edcf7a29abcbf70a8ae05e8d343aa1a4b4ff52c6db3442515c5",
+          "body_sha256": "e31d6e81aaa76e2b7765ee44ac1e19e24616b290731bc6e620dd39c0ced20ac0",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/94460.yaml",
+            "sha256": "518b2a42db1ed6dbedb73d95f3df9e79b054952ae63bd80a3a0fa66ce8a3f987",
+            "tables_applied": [
+              "Table 2"
+            ],
+            "figures_applied": [
+              "94460_images/image_000002_4e902202fc376d07d3bf81aa5d9a59944a6d76021ab831b99b3b027d829373af.png",
+              "94460_images/image_000003_5af19426c3b0534ed711762192ae2c7e2e04ae6e0020d1f31956aff1360a4603.png",
+              "94460_images/image_000004_081d9b6686e8cf141807f9c4cdb8292111a6e7e19aa2f2c962d6dd6754c13cd7.png",
+              "94460_images/image_000005_6f2100c79b99af86d5b316d5fc6869110d10ce41d6ee11ad90acb914060c0e0a.png",
+              "94460_images/image_000006_d71beedf2cd9e09b621c1d1e4c21c58e8ecf0a68d924a44cc0bd42373e8d7ebc.png",
+              "94460_images/image_000007_5c0f8f92c09e82190d2f7c425fc9bf17f9f193f8e5d495ee82b402464b2af1ca.png",
+              "94460_images/image_000008_6d85459c8e9736a1a6d102fd401867e2359088e9d4600cf022bb7f303a4be179.png"
+            ],
+            "tables_checked": [
+              "Measure Summary",
+              "Table 1"
+            ]
+          }
+        },
+        {
+          "source_path": "measure_pdfs/94461.pdf",
+          "source_type": "pdf",
+          "status": "osti_pdf",
+          "source_url": "https://docs.nlr.gov/docs/fy26osti/94461.pdf",
+          "publication_url": "https://docs.nlr.gov/docs/fy26osti/94461.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Efficient Electric Vehicle Adoption with Level 2 Charging",
+          "input_sha256": "84dab7ab5268988f19dcfe899bc925ef73551a376f24a39ccfcc8c90793fe7c5",
+          "output_path": "upgrade_measures/measure_pdfs/94461.md",
+          "output_sha256": "cdd8c810f515a948ad33f2ce93e654c47cdf28d62f0b0ba2a74bb2c6350df8d4",
+          "body_sha256": "6e581a144e4c680d8deea1cc481667153613fade2cd8d6a26fb85f1e08dbb4cc",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/94461.yaml",
+            "sha256": "0a8525a890791322ab2fbfbe1637c3dfba4bd44574321da26018e0c48e16e12d",
+            "tables_applied": [
+              "Table 2"
+            ],
+            "figures_applied": [
+              "94461_images/image_000002_f634ab8d1ab2552562492269600aeb00fea414ac2626a0ae6e7aa982147aea24.png",
+              "94461_images/image_000003_5af19426c3b0534ed711762192ae2c7e2e04ae6e0020d1f31956aff1360a4603.png",
+              "94461_images/image_000004_081d9b6686e8cf141807f9c4cdb8292111a6e7e19aa2f2c962d6dd6754c13cd7.png",
+              "94461_images/image_000005_113f8a9ed3a57b7f25e9c2d44015ccf51705ad24b3f9eae2019b329be047f4d9.png",
+              "94461_images/image_000006_b6b99c593a8ab8f2ef3dc1df584c18c459df365f0ddd0367e3c6ce5ff273752f.png",
+              "94461_images/image_000007_009a2778eb5a24c8c75b07474f838432110ae7ea0571e4607190ea525df52484.png",
+              "94461_images/image_000008_ffe43972d5e37a78001b4ac190b6f5dc4223b7700dcefa54be317207c1d3d8dd.png"
+            ],
+            "tables_checked": [
+              "Measure Summary",
+              "Table 1"
+            ]
+          }
+        },
+        {
+          "source_path": "measure_pdfs/94463.pdf",
+          "source_type": "pdf",
+          "status": "osti_pdf",
+          "source_url": "https://docs.nlr.gov/docs/fy26osti/94463.pdf",
+          "publication_url": "https://docs.nlr.gov/docs/fy26osti/94463.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Electric Vehicle Adoption with Level 2 Charging and Demand Flexibility",
+          "input_sha256": "28587a09aa7006fce4450d57f9db85cb0874c19d3da323d2cf4b2d592c203f8f",
+          "output_path": "upgrade_measures/measure_pdfs/94463.md",
+          "output_sha256": "392f59385db8a142a4134bf1ded6c5738597e8dee333cf9f30213d1d9496af04",
+          "body_sha256": "1810364ecbbe035090d60df5bb85735006527ffc1ab03ba2b750bda95e6b494e",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/94463.yaml",
+            "sha256": "9c4c089756a98ddb61545865bd5068fe898c295d37d6a4785968701c9e99c2c2",
+            "tables_applied": [
+              "Table 2",
+              "Table 3",
+              "Table 4"
+            ],
+            "figures_applied": [
+              "94463_images/image_000002_c922764a7518cdd77103698ef6a1175093675f54a763a27ea77e3739f2e3c4fa.png",
+              "94463_images/image_000003_3ea357076c14b5d489fa921bd50c9b1f6e143d4af5ed52e71b646ab95283ec7c.png",
+              "94463_images/image_000004_eba1d3257f229b084ec632e76aa54d4772f78958e4ea0d3621385ca86a7f41a9.png",
+              "94463_images/image_000005_afa7a23e0660cf105bbf1256b614f3e85414163f6443d6924002b8385e5a4ccf.png",
+              "94463_images/image_000006_eca1374fe5b1a4a748b7ac734f70950430394cd53d483b54b3f945287404c39d.png",
+              "94463_images/image_000007_ba076169549c894299e828c2695ef076fdcd7c4158b81a88de5502a11607a01e.png",
+              "94463_images/image_000008_ea7c24ad637f07efa8ee6206a4a461dfc0e1a06c17895602fc4365ee80d1dcd1.png",
+              "94463_images/image_000009_71432c16a9fdb16abde0831f4d9059f9df9beba9349ec60887ab272942635dd6.png",
+              "94463_images/image_000010_44c1b4886634e42cce0f4c31a1e41e3149d47bdc38d46a65dd4ae4e80d810059.png",
+              "94463_images/image_000011_1958c205a817ce294272929c770cbf829fe25b1e7a1a9ebaf311f250b81b2517.png",
+              "94463_images/image_000012_9b4523fb37b5c4e255abae593a7059e8331d5f727e90814b964ad1c09cea5908.png",
+              "94463_images/image_000013_cb588795b543a68e60f7c7fb5e69330d2fb50a53e2d1cc43b91abb8738bef5bd.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms",
+              "Measure Summary",
+              "Table 1",
+              "Table 5"
+            ]
+          }
+        },
+        {
+          "source_path": "measure_pdfs/94464.pdf",
+          "source_type": "pdf",
+          "status": "osti_pdf",
+          "source_url": "https://docs.nlr.gov/docs/fy26osti/94464.pdf",
+          "publication_url": "https://docs.nlr.gov/docs/fy26osti/94464.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Efficient Electric Vehicle Adoption with Level 2 Charging and Demand Flexibility",
+          "input_sha256": "ef51f277c18d2f3ac380f7cceb90351fdeb792e14d08c86f3538190abddd1847",
+          "output_path": "upgrade_measures/measure_pdfs/94464.md",
+          "output_sha256": "56761cd0647dc2b24c0a2646e8ede33897600ffd72199162acbff72ea027b6a1",
+          "body_sha256": "27dfbd8eb8a8eed3ac59c2e20fab25d74e6160c5cd6cf7913ec3844844352c39",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/94464.yaml",
+            "sha256": "66d2e06d356ebc274ae87d5737cfed00476a75791aed80916af19fadbd1fb224",
+            "tables_applied": [
+              "Table 2",
+              "Table 3",
+              "Table 4"
+            ],
+            "figures_applied": [
+              "94464_images/image_000002_c922764a7518cdd77103698ef6a1175093675f54a763a27ea77e3739f2e3c4fa.png",
+              "94464_images/image_000003_c8c6ac5596f1c7c64abd87b9466613635a2430ec8d4e2267efdff706c79f8e52.png",
+              "94464_images/image_000004_f562050ad9663df51029ee7a2e51fce21b3b24553a200fba83edb92cd2d63d21.png",
+              "94464_images/image_000005_afa7a23e0660cf105bbf1256b614f3e85414163f6443d6924002b8385e5a4ccf.png",
+              "94464_images/image_000006_eca1374fe5b1a4a748b7ac734f70950430394cd53d483b54b3f945287404c39d.png",
+              "94464_images/image_000007_c17607a0598f289f059e060249ddd25e9aef6aa460e8033507f665b407a51ea5.png",
+              "94464_images/image_000008_04b72de437b779ca8e2fda815d56a875bb086b4c9c8d4048cd7aced46fd8db0d.png",
+              "94464_images/image_000009_a51c42ecde644d0f9dfad2a67ea983d60ff039305cdf2d3f7f484dca322a9d78.png",
+              "94464_images/image_000010_0c00da5fe338811df71a51b73d9f07b25d550ab9d9c58ab9273a0d2147913c6a.png",
+              "94464_images/image_000011_aa0b456d6eeb3b5e9278405bf56e8359f852f9638207f746e22eacb3240fb717.png",
+              "94464_images/image_000012_dcc9d1ed0f37c66f8f05afc50aa908bdb48d9cd788b163c442ab94f0d45e02a0.png",
+              "94464_images/image_000013_a7e4fff8d5e9653ea0389161a4c2857a8ec6847e47540d91e8feb0c00e7a0633.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms",
+              "Measure Summary",
+              "Table 1",
+              "Table 5"
+            ]
+          }
+        },
+        {
+          "source_path": "measure_pdfs/95035.pdf",
+          "source_type": "pdf",
+          "status": "osti_pdf",
+          "source_url": "https://docs.nlr.gov/docs/fy26osti/95035.pdf",
+          "publication_url": "https://docs.nlr.gov/docs/fy26osti/95035.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Residential Two-Stage Geothermal Heat Pump (4.0 COP, 20.5 EER) With Envelope Improvements and Advanced Air Sealing",
+          "input_sha256": "920e569b5f8673769c5494edffb5a6fd5163a2db6ad6a089d4aa11fb6e1db25a",
+          "output_path": "upgrade_measures/measure_pdfs/95035.md",
+          "output_sha256": "66cd9f47110b6c9ceda5edef59ac93f912723eae515749490f6375258c332ac3",
+          "body_sha256": "4cedef84d1b990cc62debda4fac199edcbdfb7e1111638e99e5610b1d33437de",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95035.yaml",
+            "sha256": "af148d392cd273c0de16946c8b5916f5286c5d4c89d8a7ea0acada5cf92d8f7d",
+            "tables_applied": [
+              "Table 1"
+            ],
+            "figures_applied": [
+              "95035_images/image_000002_2c0ff093bd5981b71c0905a3039201fcf95ec7002eb988692707ee448e9b71a9.png",
+              "95035_images/image_000003_bdbf82e421598ee700513a75863bc3d2a7f7b776252d7db44146467f341e7582.png",
+              "95035_images/image_000004_afad554ac8fc676a4eb5cd0f1f4126db3c6e10689ad6585964286461397a55a1.png",
+              "95035_images/image_000005_8cc5f6347b5960f664e16cf500e33f2d7f851ed729080b8cd8edb1416ea74d7c.png",
+              "95035_images/image_000006_956bba6a1fa4f50949803b57ac89654e2551ab1c7f7cec2eb51f40ee016264fd.png",
+              "95035_images/image_000007_61e10d6b9ac8220b01f7def307381905bc3e6f40df57ffbd91b33e2136cf1f0e.png",
+              "95035_images/image_000008_2fc59feaede0587c9d34c805bcf2ccf31046438b430873dc96e5e07728168d7c.png",
+              "95035_images/image_000009_0d83e331403418b90722046368d9624d3d15f9625dcdb5fb583de5ab93b60a92.png",
+              "95035_images/image_000010_d5be9534ea596b26d1b24d3891dfdeb87117432a102eedc51c753b156bfe2c43.png",
+              "95035_images/image_000011_2e47c6b88c542f290cda512aa2144ba8da8df299501c303cc1bc29b2cb40bbbd.png",
+              "95035_images/image_000012_abb8e41cd6dde867c00afad0e3e418678c411ff26839a9d94b28e98ce5bbe835.png",
+              "95035_images/image_000013_3335c8077decf782a8b683d254493ee31f847cf0ad3044e667f7ce55999e62eb.png",
+              "95035_images/image_000014_91d8c025d46f0c7308ae0437e93bf08995f62e60da743d320b05f214d65da23d.png",
+              "95035_images/image_000015_8c77edbffe56feffd23c8667641f8d80d883440b95b4c7d2aa97e7955ca892bc.png",
+              "95035_images/image_000016_da28bfc36dbf5d49c3903939378ed4d646868cd604bbdf1e143fca324c801ecf.png",
+              "95035_images/image_000017_49ce8cb1c3f5a2f5dc84b2ede1f5830220ad910f791764e2d30c5e04150c9454.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms"
+            ]
+          }
+        },
+        {
+          "source_path": "measure_pdfs/96281.pdf",
+          "source_type": "pdf",
+          "status": "osti_pdf",
+          "source_url": "https://docs.nlr.gov/docs/fy26osti/96281.pdf",
+          "publication_url": "https://docs.nlr.gov/docs/fy26osti/96281.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Advanced Air Sealing with Drill-and-Fill Wall Insulation",
+          "input_sha256": "6fcf72b697dbdadcbeedf1960b78c499cb09adb34bc40603d32259c709004b6e",
+          "output_path": "upgrade_measures/measure_pdfs/96281.md",
+          "output_sha256": "a6e94eb2ff26134ee7911b33d1bf58da9d461987354197e3d6480f9b89e3d972",
+          "body_sha256": "d34f76a62eb5835f191a8a42e33388fb41033a483d53edf997cffbe4a11f6e5b",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96281.yaml",
+            "sha256": "b6a48c4d79771e7b99ada0dbdb6732ab0d1722419ba6b328fc0e0884c447fb03",
+            "tables_applied": [
+              "Measure Summary",
+              "Table 4",
+              "Table 5",
+              "Table 7"
+            ],
+            "figures_applied": [
+              "96281_images/image_000002_46496dc9dcb6427dbff75f4ddc0358aa8acb60d56420701d57fc4b392b42fde5.png",
+              "96281_images/image_000003_4165cdb849777588f903dbc2349e4953499344dee3d8d278a56163c5af888c1c.png",
+              "96281_images/image_000004_34347d7836123add5a60a69e20342925aab67b0d013ea3a83a25053f2b797833.png",
+              "96281_images/image_000005_a9975d58cdf6a4834ab1e7c26924121d3ed2187873caca333f68df3a4b6f0bd6.png",
+              "96281_images/image_000006_9483f9b84ddc19c186d1247f9db9e2679b265ff1d48b2ac14a0ff3b7f6852aa8.png",
+              "96281_images/image_000007_6cee5967ff3b230472cbaaf860ca80611294f363be3fe84052f02cdba2408c4e.png",
+              "96281_images/image_000008_9c74e86c9c1c756c55e84b8c64382b43549ca9e74bc704a60cf1b588e30ac007.png",
+              "96281_images/image_000009_c5718aeedc65f82ad45d27e0d45fded267034d0345cefa8e1dbce545f5f03706.png",
+              "96281_images/image_000010_3327c93c4b8815e775d0a7aaec0807570894f9eaa068811cce34d2b3ea56c911.png",
+              "96281_images/image_000011_54f7e8de384993f58882e7ad1a8225311a689c2ef180b731b86d34151e881bd1.png",
+              "96281_images/image_000012_c85e04ec85ddd60ac0aa0d6e751d57ed63cdbca0fc428d77d6bdfbadc8fa53e3.png",
+              "96281_images/image_000013_4ab1b7f951180dd941402c341fa761194a5236b369c5b9c94ac2175fcdb36ed1.png",
+              "96281_images/image_000014_3e46ac6508dcb8fb71edc044c568d9a94c34485551088ec378c5997b28f87feb.png",
+              "96281_images/image_000015_9a1480228beb49cc05d5e8d09394d18a98bde2ca82b58b91e9fe6475039784e7.png",
+              "96281_images/image_000016_679b6e951f47c24787642cc44e5f11bac3cab627311b5a11e4f6a16d05a68e86.png",
+              "96281_images/image_000017_77a206b20fad6454937ee8f6557dbf8878d38c711906125290d586692f6e4f18.png",
+              "96281_images/image_000018_91e0c1da712d750cd6ef1be5209c07a99e7c72fcf9ff09a4a520292f5a4ee3b5.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms",
+              "Table 1",
+              "Table 2",
+              "Table 3",
+              "Table 6"
+            ]
+          }
+        },
+        {
+          "source_path": "measure_pdfs/96344.pdf",
+          "source_type": "pdf",
+          "status": "osti_pdf",
+          "source_url": "https://docs.nlr.gov/docs/fy26osti/96344.pdf",
+          "publication_url": "https://docs.nlr.gov/docs/fy26osti/96344.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Duct Sealing and Insulation",
+          "input_sha256": "73927d7ffd584cd0a93c1b50d048962fded9d4ebe57240caa48eab67aecc01f9",
+          "output_path": "upgrade_measures/measure_pdfs/96344.md",
+          "output_sha256": "85d2e2270dd617683b1a8c56ac0181f29e0a297719782f4e80dcee2bc3099553",
+          "body_sha256": "83a1063ae2c32b514f46dcb4e5eb012f18e9802820dd4b8f8ef81a48e7f6b722",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96344.yaml",
+            "sha256": "642d9dde790166623f67b2326c41326e69e4dafa6308c774480d0607cd0166b6",
+            "tables_applied": [
+              "Measure Summary",
+              "Table 3"
+            ],
+            "figures_applied": [
+              "96344_images/image_000002_9ecad925ccf8a1e923d00e59076a111c9453fa090d859ec4326a0be3675de123.png",
+              "96344_images/image_000003_c46d99a932e7161e98fd4bd53c3baa9e7a234fc147d9685b61c0ebe626ca7651.png",
+              "96344_images/image_000004_3a7238f3084af6d7709c3b9989a5e7f091425ef19f1223caebdad9fdade479b2.png",
+              "96344_images/image_000005_ccafcc4b295ed2a2f8e3a08b0db00c81e191071c4a98c1089884e7bfc0bca2d5.png",
+              "96344_images/image_000006_39ab4071c3bd66a8f8723d1cc2f2308a87c192f1ccfa1f8e92d5ba12ee2d38dc.png",
+              "96344_images/image_000007_b3194cde69b142f2be3b621374ff19d7960d28c181c747a7e1b15bb1ae84758f.png",
+              "96344_images/image_000008_a96c20964df7b0f1ad027bcc4a46a60f0bca91aa5691c039f908c210067953bd.png",
+              "96344_images/image_000009_e64a67a1db219ee638f2ab8ec7a68c5933bf86fd09d444004b6cff66b8c068d1.png",
+              "96344_images/image_000010_11df0cb0285c38a8af683ac3afa3ff3340e74af7717b930b9114cf67c74cf112.png",
+              "96344_images/image_000011_57492828a6f484b4666981ec55f0ea51e33fda33f92bfe6c0963b9a4ed0b3b0a.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms",
+              "Table 1",
+              "Table 2",
+              "Table 4",
+              "Table 5"
+            ]
+          }
+        },
+        {
+          "source_path": "measure_pdfs/96347.pdf",
+          "source_type": "pdf",
+          "status": "osti_pdf",
+          "source_url": "https://docs.nlr.gov/docs/fy26osti/96347.pdf",
+          "publication_url": "https://docs.nlr.gov/docs/fy26osti/96347.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Advanced Air Sealing, Attic Floor Insulation, and Duct Sealing and Insulation",
+          "input_sha256": "2ffcba94508cff195d23f09ac9ad8de1c693ce64057c8cbeb5131c639354a896",
+          "output_path": "upgrade_measures/measure_pdfs/96347.md",
+          "output_sha256": "20d2c460216d53cfa17a3505d1782cb880a55ece18cad9c67d7971fb29a276e7",
+          "body_sha256": "b9b0094192a162b0b7d079ed1864c55d02cebc0d2f78c6690bac729abad8f12f",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96347.yaml",
+            "sha256": "24796c8a220c2dbff9b6190511ac8f028d5c68f104bfc03a9c73a362850977e6",
+            "tables_applied": [
+              "Measure Summary",
+              "Table 2"
+            ],
+            "text_repairs_applied": 2,
+            "figures_applied": [
+              "96347_images/image_000002_17faec5a5644c7632f09725faacde9f83f888335fc05eee1ff14874f47773022.png",
+              "96347_images/image_000003_6fae500e2b41a558be104f83e25fdf113ff2e8477911ed1763abcd3da3d1ceca.png",
+              "96347_images/image_000004_e9fec4a58398a737f6a0396026b3a2590e906aff76945c3b6ec05e447f0b8e0e.png",
+              "96347_images/image_000005_c817dc30b01bc8597b725c5c0627d337065612e2ad9f9917549a0f5c878a6b86.png",
+              "96347_images/image_000006_b56a4bdc5da4a977b1c0c77141b04ef357874aa572cda22d93e62d1a266afd6c.png",
+              "96347_images/image_000007_07d9ed1c8e0684ed9bcd651cc3e418d44654edda3c3759393ae362ae1dedd455.png",
+              "96347_images/image_000008_db89e3fa51b8d83f8808dc601507632c894a60c19027297d8bfc36aca87b2f4f.png",
+              "96347_images/image_000009_7c2a7f57f23c779bdbb47a6217326862e8f0281a25f512b0476065f1a3b0bc51.png",
+              "96347_images/image_000010_6af402e2a10f38c78167c0ed37e28234adb9ebd75f526606053b34c1a6eca60b.png",
+              "96347_images/image_000011_1f5127fdb2af8ef79dce5da289df33c7d3cc379d33f52a40b1b88158bcc49831.png",
+              "96347_images/image_000012_b83e726b78cd6b05140860edb3fea7e980da1daf383d5fd3b30f9fbb3f217b83.png",
+              "96347_images/image_000013_c924217ff53abc44d5f225ddd36ed749fbb73dbcc5e0b71521c8270b2b99ab01.png"
+            ],
+            "tables_checked": [
+              "Table 1",
+              "Table 3",
+              "Table 4",
+              "Table 5"
+            ]
+          }
+        },
+        {
+          "source_path": "measure_pdfs/96349.pdf",
+          "source_type": "pdf",
+          "status": "osti_pdf",
+          "source_url": "https://docs.nlr.gov/docs/fy26osti/96349.pdf",
+          "publication_url": "https://docs.nlr.gov/docs/fy26osti/96349.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Advanced Air Sealing, Drill-and-Fill Wall Insulation, Attic Floor Insulation, and Duct Sealing and Insulation",
+          "input_sha256": "d8e84ac9c38537cf9c538f4d08b657b134edcf375d160821ee06f079c69757c8",
+          "output_path": "upgrade_measures/measure_pdfs/96349.md",
+          "output_sha256": "cab749632dbaa62390abeb071f020e043a8b8bb22cacb7d9cb35ffc8fa790b80",
+          "body_sha256": "bbc6665c895dbb0b54d168b51768394206b0d4fa0b682ef26a813e4c2bdacd0a",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96349.yaml",
+            "sha256": "deb51766c33c0d3ea8db0ae75fd301c28679e9526137ec086636f920beca57dd",
+            "tables_applied": [
+              "Measure Summary"
+            ],
+            "figures_applied": [
+              "96349_images/image_000002_ec8405c3fb44b9510888a0b4be5118c306a40764ad626b6515987c743e9dfb4d.png",
+              "96349_images/image_000003_4fa811ea2da840d2a7fffc5325b5226ef295d6a9738520991566045f193f5e34.png",
+              "96349_images/image_000004_bfdd0e75084ad502f6c830a8698f0081d6db17cc462b451c5235ed1d0ad4985d.png",
+              "96349_images/image_000005_70bf801bc00f07ee7d9188214015a606a67cd8460fa8961763aa681543f6d2a0.png",
+              "96349_images/image_000006_86a8b5a421115ca1a602622fc31ea5e7aef7daf5fa4506b1cda0dc9c00c8c055.png",
+              "96349_images/image_000007_1afdd9f131be5b788e1b15c1405daca9576b376cf211c632506722de5f1579b2.png",
+              "96349_images/image_000008_7bf07ed7ffbe6fe159bcd35e6673584c4a382ce53a18675341a232a74c4033d9.png",
+              "96349_images/image_000009_7170aeac165fbd56dba27de1d6f26d0cdbaa5056d3eeecc7a4eb31c42bb20a03.png",
+              "96349_images/image_000010_228491704945e3f11f4e1c4c3ca360ea4915d79705a4eb2e236c061b5e7878b5.png",
+              "96349_images/image_000011_335fa813be6755382c4c80d7f840e06c0879d05fdde747a8b2a9df65c120a475.png",
+              "96349_images/image_000012_bc1be525b8bff439c8bcc97dbc26cc82a6fcac41dbd65fde02a7ba6308de0cca.png"
+            ],
+            "tables_checked": [
+              "Table 1",
+              "Table 2",
+              "Table 3",
+              "Table 4",
+              "Table 5"
+            ]
+          }
+        },
+        {
+          "source_path": "measure_pdfs/96405.pdf",
+          "source_type": "pdf",
+          "status": "osti_pdf",
+          "source_url": "https://docs.nlr.gov/docs/fy26osti/96405.pdf",
+          "publication_url": "https://docs.nlr.gov/docs/fy26osti/96405.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "EnergyStar Windows",
+          "input_sha256": "b1cf02f7e140f9a47a12ac2d163a6db237273ea5966a9bd93dc1ddab999f7cd7",
+          "output_path": "upgrade_measures/measure_pdfs/96405.md",
+          "output_sha256": "a196caee56c2437f639f0bb851626cd4223e21283c264b949750c1461b9b8c99",
+          "body_sha256": "7243ccb74563840898c5984d35907ecf6e75bb2007e4c7da3614ea0e5c5772fe",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96405.yaml",
+            "sha256": "1d2d756079c9d44e8cf427766b2a57cb8b4925c4127b58f6efb55e9c887835bc",
+            "tables_applied": [
+              "Measure Summary",
+              "Table 1",
+              "Table 3",
+              "Table 11"
+            ],
+            "figures_applied": [
+              "96405_images/image_000002_e0936df14c9b44914d154af1635a98ceb20af513f78244b04c27059e0dc8b562.png",
+              "96405_images/image_000003_5aca6bdca90914b366befd1d89518959b1023715c16bdc7873cdf37137686d8f.png",
+              "96405_images/image_000004_0ed3f84b39c94f39aa2a304fdf570c3f9d1d90cfde1c23b9b4e70291adf57171.png",
+              "96405_images/image_000005_2b876596b70033471c296750f156c1ceb0fbc8db53060835ca7f15c70402a841.png",
+              "96405_images/image_000006_e2c17078e8ea6319a4099902923014105e5c22b2bd88968e3e085ba5c247e7f1.png",
+              "96405_images/image_000007_868897185000e3f28d9ff03d43f6a1499b4d1f5f7055cddaee4676db0c72ddd0.png",
+              "96405_images/image_000008_c4993d38c1bd0b723cc06b715e154eb9842fb1e524b1f17473ededc8a198edba.png",
+              "96405_images/image_000009_21c0798ccdae732924c43f4a3e9e7b17a79ea59fd0c7db882dad454fdcd59569.png",
+              "96405_images/image_000010_ee5a1f887a0322413d9070f70e6be872b57ca796135ce3833bbb7023c94349e5.png",
+              "96405_images/image_000011_737aa85e302a20c85762b9a5409e3c64a5c0c56f23fa55723371e2a7fe498e87.png",
+              "96405_images/image_000012_8ccd414aa24f295d71ab0b900efaa297f8a736ec831aa1824a2ddfb46d887688.png",
+              "96405_images/image_000013_a5e935bed476a46232fc3505f516438d37f7d84dba243084e5ab5f4a01cd66c6.png",
+              "96405_images/image_000014_bfcc3a9f1853eb9f93f99e21e4cbd5b3c1bc9b020b18598ac31c6279c3e8af82.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms",
+              "Table 2",
+              "Table 4",
+              "Table 5",
+              "Table 6",
+              "Table 7",
+              "Table 8",
+              "Table 9",
+              "Table 10",
+              "Table 12"
+            ]
+          }
+        },
+        {
+          "source_path": "measure_pdfs/96413.pdf",
+          "source_type": "pdf",
+          "status": "osti_pdf",
+          "source_url": "https://docs.nlr.gov/docs/fy26osti/96413.pdf",
+          "publication_url": "https://docs.nlr.gov/docs/fy26osti/96413.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Cold Climate Air-Source Heat Pump",
+          "input_sha256": "393e4cf9737a44e8b5df32353ffe20386d43565d27d84b004f3228e21241ec28",
+          "output_path": "upgrade_measures/measure_pdfs/96413.md",
+          "output_sha256": "fe22144ca2db3fd1d7a74507b89bd667eb2b27768f524e18c5e543eab7829acf",
+          "body_sha256": "ba8a394437dcab68175ebaad742b7d8633b2a1c047a4df7c9dd227943d61bdb7",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96413.yaml",
+            "sha256": "69f3dc3e65be5e35a89120b347978edb30f4d24732d80ab2782dda0dbaf8a3ec",
+            "tables_applied": [
+              "Table 3",
+              "Table 4",
+              "Table 5",
+              "Measure Summary"
+            ],
+            "text_repairs_applied": 2,
+            "figures_applied": [
+              "96413_images/image_000002_1fa65a8bcf6b1a5498616801f3aae708bc78b9e08e11cadfa275d44d5e6d2d8e.png",
+              "96413_images/image_000003_5a69086fab892d45ab18da2baadf6e222b2d13939b4bd6b30774a2dbd9a0959d.png",
+              "96413_images/image_000004_f10177a670f40eb8f37a7c62cf0bf9f13c018d11ca81fefe42a9b24aec84642c.png",
+              "96413_images/image_000005_be2422423a77e0d59123a5514a657a8277d5175315acac371ad20b91ee784cd5.png",
+              "96413_images/image_000006_a389b5dcb83ec7d53758f5843dab242d40a7d3469938904f51d924144428eb55.png",
+              "96413_images/image_000007_4a277e418ad3052bfcac0620c380f1b49fdae6fac66d3f42dde4e11da5d82af8.png",
+              "96413_images/image_000008_609e61cf510981ecb85d09beb98e566cc0b751e289873859877ae19e90a081f8.png",
+              "96413_images/image_000009_8b6837960e05bafbabf38b1622a24851c6291a3bc94c21d0aa3df59087286c45.png",
+              "96413_images/image_000010_e97b62e0d5d74a63d98d0c5f7e551a9a76ab6f16aab4c42d7f06a4b83ea2084c.png",
+              "96413_images/image_000011_9182714bf7c0daa9ec69e38398011b35f0c6df38e1d964aaee971ce0cfcbf65a.png",
+              "96413_images/image_000012_12a6ff4682f76da644698c4d71a0d0f20c61517ce40cab0936d41e4dd8616ef0.png",
+              "96413_images/image_000013_db3635facef5c63e336e8935898dfd73f865bc14505a7c8caf8789926e778ddb.png",
+              "96413_images/image_000014_f1c76500ee439bca1c1d1ff037c8f135f6ad5ac4dc6b7d9e46c234c809b18daf.png",
+              "96413_images/image_000015_6781232bc5d532a576720f620e5ae96eb8915a78e01ea94b4db7eb0d049ab79c.png",
+              "96413_images/image_000016_c26c3e1e789b531db27bed8c91707632f798f49aa3c6a6769135520854852d3e.png",
+              "96413_images/image_000017_9385dbcf068854162a0c2449c39068bdd19c5e770875868a8c44674e9724a909.png"
+            ],
+            "tables_checked": [
+              "Table 1",
+              "Table 2",
+              "Table 6",
+              "Table 7"
+            ]
+          }
+        },
+        {
+          "source_path": "measure_pdfs/96414.pdf",
+          "source_type": "pdf",
+          "status": "osti_pdf",
+          "source_url": "https://docs.nlr.gov/docs/fy26osti/96414.pdf",
+          "publication_url": "https://docs.nlr.gov/docs/fy26osti/96414.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Dual Fuel Heat Pump",
+          "input_sha256": "eb06df8d38643f4acb1e2bb11401ab8c782e55221545af90f0a1aef943ac18bc",
+          "output_path": "upgrade_measures/measure_pdfs/96414.md",
+          "output_sha256": "10a0dae58ba894f48f286b80a5d1521fb40b322a7066ca78aaaabc8e9ed6ec1b",
+          "body_sha256": "37e19935945f507881de90b4aaf2b500184f772dde1a1e29202f484c03e2084c",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96414.yaml",
+            "sha256": "b358fd60bc72e5ec10655eb24ff1780fc4448c4d580935bd764e2d09183fae83",
+            "tables_applied": [
+              "Table 3",
+              "Table 5",
+              "Table 4"
+            ],
+            "figures_applied": [
+              "96414_images/image_000002_0d99e1371b27558582d86068aa062b8191379a1f47d3068fcd8cd57cf6743edc.png",
+              "96414_images/image_000003_bd9781efcbe79d9d02c94f10385d1f2094a8d9cf0123625c68211a95912cccee.png",
+              "96414_images/image_000004_5e0443053d6923a23ea629a0b3d8c383b22a57a745a7a907c8e3c0fb5e623a3f.png",
+              "96414_images/image_000005_65ee4ad5c8af3ea69b63dad37837d8e522e74902799d815b11f249fe3189c4b6.png",
+              "96414_images/image_000006_d8831fe3f0ad34072958da1a2566c9f32fb6ccc2a71ad3305a5ab87cc81a4bdd.png",
+              "96414_images/image_000007_c019cfbc5f09d69647b0260c9383948a8a92acfc4a8e5d84d585b2c8692ab59d.png",
+              "96414_images/image_000008_5327cce2aff3415e86bcd096f8e4a227a20c5e31542e74b31ed20a2165e96af7.png",
+              "96414_images/image_000009_edf1b556e9145cba3e3621d5dfab36060ce1d01b1b61ea87471a3da946398c83.png",
+              "96414_images/image_000010_e6db175e387ebaf4dd85d7fa5ac12720c22266045ad642e068019bdb32e841cf.png",
+              "96414_images/image_000011_aeab95ef7d931f5e6c4ea3039814e7bfe42e18ab24b5080f6c72bccfbfebada8.png",
+              "96414_images/image_000012_82df624e6af1e97d1e9ed174b7e5acd0cf2588ff1aa3913dd3797626ca19796d.png",
+              "96414_images/image_000013_5b6c3633bb4eff664a44e23a426dfc95c7bdb64af885cafad8ef1b4f0abebf23.png",
+              "96414_images/image_000014_7b4738bb091c2e06e587308ad85f5b076a8bef061ea30c039a3abc07d87309e5.png",
+              "96414_images/image_000015_71556d393875b3ba8ef5ea720ed431310b50cb4b8485f612914b11edcb06204b.png"
+            ],
+            "tables_checked": [
+              "Measure Summary",
+              "Table 1",
+              "Table 2",
+              "Table 6",
+              "Table 7"
+            ]
+          }
+        },
+        {
+          "source_path": "measure_pdfs/96634.pdf",
+          "source_type": "pdf",
+          "status": "osti_pdf",
+          "source_url": "https://docs.nlr.gov/docs/fy26osti/96634.pdf",
+          "publication_url": "https://docs.nlr.gov/docs/fy26osti/96634.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Natural Gas Furnace 95% AFUE",
+          "input_sha256": "77c22cdd42f5f8e4159372967c0d03548077bba5e345ccf02e3b4211278900b7",
+          "output_path": "upgrade_measures/measure_pdfs/96634.md",
+          "output_sha256": "1cc3b363480da39d7b4018e23532e3fe49d9af33dad1cf9ea9f683f59b2bac37",
+          "body_sha256": "d15ef0304fa00cfc5fe9db4909af054c33f7602b59a6429dad726e993ddb165a",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96634.yaml",
+            "sha256": "9436eee41b5a2418ab2af6717364ea256e3e4db9ae6190d5bd8818d48b5847b9",
+            "tables_applied": [
+              "Table 1",
+              "Table 3",
+              "Upgrade Summary"
+            ],
+            "figures_applied": [
+              "96634_images/image_000002_fc94f6d2961dc20abb2efe868d6d919ddf2c6404c651d8e8b3bac755c71d5934.png",
+              "96634_images/image_000003_0f37c04b570b9d9c2ab1637700aef6547162dfafeaf8c541f4d894e9f2583acd.png",
+              "96634_images/image_000004_2c3b121e9c2ef0367fa54f730d30f013447b6cc26b593c0ce3e2d6ed6880d74c.png",
+              "96634_images/image_000005_2f942984f8e823946083ad7afdd8eb82c8845623b41b889dcf9f600f6740bdf6.png",
+              "96634_images/image_000006_fcc83a9461cbf269da6e1392c33758c97c6f33007914c00b5740457e8115a1d2.png",
+              "96634_images/image_000007_64d1e0add196fd28011977ea29d0d6243c7dca0de53fdae88cc7a2293ab6350d.png",
+              "96634_images/image_000008_4b9a06b1e2a72258941d2544723a9e62992b7a3a903356379f814ed027821d99.png",
+              "96634_images/image_000009_4efe82ee84d13fb9c941435315e74fef712915c2a481212f228817efdffa0ecd.png",
+              "96634_images/image_000010_05cf11f9dd431519ce502f19da7b13dfe5814c0aacd3ac9091f006adefcd999b.png",
+              "96634_images/image_000011_2f335617f989cf24767aec2c7496f85cbbddf6d9101dd6924f94068a0b9bf02a.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms",
+              "Table 2",
+              "Table 4",
+              "Table 5"
+            ]
+          }
+        },
+        {
+          "source_path": "measure_pdfs/96635.pdf",
+          "source_type": "pdf",
+          "status": "osti_pdf",
+          "source_url": "https://docs.nlr.gov/docs/fy26osti/96635.pdf",
+          "publication_url": "https://docs.nlr.gov/docs/fy26osti/96635.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Propane Furnace 95% AFUE and Fuel Oil Furnace 88% AFUE",
+          "input_sha256": "9af4cf0249bffa601a9a798305142b0eb92eb5202c0ed5c4f480efed8b8016a7",
+          "output_path": "upgrade_measures/measure_pdfs/96635.md",
+          "output_sha256": "5903fab88b897e9cc95cb27256675f037c9b6205c9fb71732918f6d4ebc17a40",
+          "body_sha256": "f77fd20d0f471af29d724aa2c7511a548b107e89ed48f7f81681487720b8fa34",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96635.yaml",
+            "sha256": "e0a2a3842578ddd14a6e66e7c5d17b59c6e7a33e7f4eceb24c4e6adf713c5b47",
+            "tables_applied": [
+              "Table 1",
+              "Table 3",
+              "Upgrade Summary"
+            ],
+            "text_repairs_applied": 1,
+            "figures_applied": [
+              "96635_images/image_000002_d47bd62a76126eaf9a628ae98556e9c974d40ee7b1a94516094c99573b2e0539.png",
+              "96635_images/image_000003_cc847472d85ab4147944b439f571a83215cf0d479fcb161281da3c72a3a3bc8b.png",
+              "96635_images/image_000004_538d935932dd93a1352854631272445e9b1763786fe028fc53a6c979164cb59b.png",
+              "96635_images/image_000005_ced61bb2204e6e95af901b6f8530080acf23441429a7091d455ce356cc34d28c.png",
+              "96635_images/image_000006_c14ebd65bbad6a624ae0ed8b13e8493c5ebee596ae0676f840ed11ee18cd6988.png",
+              "96635_images/image_000007_d49e1338055fcda4dd186927efbd6f68c27987d7d73ceb8d4927ffc8171294b8.png",
+              "96635_images/image_000008_4cb8fbcbb8acd5cbcaac182c7ea030523002f77f772e6f253528d2a76c5782b7.png",
+              "96635_images/image_000009_6729dc009d95d940c09cd9f9109878adf8eaadc491c6904fdd1b4f689108e95c.png",
+              "96635_images/image_000010_50dfbf7205ee7ad3ad5bd1913d3db19a12e8a64d234768643cbbdf7b71c87b1e.png",
+              "96635_images/image_000011_9fedc8e6adb6928cb9fe82c08f15554c7205b022d9afba0c6c3a96463f131a0d.png",
+              "96635_images/image_000012_0fa7f9e75eda956a4a11774c15d688f309d989b45bb5ce4522413917e7419103.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms",
+              "Table 2"
+            ]
+          }
+        },
+        {
+          "source_path": "measure_pdfs/96636.pdf",
+          "source_type": "pdf",
+          "status": "osti_pdf",
+          "source_url": "https://docs.nlr.gov/docs/fy26osti/96636.pdf",
+          "publication_url": "https://docs.nlr.gov/docs/fy26osti/96636.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Reference Space Heating and Air Conditioning Upgrade Circa 2025",
+          "input_sha256": "f7d3ed849fdae6e20111670a617bbc4c227c5f0f914bdaa0fb99343acebef475",
+          "output_path": "upgrade_measures/measure_pdfs/96636.md",
+          "output_sha256": "db3dbc3c09dcd489067dccc5ae912b8231997d07a1760ba9c1677ec8660f87f2",
+          "body_sha256": "4bf8bdeb77e74ed04f7f38a4ce21a2628667641c72c5c717eb99852e33c4e0ee",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96636.yaml",
+            "sha256": "3d574da903e6eb2347c709178650ab3dddae4404f61735759945f9bc6064b68a",
+            "tables_applied": [
+              "Table 1",
+              "Table 5",
+              "Table 7",
+              "Upgrade Summary (page 10: Not Applicable, Original Release, Project Configuration File)"
+            ],
+            "figures_applied": [
+              "96636_images/image_000002_1428a0e11423f2857129471b60674e8342823d610bc684f3a04854fbc6ad1c63.png",
+              "96636_images/image_000003_4add8fa61c2d014bbf2a03548724fbd7000e9f0c34b3779d7e97680aec6e23f9.png",
+              "96636_images/image_000004_50bb88ef8aee8346705921c36632747ab0b229391595017988c68a510096700b.png",
+              "96636_images/image_000005_1e7d0b7ce7c3f66e10fda3dc3671a79e9c56e7a41d42da15d3f441adbf32ce03.png",
+              "96636_images/image_000006_a8c856870a58fa7e6dbc57524225523d5fb52e99759b93d55462924c5c26b91a.png",
+              "96636_images/image_000007_364a491fc6506078058f88e1f374db2b5c739884bfc74818a0914c13e178f38e.png",
+              "96636_images/image_000008_c04c8c01ea88059b7267c2b82a1fdca1d3b42cde14a169f2080af53a3d168ada.png",
+              "96636_images/image_000009_709b301bf1a003d6cfeb91b8bba67e32331dc5a16fc3e7c04c86db8566c5ec6e.png",
+              "96636_images/image_000010_00f3f6dae6a0dbadd20234f11d600a8d164b1191dddf2f37f03f0ee11ded316c.png",
+              "96636_images/image_000011_1877ce4b1fe9b1ac5073829ead0c647abf37728d59159910fd36d126c08bd810.png",
+              "96636_images/image_000012_03a3edc1fb69a3d65d536955e3d34340366b27b13ec615865afefb8b5ac959f6.png",
+              "96636_images/image_000013_f55150d53ff544dc9aeddf77adf1e59342cf2d5dc5f5b4291da0eaf76fc9d01f.png",
+              "96636_images/image_000014_163bb4e76ad8aa7b6cc1a374790e36ba8623fdd0dd5951c2dfd6a835ceda195d.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms",
+              "Upgrade Summary (page 9: Measure Definition, Applicability)",
+              "Table 2",
+              "Table 3",
+              "Table 4",
+              "Table 6",
+              "Table 8",
+              "Table 9",
+              "Table 10"
+            ]
+          }
+        },
+        {
+          "source_path": "measure_pdfs/96739.pdf",
+          "source_type": "pdf",
+          "status": "osti_pdf",
+          "source_url": "https://docs.nlr.gov/docs/fy26osti/96739.pdf",
+          "publication_url": "https://docs.nlr.gov/docs/fy26osti/96739.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Attic Floor Insulation",
+          "input_sha256": "a77485f90ebb3506ea12f2c7871e112fd96d80246110112291ba96cd22434e42",
+          "output_path": "upgrade_measures/measure_pdfs/96739.md",
+          "output_sha256": "8b049b30956435a6b82aff3927292468f32d82ca9e44959ff14fd4933171e0fe",
+          "body_sha256": "cea817c92ea853470edd4d8eb2ae1b138eddc462a2c7c193ff238f5c517c882b",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96739.yaml",
+            "sha256": "fa91d018b03711de2db334e8406f008cd317928851d80127e01278820661c439",
+            "tables_applied": [
+              "Measure Summary",
+              "Table 3",
+              "Table 4"
+            ],
+            "figures_applied": [
+              "96739_images/image_000002_91c9a8ed13074cbecc7e1794b4a545230145c12e70a8f9a795e36ff99dd8d55e.png",
+              "96739_images/image_000003_aaeebb418e9862b88f53b8bbc2353ecf9cf2df5fc24331b8982a244442912a27.png",
+              "96739_images/image_000004_ab69992a7903ef9832984b80c376832f07dda8068b660de07174be3d94189b67.png",
+              "96739_images/image_000005_139a90a23797320281f12888fdb67656c737c644fb8c8fb12cae73bdb131d4d7.png",
+              "96739_images/image_000006_6eda026027b566485c9a6c4f2cfc87a69b20cf097d46d7bb5a7a6f21bdafc9ed.png",
+              "96739_images/image_000007_7d6d0b6064ac4e1cc0e91d539f3a3a9f75020f0c18dee68db58ca9a635d93e25.png",
+              "96739_images/image_000008_29f1ff1d0dda9ee7db8eb24dd4a93ee762a58562ac13733f12622c09fcd0694b.png",
+              "96739_images/image_000009_7864852ade963ab0d24bc8137f5e335114513b0f5d696e6496ceadbea6c7d31e.png",
+              "96739_images/image_000010_faedce3ded33a2e599af11932ea3f009d001e3dd02612307484e871ca716e604.png",
+              "96739_images/image_000011_7be44784ab5279fd00694b351b6402522aa1cbd33dfcf82cabaf04f28e67452a.png",
+              "96739_images/image_000012_9f4fb597b1f22c4760f1f149aff59e6424e7c3682ec3e8693e5c312c8e5357d8.png",
+              "96739_images/image_000013_2b87be43349c38b73385e33e75e9f8d4e14d6ed64735ce16e3be2c9c6f00d002.png",
+              "96739_images/image_000014_7080ba901122aea4f6721b094cd31f4b0b4264207a324569d0b705fa1e5a17fe.png",
+              "96739_images/image_000015_d74e93a30e41294f2c24bd3fd141b8ccaad10384dc06840a9e7cd51c7519920e.png",
+              "96739_images/image_000016_7b5f3e9abb8731fe6781ec241845136c8f0ed7f94648d133f0ceacbe959517f5.png",
+              "96739_images/image_000017_e2a5570fbdf9eaf198bd47999cef7b05a2afdd6a6efba3acc53c41f68b61df12.png",
+              "96739_images/image_000018_d75b63747cb47b51123d3326e93baa6211409af0a5e08f492b733af43f4680ad.png",
+              "96739_images/image_000019_5f62bf5e433ecd576be8ad80a0f1bc081cda2ce4c4ee9648edfb682ce1f1494d.png",
+              "96739_images/image_000020_ac2470bb42f8a0fa0ce3d16e6bb6e3ed824824b61f29e38efe862c0f4059078f.png",
+              "96739_images/image_000021_f069493905f66c42f1ee44fdf425e336a4732c9dea6770ef040d94ecae6a9d1a.png",
+              "96739_images/image_000022_36bc401e96782c2a1798e6f45cba1bbf61d6e17b8c54ba8fd01bf5683db595c2.png",
+              "96739_images/image_000023_0795a33dd0e7bc7b886b5efa625375f046002bc73fc74586315c308e8b3b7340.png",
+              "96739_images/image_000024_f08fd813e5d365e60f43c061145e3e8797d1d5902f0425451afedc2c7b5b6f7f.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms",
+              "Table 1",
+              "Table 2",
+              "Table 5",
+              "Table 6"
+            ]
+          }
+        },
+        {
+          "source_path": "measure_pdfs/96826.pdf",
+          "source_type": "pdf",
+          "status": "osti_pdf",
+          "source_url": "https://docs.nlr.gov/docs/fy26osti/96826.pdf",
+          "publication_url": "https://docs.nlr.gov/docs/fy26osti/96826.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Heat Pump Water Heater",
+          "input_sha256": "9b1963bc5ff7300c2d3e99bada6183d68a80c1e785f41b50589eab76f7532e3f",
+          "output_path": "upgrade_measures/measure_pdfs/96826.md",
+          "output_sha256": "c144aada684c74fe942a273ac9d8e4b881efc495ddffff2c02dc55a765e8a7c3",
+          "body_sha256": "486bcf316e22b862b501f98e92fefdc7276621a8178bd2064ad059d3135db70d",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96826.yaml",
+            "sha256": "e0cf7c37a9c02723ac6fc3540f410089384063dcf6d8d4c0911d6718de27522d",
+            "tables_applied": [
+              "Table 6",
+              "Table 8",
+              "Table 5",
+              "Measure Summary",
+              "Figure 2",
+              "Figure 3"
+            ],
+            "figures_applied": [
+              "96826_images/image_000002_179da9a079d3e4ffe66dc3bf6d4f0c348daec624f7d5f4b9b7f54cc0985bcb88.png",
+              "96826_images/image_000003_d7edc64a66bdc3a8ddb0b74b354fb2086fb6782248004aa9079e449b2f886f98.png",
+              "96826_images/image_000004_684beaa1f62b6fa48ec455a89a1f30f759b9d3a48aac9cffa9c27f10edb9e751.png",
+              "96826_images/image_000005_919376e3baaea1050e90ac3b6a415fd36fb0ba51affe87bf3405f151ec8234ab.png",
+              "96826_images/image_000006_6048263e3131fbc78ff8f59a52b5c2a2a94634477fe2e2d1558745e865a6386b.png",
+              "96826_images/image_000007_27f1813f67376233b92c53d7698e872805d171326564e396653c577fd5e0bc03.png",
+              "96826_images/image_000008_90d47b27f331250c352661fd46c877389fd7e00f1804b662409aa4880bae20cc.png",
+              "96826_images/image_000009_e2fd9f499225ffac1f6c9a4454880a8c852726154c6044e66e268b7c0b33cf49.png",
+              "96826_images/image_000010_961777190e8c01257f2e8dad925c818acfcad4f083030d73fd13a2cf4e58a7a7.png",
+              "96826_images/image_000011_186d12a6841ed3d7b3dd06025faf4b53d0cefd2757c5e841efa9adb8d9ea1622.png",
+              "96826_images/image_000012_c338eb874fe24226c043cb0ba1d285c9c8a7bdd34337f20ccfc55f91935407ff.png",
+              "96826_images/image_000013_88c4e4b1435d8a58f38da7af2b9feb20cf41d430d6ce99f9f9222dc38d508741.png",
+              "96826_images/image_000014_eedf8488c0b3c9f2ad8b05ebe307a4549e038b0da2fa3edf7c93932a93b9a852.png",
+              "96826_images/image_000015_cb3fde0ca1044ae49de933e89c4fc919eba9d942522e86a7fa73fde85fa8e8cb.png",
+              "96826_images/image_000016_c4e5630f1a07920a2f788bb0ad464c20a0073c5c69805c50da512bbb4539f7e9.png",
+              "96826_images/image_000017_51bb4b9a6b673dd0ee02a41a7a6a893d8323fb9bede7caf1ea7a5e9d82131ec4.png",
+              "96826_images/image_000018_910420d0cd37d1b6f4e4a84d4d35c9e85ae33f73434945af7408d4786f5390df.png",
+              "96826_images/image_000019_9932ea5aa63bc77909a746a8ca9eec6a3842755f75adaf2d1829c8fc96f13d64.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms",
+              "Table 1",
+              "Table 2",
+              "Table 3",
+              "Table 4",
+              "Table 4",
+              "Table 7"
+            ]
+          }
+        },
+        {
+          "source_path": "measure_pdfs/96827.pdf",
+          "source_type": "pdf",
+          "status": "osti_pdf",
+          "source_url": "https://docs.nlr.gov/docs/fy26osti/96827.pdf",
+          "publication_url": "https://docs.nlr.gov/docs/fy26osti/96827.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Natural Gas Water Heater",
+          "input_sha256": "df766d887490be71cc37e40ba6f92ce9d8b88844c90ab43063c0b84206fd7e0d",
+          "output_path": "upgrade_measures/measure_pdfs/96827.md",
+          "output_sha256": "341193e5ff9d3dbb80a0f4817b001340fe4dca6ab108fb5d17ec11b4a91221a7",
+          "body_sha256": "e706db44592a4640f6138bb51a2cbc304d96666e576a4f781a518b33eb24d58b",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96827.yaml",
+            "sha256": "7e82383677dfb0346c14cbc74fd48c4d0be6d35e75ec5f34e3ae83889f9d939e",
+            "tables_applied": [
+              "Measure Summary"
+            ],
+            "figures_applied": [
+              "96827_images/image_000002_c55b3e7014c15ef1328135d21914c97aa4fe336a2cfa2a10a7e0b3373e640277.png",
+              "96827_images/image_000003_c31754c0b374c6b38f43047d0af19681787f03e684d04d6c17c6f95f872c0c33.png",
+              "96827_images/image_000004_1125547a5db17e2eb12b2a03194972102c9c41f697979497d909293c990f327a.png",
+              "96827_images/image_000005_2be11b462c51d505c2623e527b3228c19e21b25f32be59ccf3760a36aade51ca.png",
+              "96827_images/image_000006_507d7bfe4a6d9096a4de4a20d6853a4a1b98285c54cdd5bd23c1590aea7147e2.png",
+              "96827_images/image_000007_f829e2129262f815a9d3c90aa44cf0b774042a88d1c56b1898015e4236c50f4e.png",
+              "96827_images/image_000008_6991b9f61c74071995f6ec2f1c4c95e16b4c86b65038df01c65dd743eafc7fea.png",
+              "96827_images/image_000009_65861e03bb4a597a9d44f6ab034cd5b2cf26309c07065d3afd5cff920a721766.png",
+              "96827_images/image_000010_2c36cfeaac13d5ae3170c222ccc9b5ff1c85a234de365ffad054cf66e71fd49f.png",
+              "96827_images/image_000011_8a6fe98653343d23450b054ae74b76a8f196b301ac6833dbc6817d9efb1f6430.png",
+              "96827_images/image_000012_98a311cf99dd45b027f82c1cad0a2695288d7f33273d7455613fd920846508d6.png"
+            ],
+            "tables_checked": [
+              "Table 1",
+              "Table 2",
+              "Table 3",
+              "Table 4",
+              "Table 5",
+              "Table 6",
+              "Table 7"
+            ]
+          }
+        },
+        {
+          "source_path": "measure_pdfs/96738.pdf",
+          "source_type": "pdf",
+          "status": "osti_pdf",
+          "source_url": "https://docs.nlr.gov/docs/fy27osti/96738.pdf",
+          "publication_url": "https://docs.nlr.gov/docs/fy27osti/96738.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Advanced Air Sealing",
+          "input_sha256": "f89df99f5694bc497162871fbdbc697bd2dec13f1ad64d1e8f7e76086d074d02",
+          "output_path": "upgrade_measures/measure_pdfs/96738.md",
+          "output_sha256": "1ce98d2eb2d2fad534c6c21f40909bfd15ed4fe7a771069b0f9f3849def5dc5f",
+          "body_sha256": "fca96237bfe4f044081c66048d12937265cf472c2e7cf3c46c04c0692e50e541",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96738.yaml",
+            "sha256": "6026576cf37fd678f29c7e156596120200417544f0a6b035381b502f1c26fd42",
+            "tables_applied": [
+              "Measure Summary",
+              "Table 1",
+              "Table 3"
+            ],
+            "text_repairs_applied": 2,
+            "figures_applied": [
+              "96738_images/image_000002_6a5f0c9ec688ed81fbbefc03199b0bdd79eca78673ec3545ca5425f2141d965d.png",
+              "96738_images/image_000003_acd536ba8bf62f212ccc1abeb08584f7804926e9d93b7ba8b9efcf19ca82d1ff.png",
+              "96738_images/image_000004_c64e1e2f54f1a35f6e35cfbaf46f35f3a0c05d06a45bc5c322cba5c063cec8a3.png",
+              "96738_images/image_000005_06f1826118dedc419a875592f5c69f37fc61876f7d28c9afee6646f200efad84.png",
+              "96738_images/image_000006_75805ad8b43ebbbfc3cb7a14aae5d1d2b9e1e6ade3a9534b83f1eca614a21fb9.png",
+              "96738_images/image_000007_04b157404a21254c21995a48383ee70ca4771b4f2625f5758fff692594055904.png",
+              "96738_images/image_000008_9586e7f7d353fb6b45f07b71180c175412ca9b735552dce3b6a76746e12ac2dc.png",
+              "96738_images/image_000009_a515dd09d356946f6d8567715d4ea1a8ab4bf844b6bf728a51d0e9a6191f0089.png",
+              "96738_images/image_000010_12a631a2f60e595e39d023ddc2662be43d9cc4628129881a02ef2560df9c7385.png",
+              "96738_images/image_000011_92e6e6fdb26dd755d91a10e08137d072831df669fa6eab8a90febff67e43f0d5.png",
+              "96738_images/image_000012_ced4e80c2d73568fc956489903bf763b020626efcd8aaa8b5f9fc20361555ce1.png",
+              "96738_images/image_000013_1640fa8ba4b1348a4d77ce0b53efb987c7e79c75602b8f33676888ef6d47abd5.png",
+              "96738_images/image_000014_f247c31c4c31cffaf955cf77dc4400c72f045dc13e94e2a6066af82e1d86e030.png",
+              "96738_images/image_000015_bee13bbc8ffe014cb3e0af9dbfb8f5a9f4d55ca90c261ac35145286508192528.png",
+              "96738_images/image_000016_ed5170bea76203f8cc012a7c2dfda5cb53785b0511946def21e849113101ea8e.png",
+              "96738_images/image_000017_d06a85465e3cbef744270ee59ac0693e129bbc36ce10c23ac3c5693543a36f72.png",
+              "96738_images/image_000018_1b59e431c64c7bdcc749ef5ed239ef959cd7edb55d52bb2ffcfba4c4c7381d68.png",
+              "96738_images/image_000019_ac942cd62e175e34b63585a2f1acddb4340e03db3c30edfbc1c39dcb2b5a8c30.png",
+              "96738_images/image_000020_cfa30b433668477fe6c50cf04f793b4c320fdecaa92dc3ab36b7c571f767f49b.png",
+              "96738_images/image_000021_087e74fb763889a511e422fa2e70aec57ad1e6df4f226e0174cfe1ae5df65341.png",
+              "96738_images/image_000022_530ff0f88ec97843c2d7588bc0df06f216e861b83f0dc42c00564bfa636d4004.png",
+              "96738_images/image_000023_87897ce8a8b14208b336198ccfc903c962fb4b00c2655d167b8cba7874c6a5f8.png",
+              "96738_images/image_000024_dca409be1a03425c4c7d958f4f84e311eeece2d8279907114dc8a093cbc18e1e.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms",
+              "Table 2",
+              "Table 4",
+              "Table 5",
+              "Table 6",
+              "Table 7"
+            ]
+          }
+        },
+        {
+          "source_path": "measure_pdfs/95032.pdf",
+          "source_type": "pdf",
+          "status": "osti_pdf",
+          "source_url": "https://docs.nlr.gov/docs/fy26osti/95032.pdf",
+          "publication_url": "https://docs.nlr.gov/docs/fy26osti/95032.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Residential Single-Stage Geothermal Heat Pump (3.8 COP, 18.6 EER)",
+          "input_sha256": "e7e13d6acdb679ec56f9d8c41de195c248229f2f96475e1a40bd183bf84b855f",
+          "output_path": "upgrade_measures/measure_pdfs/95032.md",
+          "output_sha256": "5f984c8596c737761b732d91d51b28e5eee27c06053345b2d5f32321d3d21b37",
+          "body_sha256": "54fd10ec48fa877546b640fb833b09056c8712f7a9cb550273eaf05f8bcba815",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95032.yaml",
+            "sha256": "0790e4c05f8c83a08229a94edb59a1c87ccd8272aa192d19b197318fded74144",
+            "tables_applied": [
+              "Table A-2",
+              "Table B-1",
+              "Figure 3",
+              "Figure 4",
+              "Figure 5",
+              "Figure 6",
+              "Figure C-1",
+              "Figure C-2",
+              "Figure C-3",
+              "Figure C-4"
+            ],
+            "text_repairs_applied": 1,
+            "figures_applied": [
+              "95032_images/image_000002_a429cf5d958a67abbdceb0a07ce46f44f0da4be97bfdd1414879ef886218ed5c.png",
+              "95032_images/image_000003_381d498b4366598371b9b4b5db9daadf054c7171ba773c4bdc70c6cc1e079d37.png",
+              "95032_images/image_000004_872e7ec1aa750ad3902165630b6bc45ce6078f5fb8da186d9449b306842a0cb7.png",
+              "95032_images/image_000005_4dfb61b921b84d56dee7f26c56923efe615391f76fdf44f7bb2b4a1840031c3e.png",
+              "95032_images/image_000006_9fd4a9d9d0d51492d2d3a745371f30847dba7f41211210885e29b9dc4d37cfd2.png",
+              "95032_images/image_000007_8e91835e9eedff3807fb19af0a4acdfddb59ca8d776842e86343f49d15c6a5b0.png",
+              "95032_images/image_000008_b1a456a8c1eca543c81f5150d2eff7bcc6c401302d7a735081af76e30bcd6038.png",
+              "95032_images/image_000009_68544727652b6af7cc6d1e1a93d0616e1fbf31d2ffa47da83fe33af2848ce710.png",
+              "95032_images/image_000010_cab8d4f17f3da1d7ece26f7fb6dfa4680ce01ae9d249aca1bbdaca4f9ef3947a.png",
+              "95032_images/image_000011_16d71ced2b5c649d540392e444501a31130a216a187653bcc183ecc40c2e9708.png",
+              "95032_images/image_000012_c26098c96bf2d74e4306840eb471fc8a462a3d4f20213b734ea1614320d259c1.png",
+              "95032_images/image_000013_3d56b6b5e0e4eec8b2d2083e2394ac7995cf49b0a6f8cd07920b0bb3b8976eea.png",
+              "95032_images/image_000014_84cf7c06986c50e5750fa755d4e89891cbb125ff420ec268adefbf09c943dfd7.png",
+              "95032_images/image_000015_4e0e834577ca62244b368024ba1389acc61c4f5f161cfff94fd31840a94d19dc.png",
+              "95032_images/image_000016_aa3e725d033f56a66ececb988e75a63754ddf0f16fe8d8c8035c1b6eef7561b2.png",
+              "95032_images/image_000017_099c716c5f0ef5cfa411df2378251f51da8bc43dbd09baac7b3143045bfa52d4.png",
+              "95032_images/image_000018_8a050bcd65a4fe768564b737f6c008027678f9907a50df281584a00ee3f6a22a.png",
+              "95032_images/image_000019_f87fe3a9790ad142819b296ed353f131e5adbcb877b78e44cd7342d0acd8f343.png",
+              "95032_images/image_000020_5d8338e660d97856439511ce17f6d62eca9de204245c9341ea9503ce7348da78.png",
+              "95032_images/image_000021_f26931939b374ad3053c1cd3f44a330be42a79f99af48cf227fd0a0adc0587e2.png",
+              "95032_images/image_000022_c75c66ef7dafa438308da9bc1e62571e4be42eaa26e593a3a820d5fb92475cf0.png",
+              "95032_images/image_000023_0243a1e3739940b80830bd87b4cbf70ec6d53a927ebca13e3ccb6c1ff469b095.png",
+              "95032_images/image_000024_67f5a27b9452a8ca7248a9ffa63a3c6cd025ab979c3aed648c1940377a8c11d8.png",
+              "95032_images/image_000025_a03296a97463bb0252888ce12f6a603833556caf42e347f20e727684830519d8.png",
+              "95032_images/image_000026_8f9e30a4dd7c5aea3c2e26ca80ebbf5751cdba5722b9fe2695565978c967718e.png",
+              "95032_images/image_000027_9e3e808e17cc5f30bd16e7ed041aa880d67b34b0d840661de9a967f96e72842f.png",
+              "95032_images/image_000028_43855c053cd6a05a85a618442f99dc5c06ee1a935a1c9b2b9bff86d65ca83f02.png",
+              "95032_images/image_000029_046b3a8cae73f6427c500fad9f99f6cf1257f32a523444c97f9c88bb0d1afcb6.png",
+              "95032_images/image_000030_97385c5eeb7b9f8a80b230fa1baf26d2cbd364039e74043e7df9f9ee2727b5cc.png",
+              "95032_images/image_000031_27b59514c186eafbc41d05d288e8bb1f87359c9ab7965947e0e97d70f54f8f2a.png",
+              "95032_images/image_000032_0db02900222ccf1a8b71001b02c89f4b9d38ba51a311f6a40e4042fe1a873e82.png",
+              "95032_images/image_000033_1113c7de7523a3a89ed04b197ee2efab1fc9141d82291b9aa08666e3f579dfcb.png",
+              "95032_images/image_000034_361e08038428e7c89c0ba16dd08a8eeaabf6ad4b55216e8a8580604d151c7dc4.png",
+              "95032_images/image_000035_230eba1faef0df78c1641a0e67855f6a236d8bcdd9fbb6010c12f5563c912d30.png",
+              "95032_images/image_000036_ec69f93323e89253e621616077006268a536dcd707812ce8589561ac2ba57999.png",
+              "95032_images/image_000037_4b7fb99c3e7021029b6409af1592dc1f37777dad2937d2cf4516a735b6948710.png",
+              "95032_images/image_000038_2d6cda281787f5678310e73c31c9ab221ef340c3c80d87cc9ff0c6220632294f.png",
+              "95032_images/image_000039_d7a7072c6f3841e9668f0ea9d6375b5351e219f2d5f78e5aa8039fbdef525cf6.png",
+              "95032_images/image_000040_a873b949f7b0975c3bd0081277e87f3a97614fa022f02cffa25df21ad9abda66.png",
+              "95032_images/image_000041_fdb18ae07fd25df40d71c502c2c76635056688cf12346e53d4c6829b91de68a7.png",
+              "95032_images/image_000042_5b09e878d2895f15802a0a7e7832ccbb0656f95c84c0a27c41e3e5d3799619af.png",
+              "95032_images/image_000043_5d0bea541b2b6d6ccb2cdd6b0b4c7956bd8ded554229045e3cdaa498d8de8023.png",
+              "95032_images/image_000044_309c78f8214ea20ad7f6b3a11be676b34cfc149b25920517f03386412e7539c4.png",
+              "95032_images/image_000045_30957a2dcd6e1c3c973b3010465432cb86333364f9757ceb38057815d2ca1045.png"
+            ],
+            "tables_checked": [
+              "Table 1",
+              "Table 2",
+              "Table 3",
+              "Table 4",
+              "Table 5",
+              "Table 6",
+              "Table 7",
+              "Table 8",
+              "Table 9",
+              "Table 10",
+              "Table 11",
+              "Table 11",
+              "Table A-1"
+            ]
+          }
+        },
+        {
+          "source_path": "measure_pdfs/95034.pdf",
+          "source_type": "pdf",
+          "status": "osti_pdf",
+          "source_url": "https://docs.nlr.gov/docs/fy26osti/95034.pdf",
+          "publication_url": "https://docs.nlr.gov/docs/fy26osti/95034.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Residential Two-Stage Geothermal Heat Pump (4.0 COP, 20.5 EER)",
+          "input_sha256": "ef959791583e1a0c0f1887275ab29504bd197288d2cd01ee2d8747c0c19291b3",
+          "output_path": "upgrade_measures/measure_pdfs/95034.md",
+          "output_sha256": "b19e546602ef72b2ebaba5e21547d7ed7af172d0c6c7342f8b78fd1779cef6ce",
+          "body_sha256": "cee4a5db21185c4998f8913598ab26579d6f7a686a7ea24a394f717aaa7da597",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95034.yaml",
+            "sha256": "b8f054e2f9a7d6141ae60e074207959772ab8c67bdd59498852ef8af516ac538",
+            "tables_applied": [
+              "Table 1",
+              "Figure 1",
+              "Figure 2",
+              "Figure 7",
+              "Figure 8",
+              "Figure 13",
+              "Figure 14",
+              "Figure 19",
+              "Figure 20",
+              "Figure A-1",
+              "Figure A-2",
+              "Figure A-3",
+              "Figure A-4",
+              "Figure A-5",
+              "Figure A-6",
+              "Figure A-7",
+              "Figure A-8"
+            ],
+            "figures_applied": [
+              "95034_images/image_000002_85771d7cb5611ef5d984e14047cda991780707e4edd2e5d6c785d06f60905a52.png",
+              "95034_images/image_000003_81c6522570d41fb0ce1c7bb3130dfde81e7cdbdbd92280114d23a42473a7830f.png",
+              "95034_images/image_000004_e8cab9682e1f9a201343f4c14c722eb26d0a0085e0197aaf1186d3430ca01d2e.png",
+              "95034_images/image_000005_44d353a056e306f0fcb75965a0a6f0f77b6591f4b9d709186a09cb53dcfa4075.png",
+              "95034_images/image_000006_aaefbca49c75ce392f46902fbb65daec7dcc717d8504277e3428a80311e68d56.png",
+              "95034_images/image_000007_55ebffaf45bf99e7837fbb777b3a4afe4bbd9dc96b70abbe1a79605f532d985c.png",
+              "95034_images/image_000008_fdda9fe16e1faf729e5b320be92679914f848531f6e4caf52cc829a06f1fbfab.png",
+              "95034_images/image_000009_535f2e5a0308c97c373036f4d8fd8b4bb10c759720bf34de8fdcb3978e444f51.png",
+              "95034_images/image_000010_3fe5e12df928cef8859b63cbe15e6a47f461b126ff29b0c911fee1c18430a781.png",
+              "95034_images/image_000011_1fbe142ed5e470aa00ede77839c2ef93c1a4808ed2fc9f1fc55188e11b086f1a.png",
+              "95034_images/image_000012_8daa03806ed0f52a0f69d7bcf0768afe7d1c746530f0c335e56594d5b6a0b481.png",
+              "95034_images/image_000013_43927481fd0b18b1715a2c2ef2cfed5b050daf98b7f1b7074a572831cc520950.png",
+              "95034_images/image_000014_cd073b64f4bdb07cc25f53973ef56c13422ffd51a79ae8a5465fb67a4997a192.png",
+              "95034_images/image_000015_34814a2e65971b7bb164d17e8dbe7f54360abed1d8a2df1682b76f031cac693d.png",
+              "95034_images/image_000016_26de54f9efa8487aecb1a2f5e99041d66843b6ce44816b2d5763cd7d7060b2f0.png",
+              "95034_images/image_000017_27d668af867434aa76089c02214fae4323873635bd8b826538a675f4a1aedfc8.png",
+              "95034_images/image_000018_9f0b7bfe95fea5a9ace403d837d6b1ff533179f7c1b0b39e0642b729ae2e5ffc.png",
+              "95034_images/image_000019_308ec17833bed73926ad2690f1c11afb66c7684d5c158955d497d50432adc9eb.png",
+              "95034_images/image_000020_cc3484c2cc25401952052e5da3d47ed049e98840df1638eb2fb2fa4bfa3c6826.png",
+              "95034_images/image_000021_7ec2ec9f394e3707abc7448bf4cf0fdd43d2638a274ac008246ff44744e55ea9.png",
+              "95034_images/image_000022_131346fc764d3af03c591195570ffce3f0232f8b333c2fb877b8ce289340f4d9.png",
+              "95034_images/image_000023_0ec920bcc1f52a82ec346b06086d812453b50ad48fc17ba7971eeb64188b95fb.png",
+              "95034_images/image_000024_795e41b9ca10e3824b22e4ecec25f62622eca5bc7bdc162bf6e59c8e78acaafe.png",
+              "95034_images/image_000025_6e26a8e03955c3e0bdf834784f53ca331c62eeda1e107e87c2dd355a7b32af4c.png",
+              "95034_images/image_000026_a49a4f0a4972d204dcb542bb3649eb0fb4e2971161b01b4fb18e9195e597bd53.png",
+              "95034_images/image_000027_6b750bb8261a6e2b93b3e86298ffad7c3749a825f601a20de5461546473a14b2.png",
+              "95034_images/image_000028_4ed67468035c777c6dc9bd959cc5b6b0ebea6ae7fe6633cfe3491e8da0ec7b40.png",
+              "95034_images/image_000029_17731e1fdc2d9d786ac0f3db7346de049ddde798aa6a73d06701f6ba67b1fe7f.png",
+              "95034_images/image_000030_dd25c32264260639ea56c73eedd2305c057305464b671a323ab55f452f301034.png",
+              "95034_images/image_000031_993c26255c5ce2cea85bae5e4d0b96d5e1943611159fb1018be5ffb430473bf5.png",
+              "95034_images/image_000032_3335c8077decf782a8b683d254493ee31f847cf0ad3044e667f7ce55999e62eb.png",
+              "95034_images/image_000033_e8d87918d9a69d56bcbe428b575f34ca562efaee2940c4728c3dbc35d7650279.png",
+              "95034_images/image_000034_5df149edc9a30edf699407b3ef4f6078bf2ae883f3a134b678ced982ca9fed75.png",
+              "95034_images/image_000035_3924add55f9db2003dbd197594f97b7acd0fcdb853efe4f9bb19782ad84756c7.png",
+              "95034_images/image_000036_f49c51eeb54cf5b9029858c517381971a2bf0b5825d2861db2b09586e091ca88.png",
+              "95034_images/image_000037_989c3b4efe5e5183e1f516540d64b76712f8f35dae3a7df6f74a63f725884986.png",
+              "95034_images/image_000038_730567543a9a33baf634e6d70d37444a9962663fbae104cdb2f0320e5ca18f30.png",
+              "95034_images/image_000039_4642b8fbe27f225f5a855d9c0f2670c9f882ba5b665484f0980768f449e85131.png"
+            ],
+            "tables_checked": [
+              "Measure Summary",
+              "Table 2",
+              "Table 3"
+            ]
+          }
+        },
+        {
+          "source_path": "measure_pdfs/95036.pdf",
+          "source_type": "pdf",
+          "status": "osti_pdf",
+          "source_url": "https://docs.nlr.gov/docs/fy26osti/95036.pdf",
+          "publication_url": "https://docs.nlr.gov/docs/fy26osti/95036.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Residential Variable-Speed Geothermal Heat Pump (4.4 COP, 30.9 EER)",
+          "input_sha256": "bc57eb7348906dbb1a970fb5b310c3f3e9608d5eb145441bd37b24f14ff0563e",
+          "output_path": "upgrade_measures/measure_pdfs/95036.md",
+          "output_sha256": "0dd72e08c7bc3069a4145400c51212ba824b7e6cb9cda010223bd0e1e5ac6c51",
+          "body_sha256": "bae9940452d6dc3cc1d330f5e14a6cb861c6cd57efe88ac47086551a5e1a1b7e",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95036.yaml",
+            "sha256": "f85ca9cdd1af6da9327fcb3b3146743d86d1f4d830f52b6184da1c30c7249452",
+            "tables_applied": [
+              "Table 2",
+              "Figure 1",
+              "Figure 2",
+              "Figure 7",
+              "Figure 8",
+              "Figure 13",
+              "Figure 14",
+              "Figure 19",
+              "Figure 20",
+              "Figure A-1",
+              "Figure A-2",
+              "Figure A-3",
+              "Figure A-4",
+              "Figure A-5",
+              "Figure A-6",
+              "Figure A-7",
+              "Figure A-8"
+            ],
+            "figures_applied": [
+              "95036_images/image_000002_6cbae3a9dd5e340430a489903ff3b57d442fc0e832aa7b6100ad5ce846387fb9.png",
+              "95036_images/image_000003_88cf61a7cf0711702e1d65689f69f0da0c345fdb73dd344841ba733183890237.png",
+              "95036_images/image_000004_62b8d11262ebeaaa26cf4c33f424a40ad986ed5560bd614b8b7f3e3ef6dbf5f3.png",
+              "95036_images/image_000005_e520b5a45cb16224665e4051588819a476b71d8b5c571da370171df47dc46900.png",
+              "95036_images/image_000006_7bb85fcbc5be7690d69ffcf21135095fcae7179d33b835a9d407a0af83c15ee8.png",
+              "95036_images/image_000007_34c9e8de1e26c4250d5c45234985d3e688827131f92cc6ac254a948c0e120a31.png",
+              "95036_images/image_000008_f7a7674c534349ae4f6a5bdd2e5e72e6e3666ad53bc5781fe8a748a2c9c9e548.png",
+              "95036_images/image_000009_91d971a0d90fcb15e694b73b62d4639874fe3687fce1d1587b44aad3c3b39d0b.png",
+              "95036_images/image_000010_adb7805187e2dcc7ed3c149fb758bf85418656caf49dc0701226eed68c47979b.png",
+              "95036_images/image_000011_b880db010ea9bdb930c5129dd30b66077979d0c75ec4c3d04ba5e7245f7a7696.png",
+              "95036_images/image_000012_32e518f5bea0431a26ade5fe1f60118c39b77b53050d56583e3113f5c9758aa2.png",
+              "95036_images/image_000013_6abe41e3434257966eff84fd7f0c74ab471ac2a1f03895f378b8a20f7905c9fe.png",
+              "95036_images/image_000014_c77f86c7e30a7f883e9ab7445eb0aeb12b604a838ebf37efcf4a60e757a42c30.png",
+              "95036_images/image_000015_fb442623a6614636fec0e24b4c71081627d5ffdf4beb7a44e06593d599b9c52f.png",
+              "95036_images/image_000016_e2859f0f86e6a83bbf193d559cf8d5a06717331fa1a96c47ea073e9e86ed8fa4.png",
+              "95036_images/image_000017_f123c5d565dcdb1bf96ecb04fa7769a6f4d32570c571ab1b8ed8d21952b21318.png",
+              "95036_images/image_000018_c0c6dcb2a36054d0e5ca6abcfb4f91a56f90ead6cc930c60349a92094d130a8c.png",
+              "95036_images/image_000019_c61cf2ef742c1d730ca2baafca19ad6df0fdafcff1c4c72a9e12ba7caae3ba70.png",
+              "95036_images/image_000020_3d5cd7f20c6123c6db4e6b9d3ad3284fe46b6aacf43a4a8a7c2369239610a8de.png",
+              "95036_images/image_000021_65e1659df828dde6537a0ac961363b0cf48ac2aadc274c812eee412bb3a55fd8.png",
+              "95036_images/image_000022_1e8ee7e9ddb41cfbff3cd96304720db99d0dc471f812942cf94155dfb9bb4bdc.png",
+              "95036_images/image_000023_cd91d7a0e02a85d80cf471e9b6e4e254f1bcd92bcae8dea12f64e587508c2787.png",
+              "95036_images/image_000024_f018df19867fbd58feb3a929498c76f4ebf6b4c21967f02b9c8e01e4889a78f6.png",
+              "95036_images/image_000025_ff7673be07118827e2a1ec479047d811e4e752eef4fa28c8e33762902db2157c.png",
+              "95036_images/image_000026_3aefff0dbfe16d5ad719cc497e00b0abc3a9c72efd572b2ddd03ba8e69bcfc5f.png",
+              "95036_images/image_000027_0431031dcb594ab4e635e8475e4a1c3e97d7fe3f50e0398f5ac1d31f041a5604.png",
+              "95036_images/image_000028_3584d0502c5a83331f10e25b73191c5fdbcb53d72828b77b1e948da7905ad067.png",
+              "95036_images/image_000029_6b44ca98ad4ea94ac5a558b850ea5d6ba1e51a7f87e00d8552a086aad8a1e243.png",
+              "95036_images/image_000030_162ca9182de4efb31989d46373424f54c11c9528f5b142412aa0b62cf40cffcb.png",
+              "95036_images/image_000031_f261f947c9991cf353ee0898214dd6802c75fb897414d634f55c32e084ac7cd2.png",
+              "95036_images/image_000032_713f5bfa5a6f448a51886f1e3690d25ccb770267356877589ff092e63fd1f418.png",
+              "95036_images/image_000033_1cd872ec3e99102f76dab0d50ee217e905e6feb5b4ea9d2011cb638822ed2a55.png",
+              "95036_images/image_000034_9ed3efd628799e7923579be1581c9f30d098f96f205cf93e625df1051edd700a.png",
+              "95036_images/image_000035_18dc39482c02c7ef69fc998e1d65e04564391daecccc3cb7629ad469674ad9aa.png",
+              "95036_images/image_000036_07a341a970dce49f0b719626152804f3ce5ece84eb7bdb765e000e822c8f8790.png",
+              "95036_images/image_000037_54baeb6ef5985ed838c414357010feb76b5f2fd6bb003c88fc6d4f422d079ee5.png",
+              "95036_images/image_000038_1116cf02e7a17bfd4b99a4a2c8eec65303e6d5a12a9a3b936e98b7ede586983e.png"
+            ],
+            "tables_checked": [
+              "Upgrade Summary",
+              "Table 1",
+              "Table 3"
+            ]
+          }
+        },
+        {
+          "source_path": "measure_pdfs/99816.pdf",
+          "source_type": "pdf",
+          "status": "osti_pdf",
+          "source_url": "https://docs.nlr.gov/docs/fy26osti/99816.pdf",
+          "publication_url": "https://docs.nlr.gov/docs/fy26osti/99816.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Light Air Sealing",
+          "input_sha256": "4b4ebdb83ae3a2d8c30539129d4ad1834f786ad7d85f73a6fba6982d997a76f3",
+          "output_path": "upgrade_measures/measure_pdfs/99816.md",
+          "output_sha256": "a874427a268ec62eec97fa5fb20476ebd1e9d7deeefcc5212b56225c6d09d2f2",
+          "body_sha256": "2a8d01cd08077f87d0bf3915da4adaa2ca17b385aa7db46d7a35229b2354e421",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/99816.yaml",
+            "sha256": "498f9faa24f20e4405493d365cd16ac7949acdcf96ad0552313bd3edc47708a1",
+            "tables_applied": [
+              "Measure Summary",
+              "Table 5"
+            ],
+            "figures_applied": [
+              "99816_images/image_000002_566355431d63ee68e16c94af53b34929a8e86d5486729fb94b757250fc4adb5e.png",
+              "99816_images/image_000003_e9acb63d329331a667a46cd2bd07dec7786110ac2015104f632df51af56440af.png",
+              "99816_images/image_000004_648f763aedf03fc642530b1337669f30c3f5f6d49898a7351671ad4550ea09b2.png",
+              "99816_images/image_000005_027207fe824047eeff10db4b8fe7e5e6ebec6294cac17b3d4eb2bc663d003f67.png",
+              "99816_images/image_000006_d5a0e70afaace1db870abf4b60782825587c407a691f2638afc320f7bfb73b1c.png",
+              "99816_images/image_000007_49e10fe11f113f0207f59150fe165c7d73ba846c1a8cc8c233acfc295607cfc8.png",
+              "99816_images/image_000008_780bf0fec5b41240815097080429543bab210fd90a06d79b93a9fd8e6d211ff8.png",
+              "99816_images/image_000009_93f06ffed0d8245c23ecf65562812edeece0af1a45278b8e5b0d86787c1643f6.png",
+              "99816_images/image_000010_b1ee856ed28e2bf6f2d30e2413d6227d84c2f0597be9dae7e22ef4717e41a7fb.png",
+              "99816_images/image_000011_9c34dd1d835ae0f03b039b9d9e3d5940b2f905ad6deadf670deadfa71e4fccbc.png",
+              "99816_images/image_000012_413f8bcde9d8ee84ac5e6858b79596a8f866a6891a72777b1610a441335724d3.png",
+              "99816_images/image_000013_a893de690aef2903172d48db1d39fa4500897aa826095568dddaa1da165c4d6c.png",
+              "99816_images/image_000014_a56aff05bf75755ea0dc9776106f806cc96e1be0ac5044dd7fbf89e7c618a3b6.png",
+              "99816_images/image_000015_f26f0ab13eaebad95b34a50ba8bf72a4bc679c4a2039555a6fbaa4467db1a77e.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms",
+              "Table 1",
+              "Table 2",
+              "Table 3",
+              "Table 4"
+            ]
+          }
+        },
+        {
+          "source_path": "measure_pdfs/99818.pdf",
+          "source_type": "pdf",
+          "status": "osti_pdf",
+          "source_url": "https://docs.nlr.gov/docs/fy26osti/99818.pdf",
+          "publication_url": "https://docs.nlr.gov/docs/fy26osti/99818.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Light Air Sealing, Attic Floor Insulation, and Duct Sealing and Insulation",
+          "input_sha256": "2584d1c6995adea0ed156eadcda49606fb0dff075f39afe10918d6eaf1a06e53",
+          "output_path": "upgrade_measures/measure_pdfs/99818.md",
+          "output_sha256": "496cd06ddf4c7902466297644471f237adc1ce54640eb73c2021aeb958b214f9",
+          "body_sha256": "817e1c264d775e44411f4ae68c6966e38317b59d0e5070dd1a416400ce14cef2",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/99818.yaml",
+            "sha256": "dee5ed70ecef1aedb8f20cb339fd7234ed4cb3e23c1d6fc9ae61c43bff147b7e",
+            "tables_applied": [
+              "Measure Summary (second grid: Original Release, Project Configuration File(s))"
+            ],
+            "figures_applied": [
+              "99818_images/image_000002_4d7e81636b291ce740d47e604cf8809f3b81700045b6f6206a4c6bb5dc91da2f.png",
+              "99818_images/image_000003_399736cc038f78c854548212a1ee2fe59abe2fe4f674cb357e6bfac7f2e62da8.png",
+              "99818_images/image_000004_33e9629de1411eb0aa411ed5b81a43a6601ebece358f31b01763bb620121af3d.png",
+              "99818_images/image_000005_5c67dc53470d03a040991a1d59d537a3218decc7dd191cf35338b4845e0ef72a.png",
+              "99818_images/image_000006_f4b1c423a98498dd7dfb915511b1ff1ddec902cc844117e16c6809db2bb194d2.png",
+              "99818_images/image_000007_e2baee4eaa779ed9d080b86a39b83a0091eb7542490304a061497591863c0640.png",
+              "99818_images/image_000008_dcfb2121adb61ac9c9c6b49611f9ca0bb78bc21d7d8f84ed4f3fb34d6dbf017f.png",
+              "99818_images/image_000009_ad41f0a02855532ba1b9fdec2e7c17b93a4e1dcb676ad809fc85d721cbaab3da.png",
+              "99818_images/image_000010_2ec6ff900dc5ed99d7712da4713df36c8a8fecb7d38d289c335007fb77bcdfcd.png",
+              "99818_images/image_000011_4e61da3669b0bfe92ffb114f9495ee1069571fff868bfdb02625477bc5ca7fa7.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms",
+              "Measure Summary (first grid: Measure Definition, Applicable, Not Applicable)",
+              "Table 1",
+              "Table 2",
+              "Table 3",
+              "Table 4"
+            ]
+          }
+        },
+        {
+          "source_path": "measure_pdfs/99819.pdf",
+          "source_type": "pdf",
+          "status": "osti_pdf",
+          "source_url": "https://docs.nlr.gov/docs/fy26osti/99819.pdf",
+          "publication_url": "https://docs.nlr.gov/docs/fy26osti/99819.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Residential Two-Stage Geothermal Heat Pump (4.0 COP, 20.5 EER) With Light Envelope Improvements",
+          "input_sha256": "08c25507eec2b4660a2a799ff3b4e891ef669ae0f54cb50c076e111c66eb280c",
+          "output_path": "upgrade_measures/measure_pdfs/99819.md",
+          "output_sha256": "7637dd03bc293a533ec94170b18b5f91c0a98e8c0f0e2ae5d51e681ba2b38232",
+          "body_sha256": "72deea87f45702eeb6d81381366d624c571e422b93631f0868ef452226631a52",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/99819.yaml",
+            "sha256": "fc47e17d5df529c0d13b1f7b92eb823fe6ff3b414c39a3518e9faadbee2941b4",
+            "tables_applied": [
+              "Measure Summary (second grid: Not Applicable, Original Release, Project Configuration File(s))"
+            ],
+            "text_repairs_applied": 1,
+            "figures_applied": [
+              "99819_images/image_000002_ef046523c54d1fed1abaed861629c4d673a59dccaae4edc0199f4cc5b23051dc.png",
+              "99819_images/image_000003_28fb09b77a371e4329f0fe31fac13ea08b4fb6dcd32e8cd00049b55c2c225083.png",
+              "99819_images/image_000004_13bce41f2d6d30659491b394f72f304aeb3bff36605403f30b9f4210e5ac76ca.png",
+              "99819_images/image_000005_3974b7a7fbbc8e4d4f75887eccbe3feb61b15e09ca7b618821230660e1ba439a.png",
+              "99819_images/image_000006_97f0d346aaeaa7e50b095357d50d6a2b314f5831154f20fa8621aeff6232a0a7.png",
+              "99819_images/image_000007_3c7856f081b247afaa34f8213f99ed4eca150ee204e2759994ec4009a91f5303.png",
+              "99819_images/image_000008_af20021a06abc45d98debfae73acd7ef322760591f0602271101edc196a9683f.png",
+              "99819_images/image_000009_5c2cfc8e09f667dbfb313469af978b9489bc856e01a18d256d0411a876882a20.png",
+              "99819_images/image_000010_697b4859a49490ca97d8e36d522408596f8585be56a00251af6fc41015d4509d.png",
+              "99819_images/image_000011_1b3e51b022ddcccdfe983f3326fbf84c59d5afddcec5da1c87a8de1832439575.png",
+              "99819_images/image_000012_df18789c1d31fffa7cd6aa3ac1afdbbca1219c5d9d27a9d1b91a6857068567f9.png",
+              "99819_images/image_000013_612766feca8d61c169a7507669c05e619af55dda06df9242d71299788d31f6b2.png",
+              "99819_images/image_000014_3248fce2bef2a663571e3203608997c3e29fbeb0870dce7dc1640c2d7e152652.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms",
+              "Measure Summary (first grid: Measure Title, Measure Definition)",
+              "Table 1"
+            ]
+          }
+        },
+        {
+          "source_path": "measure_pdfs/99820.pdf",
+          "source_type": "pdf",
+          "status": "osti_pdf",
+          "source_url": "https://docs.nlr.gov/docs/fy26osti/99820.pdf",
+          "publication_url": "https://docs.nlr.gov/docs/fy26osti/99820.pdf",
+          "corpus_version": "resstock_amy2018_2025_release_1-v1-pre",
+          "title": "Residential Variable-Speed Geothermal Heat Pump (4.4 COP, 30.9 EER) with Light Envelope Improvements",
+          "input_sha256": "64b886cb5cc1cc06d677d6c2d826898e852806e1e3ab576a053cb98ceb3e2b31",
+          "output_path": "upgrade_measures/measure_pdfs/99820.md",
+          "output_sha256": "09e24bac735920a7eebb68aa20c2d6dd28ed18c99343540392e9f5eb3db04553",
+          "body_sha256": "89566b307e42daaa79b20847b2bdaa58a76795ea6d6af3aae96323ef255e1435",
+          "overlay": {
+            "path": "resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/99820.yaml",
+            "sha256": "331562228aa4e70da97b5e4e2b1b57daec6f22e87fc4908badf857117cf8d15d",
+            "tables_applied": [
+              "Measure Summary (second grid: Not Applicable, Original Release, Project Configuration File(s))"
+            ],
+            "figures_applied": [
+              "99820_images/image_000002_090afc707d5262e890c97f291463092ddd364b1c731f19a2b2546a9c1af52f74.png",
+              "99820_images/image_000003_db3c468ccc7d3035eca7f810c2969364912ea979d605519040050e35f3fc6f79.png",
+              "99820_images/image_000004_d98a2acb2c586256dcafafa146dcfd19b1602efdb1cf8f47a18d44bcd2840e4f.png",
+              "99820_images/image_000005_155e8f64ffb9475ddaba7d7b5d97c6211295b88993c486d5c5d093efc0b3ea7b.png",
+              "99820_images/image_000006_d1e20d47b85ecec8729ed53fd2492c8f66d442b89ae91872607b8d81628aa704.png",
+              "99820_images/image_000007_72cc21ee12a1ebb306098d656ca8f91a3f9f1c59344b0e23f1f3b05857cafe20.png",
+              "99820_images/image_000008_95e2f4ac6f52df809aa62d5f534021a6a90976631922d8c11027b3aea71dbf84.png",
+              "99820_images/image_000009_5c2cfc8e09f667dbfb313469af978b9489bc856e01a18d256d0411a876882a20.png",
+              "99820_images/image_000010_697b4859a49490ca97d8e36d522408596f8585be56a00251af6fc41015d4509d.png",
+              "99820_images/image_000011_8c75411568fd2aa5f6a14a63ea073b9e872705d8f80ea417cb1366cee6b9f3f3.png",
+              "99820_images/image_000012_9fd28767d540367f15401ab5723e94cfaddded5a6ee955ad230808f7c71daf11.png",
+              "99820_images/image_000013_28dbd5b8f4ce2c818f308ea271399ffefbcaa21c47aea03423d16c0cfe01b5d7.png",
+              "99820_images/image_000014_8a5a0b318ea40fe882fb57c3d0e89189ae2e4cfcbcbf0a339a04ce4cacf92e6c.png"
+            ],
+            "tables_checked": [
+              "List of Acronyms",
+              "Measure Summary (first grid: Measure Title, Measure Definition)",
+              "Table 1"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "documents": 62,
+    "chunks": 4183,
+    "by_type": {
+      "latex": 7,
+      "markdown": 27,
+      "pdf": 28
+    },
+    "overlay_documents": 31,
+    "overlay_tables": 105,
+    "overlay_figures": 467,
+    "overlay_tables_checked": 136,
+    "overlay_text_repairs": 9
+  },
+  "crosswalk": {
+    "file": "crosswalk.json",
+    "counts": {
+      "measures": 32,
+      "covered": 32,
+      "gaps": 0
+    }
+  },
+  "gaps": {
+    "measures": [],
+    "unreachable_pdfs": [],
+    "excluded_unpublished": {},
+    "excluded_by_registry": [],
+    "not_converted": [
+      {
+        "source_id": "github_site",
+        "path": "docs/resources/how-to-guides/access_annual_data_programmatically.ipynb",
+        "reason": "Jupyter notebook; the markdown extractor reads .md files only."
+      },
+      {
+        "source_id": "github_site",
+        "path": "docs/resources/how-to-guides/access_timeseries_data_programmatically.ipynb",
+        "reason": "Jupyter notebook; the markdown extractor reads .md files only."
+      }
+    ]
+  },
+  "warnings": [],
+  "notes": [
+    "This documentation also describes the AMY2012 dataset of the same release (resstock_amy2012_release_1 on OEDI); the corpus is built once, under the AMY2018 release id.",
+    "The technical reference guide is converted from the ResStock repository at tag 2025_Release_1_upgrades_29_to_32. The PDF the site publishes (ResStockTechnicalReferenceGuide_2025_1.pdf, October 2025) was built from a later, untagged state of the same source, so the two can differ in places."
+  ]
+}

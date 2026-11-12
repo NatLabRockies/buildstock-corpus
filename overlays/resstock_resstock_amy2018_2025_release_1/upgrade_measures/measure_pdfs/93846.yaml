@@ -1,0 +1,524 @@
+# Hand-authored overlay for measure_pdfs/93846.pdf
+#
+# 93846 is the ResStock measure documentation for HVAC demand flexibility, the one report
+# shared by measures 24 to 28 (on-peak load shedding and pre-peak load shifting at several
+# durations and offsets). Every table and figure in the report was compared with the PDF on
+# 2026-11-11, following "Checking every table and figure: the ResStock method" in
+# overlays/README.md.
+#
+# Tables (page numbers are PDF pages, 1-based):
+#   * Table 3 (pp.14-15) is superseded: it came out as one grid per page, with a garbled
+#     two-row header. See its `why`.
+#   * Table 8 (p.33) is superseded: the Upgrade and Pre-Peak Duration cells were run
+#     together in four of five rows. See its `why`.
+#   * The Measure Summary table (p.9, no caption) is superseded: it was right except for a
+#     line-wrap space inside the project configuration URL.
+#   * Tables 1, 2, 4, 5, 6 and 7 and the List of Acronyms (p.5) are recorded under `checked:`
+#     as correct.
+#   * The Table of Contents and List of Figures / List of Tables grids are contents pages and
+#     have no entry. The References list was extracted partly as a one-column grid with
+#     entries run together; it is not a table of the report and has no entry.
+#   * The report's numbered page footnotes are present. No number grid is shown as a picture.
+#
+# Figures: Figures 1-19 are described (vision-description). Figures 8 and 9 are two bitmaps
+# each (image_000009 and 000010; image_000011 and 000012): the 2°F and 4°F panels, then the
+# 4°F peak with 6°F pre-peak panel. The cover art and wordmark (image_000000, image_000001)
+# are decorative and omitted by the build. Values read off an axis, not a data label, are
+# worded "about". The bitmaps of Figures 3, 4 and 5 are wide and short and their axis values
+# cannot be read; those descriptions give the shape only. Figures 4 and 5 share one caption
+# in the PDF, and Figure 5's plot is titled 'Heating Energy Consumption'.
+#
+# Flattening notes: in Tables 3 and 8 the two header rows are written together ('Summer:
+# Peak Start', 'Pre-Peak: Duration'). Table 3 is split into bold-labelled parts to stay
+# under the chunk limit, each repeating the header row; the labels are not in the PDF.
+
+product: resstock
+release: resstock_amy2018_2025_release_1
+source_id: upgrade_measures
+source_path: measure_pdfs/93846.pdf
+source_url: https://docs.nlr.gov/docs/fy26osti/93846.pdf
+publication_url: https://docs.nlr.gov/docs/fy26osti/93846.pdf
+tables:
+- label: Measure Summary
+  uncaptioned: true
+  source_pdf: measure_pdfs/93846.pdf
+  source_pdf_sha256: 116beec10a3e99257e74721cdf9cfb152cf0c417cf09f615cd196892c45d7711
+  page: 9
+  method: extracted grid, with the cells named in `why` corrected from the PDF text layer
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: 9b1ccc032a3fcf59cbe8e0f7ec8bea899e156a2f3cefd2eddd0204d633beb256
+    why: The table is right cell for cell except the project configuration URL, which carries a space
+      where the PDF wraps the line ('projec t_national'). A search for the real path, or a click on the
+      link, misses it. The cell text is the extractor's own with that space removed; the joined URL is
+      the one in the PDF text layer.
+  markdown: '| Measure Title | HVAC Load Flexibility |
+
+    |---|---|
+
+    | Measure Definition | This upgrade lowers the heating set point and increases the cooling set point
+    during predefined on-peak hours. It can also preheat or precool the dwelling units for 1 to 4 hours,
+    depending on the measure settings. |
+
+    | Applicability | This measure applies to all dwellings with either a heating system or a cooling
+    system that is approximately 99.7% of the building stock. |
+
+    | Not Applicable | This measure does not apply to the dwelling units that have neither a heating system
+    nor a cooling system - approximately 0.3% of the building stock. |
+
+    | Project Configuration File(s) | https://github.com/NatLabRockies/resstock/blob/sdr_2025_Release_1/project_national/sdr_upgrades_amy2018.yml
+    |'
+- label: Table 3
+  caption: On-Peak Timing by State and Season
+  source_pdf: measure_pdfs/93846.pdf
+  source_pdf_sha256: 116beec10a3e99257e74721cdf9cfb152cf0c417cf09f615cd196892c45d7711
+  page: 14
+  method: extracted grids joined under one header (compared with the page text layer)
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: d422660ca3347fe990f23387c7a1818a9e75cda9fbbb8b6610490d66a21d85f2
+    also_removes:
+    - 4130bc59e55f34419c04d3b3e4af1be23b1eb51ad2f90e1e9e0b553b353332f3
+    why: 'The table runs over two pages and was extracted as two grids, each opening with the two header
+      rows (season over Peak Start and Peak End); in the first grid the season names and ''Peak Start''
+      were run together and two header cells left blank. Every value in both grids matches the pages.
+      The 50 state rows are the extractor''s own, joined under one header whose two rows are written together
+      (''Summer: Peak Start'').'
+  markdown: '**Table 3, part 1 of 3**
+
+
+    | State | Summer: Peak Start | Summer: Peak End | Winter: Peak Start | Winter: Peak End | Intermediate:
+    Peak Start | Intermediate: Peak End |
+
+    |---|---|---|---|---|---|---|
+
+    | AK | 17:00 | 21:00 | 17:00 | 21:00 | 16:00 | 20:00 |
+
+    | AL | 18:00 | 22:00 | 18:00 | 22:00 | 18:00 | 22:00 |
+
+    | AR | 17:00 | 21:00 | 17:00 | 21:00 | 18:00 | 22:00 |
+
+    | AZ | 18:00 | 22:00 | 18:00 | 22:00 | 17:00 | 21:00 |
+
+    | CA | 18:00 | 22:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | CO | 18:00 | 22:00 | 18:00 | 22:00 | 16:00 | 20:00 |
+
+    | CT | 17:00 | 21:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | DE | 17:00 | 21:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | FL | 18:00 | 22:00 | 18:00 | 22:00 | 18:00 | 22:00 |
+
+    | GA | 18:00 | 22:00 | 18:00 | 22:00 | 18:00 | 22:00 |
+
+    | HI | 18:00 | 22:00 | 18:00 | 22:00 | 18:00 | 22:00 |
+
+    | IA | 17:00 | 21:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | ID | 19:00 | 23:00 | 17:00 | 21:00 | 18:00 | 22:00 |
+
+    | IL | 18:00 | 22:00 | 16:00 | 20:00 | 16:00 | 20:00 |
+
+    | IN | 18:00 | 22:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | KS | 18:00 | 22:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | KY | 19:00 | 23:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | LA | 18:00 | 22:00 | 17:00 | 21:00 | 18:00 | 22:00 |
+
+    | MA | 17:00 | 21:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | MD | 17:00 | 21:00 | 16:00 | 20:00 | 17:00 | 21:00 |
+
+    | ME | 17:00 | 21:00 | 17:00 | 21:00 | 16:00 | 20:00 |
+
+
+    **Table 3, part 2 of 3**
+
+
+    | State | Summer: Peak Start | Summer: Peak End | Winter: Peak Start | Winter: Peak End | Intermediate:
+    Peak Start | Intermediate: Peak End |
+
+    |---|---|---|---|---|---|---|
+
+    | MI | 17:00 | 21:00 | 18:00 | 22:00 | 17:00 | 21:00 |
+
+    | MN | 17:00 | 21:00 | 17:00 | 21:00 | 16:00 | 20:00 |
+
+    | MO | 18:00 | 22:00 | 8:00 | 12:00 | 16:00 | 20:00 |
+
+    | MS | 18:00 | 22:00 | 17:00 | 21:00 | 18:00 | 22:00 |
+
+    | MT | 17:00 | 21:00 | 18:00 | 22:00 | 19:00 | 23:00 |
+
+    | NC | 18:00 | 22:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | ND | 19:00 | 23:00 | 19:00 | 23:00 | 18:00 | 22:00 |
+
+    | NE | 15:00 | 19:00 | 17:00 | 21:00 | 16:00 | 20:00 |
+
+    | NH | 17:00 | 21:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | NJ | 17:00 | 21:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | NM | 18:00 | 22:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | NV | 18:00 | 22:00 | 17:00 | 21:00 | 18:00 | 22:00 |
+
+    | NY | 18:00 | 22:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | OH | 17:00 | 21:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | OK | 15:00 | 19:00 | 4:00 | 8:00 | 3:00 | 7:00 |
+
+    | OR | 17:00 | 21:00 | 17:00 | 21:00 | 16:00 | 20:00 |
+
+    | PA | 17:00 | 21:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | RI | 18:00 | 22:00 | 17:00 | 21:00 | 18:00 | 22:00 |
+
+    | SC | 19:00 | 23:00 | 18:00 | 22:00 | 17:00 | 21:00 |
+
+    | SD | 15:00 | 19:00 | 16:00 | 20:00 | 18:00 | 22:00 |
+
+    | TN | 17:00 | 21:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+
+    **Table 3, part 3 of 3**
+
+
+    | State | Summer: Peak Start | Summer: Peak End | Winter: Peak Start | Winter: Peak End | Intermediate:
+    Peak Start | Intermediate: Peak End |
+
+    |---|---|---|---|---|---|---|
+
+    | TX | 18:00 | 22:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | UT | 18:00 | 22:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | VA | 18:00 | 22:00 | 16:00 | 20:00 | 16:00 | 20:00 |
+
+    | VT | 18:00 | 22:00 | 18:00 | 22:00 | 17:00 | 21:00 |
+
+    | WA | 17:00 | 21:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | WI | 18:00 | 22:00 | 17:00 | 21:00 | 17:00 | 21:00 |
+
+    | WV | 16:00 | 20:00 | 17:00 | 21:00 | 16:00 | 20:00 |
+
+    | WY | 18:00 | 22:00 | 8:00 | 12:00 | 8:00 | 12:00 |'
+- label: Table 8
+  caption: Final Selection of Demand Flexibility Options to Cover the Likely Program Space
+  source_pdf: measure_pdfs/93846.pdf
+  source_pdf_sha256: 116beec10a3e99257e74721cdf9cfb152cf0c417cf09f615cd196892c45d7711
+  page: 33
+  method: extracted grid, with cells that were run together separated (compared with the page text layer)
+  transcribed_utc: '2026-11-11'
+  replaces:
+    table_sha256: b2a3f94bbf323248c36b1406c80940d25aa4b8be51a166c78f43acfd08de8a35
+    why: 'In four of the five rows the Pre-Peak Duration value was run into the Upgrade cell (''1 (on-peak
+      load shedding, 4 hours, 2°F offset) No pre-peak'') and its own cell left blank; in one of them the
+      value was split (''...) 4'' and ''hours''). A reader could not tell the upgrade''s name from its
+      pre-peak duration. Every word and number is the extractor''s own, put back in its column; the two
+      header rows are written together (''Pre-Peak: Duration'').'
+  markdown: '| Upgrade | Pre-Peak: Duration | Pre-Peak: Offset (°F) | On-Peak: Duration | On-Peak: Offset
+    (°F) |
+
+    |---|---|---|---|---|
+
+    | 1 (on-peak load shedding, 4 hours, 2°F offset) | No pre-peak | N/A | 4 hours | 2 |
+
+    | 2 (pre-peak load shifting, 4 hours, 2°F offset) | 4 hours | 2 | No on-peak | N/A |
+
+    | 3 (on-peak load shedding, 4 hours, 4°F offset) | No pre-peak | N/A | 4 hours | 4 |
+
+    | 4 (pre-peak load shifting, 4 hours, 4°F offset) | 4 hours | 4 | No on-peak | N/A |
+
+    | 5 (pre-peak load shifting, 1 hour, 2°F offset) | 1 hour | 2 | No on-peak | N/A |'
+checked:
+- label: List of Acronyms
+  uncaptioned: true
+  source_pdf: measure_pdfs/93846.pdf
+  source_pdf_sha256: 116beec10a3e99257e74721cdf9cfb152cf0c417cf09f615cd196892c45d7711
+  page: 5
+  table_sha256: 704ad70b7bf8841e3d722110e37adf5959d34a86aec8df45cf0552e4018cdd33
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: Five acronyms, D3 to RECS, each with its expansion; the first entry sits in the header row.
+- label: Table 1
+  caption: Load Flexibility Scenario Settings in Existing Smart Thermostat Programs
+  source_pdf: measure_pdfs/93846.pdf
+  source_pdf_sha256: 116beec10a3e99257e74721cdf9cfb152cf0c417cf09f615cd196892c45d7711
+  page: 12
+  table_sha256: 23a56fb36d8425017750066970c01d3082cc92eb73dc0a4bfca5addce7d817df
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The six programs match the page.
+- label: Table 2
+  caption: Load Flexibility Dispatch Duration and Set Point Offset Summary
+  source_pdf: measure_pdfs/93846.pdf
+  source_pdf_sha256: 116beec10a3e99257e74721cdf9cfb152cf0c417cf09f615cd196892c45d7711
+  page: 12
+  table_sha256: 50858c974efb367bdc3d36dacaac0cda3e23296229ae4e3ebf53ec45769e2267
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The single row matches the page; the header 'On- Peak' carries a line-break space.
+- label: Table 4
+  caption: Summarized Applicability Logic for HVAC Load Flexibility
+  source_pdf: measure_pdfs/93846.pdf
+  source_pdf_sha256: 116beec10a3e99257e74721cdf9cfb152cf0c417cf09f615cd196892c45d7711
+  page: 17
+  table_sha256: 5a4645d5b606b8cbfce31901cd7218a08defa739495f7ae02f8e455446a51ffb
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: All 23 rows and values match the page, in order. The HVAC Cooling Type cells are merged over their
+    rows in the PDF and are repeated on each row.
+- label: Table 5
+  caption: Input Variables for HVAC Load Flexibility
+  source_pdf: measure_pdfs/93846.pdf
+  source_pdf_sha256: 116beec10a3e99257e74721cdf9cfb152cf0c417cf09f615cd196892c45d7711
+  page: 19
+  table_sha256: 8d24b2d07887577d43f76a8511626b8319bc61362cd45bc9d64f48a7b3894488
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The five variables match the page.
+- label: Table 6
+  caption: Test Run Specification for Initial Sensitivity Analysis
+  source_pdf: measure_pdfs/93846.pdf
+  source_pdf_sha256: 116beec10a3e99257e74721cdf9cfb152cf0c417cf09f615cd196892c45d7711
+  page: 23
+  table_sha256: 0cf73244db5205352cd482e29cb2134c01b2ebf87306abdf320081d40df37c5f
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The two-row header (Pre-Peak and On-Peak over Duration and Offset) is a header row plus a first
+    data row; the 17 upgrade rows match the page.
+- label: Table 7
+  caption: Test Run Specification for Final Sensitivity Analysis
+  source_pdf: measure_pdfs/93846.pdf
+  source_pdf_sha256: 116beec10a3e99257e74721cdf9cfb152cf0c417cf09f615cd196892c45d7711
+  page: 32
+  table_sha256: e8b951150ee5874492c046eec55c1bc3a1e15fc6c7cfa5377ea69f01c7e01da8
+  verdict: correct
+  checked_utc: '2026-11-11'
+  note: The two-row header is a header row plus a first data row; the 12 upgrade rows match the page.
+figures:
+- source_image: 93846_images/image_000002_2bbdeeb898afdcae484f1b9cee7eb972193faaaa298c9490cd1fb5d70b624a8f.png
+  source_image_sha256: 46177a614f424dd03606fce9cf57f6d307e53d0513c60e118e3a8373405c973c
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Four bar charts of the distributions of cooling and heating set points, cooling setup and heating
+    setback
+  description: 'Figure 1: four bar charts of dwelling units. Top: cooling setpoint and heating setpoint
+    distributions by temperature bin; the commonest cooling bins hold 19% to 20% of dwellings each, the
+    commonest heating bins 21% and 23%. Bottom: cooling set up, where 66% of dwellings use 0°F, 20% use
+    2°F, 9% use 5°F and 5% use 9°F; and heating set back, 58% at 0°F, 26% at 3°F, 12% at 6°F and 5% at
+    12°F.'
+- source_image: 93846_images/image_000003_06ad1ce32d34b0a4c47437dc4560d542e3896ac29aeb4ea0e7a85f2e95bb78c7.png
+  source_image_sha256: f8ac83f6246bda5e037c96be860916a801d18cda779a48e5f3ff6d11d28a21f9
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: 'Block diagram of the modeling approach: on-peak hour input, load flexibility measure, and results'
+  description: 'Figure 2: block diagram in three columns headed On-peak Hour Input, Load Flexibility Measure
+    and Results. The input is the on-peak hours in each state (summer, winter and intermediate peak start
+    and end). The measure applies a relative set point offset during pre-peak and on-peak hours to the
+    default set point schedule, with a random shift of -30 to 30 minutes, following a scenario design
+    of pre-peak duration and offsets. Results are the baseline load profile and the profile after demand
+    response.'
+- source_image: 93846_images/image_000004_9fdc5c56e0145c0c5a74d4625ceb19c412c38ae3247f56420193b3bd7856b5b1.png
+  source_image_sha256: 09a56c1703b9b3bd67cf4c00a8204f7fc2bca0c61161948ead61c5f732ac7d1d
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of heating set point over five January days for three upgrade scenarios
+  description: 'Figure 3: line chart titled ''Temperature setpoint''. X-axis is time over about five days
+    in early January 2007; y-axis is temperature in °F. Three series, Upgrade 0, Upgrade 1 and Upgrade
+    2, are the heating set point. All follow the same daily schedule of a higher and a lower set point;
+    once a day Upgrade 1 steps up above the others for a few hours and then drops below, and Upgrade 2
+    only drops. Axis values are too small to read in the bitmap.'
+- source_image: 93846_images/image_000005_07961a4f4885bb7ef48a54f29e7f3a97d1eafac235668c2a941a3f5648e1353b.png
+  source_image_sha256: 47707fb3aa9b0d1626734f94c884b96cd10bbcbb572809670037ddce3bdf5022
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of conditioned space temperature over five January days for three upgrade scenarios
+  description: 'Figure 4: line chart titled ''Conditioned Space Temperature''. X-axis is time over about
+    five days in early January 2007; y-axis is temperature in °F. Three series, Upgrade 0, Upgrade 1 and
+    Upgrade 2, follow the same daily pattern as the set points in Figure 3: the space temperature rises
+    above the baseline for a few hours each day under Upgrade 1 and then dips, and only dips under Upgrade
+    2. Axis values are too small to read in the bitmap.'
+- source_image: 93846_images/image_000006_237219a796170b95c283c7880a902ec35a40297ff8ae71239d18baa8505fdbb9.png
+  source_image_sha256: 632b6dda16b0942a3b6155da147719e98260911ba5c68f313e1b76b81ec8706c
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of heating energy consumption over five January days for three upgrade scenarios
+  description: 'Figure 5: line chart titled ''Heating Energy Consumption''. X-axis is time over about
+    five days in early January 2007; y-axis is energy. Three series, Upgrade 0, Upgrade 1 and Upgrade
+    2, lie almost on top of each other, with short sharp drops and spikes once a day where the set point
+    changes. The caption calls this a conditioned space temperature check; the plot''s own title is heating
+    energy. Axis values are too small to read in the bitmap.'
+- source_image: 93846_images/image_000007_10db1b29bf7776feccb0e8319ad0e975528394d7820b2a6d692c2bfcdc91a17f.png
+  source_image_sha256: da4da0e5995ca7ce4e106bb41d6193da45342b19f9e0c4bc5cc3dad143e0f255
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of daily total heating energy in one building over six days for three upgrade scenarios
+  description: 'Figure 6: line chart titled ''Daily Total Heating Energy consumption''. X-axis is January
+    1 to 6, 2007; y-axis is energy usage, 65 to 95. Three series, Upgrade 0, Upgrade 1 and Upgrade 2,
+    are heating electricity in kWh and stay within about 2 of each other every day: all rise from about
+    76 to a peak near 88 on January 5 and fall to about 65 on January 6.'
+- source_image: 93846_images/image_000008_3d2bc4c66e1a8bfb1a2e48c59565c0fbeafd4cf84475045a6c45fbd071788c3a.png
+  source_image_sha256: aef7c0cb0178a4e128693970d9bfde4fb470522b20c1d98eb47d4117650b90a8
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of heating energy consumption in 13 buildings over seven days for three upgrade scenarios
+  description: 'Figure 7: line chart titled ''Heating Energy Consumption - 13 buildings''. X-axis is January
+    1 to 7, 2007; y-axis is energy usage, 24 to 34. Three series, Upgrade 0, Upgrade 1 and Upgrade 2,
+    are heating electricity in kWh. All rise from about 25 to about 33.5 over the week; Upgrade 1 runs
+    about 0.5 above the other two, which nearly coincide.'
+- source_image: 93846_images/image_000009_2495bdaaa88f1d942605d350662dd9d2731318e0bdc82ec792f3a82008fdbf3d.png
+  source_image_sha256: d00ee659a1aac6d53093616d7fc612a3319a9e9e092651eef0a1388c99f7c2c0
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Two line charts of percent cooling reduction by state on an extreme day, 2°F and 4°F offsets, six
+    pre-peak durations
+  description: 'Figure 8, first bitmap: two line charts, ''Offset: 2F'' above ''Offset: 4F''. X-axis is
+    state, ordered from largest to smallest reduction; y-axis is percent reduction. Six series are no
+    pre-peak and pre-peak durations of 15 minutes, 30 minutes, 1 hour, 2 hours and 4 hours. Longer pre-peak
+    periods give larger reductions: about 35% to 45% in the leading state at 2°F and about 62% to 75%
+    at 4°F, falling to about 10% and 30% in the last states.'
+- source_image: 93846_images/image_000010_31a3b6f9472ee7882b0c081baafed934581c4572b394e472da91cc5a4f77dbc6.png
+  source_image_sha256: 276510a2a9165b5adc1e3cad11b2f3c2d1e030309e44213a30aff5e58ac77862
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of percent cooling reduction by state on an extreme day, 4°F peak offset with 6°F pre-peak
+    offset
+  description: 'Figure 8, second bitmap: line chart titled ''Offset: Peak 4F, Pre-peak 6F'', laid out
+    like the two above it. X-axis is state; y-axis is percent reduction, 0 to above 80. Six series are
+    no pre-peak and pre-peak durations from 15 minutes to 4 hours. Reductions are about 63% to 82% in
+    the leading states and about 25% to 45% in the last ones, the 4-hour pre-peak line highest throughout.'
+- source_image: 93846_images/image_000011_65450befe3cba9bb93cad8f3ddf5b0e2f95da7953fad5c8ca7565170ba960923.png
+  source_image_sha256: ef41cc8588e4e4bdf56020c4b8b9ce275269a5c9dea1972636f2214a384453be
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Two line charts of percent cooling reduction by state over the whole year, 2°F and 4°F offsets
+  description: 'Figure 9, first bitmap: two line charts, ''Offset: 2F'' above ''Offset: 4F'', for the
+    whole year. X-axis is state, ordered from largest to smallest reduction; y-axis is percent reduction.
+    Six series are no pre-peak and pre-peak durations from 15 minutes to 4 hours. Reductions run from
+    about 37% to 51% in the leading state down to about 13% to 15% at 2°F, and from about 65% to 83% down
+    to about 25% at 4°F.'
+- source_image: 93846_images/image_000012_129951035cfe5ecb59cd46b0a110748ac65b4708fa12fddfb92ed44233e3173b.png
+  source_image_sha256: 9d03416c0c58cac1d24ae528336b1658558101e78d1048c03103eece1e3a122e
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of percent cooling reduction by state over the whole year, 4°F peak offset with 6°F
+    pre-peak offset
+  description: 'Figure 9, second bitmap: line chart titled ''Offset: Peak 4F, Pre-peak 6F'', for the whole
+    year. X-axis is state; y-axis is percent reduction, about 20 to 90. Six series are no pre-peak and
+    pre-peak durations from 15 minutes to 4 hours. Reductions are about 65% to 88% in the leading state
+    and about 23% to 27% in the last, with the lines crossing in a few low-reduction states.'
+- source_image: 93846_images/image_000013_23d53b26aa5e4186935f6d6eac63b188087cda48003e428010de7152ad96512d.png
+  source_image_sha256: 16e39e6ace7fd74a5a5ed8749bc1d9cb7408d6c8fa8f7aa7578abbf93a496bb9
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of average cooling energy and outdoor temperature on a shoulder-season day in Idaho,
+    with peak bands
+  description: 'Figure 10: line chart from 09:00 on May 25 to 00:00 on May 26, 2020. Left axis is average
+    cooling in kWh, 0 to about 0.45; right axis is temperature in °C for the outdoor temperature line.
+    Shaded bands mark the pre-peak and peak periods, and the legend lists the baseline and the offset
+    scenarios. Cooling is near zero until mid-afternoon, then spikes to roughly 0.25 to 0.3 kWh at the
+    starts of the shaded periods.'
+- source_image: 93846_images/image_000014_be750ad86d30b61c6abb090759d400be4aeb849dbc0794f50ea6eaa0fa2d29c9.png
+  source_image_sha256: 820b9bdb87cf2d333bbb328128aee5b2447b04124c82a5a4b47f8563d9fd442a
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Scatter plot of state average hourly cooling load during the peak period against daily average
+    temperature
+  description: 'Figure 11: scatter plot, points coloured by state. X-axis is daily average temperature
+    in °C, 0 to about 37; y-axis is cooling in kWh, 0 to 1.2. Cooling load is near zero below about 10°C
+    and rises with temperature, reaching about 0.6 to 1.2 kWh at 30°C and above, with a wide spread between
+    states at any one temperature.'
+- source_image: 93846_images/image_000015_ef0017f010af5299bca91b9cb7119768ae4d1ffbb283ad5bb3fc89d27212a2fd.png
+  source_image_sha256: 342a7ce9b9a36248ea73318def79a1ccfd7bff39d4150711772532acc5caa9eb
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Scatter plot of state average hourly heating load during the peak period against daily average
+    temperature
+  description: 'Figure 12: scatter plot, points coloured by state. X-axis is daily average temperature
+    in °C, -30 to 40; y-axis is average heating in kWh, 0 to 25. Heating load falls as temperature rises:
+    the highest points, about 20 to 24 kWh, are at about -20°C, most points at 0°C are below about 12
+    kWh, and the load is near zero above about 20°C.'
+- source_image: 93846_images/image_000016_a50df4318adb1579dae25e91dee8489873e29d12106594e88fbce365042f5d6f.png
+  source_image_sha256: fa246735c415c4f4fb517edf5225373071239b681a874c82d1c0ca730cb2ef9c
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of percent cooling reduction by state on the hottest day for five pre-peak and peak
+    combinations
+  description: 'Figure 13: line chart. X-axis is state, ordered by reduction; y-axis is percent reduction,
+    about -10 to 80. Five series: peak only (4 hours, 4°F), pre-peak only for 1 hour and for 4 hours,
+    and both for 1 hour and for 4 hours. Pre-peak only gives the least, mostly under 15%; peak only runs
+    from about 50% down to about 15%; both together give the most, about 60% down to about 20%.'
+- source_image: 93846_images/image_000017_05cb93c72021777f372119f5a582fda107b0e9b4adaf8974bf75f22ea6f5b5e0.png
+  source_image_sha256: 90d232efae19a75d6ad60fe2503a44d2638a5cf5b1c0fab11012ef372465dcee
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Line chart of percent heating reduction by state on the coldest day for five pre-peak and peak
+    combinations
+  description: 'Figure 14: line chart. X-axis is 24 states from NY to SC; y-axis is percent reduction,
+    about -30 to 100. Five series: peak only (4 hours, 4°F), pre-peak only for 1 hour and for 4 hours,
+    and both for 1 hour and for 4 hours. Reductions are near 100% in the first states and fall to about
+    40% to 50% for peak only; the pre-peak-only lines are lowest and most erratic, and several lines dip
+    below zero for California.'
+- source_image: 93846_images/image_000018_b1277cf5e376d84f28b0a9476c785f23557b32c1cf751e86d6c79b4f672a445c.png
+  source_image_sha256: 36a20c2d608c6d9b7c4f72d44505625c0e661f9aff0ea4b97db1a06821f9bbf2
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Two panels of state-level electricity reduction during the peak for load shedding, 4 hours, 2°F
+    offset
+  description: 'Figure 15: two panels, Heating above Cooling, titled ''Electricity End Use Reduction during
+    Peak Period for Load Shedding, 4hrs, 2°F offset, Single-Family Detached''. X-axis is state; y-axis
+    is percentage reduction, 0% to 100%. Each state has a marker for the mean with bars for the 25th to
+    75th percentiles, coloured by season. Winter heating means fall from about 70% in the first state
+    to about 15%; summer cooling means from about 40% to about 18%.'
+- source_image: 93846_images/image_000019_32bfa25b4cc07367e7046cdb74ba6f2027878651234ceecf4ecdc64e7bbbf6b1.png
+  source_image_sha256: b03407b896d54a87d30e74768bf651cb2496b9cad792aebd9dc2ac23256b9e54
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Two panels of state-level electricity reduction during the peak for load shifting, 4 hours, 2°F
+    offset
+  description: 'Figure 16: two panels, Heating above Cooling, titled ''Electricity End Use Reduction during
+    Peak Period for Load shifting, 4hrs, 2°F offset, Single-Family Detached''. X-axis is state; y-axis
+    is percentage reduction, 0% to 40%. Markers show the mean with 25th to 75th percentile bars, coloured
+    by season. Winter heating means fall from about 35% in the first state to about 5%; summer cooling
+    means from about 12% to about 3%.'
+- source_image: 93846_images/image_000020_40322e352f9234c7d0dd8a0ba791a28c636cd4a72fa58fbdd1c4f00a82390da0.png
+  source_image_sha256: cf11f9136ec614f0f5551ef32ad951ff89e6aa118853c9a3202bdb941ef5a12b
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Two panels of state-level electricity reduction during the peak for load shedding, 4 hours, 4°F
+    offset
+  description: 'Figure 17: two panels, Heating above Cooling, titled ''Electricity End Use Reduction during
+    Peak Period for Load Shedding, 4hrs, 4°F offset, Single-Family Detached''. X-axis is state; y-axis
+    is percentage reduction, 0% to 100%. Markers show the mean with 25th to 75th percentile bars, coloured
+    by season. Winter heating means fall from about 88% in the first state to about 25%; summer cooling
+    means from about 70% to about 35%.'
+- source_image: 93846_images/image_000021_96c52fcbe82c8d709c440a0c8632b0d2eb75e08c798a0947aed58f821c99e07e.png
+  source_image_sha256: c42efc8133a836b8b0967f430f97c71c0ad9c3fa48adf4a5cbaca093f13a6926
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Two panels of state-level electricity reduction during the peak for load shifting, 4 hours, 4°F
+    offset
+  description: 'Figure 18: two panels, Heating above Cooling, titled ''Electricity End Use Reduction during
+    Peak Period for Load shifting, 4hrs, 4°F offset, Single-Family Detached''. X-axis is state; y-axis
+    is percentage reduction, 0% to 70%. Markers show the mean with 25th to 75th percentile bars, coloured
+    by season. Winter heating means fall from about 55% in the first state to about 12%; summer cooling
+    means from about 22% to about 7%.'
+- source_image: 93846_images/image_000022_cc011a5720a274c7a89a7796c1b2d57b07f1460411884ec1845ce7843d85d827.png
+  source_image_sha256: 5c15e1d988f0c8a08a6336db39839cf6a5c068561ac785605df8f73d4a33e63e
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Two panels of state-level electricity reduction during the peak for load shifting, 1 hour, 2°F
+    offset
+  description: 'Figure 19: two panels, Heating above Cooling, titled ''Electricity End Use Reduction during
+    Peak Period for Load shifting, 1hrs, 2°F offset, Single-Family Detached''. X-axis is state; y-axis
+    is percentage reduction, 0% to 30%. Markers show the mean with 25th to 75th percentile bars, coloured
+    by season. Winter heating means fall from about 22% in the first state to about 3%; summer cooling
+    means from about 6% to about 2%.'
