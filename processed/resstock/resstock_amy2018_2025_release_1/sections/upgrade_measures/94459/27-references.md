@@ -3,13 +3,13 @@
 
 Building Technologies Office (BTO). 2022. EnergyPlus™ Version 22.1.0 Documentation: Application Guide for EMS . U.S. Department of Energy. https://energyplus.net/assets/nrel\_custom/pdfs/pdfs\_v22.1.0/EMSApplicationGuide.pdf.
 
-[California Energy Commission. 2025. 'New ZEV Sales in California.' Accessed July 2025. https://www.energy.ca.gov/data-reports/energy-almanac/zero-emission-vehicle-andinfrastructure-statistics-collection/new-zev.](https://www.energy.ca.gov/data-reports/energy-almanac/zero-emission-vehicle-and-infrastructure-statistics-collection/new-zev)
+[California Energy Commission. 2025. 'New ZEV Sales in California.' Accessed July 2025. https://www.energy.ca.gov/data-reports/energy-almanac/zero-emission-vehicle-and-infrastructure-statistics-collection/new-zev.](https://www.energy.ca.gov/data-reports/energy-almanac/zero-emission-vehicle-and-infrastructure-statistics-collection/new-zev)
 
 Federal Highway Administration. 2022. 'National Household Travel Survey.' U.S. Department of Transportation. Accessed n.d. https://nhts.ornl.gov/.
 
 IEA (International Energy Agency). 2025. Global EV Outlook 2025 . Paris: IEA. https://www.iea.org/reports/global-ev-outlook-2025. Licensed under CC BY 4.0.
 
-Muratori, Matteo, Paige Jadun, Brian Bush, Chris Hoehne, Laura Vimmerstedt, Arthur Yip, Jeff Gonder, Erin Winkler, Chris Gearhart, and Douglas Arent. 2021. 'Exploring the Future EnergyMobility Nexus: The Transportation Energy &amp; Mobility Pathway Options (TEMPO) Model.' Transportation Research Part D: Transport and Environment 98: 102967. https://doi.org/10.1016/j.trd.2021.102967.
+Muratori, Matteo, Paige Jadun, Brian Bush, Chris Hoehne, Laura Vimmerstedt, Arthur Yip, Jeff Gonder, Erin Winkler, Chris Gearhart, and Douglas Arent. 2021. 'Exploring the Future Energy-Mobility Nexus: The Transportation Energy &amp; Mobility Pathway Options (TEMPO) Model.' Transportation Research Part D: Transport and Environment 98: 102967. https://doi.org/10.1016/j.trd.2021.102967.
 
 Reyna, Janet, Anthony Fontanini, Elaina Present, Lixi Liu, Rajendra Adhikari, Carlo Bianchi, Jes Brossman, Rohit Chintala, Kenya Clark, Chioke Harris, Scott Horowitz, Yingli Lou, Jeff Maguire, Noel Merket, Nathan Moore, Prateek Munankarmi, Joseph Robertson, Noah Sandoval, Andrew Speake, Katelyn Stenger, Philip White, and Eric Wilson. 2024. ResStock Technical Reference Documentation, v3.3.0 . Golden, CO: National Renewable Energy Laboratory. NREL/TP-5500-91621.
 
@@ -19,6 +19,6 @@ U.S. Energy Information Administration. 2020. 'Residential Energy Consumption Su
 
 Vehicle Technologies Office. 2023. 'FOTW #1309, September 25, 2023: There Were Four Counties in California with Electric Vehicle Market Penetration Exceeding 30% as of December 2022.' U.S. Department of Energy . Sept. 25, 2023.
 
-[https://www.energy.gov/eere/vehicles/articles/fotw-1309-september-25-2023-there-were-fourcounties-california-electric.](https://www.energy.gov/eere/vehicles/articles/fotw-1309-september-25-2023-there-were-four-counties-california-electric)
+[https://www.energy.gov/eere/vehicles/articles/fotw-1309-september-25-2023-there-were-four-counties-california-electric.](https://www.energy.gov/eere/vehicles/articles/fotw-1309-september-25-2023-there-were-four-counties-california-electric)
 
 Yip, Arthur, Christopher Hoehne, Paige Jadun, Catherine Ledna, Elaine Hale, and Matteo Muratori. 2023. Highly Resolved Projections of Passenger Electric Vehicle Charging Loads for the Contiguous United States: Results From and Methods Behind Bottom-Up Simulations of County-Specific Household Electric Vehicle Charging Load (Hourly 8760) Profiles Projected Through 2050 for Differentiated Household and Vehicle Types . https://doi.org/10.2172/1984452.

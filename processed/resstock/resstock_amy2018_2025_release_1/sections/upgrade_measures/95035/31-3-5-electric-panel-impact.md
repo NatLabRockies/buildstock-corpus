@@ -59,7 +59,7 @@ Figure 13. Percent of dwelling units with an electric panel constraint (capacity
 
 Figure 13: choropleth map of the United States with Alaska and Hawaii insets, titled 'Percent of Dwelling Units with Electric Panel Capacity and/or Space Constraints'. Each state is shaded and labelled with its percentage; the legend runs from 6.4% to 61.0%. Shares are highest in the Northeast, the northern Plains and Alaska and lowest across the South, where most states are between about 13% and 23%.
 
-Figure 14. Percent of dwelling units with an electric panel space constraint by state after a twostage GHP with envelope improvements and advanced air sealing
+Figure 14. Percent of dwelling units with an electric panel space constraint by state after a two-stage GHP with envelope improvements and advanced air sealing
 
 <!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95035.yaml
      source: 95035_images/image_000016_da28bfc36dbf5d49c3903939378ed4d646868cd604bbdf1e143fca324c801ecf.png

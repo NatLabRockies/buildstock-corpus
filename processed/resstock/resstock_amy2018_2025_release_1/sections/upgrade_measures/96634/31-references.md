@@ -11,7 +11,7 @@ ANSI/ASHRAE. 2022. ASHRAE 103-2022 - Method of Testing for Annual Fuel Utilizati
 
 DOE. 2025. 'Consumer Furnaces.' U.S. Department of Energy. https://www.energy.gov/eere/buildings/consumer-furnaces.
 
-HPXML. 2025. 'Workflow Inputs OpenStudioHPXML Documentation.' NREL. https://openstudio-hpxml.readthedocs.io/en/latest/workflow\_inputs.html#hpxml-systems.
+HPXML. 2025. 'Workflow Inputs - OpenStudio-HPXML Documentation.' NREL. https://openstudio-hpxml.readthedocs.io/en/latest/workflow\_inputs.html#hpxml-systems.
 
 Reyna, Janet, et al. 2025. ResStock Technical Reference Documentation v3.3.0. Golden, CO: National Renewable Energy Laboratory. NREL/TP-5500-91621. https://www.nlr.gov/docs/fy25osti/91621.pdf.
 

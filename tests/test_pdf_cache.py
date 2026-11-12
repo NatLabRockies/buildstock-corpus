@@ -24,6 +24,7 @@ FINGERPRINT = {
     "do_cell_matching": True,
     "generate_picture_images": True,
     "table_footnotes": "in_body",
+    "line_end_hyphens": "kept_between_words",
 }
 SHA = "f" * 64
 
@@ -193,6 +194,58 @@ def test_a_cache_built_before_footnotes_were_released_is_reconverted(cache):
     """The footnote step changes the markdown, so it is part of the fingerprint: a cache dir
     recorded without it is a miss, not a hit that silently keeps the dropped footnotes."""
     old = {k: v for k, v in FINGERPRINT.items() if k != "table_footnotes"}
+    cache.seed(opts=old)
+
+    PDF._cache_dir_for(cache.spec)
+
+    assert cache.converted == [str(cache.spec.abs_path)]
+
+
+def _docling_join(self, lines):
+    """docling's PageAssembleModel.sanitize_text, as far as joining lines goes (2.115.0)."""
+    import re
+
+    for ix, line in enumerate(lines[1:]):
+        prev = lines[ix]
+        if prev.endswith("-"):
+            a, b = re.findall(r"\b[\w]+\b", prev), re.findall(r"\b[\w]+\b", line)
+            if a and b and a[-1].isalnum() and b[0].isalnum():
+                lines[ix] = prev[:-1]
+        else:
+            lines[ix] += " "
+    return "".join(lines).strip()
+
+
+@pytest.mark.parametrize(
+    "lines, expected",
+    [
+        (["Pre- and Post-", "Retrofit Leakage"], "Pre- and Post-Retrofit Leakage"),  # 96738 Table 3
+        (["https://x.gov/zero-emission-vehicle-and-", "infrastructure/new-zev."],
+         "https://x.gov/zero-emission-vehicle-and-infrastructure/new-zev."),
+        (["bins of 40-", "59% and above"], "bins of 40-59% and above"),  # digits on both sides
+        (["one line", "then another"], "one line then another"),  # no hyphen: untouched
+        (["a spaced dash -", "stays spaced"], "a spaced dash - stays spaced"),
+        (["ends in a hyphen-"], "ends in a hyphen-"),  # last line: nothing to join
+        # A dash that is a text cell of its own (an en dash between numbers): docling keeps
+        # it as it is, and so must this.
+        (["climate zones 3", "-", "5) require"], "climate zones 3 -5) require"),
+        (["non-", "weatherized and end-", "use loads"], "non-weatherized and end-use loads"),
+    ],
+)
+def test_a_hyphen_at_a_line_end_is_kept(lines, expected):
+    """docling drops it and runs the halves together ('PostRetrofit'); the wrapper keeps it
+    and leaves every other join to docling."""
+    assert PDF._keep_line_end_hyphens(_docling_join)(None, lines) == expected
+
+
+def test_keeping_hyphens_does_not_change_the_callers_lines():
+    lines = ["Post-", "Retrofit"]
+    PDF._keep_line_end_hyphens(_docling_join)(None, lines)
+    assert lines == ["Post-", "Retrofit"]
+
+
+def test_a_cache_built_before_line_end_hyphens_were_kept_is_reconverted(cache):
+    old = {k: v for k, v in FINGERPRINT.items() if k != "line_end_hyphens"}
     cache.seed(opts=old)
 
     PDF._cache_dir_for(cache.spec)

@@ -25,7 +25,7 @@ Figure 4. July hourly average cooling electricity consumption for Dwelling 2 bef
 
 Figure 4: line chart for July. X-axis is hour of day, 0 to 23; y-axis is cooling electricity in kWh, 0 to about 0.9. Series are average baseline and average upgrade cooling electricity for Dwelling 2. Both are lowest near hour 5, at about 0.2 kWh, and peak at hour 15, the baseline at about 0.86 kWh and the upgrade at about 0.65.
 
-Figure 5 confirms that the observed infiltration rate is reduced by roughly the 30% input into the model. Because of the formulation of the infiltration model, the output is not exactly a one-toone match with the input single value number.
+Figure 5 confirms that the observed infiltration rate is reduced by roughly the 30% input into the model. Because of the formulation of the infiltration model, the output is not exactly a one-to-one match with the input single value number.
 
 Figure 5. January hourly average infiltration rates for Dwelling 1 before and after upgrade
 

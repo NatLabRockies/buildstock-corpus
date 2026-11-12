@@ -131,6 +131,8 @@ def _pipeline_fingerprint() -> dict:
             # way one would (see _detach_footnotes), so it is recorded with them: a cache
             # built before it lacks the key and is re-converted.
             "table_footnotes": "in_body",
+            # Likewise ours (see _keep_line_end_hyphens).
+            "line_end_hyphens": "kept_between_words",
         }
     return _fingerprint
 
@@ -157,12 +159,62 @@ def _write_fingerprint(cached: Path) -> None:
     )
 
 
+_HYPHEN_MARK = ""  # private-use character standing in for a line-end hyphen
+_WORDS_RE = re.compile(r"\b[\w]+\b")
+
+
+def _keep_line_end_hyphens(sanitize):
+    """Wrap docling's line joiner so a hyphen at a line end stays in the text.
+
+    docling joins the lines of a paragraph, heading or caption with a space, except that a
+    line ending in '-' between two words is joined to the next with neither the space nor
+    the hyphen. That suits a word split at a syllable and is wrong for a word spelled with
+    the hyphen that merely broke there: 'Post-' / 'Retrofit' came out 'PostRetrofit', and a
+    URL broken after a hyphen lost it and stopped resolving. Counted over the 28 ResStock
+    measure reports (scripts/count_line_end_hyphens.py), 311 hyphens were lost this way and
+    not one line-end hyphen in running text was a syllable break; the reports are typeset
+    without automatic hyphenation. ComStock's count says the same (543 lost, none a
+    syllable break). So the hyphen is always kept.
+
+    The joiner also normalizes quotes and ligatures, which should keep following docling.
+    So this does not copy it: each line-end hyphen is swapped for a private-use mark, the
+    original joiner then sees an ordinary line and adds its space, and mark-plus-space is
+    turned back into the hyphen. 'word -' at a line end (a spaced dash) keeps its space.
+    """
+
+    def joined(self, lines):
+        lines = list(lines)
+        for i, line in enumerate(lines[:-1]):
+            # Exactly docling's own test for dropping the hyphen: a word on each side.
+            # Anything else it already leaves alone (a dash that is a text cell of its own,
+            # as an en dash between two numbers is), and so does this.
+            if line.endswith("-"):
+                before, after = _WORDS_RE.findall(line), _WORDS_RE.findall(lines[i + 1])
+                if before and after and before[-1].isalnum() and after[0].isalnum():
+                    lines[i] = line[:-1] + _HYPHEN_MARK
+        text = sanitize(self, lines)
+        text = text.replace(f" {_HYPHEN_MARK} ", " - ")
+        return text.replace(f"{_HYPHEN_MARK} ", "-").replace(_HYPHEN_MARK, "-")
+
+    joined._keeps_line_end_hyphens = True
+    return joined
+
+
+def _patch_line_joiner() -> None:
+    """Install _keep_line_end_hyphens on docling's page assembler, once."""
+    from docling.models.stages.page_assemble.page_assemble_model import PageAssembleModel
+
+    if not getattr(PageAssembleModel.sanitize_text, "_keeps_line_end_hyphens", False):
+        PageAssembleModel.sanitize_text = _keep_line_end_hyphens(PageAssembleModel.sanitize_text)
+
+
 def _get_converter():
     global _converter
     if _converter is None:
         from docling.datamodel.base_models import InputFormat
         from docling.document_converter import DocumentConverter, PdfFormatOption
 
+        _patch_line_joiner()
         _converter = DocumentConverter(
             format_options={InputFormat.PDF: PdfFormatOption(pipeline_options=_pipeline_options())}
         )

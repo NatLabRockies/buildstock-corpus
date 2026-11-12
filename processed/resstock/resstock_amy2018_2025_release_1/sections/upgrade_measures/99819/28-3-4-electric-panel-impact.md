@@ -46,7 +46,7 @@ Figure 10: 100% stacked bar chart titled 'Electic Panel Constraint Type by Heati
 
 The next three figures show percentages of dwelling units for each state that would have some type of electric panel constraint after the two-stage GHP with envelope improvements is applied. Figure 11 shows a range of 6%-65% of dwelling units that would have either a capacity and/or space constraint after this upgrade package, with the largest prevalence of panel constraints occurring in colder states with high heating requirements. Specifically looking at space constraints, Figure 12 shows a smaller range from about 2% to 51% of dwelling units that would have a space constraint. Finally, Figure 13 shows a range of roughly 4% to 40% of dwelling units would have a capacity constraint.
 
-In general, switching to a GHP system is more likely to face panel constraints in heatingdominated climates due to a substantial new electric load being introduced. Compared with the stand-alone two-stage GHP measure (Jeff Maguire 2026), which shows ranges of 11%-70% for either capacity and/or space constraints, 4%-54% for space constraints, and 7%-48% for capacity constraints, these results indicate that light envelope improvements help mitigate panel constraints.
+In general, switching to a GHP system is more likely to face panel constraints in heating-dominated climates due to a substantial new electric load being introduced. Compared with the stand-alone two-stage GHP measure (Jeff Maguire 2026), which shows ranges of 11%-70% for either capacity and/or space constraints, 4%-54% for space constraints, and 7%-48% for capacity constraints, these results indicate that light envelope improvements help mitigate panel constraints.
 
 Figure 11. Percent of dwelling units with an electric panel constraint (capacity and/or space) by state after the two-stage GHP with light envelope improvements package is applied (applicable dwelling units only)
 
@@ -61,7 +61,7 @@ Figure 11: choropleth map of the contiguous United States. Each state is labelle
 
 Alaska: 53.0%, Hawaii: 17.7%.
 
-Figure 12. Percent of dwelling units with an electric panel space constraint by state after the twostage GHP with light envelope improvements package is applied (applicable dwelling units only)
+Figure 12. Percent of dwelling units with an electric panel space constraint by state after the two-stage GHP with light envelope improvements package is applied (applicable dwelling units only)
 
 <!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/99819.yaml
      source: 99819_images/image_000013_612766feca8d61c169a7507669c05e619af55dda06df9242d71299788d31f6b2.png

@@ -27,5 +27,5 @@ Figure 12. Time series for peak day in Colorado before and after upgrade
 
 Figure 12: line chart for February 20, 2018. X-axis is time of day, 00:00 to 24:00; y-axis is aggregated average power in kW, 5 to 13. Series are Baseline and 'Drill Fill Air Sealing'. The baseline peaks at about 12.9 kW near 07:00 and the upgrade at about 10.1 kW; both reach their minimum near 15:00, at about 7.0 and 5.4 kW.
 
-The baseline peak power was 12.9 kW per dwelling unit. After advanced air sealing with drilland-fill wall insulation was applied to the dwelling units, the peak power decreased to 10.1 kW per dwelling unit, representing a 15.5% reduction. Notable savings occurred throughout the entire day, including early morning and late at night. The peaks and valleys generally maintained the same shape.
+The baseline peak power was 12.9 kW per dwelling unit. After advanced air sealing with drill-and-fill wall insulation was applied to the dwelling units, the peak power decreased to 10.1 kW per dwelling unit, representing a 15.5% reduction. Notable savings occurred throughout the entire day, including early morning and late at night. The peaks and valleys generally maintained the same shape.
 

@@ -14,7 +14,7 @@ Figure 32. Average annual energy bill categorized by fuel type for dwelling unit
 
 Figure 32: horizontal grouped bar chart of average annual energy bills (USD, 0 to about 2,800) for dwelling units that received the upgrade, with rows for electricity, natural gas, fuel oil, propane and all fuels and one bar each for Baseline and Variable-Speed GHP. The all-fuels bill falls from roughly $2,800 to $2,100; natural gas, fuel oil and propane bills shrink to small values and electricity falls slightly.
 
-Figure 33 shows that the variable-speed GHP average energy bill is 22% less than the singlestage GHP energy bill and 11% less than the two-stage GHP energy bill.
+Figure 33 shows that the variable-speed GHP average energy bill is 22% less than the single-stage GHP energy bill and 11% less than the two-stage GHP energy bill.
 
 Figure 33. Average annual energy bill comparison between the single-stage, two-stage, and variable-speed GHP categorized by fuel type for applicable dwelling units only
 
@@ -40,7 +40,7 @@ Figure 34. Average annual energy bill categorized by Building America climate zo
 
 Figure 34: horizontal stacked bar chart of average annual energy bills (USD, 0 to about 5,200) for applicable dwelling units in eight Building America climate zones, with a Baseline bar and a Variable-Speed GHP bar per zone, stacked by electricity, natural gas, fuel oil and propane bills. The upgrade bar is shorter in every zone; Subarctic falls most, from roughly $5,200, mostly fuel oil, to about $2,900.
 
-Figure 35 compares the average annual energy bills for single-stage, two-stage, and variablespeed GHPs. Variable-speed GHPs have the lowest average energy bills, with most of the savings from electricity.
+Figure 35 compares the average annual energy bills for single-stage, two-stage, and variable-speed GHPs. Variable-speed GHPs have the lowest average energy bills, with most of the savings from electricity.
 
 Figure 35. Average annual energy bill comparison categorized by Building America climate zone for single-stage (single-speed), two-stage (two-speed), and variable-speed (variable-speed) GHPs
 

@@ -18,5 +18,5 @@ Table 2. Percentage of Dwelling Units by Vintage per Infiltration Rate Group in 
 | 10 ≤ X < 20         | 3.58%    | 13.46%      | 11.56%      | 6.92%   |
 | 20 ≤ X              | 8.19%    | 23.90%      | 7.76%       | 2.26%   |
 
-In general, the baseline of ResStock 2025 Release 1 shows that dwelling units built in the 19401979 range have the highest levels of applicability, followed by dwelling units built in 19801999.
+In general, the baseline of ResStock 2025 Release 1 shows that dwelling units built in the 1940-1979 range have the highest levels of applicability, followed by dwelling units built in 1980-1999.
 

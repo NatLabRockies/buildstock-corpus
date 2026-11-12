@@ -1,7 +1,7 @@
 <!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96344.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96344.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96344.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96344.md | section: 4.1.1  Individual Building Annual Energy Consumption | lines: 254-287 -->
 ## 4.1.1  Individual Building Annual Energy Consumption
 
-Figure 1 shows the annual energy consumption of three example dwelling units before and after duct sealing and insulation upgrades. The upgrades resulted in reductions across several heatingand cooling-related end uses, including heating, cooling, heating and cooling fans/pumps, heating heat pump backup, and associated backup fans/pumps.
+Figure 1 shows the annual energy consumption of three example dwelling units before and after duct sealing and insulation upgrades. The upgrades resulted in reductions across several heating-and cooling-related end uses, including heating, cooling, heating and cooling fans/pumps, heating heat pump backup, and associated backup fans/pumps.
 
 The example dwelling unit in Hawai'i (climate zone 1A) uses electricity for both heating and cooling. Its total cooling energy consumption (including cooling and cooling fans/pumps) was reduced from 46.5 MBtu to 38.6 MBtu, representing a 17% reduction. Because heating demand in Hawai'i is negligible, heating savings are not analyzed for this location.
 

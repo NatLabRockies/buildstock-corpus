@@ -17,7 +17,7 @@ Table recreated from [8]
 | 6               | R-60                      | R-49                                                                                  |
 | 7 & 8           | R-60                      | R-49                                                                                  |
 
-Table 3. Summary of Attic Floor Insulation Empirical Studies Across Climate Zones, Showing Preand Post-Retrofit R-Values Used to Inform Measure Assumptions
+Table 3. Summary of Attic Floor Insulation Empirical Studies Across Climate Zones, Showing Pre-and Post-Retrofit R-Values Used to Inform Measure Assumptions
 
 <!-- table recovered from measure_pdfs/96739.pdf p.12
      overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96739.yaml

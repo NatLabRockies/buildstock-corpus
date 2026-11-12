@@ -47,5 +47,5 @@ Figure 14. D3 percentage reduction of the heating energy consumption during the 
 
 Figure 14: line chart. X-axis is 24 states from NY to SC; y-axis is percent reduction, about -30 to 100. Five series: peak only (4 hours, 4°F), pre-peak only for 1 hour and for 4 hours, and both for 1 hour and for 4 hours. Reductions are near 100% in the first states and fall to about 40% to 50% for peak only; the pre-peak-only lines are lowest and most erratic, and several lines dip below zero for California.
 
-Another notable result, though not shown in the figures, was a minimal difference between a prepeak offset of 2°F and 4°F for pre-peak durations of 1 hour. This makes sense because the rate of the temperature increase possible in a home within 1 hour is limited by physical characteristics, such as the thermal mass of the dwelling and the capacity of the heating equipment.
+Another notable result, though not shown in the figures, was a minimal difference between a pre-peak offset of 2°F and 4°F for pre-peak durations of 1 hour. This makes sense because the rate of the temperature increase possible in a home within 1 hour is limited by physical characteristics, such as the thermal mass of the dwelling and the capacity of the heating equipment.
 

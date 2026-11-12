@@ -3,7 +3,7 @@
 
 For the variable-speed GHP, the same ResStock building energy model and OpenStudio ® -HPXML workflow are used as for the single- and two-stage GHPs.
 
-OpenStudioHPXML's apply\_ground\_to\_air\_heat\_pump() 3 method is used to apply multiple sets of speeds (and their respective performance curves) to water-to-air coil objects that support various speed levels:
+OpenStudio-HPXML's apply\_ground\_to\_air\_heat\_pump() 3 method is used to apply multiple sets of speeds (and their respective performance curves) to water-to-air coil objects that support various speed levels:
 
 - CoilCoolingWaterToAirHeatPumpVariableSpeedEquationFit
 - CoilHeatingWaterToAirHeatPumpVariableSpeedEquationFit.

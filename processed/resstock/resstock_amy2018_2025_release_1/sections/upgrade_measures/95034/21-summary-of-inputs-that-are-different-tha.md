@@ -3,7 +3,7 @@
 
 While some of the key inputs and their values are discussed above, Table 3 summarizes the inputs for the two-stage GHP measure in ResStock and OpenStudio-HPXML.
 
-Table 3. Summary of the Two-Stage GHP Measure Inputs That Differ From Those of the SingleStage GHP Measure
+Table 3. Summary of the Two-Stage GHP Measure Inputs That Differ From Those of the Single-Stage GHP Measure
 
 | Input                             | Value     | Source                               |
 |-----------------------------------|-----------|--------------------------------------|
