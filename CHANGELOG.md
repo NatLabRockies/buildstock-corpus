@@ -1,12 +1,147 @@
 # Changelog
 
 One entry per corpus build that is tagged. Tags are named `<release id>-v<N>` after the
-dataset release the build documents, and never move. Entries list documents added, removed
+dataset release the build documents, and never move. Two products share this file
+(ComStock and ResStock), each with its own tags; a product's newest tag is its topmost
+entry, and a product's folder exists only at its own tags and on `main`. Entries list documents added, removed
 or changed (by input hash), overlays changed, and tooling changes that alter output.
 `bsc changelog --from <tag>` computes the document-level part from two manifests, telling a
 document re-rendered by a tooling change (body hash moved) from one merely re-stamped with
 the new version, and `--append` inserts it here; the bullets saying *why* documents were
 re-rendered are written by hand above it.
+
+## resstock_amy2018_2025_release_1-v1 — 2026-11-12
+
+First tagged ResStock build, and the corpus's second product. Documents ResStock dataset
+release `resstock_amy2018_2025_release_1` (the AMY2012 dataset of the same release shares
+this documentation and is not built twice): 62 documents, 32 measures (all 32 documented,
+no tracked gap), 4,183 chunks, 1,147 section files. There is no earlier ResStock tag to
+diff against, so this entry is the document list and the notes below. The plan and every
+step's record are in `PLAN-resstock.md`. ComStock's files are unchanged by this tag; its
+current tag is still `comstock_amy2018_2025_release_3-v3`.
+
+### Sources
+
+- **Technical reference guide**, 7 chapters, from LaTeX in `NatLabRockies/resstock` at tag
+  `2025_Release_1_upgrades_29_to_32` (commit `3888e2f`), status `site_page`: the guide has
+  no OSTI number, and its publication URL is the PDF the ResStock site serves. That PDF
+  (October 2025) was built from a later, untagged state of the same source, so the two can
+  differ in places; the map says so under "About this release". Chapters the main file
+  comments out, and the appendix of option tables that chapter 3 already inlines, are not
+  converted.
+- **ResStock site**, 27 pages, from `NatLabRockies/ResStock.github.io` (commit `696c020`),
+  status `site_page`.
+- **Upgrade-measure reports**, 28 PDFs covering all 32 measures (measures 24 to 28 share
+  report 93846), status `osti_pdf`. The eight links the site spells `www.nlr.gov` are
+  recorded under `docs.nlr.gov`, so every OSTI URL has one spelling. Upgrade names come from
+  OEDI's `upgrades_lookup.json`; measure ids are the numbers `1` to `32`.
+
+### Tables and figures
+
+Every table and figure in the 28 reports was compared with its PDF page before this tag.
+
+- **105 tables hand-authored** in overlay sidecars: 63 transcribed or corrected because the
+  extracted grid was wrong (merged or displaced rows, lost rows, a grid under the wrong
+  caption, a URL or identifier broken by a line-wrap space), and 42 number grids that the
+  reports show as pictures (heat pump performance maps in 95032, 95034, 95036 and 96826,
+  6,457 values), read from the embedded images and checked by arithmetic and by surface fit.
+- **136 extracted tables recorded correct** (`checked:` entries, each pinned to the PDF and
+  to the table's fingerprint).
+- **467 figures described** from the picture: 453 in the reports, 14 in the guide.
+- **9 text repairs** to extracted text.
+- `bsc validate` re-verifies all of the above from the files in a clone. The fidelity audit
+  finds no orphaned table or figure caption in the reports. A second reader compared ten
+  tables drawn at random with their pages; all matched.
+
+### Extractor changes that also reach ComStock at its next build
+
+None of these changes a ComStock file at this tag; ComStock's PDFs are re-converted when it
+is next built.
+
+- docling's table mode is chosen per source; ResStock uses ACCURATE, and ComStock moves to
+  it at its next build.
+- Page footnotes that sit under a table or figure are no longer dropped (22 restored in the
+  ResStock reports; none was missing in ComStock).
+- A hyphen printed at a line end is kept: 'Post-' / 'Retrofit' no longer becomes
+  'PostRetrofit', and URLs broken after a hyphen resolve again (311 restored in the ResStock
+  reports).
+- Caption labels of appendix tables and figures (`Table A-2`) are recognized.
+- The product must be named on the command line (`--product`), since two are registered.
+
+### Known gaps and limits
+
+- Two Jupyter notebook how-to guides on the site are not converted; the map lists them.
+- 95032 Figure 2, a scanned manufacturer performance sheet, is described and not
+  transcribed: its digits cannot be read reliably.
+- Where a page prints an en dash between two numbers, the markdown can have a space before
+  the dash and none after ('3 -5' for '3–5'); a search for '3-5' misses these.
+- Inconsistencies inside the published documents are kept as printed; the sidecars and
+  `PLAN-resstock.md` name them.
+
+### Documents
+
+- `technical_reference/docs/technical_reference_guide/1_Introduction.tex` — Introduction
+- `technical_reference/docs/technical_reference_guide/2_ResStockStructureAndSampling.tex` — ResStock Workflow, Input Structure and Sampling
+- `technical_reference/docs/technical_reference_guide/3a_ResStockInputs.tex` — Housing Characteristics and Inputs
+- `technical_reference/docs/technical_reference_guide/3b_ResStockInputs_HVAC.tex` — HVAC
+- `technical_reference/docs/technical_reference_guide/3c_ResStockInputs.tex` — Water Heating, Appliances, Lighting, Plug Loads, Electric Vehicles, Electrical Panels, Household Characteristics
+- `technical_reference/docs/technical_reference_guide/5_ResStockOutputs.tex` — ResStock Outputs
+- `technical_reference/docs/technical_reference_guide/6_PublicDataAccess.tex` — Public Data Access
+- `github_site/docs/citation_data_attribution.md` — Citation and Data Attribution
+- `github_site/docs/contact.md` — Contact
+- `github_site/docs/data.md` — Data
+- `github_site/docs/developers.md` — For Developers
+- `github_site/docs/FAQ.md` — FAQ
+- `github_site/docs/resources/explanations/Building_Types.md` — Building Types Not Included In ResStock
+- `github_site/docs/resources/explanations/Considerations_for_ResStock_Calibration_and_Validation.md` — Considerations for ResStock Calibration and Validation
+- `github_site/docs/resources/explanations/Geographic_Fields_and_Codes.md` — Geographic Fields and Codes
+- `github_site/docs/resources/explanations/Individual_Measures_Not_Combined.md` — Why Individual ResStock Measures Should Not Be Combined
+- `github_site/docs/resources/explanations/Issue_2024_2_Electricity_and_Energy_Bills.md` — ResStock 2024 Release 2 Electricity and Energy Bills
+- `github_site/docs/resources/explanations/Issue_2024_2_Measure_Applicability.md` — ResStock 2024 Release 2 Measure Applicability
+- `github_site/docs/resources/explanations/Issue_2025_1_Column_Applicability.md` — ResStock 2025 Release 1 Column Applicability
+- `github_site/docs/resources/explanations/Issue_2025_1_Electric_Panel_Capacity.md` — ResStock 2025 Release 1 Electric Panel Capacity
+- `github_site/docs/resources/explanations/Issue_Wall_Type_Especially_Maine.md` — Wall Type Issue, Especially in Maine
+- `github_site/docs/resources/explanations/Monthly_Net_Electricity_Comparisons.md` — Monthly Net Electricity Comparisons between ResStock 2024 Release 2 data and 2018 861M data
+- `github_site/docs/resources/explanations/Number_of_samples.md` — How Many Samples are Required for this Analysis?
+- `github_site/docs/resources/explanations/One_Row_Data_House.md` — One Row of Data Is Not One Real House
+- `github_site/docs/resources/explanations/PV_System_Assignment_and_Distributions.md` — PV System Assignment and Distributions
+- `github_site/docs/resources/explanations/Quota_Based_Sampling.md` — Quota-Based Sampling and Implications
+- `github_site/docs/resources/explanations/Summer_Peaking_CCHP.md` — Summer Peak Increase from Cold Climate Heat Pump in ResStock 2025 Release 1
+- `github_site/docs/resources/explanations/Unmet_load_hours.md` — Unmet Load Hours
+- `github_site/docs/resources/explanations/Wood_Stud_Depth.md` — Wood Stud Depth and Wall R-Value Calculations
+- `github_site/docs/resources/how-to-guides/Analyze_housing_stock_programmatically.md` — Analyze Housing Stock Programmatically
+- `github_site/docs/resources/how-to-guides/aws_athena_queries.md` — AWS Athena Queries
+- `github_site/docs/resources/how-to-guides/Housing_Stock_Excel_Questions.md` — Analyze Your Housing Stock and Different What if Scenarios Using Excel
+- `github_site/docs/resources/resources.md` — Resources
+- `github_site/docs/resources/tutorials/Enough_Samples_Data_Viewer.md` — How To Use The Data Viewer With Enough Samples
+- `upgrade_measures/measure_pdfs/93846.pdf` — HVAC Demand Flexibility with On-Peak Load Shedding of 2F offset
+- `upgrade_measures/measure_pdfs/94459.pdf` — Electric Vehicle Adoption with Level 1 Charging
+- `upgrade_measures/measure_pdfs/94460.pdf` — Electric Vehicle Adoption with Level 2 Charging
+- `upgrade_measures/measure_pdfs/94461.pdf` — Efficient Electric Vehicle Adoption with Level 2 Charging
+- `upgrade_measures/measure_pdfs/94463.pdf` — Electric Vehicle Adoption with Level 2 Charging and Demand Flexibility
+- `upgrade_measures/measure_pdfs/94464.pdf` — Efficient Electric Vehicle Adoption with Level 2 Charging and Demand Flexibility
+- `upgrade_measures/measure_pdfs/95035.pdf` — Residential Two-Stage Geothermal Heat Pump (4.0 COP, 20.5 EER) With Envelope Improvements and Advanced Air Sealing
+- `upgrade_measures/measure_pdfs/96281.pdf` — Advanced Air Sealing with Drill-and-Fill Wall Insulation
+- `upgrade_measures/measure_pdfs/96344.pdf` — Duct Sealing and Insulation
+- `upgrade_measures/measure_pdfs/96347.pdf` — Advanced Air Sealing, Attic Floor Insulation, and Duct Sealing and Insulation
+- `upgrade_measures/measure_pdfs/96349.pdf` — Advanced Air Sealing, Drill-and-Fill Wall Insulation, Attic Floor Insulation, and Duct Sealing and Insulation
+- `upgrade_measures/measure_pdfs/96405.pdf` — EnergyStar Windows
+- `upgrade_measures/measure_pdfs/96413.pdf` — Cold Climate Air-Source Heat Pump
+- `upgrade_measures/measure_pdfs/96414.pdf` — Dual Fuel Heat Pump
+- `upgrade_measures/measure_pdfs/96634.pdf` — Natural Gas Furnace 95% AFUE
+- `upgrade_measures/measure_pdfs/96635.pdf` — Propane Furnace 95% AFUE and Fuel Oil Furnace 88% AFUE
+- `upgrade_measures/measure_pdfs/96636.pdf` — Reference Space Heating and Air Conditioning Upgrade Circa 2025
+- `upgrade_measures/measure_pdfs/96739.pdf` — Attic Floor Insulation
+- `upgrade_measures/measure_pdfs/96826.pdf` — Heat Pump Water Heater
+- `upgrade_measures/measure_pdfs/96827.pdf` — Natural Gas Water Heater
+- `upgrade_measures/measure_pdfs/96738.pdf` — Advanced Air Sealing
+- `upgrade_measures/measure_pdfs/95032.pdf` — Residential Single-Stage Geothermal Heat Pump (3.8 COP, 18.6 EER)
+- `upgrade_measures/measure_pdfs/95034.pdf` — Residential Two-Stage Geothermal Heat Pump (4.0 COP, 20.5 EER)
+- `upgrade_measures/measure_pdfs/95036.pdf` — Residential Variable-Speed Geothermal Heat Pump (4.4 COP, 30.9 EER)
+- `upgrade_measures/measure_pdfs/99816.pdf` — Light Air Sealing
+- `upgrade_measures/measure_pdfs/99818.pdf` — Light Air Sealing, Attic Floor Insulation, and Duct Sealing and Insulation
+- `upgrade_measures/measure_pdfs/99819.pdf` — Residential Two-Stage Geothermal Heat Pump (4.0 COP, 20.5 EER) With Light Envelope Improvements
+- `upgrade_measures/measure_pdfs/99820.pdf` — Residential Variable-Speed Geothermal Heat Pump (4.4 COP, 30.9 EER) with Light Envelope Improvements
 
 ## comstock_amy2018_2025_release_3-v3 — 2026-10-16
 
