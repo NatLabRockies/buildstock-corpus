@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96281.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96281.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96281.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96281.md | section: 4.2.1  Annual Stock Energy Analysis | lines: 464-579 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96281.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96281.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96281.pdf | corpus_version: resstock_amy2018_2025_release_1-v1 | corpus_path: upgrade_measures/measure_pdfs/96281.md | section: 4.2.1  Annual Stock Energy Analysis | lines: 464-579 -->
 ## 4.2.1  Annual Stock Energy Analysis
 
 The average baseline applicable dwelling unit consumed 24.51 MWh of site energy per year. After air sealing and drill-and-fill wall insulation were applied to applicable units, the average dwelling unit consumed 19.20 MWh of site energy per year. This represents an average 21.7% decrease.

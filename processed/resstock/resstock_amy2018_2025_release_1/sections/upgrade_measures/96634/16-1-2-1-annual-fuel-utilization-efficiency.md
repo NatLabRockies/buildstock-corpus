@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96634.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96634.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96634.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96634.md | section: 1.2.1 Annual Fuel Utilization Efficiency | lines: 164-173 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96634.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96634.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96634.pdf | corpus_version: resstock_amy2018_2025_release_1-v1 | corpus_path: upgrade_measures/measure_pdfs/96634.md | section: 1.2.1 Annual Fuel Utilization Efficiency | lines: 164-173 -->
 ## 1.2.1 Annual Fuel Utilization Efficiency
 
 AFUE is the standard rated efficiency for how efficiently a furnace converts fuel into heat at rated conditions. The higher the AFUE rating, the more efficient the system is at converting fuel into usable heat. Energy lost through exhaust gases, radiation, and other components decreases efficiency.

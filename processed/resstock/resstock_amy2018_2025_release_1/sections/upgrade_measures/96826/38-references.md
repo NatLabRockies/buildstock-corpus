@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96826.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96826.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96826.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96826.md | section: References | lines: 810-822 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96826.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96826.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96826.pdf | corpus_version: resstock_amy2018_2025_release_1-v1 | corpus_path: upgrade_measures/measure_pdfs/96826.md | section: References | lines: 810-822 -->
 ## References
 
 - AOSmith. (2026). SIGNATURE 900 80-GALLON TALL 240-VOLT SMART HYBRID GRID CAPABLE HEAT PUMP WATER HEATER WITH LEAK DETECTION, AUTOMATIC SHUT-OFF AND HOT WATER PLUS (Model: HPA10-80H45DV) Smith: https://www.aosmithatlowes.com/products/water-heaters/electric-water-heaters/hpa10-80h45dv/

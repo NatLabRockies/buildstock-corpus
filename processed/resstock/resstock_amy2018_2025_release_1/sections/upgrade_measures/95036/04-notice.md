@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95036.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95036.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95036.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95036.md | section: NOTICE | lines: 34-47 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95036.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95036.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95036.pdf | corpus_version: resstock_amy2018_2025_release_1-v1 | corpus_path: upgrade_measures/measure_pdfs/95036.md | section: NOTICE | lines: 34-47 -->
 ## NOTICE
 
 This work was authored by the National Laboratory of the Rockies for the U.S. Department of Energy (DOE), operated under Contract No. DE-AC36-08GO28308. Funding provided by the U.S. Department of Energy Office of Energy Efficiency and Renewable Energy Geothermal Technologies Office. The views expressed herein do not necessarily represent the views of the DOE or the U.S. Government.

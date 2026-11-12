@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/94463.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/94463.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/94463.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/94463.md | section: Peak Period Definition | lines: 388-470 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/94463.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/94463.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/94463.pdf | corpus_version: resstock_amy2018_2025_release_1-v1 | corpus_path: upgrade_measures/measure_pdfs/94463.md | section: Peak Period Definition | lines: 388-470 -->
 ## Peak Period Definition
 
 When analyzing the impact of load flexibility, it is necessary to define the target time periods when DF will be dispatched to reduce the load. These time periods are commonly referred to as on-peak hours. On-peak hours can be identified in different ways depending on the goal, for example:

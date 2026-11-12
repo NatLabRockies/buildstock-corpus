@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | github_site | docs/contact.md | status: site_page | source_url: https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/contact.md | publication_url: https://natlabrockies.github.io/ResStock.github.io/docs/contact.html | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: github_site/docs/contact.md | section: Contact | lines: 2-8 -->
+<!-- resstock resstock_amy2018_2025_release_1 | github_site | docs/contact.md | status: site_page | source_url: https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/contact.md | publication_url: https://natlabrockies.github.io/ResStock.github.io/docs/contact.html | corpus_version: resstock_amy2018_2025_release_1-v1 | corpus_path: github_site/docs/contact.md | section: Contact | lines: 2-8 -->
 # Contact
 
 Contact [ResStock@nlr.gov](mailto:resstock@nlr.gov), to get your questions answered, request a demonstration, or to learn more about how your organization can realize value from ResStock.

@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95032.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95032.md | section: 2.1.5 Exclusion of Low Thermal Conductivity Soils | lines: 293-300 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95032.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf | corpus_version: resstock_amy2018_2025_release_1-v1 | corpus_path: upgrade_measures/measure_pdfs/95032.md | section: 2.1.5 Exclusion of Low Thermal Conductivity Soils | lines: 293-300 -->
 ## 2.1.5 Exclusion of Low Thermal Conductivity Soils
 
 We have chosen not to include low thermal conductivity soils in our GHP upgrade logic. In real systems, these soil conditions can significantly reduce the performance of ground heat exchangers and may require larger, more expensive loop fields to maintain system efficiency.

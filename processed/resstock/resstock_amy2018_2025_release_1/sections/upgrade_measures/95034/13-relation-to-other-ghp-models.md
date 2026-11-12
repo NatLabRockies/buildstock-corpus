@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95034.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95034.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95034.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95034.md | section: Relation to Other GHP Models | lines: 183-192 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95034.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95034.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95034.pdf | corpus_version: resstock_amy2018_2025_release_1-v1 | corpus_path: upgrade_measures/measure_pdfs/95034.md | section: Relation to Other GHP Models | lines: 183-192 -->
 ## Relation to Other GHP Models
 
 Unless otherwise noted in this document, it is assumed that certain components of the two-stage GHP model overlap with (i.e., are the same as) single-stage model components. The following summarizes these overlapping components:

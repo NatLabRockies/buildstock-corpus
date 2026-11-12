@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | github_site | docs/resources/explanations/Wood_Stud_Depth.md | status: site_page | source_url: https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/resources/explanations/Wood_Stud_Depth.md | publication_url: https://natlabrockies.github.io/ResStock.github.io/docs/resources/explanations/Wood_Stud_Depth.html | corpus_version: resstock_amy2018_2025_release_1-v1-pre -->
+<!-- resstock resstock_amy2018_2025_release_1 | github_site | docs/resources/explanations/Wood_Stud_Depth.md | status: site_page | source_url: https://github.com/NatLabRockies/ResStock.github.io/blob/696c020d696137830ddae75abbfb477ae7af8eaa/docs/resources/explanations/Wood_Stud_Depth.md | publication_url: https://natlabrockies.github.io/ResStock.github.io/docs/resources/explanations/Wood_Stud_Depth.html | corpus_version: resstock_amy2018_2025_release_1-v1 -->
 # Wood Stud Depth and Wall R-Value Calculations
 
 ## Wood Stud Depth and Wall R-Value Calculations

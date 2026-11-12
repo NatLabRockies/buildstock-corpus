@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/94459.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/94459.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/94459.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/94459.md | section: Suggested Citation | lines: 24-37 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/94459.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/94459.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/94459.pdf | corpus_version: resstock_amy2018_2025_release_1-v1 | corpus_path: upgrade_measures/measure_pdfs/94459.md | section: Suggested Citation | lines: 24-37 -->
 ## Suggested Citation
 
 White, Philip, Andrew Speake, Rajendra Adhikari, and Anthony Fontanini. 2026. ResStock Measure Documentation: Electric Vehicle Adoption With Level 1 Charging . Golden, CO: National Laboratory of the Rockies. NLR/TP-5500-94459.

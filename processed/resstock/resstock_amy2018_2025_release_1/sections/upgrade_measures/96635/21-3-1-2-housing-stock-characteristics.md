@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96635.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96635.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96635.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96635.md | section: 3.1.2 Housing Stock Characteristics | lines: 225-295 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96635.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96635.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96635.pdf | corpus_version: resstock_amy2018_2025_release_1-v1 | corpus_path: upgrade_measures/measure_pdfs/96635.md | section: 3.1.2 Housing Stock Characteristics | lines: 225-295 -->
 ## 3.1.2 Housing Stock Characteristics
 
 HVAC heating types and efficiencies are key characteristics of the housing stock for this upgrade; see Table 3.

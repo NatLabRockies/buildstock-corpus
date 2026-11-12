@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96827.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96827.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96827.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96827.md | section: Suggested Citation | lines: 24-35 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96827.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96827.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96827.pdf | corpus_version: resstock_amy2018_2025_release_1-v1 | corpus_path: upgrade_measures/measure_pdfs/96827.md | section: Suggested Citation | lines: 24-35 -->
 ## Suggested Citation
 
 Liu, Lixi, Jeff Maguire, and Yingli Lou. 2026. ResStock Measure Documentation: Natural Gas Water Heater . Golden, CO: National Laboratory of the Rockies. NLR/TP-5500-96827. https://www.nlr.gov/docs/fy26osti/96827.pdf.

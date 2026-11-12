@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96349.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96349.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96349.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96349.md | section: Executive Summary | lines: 56-71 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96349.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96349.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96349.pdf | corpus_version: resstock_amy2018_2025_release_1-v1 | corpus_path: upgrade_measures/measure_pdfs/96349.md | section: Executive Summary | lines: 56-71 -->
 ## Executive Summary
 
 The goal of this work is to develop energy efficiency, demand flexibility, and other retrofit end-use load shapes (electricity, gas, propane, or fuel oil) that cover most high-impact, market-ready (or nearly market-ready) measures. 'Measures' refers to energy efficiency retrofits that can be applied to buildings during modeling.

@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95035.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95035.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95035.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95035.md | section: 3.5 Electric Panel Impact | lines: 399-480 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95035.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95035.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95035.pdf | corpus_version: resstock_amy2018_2025_release_1-v1 | corpus_path: upgrade_measures/measure_pdfs/95035.md | section: 3.5 Electric Panel Impact | lines: 399-480 -->
 ## 3.5 Electric Panel Impact
 
 This section details the impact the two-stage GHP with envelope improvements and advanced air sealing will have on electrical panels. The modeling assumptions and details about electric panels in ResStock can be found in the single-stage GHP documentation 9 .

@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/94461.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/94461.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/94461.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/94461.md | section: Executive Summary | lines: 50-57 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/94461.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/94461.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/94461.pdf | corpus_version: resstock_amy2018_2025_release_1-v1 | corpus_path: upgrade_measures/measure_pdfs/94461.md | section: Executive Summary | lines: 50-57 -->
 ## Executive Summary
 
 This report documents the development and simulation of the Efficient Electric Vehicle (EV) Adoption with Level 2 (L2) Charging measure within ResStock™. ResStock is a physics-based, bottom-up modeling tool designed to represent the diversity of the U.S. housing stock and estimate building energy use and bills for scenarios at both regional and national scales.

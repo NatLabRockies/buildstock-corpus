@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96634.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96634.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96634.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96634.md | section: Suggested Citation | lines: 24-33 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96634.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96634.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96634.pdf | corpus_version: resstock_amy2018_2025_release_1-v1 | corpus_path: upgrade_measures/measure_pdfs/96634.md | section: Suggested Citation | lines: 24-33 -->
 ## Suggested Citation
 
 Stenger, Katelyn, Lixi Liu, Philip White, Andrew Parker, Jeff Maguire, Joe Robertson, and Sinoun Phoung. 2026. ResStock Measure Documentation: Natural Gas Furnace 95% AFUE . Golden, CO: National Laboratory of the Rockies. NLR/TP-5500-96634. https://www.nlr.gov/docs/fy26osti/96634.pdf.

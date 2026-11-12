@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/99816.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/99816.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/99816.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/99816.md | section: 4.2  Example Time-Series Individual Building Results | lines: 291-320 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/99816.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/99816.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/99816.pdf | corpus_version: resstock_amy2018_2025_release_1-v1 | corpus_path: upgrade_measures/measure_pdfs/99816.md | section: 4.2  Example Time-Series Individual Building Results | lines: 291-320 -->
 ## 4.2  Example Time-Series Individual Building Results
 
 Three individual cooling and heating load profiles are show in Figure 1 and Figure 2. July 11 was chosen as a representative summer day, and January 3 was chosen as a representative winter day.
