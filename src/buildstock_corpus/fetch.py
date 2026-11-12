@@ -1,9 +1,13 @@
 """Fetch raw sources for a release into raw/<product>/<release>/ and record provenance.
 
 Repos are cloned blobless + sparse (deduped by repo+ref), the exact commit SHA is
-recorded, and every raw input file is sha256-hashed. External upgrade-measure PDFs are
-downloaded; unreachable ones are recorded as gaps rather than aborting the run. The
-resulting fetch_state.json is the provenance input to the build/manifest stage.
+recorded, and every raw input file is sha256-hashed. A clone that already exists on disk
+is brought to its ref before its SHA is read: the ref is fetched from origin and checked
+out detached, so a branch ref (the ComStock.github.io site at `main`) lands on the remote
+tip on every fetch while a tag ref resolves to the same commit as before. External
+upgrade-measure PDFs are downloaded; unreachable ones are recorded as gaps rather than
+aborting the run. The resulting fetch_state.json is the provenance input to the
+build/manifest stage.
 """
 
 from __future__ import annotations
@@ -129,9 +133,25 @@ def _unshallow(dest: Path) -> None:
         )
 
 
+def _follow_ref(dest: Path, git_ref: str) -> None:
+    """Move an existing clone to what `git_ref` names on origin right now.
+
+    Reading HEAD of a clone left over from an earlier fetch would pin a branch ref at
+    whatever commit that run happened to see: the v3 release had to `git pull --ff-only`
+    the site clone by hand before fetching. Fetching the ref and checking out FETCH_HEAD
+    detached is the same operation for a tag (it resolves to the commit it always did)
+    and for a branch (it lands on the remote tip). The blob filter is repeated so the
+    fetch stays blobless even if the remote's promisor config was lost; the sparse set
+    is reapplied by the caller after the checkout.
+    """
+    _git(dest, "fetch", "--filter=blob:none", "origin", git_ref)
+    _git(dest, "checkout", "--detach", "FETCH_HEAD")
+
+
 def _ensure_clone(clone: Clone, repos_dir: Path) -> None:
     dest = repos_dir / clone.name
     if (dest / ".git").exists():
+        _follow_ref(dest, clone.git_ref)
         if clone.sparse:
             _git(dest, "sparse-checkout", "set", *clone.sparse)
         _unshallow(dest)

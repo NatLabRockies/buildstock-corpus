@@ -36,7 +36,7 @@ not guess.
 ```bash
 P=comstock; REL=comstock_amy2018_2025_release_3     # or: P=resstock; REL=resstock_amy2018_2025_release_1
 
-uv run bsc fetch     --product $P --release $REL   # download + hash raw sources -> raw/
+uv run bsc fetch     --product $P --release $REL   # download + hash raw sources -> raw/ (moves an existing clone to its ref; a branch ref lands on its tip)
 uv run bsc build     --product $P --release $REL   # extract -> normalize -> chunks + manifest + map -> processed/
 uv run bsc map       --product $P --release $REL   # regenerate CORPUS_MAP.md on its own (seconds)
 uv run bsc index     --product $P --release $REL   # embed chunks -> index/
