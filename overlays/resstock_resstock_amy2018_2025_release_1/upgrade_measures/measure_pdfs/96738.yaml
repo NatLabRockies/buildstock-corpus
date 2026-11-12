@@ -16,6 +16,10 @@
 #     have no entry.
 #   * No table in this report has a footnote, and no number grid is shown as a picture.
 #
+# Text: one paragraph of section 3 (p.16) was broken in two at its cross-reference
+# '(Table 3)', so its second half began 'Table 3).' and read as a table caption with no
+# table. Two `text_repairs` entries join it as the page has it (added in R4.6).
+#
 # Figures: Figures 1-22 are described (40-70 words each, vision-description); every figure
 # caption has its image. Figure 7 is two bitmaps, its cooling panel (image_000008) and its
 # heating panel (image_000009). The cover art and wordmark (image_000000, image_000001) are
@@ -35,6 +39,30 @@ source_id: upgrade_measures
 source_path: measure_pdfs/96738.pdf
 source_url: https://docs.nlr.gov/docs/fy27osti/96738.pdf
 publication_url: https://docs.nlr.gov/docs/fy27osti/96738.pdf
+text_repairs:
+- find: In this work, b uildings with infiltration rates ≥6 ACH 50 are eligible for an upgrade to 5 ACH50. This
+    threshold serves as a nationally consistent benchmark across the housing stock. In practice, some new construction
+    households in climate zones (e.g., climate zones 3 -5) require tighter envelopes such as 3 ACH50 or better (Table
+    2), and many older or leakier homes may only feasibly reach ~5 ACH50 through air sealing (
+  replace: In this work, b uildings with infiltration rates ≥6 ACH 50 are eligible for an upgrade to 5 ACH50. This
+    threshold serves as a nationally consistent benchmark across the housing stock. In practice, some new construction
+    households in climate zones (e.g., climate zones 3 -5) require tighter envelopes such as 3 ACH50 or better (Table
+    2), and many older or leakier homes may only feasibly reach ~5 ACH50 through air sealing (Table 3). In practice,
+    this infiltration level is typically achieved through blower-door-guided air sealing of attics, crawlspaces,
+    rim joists, and other leakage pathways. Previous studies have shown that such practices can bring homes that
+    start above 6 ACH50 down to or below the 5 ACH50 threshold [7] [13]. Therefore, 5 ACH50 provides a balanced
+    and conservative target that represents a meaningful improvement for existing homes, while still allowing comparability
+    across climate zones and building types.
+  why: 'One paragraph of section 3 (p.16) that the extractor broke in two at the cross-reference ''(Table 3)'':
+    the first part ended at the open bracket and the second began ''Table 3).'', which reads as a table caption
+    with no table. The two parts are joined as the page has them; no word is changed.'
+- find: Table 3). In practice, this infiltration level is typically achieved through blower-door-guided air sealing
+    of attics, crawlspaces, rim joists, and other leakage pathways. Previous studies have shown that such practices
+    can bring homes that start above 6 ACH50 down to or below the 5 ACH50 threshold [7] [13]. Therefore, 5 ACH50
+    provides a balanced and conservative target that represents a meaningful improvement for existing homes, while
+    still allowing comparability across climate zones and building types.
+  remove: true
+  why: The second half of the paragraph joined by the repair above, which now carries these words.
 tables:
 - label: Measure Summary
   uncaptioned: true

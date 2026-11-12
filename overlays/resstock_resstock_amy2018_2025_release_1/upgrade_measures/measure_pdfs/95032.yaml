@@ -28,7 +28,8 @@
 #   * Bitmaps that are one panel of a two-panel figure: image_000013 and image_000014
 #     (Figure 15, left and right), image_000016 and image_000017 (Figure 17, table panel
 #     and chart; the caption sits between the two refs), image_000042 (Figure A-9; the
-#     caption follows the ref and a stray line of axis years).
+#     caption follows the ref; the line of axis years the extractor left between them is
+#     removed by a `text_repairs` entry, added in R4.6).
 #   * Number grids captioned as figures (R4.2b): Figures 3, 4, 5, 6 (p.24) and C-1, C-2,
 #     C-3, C-4 (pp.86-89) are colour-scaled grids of numbers pasted in as pictures (EIR
 #     and capacity lookups by air and water temperature; the Appendix C ones are
@@ -58,6 +59,12 @@ source_id: upgrade_measures
 source_path: measure_pdfs/95032.pdf
 source_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf
 publication_url: https://docs.nlr.gov/docs/fy26osti/95032.pdf
+text_repairs:
+- find: 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021
+  remove: true
+  why: The year labels of Figure A-9's horizontal axis (p.78), which the extractor left as a line of text between
+    the figure's picture and its caption. They are part of the picture, and the figure's description gives the range
+    (2003 to 2021).
 tables:
 - label: Table A-2
   caption: ENERGY STAR Most Efficient GHPs, 2022
