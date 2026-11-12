@@ -132,7 +132,7 @@ but only when the owner says so; PRs still merge in this order.
 | 18 | R4.6 | Rebuild with overlays, audit, spot-check | done 2026-11-11 | `r4-audit` (`r4-guide-figures`) | #62 | yes, 2026-11-11 |
 | 19 | R4.7 | Hyphen dropped from a word broken at a line end | done 2026-11-12 | `r4-hyphens` (main) | #63 | yes, 2026-11-12 |
 | 20 | R5.1 | Index and three smoke questions | done 2026-11-12 | `r5-index` (main) | #64 | yes, 2026-11-12 |
-| 21 | R5.2 | Acceptance run by a fresh agent | done 2026-11-12 (to be repeated at the tag, see the step) | `r5-acceptance` (main) | | no |
+| 21 | R5.2 | Acceptance run by a fresh agent | done 2026-11-12 (to be repeated at the tag, see the step) | `r5-acceptance` (main) | #65 | no |
 | 22 | R6.1 | README, AGENTS, llms.txt, changelog | not started | | | |
 | 23 | R6.2 | Final build, tag `-v1`, release | not started | | | |
 | 24 | R7.1 | ResStock site discovery (separate repo) | not started | | | |
