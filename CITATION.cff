@@ -1,18 +1,21 @@
-# How to cite this corpus. This is distinct from citing ComStock itself: cite a document's
-# publication URL (line 1 of every processed file) for ComStock's content, and this record
-# for the corpus as an artifact. See AGENTS.md "Citing".
+# How to cite this corpus. This is distinct from citing ComStock or ResStock themselves:
+# cite a document's publication URL (line 1 of every processed file) for their content, and
+# this record for the corpus as an artifact. See AGENTS.md "Citing".
 cff-version: 1.2.0
 message: >-
   If you use this corpus, cite it as below and name the release tag you read, so the
-  citation resolves to the same bytes later. Cite ComStock's own documents by their
-  publication URL.
+  citation resolves to the same bytes later. Cite ComStock's and ResStock's own documents
+  by their publication URL.
 type: dataset
-title: "buildstock-corpus: AI-ready ComStock documentation corpus"
+title: "buildstock-corpus: AI-ready ComStock and ResStock documentation corpus"
 abstract: >-
-  ComStock's documentation -- the technical reference, the ComStock site's pages, and the
-  upgrade-measure reports -- extracted to clean, release-tagged markdown with a provenance
-  manifest, hand-authored transcriptions of tables and figures the extractors cannot
-  recover, a human-readable map, and a machine index. One dataset release per folder.
+  The documentation of ComStock and of ResStock -- each product's technical reference, its
+  site's pages, and its upgrade-measure reports -- extracted to clean, release-tagged
+  markdown with a provenance manifest, hand-authored transcriptions of tables and figures
+  the extractors cannot recover, a human-readable map, and a machine index. One dataset
+  release of one product per folder: ComStock 2025 release 3
+  (comstock_amy2018_2025_release_3) and ResStock 2025 release 1
+  (resstock_amy2018_2025_release_1).
 authors:
   - family-names: Klun
     given-names: Lauren
@@ -20,12 +23,16 @@ authors:
 repository-code: https://github.com/NatLabRockies/buildstock-corpus
 url: https://github.com/NatLabRockies/buildstock-corpus
 license: BSD-3-Clause
-# The release tag; replace with the one you read if it is later. No DOI is minted for this
-# corpus.
-version: comstock_amy2018_2025_release_3-v3
-date-released: 2026-10-16
+# Each product has its own release tag. Current tags:
+#   ComStock  comstock_amy2018_2025_release_3-v3  (2026-10-16)
+#   ResStock  resstock_amy2018_2025_release_1-v1  (2026-11-12)
+# `version` below is the most recent of them; cite the tag of the product you read, and
+# replace it with a later one if that is what you read. No DOI is minted for this corpus.
+version: resstock_amy2018_2025_release_1-v1
+date-released: 2026-11-12
 keywords:
   - ComStock
+  - ResStock
   - BuildStock
   - building stock
   - documentation corpus
@@ -46,3 +53,18 @@ references:
       The published ComStock reference; the corpus's technical_reference source is its
       per-release LaTeX. Attribute ComStock data per
       https://natlabrockies.github.io/ComStock.github.io/docs/citation.html.
+  - type: report
+    title: ResStock Technical Reference Documentation, Active Development Version
+    authors:
+      - family-names: Reyna
+        given-names: J.
+      - name: et al.
+    institution:
+      name: National Laboratory of the Rockies
+    year: 2025
+    url: https://natlabrockies.github.io/ResStock.github.io/assets/trd/ResStockTechnicalReferenceGuide_2025_1.pdf
+    notes: >-
+      The published ResStock technical reference guide, which has no OSTI number; the
+      corpus's technical_reference source is its LaTeX at the tag
+      2025_Release_1_upgrades_29_to_32. Attribute ResStock data per
+      https://natlabrockies.github.io/ResStock.github.io/docs/citation_data_attribution.html.

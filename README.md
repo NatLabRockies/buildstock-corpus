@@ -2,11 +2,18 @@
 
 Level 1 **AI-ready content pipeline** for the BuildStock domain-knowledge corpus.
 
-Ingests a single dataset release (starting with **ComStock 2025 release 3**) and emits clean,
-machine-readable, **release-tagged** artifacts plus a provenance **manifest** and a
-queryable local **RAG index** — so retrieval options can be tested without locking in a
-vector store. Every artifact is tied to its source hash and dataset release; nothing is
-published without provenance.
+Ingests one dataset release of one product at a time and emits clean, machine-readable,
+**release-tagged** artifacts plus a provenance **manifest** and a queryable local **RAG
+index** — so retrieval options can be tested without locking in a vector store. Every
+artifact is tied to its source hash and dataset release; nothing is published without
+provenance.
+
+Two products are in the corpus, each in its own folder with its own tag:
+
+| Product | Dataset release | Folder | Documents | Measures | Current tag |
+|---|---|---|---|---|---|
+| ComStock (commercial buildings) | 2025 release 3 | `processed/comstock/comstock_amy2018_2025_release_3/` | 118 | 65 (61 documented) | `comstock_amy2018_2025_release_3-v3` |
+| ResStock (housing) | 2025 release 1 | `processed/resstock/resstock_amy2018_2025_release_1/` | 62 | 32 (all documented) | `resstock_amy2018_2025_release_1-v1` |
 
 ## Requirements
 
@@ -23,16 +30,19 @@ Releases are named for the OEDI data lake convention,
 artifact names the same release the published data does. Upstream git tags and branches do
 not follow it (`2025-3`, `2025_3`) and are pinned separately in the source registry.
 
-```bash
-REL=comstock_amy2018_2025_release_3
+Every command names the product and its release; with two products registered, `bsc` does
+not guess.
 
-uv run bsc fetch     --release $REL   # download + hash raw sources -> raw/
-uv run bsc build     --release $REL   # extract -> normalize -> chunks + manifest + map -> processed/
-uv run bsc map       --release $REL   # regenerate CORPUS_MAP.md on its own (seconds)
-uv run bsc index     --release $REL   # embed chunks -> index/
-uv run bsc query "How does ComStock determine HVAC system type?" --release $REL
-uv run bsc validate  --release $REL   # enforce provenance invariants
-uv run bsc changelog --release $REL --from $REL-v1   # release notes: diff this build against a tag
+```bash
+P=comstock; REL=comstock_amy2018_2025_release_3     # or: P=resstock; REL=resstock_amy2018_2025_release_1
+
+uv run bsc fetch     --product $P --release $REL   # download + hash raw sources -> raw/
+uv run bsc build     --product $P --release $REL   # extract -> normalize -> chunks + manifest + map -> processed/
+uv run bsc map       --product $P --release $REL   # regenerate CORPUS_MAP.md on its own (seconds)
+uv run bsc index     --product $P --release $REL   # embed chunks -> index/
+uv run bsc query "How does ComStock determine HVAC system type?" --product $P --release $REL
+uv run bsc validate  --product $P --release $REL   # enforce provenance invariants
+uv run bsc changelog --product $P --release $REL --from $REL-v1   # release notes: diff this build against a tag
 ```
 
 That is the **authoring** pipeline, and it is not where a cloner starts. `processed/` is
@@ -45,7 +55,7 @@ hash pins that let a transcribed table prove it matches its source.
 Start at **`processed/<product>/<release>/CORPUS_MAP.md`**. It lists every document with its
 title, path, top-level sections and last-updated date, plus a measure → upgrade-id →
 document routing table and the corpus's known gaps — so one read tells you which file to
-open instead of grepping 114 of them. `bsc build` writes it, and `bsc map` regenerates it
+open instead of grepping all of them. `bsc build` writes it, and `bsc map` regenerates it
 from the built artifacts in a second or two without touching `raw/`.
 
 Which consumer you are decides what you need:
@@ -56,16 +66,20 @@ Which consumer you are decides what you need:
   a clean-room agent) reads the same files over HTTPS: `index.json` first, then one
   document. See [Reading without a clone](#reading-without-a-clone). No index, no API key.
 - **A consumer that wants semantic retrieval** needs the vector store: `bsc index` then
-  `bsc query`. Budget for it — embedding all 7,731 chunks takes on the order of an hour on
-  a laptop CPU, and `index/` is gitignored, so every clone builds its own.
+  `bsc query`. Budget for it — embedding ComStock's 8,022 chunks takes on the order of an
+  hour on a laptop CPU (ResStock's 4,183 took six minutes on a workstation), and `index/`
+  is gitignored, so every clone builds its own, one store per product. Retrieval finds a
+  table best when the question uses the document's own terms ("stock saturation",
+  "applicability"); the map and `index.json` are the surer route to a known table.
   `bsc query --answer` additionally needs `ANTHROPIC_API_KEY` and the `llm` extra;
   retrieval alone does not.
 
 How to cite a document depends on its publication status; the rules are in
 [AGENTS.md § Citing](AGENTS.md#citing). To cite the corpus itself, as distinct from
-ComStock's documents, use [CITATION.cff](CITATION.cff) and name the release tag you read.
-The repository is under the BSD-3 [LICENSE](LICENSE); the underlying documentation remains
-ComStock's and is attributed per its citation page. `AGENTS.md` is the canonical instructions file for
+ComStock's and ResStock's documents, use [CITATION.cff](CITATION.cff) and name the release
+tag you read. The repository is under the BSD-3 [LICENSE](LICENSE); the underlying
+documentation remains ComStock's and ResStock's and is attributed per each product's
+citation page. `AGENTS.md` is the canonical instructions file for
 agents; `CLAUDE.md` and `GEMINI.md` are one-line pointers that import it, and `llms.txt` at
 the root is the discovery file for readers without a clone.
 
@@ -82,16 +96,18 @@ Every file under `processed/` is served raw by GitHub, unauthenticated:
 https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/<ref>/processed/<product>/<release>/<path>
 ```
 
-**Pin `<ref>` to a release tag**, `<release id>-v<N>` (currently
-`comstock_amy2018_2025_release_3-v3`; the newest is the top entry of `CHANGELOG.md`). A tag
-never moves, so a citation made against it
-resolves to the same bytes next year. `main` is rewritten on every rebuild; use it only when
+**Pin `<ref>` to the product's release tag**, `<release id>-v<N>` (currently
+`comstock_amy2018_2025_release_3-v3` and `resstock_amy2018_2025_release_1-v1`; a product's
+newest is its topmost entry in `CHANGELOG.md`). A tag never moves, so a citation made
+against it resolves to the same bytes next year. A product's folder exists only at its own
+tags and on `main`: the ComStock tag has no ResStock folder. `main` is rewritten on every rebuild; use it only when
 you want the newest build and accept that paths and content drift. Every file's line-1
 `corpus_version` names the tag (or, for an untagged build, the commit) it came from.
 
 The recipe is two fetches:
 
-1. **`index.json`** (~155 KB raw, ~20 KB gzip-compressed over the wire). Every document
+1. **`index.json`** of the product (ComStock's is ~155 KB raw, ~20 KB gzip-compressed over
+   the wire; ResStock's ~85 KB and ~11 KB). Every document
    with its `title`, `corpus_path`, `status`, `source_url`, `publication_url`, `bytes`, and
    its section files: `sections_dir` plus `section_files`, one `<NN>-<slug>.md` per H2 (and
    a `00-` preamble when text precedes the first H2), the slug being the heading. Every
@@ -105,13 +121,17 @@ The recipe is two fetches:
    cite. Quote `source_id/source_path` and the `corpus_version`, and send a reader to the
    `publication_url`, not to the markdown.
 
-**`sections.json`** (~360 KB raw, ~46 KB over the wire) adds every heading's level and
-`line_start`/`line_end`, including H3 and below; fetch it only when you need those.
+**`sections.json`** (ComStock's ~365 KB raw, ~43 KB over the wire; ResStock's ~275 KB and
+~33 KB) adds every heading's level and `line_start`/`line_end`, including H3 and below;
+fetch it only when you need those, for example to cite one table inside a large section.
 
-**Mind the size.** 41 of the 118 documents are over 100 KB and four are over 200 KB; the
-largest, the reference documentation's Appendix A, is 437 KB. Check `bytes` in the index
-before fetching a whole document; fetch the section file instead, or use the line range
-from `sections.json`.
+**Mind the size.** In ComStock, 41 of the 118 documents are over 100 KB and four are over
+200 KB; the largest, the reference documentation's Appendix A, is 450 KB. In ResStock, 14
+of the 62 are over 100 KB and two over 200 KB; the largest is the report 95032 at 291 KB.
+Check `bytes` in the index before fetching a whole document; fetch the section file
+instead, or use the line range from `sections.json`. Most section files are a few KB (the
+median is about 2 KB in both products), but a section is a whole H2: in ResStock's guide
+chapter 3a the Geometry and Envelope sections are about 60 KB each.
 
 Both JSON files stamp the `manifest_sha256` they were generated from and validate against
 [`schemas/`](schemas/) in this repo; code against the schema, not the example.
