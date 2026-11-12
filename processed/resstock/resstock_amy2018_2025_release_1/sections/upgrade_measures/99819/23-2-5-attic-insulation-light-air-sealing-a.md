@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/99819.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/99819.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/99819.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/99819.md | section: 2.5  Attic Insulation, Light Air Sealing, and Duct Sealing | lines: 302-315 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/99819.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/99819.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/99819.pdf | corpus_version: resstock_amy2018_2025_release_1-v1 | corpus_path: upgrade_measures/measure_pdfs/99819.md | section: 2.5  Attic Insulation, Light Air Sealing, and Duct Sealing | lines: 302-315 -->
 ## 2.5  Attic Insulation, Light Air Sealing, and Duct Sealing
 
 Each individual component of this measure is documented separately (Phoung, Lou and White 2026) (Brossman, White and Phoung 2026) (Lou, Liu and Parker 2026) and documented as a package (Brossman and White 2026).

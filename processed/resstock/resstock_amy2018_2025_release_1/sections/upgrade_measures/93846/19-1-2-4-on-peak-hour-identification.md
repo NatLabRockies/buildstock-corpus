@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/93846.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/93846.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/93846.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/93846.md | section: 1.2.4 On-Peak Hour Identification | lines: 293-380 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/93846.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/93846.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/93846.pdf | corpus_version: resstock_amy2018_2025_release_1-v1 | corpus_path: upgrade_measures/measure_pdfs/93846.md | section: 1.2.4 On-Peak Hour Identification | lines: 293-380 -->
 ## 1.2.4 On-Peak Hour Identification
 
 When analyzing the impact of load flexibility, it is necessary to define the target time periods when demand flexibility will be dispatched to reduce load. These time periods are commonly referred to as on-peak hours. On-peak hours can be identified in different ways, depending on the goal. For instance:

@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/93846.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/93846.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/93846.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/93846.md | section: 4.3  Final Sensitivity Analysis | lines: 671-720 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/93846.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/93846.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/93846.pdf | corpus_version: resstock_amy2018_2025_release_1-v1 | corpus_path: upgrade_measures/measure_pdfs/93846.md | section: 4.3  Final Sensitivity Analysis | lines: 671-720 -->
 ## 4.3  Final Sensitivity Analysis
 
 After further reviewing the real-world demand response programs and reviewing the initial sensitivity analysis results, we narrowed the analysis space. First, we narrowed the offset to only 2 -4°F, and then we limited the precooling windows to 1 hour and 4 hours. More details can be seen in Table 7.

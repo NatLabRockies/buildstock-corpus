@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96414.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96414.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96414.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96414.md | section: 1.2.1.8  Electrical Requirements | lines: 223-252 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96414.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96414.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96414.pdf | corpus_version: resstock_amy2018_2025_release_1-v1 | corpus_path: upgrade_measures/measure_pdfs/96414.md | section: 1.2.1.8  Electrical Requirements | lines: 223-252 -->
 ## 1.2.1.8  Electrical Requirements
 
 This section summarizes the electrical information for the dual fuel heat pump upgrade. Electrical information in ResStock is used to assess whether the home's electrical panel would become space-constrained or over-capacity due to this upgrade. Section 3.3 describes the electrical panel constraint modeling in more detail.

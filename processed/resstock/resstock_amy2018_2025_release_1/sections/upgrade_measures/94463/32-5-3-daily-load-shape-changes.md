@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/94463.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/94463.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/94463.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/94463.md | section: 5.3  Daily Load Shape Changes | lines: 557-577 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/94463.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/94463.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/94463.pdf | corpus_version: resstock_amy2018_2025_release_1-v1 | corpus_path: upgrade_measures/measure_pdfs/94463.md | section: 5.3  Daily Load Shape Changes | lines: 557-577 -->
 ## 5.3  Daily Load Shape Changes
 
 Figure 11 shows the daily average electricity demand in Colorado during summer and winter seasons under three scenarios: the baseline, EV adoption with L2 charging, and EV adoption with L2 charging and DF (this measure). The shaded red regions denote the peak demand hours.

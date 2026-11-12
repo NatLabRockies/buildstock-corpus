@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96636.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96636.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96636.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96636.md | section: 3.1.1  ResStock Inputs | lines: 279-410 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96636.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96636.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96636.pdf | corpus_version: resstock_amy2018_2025_release_1-v1 | corpus_path: upgrade_measures/measure_pdfs/96636.md | section: 3.1.1  ResStock Inputs | lines: 279-410 -->
 ## 3.1.1  ResStock Inputs
 
 The upgrade spans heating and cooling systems. This section details the ResStock inputs for each system type included in the upgrade: central furnaces, wall and floor furnace, electric furnaces, fuel boilers, central air conditioners, room air conditioners, and ASHPs. Any features not set in ResStock are defaulted to OpenStudio-HPXML defaults (HPXML 2025).

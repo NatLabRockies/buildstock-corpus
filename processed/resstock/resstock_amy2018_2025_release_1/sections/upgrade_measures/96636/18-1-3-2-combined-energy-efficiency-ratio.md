@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96636.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96636.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96636.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96636.md | section: 1.3.2  Combined Energy Efficiency Ratio | lines: 201-206 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96636.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96636.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96636.pdf | corpus_version: resstock_amy2018_2025_release_1-v1 | corpus_path: upgrade_measures/measure_pdfs/96636.md | section: 1.3.2  Combined Energy Efficiency Ratio | lines: 201-206 -->
 ## 1.3.2  Combined Energy Efficiency Ratio
 
 CEER is the standard rated efficiency for room air conditioners under specific test conditions. It measures how effectively the unit converts electrical energy into cooling capacity; the higher the CEER rating, the more efficient the system.

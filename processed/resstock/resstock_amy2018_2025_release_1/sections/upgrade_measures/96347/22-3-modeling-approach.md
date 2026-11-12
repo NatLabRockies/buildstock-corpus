@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96347.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96347.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96347.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96347.md | section: 3  Modeling Approach | lines: 228-237 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96347.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96347.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96347.pdf | corpus_version: resstock_amy2018_2025_release_1-v1 | corpus_path: upgrade_measures/measure_pdfs/96347.md | section: 3  Modeling Approach | lines: 228-237 -->
 ## 3  Modeling Approach
 
 The modeling approach of the three individual measures can be found in the accompanying documentation (Phoung, Lou, &amp; White, 2025a) (Phoung, Lou, &amp; White, 2025b) (Lou &amp; Liu, 2025).

@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/99819.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/99819.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/99819.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/99819.md | section: 2.1  Applicability of Two-Stage GHP Measure | lines: 241-261 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/99819.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/99819.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/99819.pdf | corpus_version: resstock_amy2018_2025_release_1-v1 | corpus_path: upgrade_measures/measure_pdfs/99819.md | section: 2.1  Applicability of Two-Stage GHP Measure | lines: 241-261 -->
 ## 2.1  Applicability of Two-Stage GHP Measure
 
 Using the same applicability criteria as the single-stage GHP and the stand-alone two-stage compressor, the water-to-air vertical ground heat exchanger GHP upgrade measure applies to all dwellings with:

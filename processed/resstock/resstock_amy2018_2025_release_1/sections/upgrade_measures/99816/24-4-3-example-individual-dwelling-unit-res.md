@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/99816.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/99816.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/99816.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/99816.md | section: 4.3  Example Individual Dwelling Unit Results | lines: 321-356 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/99816.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/99816.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/99816.pdf | corpus_version: resstock_amy2018_2025_release_1-v1 | corpus_path: upgrade_measures/measure_pdfs/99816.md | section: 4.3  Example Individual Dwelling Unit Results | lines: 321-356 -->
 ## 4.3  Example Individual Dwelling Unit Results
 
 This section analyzes three different dwelling unit models that received the light air sealing measure. All three individual dwelling unit models show decreases in annual site energy and peak heating and cooling loads as seen in Table 5.

@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96405.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96405.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96405.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96405.md | section: 1.2.3  Comparison of ENERGY STAR to Energy Code Requirements | lines: 257-315 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96405.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96405.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96405.pdf | corpus_version: resstock_amy2018_2025_release_1-v1 | corpus_path: upgrade_measures/measure_pdfs/96405.md | section: 1.2.3  Comparison of ENERGY STAR to Energy Code Requirements | lines: 257-315 -->
 ## 1.2.3  Comparison of ENERGY STAR to Energy Code Requirements
 
 In most places in the U.S., an energy code sets the minimum performance of new windows. For this upgrade, it is important that the modeled windows meet the energy code requirements for the locations they are installed.

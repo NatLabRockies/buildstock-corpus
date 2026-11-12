@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/99816.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/99816.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/99816.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/99816.md | section: List of Acronyms | lines: 50-64 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/99816.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/99816.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/99816.pdf | corpus_version: resstock_amy2018_2025_release_1-v1 | corpus_path: upgrade_measures/measure_pdfs/99816.md | section: List of Acronyms | lines: 50-64 -->
 ## List of Acronyms
 
 | ACH50   | air changes per hour at a 50 pascals pressure difference between the outside and inside of a building   |

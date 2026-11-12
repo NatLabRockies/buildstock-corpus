@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96349.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96349.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96349.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96349.md | section: 4.3  Stock Utility Bill Impacts | lines: 501-515 -->
+<!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96349.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96349.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96349.pdf | corpus_version: resstock_amy2018_2025_release_1-v1 | corpus_path: upgrade_measures/measure_pdfs/96349.md | section: 4.3  Stock Utility Bill Impacts | lines: 501-515 -->
 ## 4.3  Stock Utility Bill Impacts
 
 Figure 11 shows a comparison of utility bills with this measure applied. Stock-wide total bill savings are 19%, with a 13% reduction in electricity bills and a 32% reduction in natural gas bills. This is similar to the magnitude of overall stock-level site energy savings.
