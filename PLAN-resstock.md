@@ -130,7 +130,7 @@ but only when the owner says so; PRs still merge in this order.
 | 16 | R4.4 | Sidecars, measures 19 to 32 | done 2026-11-11 | `r4-measures-19-32` (`r4-measures-11-18`) | #60 | yes, 2026-11-11 |
 | 17 | R4.5 | Technical guide figures | done 2026-11-11 | `r4-guide-figures` (main) | #61 | yes, 2026-11-11 |
 | 18 | R4.6 | Rebuild with overlays, audit, spot-check | done 2026-11-11 | `r4-audit` (`r4-guide-figures`) | #62 | yes, 2026-11-11 |
-| 19 | R4.7 | Hyphen dropped from a word broken at a line end | done 2026-11-12 | `r4-hyphens` (main) | | no |
+| 19 | R4.7 | Hyphen dropped from a word broken at a line end | done 2026-11-12 | `r4-hyphens` (main) | #63 | no |
 | 20 | R5.1 | Index and three smoke questions | not started | | | |
 | 21 | R5.2 | Acceptance run by a fresh agent | not started | | | |
 | 22 | R6.1 | README, AGENTS, llms.txt, changelog | not started | | | |
