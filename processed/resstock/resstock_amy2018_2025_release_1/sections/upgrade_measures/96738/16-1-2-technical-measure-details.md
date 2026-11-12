@@ -1,11 +1,11 @@
 <!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96738.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy27osti/96738.pdf | publication_url: https://docs.nlr.gov/docs/fy27osti/96738.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96738.md | section: 1.2  Technical Measure Details | lines: 247-300 -->
 ## 1.2  Technical Measure Details
 
-The 2024 International Energy Conservation Code (IECC) establishes maximum allowable air leakage rates for residential buildings, which are defined in terms of air changes per hour at 50 pascals (ACH50). These infiltration rates vary across the U.S. climate zones. These limits reflect the need to balance air leakage reduction with adequate ventilation. Excessive air sealing in existing homes can reduce natural ventilation and contribute to indoor air quality and moisturerelated issues, particularly when mechanical ventilation is not present.
+The 2024 International Energy Conservation Code (IECC) establishes maximum allowable air leakage rates for residential buildings, which are defined in terms of air changes per hour at 50 pascals (ACH50). These infiltration rates vary across the U.S. climate zones. These limits reflect the need to balance air leakage reduction with adequate ventilation. Excessive air sealing in existing homes can reduce natural ventilation and contribute to indoor air quality and moisture-related issues, particularly when mechanical ventilation is not present.
 
 In some cases, air leakage is also expressed as CFM50 (cubic feet per minute at 50 pascals), which quantifies the total airflow through leaks, whereas ACH50 normalizes that leakage rate based on the volume of the home [8]. CFM50 is typically used in diagnostics and audits, while ACH50 is used for code compliance and comparisons between homes of different sizes. While the IECC sets air leakage standards for new construction, the U.S. Department of Energy's Weatherization Assistance Program does not use fixed ACH50 targets for compliance. Instead, the Weatherization Assistance Program utilizes blower-door diagnostics to identify leaks and set reduction goals based on pre-retrofit ACH50 levels. This approach helps avoid excessive air sealing in existing homes, where further reductions in air leakage may require consideration of mechanical ventilation to maintain adequate indoor air quality.
 
-Indiana's Weatherization Assistance Program outlines tiered air sealing goals based on preretrofit leakage levels: a 15% reduction for homes with ACH50 less than 11, 25% for ACH50 between 11 and 17, 35% for ACH50 between 18 and 22, and 40% for ACH50 greater than 22 [9]. Table 2 summarizes the ACH50 limits specified in the 2024 IECC based on climate zone.
+Indiana's Weatherization Assistance Program outlines tiered air sealing goals based on pre-retrofit leakage levels: a 15% reduction for homes with ACH50 less than 11, 25% for ACH50 between 11 and 17, 35% for ACH50 between 18 and 22, and 40% for ACH50 greater than 22 [9]. Table 2 summarizes the ACH50 limits specified in the 2024 IECC based on climate zone.
 
 Table 3 summarizes achieved infiltration reduction from different empirical studies. These tables serve as reference points for retrofit applications.
 
@@ -19,7 +19,7 @@ From REPI-063 and REPI-064 [10]
 | Zones 3 - 5    | 3.0 ACH50                          | Maintained from the 2021 IECC           |
 | Zones 6 - 8    | 2.5 ACH50                          | Reduced from 3.0 ACH50 in the 2021 IECC |
 
-Table 3. Summary of Air Sealing Empirical Studies Across Climate Zones, Showing Pre- and PostRetrofit ACH50 Values and Percent Reductions Used to Inform Measure Assumptions
+Table 3. Summary of Air Sealing Empirical Studies Across Climate Zones, Showing Pre- and Post-Retrofit ACH50 Values and Percent Reductions Used to Inform Measure Assumptions
 
 <!-- table recovered from measure_pdfs/96738.pdf p.13
      overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96738.yaml

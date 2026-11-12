@@ -3,7 +3,7 @@
 
 While some of the key inputs and their values are discussed above, Table 11 summarizes inputs for the GHP measure in ResStock and OpenStudio-HPXML.
 
-[27 https://www.energystar.gov/most-efficient/me-certified-geothermal-heatpumps/results?is\_most\_efficient\_filter=Most%20Efficient](https://www.energystar.gov/most-efficient/me-certified-geothermal-heat-pumps/results?is_most_efficient_filter=Most%20Efficient)
+[27 https://www.energystar.gov/most-efficient/me-certified-geothermal-heat-pumps/results?is\_most\_efficient\_filter=Most%20Efficient](https://www.energystar.gov/most-efficient/me-certified-geothermal-heat-pumps/results?is_most_efficient_filter=Most%20Efficient)
 
 Table 11. Summary of the GHP, Geothermal Loop, and Soil Inputs
 
@@ -34,7 +34,7 @@ Table 11. Summary of the GHP, Geothermal Loop, and Soil Inputs
 
 [30  https://www.acca.org/home](https://www.acca.org/home)
 
-[31  Based on a common heat transfer fluid for GHPs: https://www.chempoint.com/products/dow/dowfrost-glycolthermal-fluids/dowfrost-propylene-glycol-thermal-fluids/dowfrost-geo-20](https://www.chempoint.com/products/dow/dowfrost-glycol-thermal-fluids/dowfrost-propylene-glycol-thermal-fluids/dowfrost-geo-20)
+[31  Based on a common heat transfer fluid for GHPs: https://www.chempoint.com/products/dow/dowfrost-glycol-thermal-fluids/dowfrost-propylene-glycol-thermal-fluids/dowfrost-geo-20](https://www.chempoint.com/products/dow/dowfrost-glycol-thermal-fluids/dowfrost-propylene-glycol-thermal-fluids/dowfrost-geo-20)
 
 32  Recommended from Technical Advisory Group in the Acknowledgements
 

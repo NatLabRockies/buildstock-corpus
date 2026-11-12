@@ -52,7 +52,7 @@ When reviewing results for this upgrade, here is a brief example of how to filte
 
 First, consult the enumeration dictionary for this release 4 , which describes the column names and possible values for each column. For this measure upgrade, the primary columns of interest are in.infiltration and in.insulation\_wall. To see the applicable dwelling units only, filter these columns to the following values.
 
-4 https://oedi-data-lake.s3.amazonaws.com/nrel-pds-building-stock/end-use-load-profiles-for-us-buildingstock/2025/resstock\_amy2018\_release\_1/enumeration\_dictionary.tsv
+4 https://oedi-data-lake.s3.amazonaws.com/nrel-pds-building-stock/end-use-load-profiles-for-us-building-stock/2025/resstock\_amy2018\_release\_1/enumeration\_dictionary.tsv
 
 Table 3. Relevant Column Names and Values for Specific Portions of This Upgrade
 

@@ -57,7 +57,7 @@ Figure 31. Percent of dwelling units with an electric panel constraint (capacity
 
 Figure 31: choropleth map titled 'Percent of Dwelling Units with Electric Panel Capacity and/or Space Constraints', a dashboard screenshot with Alaska and Hawaii insets and a percent label on each state. The colour scale runs from 11.1% to 70.0% of dwelling units. Shares are highest across the northern Plains, upper Midwest and New England, mostly above 50%, and lowest in the Southeast, with Florida at 11.1%.
 
-Figure 32. Percent of dwelling units with an electric panel space constraint by state after a singlestage GHP
+Figure 32. Percent of dwelling units with an electric panel space constraint by state after a single-stage GHP
 
 <!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95032.yaml
      source: 95032_images/image_000032_0db02900222ccf1a8b71001b02c89f4b9d38ba51a311f6a40e4042fe1a873e82.png

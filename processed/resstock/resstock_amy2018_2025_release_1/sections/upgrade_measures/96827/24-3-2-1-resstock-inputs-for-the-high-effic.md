@@ -1,7 +1,7 @@
 <!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96827.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96827.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96827.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96827.md | section: 3.2.1 ResStock Inputs for the High-Efficiency Gas Water Heater Upgrade | lines: 249-274 -->
 ## 3.2.1 ResStock Inputs for the High-Efficiency Gas Water Heater Upgrade
 
-Table 4 summarizes the inputs associated with the high-efficiency condensing natural gas tankless water heater in ResStock. These inputs are used by OpenStudio-HPXML to create the HPXML file. As shown, ResStock heavily relies on the default assumptions from OpenStudioHPXML for miscellaneous details, such as water heater heating and backup heating capacity. Table 5 lists the default values assigned by OpenStudio-HPXML.
+Table 4 summarizes the inputs associated with the high-efficiency condensing natural gas tankless water heater in ResStock. These inputs are used by OpenStudio-HPXML to create the HPXML file. As shown, ResStock heavily relies on the default assumptions from OpenStudio-HPXML for miscellaneous details, such as water heater heating and backup heating capacity. Table 5 lists the default values assigned by OpenStudio-HPXML.
 
 Table 4. ResStock Argument Values for the Natural Gas Tankless Water Heater
 

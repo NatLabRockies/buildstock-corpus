@@ -3,7 +3,7 @@
 
 This section examines a dwelling unit in Colorado (climate zone 5B) that underwent the envelope package upgrade, which includes advanced air sealing, attic floor insulation, duct sealing and insulation, and drill-and-fill wall insulation. Table 3 presents the housing characteristics of the unit before and after the upgrade. To assess the package's effectiveness, we compared the performance of the unit with the full upgrade to its performance when each of the four individual measures was applied separately.
 
-Table 3. Housing Characteristics of the Example Dwelling Unit Before and After the Envelope Package Upgrades (Advanced Air Sealing + Attic Insulation + Duct Sealing and Insulation+ Drilland-Fill Wall Insulation)
+Table 3. Housing Characteristics of the Example Dwelling Unit Before and After the Envelope Package Upgrades (Advanced Air Sealing + Attic Insulation + Duct Sealing and Insulation+ Drill-and-Fill Wall Insulation)
 
 | Housing Characteristics     | Before Envelope Package Upgrade     | After Envelope Package Upgrade   |
 |-----------------------------|-------------------------------------|----------------------------------|

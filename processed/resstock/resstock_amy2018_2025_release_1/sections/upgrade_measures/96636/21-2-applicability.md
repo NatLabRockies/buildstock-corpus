@@ -8,9 +8,9 @@ This upgrade replaces space heating and cooling equipment in homes with existing
 - Replacement of central air conditioners (ACs) with units rated at 14.3 SEER2 in the South region and 13.4 SEER2 in the North region, with higher efficiency replacements (e.g., SEER2 15) applied where applicable.
 - Replacement of ducted electric resistance furnaces with baseline 100% efficiency electric options for costing consistency.
 
-In homes that have existing ductwork that is used for air conditioning but not heating, the nonducted heating systems are also replaced:
+In homes that have existing ductwork that is used for air conditioning but not heating, the non-ducted heating systems are also replaced:
 
-- Replacement of fuel boilers with a minimum of 80% -83% AFUE (90% AFUE for likefor-like replacements at higher efficiency).
+- Replacement of fuel boilers with a minimum of 80% -83% AFUE (90% AFUE for like-for-like replacements at higher efficiency).
 - Replacement of non-ducted electric resistance heating systems (boiler, baseboard, wall furnace) with baseline 100% efficiency electric options for costing consistency.
 
 In homes that have existing ductwork that is used for heating but not central air conditioning, the non-ducted air conditioning systems are also replaced:

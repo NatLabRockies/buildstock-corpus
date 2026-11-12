@@ -11,7 +11,7 @@ There are several types of GHPs, including single-stage, two-stage, and variable
 
 Although variable-speed GHPs typically have the highest upfront cost among GHP technologies, they deliver superior part-load efficiency and can achieve the lowest overall operating costs over time. As a result, they are often considered the premium choice for homeowners seeking maximum comfort and performance.
 
-The intent of this GHP measure is to reflect the characteristics of a high-performance, variablespeed, water-to-air GHP, modeled after the most advanced products on the 2025 ENERGY STAR ®  Most Efficient 2025 GHP list. 1 The system assumes a vertical ground heat exchanger configuration, which is a common and space-efficient option for residential applications.
+The intent of this GHP measure is to reflect the characteristics of a high-performance, variable-speed, water-to-air GHP, modeled after the most advanced products on the 2025 ENERGY STAR ®  Most Efficient 2025 GHP list. 1 The system assumes a vertical ground heat exchanger configuration, which is a common and space-efficient option for residential applications.
 
-1  https://www.energystar.gov/most-efficient/me-certified-geothermal-heatpumps/results?is\_most\_efficient\_filter=Most%20Efficient
+1  https://www.energystar.gov/most-efficient/me-certified-geothermal-heat-pumps/results?is\_most\_efficient\_filter=Most%20Efficient
 

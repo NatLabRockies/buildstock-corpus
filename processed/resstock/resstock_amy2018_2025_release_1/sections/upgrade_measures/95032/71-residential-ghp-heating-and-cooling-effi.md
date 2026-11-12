@@ -53,7 +53,7 @@ Performance values with * indicate that products have previously met ENERGY STAR
 
 ENERGY STAR also provides unit shipment data and an estimate of the ENERGY STAR product market penetration (Figure A-9). The ENERGY STAR unit shipments and market penetration peaked in 2007. However, market penetration and shipments have generally decreased after the large increase in ENERGY STAR criteria in 2012.
 
-39  ENERGY STAR Certified product list: https://www.energystar.gov/productfinder/download/certified-geothermalheat-pumps/
+39  ENERGY STAR Certified product list: https://www.energystar.gov/productfinder/download/certified-geothermal-heat-pumps/
 
 <!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95032.yaml
      source: 95032_images/image_000042_5b09e878d2895f15802a0a7e7832ccbb0656f95c84c0a27c41e3e5d3799619af.png

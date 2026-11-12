@@ -1,7 +1,7 @@
 <!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95034.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95034.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95034.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95034.md | section: 3.4  Electric Panel Impact | lines: 864-943 -->
 ## 3.4  Electric Panel Impact
 
-This section details the impact the two-stage GHP upgrade will have on electrical panels. The modeling assumptions and details about electric panels in ResStock can be found in the singlestage GHP documentation (Maguire et al. 2025).
+This section details the impact the two-stage GHP upgrade will have on electrical panels. The modeling assumptions and details about electric panels in ResStock can be found in the single-stage GHP documentation (Maguire et al. 2025).
 
 First, Figure 36 and Figure 37 show information about the ResStock 2025 Release 1 baseline housing stock electric panel distribution. Figure 36 shows in the first column, 'All', that about 35% of all dwelling units have 0 or only 1 breaker space available. Figure 37 shows in the first column that 97.7% of electric panels have no existing capacity constraint for the baseline housing stock, but that the other 2.3% of electric panels already have an existing capacity constraint.
 
@@ -57,7 +57,7 @@ Figure 39. Percent of dwelling units with an electric panel constraint (capacity
 
 Figure 39: choropleth map of U.S. states, with Alaska and Hawaii insets, titled Percent of Dwelling Units with Electric Panel Capacity and/or Space Constraints, for the two-stage GHP. Each state is labelled with its percentage and shaded on a scale from 11.2% to 70.1%. Shares are highest in the north-central and northeastern states, mostly above 50%, and lowest in the Southeast, with Florida at 11.2%.
 
-Figure 40. Percent of dwelling units with an electric panel space constraint by state after a twostage GHP
+Figure 40. Percent of dwelling units with an electric panel space constraint by state after a two-stage GHP
 
 <!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95034.yaml
      source: 95034_images/image_000035_3924add55f9db2003dbd197594f97b7acd0fcdb853efe4f9bb19782ad84756c7.png
@@ -68,7 +68,7 @@ Figure 40. Percent of dwelling units with an electric panel space constraint by 
 
 Figure 40: choropleth map of U.S. states, with Alaska and Hawaii insets, titled Percent of Dwelling Units with Electric Panel Space Constraints, for the two-stage GHP. Each state is labelled with its percentage and shaded on a scale from 4.0% to 53.9%. The pattern follows Figure 39: northern and northeastern states are highest, roughly 35% to 54%, and the Southeast lowest, with Florida at 4.0%.
 
-Figure 41. Percent of dwelling units with an electric panel capacity constraint by state after a twostage GHP
+Figure 41. Percent of dwelling units with an electric panel capacity constraint by state after a two-stage GHP
 
 <!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95034.yaml
      source: 95034_images/image_000036_f49c51eeb54cf5b9029858c517381971a2bf0b5825d2861db2b09586e091ca88.png

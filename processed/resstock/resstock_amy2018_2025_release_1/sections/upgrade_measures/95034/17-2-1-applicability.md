@@ -1,7 +1,7 @@
 <!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95034.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95034.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95034.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95034.md | section: 2.1  Applicability | lines: 213-225 -->
 ## 2.1  Applicability
 
-Using the same applicability criteria as the single-stage GHP, the two-stage compressor, waterto-air heat pump with a vertical ground heat exchanger upgrade measure applies to all dwellings with:
+Using the same applicability criteria as the single-stage GHP, the two-stage compressor, water-to-air heat pump with a vertical ground heat exchanger upgrade measure applies to all dwellings with:
 
 - Non-shared (in-unit) HVAC and any of the following heating fuels: electricity, natural gas, fuel oil, or propane
 - Shared (across multiple units) HVAC and a building height of &lt;8 stories and any of the following heating fuels: electricity, natural gas, fuel oil, or propane

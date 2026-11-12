@@ -5,7 +5,7 @@ By applying a high-efficiency tankless natural gas water heater to all homes eli
 
 Figure 4 compares the modeled energy end use breakdown of the average home before and after the water heater upgrade. The modeled average energy savings is 1,560 kWh per year, or 5.1% of the total site energy consumption. The savings primarily come from hot water energy reduction, with the electricity, propane, and fuel oil used for hot water reduced to zero due to the fuel switching and the natural gas for hot water reduced by 42% due to replacing the existing gas water heaters with more efficient models. This means that the overall savings from switching all the natural gas storage water heaters (76%) in the housing stock to higher-efficiency condensing gas tankless water heaters more than offsets the natural gas increase from converting the rest of the water heaters (24%)-which are electric resistance, propane, and fuel oil water heaters-to natural gas. This highlights the energy efficiency potential for gas tankless water heater adoption at scale, although the technology does not lead to energy savings for all the dwelling units, as shown in the next few figures.
 
-Figure 3. Total residential stock modeled energy consumption and savings from the highefficiency natural gas tankless water heater upgrade
+Figure 3. Total residential stock modeled energy consumption and savings from the high-efficiency natural gas tankless water heater upgrade
 
 <!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96827.yaml
      source: 96827_images/image_000004_1125547a5db17e2eb12b2a03194972102c9c41f697979497d909293c990f327a.png
@@ -16,7 +16,7 @@ Figure 3. Total residential stock modeled energy consumption and savings from th
 
 Figure 3: two-panel horizontal bar chart. Left: stock fuel totals in kWh (0 to 3T) for Baseline and Natural Gas Tankless WH, by electricity, natural gas, propane, fuel oil, electricity generation and total site energy. Right: fuel savings in kWh (0 to 100B). Natural gas is the largest single-fuel saving, about 70B kWh, then electricity at about 40B; total site energy savings exceed 100B kWh.
 
-Figure 4. Average modeled dwelling end use energy consumption before and after the highefficiency natural gas tankless water heater upgrade
+Figure 4. Average modeled dwelling end use energy consumption before and after the high-efficiency natural gas tankless water heater upgrade
 
 <!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96827.yaml
      source: 96827_images/image_000005_2be11b462c51d505c2623e527b3228c19e21b25f32be59ccf3760a36aade51ca.png
@@ -42,7 +42,7 @@ Figure 5: violin plots with box plots of natural gas space heating savings per d
 
 Figure 6 compares the range of modeled energy savings by the baseline water heater fuel type. All fuel-based water heaters see energy savings from the upgrade that are primarily due to the efficiency gain. More than half of the electric (resistance) water heaters have a small net increase in total site energy consumption that is primarily due to an increase in space heating. Because the electric resistance water heaters are similar in overall efficiency (0.92-0.99 EF, depending on type) to the condensing gas tankless water heater upgrade (0.98 UEF), the impact of the upgrade is more dependent on the secondary effect on heating, ventilation, and air conditioning. Additionally, unlike with fuel water heaters, replacing electric water heaters does not change any existing flue vent for the heating system, so space heating will either increase or stay the same.
 
-Figure 6. Distribution of modeled percent energy savings by heating equipment from the highefficiency natural gas tankless water heater upgrade
+Figure 6. Distribution of modeled percent energy savings by heating equipment from the high-efficiency natural gas tankless water heater upgrade
 
 <!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96827.yaml
      source: 96827_images/image_000007_f829e2129262f815a9d3c90aa44cf0b774042a88d1c56b1898015e4236c50f4e.png
@@ -68,7 +68,7 @@ Figure 7. Distribution of modeled percent energy savings by Building America cli
 
 Figure 7: violin plots with box plots of site energy percentage savings (x-axis about -5 to 45), one row per Building America climate zone: Hot-Dry, Hot-Humid, Mixed-Dry, Mixed-Humid, Marine, Cold, Very Cold and Subarctic, each labelled with its model count. Medians fall between roughly 4% and 9% in every zone; Hot-Dry and Marine sit highest, and Subarctic has only 29 models.
 
-Figure 8. Distribution of modeled percent energy savings by number of occupants from the highefficiency natural gas tankless water heater upgrade
+Figure 8. Distribution of modeled percent energy savings by number of occupants from the high-efficiency natural gas tankless water heater upgrade
 
 <!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/96827.yaml
      source: 96827_images/image_000009_65861e03bb4a597a9d44f6ab034cd5b2cf26309c07065d3afd5cff920a721766.png

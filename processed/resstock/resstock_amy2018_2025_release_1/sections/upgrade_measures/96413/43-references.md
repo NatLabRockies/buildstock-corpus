@@ -1,11 +1,11 @@
 <!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/96413.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/96413.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/96413.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/96413.md | section: References | lines: 677-693 -->
 ## References
 
-- AHRI. 2024. AHRI Standard 210/240-2024 (I-P). Standard, AHRI. https://www.ahrinet.org/system/files/2024-09/AHRI%20Standard%20210%202402024%20%28I-P%29%20ICS.pdf.
-- Armstrong, Sean, Emily Higbee, Dylan Anderson, and Diane, Kabat, Tom Bailey. 2022. A Pocket Guide to All-Electric Retrofits of Single-Family Homes. PDF Guide, Arcata, CA: Redwood Energy. Accessed March 31, 2026. https://www.redwoodenergy.net/research/apocket-guide-to-all-electric-retrofits-of-single-family-homes.
+- AHRI. 2024. AHRI Standard 210/240-2024 (I-P). Standard, AHRI. https://www.ahrinet.org/system/files/2024-09/AHRI%20Standard%20210%20240-2024%20%28I-P%29%20ICS.pdf.
+- Armstrong, Sean, Emily Higbee, Dylan Anderson, and Diane, Kabat, Tom Bailey. 2022. A Pocket Guide to All-Electric Retrofits of Single-Family Homes. PDF Guide, Arcata, CA: Redwood Energy. Accessed March 31, 2026. https://www.redwoodenergy.net/research/a-pocket-guide-to-all-electric-retrofits-of-single-family-homes.
 - Cutler, D., J. Winkler, N. Kruis, C. Christensen, and M. Brandemuehl. 2013. Improved Modeling of Residential Air Conditioners and Heat Pumps for Energy Calculations. Technical Report, Golden, CO: National Renewable Energy Laboratory. https://docs.nrel.gov/docs/fy13osti/56354.pdf.
 - Code of
-- Department of Energy. 2025. "Appendix M1 to Subpart B of Part 430, Title 10." Federal Regulations. January 7. Accessed May 6, 2025. https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430/subpartB/appendix-Appendix%20M1%20to%20Subpart%20B%20of%20Part%20430.
+- Department of Energy. 2025. "Appendix M1 to Subpart B of Part 430, Title 10." Federal Regulations. January 7. Accessed May 6, 2025. https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430/subpart-B/appendix-Appendix%20M1%20to%20Subpart%20B%20of%20Part%20430.
 - National Fire Protection Association. 2023. National Electrical Code, Article 220, NFPA 70. Standard, Quincy, MA: NFPA.
 - Northeast Energy Efficiency Partnerships, Inc. 2023. Cold Climate Air Source Heat Pump Specification (Version 4.0). Standard, Boston, MA: Northeast Energy Efficiency Partnerships, Inc.
 - -. 2023. NEEP's Cold Climate Air Source Heat Pump List. January 1. Accessed June 30, 2025. https://ashp.neep.org/#!/.

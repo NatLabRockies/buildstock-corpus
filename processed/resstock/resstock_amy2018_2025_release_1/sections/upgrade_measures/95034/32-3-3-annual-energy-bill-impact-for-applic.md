@@ -16,7 +16,7 @@ Figure 32: horizontal grouped bar chart of average annual bills (USD, 0 to about
 
 When comparing the average single-stage GHP energy bill to the average two-stage GHP energy bills, the two-stage GHP energy bill is about 12% less than the single-stage energy bill. This is seen in Figure 33.
 
-Figure 33. Average annual energy bill comparison between single-stage (single-speed) and twostage (dual-speed) GHP broken out by fuel type for applicable dwelling units only
+Figure 33. Average annual energy bill comparison between single-stage (single-speed) and two-stage (dual-speed) GHP broken out by fuel type for applicable dwelling units only
 
 <!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95034.yaml
      source: 95034_images/image_000028_4ed67468035c777c6dc9bd959cc5b6b0ebea6ae7fe6633cfe3491e8da0ec7b40.png

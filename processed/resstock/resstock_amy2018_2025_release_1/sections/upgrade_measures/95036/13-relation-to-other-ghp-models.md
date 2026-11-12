@@ -1,7 +1,7 @@
 <!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95036.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95036.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95036.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95036.md | section: Relation to Other GHP Models | lines: 191-200 -->
 ## Relation to Other GHP Models
 
-Unless otherwise noted in this document, it is assumed that certain components of the variablespeed GHP model overlap with (i.e., are the same as) single- and two-stage model components. The following summarizes these overlapping components:
+Unless otherwise noted in this document, it is assumed that certain components of the variable-speed GHP model overlap with (i.e., are the same as) single- and two-stage model components. The following summarizes these overlapping components:
 
 - Technology summary : The variable-speed GHP works using the same general principles as the two-stage GHP, except that it has a variable-speed compressor along with improved rated heating and cooling efficiency values.
 - Applicability : The variable-speed GHP applies to the same set of dwelling units as the single- and two-stage GHPs.

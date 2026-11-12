@@ -1,7 +1,7 @@
 <!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/95035.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/95035.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/95035.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/95035.md | section: 3.2 Annual Energy Bill Impact, Applicable Dwelling Units Only | lines: 315-368 -->
 ## 3.2 Annual Energy Bill Impact, Applicable Dwelling Units Only
 
-Energy bills for applicable dwelling units only are shown below in the following figures. On average, energy bills decreased 27% for the variable speed GHP compared to baseline dwelling units. This is a greater percent savings than the single-stage GHP at 3% savings, double the twostage GHP which was 11% savings, and the variable speed GHP which had 24% savings. The average energy bill for the two-stage GHP with envelope improvements and advanced air sealing is shown in Figure 4. All fuel costs decreased on average.
+Energy bills for applicable dwelling units only are shown below in the following figures. On average, energy bills decreased 27% for the variable speed GHP compared to baseline dwelling units. This is a greater percent savings than the single-stage GHP at 3% savings, double the two-stage GHP which was 11% savings, and the variable speed GHP which had 24% savings. The average energy bill for the two-stage GHP with envelope improvements and advanced air sealing is shown in Figure 4. All fuel costs decreased on average.
 
 Figure 4. Average annual energy bill broken out by fuel type for dwelling units that receive the two-stage GHP with envelope improvements and advanced air sealing
 
@@ -27,7 +27,7 @@ Figure 5. Average annual energy bill comparison between single-stage GHP, two-st
 
 Figure 5: horizontal grouped bar chart. Rows are electricity, natural gas, fuel oil, propane and all fuels; x-axis is bills in US dollars, 0 to 3,000. Series are Single-Stage, Two-Stage, Variable-Speed GHP and 'Two-Stage GHP + Air, Attic, Duct Sealing/Insulation'. The all-fuels bill steps down across the four, from about $2,650 to about $2,300, about $2,180 and about $2,050; electricity makes up nearly all of it.
 
-Figure 6 shows average energy bills broken out by Building America climate zone. The twostage with envelope improvements and advanced air sealing results in a lower average energy bill across all climate zones.
+Figure 6 shows average energy bills broken out by Building America climate zone. The two-stage with envelope improvements and advanced air sealing results in a lower average energy bill across all climate zones.
 
 Figure 6. Average annual energy bill broken out by Building America climate zone for applicable dwelling units only
 

@@ -1,7 +1,7 @@
 <!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/99818.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/99818.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/99818.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/99818.md | section: 4.1.2 Individual Building Time-Series Results | lines: 305-334 -->
 ## 4.1.2 Individual Building Time-Series Results
 
-This section shows heating and cooling energy impact from two select days, January 3 as a representative winter day and July 11 for a representative summer day. These timeseries values are from the AMY 2018 dataset. Heating end uses include heating and heating fans/pumps. Cooling end uses include cooling and cooling fans/pumps.
+This section shows heating and cooling energy impact from two select days, January 3 as a representative winter day and July 11 for a representative summer day. These time-series values are from the AMY 2018 dataset. Heating end uses include heating and heating fans/pumps. Cooling end uses include cooling and cooling fans/pumps.
 
 Figure 1 shows the time-series heating energy consumption, which in this case comes from a natural gas furnace. This upgrade, shown in orange, consistently lowers the required heating energy throughout the whole day with the most significant impact during the early morning.
 

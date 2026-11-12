@@ -5,7 +5,7 @@
 - ACCA. (2016). Manual J: Residential Load Calculation. Alexandria, VA: Air Conditioning Contractors of America (ACCA).
 - Antonopoulos, C. A., Gilbride, T. L., Margiotta, E. R., Cragin, M. K., &amp; Kaltreider, C. E. (2022). Guide to Determining Climate Zone by County: Building America and IECC 2021 Updates. Richland: Pacific Northwest National Laboratory. doi:10.2172/1893981
 - Brossman, J., &amp; White, P. (2026). ResStock Measure Documentation: Light Air Sealing, Attic Floor Insulation, and Duct Sealing and Insulation. Golden: National Laboratory of the Rockies. NLR/TP-5500-99818.
-- Brossman, J., White, P., Lou, Y. (2026). ResStock Measure Documentation: Residential TwoStage Geothermal Heat Pump (4.0 COP, 20.5 EER) With Light Envelope Improvements. Golden: National Laboratory of the Rockies. NLR/TP-5500-99819.
+- Brossman, J., White, P., Lou, Y. (2026). ResStock Measure Documentation: Residential Two-Stage Geothermal Heat Pump (4.0 COP, 20.5 EER) With Light Envelope Improvements. Golden: National Laboratory of the Rockies. NLR/TP-5500-99819.
 - Brossman, J., Phoung, S., &amp; White, P. (2026). ResStock Measure Documentation: Light Air Sealing. Golden: National Laboratory of the Rockies. NLR/TP-5500-99816.
 - Fontanini, A., Maguire, J., Robertson, J., Zhou, Y., White, P., Horowitz, S., &amp; Brossman, J. (2026). ResStock Measure Documentation: Residential Two-Stage Geothermal Heat Pump (4.0 COP, 20.5 EER). Golden: National Laboratory of the Rockies. https://www.nlr.gov/docs/fy26osti/95034.pdf.
 - Jeff Maguire, A. F. (2026). ResStock Measure Documentation: Residential Variable-Speed Geothermal Heat Pump (4.4 COP, 30.9 EER). https://www.nlr.gov/docs/fy26osti/95036.pdf.
@@ -17,4 +17,4 @@
 - Reyna, J., Fontanini, A., Parker, A., Present, E., Liu, L., Adhikari, R., . . . Wilson, E. (2025). ResStock Technical Reference Documentation, Active Development Version. Retrieved from
 - https://natlabrockies.github.io/ResStock.github.io/assets/trd/ResStockTechnicalReference Guide\_2025\_1.pdf
 
-Wilson, E., Parker, A., Fontanini, A., Present, E., Reyna, J., Adhikari, R., . . . Li, Q. (2022). EndUse Load Profiles for the U.S. Building Stock. Retrieved from https://docs.nlr.gov/docs/fy22osti/80889.pdf
+Wilson, E., Parker, A., Fontanini, A., Present, E., Reyna, J., Adhikari, R., . . . Li, Q. (2022). End-Use Load Profiles for the U.S. Building Stock. Retrieved from https://docs.nlr.gov/docs/fy22osti/80889.pdf

@@ -1,7 +1,7 @@
 <!-- resstock resstock_amy2018_2025_release_1 | upgrade_measures | measure_pdfs/99818.pdf | status: osti_pdf | source_url: https://docs.nlr.gov/docs/fy26osti/99818.pdf | publication_url: https://docs.nlr.gov/docs/fy26osti/99818.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: upgrade_measures/measure_pdfs/99818.md | section: Executive Summary | lines: 66-82 -->
 ## Executive Summary
 
-The goal of this work is to develop energy efficiency, demand flexibility, and other retrofit enduse load shapes (electricity, gas, propane, or fuel oil) that cover most high-impact, market-ready (or nearly market-ready) measures. 'Measures' refers to retrofits that can be applied to buildings during modeling.
+The goal of this work is to develop energy efficiency, demand flexibility, and other retrofit end-use load shapes (electricity, gas, propane, or fuel oil) that cover most high-impact, market-ready (or nearly market-ready) measures. 'Measures' refers to retrofits that can be applied to buildings during modeling.
 
 An 'end-use savings shape' is the difference in energy consumption between a baseline building and a building with an energy efficiency, demand flexibility, or other retrofit measure applied. This results in a time-series profile broken down by end use and fuel (electricity or on-site gas, propane, or fuel oil) at each time step.
 

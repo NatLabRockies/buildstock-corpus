@@ -68,7 +68,7 @@ Figure 40. Percentage of dwelling units with an electric panel space constraint 
 
 Figure 40: choropleth map of the United States, with insets for Alaska and Hawaii, titled Percent of Dwelling Units with Electric Panel Space Constraints after the variable-speed GHP. Each state is labelled with its percentage; the colour scale runs from 3.9% to 53.3%. Shares are highest in the Northeast and the northern Rockies and Plains and lowest across the Southeast, with Florida at the minimum.
 
-Figure 41. Percentage of dwelling units with an electric panel capacity constraint after a variablespeed GHP
+Figure 41. Percentage of dwelling units with an electric panel capacity constraint after a variable-speed GHP
 
 <!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/upgrade_measures/measure_pdfs/95036.yaml
      source: 95036_images/image_000037_54baeb6ef5985ed838c414357010feb76b5f2fd6bb003c88fc6d4f422d079ee5.png
