@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | technical_reference | docs/technical_reference_guide/2_ResStockStructureAndSampling.tex | status: site_page | source_url: https://github.com/NatLabRockies/resstock/blob/3888e2ff0a4764eb57de65ad0d103870330eb542/docs/technical_reference_guide/2_ResStockStructureAndSampling.tex | publication_url: https://natlabrockies.github.io/ResStock.github.io/assets/trd/ResStockTechnicalReferenceGuide_2025_1.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: technical_reference/docs/technical_reference_guide/2_ResStockStructureAndSampling.md | section: Building Energy Model Articulation | lines: 38-74 -->
+<!-- resstock resstock_amy2018_2025_release_1 | technical_reference | docs/technical_reference_guide/2_ResStockStructureAndSampling.tex | status: site_page | source_url: https://github.com/NatLabRockies/resstock/blob/3888e2ff0a4764eb57de65ad0d103870330eb542/docs/technical_reference_guide/2_ResStockStructureAndSampling.tex | publication_url: https://natlabrockies.github.io/ResStock.github.io/assets/trd/ResStockTechnicalReferenceGuide_2025_1.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: technical_reference/docs/technical_reference_guide/2_ResStockStructureAndSampling.md | section: Building Energy Model Articulation | lines: 54-98 -->
 ## Building Energy Model Articulation
 
 After sampling is complete, the `buildstock.csv` file contains the synthetic housing stock, with each row representing a sampled housing unit and each column corresponding to a characteristics and the field within that column representing a sampled option. Each housing characteristic has an option assigned for each sampled housing unit in the synthetic stock. The table itself is a set of string values that need to be transformed into a building energy model for each sampled housing unit. The transformation of a single line of characteristic options (see Figure “An illustrative example of a representative housing unit sample from ResStock (does not show all characteristics available in ResStock)” for an example) into an EnergyPlus building energy model is referred to as the model articulation process.
@@ -26,7 +26,15 @@ The next step in the workflow is converting ResStock arguments to the OpenStudio
 - **HPXMLtoOpenStudio** – translation of the HPXML file to an OpenStudio model.
 
 <figure id="fig:os-hpxml">
-<img src="images/TRG-ResStock OpenStudio Measure Flowchart.png" style="width:100.0%" />
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/technical_reference/docs/technical_reference_guide/2_ResStockStructureAndSampling.yaml
+     source: images/TRG-ResStock OpenStudio Measure Flowchart.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+<img alt="Flowchart of the OpenStudio measures that turn a ResStock sample into an OpenStudio model" src="images/TRG-ResStock OpenStudio Measure Flowchart.png" style="width:100.0%" />
+
+Flowchart in two columns of boxes. The left column runs BuildExistingModel, ResStockArguments, BuildResidentialHPXML and BuildResidentialScheduleFile, then reaches a decision, 'Upgrade?'. 'Yes' leads to the right column: ApplyUpgrade, then ResStockArguments, BuildResidentialHPXML and BuildResidentialScheduleFile again. 'No', and the end of the right column, both lead to HPXMLtoOpenStudio, which is followed by ResStockArgumentsPostHPXML. It carries no data.
+
 <figcaption>Flowchart of OpenStudio measures performed to translate a ResStock sample into an OpenStudio model</figcaption>
 </figure>
 

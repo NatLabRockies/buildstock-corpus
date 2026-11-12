@@ -597,7 +597,7 @@ def build_release(
         # files and chunks.jsonl. Image-anchored entries hash the bitmap where it lives now;
         # caption-anchored entries verify against the fetched input hashes instead.
         applied, overlay_warnings = apply_overlays(
-            docs, product, release, image_dirs, input_hashes(state)
+            docs, product, release, image_dirs, input_hashes(state), rendered_images=rasters
         )
         warnings += overlay_warnings
 

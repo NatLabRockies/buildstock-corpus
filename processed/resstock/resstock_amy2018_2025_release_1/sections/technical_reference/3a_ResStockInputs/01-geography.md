@@ -1,4 +1,4 @@
-<!-- resstock resstock_amy2018_2025_release_1 | technical_reference | docs/technical_reference_guide/3a_ResStockInputs.tex | status: site_page | source_url: https://github.com/NatLabRockies/resstock/blob/3888e2ff0a4764eb57de65ad0d103870330eb542/docs/technical_reference_guide/3a_ResStockInputs.tex | publication_url: https://natlabrockies.github.io/ResStock.github.io/assets/trd/ResStockTechnicalReferenceGuide_2025_1.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: technical_reference/docs/technical_reference_guide/3a_ResStockInputs.md | section: Geography | lines: 8-839 -->
+<!-- resstock resstock_amy2018_2025_release_1 | technical_reference | docs/technical_reference_guide/3a_ResStockInputs.tex | status: site_page | source_url: https://github.com/NatLabRockies/resstock/blob/3888e2ff0a4764eb57de65ad0d103870330eb542/docs/technical_reference_guide/3a_ResStockInputs.tex | publication_url: https://natlabrockies.github.io/ResStock.github.io/assets/trd/ResStockTechnicalReferenceGuide_2025_1.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: technical_reference/docs/technical_reference_guide/3a_ResStockInputs.md | section: Geography | lines: 8-911 -->
 ## Geography
 
 ResStock provides a wide range of geographic inputs and outputs. These fields allow for detailed input probability distributions for the U.S. residential building stock characterization. These geography fields are also useful for aggregating and analyzing ResStock outputs.
@@ -175,7 +175,15 @@ No assumptions are made.
 The Public Use Microdata Area (PUMA) from 2010 U.S. Census that the sample is located. PUMAs are a collection of census tracts that do not cross state boundaries. They contain no fewer than 100,000 people and typically represent no more than 200,000 people. PUMAs are smaller in land area when located near large cities compared to rural areas. PUMAs typically do not follow County boundaries. A map of the 2010 PUMAs can be seen in Figure “2010 Public Use Microdata Area boundaries”.
 
 <figure id="fig:2010_puma_boundaries">
-<img src="images/2010-PUMAs.png" style="width:100.0%" />
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/technical_reference/docs/technical_reference_guide/3a_ResStockInputs.yaml
+     source: images/2010-PUMAs.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+<img alt="Outline map of the United States divided into 2010 Public Use Microdata Areas" src="images/2010-PUMAs.png" style="width:100.0%" />
+
+Greyscale outline map of the contiguous United States with insets for Alaska and Hawaii. State borders are drawn heavy and Public Use Microdata Area boundaries thin. The areas are small and densely packed around large cities and along the coasts, and large across the rural West and Plains, where a single area can cover many counties. The map has no labels or legend.
+
 <figcaption>2010 Public Use Microdata Area boundaries</figcaption>
 </figure>
 
@@ -314,7 +322,15 @@ The ResStock argument definitions set in the City characteristic
 American Indian/Alaska Native/Native Hawaiian (AIANNH) Area where the sample is located. See Figure “AIANNH area map. The image is created by https://proximityone.com/aiannh.htmProximityOne and excludes Alaska and Hawaii.” for a map of AIANNH areas in the contiguous United States.
 
 <figure id="fig:aiannh_map">
-<img src="images/aiannh_48b.jpg" style="width:100.0%" />
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/technical_reference/docs/technical_reference_guide/3a_ResStockInputs.yaml
+     source: images/aiannh_48b.jpg
+     method: vision-description
+     described: 2026-11-11 -->
+
+<img alt="Map of the contiguous United States with American Indian, Alaska Native and Native Hawaiian areas in green" src="images/aiannh_48b.jpg" style="width:100.0%" />
+
+Map of the contiguous United States with state and county outlines on a pale background and AIANNH areas filled in green. The largest green areas are in the Four Corners region of Arizona, New Mexico and Utah, in eastern Oklahoma, and in South Dakota and Montana; many smaller areas are scattered across the West, the upper Midwest and the Southeast. Alaska and Hawaii are not shown.
+
 <figcaption>AIANNH area map. The image is created by <a href="https://proximityone.com/aiannh.htm">ProximityOne</a> and excludes Alaska and Hawaii.</figcaption>
 </figure>
 
@@ -407,7 +423,15 @@ This section of ResStock characteristics is a set of climate zone definitions. T
 Climate zone according to ASHRAE 169 in 2004 and IECC in 2012 where the sample is located. See Figure “The 2004 ASHRAE 169 and IECC 2012 climate zone map” for a map of the climate zones.
 
 <figure id="fig:ashrae_169_2004_cz">
-<img src="images/ashrae_iecc_cz_map_2004.jpg" style="width:100.0%" />
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/technical_reference/docs/technical_reference_guide/3a_ResStockInputs.yaml
+     source: images/ashrae_iecc_cz_map_2004.jpg
+     method: vision-description
+     described: 2026-11-11 -->
+
+<img alt="County-level map of the United States coloured by ASHRAE and IECC climate zone 1 to 7" src="images/ashrae_iecc_cz_map_2004.jpg" style="width:100.0%" />
+
+County-level map of the contiguous United States coloured by climate zone, numbered 1 (the southern tip of Florida) to 7 (the northern Plains, northern Minnesota and high mountains), with zones 2 to 6 in bands between. A scale across the top divides the country into Marine (C), Dry (B) and Moist (A), and a white line marks the warm-humid area below it. Notes say all of Alaska is in Zone 7 except nine named boroughs in Zone 8, and that Zone 1 includes Hawaii, Guam, Puerto Rico and the Virgin Islands.
+
 <figcaption>The 2004 ASHRAE 169 and IECC 2012 climate zone map</figcaption>
 </figure>
 
@@ -479,7 +503,15 @@ A set of counties defines each climate and moisture zone. Climate zones range fr
 The Building America Climate Zone where the sample is located. See Figure “Building America Climate Zone map” for a map of the climate zones.[^1]
 
 <figure id="fig:building_america_cz">
-<img src="images/building_america_cz.png" style="width:100.0%" />
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/technical_reference/docs/technical_reference_guide/3a_ResStockInputs.yaml
+     source: images/building_america_cz.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+<img alt="Map of the United States coloured by Building America climate zone" src="images/building_america_cz.png" style="width:100.0%" />
+
+Map of the contiguous United States and Puerto Rico coloured by Building America climate zone, with the zone names printed beside it: Marine along the Pacific coast; Cold / Very Cold across the northern half, with the Very Cold areas dotted; Mixed-Humid across the middle of the East; Hot-Humid along the Gulf and southern Atlantic coasts; and Hot-Dry / Mixed-Dry in the Southwest, with the Mixed-Dry areas dotted.
+
 <figcaption>Building America Climate Zone map</figcaption>
 </figure>
 
@@ -510,7 +542,15 @@ No assumptions are made.
 The CEC Climate Zone where the sample is located. See Figure “California Energy Commission https://cecgis-caenergy.opendata.arcgis.com/documents/CAEnergy::building-climate-zones/exploreBuilding Climate Zone map” for a map of the CEC building climate zones.
 
 <figure id="fig:cec_cz">
-<img src="images/CEC_Building_Climate_Zones.png" style="width:100.0%" />
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/technical_reference/docs/technical_reference_guide/3a_ResStockInputs.yaml
+     source: images/CEC_Building_Climate_Zones.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+<img alt="Map of California&#x27;s 16 building climate zones, 2020, with an inset of the Los Angeles area" src="images/CEC_Building_Climate_Zones.png" style="width:100.0%" />
+
+Map titled 'Building Climate Zones, California, 2020', from the California Energy Commission, with the 16 zones shaded and numbered and an inset enlarging the Los Angeles area. Zones 1 to 7 run down the coast from north to south, 8 to 10 lie inland in the south, 11 to 13 fill the Central Valley, 14 and 15 cover the deserts and 16 the mountains. A printed note says these zones are based on energy use, temperature, weather and other factors.
+
 <figcaption>California Energy Commission <a href="https://cecgis-caenergy.opendata.arcgis.com/documents/CAEnergy::building-climate-zones/explore">Building Climate Zone map</a></figcaption>
 </figure>
 
@@ -545,7 +585,15 @@ The options range from 1-16 in California. For other states, the option is set t
 Climate zones for windows, doors, and skylights per ENERGY STAR guidelines as of 2023. See Figure “https://www.energystar.gov/sites/default/files/asset/document/Promotional_Map.pdfENERGY STAR V7 climate zone map” for a map of the climate zones.
 
 <figure id="fig:energy_star_cz">
-<img src="images/ENERGY_STAR_Climate_Zone_Map.png" style="width:100.0%" />
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/technical_reference/docs/technical_reference_guide/3a_ResStockInputs.yaml
+     source: images/ENERGY_STAR_Climate_Zone_Map.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+<img alt="Map of the United States coloured by the four ENERGY STAR climate zones" src="images/ENERGY_STAR_Climate_Zone_Map.png" style="width:100.0%" />
+
+Map of the United States, with Alaska and Hawaii, coloured by the four ENERGY STAR climate zones. Northern (blue) covers the northern tier, the Mountain West and Alaska; North-Central (yellow) a band from California through the mid-Atlantic; South-Central (orange) the Southwest and the inland South; and Southern (red) southern California and Arizona, south Texas, the Gulf Coast, Florida and Hawaii.
+
 <figcaption><a href="https://www.energystar.gov/sites/default/files/asset/document/Promotional_Map.pdf">ENERGY STAR V7 climate zone</a> map</figcaption>
 </figure>
 
@@ -584,7 +632,15 @@ In ResStock there are three input files describing geographies relevant to the e
 The Regional Energy Deployment System Model (ReEDS) balancing area where the sample is located. See Figure “ReEDS balancing area map” to see a map of the balancing areas.
 
 <figure id="fig:reeds_ba_map">
-<img src="images/reeds_ba_map.png" style="width:100.0%" />
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/technical_reference/docs/technical_reference_guide/3a_ResStockInputs.yaml
+     source: images/reeds_ba_map.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+<img alt="Map of the contiguous United States divided into ReEDS balancing areas, with interconnect boundaries" src="images/reeds_ba_map.png" style="width:100.0%" />
+
+Map of the contiguous United States divided into ReEDS balancing areas, shaded in muted blue, green, tan and white so that neighbours differ, each subdivided by thin lines into wind and concentrating solar power regions. A red line marks the interconnect boundaries, running north to south through the Plains and around most of Texas. The legend names Interconnect, Balancing Area and Wind/CSP Region; the areas are not labelled.
+
 <figcaption>ReEDS balancing area map</figcaption>
 </figure>
 
@@ -615,7 +671,15 @@ No assumptions are made.
 The 2023 and later Cambium generation and carbon emissions assessment region where the sample is located. See Figure “Map of the https://www.nrel.gov/analysis/cambium.htmlCambium 2023 Generation and Emission Assessment Regions” for a map of these regions.
 
 <figure id="fig:cambium_gea_map">
-<img src="images/Cambium_GEA_map_2023.png" style="width:100.0%" />
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/technical_reference/docs/technical_reference_guide/3a_ResStockInputs.yaml
+     source: images/Cambium_GEA_map_2023.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+<img alt="Map of the contiguous United States divided into the 18 Cambium 2023 generation and emission assessment regions" src="images/Cambium_GEA_map_2023.png" style="width:100.0%" />
+
+Map of the contiguous United States divided into 18 labelled regions: NorthernGrid West, NorthernGrid East, NorthernGrid South, CAISO, WestConnect North, WestConnect South, SPP North, SPP South, ERCOT, MISO North, MISO Central, MISO South, PJM West, PJM East, SERTP, FRCC, NYISO and ISONE. Each region is a group of smaller numbered balancing areas, 1 to 134, outlined in grey.
+
 <figcaption> Map of the <a href="https://www.nrel.gov/analysis/cambium.html">Cambium</a> 2023 Generation and Emission Assessment Regions</figcaption>
 </figure>
 
@@ -744,7 +808,15 @@ No assumptions were made.
 A custom ResStock region constructed of EIA RECS 2009 reportable domains where the sample is located. See Figure “Map of the custom regions in ResStock. Alaska and Hawaii are their own custom regions.” for a map of these regions.
 
 <figure id="fig:location_region_map">
-<img src="images/custom_region_map.png" style="width:100.0%" />
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/technical_reference/docs/technical_reference_guide/3a_ResStockInputs.yaml
+     source: images/custom_region_map.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+<img alt="Map of the contiguous United States coloured and numbered by ResStock custom region" src="images/custom_region_map.png" style="width:100.0%" />
+
+Map of the contiguous United States, over a road-map background, coloured by ResStock custom region with each region's number and name printed on it: 2 Upper Midwest, 3 New England, 4 Great Lakes, 5 Mountain North, 6 Pacific Northwest, 7 Mid-Atlantic, 8 Zone 4A (two separate areas, in the central Plains and from Kentucky to Virginia), 9 Southeast, 10 Southwest and 11 California.
+
 <figcaption> Map of the custom regions in ResStock. Alaska and Hawaii are their own custom regions.</figcaption>
 </figure>
 

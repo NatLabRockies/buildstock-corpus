@@ -12,7 +12,15 @@ ResStock is an interconnected set of modeling assumptions, workflows, and publis
 ResStock is an archetype-based building stock model of the U.S. residential building stock and is classified as a Q4 physics-simulation model by the building stock energy model classification framework (Langevin et al. 2020). The model has five major steps (Figure “A high-level overview of the ResStock workflow steps and what occurs during those steps”): (1)Stock Characterization, (2) Sampling, (3) Building Energy Model Articulation, (4) Batch Simulation, and (5) Results and Publication. The next few subsections briefly introduce each of these topics.
 
 <figure id="fig:workflow_overview">
-<img src="images/Figure 1.png" style="width:100.0%" />
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/technical_reference/docs/technical_reference_guide/2_ResStockStructureAndSampling.yaml
+     source: images/Figure 1.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+<img alt="Flow diagram of the five ResStock workflow steps, each with a box saying what happens in it" src="images/Figure 1.png" style="width:100.0%" />
+
+Flow diagram: five chevrons left to right, Stock Characterization, Building Energy Model Articulation, Sampling, Batch Simulation, and Results and Publication, each joined by a line to a text box. As drawn, the boxes read: establish a conditional probability distribution describing housing technologies, structures and occupants in the United States; sample those distributions to create representative synthetic buildings; translate the sampled housing options into building energy model inputs via OpenStudio-HPXML; simulate all samples and upgrades with BuildStock Batch on high-performance or cloud computing; format the outputs, aggregate key results and publish all data on OEDI.
+
 <figcaption>A high-level overview of the ResStock workflow steps and what occurs during those steps</figcaption>
 </figure>
 
@@ -31,7 +39,15 @@ The input distributions also capture important correlations between building cha
 ResStock does not model actual buildings (for example: the apartment complex at 123 Main Street). Instead, the housing characteristic distributions are sampled hundreds of thousands of times—typically 550,000—to create a synthetic stock representation of U.S. housing units. Each sampled housing unit is assigned an option for each of the ResStock housing characteristics. Within the ResStock workflow the full set of sampled housing units and their associated characteristics is referred to as the `buildstock.csv`. An illustrative example of some characteristics of a ResStock model is shown in Figure “An illustrative example of a representative housing unit sample from ResStock (does not show all characteristics available in ResStock)”. More information about how the sampling is performed can be found in Section “Sampling Methodology”. Each of the 550,000 representative samples in the `buildstock.csv` can be thought of as an archetype residential housing unit description, meaning that each synthetic building represents approximately 250 real U.S. housing units.
 
 <figure id="fig:illustrative_sample">
-<img src="images/illustrative_sample.png" style="width:100.0%" />
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/technical_reference/docs/technical_reference_guide/2_ResStockStructureAndSampling.yaml
+     source: images/illustrative_sample.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+<img alt="Table shown as a picture: the characteristics of one illustrative ResStock housing unit sample" src="images/illustrative_sample.png" style="width:100.0%" />
+
+A table shown as a picture, listing one illustrative housing unit sample in three pairs of columns. IECC climate zone 5A; city Cleveland, OH; building type single-family detached; occupants 3; vintage <1940; floor area bin 1500-1999; bedrooms 3; stories 2. Heating: natural gas furnace, 80% AFUE; cooling: central AC, SEER 13; setpoints: heating 70°F, cooling 72°F; setpoint offsets: heating 3°F, cooling 2°F; refrigerator EF 17.6; clothes washer EnergyStar, 123 rated kWh; dishwasher 290 rated kWh; cooking range gas. Wall type wood stud; wall insulation uninsulated; attic type vented attic; attic insulation uninsulated; infiltration 8 ACH50; foundation type unheated basement; ducts 10% leakage, uninsulated; windows double, clear, non-metal, air.
+
 <figcaption>An illustrative example of a representative housing unit sample from ResStock (does not show all characteristics available in ResStock)</figcaption>
 </figure>
 
@@ -62,7 +78,15 @@ The next step in the workflow is converting ResStock arguments to the OpenStudio
 - **HPXMLtoOpenStudio** – translation of the HPXML file to an OpenStudio model.
 
 <figure id="fig:os-hpxml">
-<img src="images/TRG-ResStock OpenStudio Measure Flowchart.png" style="width:100.0%" />
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/technical_reference/docs/technical_reference_guide/2_ResStockStructureAndSampling.yaml
+     source: images/TRG-ResStock OpenStudio Measure Flowchart.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+<img alt="Flowchart of the OpenStudio measures that turn a ResStock sample into an OpenStudio model" src="images/TRG-ResStock OpenStudio Measure Flowchart.png" style="width:100.0%" />
+
+Flowchart in two columns of boxes. The left column runs BuildExistingModel, ResStockArguments, BuildResidentialHPXML and BuildResidentialScheduleFile, then reaches a decision, 'Upgrade?'. 'Yes' leads to the right column: ApplyUpgrade, then ResStockArguments, BuildResidentialHPXML and BuildResidentialScheduleFile again. 'No', and the end of the right column, both lead to HPXMLtoOpenStudio, which is followed by ResStockArgumentsPostHPXML. It carries no data.
+
 <figcaption>Flowchart of OpenStudio measures performed to translate a ResStock sample into an OpenStudio model</figcaption>
 </figure>
 
@@ -220,7 +244,15 @@ Many of the housing characteristic distributions are validated by comparing thei
 With the full conditional probability network of inputs defined, ResStock samples the inputs to create the synthetic housing stock. The input file structure and dependency network determine the order in which each characteristic is sampled. Sampling starts with housing features that have no dependencies and next moves to characteristics that have dependencies on the first level of characteristics sampled. This process proceeds until all inputs are sampled and defined. For example, Figure “Example of interconnected building characteristic distributions” shows an example set of housing characteristic distributions that are interconnected by dependencies. To create a building model in this hypothetical network, the census division is sampled first (and Middle Atlantic is chosen). Then the vintage of the model is sampled based on the distribution of vintage for the chosen census division (1980s is chosen). Next, the heating fuel is sampled according to the distribution for the chosen vintage (natural gas is chosen), and this process repeats until all housing characteristics are determined.
 
 <figure id="fig:ex_build_char_distrs">
-<img src="images/Figure 4.png" style="width:100.0%" />
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/technical_reference/docs/technical_reference_guide/2_ResStockStructureAndSampling.yaml
+     source: images/Figure 4.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+<img alt="Chain of eight small bar charts showing how one building characteristic distribution conditions the next" src="images/Figure 4.png" style="width:100.0%" />
+
+Eight small horizontal bar charts joined by arrows, each showing a distribution with one bar hatched to mark the option drawn. Census Division (Middle Atlantic, 13%, hatched) leads to Vintage (1980s, 9%), which leads to Heating Fuel (natural gas, 49%), which leads to Natural Gas Heating Efficiency (80% AFUE is 41%, 92.5% AFUE 25%). A second row shows Ceiling Insulation (R-30 is 40%), Wall Insulation (R-11 is 84%), Window Panes (double is 70%) and Cooling Type (central AC is 46%).
+
 <figcaption>Example of interconnected building characteristic distributions</figcaption>
 </figure>
 

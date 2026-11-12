@@ -433,6 +433,12 @@ a paginated document, not content, and are left out of the sweep: no entry is wr
 them. The List of Acronyms and the Upgrade Summary table are content and are checked like
 any other table, as `uncaptioned` entries.
 
+**Figures in a LaTeX guide.** pandoc writes a LaTeX figure as a `<figure>` block, so its ref is
+an HTML `<img src="...">` tag, not a markdown ref. A `figures:` entry matches it the same way (by
+the image's file name), keeps the tag, sets the `alt` as its attribute and puts the description
+between the picture and its `<figcaption>`. A figure the build rasterizes from a PDF is pinned
+by the PNG the build wrote, read from `processed/` when the sidecar is written.
+
 A PDF is done when every table has a `checked:` or `tables:` entry and every real figure a
 description. The technical reference guide's tables come from LaTeX source, not from a
 layout model, and are not part of this sweep; its 15 figures are described the same way.

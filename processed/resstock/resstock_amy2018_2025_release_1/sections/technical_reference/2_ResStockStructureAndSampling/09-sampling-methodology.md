@@ -1,10 +1,18 @@
-<!-- resstock resstock_amy2018_2025_release_1 | technical_reference | docs/technical_reference_guide/2_ResStockStructureAndSampling.tex | status: site_page | source_url: https://github.com/NatLabRockies/resstock/blob/3888e2ff0a4764eb57de65ad0d103870330eb542/docs/technical_reference_guide/2_ResStockStructureAndSampling.tex | publication_url: https://natlabrockies.github.io/ResStock.github.io/assets/trd/ResStockTechnicalReferenceGuide_2025_1.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: technical_reference/docs/technical_reference_guide/2_ResStockStructureAndSampling.md | section: Sampling Methodology | lines: 218-234 -->
+<!-- resstock resstock_amy2018_2025_release_1 | technical_reference | docs/technical_reference_guide/2_ResStockStructureAndSampling.tex | status: site_page | source_url: https://github.com/NatLabRockies/resstock/blob/3888e2ff0a4764eb57de65ad0d103870330eb542/docs/technical_reference_guide/2_ResStockStructureAndSampling.tex | publication_url: https://natlabrockies.github.io/ResStock.github.io/assets/trd/ResStockTechnicalReferenceGuide_2025_1.pdf | corpus_version: resstock_amy2018_2025_release_1-v1-pre | corpus_path: technical_reference/docs/technical_reference_guide/2_ResStockStructureAndSampling.md | section: Sampling Methodology | lines: 242-266 -->
 ## Sampling Methodology
 
 With the full conditional probability network of inputs defined, ResStock samples the inputs to create the synthetic housing stock. The input file structure and dependency network determine the order in which each characteristic is sampled. Sampling starts with housing features that have no dependencies and next moves to characteristics that have dependencies on the first level of characteristics sampled. This process proceeds until all inputs are sampled and defined. For example, Figure “Example of interconnected building characteristic distributions” shows an example set of housing characteristic distributions that are interconnected by dependencies. To create a building model in this hypothetical network, the census division is sampled first (and Middle Atlantic is chosen). Then the vintage of the model is sampled based on the distribution of vintage for the chosen census division (1980s is chosen). Next, the heating fuel is sampled according to the distribution for the chosen vintage (natural gas is chosen), and this process repeats until all housing characteristics are determined.
 
 <figure id="fig:ex_build_char_distrs">
-<img src="images/Figure 4.png" style="width:100.0%" />
+<!-- figure described by overlay: resstock_resstock_amy2018_2025_release_1/technical_reference/docs/technical_reference_guide/2_ResStockStructureAndSampling.yaml
+     source: images/Figure 4.png
+     method: vision-description
+     described: 2026-11-11 -->
+
+<img alt="Chain of eight small bar charts showing how one building characteristic distribution conditions the next" src="images/Figure 4.png" style="width:100.0%" />
+
+Eight small horizontal bar charts joined by arrows, each showing a distribution with one bar hatched to mark the option drawn. Census Division (Middle Atlantic, 13%, hatched) leads to Vintage (1980s, 9%), which leads to Heating Fuel (natural gas, 49%), which leads to Natural Gas Heating Efficiency (80% AFUE is 41%, 92.5% AFUE 25%). A second row shows Ceiling Insulation (R-30 is 40%), Wall Insulation (R-11 is 84%), Window Panes (double is 70%) and Cooling Type (central AC is 46%).
+
 <figcaption>Example of interconnected building characteristic distributions</figcaption>
 </figure>
 

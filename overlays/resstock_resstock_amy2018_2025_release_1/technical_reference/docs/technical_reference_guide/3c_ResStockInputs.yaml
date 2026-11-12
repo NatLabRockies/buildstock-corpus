@@ -1,0 +1,31 @@
+# Hand-authored overlay for docs/technical_reference_guide/3c_ResStockInputs.tex
+#
+# Figure descriptions for the ResStock technical reference guide (plan step R4.5). The
+# guide's tables come from LaTeX source and are not part of the measure-report sweep; its
+# figures are pictures with a caption and no other text, so each gets an `alt` and a
+# description written from the picture, on 2026-11-11.
+#
+# pandoc writes a LaTeX figure as a <figure> block, so the refs are HTML <img> tags. The
+# overlay keeps the tag, sets the alt as its attribute, and places the description between
+# the picture and its <figcaption>.
+#
+# One figure, an annotated chart; times are read from its axis and worded 'about'.
+
+product: resstock
+release: resstock_amy2018_2025_release_1
+source_id: technical_reference
+source_path: docs/technical_reference_guide/3c_ResStockInputs.tex
+source_url: https://github.com/NatLabRockies/resstock/blob/3888e2ff0a4764eb57de65ad0d103870330eb542/docs/technical_reference_guide/3c_ResStockInputs.tex
+publication_url: https://natlabrockies.github.io/ResStock.github.io/assets/trd/ResStockTechnicalReferenceGuide_2025_1.pdf
+figures:
+- source_image: images/Example EV Discharging Schedule.png
+  source_image_sha256: 29ac3123235e3b66c947b0f1a3db9f02f073baaec3ef218d46bf5795789dee6e
+  method: vision-description
+  described_utc: '2026-11-11'
+  alt: Annotated step chart of an occupant schedule and the EV battery discharge schedule built from it
+  description: Annotated step chart for January 7, 2007, from 04:00 to about 21:00, with values from 0
+    to 1. A blue line is the occupant schedule, 1 when the occupant is home, and an orange line the discharge
+    schedule. Two away periods are marked, a long one from about 06:00 to 17:00 and a short one in the
+    evening. Discharge occurs at the start and end of each away period, for a duration proportional to
+    its length; a value below 1 means discharge does not last the full 15-minute timestep. A printed note
+    says total discharge duration in a year equals total driving hours in a year.

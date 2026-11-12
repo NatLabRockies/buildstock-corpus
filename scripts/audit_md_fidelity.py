@@ -354,7 +354,7 @@ def overlay_description_lines(
 
         while j < len(lines) and not lines[j].strip():
             j += 1
-        if j >= len(lines) or not MD_IMAGE.search(lines[j]):
+        if j >= len(lines) or not (MD_IMAGE.search(lines[j]) or HTML_IMG.search(lines[j])):
             warn(i, f"no image ref below the marker for {source}")
             continue
         j += 1
