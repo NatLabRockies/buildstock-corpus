@@ -1,10 +1,16 @@
 """Derive the graded columns for round 1, arm A (the before-link baseline) -> runs_graded.csv.
 
 `reached_corpus` and `corpus_in_search_results` are computed from the recorded URLs.
-`correct` was judged by reading each answer against questions.json on 2026-11-13 and is
-entered below; every run not listed scored 1. Rule: 1 = every fact the question asks for is
-right; 0.5 = right as far as it goes, one asked-for fact missing. An upgrade number the key
-lists but the question did not ask for (Q03, Q04, Q05) is not required.
+`correct` was judged by reading each answer against questions.json on 2026-11-13. Rule:
+1 = every fact the question asks for is right; 0.5 = one asked-for fact missing or wrong;
+0 = the main facts wrong or not found. A fact the key lists but the question does not ask
+for is not required.
+
+Corrected the same day: the first grading took half a point off four answers (Q10 runs 1-3,
+Q12 run 2) for omitting facts the key lists but the questions do not ask for (that
+timeseries analysis needs more samples; the EIA housing-unit definition). That broke the
+rule above, and the Copilot sets were graded by the rule, so those four are now 1 and the
+omissions are kept as notes. Every run scores 1: 39 of 39 (first recorded as 37).
 """
 
 import csv
@@ -12,11 +18,11 @@ import pathlib
 
 HERE = pathlib.Path(__file__).parent
 CORPUS = "buildstock-corpus"
-NOT_FULL = {
-    ("Q10", "1"): (0.5, "gives 1,000 or more; does not say timeseries analysis needs more samples"),
-    ("Q10", "2"): (0.5, "gives 1,000 or more; does not say timeseries analysis needs more samples"),
-    ("Q10", "3"): (0.5, "gives 1,000 or more; does not say timeseries analysis needs more samples"),
-    ("Q12", "2"): (0.5, "inclusions right; does not say ResStock follows the EIA housing-unit definition"),
+NOT_FULL = {  # (score, note); the notes are omissions of facts the questions do not ask for
+    ("Q10", "1"): (1, "not asked, not given: timeseries analysis needs more samples"),
+    ("Q10", "2"): (1, "not asked, not given: timeseries analysis needs more samples"),
+    ("Q10", "3"): (1, "not asked, not given: timeseries analysis needs more samples"),
+    ("Q12", "2"): (1, "not asked, not given: ResStock follows the EIA housing-unit definition"),
 }
 
 rows = list(csv.DictReader((HERE / "runs.csv").open(encoding="utf-8")))
