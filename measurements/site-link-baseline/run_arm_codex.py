@@ -5,7 +5,7 @@ non-interactive mode (`codex exec`) uses the login saved by `codex login`, so a 
 subscription is enough. One fresh, unsaved Codex session per run, started in a new empty
 folder (so no AGENTS.md or project file can tell it anything), with the user's Codex
 configuration ignored and live web search on. Each run writes one row to runs.csv and its
-whole event stream to raw/, so anything else can be derived later without re-running.
+whole event stream to logs/, so anything else can be derived later without re-running.
 
 Needs this file, RUNNER.md beside it, Python 3.10+ (standard library only) and the Codex
 CLI, installed and signed in once:
@@ -204,7 +204,7 @@ def main() -> int:
     env = child_env()
     version = subprocess.run([codex, "--version"], capture_output=True, text=True, env=env).stdout.strip()
 
-    raw_dir = args.out.parent / "raw"
+    raw_dir = args.out.parent / "logs"
     raw_dir.mkdir(exist_ok=True)
     new_file = not args.out.is_file()
     with args.out.open("a", encoding="utf-8", newline="") as f:

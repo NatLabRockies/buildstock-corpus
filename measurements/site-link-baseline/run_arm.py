@@ -3,7 +3,7 @@
 The automated form of the hand-run sheet: one fresh API conversation per run, no system
 prompt, no memory, web search and web fetch the only tools. Each run writes one row to
 runs.csv (every search, every URL fetched, the answer, exact token counts) and the full
-response to raw/, so anything else can be derived later without re-running.
+response to logs/, so anything else can be derived later without re-running.
 
 Needs only this file, RUNNER.md beside it, Python 3.10+ and `pip install anthropic`.
 Credentials come from the environment (ANTHROPIC_API_KEY, or an `ant auth login` profile);
@@ -182,7 +182,7 @@ def main() -> int:
     import anthropic
 
     client = anthropic.Anthropic()  # credentials and any base URL come from the environment
-    raw_dir = args.out.parent / "raw"
+    raw_dir = args.out.parent / "logs"
     raw_dir.mkdir(exist_ok=True)
     new_file = not args.out.is_file()
     with args.out.open("a", encoding="utf-8", newline="") as f:

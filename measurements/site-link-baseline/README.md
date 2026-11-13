@@ -26,7 +26,7 @@ search results; 37 of 39 points correct. Details are in the R7.0 row of `PLAN-re
 | `run_arm_codex.py` | The runner used for round 1: OpenAI's Codex CLI, non-interactive, one new session per run. |
 | `run_arm.py` | The same measurement against the Claude API. Written and tested offline; never run. |
 | `runs.csv` | One row per run: searches, search-result URLs, pages opened, the answer, token counts. |
-| `raw/` | Each run's complete event log, so every derived column can be recomputed. |
+| `logs/` | Each run's complete event log, so every derived column can be recomputed. |
 | `grade_a0.py` | Derives `runs_graded.csv`: corpus reach from the recorded URLs, and the correctness grades. |
 | `runs_graded.csv` | Round 1 graded. |
 | `runs-template.csv` | The blank sheet for a hand run. |
