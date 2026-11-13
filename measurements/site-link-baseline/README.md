@@ -14,16 +14,20 @@ Thirteen questions about ResStock 2025 Release 1, each asked three times of an A
 was told nothing about this corpus, one fresh session per run, web search its only source.
 Round 1 (arm A) was run on 2026-11-13, before the ResStock site linked the corpus.
 
-Round 1 was run on three agents, 39 runs each, all completed:
+Round 1 was run on four agents, 39 runs each, all completed:
 
 | Agent | Tools it had | Reached the corpus | Corpus seen in a result | Correct | Median tokens |
 |---|---|---|---|---|---|
 | Codex CLI, `gpt-6.1-sol` | web search | 0 | 0 | 39 of 39 | 71,000 |
+| Claude Code, `claude-sonnet-5-5` | web search, page fetch | 0 | 2 | 27 of 39 | 165,000 |
 | Copilot CLI, `claude-sonnet-5.5` | page fetch, GitHub search; no web search | 2 | 7 | 31 of 39 | 289,000 |
 | Copilot CLI, `gemini-4-argon` | page fetch, GitHub search; no web search | 12 | 26 | 37.5 of 39 | 201,000 |
 
 All at reasoning effort `medium`. Web search never surfaced the corpus; GitHub code search
-did. Copilot's searches ran signed in as the corpus's owner, which may favour it. Details
+did. Copilot's searches ran signed in as the corpus's owner, which may favour it. Claude
+Code's two sightings were pull request pages of this repository in web search results, which
+it did not open; its fetch tool could not read the report PDFs or the guide, and that is
+where it lost its points. Details
 are in the R7.0 row of `PLAN-resstock.md`.
 
 ## Files
@@ -34,11 +38,14 @@ are in the R7.0 row of `PLAN-resstock.md`.
 | `RUN_SHEET.md` | The design: the arms (A before and after, B site only, C corpus given) and what to report. |
 | `run_arm_codex.py` | The runner used for round 1: OpenAI's Codex CLI, non-interactive, one new session per run. |
 | `run_arm_copilot.py` | The runner for GitHub Copilot CLI; `--model` picks the model, one sheet for all. |
+| `run_arm_claude.py` | The runner for Claude Code (`claude -p`), on a Claude sign-in with no API key. |
 | `run_arm.py` | The same measurement against the Claude API. Written and tested offline; never run. |
 | `runs.csv` | Codex: one row per run: searches, search-result URLs, pages opened, the answer, tokens. |
 | `runs_copilot.csv` | Copilot: one row per run and model: pages fetched, GitHub calls, the answer, tokens. |
 | `grades_copilot.json`, `grade_copilot.py`, `runs_copilot_graded.csv` | The Copilot grades, and the sheet derived from them and the logs. |
-| `logs/` | Each run's complete event log, so every derived column can be recomputed. Copilot's are gzip-compressed (`.jsonl.gz`); the user folder name in their paths is replaced by `USER`. |
+| `runs_claude.csv` | Claude Code: one row per run: searches, search-result URLs, pages fetched, the answer, tokens, cost. |
+| `grade_claude.py`, `runs_claude_graded.csv` | The Claude Code grades (one grader, one read) and the graded sheet. |
+| `logs/` | Each run's complete event log, so every derived column can be recomputed. Copilot's and Claude Code's are gzip-compressed (`.jsonl.gz`); the user folder name in their paths is replaced by `USER`. |
 | `grade_a0.py` | Derives `runs_graded.csv`: corpus reach from the recorded URLs, and the correctness grades. |
 | `runs_graded.csv` | Round 1 graded. |
 | `runs-template.csv` | The blank sheet for a hand run. |
@@ -49,11 +56,14 @@ are in the R7.0 row of `PLAN-resstock.md`.
 Codex CLI 0.169.0, model `gpt-6.1-sol`, reasoning effort `medium`, live web search, read-only
 sandbox, user configuration ignored, a new empty folder per run. Copilot CLI 1.0.111, models
 `claude-sonnet-5.5` and `gemini-4-argon`, reasoning effort `medium`, custom instructions off,
-all tools allowed except shell and file writes, a new empty folder per run:
+all tools allowed except shell and file writes, a new empty folder per run. Claude Code
+2.1.321, model `sonnet` (served as `claude-sonnet-5-5`), effort `medium`, safe mode, web
+search and web fetch the only tools, a new empty unsaved session and folder per run:
 
     python run_arm_codex.py --round 2
     python run_arm_copilot.py --round 2
     python run_arm_copilot.py --round 2 --model gemini-4-argon
+    python run_arm_claude.py --round 2 --model sonnet
 
 The round number, model, effort and tool version are written in every row.
 
