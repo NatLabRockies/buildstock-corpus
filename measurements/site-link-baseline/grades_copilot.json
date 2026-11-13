@@ -1,0 +1,704 @@
+[
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q01",
+  "run": 1,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": false,
+  "reason": ""
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q01",
+  "run": 2,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": false,
+  "reason": ""
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q01",
+  "run": 3,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": false,
+  "reason": ""
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q02",
+  "run": 1,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q02",
+  "run": 2,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q02",
+  "run": 3,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q03",
+  "run": 1,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q03",
+  "run": 2,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q03",
+  "run": 3,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q04",
+  "run": 1,
+  "score": 0.0,
+  "kind": "wrong_fact",
+  "has_report_number": null,
+  "reason": "Gives UEF 3.75/4.0 from the develop branch instead of the key's UEF >= 3.3, says no first hour rating is specified (key: >= 45 gal/h), and says the upgrade does not distinguish 120V units (key: 240V only, 120V not considered)."
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q04",
+  "run": 2,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q04",
+  "run": 3,
+  "score": 0.0,
+  "kind": "wrong_fact",
+  "has_report_number": null,
+  "reason": "Gives UEF 3.75/4.0 from the develop branch instead of the key's UEF >= 3.3, and says it could not confirm the first hour rating (key: >= 45 gal/h) or the 120V exclusion (key: 240V only)."
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q05",
+  "run": 1,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q05",
+  "run": 2,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q05",
+  "run": 3,
+  "score": 0.5,
+  "kind": "omission",
+  "has_report_number": null,
+  "reason": "Eligibility (>= 6 ACH50) and target (5 ACH50) are right, but the share of dwelling units (92.2%) is stated as not found."
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q06",
+  "run": 1,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q06",
+  "run": 2,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q06",
+  "run": 3,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q07",
+  "run": 1,
+  "score": 0.5,
+  "kind": "wrong_fact",
+  "has_report_number": null,
+  "reason": "One-story share given as 53% (two-story 33%) from the 'latest' readthedocs page instead of the key's 49% (37%); data source and basement treatment are right."
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q07",
+  "run": 2,
+  "score": 0.5,
+  "kind": "wrong_fact",
+  "has_report_number": null,
+  "reason": "One-story share given as about 53% (two-story 33%) from the 'latest' readthedocs page instead of the key's 49% (37%); data source and basement treatment are right."
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q07",
+  "run": 3,
+  "score": 0.5,
+  "kind": "wrong_fact",
+  "has_report_number": null,
+  "reason": "One-story share given as about 53% (two-story 33%) from the 'latest' readthedocs page instead of the key's 49% (37%); data source and basement treatment are right."
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q08",
+  "run": 1,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q08",
+  "run": 2,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q08",
+  "run": 3,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q09",
+  "run": 1,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q09",
+  "run": 2,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q09",
+  "run": 3,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q10",
+  "run": 1,
+  "score": 0.0,
+  "kind": "wrong_fact",
+  "has_report_number": null,
+  "reason": "Answers 550,000 (the typical national run size) instead of the recommended 1,000 or more samples, and says it found no explicit recommendation."
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q10",
+  "run": 2,
+  "score": 0.0,
+  "kind": "wrong_fact",
+  "has_report_number": null,
+  "reason": "Answers 550,000 (the typical national run size) instead of the recommended 1,000 or more samples, and says it found no stated minimum."
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q10",
+  "run": 3,
+  "score": 0.0,
+  "kind": "wrong_fact",
+  "has_report_number": null,
+  "reason": "Answers 550,000 samples instead of the recommended 1,000 or more samples."
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q11",
+  "run": 1,
+  "score": 0.5,
+  "kind": "omission",
+  "has_report_number": null,
+  "reason": "Confirms a known, unfixed wall type problem for Maine from assessor data, but the recommended action (use Vermont/New Hampshire results or re-weight Maine with their wall type distributions) is missing; it offers its own generic advice from GitHub issue #1309 instead."
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q11",
+  "run": 2,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q11",
+  "run": 3,
+  "score": 0.5,
+  "kind": "omission",
+  "has_report_number": null,
+  "reason": "Confirms a known, unfixed wall type problem for Maine, but says it found no documented workaround; the key's action (use Vermont/New Hampshire results or re-weight Maine with their distributions) is missing, with only a passing mention of a neighboring New England state as one possible override source."
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q12",
+  "run": 1,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q12",
+  "run": 2,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q12",
+  "run": 3,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q13",
+  "run": 1,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q13",
+  "run": 2,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "claude-sonnet-5.5",
+  "question_id": "Q13",
+  "run": 3,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q01",
+  "run": 1,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": true,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q01",
+  "run": 2,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": true,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q01",
+  "run": 3,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": true,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q02",
+  "run": 1,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q02",
+  "run": 2,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q02",
+  "run": 3,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q03",
+  "run": 1,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q03",
+  "run": 2,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q03",
+  "run": 3,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q04",
+  "run": 1,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q04",
+  "run": 2,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q04",
+  "run": 3,
+  "score": 0.5,
+  "kind": "omission",
+  "has_report_number": null,
+  "reason": "Never states the UEF no-less-than-3.3 assumption; gives only the three modeled UEFs (3.78/3.95/3.98) and usage bins, with the 45 gal/h FHR minimum mentioned only in a parenthetical on ENERGY STAR ranges."
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q05",
+  "run": 1,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q05",
+  "run": 2,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q05",
+  "run": 3,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q06",
+  "run": 1,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q06",
+  "run": 2,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q06",
+  "run": 3,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q07",
+  "run": 1,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q07",
+  "run": 2,
+  "score": 0.5,
+  "kind": "wrong_fact",
+  "has_report_number": null,
+  "reason": "Gives the one-story share as 53.29% from options_saturations.csv and dismisses the guide table 49% as legacy; data source and basement facts are right."
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q07",
+  "run": 3,
+  "score": 0.5,
+  "kind": "wrong_fact",
+  "has_report_number": null,
+  "reason": "Gives the one-story share as 53% instead of 49%; data source and basement facts are right."
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q08",
+  "run": 1,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q08",
+  "run": 2,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q08",
+  "run": 3,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q09",
+  "run": 1,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q09",
+  "run": 2,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q09",
+  "run": 3,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q10",
+  "run": 1,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q10",
+  "run": 2,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q10",
+  "run": 3,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q11",
+  "run": 1,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q11",
+  "run": 2,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q11",
+  "run": 3,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q12",
+  "run": 1,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q12",
+  "run": 2,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q12",
+  "run": 3,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q13",
+  "run": 1,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q13",
+  "run": 2,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ },
+ {
+  "model": "gemini-4-argon",
+  "question_id": "Q13",
+  "run": 3,
+  "score": 1.0,
+  "kind": "full",
+  "has_report_number": null,
+  "reason": ""
+ }
+]

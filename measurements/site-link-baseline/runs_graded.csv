@@ -26,14 +26,14 @@ round,arm,question_id,run,model_requested,reasoning_effort,searches_total,opens_
 1,A,Q09,1,gpt-6.1-sol,medium,1,0,39432,13.3,no,no,none,,1,publication URL only,
 1,A,Q09,2,gpt-6.1-sol,medium,1,0,53688,15.6,no,no,none,,1,publication URL only,
 1,A,Q09,3,gpt-6.1-sol,medium,1,0,37812,12.4,no,no,none,,1,publication URL only,
-1,A,Q10,1,gpt-6.1-sol,medium,2,0,68584,16.7,no,no,none,,0.5,publication URL only,"gives 1,000 or more; does not say timeseries analysis needs more samples"
-1,A,Q10,2,gpt-6.1-sol,medium,2,0,64413,22.5,no,no,none,,0.5,publication URL only,"gives 1,000 or more; does not say timeseries analysis needs more samples"
-1,A,Q10,3,gpt-6.1-sol,medium,2,0,66587,19.0,no,no,none,,0.5,publication URL only,"gives 1,000 or more; does not say timeseries analysis needs more samples"
+1,A,Q10,1,gpt-6.1-sol,medium,2,0,68584,16.7,no,no,none,,1,publication URL only,"not asked, not given: timeseries analysis needs more samples"
+1,A,Q10,2,gpt-6.1-sol,medium,2,0,64413,22.5,no,no,none,,1,publication URL only,"not asked, not given: timeseries analysis needs more samples"
+1,A,Q10,3,gpt-6.1-sol,medium,2,0,66587,19.0,no,no,none,,1,publication URL only,"not asked, not given: timeseries analysis needs more samples"
 1,A,Q11,1,gpt-6.1-sol,medium,8,6,937543,76.2,no,no,none,,1,publication URL only,
 1,A,Q11,2,gpt-6.1-sol,medium,4,8,429828,60.9,no,no,none,,1,publication URL only,
 1,A,Q11,3,gpt-6.1-sol,medium,7,12,1367660,104.8,no,no,none,,1,publication URL only,
 1,A,Q12,1,gpt-6.1-sol,medium,1,2,120555,24.9,no,no,none,,1,publication URL only,
-1,A,Q12,2,gpt-6.1-sol,medium,2,0,71168,18.9,no,no,none,,0.5,publication URL only,inclusions right; does not say ResStock follows the EIA housing-unit definition
+1,A,Q12,2,gpt-6.1-sol,medium,2,0,71168,18.9,no,no,none,,1,publication URL only,"not asked, not given: ResStock follows the EIA housing-unit definition"
 1,A,Q12,3,gpt-6.1-sol,medium,1,0,40080,13.8,no,no,none,,1,publication URL only,
 1,A,Q13,1,gpt-6.1-sol,medium,1,4,209057,33.5,no,no,none,,1,publication URL only,
 1,A,Q13,2,gpt-6.1-sol,medium,1,4,175107,35.6,no,no,none,,1,publication URL only,
