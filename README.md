@@ -124,6 +124,11 @@ The recipe is two fetches:
 **`sections.json`** (ComStock's ~365 KB raw, ~43 KB over the wire; ResStock's ~275 KB and
 ~33 KB) adds every heading's level and `line_start`/`line_end`, including H3 and below;
 fetch it only when you need those, for example to cite one table inside a large section.
+A range there is the heading's own text, from the heading line to the line before the next
+heading of any level, and does not include its sub-headings: to cite a table, take the range
+of the innermost heading above it (in ResStock's chapter 3a, the "Options" H5 under
+"Geometry Stories", lines 1019-1061, not the H4 itself, which is lines 1003-1004). A whole
+H2's range is the `lines` field on line 1 of its section file.
 
 **Mind the size.** In ComStock, 41 of the 118 documents are over 100 KB and four are over
 200 KB; the largest, the reference documentation's Appendix A, is 450 KB. In ResStock, 14
