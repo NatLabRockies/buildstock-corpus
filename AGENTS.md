@@ -44,11 +44,18 @@ https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/<ref>/processe
   `bytes`, and the document's section files (`sections_dir` + `section_files`, one per H2,
   the slug being the heading). Then fetch the one section you need,
   `<sections_dir>/<name>`, usually a few KB, with its own citable line-1 header that also
-  names the parent `corpus_path` and `lines`; or the whole document. `sections.json` adds
-  every heading's level and line range, H3 and below included; fetch it when the section
-  file is large and you need one table's lines (in ResStock's guide chapter 3a, the
-  Geometry and Envelope sections are about 60 KB each and hold many housing characteristics,
-  one H4 apiece).
+  names the parent `corpus_path` and `lines`; or the whole document. `sections.json` (ComStock's
+  ~365 KB raw, ~43 KB over the wire; ResStock's ~275 KB and ~33 KB) adds every heading's
+  level and line range, H3 and below included; fetch it when the section file is large and
+  you need one table's lines (in ResStock's guide chapter 3a, the Geometry and Envelope
+  sections are about 60 KB each and hold many housing characteristics, one H4 apiece).
+- **Read a `sections.json` range as the heading's own text, not its subtree.** `line_start`
+  is the heading line and `line_end` the last line before the next heading of any level, so
+  a heading with sub-headings spans only a line or two. To cite a table, use the range of
+  the **innermost heading above it**. Example: ResStock's "Geometry Stories" (H4) is lines
+  1003-1004 of chapter 3a; its saturation table sits under that characteristic's "Options"
+  (H5), lines 1019-1061, and that is the range to cite. A whole H2's range is on line 1 of
+  its section file (`lines:`), not in `sections.json`.
 - **Check `bytes` before fetching a whole document.** 41 of ComStock's documents and 14 of
   ResStock's are over 100 KB; ComStock's Appendix A is 450 KB and ResStock's largest, the
   report 95032, is 291 KB. Fetch the section file instead, or read a line range.
@@ -90,7 +97,8 @@ How to cite depends on the status:
 
 In every case also name `source_id/source_path` and the `corpus_version`, so the claim
 traces to the exact file and build it came from. When quoting a passage from a long
-document, add a line range: a section's from `sections.json`, or a retrieved chunk's own
+document, add a line range: the innermost heading's from `sections.json` (see "Reading
+without a clone"), a whole H2's from its section file's line 1, or a retrieved chunk's own
 `line_start`–`line_end` (every chunk in `chunks.jsonl` carries them, with its heading path
 in `section` and its `corpus_version`).
 
