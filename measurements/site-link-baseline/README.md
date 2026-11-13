@@ -27,7 +27,16 @@ All at reasoning effort `medium`. Web search never surfaced the corpus; GitHub c
 did. Copilot's searches ran signed in as the corpus's owner, which may favour it. Claude
 Code's two sightings were pull request pages of this repository in web search results, which
 it did not open; its fetch tool could not read the report PDFs or the guide, and that is
-where it lost its points. Details
+where it lost its points.
+
+**A side note, not a fifth agent: Claude Cowork, by hand.** The 13 questions were pasted
+once each into new Cowork tasks (Claude Sonnet 5.5) on the same day. It is not comparable to
+the four above: one run a question instead of three, the links and tools are the model's own
+account and not a log, and it was not a cold start (memory and the user's saved preferences
+were on, and show in at least 5 of the 13 answers). What it does show: the corpus appeared
+in none of the 13 tasks; and Cowork's fetch tool read the report PDFs and the guide that
+Claude Code's could not, scoring 12.5 of 13 on the same model. Token use was not measured.
+Files in `cowork/`. Details
 are in the R7.0 row of `PLAN-resstock.md`.
 
 ## Files
@@ -46,6 +55,7 @@ are in the R7.0 row of `PLAN-resstock.md`.
 | `runs_claude.csv` | Claude Code: one row per run: searches, search-result URLs, pages fetched, the answer, tokens, cost. |
 | `grade_claude.py`, `runs_claude_graded.csv` | The Claude Code grades (one grader, one read) and the graded sheet. |
 | `logs/` | Each run's complete event log, so every derived column can be recomputed. Copilot's and Claude Code's are gzip-compressed (`.jsonl.gz`); the user folder name in their paths is replaced by `USER`. |
+| `cowork/` | The hand-run Cowork side note: `COWORK-RUN.md` (the instructions), `runs_cowork.csv` (the sheet as filled in by hand), `check_cowork.py` and `runs_cowork_checked.csv` (fill-down errors in the model and date columns corrected, one misplaced cell moved, grades added). |
 | `grade_a0.py` | Derives `runs_graded.csv`: corpus reach from the recorded URLs, and the correctness grades. |
 | `runs_graded.csv` | Round 1 graded. |
 | `runs-template.csv` | The blank sheet for a hand run. |
