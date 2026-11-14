@@ -39,6 +39,28 @@ Claude Code's could not, scoring 12.5 of 13 on the same model. Token use was not
 Files in `cowork/`. Details
 are in the R7.0 row of `PLAN-resstock.md`.
 
+## Round 2: after the link, first pass (R7.2)
+
+The ResStock site began linking the corpus on 2026-11-13 (ResStock.github.io#102: `llms.txt`,
+a home-page callout, a per-page Markdown link on 27 pages). Round 2 repeats arm A with round 1's
+settings. It is run agent by agent; this table grows as each is done.
+
+| Agent | Run | Reached the corpus | Corpus seen in a result | Correct | Median tokens |
+|---|---|---|---|---|---|
+| Codex CLI, `gpt-6.1-sol` | 2026-11-13, a few hours after the link | 0 (round 1: 0) | 0 (0) | 39 of 39 (39) | 70,000 (71,000) |
+
+Codex, first pass: nothing changed in discovery, as expected this soon. Codex finds pages through
+web search, and no search result named the corpus or the site's `llms.txt`; search engines had
+not re-indexed the site. Seven runs opened a ResStock site page (16 different pages across those runs, among
+them the home page with the callout once and the Maine wall-type page with its footer link three
+times) and none went on to the corpus. No run read this folder. Total tokens fell from 5.9 to
+4.6 million, almost all of it Q11 (median 937,000 to 412,000), which is run-to-run variation in
+how soon the agent found the issue page, not an effect of the link. Two Q13 answers say Arkansas:
+they read the notebook after the same site change corrected it. Graded by `grade_a1_codex.py`
+into `runs_r2_graded.csv`; logs are `logs/r2_A_*.codex.jsonl`.
+
+The second pass is due about two weeks later, once search engines have re-indexed the site.
+
 ## Files
 
 | File | What it is |
@@ -58,6 +80,7 @@ are in the R7.0 row of `PLAN-resstock.md`.
 | `cowork/` | The hand-run Cowork side note: `COWORK-RUN.md` (the instructions), `runs_cowork.csv` (the sheet as filled in by hand), `check_cowork.py` and `runs_cowork_checked.csv` (fill-down errors in the model and date columns corrected, one misplaced cell moved, grades added). |
 | `grade_a0.py` | Derives `runs_graded.csv`: corpus reach from the recorded URLs, and the correctness grades. |
 | `runs_graded.csv` | Round 1 graded. |
+| `grade_a1_codex.py`, `runs_r2_graded.csv` | Round 2 (after the link), Codex, graded. |
 | `runs-template.csv` | The blank sheet for a hand run. |
 | `make_runner.py` | Regenerates `RUNNER.md` from the answer key. |
 
