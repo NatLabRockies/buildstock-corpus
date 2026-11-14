@@ -39,6 +39,32 @@ Claude Code's could not, scoring 12.5 of 13 on the same model. Token use was not
 Files in `cowork/`. Details
 are in the R7.0 row of `PLAN-resstock.md`.
 
+## Arms B and C, on Codex
+
+Same day, same Codex settings as round 1, 39 runs each, all completed. Arm B appends a rule
+limiting the agent to the ResStock site and `docs.nlr.gov`; arm C appends the address of the
+corpus's ResStock `index.json` at the `-v1` tag (prompts in `RUN_SHEET.md`).
+
+| Arm | Correct | Read a corpus file past `index.json` | Cited the corpus | Median tokens | Tokens in all |
+|---|---|---|---|---|---|
+| A0, question alone | 39 of 39 | 0 | 0 | 71,000 | 5.9 million |
+| B, site only | 36 of 39 | 0 | 0 | 143,000 | 6.5 million |
+| C, corpus given | 39 of 39 | 8 | 6 | 302,000 | 13.2 million |
+
+**Arm C did not measure the corpus as intended.** Codex's browser opened `index.json` in
+every run and could not read it: the file is one line (85 KB, written compact on purpose),
+the browser reports "Total lines: 1" and shows no content, and most runs said so, retried,
+and then answered from the release README, the reports and the site, as in arm A. Only 8 of
+39 runs opened any other corpus file (Q11 three times, Q13 three times, Q05 and Q10 once),
+and C cost about twice B on every question type. So this is a measure of an unreadable
+starting point, not of the corpus; it is not the upper bound the design meant it to be.
+
+**Q13, the control, went the other way from the design's expectation.** B scored 0 of 3:
+the notebook is on the site, the browser cannot read a notebook, and every run declined
+rather than guess. C scored 3 of 3: the runs reached the notebook as raw text at the
+release's pinned site commit, the link the corpus records. Arm B kept to its two domains in
+all 39 runs. Graded by `grade_bc.py`, one grader, one read; `runs_bc_graded.csv`.
+
 ## Files
 
 | File | What it is |
@@ -56,6 +82,7 @@ are in the R7.0 row of `PLAN-resstock.md`.
 | `grade_claude.py`, `runs_claude_graded.csv` | The Claude Code grades (one grader, one read) and the graded sheet. |
 | `logs/` | Each run's complete event log, so every derived column can be recomputed. Copilot's and Claude Code's are gzip-compressed (`.jsonl.gz`); the user folder name in their paths is replaced by `USER`. |
 | `cowork/` | The hand-run Cowork side note: `COWORK-RUN.md` (the instructions), `runs_cowork.csv` (the sheet as filled in by hand), `check_cowork.py` and `runs_cowork_checked.csv` (fill-down errors in the model and date columns corrected, one misplaced cell moved, grades added). |
+| `grade_bc.py`, `runs_bc_graded.csv` | Arms B and C (Codex rows of `runs.csv`) graded, and the comparison by question type. |
 | `grade_a0.py` | Derives `runs_graded.csv`: corpus reach from the recorded URLs, and the correctness grades. |
 | `runs_graded.csv` | Round 1 graded. |
 | `runs-template.csv` | The blank sheet for a hand run. |
@@ -75,6 +102,8 @@ search and web fetch the only tools, a new empty unsaved session and folder per 
     python run_arm_copilot.py --round 2 --model gemini-4-argon
     python run_arm_claude.py --round 2 --model sonnet
 
+Arms B and C: `--arm B`, `--arm C` on any runner (`run_arm_codex.py --arm C` for the Codex rows).
+
 The round number, model, effort and tool version are written in every row.
 
 ## What is not here, and why
@@ -83,7 +112,7 @@ The round number, model, effort and tool version are written in every row.
   names the corpus paths they come from. It is kept out of this public repository until the
   after-link rounds are finished, so that no run can find the answers here. `make_runner.py`
   needs it; the runners and `grade_a0.py` do not.
-- **Arms B and C.** Not run yet.
+- **Arms B and C on the other three agents.** Run on Codex only (owner's choice).
 
 A later round should check the pages each run opened for this folder: a run that read
 `runs.csv` did not answer the question on its own, and is excluded.

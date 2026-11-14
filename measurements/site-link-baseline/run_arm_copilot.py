@@ -48,6 +48,9 @@ ARM_SUFFIX = {
     "A": "",
     "B": (" Use only pages and files under natlabrockies.github.io/ResStock.github.io and docs.nlr.gov."
           " Cite the page or report you used."),
+    "C": (" Start from https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/"
+          "resstock_amy2018_2025_release_1-v1/processed/resstock/resstock_amy2018_2025_release_1/index.json"
+          " and cite your source."),
 }
 _URL_RE = re.compile(r"https?://[^\s\"'<>)\]\\]+")
 
