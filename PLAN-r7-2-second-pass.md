@@ -111,9 +111,9 @@ pass (owner's decision); the pass below is their first after the link.**
 | Thing | State |
 |---|---|
 | `main` | at `4118458f`, PR #79 merged (arms B and C). `runs.csv` on `main` holds round 1 arms A, B, C: 117 rows. |
-| PR #77, `r7-site-links` | **Open, conflicts with `main`.** Holds the R7.1 record in `PLAN-resstock.md` and `r7_1_site_check/`. |
-| PR #78, `r7-2-pass-1` | **Open, conflicts with `main`.** Holds round 2: 39 rows in `runs.csv`, 39 logs, `grade_a1_codex.py`, `runs_r2_graded.csv`, a README section. |
-| Why they conflict | #79 changed the same rows of `PLAN-resstock.md`, appended to `runs.csv` and edited the README. `runs.csv` needs the appended rows of both sides kept; the plan rows need both edits. |
+| PR #77, `r7-site-links` | **Open, mergeable, checks green** (conflict with #79 resolved 2026-11-17). Holds the R7.1 record in `PLAN-resstock.md` and `r7_1_site_check/`. |
+| PR #78, `r7-2-pass-1` | **Open, mergeable, checks green** (conflict with #79 resolved 2026-11-17). Holds round 2: 39 rows in `runs.csv`, 39 logs, `grade_a1_codex.py`, `runs_r2_graded.csv`, a README section. |
+| After both merge | `runs.csv` holds 156 rows: round 1 arms A, B, C and round 2 arm A, 39 each. If a later branch conflicts there again, keep the appended rows of both sides. |
 | `PLAN-resstock.md` on `main` | Still says R7.1 "not started" and R7.2 "not started"; #77 corrects R7.1. The R7.2 row has not been written by anyone. |
 | Worktrees | `lk-claude-local/bsc-r7-2` (`r7-2-pass-1`), `lk-claude-local/bsc-r7-2-plan` (this file's branch). Remove each once its PR merges. |
 | Answer key | `.scratch/site-link-baseline/questions.json` in the main checkout. Gitignored, never committed until the last round is graded: the repository is public. |
@@ -123,7 +123,7 @@ pass (owner's decision); the pass below is their first after the link.**
 
 ### Before any run
 
-1. **Get #77 and #78 merged**, resolving the conflicts as described above, so `main` holds
+1. **Get #77, #78 and #80 merged** if they are not already, so `main` holds
    rounds 1 and 2 and the R7.1 record. Do this first: every later step appends to `runs.csv`.
 2. **Work in a new worktree on a new branch off `main`** (suggested `r7-2-pass-2`). Other
    sessions use the main checkout; on 2026-11-13 a commit landed on another session's branch
