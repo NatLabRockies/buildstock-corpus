@@ -46,6 +46,9 @@ ARM_SUFFIX = {
     "A": "",
     "B": (" Use only pages and files under natlabrockies.github.io/ResStock.github.io and docs.nlr.gov."
           " Cite the page or report you used."),
+    "C": (" Start from https://raw.githubusercontent.com/NatLabRockies/buildstock-corpus/"
+          "resstock_amy2018_2025_release_1-v1/processed/resstock/resstock_amy2018_2025_release_1/index.json"
+          " and cite your source."),
 }
 _URL_RE = re.compile(r"https?://[^\s\"'<>)\]\\]+")
 
@@ -207,7 +210,7 @@ def done_runs(path: pathlib.Path) -> set[tuple[str, str, str, str, str]]:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("--round", default="1", help="1 for the first pass; the number you are given for a repeat")
-    ap.add_argument("--arm", default="A", choices=sorted(ARM_SUFFIX), help="A: question alone (default). B: site only")
+    ap.add_argument("--arm", default="A", choices=sorted(ARM_SUFFIX), help="A: question alone (default). B: site only. C: corpus index.json given")
     ap.add_argument("--runs", type=int, default=3, help="runs per question (default 3)")
     ap.add_argument("--only", nargs="*", help="question ids to run, e.g. Q01 Q07 (default: all)")
     ap.add_argument("--model", default="sonnet", help="a full model name, or an alias such as sonnet or opus (default sonnet)")
