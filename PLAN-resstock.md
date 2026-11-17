@@ -135,7 +135,7 @@ but only when the owner says so; PRs still merge in this order.
 | 21 | R5.2 | Acceptance run by a fresh agent | done 2026-11-12 (to be repeated at the tag, see the step) | `r5-acceptance` (main) | #65 | yes, 2026-11-12 |
 | 22 | R6.1 | README, AGENTS, llms.txt, changelog | done 2026-11-12 | `r6-docs` (main) | #66 | yes, 2026-11-12 |
 | 23 | R6.2 | Final build, tag `-v1`, release | done 2026-11-12; tag `resstock_amy2018_2025_release_1-v1` on `19f55f52`, Release published | `r6-release` (main) | #67 | yes, 2026-11-12 |
-| 24 | R7.0 | Baseline measurement, before the site links the corpus (arm A0) | done 2026-11-13: round 1, arm A, on four agents (Codex, Copilot with Claude and with Gemini, Claude Code); arms B and C run on Codex 2026-11-13 (C unreadable start, see the row) | several (main) | #70, #71, #74, #75, #76, #79 | all yes, 2026-11-13 |
+| 24 | R7.0 | Baseline measurement, before the site links the corpus (arm A0) | done 2026-11-13: round 1, arm A, on four agents (Codex, Copilot with Claude and with Gemini, Claude Code); arms B and C run on Codex 2026-11-13 (C unreadable start, see the row) | several (main) | #70, #71, #74, #75, #76, #79 | all yes: #70 to #76 on 2026-11-13, #79 on 2026-11-17 |
 | 25 | R7.1 | ResStock site discovery (separate repo) | done 2026-11-13: site live and checked; the corpus was reached from the site in 2 of 3 agent runs, at fetch 4 both times | `llm-discovery` (ResStock.github.io main); `sync-by-product` (ComStock.github.io main) | ResStock.github.io#102, ComStock.github.io#216 | both yes, 2026-11-13 |
 | 26 | R7.2 | Repeat the measurement after the link (arm A1) and report | not started | | | |
 
